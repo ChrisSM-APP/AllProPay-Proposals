@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Payment Processing Options | Hairapy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  /* HEADER */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* BODY */
+  .content { padding: 36px 40px 48px; }
+
+  /* TITLE BLOCK */
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  /* OPTION CARDS */
+  .options-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 8px; }
+  .option-card {
+    border: 1px solid var(--mid-gray);
+    border-left: 5px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 22px;
+    background: #fff;
+  }
+  .option-card .opt-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .option-card .opt-sub {
+    font-size: 9.5pt;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .option-card .opt-cost {
+    background: var(--light-gray);
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 10px 0 8px;
+    font-size: 10pt;
+  }
+  .option-card .opt-cost strong { color: var(--blue); font-weight: 700; }
+  .option-card p { font-size: 10pt; margin-bottom: 6px; }
+  .option-card ul { margin: 8px 0 0 18px; }
+  .option-card ul li { font-size: 10pt; margin-bottom: 4px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  /* WHY BULLETS */
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  /* SIGNATURE BLOCK */
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  /* CTA BUTTON */
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  /* FOOTER */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .insight, .option-card, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .option-card, .step, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 16px 0; }
+    .section { margin-bottom: 20px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    .option-card { padding: 12px 16px; }
+    .option-card .opt-title { font-size: 11.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .signature-block { margin-top: 14px; padding-top: 10px; }
+    .sig-name { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Processing Options</h1>
+      <div class="subtitle">Hairapy</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Penny &nbsp;|&nbsp; Hairapy</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Square &nbsp;|&nbsp; approx. $6,000/month</span>
+        <span class="label">Date</span>
+        <span class="value">May 19, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- WHY WE ARE SENDING THIS -->
+    <div class="section">
+      <div class="section-header">Why we are sending this</div>
+      <p>You asked for the information in writing so you could look at it after your son's graduation and your week away. This document covers the three setup options we talked about, what each one would actually cost on Hairapy's volume, and an honest answer to your tax-deduction question.</p>
+      <p><strong>There is no decision to make today.</strong> Read it when you are back in town.</p>
+    </div>
+
+    <!-- THE OPTIONS -->
+    <div class="section">
+      <div class="section-header">Your three options</div>
+      <p>You have flexibility in how processing fees are paid. We can set up Hairapy any of three ways, and you can switch between them later if you change your mind.</p>
+
+      <div class="options-grid">
+
+        <div class="option-card">
+          <div class="opt-title">Option 1. Cash discount</div>
+          <div class="opt-sub">Customers cover the fees</div>
+          <p>A small surcharge (typically around 4%) is added at checkout. The customer pays it. You receive 100% of the ticket.</p>
+          <div class="opt-cost"><strong>Your effective cost:</strong> $0 in processing fees, plus the $25 monthly platform fee.</div>
+          <ul>
+            <li>Customers see a line item on their receipt showing the cash discount or service fee.</li>
+            <li>Fully legal and Visa/Mastercard-compliant when the disclosure is done correctly. We handle that for you.</li>
+          </ul>
+        </div>
+
+        <div class="option-card">
+          <div class="opt-title">Option 2. Split</div>
+          <div class="opt-sub">You and your customer share the fees</div>
+          <p>You decide the split. Examples: customer pays 3%, you absorb 1%. Or 2% / 2%. Any combination you want.</p>
+          <div class="opt-cost"><strong>Useful for:</strong> Repeat clients who would push back on a full surcharge, where you still want some relief from current fees.</div>
+          <ul>
+            <li>You absorb less than today, customers absorb less than a full cash-discount setup.</li>
+            <li>Same $25 monthly platform fee applies.</li>
+          </ul>
+        </div>
+
+        <div class="option-card">
+          <div class="opt-title">Option 3. Interchange-plus (IC+)</div>
+          <div class="opt-sub">You absorb the fees, like Square</div>
+          <p>You pay the processing fees yourself, just like you do with Square today. The difference is the pricing structure. Square charges a flat rate (2.6% + $0.10 swiped, 2.9% + $0.30 keyed). That flat rate bakes in extra margin. Interchange-plus passes through the actual card-network cost (interchange) and adds a small, transparent markup on top.</p>
+          <div class="opt-cost"><strong>Typical savings vs Square:</strong> 0.5 to 1.0 percentage points lower on your effective rate. On $6,000/month of card volume, roughly $30 to $60/month, or $360 to $720 a year.</div>
+          <ul>
+            <li>Same tax treatment as Square - fees you pay are still a deductible business expense.</li>
+            <li>Same $25 monthly platform fee applies.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAX QUESTION -->
+    <div class="section">
+      <div class="section-header">Your tax-deduction question, answered honestly</div>
+      <p>You said your CPA mentioned you take processing fees as a deduction at year-end, and you wanted to make sure changing setups would not cost you that.</p>
+      <p><strong>The short answer:</strong> your deduction does not disappear, but it changes depending on which option you pick.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Setup</th>
+            <th>What you pay in fees</th>
+            <th>What you deduct</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Square today (you absorb)</td>
+            <td>~2.6% + $0.10 per swipe</td>
+            <td>The full fee amount, every year</td>
+          </tr>
+          <tr>
+            <td>Option 1 - Cash discount (customer pays)</td>
+            <td>$0</td>
+            <td>Nothing - because you did not pay any fees</td>
+          </tr>
+          <tr>
+            <td>Option 2 - Split</td>
+            <td>Your portion only</td>
+            <td>Your portion</td>
+          </tr>
+          <tr>
+            <td>Option 3 - IC+ (you absorb)</td>
+            <td>~1.5 to 2.0% effective</td>
+            <td>The full fee amount (smaller than today)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        <strong>The math that matters.</strong> A deduction reduces what you pay in taxes by a fraction of the expense, not the whole thing. If you are in a 24% tax bracket and you pay $100 in fees, you get $24 back at tax time. You are still out $76 net. If instead you pay $0 in fees (cash discount), there is no $24 refund, but you also did not pay the $76. You are $76 ahead. The deduction question is real - just make sure your CPA is comparing total dollars kept, not total dollars deducted.
+      </div>
+    </div>
+
+    <!-- PLATFORM FEE -->
+    <div class="section">
+      <div class="section-header">What the $25/month platform fee covers</div>
+      <p>This is the only fixed cost on the AllProPay side. It covers:</p>
+      <ul>
+        <li>Your merchant account and gateway</li>
+        <li>PCI compliance certification</li>
+        <li>US-based customer support, direct line to our team</li>
+        <li>All standard features - virtual terminal, recurring billing, e-invoicing if you want it later</li>
+      </ul>
+      <p>It applies to every option above. No per-transaction fees, no monthly minimums, no batch fees, no cancellation fees.</p>
+    </div>
+
+    <!-- SQUARE COMPARISON -->
+    <div class="section">
+      <div class="section-header">How this compares to what you have at Square</div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Square today</th>
+            <th>AllProPay (any option)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly platform fee</td><td>$0</td><td>$25</td></tr>
+          <tr><td>Per-transaction fee</td><td>Built into the rate</td><td>$0</td></tr>
+          <tr><td>Contract / cancellation fee</td><td>None</td><td>None</td></tr>
+          <tr><td>Batch fee</td><td>None</td><td>None</td></tr>
+          <tr><td>Effective rate</td><td>~2.6% to 2.9%</td><td>$0 (cash discount) to ~2.0% (IC+)</td></tr>
+          <tr><td>Funding speed</td><td>Next day</td><td>Next day</td></tr>
+          <tr><td>Hardware</td><td>Square reader/terminal</td><td>Free terminal or work with what you have</td></tr>
+        </tbody>
+      </table>
+      <p>You are right that Square is simple. The case for switching is dollar savings, not feature loss.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <ul class="why-list">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you can leave.</li>
+        <li><strong>No cancellation fees. No setup fees</strong> on standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay.</li>
+        <li><strong>Honest review.</strong> If the savings are there, we show you clearly. If they are not, we tell you that too.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">What happens next</div>
+      <p>No rush. After your trip, when you have a few minutes:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Look at the options above.</strong> Pick the one that fits how you want to talk to your customers about fees.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Call or email Tammy</strong> with one question or "let's set it up." We can walk through it on the phone in 10 minutes.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>If you want to switch:</strong> We need one recent Square statement to confirm the savings math, plus a quick application (about 5 minutes). Setup is 3 to 5 business days.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:18px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        If you decide Square is still the right fit, that is a fine answer too. We are not pushy.
+      </p>
+
+      <div class="cta-wrap" style="margin-top:24px;">
+        <a href="tel:19299303050" class="cta-btn">Call Tammy: 929-930-3050</a>
+        <div class="cta-print-text">Call <a href="tel:19299303050" style="color:inherit;">929-930-3050</a> or email <a href="mailto:tammy@allpropay.com" style="color:inherit;">tammy@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Tammy Millar</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a><br>
+          <a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Estimates above are based on Hairapy's stated monthly volume of approximately $6,000. Actual savings depend on final card mix and program selection. These are estimates, not guarantees. No specific markup has been committed in writing without a closer's confirmation on a call.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
