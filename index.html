@@ -8,9 +8,9 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f1117;
-      color: #e5e7eb;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0B1120;
+      color: #F5F7FA;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -19,63 +19,66 @@
       line-height: 1.6;
     }
     .card {
-      max-width: 520px;
+      max-width: 560px;
       width: 100%;
-      background: #1a1d27;
-      border: 1px solid #2a2f3d;
-      border-radius: 12px;
-      padding: 48px 40px;
+      background: #131a2c;
+      border: 1px solid #1f2940;
+      border-radius: 16px;
+      padding: 56px 48px;
       text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     }
-    .brand {
-      font-size: 28px;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.5px;
-      margin-bottom: 4px;
+    .logo-wrap {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 20px 28px;
+      display: inline-block;
+      margin-bottom: 36px;
     }
-    .brand .pro { color: #3b82f6; }
-    .tagline {
-      font-size: 13px;
-      color: #9ca3af;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 32px;
+    .logo-img {
+      display: block;
+      width: 220px;
+      height: auto;
     }
     h1 {
-      font-size: 22px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      letter-spacing: -0.3px;
     }
     p {
       font-size: 15px;
       color: #c7cbd6;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     a {
-      color: #3b82f6;
+      color: #00D4FF;
       text-decoration: none;
+      font-weight: 500;
     }
-    a:hover { text-decoration: underline; }
+    a:hover { color: #0066FF; text-decoration: underline; }
     .footer {
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid #2a2f3d;
-      font-size: 13px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid #1f2940;
+      font-size: 12px;
       color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="brand">All<span class="pro">Pro</span>Pay</div>
-    <div class="tagline">Smarter Payments. Better Margins.</div>
+    <div class="logo-wrap">
+      <img src="assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    </div>
     <h1>Looking for your proposal?</h1>
     <p>Your AllProPay rep should have sent you a direct link. Proposal pages aren't listed publicly.</p>
-    <p>If you can't find your link, reach out to your rep or email <a href="mailto:hello@allpropay.com">hello@allpropay.com</a>.</p>
+    <p>If you can't find your link, reach out to your rep or email <a href="mailto:support@allpropay.com">support@allpropay.com</a>.</p>
     <div class="footer">
-      AllProPay &middot; B2B Payment Processing &middot; US &amp; Canada
+      Accept Payments Anywhere
     </div>
   </div>
 </body>
