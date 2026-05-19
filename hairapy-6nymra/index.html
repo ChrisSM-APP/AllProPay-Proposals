@@ -244,8 +244,9 @@
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
     .insight, .option-card, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .option-card, .step, table { break-inside: avoid; page-break-inside: avoid; }
-    .section { break-inside: avoid; page-break-inside: avoid; }
+    .option-card, .step, table, tr, .insight { break-inside: avoid; page-break-inside: avoid; }
+    .signature-block { break-inside: avoid; page-break-inside: avoid; break-before: avoid; page-break-before: avoid; }
+    .section-header { break-after: avoid; page-break-after: avoid; }
     .doc-header { padding: 12px 32px 10px; }
     .content { padding: 20px 32px 28px; }
     .title-block { margin-bottom: 18px; }
