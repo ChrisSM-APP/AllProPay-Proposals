@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – Processing Cost Review | MJ Auto Repair</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .integration-card {
+    background: var(--light-gray);
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 16px 0 8px;
+  }
+  .integration-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .integration-card p { margin-bottom: 6px; font-size: 10pt; }
+  .integration-card .pill {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-size: 8.5pt;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    letter-spacing: 0.2px;
+  }
+  .integration-card .pill.muted { background: #fff; color: var(--navy); border: 1px solid var(--mid-gray); }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .savings-callout, .step-num, thead tr, .integration-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .savings-callout, .finding, .step, .stats-grid, table, .integration-card { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 16px 0; }
+    .section { margin-bottom: 20px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .stats-grid { margin-bottom: 8px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    table { margin-bottom: 8px; }
+    .finding { padding: 10px 14px; margin-bottom: 14px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .savings-callout .sc-value { font-size: 18pt; }
+    .savings-callout .sc-label { font-size: 8pt; }
+    .savings-callout .sc-sub { font-size: 7.5pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+    .integration-card { padding: 10px 14px; margin: 10px 0 6px; }
+    .integration-card h4 { font-size: 10pt; }
+    .integration-card p { font-size: 8.5pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Processing Cost Review</h1>
+      <div class="subtitle">MJ Auto Repair</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Mollie &nbsp;|&nbsp; MJ Auto Repair &nbsp;|&nbsp; Kansas</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Review based on</span>
+        <span class="value">Discovery call (May 19, 2026) &nbsp;|&nbsp; Tekmetric Payments</span>
+        <span class="label">Date</span>
+        <span class="value">May 19, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Executive Summary</div>
+      <p>On our call, you confirmed roughly $40,000/month in card volume processed through Tekmetric Payments. About half of that is collected online through your digital invoices, and about half is collected in person when customers pick up their vehicles. You absorb all of the processing fees yourself rather than pass them on to your customers.</p>
+      <p>Tekmetric Payments bundles your card-present rate (around 2.7% to 3.0%) and your card-not-present rate (around 3.5% to 3.7%) into one program. Blended across your 50/50 mix, that puts your effective rate near 3.5%, which sits in the high range for a clean retail auto shop your size.</p>
+      <p>The good news: we can lower that cost without disturbing your Tekmetric workflow, your customer experience, or your Affirm, Sunbit, and Klarna financing integration. After a line-by-line look at how your payments actually flow, here is where the room is:</p>
+      <ul>
+        <li>Online (card-not-present) payments are running at 3.5% to 3.7%, which is the largest cost driver in your mix</li>
+        <li>Integrated software pricing typically hides 0.4% to 0.8% of bundled markup that interchange-plus exposes and removes</li>
+        <li>Your financing integration, estimate workflow, and Tekmetric reporting stay exactly as they are today</li>
+      </ul>
+      <p style="margin-top:12px;">Our estimate is <strong>$5,400 to $7,400 in annual savings</strong>, based on the volume and rate ranges you shared on the call.</p>
+    </div>
+
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">Estimated annual savings</div>
+        <div class="sc-value">$5,400 to $7,400</div>
+        <div class="sc-sub">Based on May 19, 2026 discovery · estimates, not guarantees</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Monthly volume</div>
+        <div class="sc-value">~$40,000</div>
+        <div class="sc-sub">50% online · 50% in person</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Current annual fees</div>
+        <div class="sc-value">~$16,800</div>
+        <div class="sc-sub">Projected at a 3.5% blended rate</div>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://allpropay.com/get-started/" class="cta-btn">Lock In My Savings</a>
+      <div class="cta-print-text">Ready to move forward? Call <a href="tel:+19299303969" style="color:inherit;">929-930-3969</a> or email <a href="mailto:matt@allpropay.com" style="color:inherit;">matt@allpropay.com</a></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-label">Current processor</div><div class="stat-value">Tekmetric Payments</div></div>
+        <div class="stat-cell"><div class="stat-label">Monthly card volume</div><div class="stat-value">~$40,000</div></div>
+        <div class="stat-cell"><div class="stat-label">Card-present rate</div><div class="stat-value warn">2.7% to 3.0%</div></div>
+        <div class="stat-cell"><div class="stat-label">Card-not-present rate</div><div class="stat-value danger">3.5% to 3.7%</div></div>
+        <div class="stat-cell"><div class="stat-label">Estimated blended rate</div><div class="stat-value danger">~3.5%</div></div>
+        <div class="stat-cell"><div class="stat-label">Estimated annual fees</div><div class="stat-value danger">~$16,800</div></div>
+        <div class="stat-cell"><div class="stat-label">Payment mix</div><div class="stat-value">50/50 online + in person</div></div>
+        <div class="stat-cell"><div class="stat-label">Fee model</div><div class="stat-value">Merchant absorbs 100%</div></div>
+      </div>
+
+      <div class="insight">At an estimated 3.5% blended rate, you are at the high end for a $40,000/month auto shop. <strong>The split between card-present (2.7% to 3.0%) and card-not-present (3.5% to 3.7%) means your online payments, which are half your volume, are doing most of the damage to the blended cost.</strong></div>
+
+      <p class="note">Rate ranges shown are based on what you shared on the call. A single Tekmetric Payments statement will let us replace these ranges with exact numbers and confirm savings down to the cent.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What We Found</div>
+
+      <div class="finding">
+        <h3>1. Card-not-present rates near 3.7% on half your volume</h3>
+        <p>Roughly 50% of your monthly volume comes in through Tekmetric's text and email payment links. Those are card-not-present (CNP) transactions, and Tekmetric Payments is charging you 3.5% to 3.7% on them.</p>
+        <p>That is at the very top of the market for a clean, low-risk auto shop. On $20,000/month of online volume, you are paying roughly $700 to $740 in CNP fees alone, and that is before you add in the in-person side.</p>
+      </div>
+
+      <div class="finding">
+        <h3>2. Bundled rate hides where the markup sits</h3>
+        <p>Integrated payments platforms like Tekmetric Payments (formerly 360 Payments) post one number that lumps everything together. The merchant sees a clean rate, and the actual cost is harder to pull apart.</p>
+        <p>When we move you to a true interchange-plus structure, the wholesale cost of every transaction is shown directly, with a fixed, transparent markup on top. The savings appear because the bundle stops hiding 0.4% to 0.8% of avoidable overhead, not because we are running anything risky.</p>
+      </div>
+
+      <div class="finding">
+        <h3>3. You absorb every penny of the fees yourself</h3>
+        <p>You made it clear on the call that you do not pass fees to your customers, and you have no intention of starting. We respect that, and this proposal does not change it.</p>
+        <p>The flip side: every dollar we shave off your processing bill goes directly to your bottom line. There is no offset, no customer-paid component, no shift to anyone else. The estimated savings on this proposal are net profit recovered.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Solution: AllProPay POS+ for Tekmetric</div>
+      <p>You told us Tekmetric runs your entire shop. The digital estimates, the Affirm, Sunbit, and Klarna financing on jobs over $250, the workflow your team relies on every day. We are not going to ask you to give any of that up.</p>
+      <p>The AllProPay POS+ integration sits alongside Tekmetric, not in place of it. Tekmetric continues to be your master operating system. We intercept only the actual card transaction and route it through our lower-cost rails. Then we hand the payment status back to Tekmetric so your invoice reconciliation, reporting, and daily routine do not change.</p>
+
+      <div class="integration-card">
+        <h4>What stays exactly the same</h4>
+        <p><span class="pill muted">Tekmetric estimates &amp; workflow</span><span class="pill muted">Affirm</span><span class="pill muted">Sunbit</span><span class="pill muted">Klarna</span><span class="pill muted">Customer text/email link</span><span class="pill muted">Counter terminal experience</span></p>
+        <p style="margin-top:6px;">Financing on $250+ jobs continues to flow natively inside Tekmetric. Your team does not retrain. Your customers see the same digital experience.</p>
+      </div>
+
+      <div class="integration-card" style="background:#EFF6FF; border-color:#BFDBFE;">
+        <h4>What changes (and only this)</h4>
+        <p><span class="pill">Credit/debit card pricing</span><span class="pill">Online (CNP) routing</span><span class="pill">In-person terminal routing</span></p>
+        <p style="margin-top:6px;">When a customer pays by standard credit or debit card, the transaction is processed through AllProPay's interchange-plus pricing. Tekmetric is auto-updated with the "Paid" status, so your reporting stays clean.</p>
+      </div>
+
+      <p style="margin-top:14px;">Net effect: the side of your business that was costing the most (CNP) gets the biggest improvement, while the side that already works (Tekmetric's estimate-to-financing-to-invoice flow) is not touched.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Estimated Savings with AllProPay</div>
+      <p>The table below is a conservative estimate based on the volume and rate ranges you shared on the call. Actual savings depend on final program selection, exact card mix, and average ticket once we review a Tekmetric Payments statement.</p>
+
+      <table style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>Savings area</th>
+            <th>Monthly</th>
+            <th>Annual</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Card-not-present rate optimization (online 50%)</td>
+            <td>$220 to $280</td>
+            <td>$2,640 to $3,360</td>
+            <td class="flag-green">High</td>
+          </tr>
+          <tr>
+            <td>Card-present rate optimization (in person 50%)</td>
+            <td>$100 to $160</td>
+            <td>$1,200 to $1,920</td>
+            <td class="flag-orange">Medium</td>
+          </tr>
+          <tr>
+            <td>Removing bundled integrated-software markup</td>
+            <td>$130 to $180</td>
+            <td>$1,560 to $2,160</td>
+            <td class="flag-orange">Medium</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Total estimated savings</strong></td>
+            <td><strong>$450 to $620</strong></td>
+            <td><strong>$5,400 to $7,400</strong></td>
+            <td class="flag-green">Confirm with statement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">These are estimates based on the discovery call. Actual savings depend on final card mix, volume, and program selection. A single Tekmetric Payments statement converts these ranges to exact numbers.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>AllProPay is not a large corporate processor. We work directly with merchants to find a setup that fits how they actually do business.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you can leave.</li>
+        <li><strong>No cancellation fees. No setup fees</strong> on standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no surprises.</li>
+        <li><strong>Tekmetric stays in place.</strong> Estimates, financing, reporting, daily flow. None of it changes.</li>
+        <li><strong>Honest review.</strong> If the savings are there, we will show you clearly. If they are not, we will tell you that too.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Here is what we recommend:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Send over one recent Tekmetric Payments statement.</strong> We replace the rate ranges in this proposal with the exact numbers from your account and lock the savings down to the cent.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>15-minute walkthrough with Matt.</strong> We confirm the POS+ Integration plan, answer any Tekmetric-specific questions, and outline exactly how the rollout looks for your shop.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Go live with no disruption.</strong> Your team keeps using Tekmetric the same way. Affirm, Sunbit, and Klarna stay where they are. Only the credit card pricing changes.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "The goal is straightforward: show you what you are actually paying, compare it to what you would pay with us, and let the numbers make the case."
+      </p>
+
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="https://allpropay.com/get-started/" class="cta-btn">Book My 15-Minute Call with Matt</a>
+        <div class="cta-print-text">To get started: <a href="tel:+19299303969" style="color:inherit;">929-930-3969</a> &nbsp;|&nbsp; <a href="mailto:matt@allpropay.com" style="color:inherit;">matt@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a><br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
