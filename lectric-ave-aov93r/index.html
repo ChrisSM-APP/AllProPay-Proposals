@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Payment Integration Proposal | Lectric Ave</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img {
+    height: 72px;
+    width: auto;
+  }
+  .doc-header .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.5px;
+  }
+  .doc-header .logo-text .pro { color: var(--blue); font-style: italic; }
+  .doc-header .logo-text .tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 500;
+    color: var(--muted);
+    font-style: normal;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* BODY */
+  .content { padding: 36px 40px 48px; }
+
+  /* TITLE BLOCK */
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar {
+    height: 4px;
+    background: var(--blue);
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+
+  /* FINDING BLOCKS */
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  /* WHY BULLETS */
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* SAVINGS CALLOUT */
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  /* FOOTER */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .doc-footer .logo-sm {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 10pt;
+    color: var(--black);
+  }
+  .doc-footer .logo-sm span { color: var(--blue); font-style: italic; }
+
+  /* SIGNATURE BLOCK */
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right {
+    text-align: right;
+  }
+  .sig-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--black);
+  }
+  .sig-logo span { color: var(--blue); font-style: italic; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  /* CTA BUTTON */
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .savings-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .savings-callout, .finding, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-text { font-size: 18pt; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 16px 0; }
+    .section { margin-bottom: 20px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .stats-grid { margin-bottom: 8px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    table { margin-bottom: 8px; }
+    .finding { padding: 10px 14px; margin-bottom: 14px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .savings-callout .sc-value { font-size: 18pt; }
+    .savings-callout .sc-label { font-size: 8pt; }
+    .savings-callout .sc-sub { font-size: 7.5pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+    .section { margin-bottom: 14px; }
+    .signature-block { break-inside: avoid; page-break-inside: avoid; break-before: avoid; page-break-before: avoid; }
+    .steps { gap: 6px; }
+    .step { padding: 2px 0; }
+    .why-list li { padding: 4px 10px; margin-bottom: 3px; font-size: 9pt; }
+    .why-list { margin-top: 8px; }
+    .content { padding: 16px 28px 20px; }
+    .blue-bar { margin: 10px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      Pointe-Claire, QC
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Integration Proposal</h1>
+      <div class="subtitle">Lectric Ave</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Ian Richardson &nbsp;|&nbsp; Lectric Ave &nbsp;|&nbsp; Canada</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Jason Jiha &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Based on</span>
+        <span class="value">Initial inquiry -- May 20, 2026 &nbsp;|&nbsp; Elavon Converge</span>
+        <span class="label">Date</span>
+        <span class="value">May 20, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Executive Summary</div>
+      <p>Ian reached out with two direct questions: does AllProPay support API integrations, and is there a partner program? The answer to both is yes.</p>
+      <p>Ian built a working payment infrastructure on top of Elavon Converge -- custom API workflows, fraud controls, and automation logic. His concern is real: switching processors usually means rebuilding all of that. With EPOS, it does not. The API is designed for exactly this type of integration, and the goal is to map Ian's existing logic over, not replace it.</p>
+      <p>On the partnership side, AllProPay runs an active partner program with ongoing residuals on accounts Ian refers in. If Ian works with or serves other businesses that take payments, that is a meaningful additional revenue stream worth a 15-minute conversation.</p>
+      <ul>
+        <li>EPOS supports full API integration -- existing workflows and fraud controls can be adapted, not rebuilt from scratch</li>
+        <li>AllProPay partner program provides ongoing residuals on referred accounts, not a one-time fee</li>
+        <li>No contracts on processing or partnership -- Ian can leave either arrangement at any time</li>
+        <li>A rate comparison against Elavon Converge is available once Ian shares a recent statement</li>
+      </ul>
+      <p class="note">Rate ranges pending statement review. This proposal covers API integration fit and partner program structure first.</p>
+    </div>
+
+    <!-- WHAT ALLPROPAY BRINGS -->
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">API integration</div>
+        <div class="sc-value">Full API</div>
+        <div class="sc-sub">REST · tokenization · webhooks</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Partner program</div>
+        <div class="sc-value">Active</div>
+        <div class="sc-sub">Ongoing residuals on referred accounts</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Commitment</div>
+        <div class="sc-value">None</div>
+        <div class="sc-sub">No contracts · no cancellation fees</div>
+      </div>
+    </div>
+
+    <!-- CTA 1 -->
+    <div class="cta-wrap">
+      <a href="https://allpropay.com/get-started/" class="cta-btn">Book a Technical Call</a>
+      <div class="cta-print-text">Ready to move forward? Call <a href="tel:+18008070356" style="color:inherit;">800-807-0356</a> or email <a href="mailto:jason@allpropay.com" style="color:inherit;">jason@allpropay.com</a></div>
+    </div>
+
+    <!-- CURRENT SETUP -->
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Current processor</div>
+          <div class="stat-value">Elavon Converge</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Integration type</div>
+          <div class="stat-value">API / custom</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Custom fraud controls</div>
+          <div class="stat-value">Yes -- active</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Workflow automations</div>
+          <div class="stat-value">Yes -- active</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Inquiry type</div>
+          <div class="stat-value">Integration + partnership</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Rate comparison</div>
+          <div class="stat-value warn">Pending statement</div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>Ian's priority is continuity, not just cost.</strong> He has invested time building an integration layer around Elavon Converge. The right approach is to demonstrate how EPOS handles API migrations -- map what he has built, identify what carries over directly, and flag anything that needs a minor adjustment. A rate comparison adds value once the integration question is resolved.</div>
+    </div>
+
+    <!-- EPOS API INTEGRATION -->
+    <div class="section">
+      <div class="section-header">EPOS API -- How Integration Works</div>
+      <p>EPOS is built with developer-driven setups in mind. Ian's concern about rebuilding his workflows is the right one to raise -- it is exactly what happens when merchants move to platforms that do not expose a proper API. EPOS handles it differently.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>REST API access.</strong> Payment initiation, status queries, voids, refunds, and transaction history are all accessible via API. No locked-in terminal dependency for developers.</li>
+        <li><strong>Tokenization.</strong> Cards are tokenized at capture. Ian's fraud controls and workflow logic can reference tokens directly -- no need to handle raw card data in his own systems.</li>
+        <li><strong>Webhooks and event hooks.</strong> Transaction events (authorized, declined, settled, refunded) fire webhooks to Ian's endpoints. His existing automation logic that responds to Elavon Converge events can be rerouted to the EPOS equivalents.</li>
+        <li><strong>Fraud and risk controls via API.</strong> AVS, CVV, velocity controls, and custom risk rules are accessible through API parameters. The fraud controls Ian built can be replicated -- and in some areas extended -- through EPOS.</li>
+        <li><strong>Sandbox environment.</strong> Full test environment available before any live traffic moves over. Ian can validate his existing workflows against EPOS responses before cutting over a single transaction.</li>
+      </ul>
+      <div class="insight"><strong>The goal is a map, not a rebuild.</strong> Before anything switches, we walk through Ian's current Elavon Converge API calls and match them to the EPOS equivalent endpoints. Where it maps 1:1, nothing changes in his code. Where there is a difference, we flag it upfront so there are no surprises mid-migration. Most integrations like this resolve in hours, not weeks.</div>
+    </div>
+
+    <!-- PARTNER PROGRAM -->
+    <div class="section">
+      <div class="section-header">AllProPay Partner Program</div>
+      <p>Ian asked about partner incentives. AllProPay has an active partner program. Here is how it works:</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Ongoing residuals.</strong> Partners earn a share of the processing revenue from every account they refer in, for as long as that merchant processes. This is not a one-time referral fee -- it compounds over time.</li>
+        <li><strong>No minimums or quotas.</strong> One referral pays. Ten referrals pay more. There is no pressure to hit a number, and no program expiry if Ian goes a few months without a referral.</li>
+        <li><strong>Direct support for every account.</strong> Ian has direct access to Jason. Any merchant Ian refers in gets the same direct line -- not a corporate hold queue.</li>
+        <li><strong>Co-branded resources.</strong> If Ian wants to offer payment processing as part of his own service offering, AllProPay can provide co-branded materials, pricing collateral, and technical documentation to support that.</li>
+        <li><strong>Non-exclusive.</strong> Ian does not need to stop working with other providers to participate. The program is open and has no exclusivity requirement.</li>
+      </ul>
+      <p>The specific residual split and any volume-based incentives are walked through in a brief partner onboarding call. Jason can cover the full structure in under 15 minutes.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>AllProPay is not a large corporate processor. We work directly with merchants and partners to find a setup that fits how they actually run their business -- including ones that have already built a technical integration layer they want to keep.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you walk away -- no cancellation fee, no penalty.</li>
+        <li><strong>No setup fees</strong> on standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no surprises, no mid-year adjustments buried in a statement.</li>
+        <li><strong>Direct access.</strong> Jason is Ian's contact before, during, and after setup. One call, not a queue.</li>
+        <li><strong>Canadian processing.</strong> We work with Canadian merchants and understand the local processing landscape.</li>
+        <li><strong>Honest review.</strong> If a rate comparison shows AllProPay is not a better deal, we will say that. The goal is the right fit, not just a closed deal.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three things worth doing in the right order:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>30-minute technical call.</strong> Jason walks through Ian's current Elavon Converge API setup and maps it against EPOS endpoints. This answers the integration question concretely -- not in theory. Ian brings his API calls; Jason brings the EPOS documentation.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Partner program walkthrough.</strong> Jason covers the residual structure, referral process, and co-branding options on the same call. Takes 15 minutes. Ian can decide whether it is a fit without any commitment.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Rate comparison.</strong> Once Ian shares a recent Elavon Converge statement, Jason puts together an apples-to-apples review. If AllProPay can do better, the numbers will show it. If not, Jason will say so.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "The goal is to make sure your existing setup carries over cleanly, show you what the partner program looks like, and only talk rates once we have your actual numbers to work with."
+      </p>
+
+      <!-- CTA 2 -->
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="https://allpropay.com/get-started/" class="cta-btn">Book My Call with Jason</a>
+        <div class="cta-print-text">To get started: <a href="tel:+18008070356" style="color:inherit;">800-807-0356</a> &nbsp;|&nbsp; <a href="mailto:jason@allpropay.com" style="color:inherit;">jason@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Jason Jiha</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:+18008070356" style="color:inherit; text-decoration:none;">800-807-0356</a><br>
+          <a href="mailto:jason@allpropay.com" style="color:inherit; text-decoration:none;">jason@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; Pointe-Claire, QC &nbsp;·&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
