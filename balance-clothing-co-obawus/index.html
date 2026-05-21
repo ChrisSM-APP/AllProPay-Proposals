@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Payment Processing Overview | Balance Clothing Co Inc</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.5px;
+  }
+  .logo-text .pro { color: var(--blue); font-style: italic; }
+  .logo-text .tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 500;
+    color: var(--muted);
+    font-style: normal;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 14px 18px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 10px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .why-list li strong {
+    display: block;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 5px;
+    font-size: 11pt;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+
+  .cta-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 32px 36px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .cta-callout .cta-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17pt;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .cta-callout p { color: #CBD5E1; font-size: 10.5pt; margin-bottom: 8px; }
+  .cta-callout .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    padding: 13px 34px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 14px;
+  }
+  .cta-callout .cta-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 14px; }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--black);
+  }
+  .sig-logo span { color: var(--blue); font-style: italic; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .doc-footer .logo-sm {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 10pt;
+    color: var(--black);
+  }
+  .doc-footer .logo-sm span { color: var(--blue); font-style: italic; }
+
+  @media print {
+    body { font-size: 9.5pt; }
+    .page { max-width: 100%; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .blue-bar { margin: 16px 0; }
+    .section { margin-bottom: 22px; }
+    .section-header { font-size: 11.5pt; padding-bottom: 5px; margin-bottom: 10px; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    .why-list li { padding: 10px 14px; font-size: 9.5pt; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .step-content { font-size: 9.5pt; }
+    .cta-callout { padding: 20px 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; break-inside: avoid; }
+    .cta-callout .cta-headline { font-size: 14pt; }
+    .cta-callout p { font-size: 9.5pt; }
+    .cta-callout .cta-btn { display: none; }
+    .cta-callout .cta-sub { display: none; }
+    .signature-block { margin-top: 20px; padding-top: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="logo-text">All<span class="pro">Pro</span>Pay<span class="tag">ACCEPT PAYMENTS ANYWHERE</span></div>
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Processing Overview</h1>
+      <div class="subtitle">Balance Clothing Co Inc</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Jeff Collins &nbsp;|&nbsp; Balance Clothing Co Inc &nbsp;|&nbsp; West Virginia</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">QuickBooks Payments &nbsp;|&nbsp; Cash discount program</span>
+        <span class="label">Date</span>
+        <span class="value">May 21, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- CURRENT SETUP -->
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+      <p>You are using QuickBooks Payments for your invoicing with a cash discount program in place, which passes the processing fees to your customers. That is a smart structure - you are already doing one of the most important things right.</p>
+      <p>The question is not whether the structure works. It is whether the platform you are using to run it is the right fit long term. QuickBooks is excellent accounting software. Payment processing is a different product, and bundling the two is not always the most cost-effective way to run either one.</p>
+    </div>
+
+    <!-- THREE PILLARS -->
+    <div class="section">
+      <div class="section-header">Where AllProPay Fits</div>
+      <p>Three areas where we typically improve on a QuickBooks Payments setup:</p>
+      <ul class="why-list">
+        <li>
+          <strong>Platform cost</strong>
+          QuickBooks charges a monthly fee to use their payment features on top of your accounting subscription. A dedicated processor removes or reduces that line item. The transaction fees your customers cover are one thing - what you pay QuickBooks each month to run the program is another, and that cost is worth examining.
+        </li>
+        <li>
+          <strong>Your QuickBooks stays exactly the same</strong>
+          We sync directly with QuickBooks so your accounting workflow does not change. Invoices, reconciliation, reporting - all of it stays in QuickBooks. You are just routing the payment processing through a better-structured program behind the scenes.
+        </li>
+        <li>
+          <strong>A cleaner cash discount program</strong>
+          QuickBooks' cash discount is a manual adjustment inside their invoicing tool - it is not a formally structured dual-pricing program. A proper setup handles the surcharge calculation automatically, meets card-brand compliance standards, and presents more professionally to your customers.
+        </li>
+      </ul>
+    </div>
+
+    <!-- STEPS -->
+    <div class="section">
+      <div class="section-header">How It Works from Here</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Quick review call</strong> - We walk through your current QuickBooks Payments setup together. Fifteen minutes. No statement needed upfront.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Apples-to-apples comparison</strong> - We show you what you are paying through QuickBooks today - platform cost and all - and what the same volume would look like through AllProPay. Clear numbers, no guesswork.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>You decide</strong> - If it makes sense for your business, we move forward. If it does not, we will tell you that too. No pressure, no contracts, no setup fees.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK CTA FOOTER -->
+    <div class="cta-callout">
+      <div class="cta-headline">No contracts. No rate games. No pressure.</div>
+      <p>If the numbers work in your favor, we will show you clearly. If they do not, we will say so.</p>
+      <p>We are connecting tomorrow afternoon - this gives you everything you need in the meantime.</p>
+      <a href="https://www.allpropay.com/get-started" class="cta-btn">Learn More at AllProPay.com</a>
+      <div class="cta-sub">Questions before the call? Reach Chris directly at 917-451-3036 or chris@allpropay.com</div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div class="sig-left">
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-contact">
+          917-451-3036<br>
+          chris@allpropay.com<br>
+          allpropay.com
+        </div>
+      </div>
+      <div class="sig-right">
+        <div class="sig-logo">All<span>Pro</span>Pay</div>
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="logo-sm">All<span>Pro</span>Pay</div>
+    <div>800-807-0356 &middot; support@allpropay.com &middot; allpropay.com</div>
+    <div>Confidential - prepared for Jeff Collins, Balance Clothing Co Inc</div>
+  </div>
+
+</div>
+</body>
+</html>
