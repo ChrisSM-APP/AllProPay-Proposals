@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – Payment Processing Transition | Penny's Cleaning LLC</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell { padding: 14px 16px; border: 1px solid var(--mid-gray); background: var(--light-gray); }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-green { color: var(--green); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+
+  .finding {
+    border-left: 4px solid var(--orange);
+    background: #FFFBEB;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #92400E;
+    margin-bottom: 6px;
+  }
+  .finding p { margin-bottom: 0; font-size: 10pt; }
+
+  .finding.resolved {
+    border-left-color: var(--green);
+    background: #F0FDF4;
+  }
+  .finding.resolved h3 { color: var(--green); }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .info-box {
+    background: #EFF6FF;
+    border-left: 4px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .info-box, .savings-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .savings-callout, .finding, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 20pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 12pt; margin-bottom: 14px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .savings-callout { padding: 14px 20px; margin: 10px 0; }
+    .savings-callout .sc-value { font-size: 16pt; }
+    .finding { padding: 10px 14px; margin-bottom: 12px; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Processing Transition</h1>
+      <div class="subtitle">Penny's Cleaning LLC</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Penny &nbsp;|&nbsp; Penny's Cleaning LLC &nbsp;|&nbsp; Missouri</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Processing setup</span>
+        <span class="value">Jobber Payments (Stripe) &rarr; FluidPay + POS+ via AllProPay</span>
+        <span class="label">Date</span>
+        <span class="value">May 21, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Overview</div>
+      <p>Penny's Cleaning has been processing through Jobber Payments (Stripe) at 3% + $0.30 per transaction with daily fee deductions that create reconciliation headaches in QuickBooks. After signing with AllProPay, we spent several weeks working to find a seamless transition path on your behalf - including direct outreach to both Jobber and FluidPay to explore whether your stored client cards could be transferred automatically.</p>
+      <p>The short answer: they cannot. Stripe locks card data inside their vault by design, and Jobber does not permit token exports. This is a deliberate business decision by Stripe - not a limitation of AllProPay's setup.</p>
+      <p>The good news is that everything else works exactly as discussed. The FluidPay gateway connected to Jobber through the POS+ extension preserves your full AutoPay workflow, switches you to monthly discounting, and delivers meaningful savings on your processing costs. The only requirement is a one-time card update from your existing clients. This proposal walks through exactly what that looks like and why it is simpler than it sounds.</p>
+    </div>
+
+    <!-- SAVINGS CALLOUT -->
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">Estimated monthly savings</div>
+        <div class="sc-value">$200-$400+</div>
+        <div class="sc-sub">Depends on card mix &nbsp;·&nbsp; estimates, not guarantees</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Your CC volume</div>
+        <div class="sc-value">~$35,000/mo</div>
+        <div class="sc-sub">Plus ~$5,000/mo ACH</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Current CC rate</div>
+        <div class="sc-value">3% + $0.30</div>
+        <div class="sc-sub">Per transaction &nbsp;·&nbsp; daily discounting</div>
+      </div>
+    </div>
+
+    <!-- CURRENT SETUP -->
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Monthly CC volume</div>
+          <div class="stat-value">~$35,000</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Monthly ACH volume</div>
+          <div class="stat-value">~$5,000</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Current CC rate</div>
+          <div class="stat-value danger">3% + $0.30/txn</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Fee billing method</div>
+          <div class="stat-value warn">Daily discounting</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Gateway / platform</div>
+          <div class="stat-value">Jobber Payments (Stripe)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Estimated annual CC fees</div>
+          <div class="stat-value danger">~$12,700+</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong>The QuickBooks problem:</strong> Jobber's daily discounting nets fees out of every deposit, so no deposit matches an invoice cleanly. Reconciliation requires manual adjustment on every transaction. Monthly discounting fixes this - one fee deduction per month, every deposit lands in full.
+      </div>
+    </div>
+
+    <!-- WHAT WE CONFIRMED -->
+    <div class="section">
+      <div class="section-header">What We Investigated on Your Behalf</div>
+      <p>Before presenting this plan, we worked through every available path to make this transition as seamless as possible for you and your clients.</p>
+
+      <div class="finding">
+        <h3>Path 1 - Authorize.net Integration with Jobber</h3>
+        <p>Authorize.net previously worked with Jobber and was our original plan. Jobber has since deliberately degraded this integration to push merchants toward their own payment product (Jobber Payments). Features including recurring billing and tip collection no longer function reliably through Authorize.net. This path was ruled out early.</p>
+      </div>
+
+      <div class="finding">
+        <h3>Path 2 - Token Export from Jobber (March 13, 2026)</h3>
+        <p>We contacted Jobber support directly requesting an export of stored client card tokens in JSON format for transfer to a new gateway. Jobber's response: <em>"Jobber does not offer an option to migrate saved card holder data to an external platform."</em> We pushed back noting the underlying vault runs through Stripe, but Jobber confirmed they will not facilitate the transfer regardless.</p>
+      </div>
+
+      <div class="finding">
+        <h3>Path 3 - Stripe Network Token Import at FluidPay (March 6-9, 2026)</h3>
+        <p>We contacted FluidPay directly asking whether Stripe network tokens could be imported. FluidPay's response: <em>"We do not handle network tokens."</em> FluidPay does support vault imports from certain gateways, but Stripe's CIM tokens are not in a transferable format. The card data is locked by design.</p>
+      </div>
+
+      <div class="finding resolved">
+        <h3>Conclusion - The Lock-In Is on Stripe's End, Not Ours</h3>
+        <p>Stripe intentionally prevents card data from leaving their platform. This protects their recurring billing revenue and is a known industry practice. AllProPay investigated every available path. The only viable option is a one-time card re-save from existing clients through Jobber - which is simpler to execute than it sounds, and only needs to happen once.</p>
+      </div>
+    </div>
+
+    <!-- THE ALLPROPAY SETUP -->
+    <div class="section">
+      <div class="section-header">The AllProPay Setup</div>
+      <p>Here is what the working configuration looks like and what changes - and does not change - for your business.</p>
+
+      <table style="margin-top: 14px;">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Current (Jobber Payments)</th>
+            <th>With AllProPay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jobber workflow</td>
+            <td>Tech marks job complete, Jobber auto-invoices and charges</td>
+            <td class="flag-green">Identical - no changes for your team</td>
+          </tr>
+          <tr>
+            <td>AutoPay</td>
+            <td>Enabled via Jobber Payments</td>
+            <td class="flag-green">Enabled via POS+ + FluidPay</td>
+          </tr>
+          <tr>
+            <td>Client Hub / online payments</td>
+            <td>Stripe-powered</td>
+            <td class="flag-green">FluidPay-powered, same experience for clients</td>
+          </tr>
+          <tr>
+            <td>Gateway</td>
+            <td>Stripe (via Jobber)</td>
+            <td class="flag-green">FluidPay (modern, fully compliant)</td>
+          </tr>
+          <tr>
+            <td>Fee billing</td>
+            <td class="flag-orange">Daily discounting (fees netted from every deposit)</td>
+            <td class="flag-green">Monthly discounting (one deduction per month, clean QuickBooks)</td>
+          </tr>
+          <tr>
+            <td>ACH processing</td>
+            <td>Jobber / Stripe</td>
+            <td class="flag-green">Payliance (already approved for your account)</td>
+          </tr>
+          <tr>
+            <td>Processing rate</td>
+            <td class="flag-orange">3% + $0.30/transaction (flat)</td>
+            <td class="flag-green">Interchange-plus (lower effective rate on most card types)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <strong>Monthly discounting matters for QuickBooks:</strong> Every deposit will land in your bank account in full. Processing fees are deducted once per month as a single line item. Your bookkeeping team will see exactly what they expect to see - no more reconciling fees out of every individual deposit.
+      </div>
+    </div>
+
+    <!-- ESTIMATED SAVINGS -->
+    <div class="section">
+      <div class="section-header">Estimated Savings</div>
+      <p>The estimates below are based on your approximate monthly CC volume of $35,000 and current Stripe rate of 3% + $0.30/transaction. Actual savings depend on your card mix - debit cards carry lower interchange than credit or commercial cards, which affects the final rate. We will walk through the exact numbers on a call.</p>
+
+      <table style="margin-top: 14px;">
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Current cost (est.)</th>
+            <th>Estimated savings/mo</th>
+            <th>Estimated savings/yr</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Credit card processing rate</td>
+            <td>~$1,050-$1,065/mo</td>
+            <td class="flag-green">$200-$400</td>
+            <td class="flag-green">$2,400-$4,800</td>
+          </tr>
+          <tr>
+            <td>QuickBooks reconciliation time</td>
+            <td>Manual adjustment every deposit</td>
+            <td class="flag-green">Eliminated</td>
+            <td class="flag-green">Hours saved per month</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total estimated savings</td>
+            <td></td>
+            <td class="flag-green">$200-$400+/mo</td>
+            <td class="flag-green">$2,400-$4,800+/yr</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">These are estimates based on approximate volume and an average card mix. Actual results depend on your debit vs. credit vs. commercial card breakdown. No setup fees. No cancellation fees.</p>
+    </div>
+
+    <!-- TRANSITION PLAN -->
+    <div class="section">
+      <div class="section-header">The Transition Plan</div>
+      <p>Here is exactly how this works. There is no forced cutover and no disruption to how your team operates day-to-day.</p>
+
+      <div class="steps" style="margin-top: 16px;">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>AllProPay sets up the FluidPay account and POS+ extension.</strong><br>
+            We handle the gateway configuration, settings, and connection to your Jobber account. Nothing on your end at this stage.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Install the POS+ extension inside Jobber.</strong><br>
+            This takes about one minute. We walk you through it or do it with you on a call. It connects Jobber's payment flow to FluidPay instead of Stripe.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>New clients are captured in FluidPay from day one.</strong><br>
+            Any client who pays through Jobber after the switch automatically saves their card in FluidPay. No action needed from you or them.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Existing clients update their card at their own pace.</strong><br>
+            Jobber can send clients a simple payment update request - they click a link and re-enter their card in about 60 seconds. Most recurring clients do this within a week when they receive their next invoice or a short note from you. You can move through your client list gradually - there is no deadline.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <strong>Full AutoPay resumes on the new setup.</strong><br>
+            Once a client's card is updated, AutoPay runs exactly as it does today - job complete, Jobber invoices, card charges automatically. The only difference: lower rate and monthly discounting.
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top: 20px;">
+        <strong>What other business owners have done:</strong> Some move all clients over in one go with a single message to their client base. Others do it gradually - new clients on the new setup, existing clients updated as they cycle through their next invoice. Both approaches work. We will recommend the right approach based on your client count and how hands-on you want to be.
+      </div>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <ul class="why-list" style="margin-top: 14px;">
+        <li><strong>We did the work.</strong> We contacted Jobber and FluidPay directly on your behalf to find the best path forward. That is what we do for every client.</li>
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work the way we described, you can leave - no cancellation fees, no penalties.</li>
+        <li><strong>No rate games.</strong> What you sign for is what you pay. We do not adjust rates after the fact or bury fees in the fine print.</li>
+        <li><strong>Monthly discounting is real.</strong> This is not a gimmick - it is a billing structure that makes your QuickBooks reconciliation clean. It is one of the most common reasons service businesses switch to us.</li>
+        <li><strong>We work with Jobber-based businesses.</strong> This is not a new setup for us. We know how the POS+ integration works and what to expect during the transition.</li>
+        <li><strong>Your ACH is already approved.</strong> The Payliance ACH account is set up and confirmed. That part is done.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom: 18px;">Here is what moving forward looks like:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Confirm you want to proceed.</strong><br>
+            A quick call or reply is all it takes. We will confirm the setup details and walk through any remaining questions.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>AllProPay activates the FluidPay account and POS+ extension.</strong><br>
+            We handle setup. You install the POS+ extension in Jobber - takes about a minute with us on the call.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Start moving clients over at your pace.</strong><br>
+            New clients go onto the new setup immediately. Existing clients update their card as you contact them. No rush, no forced cutover.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Lower rates and monthly discounting take effect.</strong><br>
+            Once clients are on the new setup, you start saving. Your first monthly fee deduction will be clean, and your QuickBooks will match.
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px; font-style: italic; color: var(--muted); text-align: center; font-size: 10pt;">
+        "We are not here to just switch your processor. We are here to make sure the switch is worth it and that everything works the way it was described."
+      </p>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:9174513036" style="color:inherit; text-decoration:none;">917-451-3036</a><br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span>Prepared May 21, 2026 &nbsp;·&nbsp; Penny's Cleaning LLC</span>
+  </div>
+
+</div>
+</body>
+</html>
