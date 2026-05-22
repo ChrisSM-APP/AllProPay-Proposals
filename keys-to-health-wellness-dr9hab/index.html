@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keys To Health &amp; Wellness - Payment Solution | AllProPay</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #FFFFFF;
+    color: #1a1a1a;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .header {
+    background: #FFFFFF;
+    border-bottom: 3px solid #0052FF;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-img { height: 52px; }
+
+  .header-right { text-align: right; }
+
+  .header-right h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #0052FF;
+    margin-bottom: 4px;
+  }
+
+  .header-right p { font-size: 13px; color: #666; }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0052FF;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0B1120;
+    margin-bottom: 12px;
+  }
+
+  .problem-box {
+    background: #FFF8F0;
+    border-left: 4px solid #D96000;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 44px;
+  }
+
+  .problem-box p { color: #3a2000; font-size: 14px; line-height: 1.65; }
+  .problem-box strong { color: #B84F00; }
+
+  .arch-section { margin-bottom: 48px; }
+  .arch-intro { color: #555; font-size: 14px; margin-bottom: 24px; }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .arch-box {
+    border-radius: 12px;
+    padding: 24px 22px;
+    height: 100%;
+  }
+
+  .arch-box.clinical {
+    background: #EBF5FF;
+    border: 2px solid #90C0FF;
+  }
+
+  .arch-box.financial {
+    background: #F0F5FF;
+    border: 2px solid #0052FF;
+  }
+
+  .arch-box-tag {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+  }
+
+  .arch-box.clinical .arch-box-tag { color: #1a5a9e; }
+  .arch-box.financial .arch-box-tag { color: #0052FF; }
+
+  .arch-box-name {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #0B1120;
+    margin-bottom: 14px;
+  }
+
+  .arch-box ul { list-style: none; }
+
+  .arch-box ul li {
+    font-size: 13px;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,82,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .arch-box ul li:last-child { border-bottom: none; }
+  .arch-box.clinical ul li::before { content: "\25B8"; color: #4488CC; font-size: 10px; }
+  .arch-box.financial ul li::before { content: "\25B8"; color: #0052FF; font-size: 10px; }
+
+  .arch-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 8px;
+  }
+
+  .bridge-chip {
+    background: #0052FF;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .bridge-arrow { font-size: 22px; color: #0052FF; line-height: 1; }
+
+  .bridge-note {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .steps-section { margin-bottom: 48px; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .step-card {
+    background: #F8FAFF;
+    border: 1px solid #D0E0FF;
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: #0052FF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0B1120;
+    margin-bottom: 8px;
+  }
+
+  .step-desc { font-size: 13px; color: #444; line-height: 1.6; }
+
+  .savings-section { margin-bottom: 48px; }
+
+  .savings-compare {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    align-items: center;
+    gap: 0;
+    margin-top: 20px;
+  }
+
+  .savings-box {
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .savings-box.current {
+    background: #FFF3F0;
+    border: 2px solid #FFB8A0;
+  }
+
+  .savings-box.target {
+    background: #F0F5FF;
+    border: 2px solid #0052FF;
+  }
+
+  .savings-box-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .savings-box.current .savings-box-label { color: #B84F00; }
+  .savings-box.target .savings-box-label { color: #0052FF; }
+
+  .savings-rate {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .savings-box.current .savings-rate { color: #B84F00; }
+  .savings-box.target .savings-rate { color: #0052FF; }
+
+  .savings-monthly { font-size: 18px; font-weight: 600; color: #222; margin-bottom: 4px; }
+  .savings-annual { font-size: 13px; color: #777; }
+
+  .savings-arrow-col { text-align: center; }
+  .savings-arrow-col span { font-size: 30px; color: #0052FF; }
+
+  .savings-result {
+    background: #0052FF;
+    color: white;
+    border-radius: 12px;
+    padding: 20px 28px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .savings-result-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+
+  .savings-result-amount {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  .savings-result-sub { font-size: 13px; opacity: 0.82; margin-top: 6px; }
+
+  .savings-caveat { font-size: 12px; color: #999; font-style: italic; margin-top: 12px; line-height: 1.5; }
+
+  .cta-footer { background: #0B1120; padding: 44px 48px; }
+
+  .cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .cta-heading {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+  }
+
+  .cta-body { font-size: 14px; color: #A0AEBF; line-height: 1.65; }
+  .cta-contact { min-width: 210px; text-align: right; }
+
+  .cta-contact-name {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .cta-contact-line { font-size: 13px; color: #7090B0; margin-bottom: 4px; }
+  .cta-contact-line a { color: #60A4FF; text-decoration: none; }
+
+  @media (max-width: 700px) {
+    .header { padding: 16px 20px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .header-right { text-align: left; }
+    .container { padding: 28px 20px; }
+    .arch-grid { display: block; }
+    .arch-bridge { flex-direction: row; padding: 12px 0; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .savings-compare { display: block; }
+    .savings-arrow-col { display: none; }
+    .savings-box { margin-bottom: 12px; }
+    .cta-footer { padding: 32px 20px; }
+    .cta-inner { display: block; }
+    .cta-contact { text-align: left; margin-top: 24px; }
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .arch-grid { display: block; }
+    .arch-box { display: block; width: 100%; margin-bottom: 16px; -webkit-column-break-inside: avoid; page-break-inside: avoid; }
+    .arch-bridge { flex-direction: row; padding: 8px 0; }
+    .steps-grid { display: block; }
+    .step-card { display: block; margin-bottom: 12px; -webkit-column-break-inside: avoid; page-break-inside: avoid; }
+    .savings-compare { display: block; }
+    .savings-box { display: block; width: 100%; margin-bottom: 12px; -webkit-column-break-inside: avoid; page-break-inside: avoid; }
+    .savings-arrow-col { display: none; }
+    .cta-inner { display: block; }
+    .cta-contact { text-align: left; margin-top: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+  <div class="header-right">
+    <h1>Keys To Health &amp; Wellness</h1>
+    <p>Payment Solution Overview &nbsp;&#183;&nbsp; Matt Butcher</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="problem-box">
+    <p><strong>Why SimplePractice keeps you overpaying.</strong> Your current setup runs at a flat 3.15% + $0.30 per transaction (Stripe backend), putting your effective rate near 4% on card-not-present runs. Every time you tried moving payments outside SimplePractice - Square, Cash App - the ledger sync broke. You had to log everything manually as "External Card," your biller billed you $50/hour to clean up the misaligned entries, and any processing savings disappeared before you saw them. This is the missing step that workflow solves.</p>
+  </div>
+
+  <div class="arch-section">
+    <p class="section-label">The Solution</p>
+    <h2>Two separate lanes. Zero ledger disruption.</h2>
+    <p class="arch-intro">SimplePractice stays exactly as it is - handling scheduling, clinical notes, and insurance. AllProPay adds a parallel financial lane underneath it that automates the step that burned you before.</p>
+
+    <div class="arch-grid">
+
+      <div class="arch-box clinical">
+        <p class="arch-box-tag">Clinical Side - Untouched</p>
+        <p class="arch-box-name">SimplePractice</p>
+        <ul>
+          <li>Patient scheduling</li>
+          <li>Clinical notes and treatment plans</li>
+          <li>Insurance filings</li>
+          <li>AutoPay and ledger records</li>
+          <li>Copay and deductible tracking</li>
+        </ul>
+      </div>
+
+      <div class="arch-bridge">
+        <div class="bridge-arrow">&#8594;</div>
+        <div class="bridge-chip">The Bridge</div>
+        <div class="bridge-note">Balance export feeds the payment layer</div>
+        <div class="bridge-arrow">&#8594;</div>
+      </div>
+
+      <div class="arch-box financial">
+        <p class="arch-box-tag">Financial Side - New</p>
+        <p class="arch-box-name">Fluidpay Gateway</p>
+        <ul>
+          <li>Secure card vault (tokenized)</li>
+          <li>Interchange-plus wholesale pricing</li>
+          <li>Target rate: 2.0% - 2.2% effective</li>
+          <li>100% gross daily bank deposits</li>
+          <li>Single monthly fee invoice</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="steps-section">
+    <p class="section-label">How It Works</p>
+    <h2>4 steps. Your biller handles it all.</h2>
+
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <p class="step-title">Secure the Cards on File</p>
+        <p class="step-desc">Each patient's card is saved once in the Fluidpay Gateway Vault and assigned a tokenized Customer ID. No card data lives inside SimplePractice or your clinical files.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <p class="step-title">Export the Balance Report</p>
+        <p class="step-desc">At the end of each billing cycle (daily or weekly), your biller pulls a list of outstanding copays and deductibles from SimplePractice. One quick export - takes under a minute.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <p class="step-title">Upload and Process in Bulk</p>
+        <p class="step-desc">Your biller drops those balances into a standardized Fluidpay CSV next to each patient's Customer ID. One click fires all transactions simultaneously. No manual card entry. No logging errors.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <p class="step-title">Ledger Stays Clean</p>
+        <p class="step-desc">$500 processed = $500 deposits in your bank account (gross, daily). Fees are swept in a single invoice at month-end. Your biller bulk-marks SimplePractice entries as "Paid via External Card" - insurance reconciliation stays clean.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="savings-section">
+    <p class="section-label">The Numbers</p>
+    <h2>What this looks like at your volume.</h2>
+
+    <div class="savings-compare">
+
+      <div class="savings-box current">
+        <p class="savings-box-label">SimplePractice Today</p>
+        <p class="savings-rate">~4%</p>
+        <p class="savings-monthly">~$800 / month</p>
+        <p class="savings-annual">~$9,600 / year at $20K volume</p>
+      </div>
+
+      <div class="savings-arrow-col">
+        <span>&#8594;</span>
+      </div>
+
+      <div class="savings-box target">
+        <p class="savings-box-label">AllProPay Target</p>
+        <p class="savings-rate">~2.1%</p>
+        <p class="savings-monthly">~$420 / month</p>
+        <p class="savings-annual">~$5,040 / year at $20K volume</p>
+      </div>
+
+    </div>
+
+    <div class="savings-result">
+      <p class="savings-result-label">Estimated Annual Savings</p>
+      <p class="savings-result-amount">~$4,560 / year</p>
+      <p class="savings-result-sub">Without touching SimplePractice. Without reconciliation headaches.</p>
+    </div>
+
+    <p class="savings-caveat">These are estimates based on stated volume and current rate. Actual savings depend on final card mix, monthly volume, and program selection.</p>
+  </div>
+
+</div>
+
+<div class="cta-footer">
+  <div class="cta-inner">
+    <div>
+      <p class="cta-heading">Ready to see the exact numbers for your account?</p>
+      <p class="cta-body">We set up the Fluidpay Gateway alongside your existing SimplePractice workflow - no disruption to your clinical operations. No long-term contract. No cancellation fee. If the savings are there, we will show you exactly where they come from. If they are not, we will tell you that too.</p>
+    </div>
+    <div class="cta-contact">
+      <p class="cta-contact-name">Matt Butcher</p>
+      <p class="cta-contact-line"><a href="mailto:matt@allpropay.com">matt@allpropay.com</a></p>
+      <p class="cta-contact-line"><a href="tel:19299303969">929-930-3969</a></p>
+      <p class="cta-contact-line" style="margin-top:10px;"><a href="https://www.allpropay.com" style="color:#506880;">allpropay.com</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
