@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | RideStat</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  /* HEADER */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* BODY */
+  .content { padding: 36px 40px 48px; }
+
+  /* TITLE */
+  .title-block { margin-bottom: 28px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 20px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 14px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 24px 0; border-radius: 2px; }
+
+  /* SECTION */
+  .section { margin-bottom: 30px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+
+  /* THREE PILLARS */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .pillar {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 18px 18px 20px;
+    border-top: 4px solid var(--blue);
+  }
+  .pillar h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .pillar p { font-size: 9.5pt; line-height: 1.5; color: var(--text); margin: 0; }
+
+  /* COMPARISON */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .compare-card {
+    border-radius: 8px;
+    padding: 18px 20px;
+    border: 1px solid var(--mid-gray);
+  }
+  .compare-card.now { background: #FFF7F7; border-color: #F4D2D2; }
+  .compare-card.next { background: #F0F7FF; border-color: #C6DDFB; border-color: var(--blue); border-width: 2px; }
+  .compare-label {
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .compare-card.now .compare-label { color: var(--red); }
+  .compare-card.next .compare-label { color: var(--blue); }
+  .compare-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .compare-rate {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .compare-card.now .compare-rate { color: var(--red); }
+  .compare-card.next .compare-rate { color: var(--blue); }
+  .compare-sub { font-size: 9pt; color: var(--muted); margin-top: 4px; }
+  .compare-list { list-style: none; margin: 14px 0 0; padding: 0; }
+  .compare-list li {
+    font-size: 9.5pt;
+    padding: 5px 0;
+    line-height: 1.45;
+    border-top: 1px dashed var(--mid-gray);
+  }
+  .compare-list li:first-child { border-top: none; }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-top: 6px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  th.num { text-align: right; }
+  .save-cell { color: var(--green); font-weight: 600; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+  .step { display: flex; gap: 14px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { padding-top: 4px; font-size: 10pt; line-height: 1.5; }
+  .step-content strong { font-weight: 600; }
+
+  /* NOTES STRIP */
+  .notes-strip {
+    background: var(--light-gray);
+    border-left: 4px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .notes-strip strong { color: var(--blue); }
+
+  /* DARK CTA FOOTER */
+  .cta-footer {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .cta-footer .cta-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17pt;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .cta-footer .cta-sub { font-size: 10pt; color: #94A3B8; line-height: 1.5; }
+  .cta-footer .cta-rep {
+    border-left: 1px solid #334155;
+    padding-left: 22px;
+  }
+  .cta-footer .cta-rep .who {
+    font-size: 8.5pt;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .cta-footer .cta-rep .name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .cta-footer .cta-rep a {
+    display: block;
+    color: #38BDF8;
+    text-decoration: none;
+    font-size: 10pt;
+    line-height: 1.7;
+  }
+
+  /* SIGNATURE */
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 6px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  /* DOC FOOTER */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .compare-grid, .cta-footer { display: block; }
+    .pillars > .pillar, .compare-grid > .compare-card { display: block; width: 100%; margin-bottom: 10px; -webkit-column-break-inside: avoid; break-inside: avoid; page-break-inside: avoid; }
+    .cta-footer > * { display: block; }
+    .cta-footer .cta-rep { border-left: none; padding-left: 0; margin-top: 14px; padding-top: 14px; border-top: 1px solid #334155; }
+    .cta-footer, .compare-card, .pillar, thead tr, .notes-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 16px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 12pt; margin-bottom: 14px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; font-size: 9pt; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; page-break-inside: avoid; break-inside: avoid; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    .pillar { padding: 12px 14px; margin-bottom: 8px; }
+    .pillar h3 { font-size: 10.5pt; margin-bottom: 6px; }
+    .pillar p { font-size: 9pt; }
+    .compare-card { padding: 12px 14px; margin-bottom: 8px; }
+    .compare-headline { font-size: 11.5pt; margin-bottom: 6px; }
+    .compare-rate { font-size: 15pt; }
+    .compare-sub { font-size: 8pt; }
+    .compare-list li { font-size: 9pt; padding: 4px 0; }
+    thead th { padding: 6px 10px; font-size: 8.5pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .steps { gap: 8px; }
+    .step-num { min-width: 26px; height: 26px; font-size: 10pt; }
+    .step-content { font-size: 9pt; }
+    .notes-strip { padding: 10px 14px; font-size: 9pt; }
+    .cta-footer { padding: 16px 20px; margin-top: 18px; }
+    .cta-footer .cta-headline { font-size: 14pt; }
+    .cta-footer .cta-sub { font-size: 9pt; }
+    .cta-footer .cta-rep .name { font-size: 12pt; }
+    .signature-block { margin-top: 18px; padding-top: 10px; page-break-inside: avoid; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      1-332-301-5064 &nbsp;|&nbsp; support@allpropay.com &nbsp;|&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Better Pricing, Built for the Way You Run Rides</h1>
+      <div class="subtitle">Switching RideStat from Square to AllProPay</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">David Enriquez &nbsp;|&nbsp; RideStat &nbsp;|&nbsp; Fort Lauderdale, FL</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Square</span>
+        <span class="label">Date</span>
+        <span class="value">May 26, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- INTRO -->
+    <div class="section">
+      <div class="section-header">The Situation</div>
+      <p>RideStat books rides by phone, online, and through facility coordinators. Most cards are keyed in by hand, which is exactly the kind of transaction Square charges the most for: <strong>3.5% + $0.15 per keyed card</strong>. On top of that, Square is a flat-rate aggregator. There is no way to negotiate, no real invoicing for facility AR, no built-in ACH, and funds can be held without warning if your deposit pattern shifts.</p>
+      <p>AllProPay moves you off the flat rate and onto a real merchant account with interchange-plus pricing. You pay only the true wholesale cost of the card plus a small, fixed markup. That is where the savings live.</p>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="section">
+      <div class="section-header">Square vs AllProPay, Side by Side</div>
+      <div class="compare-grid">
+
+        <div class="compare-card now">
+          <div class="compare-label">What you pay with Square today</div>
+          <div class="compare-headline">Flat Aggregator Pricing</div>
+          <div class="compare-rate">3.5% + $0.15</div>
+          <div class="compare-sub">Keyed card, per transaction (Square published rate)</div>
+          <ul class="compare-list">
+            <li>2.6% + $0.10 on the rare in-person tap or dip</li>
+            <li>2.9% + $0.30 on Square online invoices</li>
+            <li>1% ACH (limited, not a real B2B AR tool)</li>
+            <li>No interchange pass-through, no debit savings</li>
+            <li>Fund holds and account reviews at Square's discretion</li>
+          </ul>
+        </div>
+
+        <div class="compare-card next">
+          <div class="compare-label">What you pay with AllProPay</div>
+          <div class="compare-headline">Interchange-Plus Pricing</div>
+          <div class="compare-rate">Cost + small markup</div>
+          <div class="compare-sub">Estimated effective rate 2.4% to 2.7% blended</div>
+          <ul class="compare-list">
+            <li>True interchange pass-through on every card</li>
+            <li>Debit and regulated cards priced separately, not lumped in</li>
+            <li>Real invoicing and virtual terminal for phone bookings</li>
+            <li>ACH, recurring billing, and text-to-pay built in</li>
+            <li>Dedicated US support, not an in-app chat queue</li>
+          </ul>
+        </div>
+
+      </div>
+      <p style="margin-top:14px; font-size:9.5pt; color:var(--muted);">Estimates above are based on Square's published pricing and typical interchange-plus structures for service businesses. Your final rate is set after a 5-minute look at one recent Square deposit summary or month of activity.</p>
+    </div>
+
+    <!-- VOLUME SCENARIOS -->
+    <div class="section">
+      <div class="section-header">What That Looks Like in Your Numbers</div>
+      <p>The numbers below assume a $150 average ride paid by keyed card (the common case for phone and concierge bookings). Move volume up or down and the math scales the same way.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Monthly rides on card</th>
+            <th class="num">Square (3.5% + $0.15)</th>
+            <th class="num">AllProPay (est. 2.5% + $0.10)</th>
+            <th class="num">Monthly savings</th>
+            <th class="num">Annual savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>100 rides ($15,000/mo)</td>
+            <td class="num">$540</td>
+            <td class="num">$385</td>
+            <td class="num save-cell">$155</td>
+            <td class="num save-cell">~$1,860</td>
+          </tr>
+          <tr>
+            <td>200 rides ($30,000/mo)</td>
+            <td class="num">$1,080</td>
+            <td class="num">$770</td>
+            <td class="num save-cell">$310</td>
+            <td class="num save-cell">~$3,720</td>
+          </tr>
+          <tr>
+            <td>400 rides ($60,000/mo)</td>
+            <td class="num">$2,160</td>
+            <td class="num">$1,540</td>
+            <td class="num save-cell">$620</td>
+            <td class="num save-cell">~$7,440</td>
+          </tr>
+          <tr>
+            <td>600 rides ($90,000/mo)</td>
+            <td class="num">$3,240</td>
+            <td class="num">$2,310</td>
+            <td class="num save-cell">$930</td>
+            <td class="num save-cell">~$11,160</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px; font-size:9pt; color:var(--muted); font-style:italic;">Estimates only. Actual savings depend on final card mix, debit ratio, average ticket, and monthly volume. We tighten these numbers once we see one recent Square deposit summary.</p>
+    </div>
+
+    <!-- THREE PILLARS -->
+    <div class="section">
+      <div class="section-header">Why AllProPay for a Medical Transport Operation</div>
+      <div class="pillars">
+
+        <div class="pillar">
+          <h3>1. Real Pricing on Keyed Cards</h3>
+          <p>Phone bookings are your reality, not your exception. Interchange-plus stops penalizing you for it. Every percentage point off your effective rate falls straight to the bottom line.</p>
+        </div>
+
+        <div class="pillar">
+          <h3>2. Built for Service AR</h3>
+          <p>Invoicing, virtual terminal, ACH, and recurring billing in one account. Useful for facility billing, families on payment plans, and repeat dialysis or appointment routes.</p>
+        </div>
+
+        <div class="pillar">
+          <h3>3. No Fund Holds, Real Support</h3>
+          <p>You get a true merchant account, not an aggregator profile. Deposits land on schedule, and you have a direct line to a US support team that knows your account.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">How the Switch Works</div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>15-minute call with Matt.</strong> Confirm monthly volume, average ticket, and how you take payments today. We use one Square deposit summary to lock real numbers.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Light application.</strong> Standard merchant app, signed digitally. Decision and rate confirmation typically within 24 to 48 hours.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Activation.</strong> Virtual terminal and online invoicing are live the same week. No new hardware required for keyed and online transactions.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content"><strong>Side by side for 30 days.</strong> Keep Square live for whatever you want while AllProPay runs the rest. You will see the rate difference in your own bank statement, not on a slide.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content"><strong>Make the switch.</strong> Migrate the rest of your booking flow over once you have seen the numbers. We stay on the line during the move.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NOTES STRIP -->
+    <div class="section">
+      <div class="notes-strip">
+        <strong>The fine print.</strong> Standard AllProPay accounts include a $25 monthly platform fee. No long-term contract, no early termination fee, no setup fee on standard programs. Savings figures on this page are estimates based on Square's published rates and typical interchange-plus pricing for service merchants. Actual savings depend on final card mix, volume, and program selection.
+      </div>
+    </div>
+
+    <!-- DARK CTA FOOTER -->
+    <div class="cta-footer">
+      <div>
+        <div class="cta-headline">Ready to see your real numbers?</div>
+        <div class="cta-sub">Send Matt one Square deposit summary or the last month of Square activity. He will come back with a locked-in rate and a side-by-side comparison in under 24 hours. No commitment.</div>
+      </div>
+      <div class="cta-rep">
+        <div class="who">Your direct contact</div>
+        <div class="name">Matt Butcher</div>
+        <a href="tel:+19299303969">1-929-930-3969</a>
+        <a href="mailto:matt@allpropay.com">matt@allpropay.com</a>
+        <a href="https://allpropay.com">allpropay.com</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">1-929-930-3969</a><br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- DOC FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;|&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;|&nbsp; 1-332-301-5064</span>
+    <span>Prepared May 26, 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
