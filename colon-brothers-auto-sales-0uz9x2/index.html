@@ -194,8 +194,14 @@
   /* STEPS */
   .steps { display: block; }
   .step { display: table; width: 100%; margin-bottom: 14px; }
-  .step-num {
+  .step-num-cell {
     display: table-cell;
+    width: 36px;
+    vertical-align: top;
+    padding-top: 2px;
+  }
+  .step-num {
+    display: block;
     background: var(--blue);
     color: #fff;
     font-family: 'Montserrat', sans-serif;
@@ -205,9 +211,9 @@
     height: 36px;
     border-radius: 50%;
     text-align: center;
-    vertical-align: middle;
-    padding: 0;
     line-height: 36px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .step-content {
     display: table-cell;
@@ -348,6 +354,7 @@
     .stat-cell .stat-label { font-size: 7.5pt; }
     .finding { padding: 10px 14px; margin-bottom: 12px; }
     .finding h3 { font-size: 10pt; margin-bottom: 4px; }
+    .step-num-cell { width: 28px; }
     .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; }
     .step-content { font-size: 9.5pt; }
     .why-list li { padding: 6px 10px; margin-bottom: 4px; font-size: 9.5pt; }
@@ -481,23 +488,23 @@
       <p style="margin-bottom: 18px;">Five steps. Most of this is on us.</p>
       <div class="steps">
         <div class="step">
-          <div class="step-num">1</div>
+          <div class="step-num-cell"><div class="step-num">1</div></div>
           <div class="step-content"><strong>3:00 PM today.</strong> Quick call with Raul to finish the application. Ten minutes, mostly business info plus Raul's details as the signer and a voided check or bank letter from Wells Fargo.</div>
         </div>
         <div class="step">
-          <div class="step-num">2</div>
+          <div class="step-num-cell"><div class="step-num">2</div></div>
           <div class="step-content"><strong>24 to 48 hours.</strong> Underwriting reviews and approves.</div>
         </div>
         <div class="step">
-          <div class="step-num">3</div>
+          <div class="step-num-cell"><div class="step-num">3</div></div>
           <div class="step-content"><strong>Terminal programmed and shipped.</strong> We test the equipment in-house, confirm funds route to your account the next day, then send it. You typically have it within 24 hours of shipping. Target in your hand by Friday.</div>
         </div>
         <div class="step">
-          <div class="step-num">4</div>
+          <div class="step-num-cell"><div class="step-num">4</div></div>
           <div class="step-content"><strong>Test transaction together.</strong> We get on a call when the terminal arrives, run a test, confirm everything is working, and you go live.</div>
         </div>
         <div class="step">
-          <div class="step-num">5</div>
+          <div class="step-num-cell"><div class="step-num">5</div></div>
           <div class="step-content"><strong>We close your old account.</strong> We handle the cancellation paperwork with the previous processor so you do not have to chase it. First month platform fee is reimbursed on our side, and the waiver is in place going forward as long as you stay above $10K per month.</div>
         </div>
       </div>
