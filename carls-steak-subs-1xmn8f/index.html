@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Processing Cost Review | Carl's Steak Subs</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .savings-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .savings-callout, .finding, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 16px 0; }
+    .section { margin-bottom: 20px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .stats-grid { margin-bottom: 8px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    table { margin-bottom: 8px; }
+    .finding { padding: 10px 14px; margin-bottom: 14px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .savings-callout .sc-value { font-size: 18pt; }
+    .savings-callout .sc-label { font-size: 8pt; }
+    .savings-callout .sc-sub { font-size: 7.5pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+    .section { margin-bottom: 14px; }
+    .signature-block { break-inside: avoid; page-break-inside: avoid; break-before: avoid; page-break-before: avoid; }
+    .steps { gap: 6px; }
+    .step { padding: 2px 0; }
+    .why-list li { padding: 4px 10px; margin-bottom: 3px; font-size: 9pt; }
+    .why-list { margin-top: 8px; }
+    .content { padding: 16px 28px 20px; }
+    .blue-bar { margin: 10px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Processing Cost Review</h1>
+      <div class="subtitle">Carl's Steak Subs</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Carl &nbsp;|&nbsp; Carl's Steak Subs &nbsp;|&nbsp; Waltham, MA</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Statement reviewed</span>
+        <span class="value">Discovery call (2026-05-26) &nbsp;|&nbsp; FirstData</span>
+        <span class="label">Date</span>
+        <span class="value">2026-05-26</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Executive Summary</div>
+      <p>Based on what you shared on our call, Carl's Steak Subs is on FirstData paying interchange + 1.25% + $0.10 per transaction, with a monthly platform fee that hasn't been confirmed. At roughly $30,000 in monthly card volume in a debit-heavy restaurant, that markup is well above the market rate for a business your size. On top of the cost, you flagged two real operational headaches: delayed or inconsistent deposits, and customer service that hasn't been responsive when you need it.</p>
+      <p>After reviewing the setup, here is where the money is leaking and where we can fix the service problems at the same time:</p>
+      <ul>
+        <li><strong>1.25% markup is roughly 2x to 3x what a restaurant doing $30k/month should be paying</strong> on an interchange-plus program. Most operators at this volume sit between 0.35% and 0.60% over interchange.</li>
+        <li><strong>Per-transaction fee of $0.10</strong> on an average sub-shop ticket size of $15 to $25 is reasonable, but compounded with the markup it adds another 0.40% to 0.60% to your true effective rate.</li>
+        <li><strong>Deposit delays and slow customer service</strong> are not pricing issues, but they cost you time. Both are fixed by moving to a processor that funds next-day and assigns you a direct contact, not a 1-800 queue.</li>
+        <li><strong>Website integration</strong> is straightforward with a gateway like Authorize.Net or CardPointe sitting on top of the same merchant account, so your online sales settle into the same deposit cycle as the in-store Clover.</li>
+      </ul>
+      <p style="margin-top:12px;">Our estimate is <strong>$2,400 to $4,200 in annual savings</strong>, plus a clean fix for the deposit timing and support issues. These are ranges based on the verbal rate and volume you shared. A single recent statement will let us tighten the numbers to the exact dollar.</p>
+    </div>
+
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">Estimated annual savings</div>
+        <div class="sc-value">$2,400 - $4,200</div>
+        <div class="sc-sub">Range based on discovery call, not guarantees</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Monthly volume</div>
+        <div class="sc-value">~$30,000</div>
+        <div class="sc-sub">Reported on call</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Current annual fees (est.)</div>
+        <div class="sc-value">$11,500 - $13,800</div>
+        <div class="sc-sub">Projected from verbal pricing</div>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://allpropay.com/get-started/" class="cta-btn">Lock In My Savings</a>
+      <div class="cta-print-text">Ready to move forward? Call <a href="tel:+19299303970" style="color:inherit;">929-930-3970</a> or email <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-label">Current processor</div><div class="stat-value">FirstData (Fiserv)</div></div>
+        <div class="stat-cell"><div class="stat-label">Hardware</div><div class="stat-value">Clover Terminal + Duo Station</div></div>
+        <div class="stat-cell"><div class="stat-label">Monthly card volume</div><div class="stat-value">~$30,000</div></div>
+        <div class="stat-cell"><div class="stat-label">Pricing model</div><div class="stat-value">Interchange-plus</div></div>
+        <div class="stat-cell"><div class="stat-label">Stated markup</div><div class="stat-value danger">IC + 1.25% + $0.10</div></div>
+        <div class="stat-cell"><div class="stat-label">Estimated effective rate</div><div class="stat-value danger">~3.2% to 3.8%</div></div>
+        <div class="stat-cell"><div class="stat-label">Monthly fee</div><div class="stat-value warn">Unconfirmed</div></div>
+        <div class="stat-cell"><div class="stat-label">Online / website sales</div><div class="stat-value">Not yet enabled</div></div>
+      </div>
+
+      <p class="note">Rate ranges based on what was shared on the call. A statement review will replace these with exact numbers.</p>
+
+      <div class="insight"><strong>The pricing model is the right model. The markup inside it is the problem.</strong> Interchange-plus is the most transparent way to be billed, and you are already on it. The issue is the 1.25% over interchange. For a card-present restaurant at $30k/month, that markup should be in the 0.35% to 0.60% range, not 1.25%.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What We Found</div>
+
+      <div class="finding">
+        <h3>1. Your markup is roughly 2x to 3x the market rate for a restaurant your size</h3>
+        <p>You are on interchange-plus, which is the right pricing model. But the markup on top of interchange is where the leak is. At your volume and average ticket, the typical AllProPay markup on a card-present restaurant lands in the 0.35% to 0.60% range. You are at 1.25%.</p>
+        <table style="margin-top:8px;">
+          <thead>
+            <tr><th>Component</th><th>Your current rate</th><th>Market range</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Markup over interchange</td><td class="flag-red">1.25%</td><td class="flag-green">0.35% - 0.60%</td></tr>
+            <tr><td>Per transaction</td><td>$0.10</td><td>$0.08 - $0.10</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:10px;">On $30k/month, the markup gap alone is roughly $195 to $270 per month, before any monthly fees, statement fees, or junk-line items.</p>
+      </div>
+
+      <div class="finding">
+        <h3>2. Deposit delays and customer service are processor problems, not pricing problems</h3>
+        <p>You flagged two things that have nothing to do with rate: deposits showing up inconsistently, and customer service that isn't there when you need it. Both are common with large national platforms because your file is one of millions. With AllProPay you get next-day funding standard, batch by 8pm Eastern, and a direct line to a real person who knows your account.</p>
+        <p>For a $30k/month restaurant, every day of delayed funding is roughly $1,000 sitting out of your bank account. Reliable next-day deposits matter as much as the rate.</p>
+      </div>
+
+      <div class="finding">
+        <h3>3. The Clover hardware is worth keeping, but it locks you to FirstData</h3>
+        <p>Clover is owned by Fiserv, the same company as FirstData. The hardware is good, but the device is tied to their processing platform. To switch processors and keep the experience Carl likes, there are two clean paths:</p>
+        <ul style="margin-top:6px;">
+          <li><strong>Path A - Reprogram the Clover.</strong> AllProPay can move the Clover Terminal and Duo Station to our Fiserv-aligned platform, subject to device eligibility. Same hardware, same staff workflow, new processor and pricing underneath.</li>
+          <li><strong>Path B - Replace with EPOSnow or Kwick.</strong> Restaurant-grade POS systems built for sub shops and quick-service. Better support, lower long-term cost, and built-in online ordering. Best long-term move if Carl is open to a hardware swap.</li>
+        </ul>
+        <p style="margin-top:8px;">Website integration works under either path through Authorize.Net or CardPointe, so the online sales settle into the same deposit cycle.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Estimated Savings with AllProPay</div>
+      <p>The table below is a conservative estimate based on the verbal pricing and volume Carl shared on the call. Actual savings depend on final card mix, monthly fees on the current FirstData account, and program selection.</p>
+
+      <table style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>Savings area</th>
+            <th>Monthly</th>
+            <th>Annual</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Markup reduction (1.25% to 0.35% - 0.60% range)</td>
+            <td>$195 - $270</td>
+            <td>$2,340 - $3,240</td>
+            <td class="flag-green">High</td>
+          </tr>
+          <tr>
+            <td>Monthly platform / junk fee cleanup</td>
+            <td>$5 - $80</td>
+            <td>$60 - $960</td>
+            <td class="flag-orange">Confirm with statement</td>
+          </tr>
+          <tr class="total-row">
+            <td>Estimated total savings</td>
+            <td>$200 - $350</td>
+            <td>$2,400 - $4,200</td>
+            <td class="flag-green">Confirm with statement</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">These are estimates based on the rate and volume Carl provided. Actual savings depend on final card mix, volume, and program selection.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>AllProPay is not a large corporate processor. We work directly with merchants to find a setup that fits how they actually do business.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you can leave.</li>
+        <li><strong>No cancellation fees. No setup fees</strong> on standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no surprises.</li>
+        <li><strong>Direct support.</strong> A real contact who knows your account, not a 1-800 queue.</li>
+        <li><strong>Honest review.</strong> If the savings are there, we will show you clearly. If they are not, we will tell you that too.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Here is what we recommend:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send one recent processing statement.</strong> This lets us replace the ranges in this proposal with exact dollar figures, including the monthly fee Carl wasn't sure about.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Confirm the Clover path.</strong> We will check if the existing Clover Terminal and Duo Station can be reprogrammed to AllProPay, or whether EPOSnow / Kwick is a better long-term fit including the website integration piece.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content"><strong>We present a formal comparison.</strong> Side-by-side against the FirstData statement, including next-day funding setup, support contact, and the website gateway. No pressure either way. The numbers will speak for themselves.</div></div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "The goal is straightforward: show you what you are actually paying, compare it to what you would pay with us, and let the numbers make the case."
+      </p>
+
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="https://allpropay.com/get-started/" class="cta-btn">Book My 15-Minute Call with Chris</a>
+        <div class="cta-print-text">To get started: <a href="tel:+19299303970" style="color:inherit;">929-930-3970</a> &nbsp;|&nbsp; <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303970" style="color:inherit; text-decoration:none;">929-930-3970</a><br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
