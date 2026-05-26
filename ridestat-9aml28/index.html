@@ -131,7 +131,7 @@
     border: 1px solid var(--mid-gray);
   }
   .compare-card.now { background: #FFF7F7; border-color: #F4D2D2; }
-  .compare-card.next { background: #F0F7FF; border-color: #C6DDFB; border-color: var(--blue); border-width: 2px; }
+  .compare-card.next { background: #F0F7FF; border-color: var(--blue); border-width: 2px; }
   .compare-label {
     font-size: 8.5pt;
     font-weight: 600;
@@ -167,6 +167,29 @@
     border-top: 1px dashed var(--mid-gray);
   }
   .compare-list li:first-child { border-top: none; }
+
+  /* SAVINGS CALLOUT */
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin: 16px 0 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .savings-callout .sc-cell { padding: 0 10px; }
+  .savings-callout .sc-cell + .sc-cell { border-left: 1px solid #334155; }
+  .savings-callout .sc-label { font-size: 8.5pt; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px; }
+  .savings-callout .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+    line-height: 1.05;
+  }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
 
   /* TABLES */
   table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-top: 6px; }
@@ -205,6 +228,30 @@
   }
   .step-content { padding-top: 4px; font-size: 10pt; line-height: 1.5; }
   .step-content strong { font-weight: 600; }
+
+  /* RECAP LIST */
+  .recap-list { list-style: none; margin: 0; padding: 0; }
+  .recap-list li {
+    padding: 9px 14px 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .recap-list li strong { font-weight: 600; color: var(--text); }
+
+  /* NEEDED LIST */
+  .needed {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-top: 4px;
+  }
+  .needed strong { color: #B45309; }
+  .needed ol { margin: 8px 0 0 22px; }
+  .needed ol li { font-size: 10pt; padding: 3px 0; }
 
   /* NOTES STRIP */
   .notes-strip {
@@ -298,11 +345,12 @@
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
-    .pillars, .compare-grid, .cta-footer { display: block; }
-    .pillars > .pillar, .compare-grid > .compare-card { display: block; width: 100%; margin-bottom: 10px; -webkit-column-break-inside: avoid; break-inside: avoid; page-break-inside: avoid; }
+    .pillars, .compare-grid, .cta-footer, .savings-callout { display: block; }
+    .pillars > .pillar, .compare-grid > .compare-card, .savings-callout > .sc-cell { display: block; width: 100%; margin-bottom: 10px; -webkit-column-break-inside: avoid; break-inside: avoid; page-break-inside: avoid; }
+    .savings-callout .sc-cell + .sc-cell { border-left: none; border-top: 1px solid #334155; padding-top: 10px; }
     .cta-footer > * { display: block; }
     .cta-footer .cta-rep { border-left: none; padding-left: 0; margin-top: 14px; padding-top: 14px; border-top: 1px solid #334155; }
-    .cta-footer, .compare-card, .pillar, thead tr, .notes-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cta-footer, .compare-card, .pillar, thead tr, .notes-strip, .needed, .savings-callout, .recap-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .doc-header { padding: 12px 32px 10px; }
     .content { padding: 20px 32px 28px; }
     .title-block { margin-bottom: 16px; }
@@ -321,11 +369,16 @@
     .compare-rate { font-size: 15pt; }
     .compare-sub { font-size: 8pt; }
     .compare-list li { font-size: 9pt; padding: 4px 0; }
+    .savings-callout { padding: 14px 20px; }
+    .savings-callout .sc-value { font-size: 17pt; }
     thead th { padding: 6px 10px; font-size: 8.5pt; }
     tbody td { padding: 5px 10px; font-size: 9pt; }
     .steps { gap: 8px; }
     .step-num { min-width: 26px; height: 26px; font-size: 10pt; }
     .step-content { font-size: 9pt; }
+    .recap-list li { padding: 6px 12px; font-size: 9pt; margin-bottom: 5px; }
+    .needed { padding: 10px 14px; }
+    .needed ol li { font-size: 9pt; }
     .notes-strip { padding: 10px 14px; font-size: 9pt; }
     .cta-footer { padding: 16px 20px; margin-top: 18px; }
     .cta-footer .cta-headline { font-size: 14pt; }
@@ -352,15 +405,15 @@
 
     <!-- TITLE -->
     <div class="title-block">
-      <h1>Better Pricing, Built for the Way You Run Rides</h1>
-      <div class="subtitle">Switching RideStat from Square to AllProPay</div>
+      <h1>Your AllProPay Pricing, In Writing</h1>
+      <div class="subtitle">Following up on our call today</div>
       <div class="meta-grid">
         <span class="label">Prepared for</span>
         <span class="value">David Enriquez &nbsp;|&nbsp; RideStat &nbsp;|&nbsp; Fort Lauderdale, FL</span>
         <span class="label">Prepared by</span>
         <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current processor</span>
-        <span class="value">Square</span>
+        <span class="value">Square (invoicing, app, terminal)</span>
         <span class="label">Date</span>
         <span class="value">May 26, 2026</span>
       </div>
@@ -368,11 +421,17 @@
 
     <div class="blue-bar"></div>
 
-    <!-- INTRO -->
+    <!-- RECAP -->
     <div class="section">
-      <div class="section-header">The Situation</div>
-      <p>RideStat books rides by phone, online, and through facility coordinators. Most cards are keyed in by hand, which is exactly the kind of transaction Square charges the most for: <strong>3.5% + $0.15 per keyed card</strong>. On top of that, Square is a flat-rate aggregator. There is no way to negotiate, no real invoicing for facility AR, no built-in ACH, and funds can be held without warning if your deposit pattern shifts.</p>
-      <p>AllProPay moves you off the flat rate and onto a real merchant account with interchange-plus pricing. You pay only the true wholesale cost of the card plus a small, fixed markup. That is where the savings live.</p>
+      <div class="section-header">What We Talked About</div>
+      <p>You are running roughly $10K to $12K a month through Square, most of it through emailed invoices, with an average ticket around $120. You are absorbing the processing fee yourself and want to keep doing that. You also use the Square app on your iPhone and a Square terminal in the office.</p>
+      <ul class="recap-list">
+        <li><strong>Monthly card volume:</strong> $10,000 to $12,000</li>
+        <li><strong>Average ticket:</strong> ~$120</li>
+        <li><strong>Mix:</strong> Majority online via emailed invoice, some app/terminal</li>
+        <li><strong>Fee model:</strong> Absorbing fees, not surcharging</li>
+        <li><strong>Current cost:</strong> ~$350 to $400/month with Square (3.5% + $0.30 on invoicing)</li>
+      </ul>
     </div>
 
     <!-- COMPARISON -->
@@ -383,151 +442,135 @@
         <div class="compare-card now">
           <div class="compare-label">What you pay with Square today</div>
           <div class="compare-headline">Flat Aggregator Pricing</div>
-          <div class="compare-rate">3.5% + $0.15</div>
-          <div class="compare-sub">Keyed card, per transaction (Square published rate)</div>
+          <div class="compare-rate">3.5% + $0.30</div>
+          <div class="compare-sub">Per Square invoice, what most of your volume runs at</div>
           <ul class="compare-list">
-            <li>2.6% + $0.10 on the rare in-person tap or dip</li>
-            <li>2.9% + $0.30 on Square online invoices</li>
-            <li>1% ACH (limited, not a real B2B AR tool)</li>
+            <li>2.6% + $0.10 in-person at the terminal</li>
             <li>No interchange pass-through, no debit savings</li>
-            <li>Fund holds and account reviews at Square's discretion</li>
+            <li>Deposits typically 2 to 3 days, not next day</li>
+            <li>Account holds and reviews at Square's discretion</li>
+            <li>One flat rate, no negotiation</li>
           </ul>
         </div>
 
         <div class="compare-card next">
           <div class="compare-label">What you pay with AllProPay</div>
           <div class="compare-headline">Interchange-Plus Pricing</div>
-          <div class="compare-rate">Cost + small markup</div>
-          <div class="compare-sub">Estimated effective rate 2.4% to 2.7% blended</div>
+          <div class="compare-rate">2.0% to 2.5%</div>
+          <div class="compare-sub">Effective rate, blended across your card mix</div>
           <ul class="compare-list">
-            <li>True interchange pass-through on every card</li>
-            <li>Debit and regulated cards priced separately, not lumped in</li>
-            <li>Real invoicing and virtual terminal for phone bookings</li>
-            <li>ACH, recurring billing, and text-to-pay built in</li>
-            <li>Dedicated US support, not an in-app chat queue</li>
+            <li>True interchange pass-through plus a small markup</li>
+            <li>Debit and regulated cards priced separately</li>
+            <li><strong>Next-day funding</strong>, every business day</li>
+            <li>Same invoicing, app, and terminal workflow you have today</li>
+            <li>Tap to Pay on your iPhone built in</li>
           </ul>
         </div>
 
       </div>
-      <p style="margin-top:14px; font-size:9.5pt; color:var(--muted);">Estimates above are based on Square's published pricing and typical interchange-plus structures for service businesses. Your final rate is set after a 5-minute look at one recent Square deposit summary or month of activity.</p>
     </div>
 
-    <!-- VOLUME SCENARIOS -->
+    <!-- SAVINGS CALLOUT -->
     <div class="section">
-      <div class="section-header">What That Looks Like in Your Numbers</div>
-      <p>The numbers below assume a $150 average ride paid by keyed card (the common case for phone and concierge bookings). Move volume up or down and the math scales the same way.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Monthly rides on card</th>
-            <th class="num">Square (3.5% + $0.15)</th>
-            <th class="num">AllProPay (est. 2.5% + $0.10)</th>
-            <th class="num">Monthly savings</th>
-            <th class="num">Annual savings</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>100 rides ($15,000/mo)</td>
-            <td class="num">$540</td>
-            <td class="num">$385</td>
-            <td class="num save-cell">$155</td>
-            <td class="num save-cell">~$1,860</td>
-          </tr>
-          <tr>
-            <td>200 rides ($30,000/mo)</td>
-            <td class="num">$1,080</td>
-            <td class="num">$770</td>
-            <td class="num save-cell">$310</td>
-            <td class="num save-cell">~$3,720</td>
-          </tr>
-          <tr>
-            <td>400 rides ($60,000/mo)</td>
-            <td class="num">$2,160</td>
-            <td class="num">$1,540</td>
-            <td class="num save-cell">$620</td>
-            <td class="num save-cell">~$7,440</td>
-          </tr>
-          <tr>
-            <td>600 rides ($90,000/mo)</td>
-            <td class="num">$3,240</td>
-            <td class="num">$2,310</td>
-            <td class="num save-cell">$930</td>
-            <td class="num save-cell">~$11,160</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="margin-top:10px; font-size:9pt; color:var(--muted); font-style:italic;">Estimates only. Actual savings depend on final card mix, debit ratio, average ticket, and monthly volume. We tighten these numbers once we see one recent Square deposit summary.</p>
+      <div class="section-header">Your Bottom Line</div>
+      <div class="savings-callout">
+        <div class="sc-cell">
+          <div class="sc-label">New monthly cost</div>
+          <div class="sc-value">$175 to $200</div>
+          <div class="sc-sub">All-in, includes $25/mo platform fee</div>
+        </div>
+        <div class="sc-cell">
+          <div class="sc-label">Monthly savings</div>
+          <div class="sc-value">~$200</div>
+          <div class="sc-sub">vs. your current ~$400/mo Square cost</div>
+        </div>
+        <div class="sc-cell">
+          <div class="sc-label">Estimated annual savings</div>
+          <div class="sc-value">~$2,400+</div>
+          <div class="sc-sub">Roughly half your current processing cost</div>
+        </div>
+      </div>
+      <p style="margin-top:14px; font-size:9.5pt; color:var(--muted); font-style:italic;">Figures are based on your stated volume and average ticket. Actual savings depend on final card mix, debit ratio, and monthly volume. The $25 monthly platform fee is already baked into the new monthly cost above.</p>
     </div>
 
     <!-- THREE PILLARS -->
     <div class="section">
-      <div class="section-header">Why AllProPay for a Medical Transport Operation</div>
+      <div class="section-header">What You Get</div>
       <div class="pillars">
 
         <div class="pillar">
-          <h3>1. Real Pricing on Keyed Cards</h3>
-          <p>Phone bookings are your reality, not your exception. Interchange-plus stops penalizing you for it. Every percentage point off your effective rate falls straight to the bottom line.</p>
+          <h3>1. Same Workflow, Lower Rate</h3>
+          <p>Two apps cover everything Square does for you today. Pay Anywhere syncs to the terminal and runs Tap to Pay on your iPhone. Payments Hub handles invoicing, payment links, text-to-pay, and recurring billing.</p>
         </div>
 
         <div class="pillar">
-          <h3>2. Built for Service AR</h3>
-          <p>Invoicing, virtual terminal, ACH, and recurring billing in one account. Useful for facility billing, families on payment plans, and repeat dialysis or appointment routes.</p>
+          <h3>2. Next-Day Funding</h3>
+          <p>Run a transaction Monday, the money is in your bank Tuesday. No more two and three day waits. Same-day funding is available if you ever need it.</p>
         </div>
 
         <div class="pillar">
-          <h3>3. No Fund Holds, Real Support</h3>
-          <p>You get a true merchant account, not an aggregator profile. Deposits land on schedule, and you have a direct line to a US support team that knows your account.</p>
+          <h3>3. No Contracts, Real Support</h3>
+          <p>Month to month. No early termination fee, no setup fee. Direct line to a dedicated rep who handles your account, plus tech support that knows the apps and the terminal.</p>
         </div>
 
       </div>
     </div>
 
-    <!-- NEXT STEPS -->
+    <!-- HOW WE GET YOU LIVE -->
     <div class="section">
-      <div class="section-header">How the Switch Works</div>
+      <div class="section-header">How We Get You Live</div>
       <div class="steps">
 
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>15-minute call with Matt.</strong> Confirm monthly volume, average ticket, and how you take payments today. We use one Square deposit summary to lock real numbers.</div>
+          <div class="step-content"><strong>Send the basics.</strong> Reply to this proposal with the items in the box below and I will get the application started.</div>
         </div>
 
         <div class="step">
           <div class="step-num">2</div>
-          <div class="step-content"><strong>Light application.</strong> Standard merchant app, signed digitally. Decision and rate confirmation typically within 24 to 48 hours.</div>
+          <div class="step-content"><strong>Digital signature.</strong> I will email a short merchant application. Sign it from your phone or laptop in a few minutes.</div>
         </div>
 
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Activation.</strong> Virtual terminal and online invoicing are live the same week. No new hardware required for keyed and online transactions.</div>
+          <div class="step-content"><strong>Approval and account setup.</strong> Decision typically lands within 24 to 48 hours. Once approved, your AllProPay account is opened and rate confirmed.</div>
         </div>
 
         <div class="step">
           <div class="step-num">4</div>
-          <div class="step-content"><strong>Side by side for 30 days.</strong> Keep Square live for whatever you want while AllProPay runs the rest. You will see the rate difference in your own bank statement, not on a slide.</div>
+          <div class="step-content"><strong>Walk-through call.</strong> A quick 15 minutes together to set up Payments Hub (invoicing and payment links) and Pay Anywhere (Tap to Pay on your iPhone). Terminal ships if you want one.</div>
         </div>
 
         <div class="step">
           <div class="step-num">5</div>
-          <div class="step-content"><strong>Make the switch.</strong> Migrate the rest of your booking flow over once you have seen the numbers. We stay on the line during the move.</div>
+          <div class="step-content"><strong>You go live.</strong> Send your first invoice through AllProPay. Keep Square running as a backup if you want, there is no rush to turn it off.</div>
         </div>
 
+      </div>
+
+      <div class="needed" style="margin-top:18px;">
+        <strong>What I need from you to get started:</strong>
+        <ol>
+          <li>Legal business name (as registered)</li>
+          <li>Business address and EIN</li>
+          <li>Voided check or bank letter for the account where deposits should go</li>
+          <li>Driver's license or government ID (for the application signer)</li>
+        </ol>
       </div>
     </div>
 
     <!-- NOTES STRIP -->
     <div class="section">
       <div class="notes-strip">
-        <strong>The fine print.</strong> Standard AllProPay accounts include a $25 monthly platform fee. No long-term contract, no early termination fee, no setup fee on standard programs. Savings figures on this page are estimates based on Square's published rates and typical interchange-plus pricing for service merchants. Actual savings depend on final card mix, volume, and program selection.
+        <strong>The fine print.</strong> $25 monthly platform fee (already included in the $175 to $200 figure above). No long-term contract, no early termination fee, no setup fee. You can stay on Square in parallel for as long as you want. Pricing reflects the rate range quoted on our call and assumes the card mix and volume you described. Final rate is confirmed at approval.
       </div>
     </div>
 
     <!-- DARK CTA FOOTER -->
     <div class="cta-footer">
       <div>
-        <div class="cta-headline">Ready to see your real numbers?</div>
-        <div class="cta-sub">Send Matt one Square deposit summary or the last month of Square activity. He will come back with a locked-in rate and a side-by-side comparison in under 24 hours. No commitment.</div>
+        <div class="cta-headline">Ready to get started?</div>
+        <div class="cta-sub">Reply to this email or text me the four items above and I will send the application within the hour. Setup typically takes 24 to 48 hours from there. No commitment until you sign.</div>
       </div>
       <div class="cta-rep">
         <div class="who">Your direct contact</div>
