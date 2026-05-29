@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | ArgoLaney</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .snapshot-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .snapshot-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .snapshot-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .snapshot-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .snapshot-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .snapshot-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .snapshot-grid > div { margin-bottom: 10px; -webkit-column-break-inside: avoid; page-break-inside: avoid; }
+    .snapshot-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .snapshot-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .snapshot-callout { padding: 14px 18px; }
+    .snapshot-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your AllProPay Setup</h1>
+      <div class="subtitle">ArgoLaney</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Vinny Boling &nbsp;|&nbsp; ArgoLaney &nbsp;|&nbsp; Ohio</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Clover (standalone terminal) + WooCommerce online</span>
+        <span class="label">Date</span>
+        <span class="value">May 29, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>Vinny, this is a quick recap of what you walked us through, plus what an AllProPay setup would actually look like for the jewelry store. The goal of this page is simple: give you something concrete to digest on your own time, then make the next step easy when you are ready.</p>
+      <p>Here is what you confirmed on the call:</p>
+      <ul>
+        <li>Running a Clover Mini standalone terminal in the store, no POS integration on the Clover side.</li>
+        <li>ARM USA software handles the back office. Payments are not connected to it, and you do not want that to change.</li>
+        <li>Website is live on WooCommerce with a working shopping cart and checkout.</li>
+        <li>You absorb the card fees rather than passing them to customers, and you want to keep it that way.</li>
+        <li>Monthly volume runs above $100,000 in card sales. Card fees land somewhere between $3,000 and $5,000 a month.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Discovery Snapshot</div>
+      <p>Round numbers from the call. We use these to size the opportunity, not to set pricing. Real pricing gets locked once we see one recent Clover statement.</p>
+
+      <div class="snapshot-callout">
+        <div class="snapshot-grid">
+          <div>
+            <div class="pc-label">Monthly volume</div>
+            <div class="pc-value">$100K+</div>
+            <div class="pc-sub">Clover + WooCommerce combined</div>
+          </div>
+          <div>
+            <div class="pc-label">Monthly card fees</div>
+            <div class="pc-value">$3K-$5K</div>
+            <div class="pc-sub">Estimated, absorbed by ArgoLaney</div>
+          </div>
+          <div>
+            <div class="pc-label">Mix</div>
+            <div class="pc-value">Swiped &gt; Keyed</div>
+            <div class="pc-sub">Mostly in-person, some phone orders</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong>Worth knowing:</strong> Clover bundles your processor and your terminal into one box, which makes the rate hard to read on a statement. A lot of jewelry stores at $100K+ a month find that 15 to 25 percent of what they pay is markup sitting on top of the actual card-brand cost. We will not know your exact gap until we read one of your statements line by line.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What an AllProPay Setup Would Look Like</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">In-store, terminal-only</div>
+          <div class="p-body">A clean countertop terminal that swipes, dips, and taps just like the Clover Mini. ARM USA keeps doing what it does today. Nothing on your back office changes.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">WooCommerce, plugged in</div>
+          <div class="p-body">An AllProPay gateway connects to your existing WooCommerce checkout. Same shopping cart, same site, same customer experience. The processor behind it is just cheaper.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Interchange-plus, no padding</div>
+          <div class="p-body">You pay the card-brand cost plus a small, fixed markup. No tiered rates, no surprise downgrades, no contract, no early-termination fee.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Account, At a Glance</div>
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing model</td><td>Interchange-plus</td><td>Locked once we review one statement</td></tr>
+          <tr><td>Card rate (Visa, MC, Disc)</td><td>To be quoted</td><td>Based on actual mix from your statement</td></tr>
+          <tr><td>AMEX (OptBlue)</td><td>To be quoted</td><td>Direct AMEX, no separate AMEX bill</td></tr>
+          <tr><td>WooCommerce gateway</td><td>Included</td><td>One-time install, no monthly gateway charge</td></tr>
+          <tr><td>Next-day funding</td><td>Included</td><td>Standard on the account</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:9.5pt; color:var(--muted); font-style:italic;">Card rates are intentionally not filled in here. The honest answer is we cannot quote real numbers without seeing one Clover statement. Once we do, the numbers above get locked in writing.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is a Fair Look</div>
+      <ul class="why-list">
+        <li><strong>You keep everything that works.</strong> ARM USA stays. WooCommerce stays. Your checkout flow stays. We swap the processor under the hood, not the way you run the store.</li>
+        <li><strong>No fee pass-through.</strong> You said absorbing the fees is the right call for a jewelry customer base. We agree. This setup is built around lower absorbed cost, not surcharging.</li>
+        <li><strong>One bill, one team.</strong> In-store and online go through the same AllProPay account. Same support number, same statement, same monthly platform fee.</li>
+        <li><strong>No contract, no exit fee.</strong> If the numbers are not better than what you have on Clover, you walk. We only stay in business if you stay because you want to.</li>
+        <li><strong>You set the timeline.</strong> You told Kurt this could be a couple of months before you digest it. That is fine. We do not chase, and we do not pressure.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three short steps. The first one is the only one that matters this week:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Send one recent Clover statement.</strong> Email or text it to me. That is the only piece I need to put real numbers next to the placeholders in the table above. No commitment from you to do anything with it.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>I send back a side-by-side.</strong> Your current Clover cost, our quoted cost, line by line. If the savings are there, they will be obvious. If they are not, I will tell you that directly.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>You decide on your timeline.</strong> If it makes sense, we get the account opened (24 to 48 hour underwriting) and switch the in-store terminal and the WooCommerce gateway over. If it does not, no hard feelings.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "If the savings are there, we will show you. If they are not, we will tell you that too."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:9299303969" class="cta-btn">Text or Call Matt: 929-930-3969</a>
+        <div class="cta-print-text">Text or call Matt: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-contact">
+          <a href="tel:9299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Card-rate placeholders in this proposal are intentional. Final pricing is set after a one-statement review and is provided in writing before any application is signed. Estimated monthly cost ranges are based on volume and card-mix details you shared on the call and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
