@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Compass Collision</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --green: #15803D; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-value.green { color: #4ADE80; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your AllProPay Setup</h1>
+      <div class="subtitle">Compass Collision</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Adam &nbsp;|&nbsp; Compass Collision / Tideline Automotive &nbsp;|&nbsp; Charleston, SC</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">SignaPay &nbsp;|&nbsp; flat 3% cash discount, $50/month</span>
+        <span class="label">Based on</span>
+        <span class="value">Our call, June 1, 2026</span>
+        <span class="label">Date</span>
+        <span class="value">June 1, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>Adam, thanks for the few minutes on the phone. Here is everything we talked through, in one place. The goal of this page is simple: keep the program that already works for you, take the $50 monthly fee off the table, and put a free terminal in your shop. Nothing about how you run the counter changes.</p>
+      <p>You were clear about what matters, so we built this around it:</p>
+      <ul>
+        <li>You run a flat 3% on every card, debit and credit, in person and over the phone. It is disclosed, your customers cover it, and they are fine with it.</li>
+        <li>You are not looking to start eating fees. If debit were free to the customer, everyone would use it and the cost would land on you.</li>
+        <li>You pay SignaPay $50 a month for the service.</li>
+        <li>You run everything through one Deja Vu terminal, mostly in person with the occasional phone deposit, all in state.</li>
+      </ul>
+      <p>So this is not about changing a system that works. It is about making that exact system cost you less.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">The same program</div>
+          <div class="p-body">A flat 3% on every card, fully disclosed, with your customers covering it. The same thing they already see today. No new signage, no new conversations, no retraining.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">No monthly fee</div>
+          <div class="p-body">Your $50 a month goes away. That is $600 a year back in your pocket, and you give up nothing to get it. The program stays exactly the same.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Free terminal, next-day money</div>
+          <div class="p-body">We ship a terminal set up to match your Deja Vu, already programmed to your accounts. Plug it in and go. Deposits land the next morning.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Pricing</div>
+      <p>This is the setup for the Compass Collision account. The one number that changes is your monthly fee.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">What your customers pay</div>
+            <div class="pc-value">3% flat</div>
+            <div class="pc-sub">Same as today, every card, fully disclosed</div>
+          </div>
+          <div>
+            <div class="pc-label">What you pay to process</div>
+            <div class="pc-value green">$0</div>
+            <div class="pc-sub">Customers cover it, just like now</div>
+          </div>
+          <div>
+            <div class="pc-label">Monthly fee</div>
+            <div class="pc-value green">$0</div>
+            <div class="pc-sub">Down from $50 with SignaPay</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Terminal</td><td>Free</td><td>Matched to your Deja Vu, programmed and ready</td></tr>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>In person and over the phone</td><td>Same flat 3%</td><td>One rate covers every card type</td></tr>
+          <tr><td>Monthly fee</td><td>$0</td><td>Down from $50</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        The only line that moves is your monthly fee. It goes from <strong>$50 to $0, which is $600 a year straight to your bottom line.</strong> Everything your customers see and everything you do at the counter stays the same.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Option When You Are Ready</div>
+      <p>You mentioned the idea of not charging customers for debit. There is a compliant way to do it, and it lives on the same account, so you can flip to it whenever you want with no new paperwork.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Surcharge credit only.</strong> Credit cards carry the fee, and we can match your current rate so your customers see no change.</li>
+        <li><strong>Debit billed to the business at 1% plus 20 cents.</strong> A much lower rate than treating debit like credit. This part lands on you, not the customer.</li>
+        <li><strong>No rush, no commitment.</strong> Most shops your size start on the flat 3% above and leave it there. The split is there if you ever want it, on the same terminal and the same account.</li>
+      </ul>
+      <p style="margin-top:6px;">Our honest read for a shop your size: start with the flat 3% and no monthly fee. It saves you money day one and asks nothing of you or your customers. Keep the debit split in your back pocket.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li><strong>Nothing changes for your customers.</strong> Same 3%, same disclosure, same experience at the counter.</li>
+        <li><strong>$50 a month gone.</strong> $600 a year, with nothing given up to get it.</li>
+        <li><strong>Same terminal you know.</strong> We match the Deja Vu and set it up for you. No on-site visit, no downtime.</li>
+        <li><strong>Next-day deposits.</strong> Your money lands the morning after every batch.</li>
+        <li><strong>No contract, no cancellation fee.</strong> If it does not work for you, you walk. The numbers are the only thing holding it together.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three short steps, and most of it is on us:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Quick text to confirm.</strong> Chris will text you at the mobile you gave us. Pick any 5 to 10 minute window that works. A photo of your driver's license finishes most of the application.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>We set up your terminal.</strong> Programmed to your accounts and shipped ready to plug in. No on-site visit, no change to your day.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Switch on.</strong> Run the same 3% program on the new terminal. First batch funds the next morning, and the $50 monthly fee is gone for good.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You already have a setup that works. This just keeps it and drops the $50 a month."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303970" class="cta-btn">Text or Call Chris: 929-930-3970</a>
+        <div class="cta-print-text">Text or call Chris: 929-930-3970 &nbsp;|&nbsp; chris@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303970" style="color:inherit; text-decoration:none;">929-930-3970</a> (text friendly)<br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Pricing reflects what was discussed on our June 1, 2026 call. The cash discount program passes processing costs to card-paying customers, the same way you run it today. The $600 annual figure reflects elimination of your current $50 monthly service fee. Optional debit-split rates are estimates and depend on final card mix and program selection. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>

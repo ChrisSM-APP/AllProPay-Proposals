@@ -1,0 +1,32 @@
+{
+  "enabledPlugins": {
+    "context-mode@context-mode": true,
+    "claude-mem@thedotmack": true,
+    "github@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "brand-voice@knowledge-work-plugins": true,
+    "superpowers@claude-plugins-official": false,
+    "code-simplifier@claude-plugins-official": false,
+    "feature-dev@claude-plugins-official": false,
+    "skill-creator@claude-plugins-official": false,
+    "discord@claude-plugins-official": false,
+    "playwright@claude-plugins-official": false,
+    "claude-code-setup@claude-plugins-official": false,
+    "vibe-prospecting@claude-plugins-official": false,
+    "sales@knowledge-work-plugins": false,
+    "marketing@knowledge-work-plugins": false,
+    "small-business@knowledge-work-plugins": false,
+    "finance@knowledge-work-plugins": false,
+    "productivity@knowledge-work-plugins": false,
+    "enterprise-search@knowledge-work-plugins": false,
+    "legal@knowledge-work-plugins": false,
+    "data@knowledge-work-plugins": false,
+    "customer-support@knowledge-work-plugins": false,
+    "design@knowledge-work-plugins": false,
+    "operations@knowledge-work-plugins": false,
+    "vibe-prospecting@knowledge-work-plugins": false
+  }
+}
