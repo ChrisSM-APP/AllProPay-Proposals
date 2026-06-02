@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Manley Home Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 27pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .insight, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Keep Jobber. Lower the Card Rate.</h1>
+      <div class="subtitle">AllProPay inside Jobber - the written breakdown for Manley Home Services</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Manley Home Services &nbsp;|&nbsp; Austin Manley</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Your software</span>
+        <span class="value">Jobber (no change)</span>
+        <span class="label">Processor today</span>
+        <span class="value">Stripe (built into Jobber)</span>
+        <span class="label">Reviewed</span>
+        <span class="value">Discovery call (June 2, 2026)</span>
+        <span class="label">Date</span>
+        <span class="value">June 2, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>This is the written version of what we walked through on the phone, in one page you can pass along to whoever helps you with the numbers. The headline is simple, and it is the part that is easy to miss on a quick call:</p>
+      <ul>
+        <li><strong>You keep Jobber exactly as it is.</strong> You do not switch software, you do not learn a new system, and nothing changes for you or your customers. You keep paying your normal Jobber subscription.</li>
+        <li><strong>We replace Stripe behind the scenes.</strong> Jobber now allows outside processors to run through its built-in Authorize.net connection. We take over from Stripe on the back end, at a lower rate, while everything stays inside Jobber.</li>
+        <li><strong>This is Jobber-sanctioned, not a workaround.</strong> Jobber opened this up the same way QuickBooks lets you bring your own processor. It is on Jobber's own support page, not a third-party bolt-on.</li>
+        <li><strong>A lower rate works in your favor either way.</strong> You said you pass the fee to the customer. A lower rate means a smaller fee they see, so fewer of them reach for cash. And on the jobs where you absorb it, you keep more.</li>
+      </ul>
+      <p class="note">Numbers below reflect what was shared on the call. One recent Jobber or Stripe statement replaces the estimate with your exact rate, so the comparison is apples to apples and not a guess.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">A rate below Stripe</div>
+          <div class="p-body">Stripe is Jobber's default, and its flat rate sits around 2.9% plus 30 cents per transaction. We come in under that. The exact number is confirmed against one of your statements before anything goes live, so it is real, not a pitch.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Jobber stays your home base</div>
+          <div class="p-body">Scheduling, invoicing, your customer list, your workflow: all unchanged. We sit behind Jobber through its Authorize.net connection. Your customers pay the same way they do today and never know a thing changed.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">A real person on your account</div>
+          <div class="p-body">Next-day funding is standard on the account, and you get a direct line to your rep, not a support queue. No contract and no cancellation fee, so you can run it and judge it on the numbers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">How It Works</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>You keep invoicing in Jobber.</strong> Same screens, same routine. You build the invoice and send it exactly the way you do now.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>We swap the processor behind it.</strong> Through Jobber's Authorize.net connection, AllProPay takes over from Stripe. Jobber stays in charge of the software, we handle the money side underneath.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Your customer pays the same way.</strong> Card on the invoice, same checkout. If you pass the fee, the line they see is smaller because the rate is lower.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content"><strong>You keep more, funded the next day.</strong> Lower cost on the jobs you absorb, a smaller pass-through on the ones you do not, and funds in your account the next business day.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What It Costs</div>
+
+      <p>You told us roughly $25,000 a month in card volume, mostly per-job and not recurring. With one recent statement we lock your exact rate. Here is what we can commit to right now:</p>
+
+      <table>
+        <thead><tr><th>Item</th><th>What it is</th></tr></thead>
+        <tbody>
+          <tr><td>Your software</td><td>Jobber, unchanged. You keep your subscription and your setup.</td></tr>
+          <tr><td>Processor</td><td>AllProPay through Jobber's Authorize.net connection, replacing Stripe.</td></tr>
+          <tr><td>Card rate</td><td>Below Stripe's standard 2.9% plus 30 cents. Exact figure confirmed on your statement.</td></tr>
+          <tr><td>Funding</td><td>Next business day. Standard on the account.</td></tr>
+          <tr><td>Monthly platform fee</td><td>$25/mo flat. No tiers, no surprises.</td></tr>
+          <tr><td>Contract / cancellation fee</td><td>None. Run it and keep it only if the numbers hold up.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        The one missing number is your exact rate, and that is on purpose. <strong>Send one recent Jobber or Stripe statement and we replace the estimate with your real numbers</strong>, side by side against what you pay today. These are estimates based on what you shared on the call. Actual savings depend on your final card mix, volume, and program selection.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li><strong>You do not have to leave Jobber.</strong> The most common worry is "do I have to switch software." You do not. Jobber stays exactly as it is, and Jobber itself allows this.</li>
+        <li><strong>The fee your customers see gets smaller.</strong> You already pass it on. When the rate is lower, the line on their bill is lower, so fewer customers balk and ask to pay cash.</li>
+        <li><strong>Stripe is the expensive default, not the only option.</strong> Jobber uses Stripe out of the box, and Stripe's flat rate is built for convenience, not for volume like yours. At $25k a month, that gap is real money.</li>
+        <li><strong>There is no reason not to check the numbers.</strong> No contract, no cancellation fee. Send one statement, see the exact comparison, decide from there.</li>
+      </ul>
+      <p style="margin-top:12px;">You said it yourself: you do not believe in processing fees, and you would rather a customer just pay. The honest fix is not to hide the fee, it is to make it smaller. A lower rate inside the same Jobber you already use does exactly that, and it keeps more in your pocket on the jobs you cover yourself.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three short steps, nothing to chase:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Send one recent statement.</strong> A single Jobber payout summary or Stripe statement is all we need to lock your exact rate and build the apples-to-apples comparison.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>One short call to confirm fit.</strong> About 10 minutes with Matt to confirm your Jobber setup and walk the numbers. We handle the Authorize.net integration together on that call.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Go live inside Jobber.</strong> The integration is a remote handshake. Your next invoice runs the new way, at the lower rate, funded the next morning.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "Keep the software you already run. Let us make the card cost smaller, inside Jobber, with the exact number confirmed off your own statement."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Matt Butcher: 929-930-3969</a>
+        <div class="cta-print-text">Text or call Matt Butcher: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Figures reflect what was shared on the discovery call and Stripe's publicly listed standard rate. AllProPay confirms your exact rate against one recent statement, along with the Jobber Authorize.net integration and any state-specific requirements, before anything goes live. No contract, no long-term commitment, and no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+    <span>June 2, 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
