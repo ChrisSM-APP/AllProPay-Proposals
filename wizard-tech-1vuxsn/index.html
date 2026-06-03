@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Make-It-Right Plan for Wizard Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0052FF;
+    --ink: #1a1d24;
+    --muted: #5b6478;
+    --line: #e3e7ee;
+    --soft: #F5F7FA;
+    --navy: #0B1120;
+    --green: #0a8a3f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #ffffff;
+    color: var(--ink);
+    font-family: 'Inter', 'Open Sans', Calibri, Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 13.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 800px; margin: 0 auto; padding: 30px 40px 36px; }
+
+  h1, h2, h3 { font-family: 'Montserrat', Calibri, Arial, sans-serif; letter-spacing: -0.2px; }
+
+  /* Header */
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; padding-bottom: 16px; border-bottom: 3px solid var(--blue);
+  }
+  .logo-img { height: 52px; width: auto; display: block; }
+  .header-meta { font-size: 11px; color: var(--muted); text-align: right; line-height: 1.5; }
+  .header-meta .biz { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 15px; color: var(--ink); letter-spacing: -0.2px; }
+
+  /* Title */
+  .eyebrow { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); font-weight: 700; margin: 24px 0 6px; }
+  h1 { font-size: 26px; font-weight: 800; line-height: 1.15; color: var(--ink); margin-bottom: 14px; }
+
+  p { margin-bottom: 11px; }
+  .lede { color: var(--ink); font-size: 14px; }
+
+  /* Section heads */
+  h2 { font-size: 15.5px; font-weight: 700; color: var(--ink); margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--blue); }
+
+  /* Fixed list */
+  .fixed { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 6px 18px 6px 16px; }
+  .fixed ul { list-style: none; }
+  .fixed li { position: relative; padding: 10px 0 10px 28px; font-size: 13px; border-bottom: 1px solid var(--line); }
+  .fixed li:last-child { border-bottom: none; }
+  .fixed li::before {
+    content: ""; position: absolute; left: 3px; top: 13px;
+    width: 14px; height: 8px; border-left: 2.5px solid var(--green); border-bottom: 2.5px solid var(--green);
+    transform: rotate(-45deg);
+  }
+  .fixed li.pending::before {
+    border: none; left: 4px; top: 12px; width: 11px; height: 11px; border-radius: 50%;
+    background: transparent; box-shadow: inset 0 0 0 2px #d9a400; transform: none;
+  }
+  .fixed li strong { font-weight: 700; }
+  .fixed li .tag { color: var(--muted); }
+
+  /* Generic table */
+  table { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 12.5px; }
+  .tbl-wrap { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+
+  /* Breakdown table */
+  .breakdown thead th { background: var(--navy); color: #fff; text-align: left; padding: 10px 14px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; }
+  .breakdown thead th.amt { text-align: right; width: 18%; }
+  .breakdown td { padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .breakdown td.amt { text-align: right; font-weight: 700; white-space: nowrap; }
+  .breakdown td .note { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+  .breakdown tr:nth-child(even) td { background: var(--soft); }
+  .breakdown tr.total td { border-top: 2px solid var(--navy); border-bottom: none; font-weight: 800; background: #eef3ff; }
+  .breakdown tr.removed td:first-child { color: var(--muted); }
+
+  /* Compare table */
+  .compare { table-layout: fixed; }
+  .compare thead th { background: var(--navy); color: #fff; text-align: left; padding: 12px 14px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; vertical-align: top; font-size: 13px; }
+  .compare thead th.rowlab { width: 22%; background: #000; }
+  .compare thead th .sub { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5px; color: rgba(255,255,255,0.72); margin-top: 3px; }
+  .compare tbody th { text-align: left; padding: 11px 14px; background: var(--soft); font-weight: 700; font-size: 11.5px; color: var(--ink); vertical-align: top; border-bottom: 1px solid var(--line); }
+  .compare tbody td { padding: 11px 14px; vertical-align: top; border-bottom: 1px solid var(--line); font-size: 12px; }
+  .compare tbody td.colA { background: rgba(0,82,255,0.035); }
+  .compare tr:last-child th, .compare tr:last-child td { border-bottom: none; }
+  .compare tr.cost td { font-weight: 600; }
+  .compare .big { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 15px; display: block; }
+  .free { color: var(--green); font-weight: 700; }
+
+  .caption { font-size: 11px; color: var(--muted); margin-top: 8px; font-style: italic; }
+
+  /* Insight callout */
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 13px 18px; margin: 14px 0; font-size: 13px; }
+  .insight strong { color: #B45309; }
+
+  /* CTA */
+  .cta { background: var(--blue); color: #fff; border-radius: 10px; padding: 18px 22px; margin-top: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+  .cta .ctatext { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.35; }
+  .cta .ctatext span { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 4px; }
+  .cta .phone { background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 10px 16px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 17px; white-space: nowrap; }
+
+  /* Signoff + fine print */
+  .signoff { margin-top: 22px; font-size: 13px; }
+  .signoff .name { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: var(--ink); font-size: 14px; }
+  .signoff .contact { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .finep { font-size: 9.5px; color: #97a0b0; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); line-height: 1.55; }
+
+  @page { size: Letter; margin: 0.5in; }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 0; max-width: 100%; }
+    .tbl-wrap, .insight, .cta, .fixed { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay - Accept payments anywhere" class="logo-img">
+    <div class="header-meta">
+      <div class="biz">Wizard Tech</div>
+      Dylan Webber, Owner<br>
+      Burlington, Vermont<br>
+      PayROC MID 409162204802508 &middot; June 3, 2026
+    </div>
+  </div>
+
+  <div class="eyebrow">Make-It-Right Plan</div>
+  <h1>Let's square up your account, accurately this time.</h1>
+
+  <p class="lede">You flagged a handful of charges on your PayROC statements that did not belong there, and you asked me to walk the rest of it line by line. Fair on both counts. None of those junk charges were ones I put on your account, and a couple of Clover's own fees changed after we set you up. This page does three things: shows you what is already fixed, breaks down what you are actually paying and why, and lays out two clean ways forward so you can pick the one that fits Wizard Tech.</p>
+
+  <h2>What we have already fixed</h2>
+  <div class="fixed">
+    <ul>
+      <li><strong>$5 monthly maintenance fee removed.</strong> <span class="tag">It was never on your application. Confirmed gone on your April statement.</span></li>
+      <li><strong>$58 partial refund processed.</strong> <span class="tag">Credited back to your account March 12, 2026.</span></li>
+      <li class="pending"><strong>Retroactive credit in progress.</strong> <span class="tag">I have asked PayROC to credit back the transaction fees, auth misuse, AVS, and decline charges from account opening through April. The final amount is being confirmed and I will send it to you the moment I have it.</span></li>
+    </ul>
+  </div>
+
+  <h2>What you are actually paying now</h2>
+  <p>Here is your April statement broken into plain buckets. This is the line-by-line you asked for.</p>
+  <div class="tbl-wrap">
+    <table class="breakdown">
+      <thead>
+        <tr><th>What it is</th><th class="amt">April</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Debit cards you cover<span class="note">By law debit cannot be passed to the customer, so this part falls on you. 1% plus $0.35 per debit on $5,732.89 of debit volume.</span></td>
+          <td class="amt">$72.38</td>
+        </tr>
+        <tr class="removed">
+          <td>The 0.25% gap on credit you were covering<span class="note">Customers pay 3% on credit, the program ran at 3.25%, and you were eating the difference. This is removed under both options below.</span></td>
+          <td class="amt">$20.99</td>
+        </tr>
+        <tr>
+          <td>AllProPay program fee<span class="note">Account, support, statements. One flat number.</span></td>
+          <td class="amt">$25.00</td>
+        </tr>
+        <tr>
+          <td>Clover's own software fees<span class="note">Data protection, platform, keyed entry. Billed by Clover, not AllProPay. More on this below.</span></td>
+          <td class="amt">$12.30</td>
+        </tr>
+        <tr class="removed">
+          <td>Junk that should not have been there<span class="note">Auth misuse, declines, AVS. Part of the credit I am clawing back from PayROC.</span></td>
+          <td class="amt">$1.93</td>
+        </tr>
+        <tr class="total">
+          <td>Total you paid in April, on $14,378.57 in sales</td>
+          <td class="amt">$132.60</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">That works out to 0.92% of your sales in April and 1.19% in March. The two items marked above ($20.99 and $1.93) come off going forward.</p>
+
+  <h2>Yes, you are still well ahead of where you were</h2>
+  <p>You asked if you are still saving versus your old provider. You are, and it is not close. Here is the same business on both setups.</p>
+  <div class="tbl-wrap">
+    <table class="compare">
+      <thead>
+        <tr>
+          <th class="rowlab">&nbsp;</th>
+          <th>Before: MiCamp<span class="sub">Your prior provider, mid 2025</span></th>
+          <th>Now: AllProPay<span class="sub">PayROC, last two months</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>What you paid out of pocket</th>
+          <td>$174 to $300 per month</td>
+          <td class="colA">$97 to $133 per month</td>
+        </tr>
+        <tr>
+          <th>Effective rate on your sales</th>
+          <td>2.2% to 3.4%</td>
+          <td class="colA">0.9% to 1.2%</td>
+        </tr>
+        <tr>
+          <th>Who covered the card fees</th>
+          <td>All you</td>
+          <td class="colA">Customers cover credit, you cover debit only</td>
+        </tr>
+        <tr>
+          <th>Extra fees</th>
+          <td>$99.95 annual compliance fee, monthly statement fees</td>
+          <td class="colA">No annual fee. Junk being refunded</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">MiCamp figures are from your June and July 2025 statements. AllProPay figures are from your March and April 2026 statements. Both options below lower your cost further from here.</p>
+
+  <h2>Two clean ways forward</h2>
+  <p>Both options remove the 0.25% credit gap and the junk charges. The difference is how debit is handled. Pick whichever fits how you want to run the counter.</p>
+  <div class="tbl-wrap">
+    <table class="compare">
+      <thead>
+        <tr>
+          <th class="rowlab">&nbsp;</th>
+          <th>Option A: Adjusted Reward Choice<span class="sub">Nothing changes at the register</span></th>
+          <th>Option B: Flat 3%<span class="sub">Cash discount on every card</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Credit, who pays</th>
+          <td class="colA">Customer pays 3% at checkout. Same as today.</td>
+          <td>Customer pays 3% at checkout. Same as today.</td>
+        </tr>
+        <tr>
+          <th>Debit, who pays</th>
+          <td class="colA">You cover it, but lower. 1% plus $0.10 per debit, down from $0.35. The 0.25% that was sitting on your credit is gone.</td>
+          <td>Built into a flat 3% across all cards through compliant cash-discount pricing. You pay nothing on debit.</td>
+        </tr>
+        <tr>
+          <th>Monthly program fee</th>
+          <td class="colA">$25. No change.</td>
+          <td>$25. No change.</td>
+        </tr>
+        <tr>
+          <th>Clover fees</th>
+          <td class="colA">Apply either way. I am pushing Clover for a credit.</td>
+          <td>Apply either way. I am pushing Clover for a credit.</td>
+        </tr>
+        <tr>
+          <th>At the counter</th>
+          <td class="colA">No change. No new signage, no retraining.</td>
+          <td>Posted cash-discount signage plus an on-screen note at checkout. Set up to comply with Vermont and card-brand rules.</td>
+        </tr>
+        <tr class="cost">
+          <th>Estimated cost to you</th>
+          <td class="colA"><span class="big">$72 to $99 / mo</span>Roughly 0.7% to 0.9% of sales, mostly debit.</td>
+          <td><span class="big free">$36 to $37 / mo</span>Just the $25 program fee plus Clover. Under 0.5% of sales.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Estimates based on your March and April statements ($8,150 to $14,379 in monthly volume). Actual cost depends on your card mix and volume each month.</p>
+
+  <h2>About the Clover fees</h2>
+  <p>The Clover charges on your statement (data protection, platform, keyed entry) and the separate plan fee Clover bills you directly come straight from Clover, not AllProPay. Clover raised these in 2026. Their free plan moved to about $9.95 and the Essentials plan you are on moved to $29.95. That is not something I marked up or control, and it is the reason I do not usually push Clover.</p>
+  <p>Two things I am doing about it. First, I am asking Clover for a credit given the change landed after your setup. Second, when you call Clover, ask to be moved to the <strong>Payments plan</strong> rather than Essentials. The Payments plan carries card acceptance and basic reporting at the lower price and should cut what Clover bills you each month.</p>
+
+  <div class="cta">
+    <div class="ctatext">
+      Pick a 15-minute time and tell me which option you want.
+      <span>Reply to this, or text or call me and I will set it up the same day.</span>
+    </div>
+    <div class="phone">917-451-3036</div>
+  </div>
+
+  <div class="signoff">
+    <p style="margin-bottom:6px;">Thanks for staying with me while I got this right. The numbers should be simple, and after this they will be.</p>
+    <div class="name">Chris Ste-Marie</div>
+    <div class="contact">AllProPay &middot; 917-451-3036 &middot; chris@allpropay.com &middot; allpropay.com</div>
+  </div>
+
+  <div class="finep">
+    These are estimates based on the statements provided. Actual savings depend on final card mix, volume, and program selection. Dual pricing and cash discount programs are set up to comply with your location and card-brand rules, and pricing displayed to customers is configured accordingly. AllProPay &middot; 108 W 39th Street, Suite 1006, New York, NY 10018 &middot; 800-807-0356 &middot; allpropay.com
+  </div>
+
+</div>
+</body>
+</html>
