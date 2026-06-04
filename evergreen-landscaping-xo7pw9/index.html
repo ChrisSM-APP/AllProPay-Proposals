@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Evergreen Landscaping</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your AllProPay Setup</h1>
+      <div class="subtitle">Evergreen Landscaping</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Hilda &nbsp;|&nbsp; Evergreen Landscaping &nbsp;|&nbsp; Oregon</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">QuickBooks Payments</span>
+        <span class="label">Date</span>
+        <span class="value">June 4, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>Hilda, this puts everything we have talked about in one place. The goal is simple: stop Evergreen from giving up close to 3 percent of every card sale, and do it in a way that is clean, compliant, and easy to run.</p>
+      <p>You told us what matters. We built the setup around it:</p>
+      <ul>
+        <li>A steady, year-round business doing about $5,000 a month in card sales.</li>
+        <li>You are tired of losing close to 3 percent of every card payment to processing fees.</li>
+        <li>You want it simple. No month-by-month fee audits, no heavy accounting homework.</li>
+        <li>You want the cash-discount approach done legally and cleanly, with no gray area.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">Your fees drop to zero</div>
+          <div class="p-body">Dual pricing moves the card fee to the customer who chooses to pay by card. You keep the full ticket. The close to 3 percent you absorb today goes away.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Done the right way</div>
+          <div class="p-body">A properly structured, clearly disclosed program that follows the card brand rules. The card price is shown up front, not quietly tacked on after the sale.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Keep how you work</div>
+          <div class="p-body">It plugs into how you already invoice, and adds options if you want them: take a card in person, by payment link, or by text, not just on an invoice.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Setup</div>
+      <p>This is the dual-pricing setup built for the Evergreen Landscaping account.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Your processing cost</div>
+            <div class="pc-value">0%</div>
+            <div class="pc-sub">You keep the full ticket on every card sale</div>
+          </div>
+          <div>
+            <div class="pc-label">Customer card price</div>
+            <div class="pc-value">3 to 4%</div>
+            <div class="pc-sub">Shown at checkout, the customer chooses</div>
+          </div>
+          <div>
+            <div class="pc-label">Monthly platform fee</div>
+            <div class="pc-value">$25</div>
+            <div class="pc-sub">Account, statements, support, PCI</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Works with your current invoicing</td><td>Included</td><td>No big system change on your end</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        At about $5,000 a month and close to 3 percent in card fees, Evergreen is giving up <strong>roughly $1,500 to $1,800 a year</strong> to processing. Under dual pricing that cost moves to the paying customer and lands back in the business. These are estimates based on the volume and rate you shared. Dual pricing is a different model than a flat rate, and actual results depend on your card mix and how your customers pay.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Flexibility You Asked For</div>
+      <p>Dual pricing is the recommended setup because it takes the fee off your plate completely. If you ever decide you would rather not show a separate card price, you can switch to a straight, low-rate program where Evergreen absorbs the fee at a clean, transparent rate instead. Same account, same workflow, your call either way.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Start on dual pricing now.</strong> Your card fee drops to zero from day one.</li>
+        <li><strong>Switch to a flat low rate whenever you want.</strong> Same account, same workflow. The fee structure changes, the plumbing does not.</li>
+        <li><strong>No lock-in.</strong> Try one, see it on your statement, and move to the other if it fits better. No penalty either way.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li><strong>The fee you absorb today goes back to Evergreen.</strong> Roughly $1,500 to $1,800 a year stays in the business instead of going to card processing.</li>
+        <li><strong>The price is shown up front.</strong> Your customer sees the card price at checkout and chooses, so there are no surprises and nothing to argue about later.</li>
+        <li><strong>It is built the right way.</strong> A properly structured, clearly disclosed program that follows the card brand rules, not a fee quietly added after the sale.</li>
+        <li><strong>No contract, no setup fee, no cancellation fee.</strong> If it is not a fit, you walk. No penalty.</li>
+        <li><strong>No heavy lifting on your end.</strong> It plugs into how you already invoice. No month-by-month fee audits, no big system change.</li>
+      </ul>
+      <p style="margin-top:12px;">Here is the math on a real job: on a $200 invoice, the card price shows as about $206 to $208 at checkout. Your customer sees both the card price and the cash price and picks. You collect the full $200 either way, and the processing fee is covered. Run that across a typical month and the roughly $150 you give up today stays with Evergreen.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three short steps to get you live:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Quick 15 minute call.</strong> Matt walks you through exactly how the card price shows up for your customers and answers any questions. Nothing to prepare and no homework on your end.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>We set it up together.</strong> A short walkthrough, about 10 minutes, to open the account and connect it to how you already invoice. No long forms.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>You go live.</strong> Your next card sale runs on dual pricing. The fee is covered, and you keep the full ticket.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You have done the homework already. The setup is simple, and the fee you have been eating goes away."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Matt: 929-930-3969</a>
+        <div class="cta-print-text">Text or call Matt: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="../../../assets/AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Figures are based on the roughly $5,000 a month in card volume and close to 3 percent in card fees you shared on the call. Dual pricing is a different model than a flat rate, and actual results depend on final card mix, ticket size, and how your customers pay. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
