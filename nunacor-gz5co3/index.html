@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Payment Integration Proposal | Nunacor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img {
+    height: 72px;
+    width: auto;
+  }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* BODY */
+  .content { padding: 36px 40px 48px; }
+
+  /* TITLE BLOCK */
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar {
+    height: 4px;
+    background: var(--blue);
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-sub { font-size: 8.5pt; color: var(--muted); margin-top: 4px; }
+
+  /* COMPARISON TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .check { color: var(--green); font-weight: 700; }
+  .cross { color: var(--red); font-weight: 700; }
+
+  /* FINDING BLOCKS */
+  .finding {
+    border-left: 4px solid var(--orange);
+    background: #FFFBEB;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: #B45309;
+    margin-bottom: 8px;
+  }
+
+  /* SOLUTION CARDS */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .solution-card {
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .solution-card .card-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .solution-card .card-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .solution-card ul { margin-left: 16px; }
+  .solution-card ul li { font-size: 9.5pt; margin-bottom: 4px; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  /* WHY BULLETS */
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* NAVY CALLOUT */
+  .navy-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .navy-callout .nc-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16pt;
+    font-weight: 800;
+    color: #38BDF8;
+    margin-bottom: 10px;
+  }
+  .navy-callout p { color: #CBD5E1; font-size: 10pt; margin-bottom: 0; }
+
+  /* FOOTER */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  /* SIGNATURE BLOCK */
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .navy-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .navy-callout, .finding, .step, .stats-grid, table, .solution-card { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-img { height: 56px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 16px 0; }
+    .section { margin-bottom: 20px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .stats-grid { margin-bottom: 8px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .solution-grid { gap: 10px; }
+    .solution-card { padding: 14px; }
+    .solution-card .card-name { font-size: 13pt; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .navy-callout { padding: 14px 20px; margin: 12px 0; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Integration Proposal</h1>
+      <div class="subtitle">Nunacor</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Frank &nbsp;|&nbsp; Nunacor &nbsp;|&nbsp; Newfoundland, NL</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Business type</span>
+        <span class="value">Hotel + Restaurant &nbsp;|&nbsp; Two Locations</span>
+        <span class="label">Date</span>
+        <span class="value">May 20, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Overview</div>
+      <p>Frank, you are running two locations - a hotel and a restaurant - and right now your payment systems are not talking to each other. That means two separate bills, two sets of reports, and no single view of what is coming in across both operations.</p>
+      <p>This proposal outlines how AllProPay can consolidate your payment setup into one platform, with a Canadian processor underneath. One vendor. One reporting dashboard. One monthly statement.</p>
+      <p>The solution we are recommending is <strong>EPOSnow</strong> as your point-of-sale system, paired with <strong>Nuvei</strong> as your payment processor. Both are built for Canadian businesses. Both work together out of the box.</p>
+    </div>
+
+    <!-- CURRENT SITUATION -->
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Hotel payments</div>
+          <div class="stat-value">Adyen</div>
+          <div class="stat-sub">Reservation processing</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Restaurant / retail</div>
+          <div class="stat-value">Clover</div>
+          <div class="stat-sub">Point of sale + processing</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Locations</div>
+          <div class="stat-value">2</div>
+          <div class="stat-sub">Hotel + Restaurant</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Vendor relationships</div>
+          <div class="stat-value">2+</div>
+          <div class="stat-sub">No unified reporting</div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>The core problem:</strong> Two separate systems that do not integrate means you are reconciling payments across two platforms every month, running two support relationships, and getting no combined view of your total business volume.</div>
+    </div>
+
+    <!-- THE PROBLEM -->
+    <div class="section">
+      <div class="section-header">What This Is Costing You</div>
+
+      <div class="finding">
+        <h3>Fragmented reporting</h3>
+        <p>With Adyen and Clover running separately, there is no single dashboard showing what your hotel and restaurant brought in together. End-of-month reconciliation means manually pulling from two platforms and combining the numbers yourself.</p>
+      </div>
+
+      <div class="finding">
+        <h3>Two processors, two billing relationships</h3>
+        <p>You are managing two separate processing agreements, two fee structures, and two support contacts. When something goes wrong - a chargeback, a payout question, a terminal issue - you are navigating two different companies.</p>
+      </div>
+
+      <div class="finding">
+        <h3>No path to integration</h3>
+        <p>Your current setup was not built to grow together. As your hotel and restaurant operations become more connected - shared guests, combined loyalty, cross-location staff - a fragmented payment stack becomes a bigger operational drag.</p>
+      </div>
+    </div>
+
+    <!-- THE SOLUTION -->
+    <div class="section">
+      <div class="section-header">The AllProPay Solution</div>
+
+      <p>We are recommending a clean, two-part solution that solves the integration problem at both the software and processing level.</p>
+
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="card-label">Point of Sale</div>
+          <div class="card-name">EPOSnow</div>
+          <ul>
+            <li>Cloud-based - works from any device</li>
+            <li>Built for retail and hospitality</li>
+            <li>80+ third-party integrations</li>
+            <li>Real-time reporting across all locations</li>
+            <li>One dashboard for hotel and restaurant</li>
+            <li>Hardware included: terminal, printer, cash drawer</li>
+          </ul>
+        </div>
+        <div class="solution-card">
+          <div class="card-label">Payment Processing</div>
+          <div class="card-name">Nuvei</div>
+          <ul>
+            <li>Canadian processor - CAD-native</li>
+            <li>No currency conversion headaches</li>
+            <li>Supports in-person and card-not-present</li>
+            <li>Competitive rates for Canadian merchants</li>
+            <li>One processing relationship for both locations</li>
+            <li>Backed by AllProPay account management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="navy-callout">
+        <div class="nc-headline">One system. One processor. One bill.</div>
+        <p>Hotel reservations and restaurant sales through the same platform, settled through one Canadian processor, with a single monthly statement and one number to call if anything comes up.</p>
+      </div>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="section">
+      <div class="section-header">Before and After</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Current Setup</th>
+            <th>AllProPay + EPOSnow + Nuvei</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Unified reporting</td>
+            <td class="cross">No - two separate platforms</td>
+            <td class="check">Yes - one dashboard</td>
+          </tr>
+          <tr>
+            <td>Single processor for both locations</td>
+            <td class="cross">No</td>
+            <td class="check">Yes</td>
+          </tr>
+          <tr>
+            <td>Canadian processor</td>
+            <td>Varies</td>
+            <td class="check">Yes - Nuvei (CAD-native)</td>
+          </tr>
+          <tr>
+            <td>One vendor relationship</td>
+            <td class="cross">No - 2+ vendors</td>
+            <td class="check">Yes - AllProPay manages it</td>
+          </tr>
+          <tr>
+            <td>Cloud-based access</td>
+            <td>Partial</td>
+            <td class="check">Yes - any device, anywhere</td>
+          </tr>
+          <tr>
+            <td>Third-party integrations</td>
+            <td>Limited</td>
+            <td class="check">80+ available</td>
+          </tr>
+          <tr>
+            <td>Hardware included</td>
+            <td>Separate purchase</td>
+            <td class="check">Bundled in setup</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>AllProPay is not a large corporate processor. We work directly with business owners to find a setup that fits how they actually operate - not a cookie-cutter package.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>We handle the complexity.</strong> One conversation with us covers your POS, your processor, your hardware, and your support. You do not have to manage multiple vendors.</li>
+        <li><strong>Canadian focus.</strong> Nuvei is a Canadian company. Your money stays in CAD, settled in CAD, with a processor that understands how Canadian businesses work.</li>
+        <li><strong>Transparent pricing.</strong> What you agree to is what you pay. No surprises on your statement, no rate games at renewal.</li>
+        <li><strong>Real support.</strong> You have a direct contact - not a call center queue. If something breaks, someone picks up.</li>
+        <li><strong>No pressure timeline.</strong> We set this up on your schedule. You tell us when you are ready to move and we execute from there.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Here is what getting this done looks like:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Confirm the setup.</strong> We review your two locations - hotel and restaurant - and confirm exactly how EPOSnow and Nuvei get configured for your operation. We need about 20 minutes on a call to nail down the details.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Sign the agreement.</strong> Once the setup is confirmed and pricing is agreed, we send you a simple e-sign agreement. Two minutes to sign. That locks in your rates and starts the process.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Hardware ships, accounts activate.</strong> EPOSnow hardware ships to you. Nuvei account is activated. We walk you through the setup and you are live. Typical timeline from signed agreement to live: 5 to 7 business days.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "The goal is straightforward: get both locations running on one system, one processor, and one relationship - so you can focus on running the business instead of managing vendors."
+      </p>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris</div>
+        <div class="sig-contact">
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px; margin-left:auto;">
+        <div style="font-size:8.5pt; color:var(--muted); font-style:italic;">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span>Confidential &nbsp;·&nbsp; May 20, 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

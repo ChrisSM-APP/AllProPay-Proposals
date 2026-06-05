@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – POS + Payments Proposal | Modern Mouse Gifts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar {
+    height: 4px;
+    background: var(--blue);
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody tr.highlight-row { background: #EFF6FF; font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+  .check { color: var(--green); font-weight: 700; font-size: 11pt; }
+  .cross { color: var(--red); font-weight: 700; font-size: 11pt; }
+
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .compare-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .compare-callout .cc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .compare-callout .cc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+  }
+  .compare-callout .cc-value.ricochet { color: #F87171; }
+  .compare-callout .cc-value.allpropay { color: #38BDF8; }
+  .compare-callout .cc-value.savings { color: #4ADE80; }
+  .compare-callout .cc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .compare-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .compare-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .compare-callout, .finding, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-img { height: 56px; }
+    .content { padding: 16px 28px 20px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 10px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .finding { padding: 10px 14px; margin-bottom: 14px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 8px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .compare-callout { padding: 14px 20px; margin: 10px 0; }
+    .compare-callout .cc-value { font-size: 18pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>POS + Payments Proposal</h1>
+      <div class="subtitle">Modern Mouse Gifts</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Matt &amp; Enkhzaya &nbsp;|&nbsp; Modern Mouse Gifts</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current system</span>
+        <span class="value">ShopKeep by Lightspeed</span>
+        <span class="label">Date</span>
+        <span class="value">May 13, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Executive Summary</div>
+      <p>Based on your conversation with us, Modern Mouse Gifts has outgrown ShopKeep — and the Lightspeed acquisition has made a difficult situation worse. You run a consignment model with a large artist roster, an active events presence, and a catalog that needs serious inventory infrastructure. The system you have doesn't do any of that well.</p>
+      <p>This proposal shows you exactly how AllProPay solves all of it, and how it compares directly to Ricochet, the other option you've been evaluating.</p>
+      <ul>
+        <li>EPOSnow handles your full requirements: consignment operations, 10,000+ item inventory, barcode support, iPad and mobile, real-time event sync</li>
+        <li>$600 one-time equipment + $80/month software vs. Ricochet's ~$200/month</li>
+        <li>AllProPay processing rates well below the ~3% flat rate Ricochet locks you into — and you can leave if it ever doesn't work</li>
+      </ul>
+    </div>
+
+    <!-- COMPARISON CALLOUT -->
+    <div class="compare-callout">
+      <div>
+        <div class="cc-label">Ricochet est. monthly (software + processing)</div>
+        <div class="cc-value ricochet">~$950</div>
+        <div class="cc-sub">$200/mo software + ~3% on est. $25K volume · locked in</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="cc-label">AllProPay est. monthly (software + processing)</div>
+        <div class="cc-value allpropay">~$655</div>
+        <div class="cc-sub">$80/mo software + competitive IC+ rates · no contract</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="cc-label">Estimated monthly difference</div>
+        <div class="cc-value savings">~$295</div>
+        <div class="cc-sub">~$3,500/year · plus $600 one-time equipment</div>
+      </div>
+    </div>
+    <p class="note" style="text-align:center;">Estimates based on assumed $25,000 monthly card volume. Actual savings depend on your card mix, volume, and final program. We will show you your exact numbers before you commit to anything.</p>
+
+    <!-- CTA 1 -->
+    <div class="cta-wrap" style="margin-bottom:32px;">
+      <a href="https://allpropay.com/get-started/" class="cta-btn">Book a 15-Minute Call with Chris</a>
+      <div class="cta-print-text">Ready to talk? Call <a href="tel:+19299303970" style="color:inherit;">929-930-3970</a> or email <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+    </div>
+
+    <!-- WHERE YOU ARE NOW -->
+    <div class="section">
+      <div class="section-header">Where You Are Now</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Current POS</div>
+          <div class="stat-value warn">ShopKeep by Lightspeed</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Current processing</div>
+          <div class="stat-value danger">Bundled + locked</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">E-commerce</div>
+          <div class="stat-value">Ecwid</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Accounting</div>
+          <div class="stat-value">Google Sheets</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Inventory</div>
+          <div class="stat-value warn">10,000+ items</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Business model</div>
+          <div class="stat-value">Consignment + events</div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>You are on a closed system.</strong> Lightspeed controls your payment processing and sets your rates. There is no leverage and no competition. When you switch POS providers, you get the opportunity to own your processing relationship and set competitive rates for the first time.</div>
+    </div>
+
+    <!-- WHAT'S NOT WORKING -->
+    <div class="section">
+      <div class="section-header">What's Not Working</div>
+
+      <div class="finding">
+        <h3>1. The Lightspeed Acquisition Made Things Worse</h3>
+        <p>ShopKeep was functional until Lightspeed bought it. Since then, the experience has declined and the processing is bundled into their ecosystem — meaning your payment rates are set by the same company that already isn't serving you well. You have no recourse.</p>
+      </div>
+
+      <div class="finding">
+        <h3>2. Events Are a Manual Nightmare</h3>
+        <p>Before every event like Comic Con, you have to manually remove from inventory every item you're bringing, log each sale by hand on the day, then reimport everything that didn't sell when you get back. On a catalog of thousands of items with multiple artists, that's hours of work every time. It shouldn't work this way.</p>
+      </div>
+
+      <div class="finding">
+        <h3>3. Ricochet Locks You In the Same Trap</h3>
+        <p>Ricochet is purpose-built for consignment, which is why it made your shortlist. But it does its own payment processing at roughly 3%, and it does not share that relationship with anyone. If you move to Ricochet, you trade one locked system for another — at roughly $200/month in software fees plus 3% on every dollar you process, with no leverage and no exit.</p>
+      </div>
+    </div>
+
+    <!-- YOUR REQUIREMENTS vs EPOSNOW -->
+    <div class="section">
+      <div class="section-header">Your Requirements vs. EPOSnow</div>
+      <p>Based on your conversation with us, here is everything you said you needed — and how EPOSnow addresses each one.</p>
+
+      <table style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>What you need</th>
+            <th>Priority</th>
+            <th>EPOSnow</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consignment operations — split payments to artists, payout tracking, agreement management</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Supported</span></td>
+          </tr>
+          <tr>
+            <td>10,000+ item inventory without performance issues</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Supported</span></td>
+          </tr>
+          <tr>
+            <td>Barcode compatibility for in-store items</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Supported</span></td>
+          </tr>
+          <tr>
+            <td>Browser and iPad based — no Windows desktop dependency</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Cloud-based, iOS + Android</span></td>
+          </tr>
+          <tr>
+            <td>Mobile app for events — tap to sell, inventory syncs live</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Mobile app included</span></td>
+          </tr>
+          <tr>
+            <td>Real-time inventory sync across in-store, online, and events</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Cloud sync, real-time</span></td>
+          </tr>
+          <tr>
+            <td>Per-artist reporting and easy export for payouts</td>
+            <td><strong>Must have</strong></td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">Reporting + QuickBooks/Xero sync</span></td>
+          </tr>
+          <tr>
+            <td>Bookkeeping export for Proton / Google Sheets replacement</td>
+            <td>Nice to have</td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">CSV, QuickBooks, Xero</span></td>
+          </tr>
+          <tr>
+            <td>E-commerce integration (Ecwid or replacement)</td>
+            <td>Nice to have</td>
+            <td><span class="check">&#10003;</span> <span class="flag-green">80+ integrations</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td colspan="2"><strong>Requirements covered</strong></td>
+            <td><span class="flag-green">9 of 9</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight">EPOSnow handles consignment differently from a dedicated consignment-only system like Ricochet — it is a full retail platform with consignment built in. <strong>The operational needs you described (split payments, payout tracking, agreement management) are all supported.</strong> The difference is that your payment processing stays with AllProPay, not locked inside the POS company.</div>
+    </div>
+
+    <!-- COST COMPARISON -->
+    <div class="section">
+      <div class="section-header">Cost Comparison: AllProPay vs. Ricochet</div>
+      <p>This is a direct comparison of what you would pay with each option. Processing estimates are based on an assumed $25,000 monthly card volume — we will run this on your actual numbers when we talk.</p>
+
+      <table style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>Cost item</th>
+            <th>Ricochet</th>
+            <th>AllProPay + EPOSnow</th>
+            <th>Your advantage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Equipment (one-time)</td>
+            <td>Their hardware (cost varies)</td>
+            <td><strong>$600 one-time</strong></td>
+            <td><span class="flag-green">Known, fixed cost</span></td>
+          </tr>
+          <tr>
+            <td>Monthly software</td>
+            <td class="flag-red">~$200/month</td>
+            <td><strong>$80/month</strong></td>
+            <td><span class="flag-green">$120/month less</span></td>
+          </tr>
+          <tr>
+            <td>Processing rate</td>
+            <td class="flag-red">~3.0% (locked in)</td>
+            <td><strong>AllProPay IC+ rates</strong></td>
+            <td><span class="flag-green">Typically 0.5–0.8% lower</span></td>
+          </tr>
+          <tr>
+            <td>Processing cost (est. $25K/mo)</td>
+            <td class="flag-red">~$750/month</td>
+            <td><strong>~$575/month</strong></td>
+            <td><span class="flag-green">~$175/month less</span></td>
+          </tr>
+          <tr>
+            <td>Contract</td>
+            <td class="flag-red">Locked in</td>
+            <td><strong>No contract</strong></td>
+            <td><span class="flag-green">Leave anytime</span></td>
+          </tr>
+          <tr>
+            <td>Rate control</td>
+            <td class="flag-red">Ricochet sets your rate</td>
+            <td><strong>You own the relationship</strong></td>
+            <td><span class="flag-green">Leverage + transparency</span></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Estimated monthly total</strong></td>
+            <td class="flag-red"><strong>~$950/month</strong></td>
+            <td><strong>~$655/month</strong></td>
+            <td class="flag-green"><strong>~$295/month less</strong></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Estimated annual total</strong></td>
+            <td class="flag-red"><strong>~$11,400/year</strong></td>
+            <td><strong>~$8,460/year + $600 equipment</strong></td>
+            <td class="flag-green"><strong>~$2,340 less in year 1</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">Processing estimates assume $25,000/month in card volume at stated rates. Actual AllProPay rates depend on your card mix. These are estimates, not guarantees — we will build an exact comparison from your actual numbers before you sign anything.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>We are not a large corporate processor. We work directly with merchants to find a setup that fits how they actually do business.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>No contract.</strong> You are not locked in. If it does not work for any reason, you can leave.</li>
+        <li><strong>No cancellation fees. No setup fees</strong> on standard programs.</li>
+        <li><strong>You own the processing relationship.</strong> Your rates are not set by your POS company. You have leverage and transparency — something Lightspeed and Ricochet will never offer.</li>
+        <li><strong>One call for everything.</strong> As an authorized EPOSnow reseller, we handle the hardware, the software, and the processing. One vendor, one relationship, one support number.</li>
+        <li><strong>Your actual numbers, not guesses.</strong> We will build an exact cost comparison before you commit to anything. If the savings are there, you will see them clearly. If they are not, we will tell you that too.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Here is how this works:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Get 15 minutes on the calendar.</strong> We walk through what you told us on the call, confirm the setup details, and run your actual numbers. No pitch — just the math.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>We confirm fit.</strong> Your inventory size, consignment workflow, events setup, and any specific artist reporting needs. We make sure EPOSnow handles everything before you make any decisions.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>We show you the exact numbers.</strong> Side-by-side against what you would pay elsewhere — based on your actual volume, not estimates. No pressure either way. The numbers will make the case.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You have been running your business on a system that wasn't built for it. That's fixable — and it doesn't have to cost more."
+      </p>
+
+      <!-- CTA 2 -->
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="https://allpropay.com/get-started/" class="cta-btn">Book My 15-Minute Call with Chris</a>
+        <div class="cta-print-text">To get started: <a href="tel:+19299303970" style="color:inherit;">929-930-3970</a> &nbsp;|&nbsp; <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303970" style="color:inherit; text-decoration:none;">929-930-3970</a><br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div>
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span>Confidential — prepared for Modern Mouse Gifts</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Payment Program Review | Roslyn's Queen of Clean + Prestige Spa</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value { font-family: 'Montserrat', sans-serif; font-size: 22pt; font-weight: 800; color: #38BDF8; }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-logo { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800; color: var(--black); }
+  .sig-logo span { color: var(--blue); font-style: italic; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .highlight-box {
+    background: #EFF6FF;
+    border-left: 4px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .highlight-box strong { color: var(--blue); }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  .biz-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  .biz-header:first-of-type { margin-top: 0; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .highlight-box, .savings-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .savings-callout, .finding, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 16px 28px 20px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 20pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 12pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 10px 0; }
+    .section { margin-bottom: 14px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .stats-grid { margin-bottom: 8px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    table { margin-bottom: 8px; }
+    .finding { padding: 10px 14px; margin-bottom: 14px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 10px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .savings-callout .sc-value { font-size: 18pt; }
+    .savings-callout .sc-label { font-size: 8pt; }
+    .savings-callout .sc-sub { font-size: 7.5pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Program Review</h1>
+      <div class="subtitle">Roslyn's Queen of Clean &amp; Prestige Spa</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Shauna Smith &nbsp;|&nbsp; Roslyn's Queen of Clean + Prestige Spa &nbsp;|&nbsp; Roslyn, WA</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Based on</span>
+        <span class="value">Call discussion &nbsp;|&nbsp; Stripe (cleaning) + Square (spa)</span>
+        <span class="label">Date</span>
+        <span class="value">May 20, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Summary</div>
+      <p>You are running two businesses on two separate processors, both of which are structured in a way that costs you more than necessary. Based on what you shared on our call, the combined savings opportunity across Roslyn's Queen of Clean and Prestige Spa is estimated at <strong>$750 to $900 per month</strong> - roughly $9,000 to $11,000 per year.</p>
+      <p>This proposal outlines what we recommend for each business, how the numbers break down, and what the transition would look like. The Jobber integration you rely on for the cleaning business stays exactly the same - only the processor changes behind the scenes.</p>
+      <ul>
+        <li>Roslyn's Queen of Clean: currently paying roughly 3.3% through Stripe - estimated savings of ~$520/month</li>
+        <li>Prestige Spa: currently paying 2.5%+ through Square - estimated savings of ~$250 to $300/month</li>
+        <li>Both businesses qualify for the same EDGE program: customers cover the processing fee, your out-of-pocket goes to zero</li>
+        <li>POS replacement for the spa available at $70 to $75/month - handles invoicing, inventory, and daily operations</li>
+      </ul>
+      <p class="note">These are estimates based on the information shared on our call. Actual savings depend on final card mix, volume, and program selection.</p>
+    </div>
+
+    <!-- SAVINGS CALLOUT -->
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">Estimated annual savings (combined)</div>
+        <div class="sc-value">$9,000 - $11,000</div>
+        <div class="sc-sub">Estimates based on call discussion - not guarantees</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Combined monthly volume</div>
+        <div class="sc-value">$60,000+</div>
+        <div class="sc-sub">Cleaning ~$35k + Spa ~$28k avg</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Your processing cost with AllProPay</div>
+        <div class="sc-value">$0</div>
+        <div class="sc-sub">EDGE program - customers cover the fee</div>
+      </div>
+    </div>
+
+    <!-- CTA 1 -->
+    <div class="cta-wrap">
+      <a href="mailto:chris@allpropay.com" class="cta-btn">Ready to Move Forward? Let's Talk</a>
+      <div class="cta-print-text">Call <a href="tel:9174513036" style="color:inherit;">917-451-3036</a> or email <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+    </div>
+
+    <!-- CURRENT SETUP -->
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="biz-header">Business 1 - Roslyn's Queen of Clean</div>
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Monthly volume</div>
+          <div class="stat-value">~$35,000</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Current processor</div>
+          <div class="stat-value">Stripe (via Jobber)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Estimated current rate</div>
+          <div class="stat-value warn">~3.3%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Estimated monthly fees</div>
+          <div class="stat-value danger">~$1,150</div>
+        </div>
+      </div>
+
+      <div class="biz-header">Business 2 - Prestige Spa (Gary)</div>
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Monthly volume (avg)</div>
+          <div class="stat-value">~$25,000 - $60,000</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Current processor</div>
+          <div class="stat-value">Square (POS)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Estimated current rate</div>
+          <div class="stat-value warn">2.5%+</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Estimated monthly fees</div>
+          <div class="stat-value danger">$700+</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong>Worth noting on the spa side:</strong> At $60,000 in monthly volume during peak season, a 2.5% Square rate means roughly $1,500 in fees that month alone. A single high-ticket spa sale at $60,000 processed at 3% costs $1,800 in fees. The savings on large-ticket transactions are where the gap is most significant.
+      </div>
+    </div>
+
+    <!-- WHAT WE FOUND -->
+    <div class="section">
+      <div class="section-header">The Issue with the Current Setup</div>
+
+      <div class="finding">
+        <h3>Stripe's flat rate is not the right structure for a $35k/month service business</h3>
+        <p>Stripe charges a flat 2.9% + $0.30 per transaction, which means you are paying the same rate whether a customer puts $50 on their card or $2,000. For a cleaning business processing at this volume, interchange-plus pricing - where you pay the actual card cost plus a fixed margin - is almost always more cost-effective. The difference between 3.3% flat and a properly structured interchange-plus program at your volume is meaningful.</p>
+      </div>
+
+      <div class="finding">
+        <h3>Square is designed for simple retail - not a spa business with large tickets and inventory</h3>
+        <p>Square works well for quick-service businesses, but it is not purpose-built for a spa that invoices, tracks inventory, and processes large ticket sales. At 2.5%+ per transaction, a $1,500 spa ticket costs $37.50 in fees. The POS we would put Gary on handles the same workflows at a lower overall cost - and the cash discount program shifts the processing fee to the customer entirely.</p>
+      </div>
+
+      <div class="highlight-box">
+        <strong>On the Jobber integration:</strong> We have confirmed that the Jobber payment integration continues to work normally. Your invoices, scheduling, and client records all stay inside Jobber. Only the processor that powers the payment changes. This was the sticking point with the bank setup that did not work out previously - it is not an issue here.
+      </div>
+    </div>
+
+    <!-- RECOMMENDATION -->
+    <div class="section">
+      <div class="section-header">What We Recommend</div>
+
+      <div class="biz-header">Roslyn's Queen of Clean - EDGE Cash Discount Program</div>
+      <p>We move the cleaning business from Stripe to a compliant EDGE (cash discount) setup. Under this program, customers who pay by card are charged a small service fee that covers the processing cost. Your effective processing cost drops to zero. Jobber stays in place - customers pay through the same flow they use today.</p>
+      <ul>
+        <li>Your processing cost: $0 on transactions</li>
+        <li>Customers pay a disclosed service fee (compliant, properly registered)</li>
+        <li>Jobber integration: unchanged</li>
+        <li>Platform fee: $25/month</li>
+      </ul>
+
+      <div class="biz-header" style="margin-top:20px;">Prestige Spa - EDGE + Purpose-Built POS</div>
+      <p>We replace the Square setup with a full POS system built for service businesses - one that handles invoicing, inventory, daily operations, and appointment-based sales. The same EDGE cash discount program applies, so Gary's processing cost on transactions also drops to zero. The POS monthly cost is $70 to $75 per month.</p>
+      <ul>
+        <li>Full POS with invoicing, inventory, and daily operations</li>
+        <li>EDGE cash discount: processing cost on transactions drops to $0</li>
+        <li>POS cost: $70 to $75/month</li>
+        <li>No long-term contract</li>
+      </ul>
+    </div>
+
+    <!-- SAVINGS TABLE -->
+    <div class="section">
+      <div class="section-header">Estimated Savings Breakdown</div>
+      <p>The table below is a conservative estimate based on the volume and rates shared on our call. Actual savings depend on final program selection, card mix, and volume.</p>
+
+      <table style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Current monthly cost</th>
+            <th>With AllProPay</th>
+            <th>Est. monthly savings</th>
+            <th>Est. annual savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Roslyn's Queen of Clean</td>
+            <td class="flag-red">~$1,150</td>
+            <td>$25/mo (platform fee)</td>
+            <td class="flag-green">~$520</td>
+            <td class="flag-green">~$6,240</td>
+          </tr>
+          <tr>
+            <td>Prestige Spa</td>
+            <td class="flag-red">$700+</td>
+            <td>$70-75/mo (POS fee)</td>
+            <td class="flag-green">~$250 to $300</td>
+            <td class="flag-green">~$3,000 to $3,600</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Combined total</strong></td>
+            <td><strong>~$1,850+/month</strong></td>
+            <td><strong>~$95-100/mo</strong></td>
+            <td><strong class="flag-green">~$750 to $900</strong></td>
+            <td><strong class="flag-green">~$9,000 to $11,000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">These are estimates. The cleaning business figure assumes $35k/month at 3.3% vs. the EDGE program. The spa figure assumes $28k/month average at 2.5%+. Actual results will vary based on final volume, card mix, and seasonal fluctuations.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>AllProPay is not a large corporate processor. We work directly with merchants to find a setup that fits how they actually do business - not just the cheapest option on paper.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you can leave.</li>
+        <li><strong>No cancellation fees.</strong> No penalty if you decide to switch or cancel.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no surprises six months in.</li>
+        <li><strong>Compliant cash discount setup.</strong> The EDGE program is properly registered - not a workaround that leaves you exposed.</li>
+        <li><strong>Jobber stays.</strong> We have done this integration before. Your workflow does not change.</li>
+        <li><strong>One point of contact.</strong> Both businesses, one rep, one conversation if something needs to be fixed.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Here is what moving forward looks like:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Quick call - you, Gary, and me.</strong> 20 minutes is enough to walk through the numbers for both businesses, confirm the Jobber setup, and answer any questions Gary has on the spa side. I will send over a few times - just reply to pick one.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>We finalize the setup.</strong> Once we confirm the program, I send over the application. It takes about 10 minutes to complete. No upfront costs, no credit check for standard programs.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>You go live.</strong> For the cleaning business, the switch happens behind the scenes in Jobber - nothing changes on your end or your customers' end. For the spa, we coordinate the POS transition at a time that works for Gary.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content"><strong>You start keeping more of what you earn.</strong> From the first full month, the savings show up in what you are no longer paying out in processing fees.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "The goal is straightforward: show you what you are actually paying, compare it to what you would pay with us, and let the numbers make the case."
+      </p>
+
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="mailto:chris@allpropay.com" class="cta-btn">Book a Call with Chris</a>
+        <div class="cta-print-text">To get started: <a href="tel:9174513036" style="color:inherit;">917-451-3036</a> &nbsp;|&nbsp; <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:9174513036" style="color:inherit; text-decoration:none;">917-451-3036</a><br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px; margin-left:auto;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+    <span>Confidential - prepared for Shauna Smith</span>
+  </div>
+
+</div>
+</body>
+</html>

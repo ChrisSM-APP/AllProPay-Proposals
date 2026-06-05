@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - POS Terminal Proposal | AFD Petroleum</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  td .pending { color: var(--orange); font-weight: 600; }
+  td .set { color: var(--green); font-weight: 600; }
+  td .projected { color: var(--blue); font-weight: 600; }
+
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .signature-block {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-intro { font-size: 10pt; color: var(--text); margin-bottom: 16px; }
+  .sig-people {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .sig-card { flex: 1; }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-title { font-size: 9pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 6px; line-height: 1.8; }
+  .sig-logo-wrap { text-align: right; flex-shrink: 0; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .scope-note {
+    background: var(--light-gray);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .scope-note strong { color: var(--blue); }
+
+  .savings-callout {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    color: #fff;
+  }
+  .savings-callout .callout-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #38BDF8;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .savings-callout .callout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 18px;
+  }
+  .savings-callout .callout-item { text-align: center; }
+  .savings-callout .callout-label {
+    font-size: 8pt;
+    color: #94A3B8;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .savings-callout .callout-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+    line-height: 1.1;
+  }
+  .savings-callout .callout-body {
+    font-size: 9.5pt;
+    color: #E2E8F0;
+    line-height: 1.6;
+  }
+  .savings-callout .callout-note {
+    font-size: 8pt;
+    color: #64748B;
+    margin-top: 12px;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .insight, .scope-note, .step-num, thead tr, .savings-callout { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .finding, .step, .stats-grid, table, .insight, .scope-note, .savings-callout { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; margin-bottom: 14px; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-img { height: 56px; }
+    .content { padding: 16px 28px 20px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 10px 0; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .stats-grid { margin-bottom: 8px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    table { margin-bottom: 8px; }
+    .finding { padding: 10px 14px; margin-bottom: 14px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 6px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 4px 10px; margin-bottom: 3px; font-size: 9pt; }
+    .why-list { margin-top: 8px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+    .insight, .scope-note { padding: 9px 14px; margin: 10px 0; font-size: 9pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&#183;&nbsp; support@allpropay.com &nbsp;&#183;&nbsp; allpropay.com
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>POS Terminal Proposal</h1>
+      <div class="subtitle">AFD Petroleum</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Alex Martin &nbsp;|&nbsp; AFD Petroleum &nbsp;|&nbsp; Alberta, Canada</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &amp; Jason Jiha &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Based on</span>
+        <span class="value">Discovery call, May 13, 2026</span>
+        <span class="label">Scope</span>
+        <span class="value">Phase 1 &nbsp;|&nbsp; Retail POS terminals</span>
+        <span class="label">Date</span>
+        <span class="value">May 19, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">The short version</div>
+      <p>Alex, this picks up from our call on May 13. We are keeping this simple and phased, exactly the way we agreed.</p>
+      <p>Phase 1 is one thing only: your retail POS terminals. The eBiz Business Central setup stays exactly where it is. The autopay, the customer portal, the tokenized cards on file, none of that moves. The unmanned gas stations and cardlock locations are out of scope too. We are not asking you to re-live the migration headache your customers went through last time.</p>
+      <p>What this proposal covers is the part that is not working: the in-branch POS terminals that have not had tap or Amex turned on for over four months. We want to fix that, and put those locations on a setup that does what you actually asked for.</p>
+      <p style="margin-top:12px;"><strong>This is a quote before your statement even lands. We wanted you to see we did the work, so the moment you send one POS statement over, the numbers are ready to finish.</strong></p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your current setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-label">Merchant IDs total</div><div class="stat-value">About 60</div></div>
+        <div class="stat-cell"><div class="stat-label">Across</div><div class="stat-value">3 providers</div></div>
+        <div class="stat-cell"><div class="stat-label">Global Pay</div><div class="stat-value">~39 MIDs</div></div>
+        <div class="stat-cell"><div class="stat-label">Chase</div><div class="stat-value">5 to 10 MIDs</div></div>
+        <div class="stat-cell"><div class="stat-label">eBiz / Elavon</div><div class="stat-value">11 MIDs</div></div>
+        <div class="stat-cell"><div class="stat-label">POS terminals today</div><div class="stat-value">Move 5000</div></div>
+        <div class="stat-cell"><div class="stat-label">POS monthly volume</div><div class="stat-value warn">~$1M (to confirm)</div></div>
+        <div class="stat-cell"><div class="stat-label">Phase 1 scope</div><div class="stat-value good">Retail POS only</div></div>
+      </div>
+
+      <div class="scope-note">The eBiz / Elavon group of 11 MIDs covers both your Business Central connector and roughly 10 retail POS terminals. <strong>Phase 1 touches the POS terminals only.</strong> The Business Central connector, autopay, and customer portal stay on eBiz. The Global Pay and Chase merchant IDs for retail gas and cardlock stay exactly where they are.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What is not working</div>
+
+      <div class="finding">
+        <h3>Tap and Amex have been off your POS terminals for over four months</h3>
+        <p>You told us that despite repeated requests over the last four-plus months, eBiz has not enabled contactless or Amex acceptance on your Move 5000 POS terminals. That has a real cost:</p>
+        <ul>
+          <li>Every tap-preferring customer at the counter gets slowed down or turned away from how they want to pay.</li>
+          <li>No Amex at the counter means a card your customers carry simply does not work for lube sales, race fuel, or in-person bill payments.</li>
+          <li>The terminals are rented through Elavon, so you are paying every month for equipment that is not doing the full job.</li>
+        </ul>
+        <p style="margin-top:8px;">This is not a pricing problem. It is a service problem. Four months of unanswered requests is the issue we want to solve first.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What the new POS terminals will do</div>
+      <p>From our call, the new terminals at the branch locations need to do four things. This is the spec we are building to:</p>
+      <ul>
+        <li><strong>Accept Visa, Mastercard, and Amex</strong> at the counter, all three, from day one.</li>
+        <li><strong>Tap and contactless enabled</strong> out of the box, not four months later.</li>
+        <li><strong>An invoice-number prompt at checkout</strong> so every POS sale ties back to a sales invoice. That is what lets your team reconcile counter transactions against bank deposits cleanly.</li>
+        <li><strong>Built for branch counter use</strong> for lube sales, race fuel purchases, and in-person bill payments.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Phase 1 - the retail POS locations</div>
+      <p>Based on the call, these are the retail branch locations in scope for Phase 1. Your MID list will confirm the final count and pair each location to a merchant ID.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Province / Territory</th>
+            <th>Locations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Alberta</td><td>Edmonton (3 locations), Nisku, Hinton, Edson</td></tr>
+          <tr><td>British Columbia</td><td>Kelowna, Mission, Victoria, Campbell River</td></tr>
+          <tr><td>Yukon</td><td>Whitehorse, Dawson City</td></tr>
+        </tbody>
+      </table>
+      <p>The plan is one terminal per location as the baseline. Some higher-traffic branches may want a second unit, and we will confirm that location by location once we have the MID list in hand.</p>
+      <p class="note">Locations captured from our May 13 call. Please flag any spelling or any site we missed when you send the MID list.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Pricing</div>
+      <p>Here is how Phase 1 prices out. Two numbers are set. Two get confirmed the moment we have your statement and your terminal models. We will not guess at either.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>AllProPay - Phase 1 POS</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Per-transaction fee</td>
+            <td>5 cents per transaction, flat</td>
+            <td><span class="set">Set</span></td>
+          </tr>
+          <tr>
+            <td>Monthly fee</td>
+            <td>$15 per month, per merchant ID, all-in</td>
+            <td><span class="set">Set</span></td>
+          </tr>
+          <tr>
+            <td>Processing rate</td>
+            <td>Interchange-plus, 0.10% markup. No assessment stacking, no hidden layers. Confirmed side by side when your statement arrives.</td>
+            <td><span class="projected">Projected | Confirmed with statement</span></td>
+          </tr>
+          <tr>
+            <td>Terminal rental</td>
+            <td>Monthly rental, quoted per location once the terminal model is set for each site</td>
+            <td><span class="pending">Quoted with MID list</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="scope-note">The <strong>$15 monthly fee per merchant ID is all-in</strong>. It covers the platform, PCI compliance, statements, and support. No separate platform fee, no PCI fee, no statement fee, no gateway fee on top.</div>
+
+      <div class="savings-callout">
+        <div class="callout-title">What your Elavon statement likely shows</div>
+        <div class="callout-grid">
+          <div class="callout-item">
+            <div class="callout-label">Your quoted rate</div>
+            <div class="callout-value">0.15%</div>
+          </div>
+          <div class="callout-item">
+            <div class="callout-label">Estimated actual (ERR pricing)</div>
+            <div class="callout-value">~0.30%</div>
+          </div>
+          <div class="callout-item">
+            <div class="callout-label">Monthly gap on $1M volume</div>
+            <div class="callout-value">~$1,400</div>
+          </div>
+        </div>
+        <p class="callout-body">Elavon uses ERR (Enhanced Recover Reduced) pricing. Your 0.15% discount rate does not include the network assessment fees that Elavon charges separately as a pass-through on the same transactions. On nearly every Elavon merchant statement we have reviewed, the effective rate runs between 0.28% and 0.32%. At $1M monthly POS volume, that gap is roughly $1,300 to $1,700 per month that does not appear in the rate you were quoted.</p>
+        <p class="callout-body" style="margin-top:8px;">AllProPay runs interchange-plus at 0.10% markup. Assessments pass through at cost, once. No doubling. Once your statement arrives, we put both sides on the same page line by line so you can show your CFO exactly where the difference comes from.</p>
+        <p class="callout-note">Estimates based on typical Elavon ERR merchant profiles at comparable POS volume. Exact figures confirmed when statement is received.</p>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="tel:+15145563475" class="cta-btn">Call Chris: 514-556-3475</a>
+      <div class="cta-print-text">Questions? Chris <a href="tel:+15145563475" style="color:inherit;">514-556-3475</a> &nbsp;|&nbsp; Jason <a href="tel:+14388722233" style="color:inherit;">438-872-2233</a></div>
+    </div>
+
+    <div class="section" style="margin-top:36px;">
+      <div class="section-header">Why this makes sense</div>
+      <ul class="why-list">
+        <li><strong>It fixes the actual problem.</strong> Tap and Amex live from day one, not four months of waiting on a provider that did not deliver.</li>
+        <li><strong>It solves the reconciliation headache.</strong> The invoice-number prompt means every counter sale ties back to an invoice and a bank deposit.</li>
+        <li><strong>Nothing else moves.</strong> Business Central, autopay, the customer portal, the tokenized cards all stay on eBiz. No customer disruption, no repeat of the last migration.</li>
+        <li><strong>The pricing is transparent.</strong> 5 cents a transaction, $15 a month per MID all-in, interchange-plus with no assessment stacking. No rate games. No hidden layers. What you sign for is what you pay.</li>
+        <li><strong>It is a wedge, not a rip-and-replace.</strong> Start with the retail POS locations. The gas stations and cardlock stay put until it makes sense to revisit, and new business going forward can be placed on AllProPay.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next steps</div>
+      <p style="margin-bottom:18px;">Three things, and they are the same items from our May 13 call:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send one recent POS merchant statement.</strong> Any one of the eBiz POS merchant IDs is enough. That lets us confirm the processing rate side by side against what you pay now.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Send the MID list with locations, plus the Global Pay terminal IDs from your rep.</strong> That lets us map every branch and finalize the per-location terminal quote.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content"><strong>We bring back the full numbers.</strong> The rate comparison and the hardware quote per location. Then a short call to walk through it, with Chris and Jason both on.</div></div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "We put the work in before the paperwork. The day your statement lands, you see the full math. No guesses, no rate games, just your numbers next to ours."
+      </p>
+
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="mailto:chris@allpropay.com?subject=AFD%20Petroleum%20-%20POS%20statement" class="cta-btn">Send Chris Your POS Statement</a>
+        <div class="cta-print-text">Send your statement to <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a> &nbsp;|&nbsp; Chris 514-556-3475 &nbsp;|&nbsp; Jason 438-872-2233</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div class="sig-intro">Talk soon,</div>
+      <div class="sig-people">
+        <div class="sig-card">
+          <div class="sig-name">Chris Ste-Marie</div>
+          <div class="sig-contact">
+            <a href="tel:+15145563475" style="color:inherit; text-decoration:none;">514-556-3475</a><br>
+            <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a>
+          </div>
+        </div>
+        <div class="sig-card">
+          <div class="sig-name">Jason Jiha</div>
+          <div class="sig-contact">
+            <a href="tel:+14388722233" style="color:inherit; text-decoration:none;">438-872-2233</a><br>
+            <a href="mailto:jason@allpropay.com" style="color:inherit; text-decoration:none;">jason@allpropay.com</a>
+          </div>
+        </div>
+        <div class="sig-logo-wrap">
+          <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:54px; width:auto; display:block; margin-bottom:4px;">
+          <div class="sig-tagline">Accept payments anywhere.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&#183;&nbsp; 330 Rue Avro, Pointe-Claire, QC H9R 5W9 &nbsp;&#183;&nbsp; 800-807-0356 &nbsp;&#183;&nbsp; allpropay.com</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – QuickBooks Add-On Proposal | Monnier &amp; Son Water Well Service</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --blue-soft: #E6EEFF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  /* HEADER */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* BODY */
+  .content { padding: 36px 40px 48px; }
+
+  /* TITLE BLOCK */
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+  .section-kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  /* HEADLINE CALLOUT */
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  /* WORKFLOW DIAGRAM */
+  .workflow {
+    background: var(--light-gray);
+    border: 1px solid var(--mid-gray);
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 18px 0 8px;
+  }
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .flow-node {
+    flex: 1 1 0;
+    background: #fff;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    padding: 14px 14px 12px;
+    text-align: center;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+  }
+  .flow-node .fn-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .flow-node .fn-sub {
+    font-size: 8.5pt;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .flow-node.middle {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+  .flow-node.middle .fn-title { color: #fff; }
+  .flow-node.middle .fn-sub { color: #DCE7FF; }
+  .flow-arrow {
+    align-self: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding: 0 2px;
+  }
+  .flow-arrow .arrow-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .flow-caption {
+    text-align: center;
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { padding-top: 4px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content .step-title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .col-feature { font-weight: 600; color: var(--text); width: 28%; }
+  .cell-keep { color: var(--green); font-weight: 600; }
+  .cell-change { color: var(--blue); font-weight: 600; }
+
+  /* INSIGHT */
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  /* WHY/INCLUDED LIST */
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 10px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .why-list li strong { color: var(--text); font-weight: 700; }
+
+  /* TRADE-OFF */
+  .tradeoff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .tradeoff .to-card {
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 18px 20px;
+    background: #fff;
+  }
+  .tradeoff .to-card.give {
+    border-color: var(--mid-gray);
+    background: #FAFBFD;
+  }
+  .tradeoff .to-card.get {
+    border-color: var(--blue);
+    background: var(--blue-soft);
+  }
+  .tradeoff .to-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .tradeoff .to-card.get .to-label { color: var(--blue); }
+  .tradeoff .to-body { font-size: 10pt; line-height: 1.55; }
+  .tradeoff .to-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  /* CTA */
+  .cta-wrap { text-align: center; margin-top: 24px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  /* SIGNATURE */
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  /* FOOTER */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .savings-callout, .insight, .workflow, .step, table, .tradeoff, .why-list li, thead tr {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .savings-callout, .workflow, .step, .tradeoff, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-img { height: 56px; }
+    .content { padding: 18px 32px 24px; }
+    .title-block { margin-bottom: 16px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 14px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .savings-callout .sc-value { font-size: 18pt; }
+
+    .workflow { padding: 18px 14px; margin: 12px 0 4px; }
+    .flow-node { padding: 9px 8px; }
+    .flow-node .fn-title { font-size: 8.5pt; }
+    .flow-node .fn-sub { font-size: 7pt; }
+    .flow-arrow { font-size: 14pt; }
+    .flow-arrow .arrow-label { font-size: 6.5pt; }
+    .flow-caption { font-size: 7.5pt; margin-top: 10px; }
+
+    .steps { gap: 8px; margin-top: 10px; }
+    .step-num { min-width: 26px; height: 26px; font-size: 9pt; }
+    .step-content { padding-top: 2px; font-size: 9pt; }
+    .step-content .step-title { font-size: 10pt; margin-bottom: 2px; }
+
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 8.5pt; }
+    table { margin-bottom: 8px; }
+
+    .tradeoff { gap: 10px; margin: 10px 0; }
+    .tradeoff .to-card { padding: 12px 14px; }
+    .tradeoff .to-label { font-size: 7.5pt; }
+    .tradeoff .to-headline { font-size: 10pt; }
+    .tradeoff .to-body { font-size: 8.5pt; }
+
+    .why-list li { padding: 6px 12px; margin-bottom: 4px; font-size: 9pt; }
+
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Keep QuickBooks. Lose the Manual Work.</h1>
+      <div class="subtitle">A QuickBooks add-on proposal for Monnier &amp; Son Water Well Service</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">John &nbsp;|&nbsp; Monnier &amp; Son Water Well Service &nbsp;|&nbsp; Texas</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">QuickBooks Online + Intuit Payments + manual 3% surcharge entry</span>
+        <span class="label">Recommendation</span>
+        <span class="value">Hyfin add-on for QuickBooks (dual-pricing / cash-discount program)</span>
+        <span class="label">Date</span>
+        <span class="value">May 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">The Short Version</div>
+      <p>You told us the same thing we hear from a lot of QuickBooks Online users: the software dropped the ball on a few things that used to be automatic on QuickBooks Desktop. You are checking every invoice before it goes out so the sales tax does not come out wrong, and you are manually adding the 3% card fee on top each time. With just you and your wife running the business, that is real time spent every week.</p>
+      <p>The recommendation here is not a software switch. QuickBooks stays. You add one plug-in called Hyfin that sits inside your QuickBooks. It applies the card fee automatically, syncs the sales tax automatically, and reconciles the invoice as paid the moment your customer pays. The processing in the background runs on a real card processor instead of Intuit Payments, which is what unlocks next-day funding and the dual-pricing model.</p>
+      <p>The end result: <strong>you keep 100% of the invoice amount</strong>, you stop double-checking sales tax on every invoice, and the only flat monthly cost is the <strong>$100 integration fee</strong>. No contract, no setup fee, no cancellation fee.</p>
+    </div>
+
+    <!-- HEADLINE CALLOUT -->
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">You keep</div>
+        <div class="sc-value">100% of invoice</div>
+        <div class="sc-sub">Card fee passes to the customer at checkout</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Manual entry per invoice</div>
+        <div class="sc-value">Zero</div>
+        <div class="sc-sub">Surcharge + sales tax both automated</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Software to learn</div>
+        <div class="sc-value">None</div>
+        <div class="sc-sub">QuickBooks stays exactly as it is</div>
+      </div>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="section">
+      <div class="section-header">How It Actually Works</div>
+      <p>One small plug-in connects to your existing QuickBooks. Nothing about your bookkeeping changes. You and your wife continue to work out of QuickBooks the same way you do today.</p>
+
+      <div class="workflow">
+        <div class="flow-row">
+          <div class="flow-node">
+            <div class="fn-title">QuickBooks Online</div>
+            <div class="fn-sub">You build the invoice as usual</div>
+          </div>
+          <div class="flow-arrow">&rarr;<span class="arrow-label">auto-applies</span></div>
+          <div class="flow-node middle">
+            <div class="fn-title">Hyfin Add-On</div>
+            <div class="fn-sub">Card fee + sales tax calculated automatically</div>
+          </div>
+          <div class="flow-arrow">&rarr;<span class="arrow-label">customer pays</span></div>
+          <div class="flow-node">
+            <div class="fn-title">QuickBooks Online</div>
+            <div class="fn-sub">Invoice marked "Paid" and reconciled</div>
+          </div>
+        </div>
+        <div class="flow-caption">Customers who mail checks still mail checks. Ag-exempt customers stay ag-exempt. Nothing about the rest of your workflow changes.</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <span class="step-title">Build the invoice in QuickBooks like you do today</span>
+            You enter the line items. Hyfin reads the invoice and applies the correct Texas sales tax automatically (and skips it cleanly for ag-exempt customers). The card service fee is added as its own line so the customer sees it before they pay.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <span class="step-title">Send the invoice by email or text</span>
+            The customer gets a secure payment link. They can pay with a card, or they can still mail a check (or pay in person) like always. Cash and check customers do not pay the card service fee.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <span class="step-title">QuickBooks updates itself</span>
+            The moment the customer pays the card invoice, Hyfin syncs back into QuickBooks. The invoice is marked Paid. The sales tax is recorded. The deposit hits your account next business day. You stop having to touch it.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT CHANGES -->
+    <div class="section">
+      <div class="section-header">What Changes (and What Doesn't)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Today (QuickBooks + Intuit Payments)</th>
+            <th>With Hyfin Add-On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-feature">3% card surcharge</td>
+            <td>Added manually on every invoice</td>
+            <td class="cell-change">Auto-applied. Zero clicks.</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Texas sales tax</td>
+            <td>Sometimes missed or wrong rate</td>
+            <td class="cell-change">Auto-calculated and verified</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Ag-exempt customers</td>
+            <td>Flag in QuickBooks (when you remember)</td>
+            <td class="cell-keep">Same flag, honored automatically</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Bookkeeping in QuickBooks</td>
+            <td>Where your books live</td>
+            <td class="cell-keep">100% identical. Nothing moves.</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Checks in the mail</td>
+            <td>Still accepted, recorded by hand</td>
+            <td class="cell-keep">100% identical. No change.</td>
+          </tr>
+          <tr>
+            <td class="col-feature">What you keep on a card sale</td>
+            <td>~97% (Intuit fees pulled from your account)</td>
+            <td class="cell-change">100% of invoice (fee passed to customer)</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Funding speed</td>
+            <td>Standard batching</td>
+            <td class="cell-change">Next business day</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Reconciliation</td>
+            <td>Check each invoice before sending</td>
+            <td class="cell-change">Two-way sync. Invoice closes itself.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">These are estimates based on the conversation with you. Actual numbers depend on final card mix and volume.</p>
+    </div>
+
+    <!-- VALUE TRADE-OFF -->
+    <div class="section">
+      <div class="section-header">The Honest Trade-Off</div>
+      <p>The hesitation you raised on the call was fair: you do not want another piece of software to learn. So here is the straight version of what is and is not on the table.</p>
+
+      <div class="tradeoff">
+        <div class="to-card give">
+          <div class="to-label">What you give up</div>
+          <div class="to-headline">$100 / month flat</div>
+          <div class="to-body">One flat integration fee. No per-transaction processing fees on top. No contract, no setup fee, no cancellation fee. Cancel anytime and Hyfin comes back out.</div>
+        </div>
+        <div class="to-card get">
+          <div class="to-label">What you get back</div>
+          <div class="to-headline">Hours every month, plus 100% of card sales</div>
+          <div class="to-body">No more manually adding 3% to every invoice. No more double-checking sales tax. The card service fee passes to the customer, so you keep the full invoice amount on every card payment.</div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>Why this works in Texas:</strong> Surcharging credit cards is permitted in Texas under current state law. The card service fee shows on the invoice as its own line item, so the customer sees it before they pay. Debit cards and cash do not get the fee. Hyfin is configured to follow Visa and Mastercard guidelines (3% cap on credit surcharges, customer disclosure, network notification). The setup is handled for you.</div>
+    </div>
+
+    <!-- WHAT'S INCLUDED -->
+    <div class="section">
+      <div class="section-header">What's Included for $100 / Month</div>
+      <ul class="why-list">
+        <li><strong>Hyfin plug-in for QuickBooks.</strong> Direct add-on. No new software window, no new login for daily work.</li>
+        <li><strong>Automated card service fee.</strong> Applied to every card invoice. You stop typing in 3% by hand.</li>
+        <li><strong>Automated sales tax sync.</strong> Texas rates verified per invoice. Ag-exempt customers handled cleanly.</li>
+        <li><strong>Two-way QuickBooks sync.</strong> Invoice closes itself the moment the customer pays.</li>
+        <li><strong>Pay-by-link and pay-by-text.</strong> Send a secure payment link with the invoice. Customer pays from their phone.</li>
+        <li><strong>Next-day funding.</strong> Standard with every account.</li>
+        <li><strong>24/7 support.</strong> Live help from the Hyfin team, plus your direct line to Matt at AllProPay.</li>
+        <li><strong>10 to 15 minute setup.</strong> Hyfin onboarding walks you through the install. You keep working in QuickBooks.</li>
+      </ul>
+      <p class="note">No additional per-transaction processing fees on standard credit card transactions through the program. Debit and cash payments are handled at standard processor rates and do not carry the customer-facing service fee.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <ul class="why-list">
+        <li><strong>No contracts.</strong> You are not locked in. Try it, and if it does not work for you and your wife, you leave.</li>
+        <li><strong>No setup fees. No cancellation fees.</strong> On standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games.</li>
+        <li><strong>Real people on the phone.</strong> You already met Matt. He is your direct line, not a 1-800 menu.</li>
+        <li><strong>QuickBooks is our partner.</strong> Hyfin is built specifically for the QuickBooks ecosystem. The integration is supported and maintained.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p>Two ways to take this forward whenever you and your wife have had a chance to look it over:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <span class="step-title">Short call together (15 minutes)</span>
+            Matt walks both of you through the workflow live and answers anything that came up. You can see exactly how the QuickBooks screen looks before and after the plug-in is on.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <span class="step-title">Move straight to setup</span>
+            If the workflow makes sense, Matt sends a one-page application. Once it is signed, Hyfin onboarding runs the 10 to 15 minute install with you. You are live the same day.
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-wrap">
+        <a href="mailto:matt@allpropay.com?subject=Monnier%20%26%20Son%20-%20QuickBooks%20Add-On%20Proposal" class="cta-btn">Reply to Set a Time</a>
+        <div class="cta-print-text">Call <a href="tel:8022784725" style="color:inherit;">802-278-4725</a> &nbsp;|&nbsp; <a href="mailto:matt@allpropay.com" style="color:inherit;">matt@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:8022784725" style="color:inherit; text-decoration:none;">802-278-4725</a><br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span>Estimates based on information shared on the call. Actual results depend on final card mix and volume.</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – Payments Proposal | Wine &amp; Champagne Gifts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar {
+    height: 4px;
+    background: var(--blue);
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; color: var(--text); }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+  .stat-cell .stat-value.blue { color: var(--blue); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody tr.highlight-row { background: #EFF6FF; font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+  .check { color: var(--green); font-weight: 700; font-size: 11pt; }
+  .cross { color: var(--red); font-weight: 700; font-size: 11pt; }
+
+  .finding {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .answer {
+    border-left: 4px solid var(--blue);
+    background: #EFF6FF;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .answer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .compare-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .compare-callout .cc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .compare-callout .cc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+  }
+  .compare-callout .cc-value.current { color: #F87171; }
+  .compare-callout .cc-value.allpropay { color: #38BDF8; }
+  .compare-callout .cc-value.savings { color: #4ADE80; }
+  .compare-callout .cc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .compare-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .rate-card {
+    background: linear-gradient(135deg, #0B1120 0%, #1E293B 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 16px 0;
+  }
+  .rate-card .rate-label {
+    font-size: 9pt;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .rate-card .rate-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 26pt;
+    color: #38BDF8;
+    line-height: 1.05;
+  }
+  .rate-card .rate-sub {
+    font-size: 10pt;
+    color: #CBD5E1;
+    margin-top: 8px;
+  }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .answer, .insight, .compare-callout, .rate-card, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .compare-callout, .rate-card, .finding, .answer, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-img { height: 56px; }
+    .content { padding: 16px 28px 20px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 10px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .finding, .answer { padding: 10px 14px; margin-bottom: 12px; }
+    .finding h3, .answer h3 { font-size: 10pt; margin-bottom: 5px; }
+    .steps { gap: 8px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { padding-top: 4px; font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; margin-bottom: 5px; font-size: 9.5pt; }
+    .compare-callout { padding: 14px 20px; margin: 10px 0; }
+    .compare-callout .cc-value { font-size: 18pt; }
+    .rate-card { padding: 14px 18px; margin: 10px 0; }
+    .rate-card .rate-value { font-size: 20pt; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px !important; }
+    .cta-wrap-final { display: none !important; }
+    .doc-footer { display: none !important; }
+    .content { padding-bottom: 12px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payments Proposal</h1>
+      <div class="subtitle">Wine &amp; Champagne Gifts</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Tom &nbsp;|&nbsp; Wine &amp; Champagne Gifts (Arjungera LLC)</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">Square (main site) + Stripe (second site) on OpenCart</span>
+        <span class="label">Annual volume</span>
+        <span class="value">~$2.5M – $3M (with ~$1M in December alone)</span>
+        <span class="label">Date</span>
+        <span class="value">May 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Executive Summary</div>
+      <p>You've been on Square for five years on Wine &amp; Champagne Gifts, and across other businesses for fifteen. You stayed because the reporting was clean and the billing read like English. Two things have changed: Square has been raising fees, and Visa now owns them. You're back in front of the same kind of company you originally moved away from.</p>
+      <p>At your volume, Square's flat 2.9% + $0.30 isn't built for you. It's built to cover the most expensive card any customer might run, on any merchant. You're paying that premium on every transaction — including the ones that should cost much less. Below is a real, lower rate built for your card mix, your volume, and your December spike, with no contract and no cancellation fee.</p>
+    </div>
+
+    <!-- BIG NUMBER CALLOUT -->
+    <div class="compare-callout">
+      <div>
+        <div class="cc-label">Square today (est. $100K / mo)</div>
+        <div class="cc-value current">~$3,050</div>
+        <div class="cc-sub">2.9% + $0.30 per transaction · ~3.05% effective</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="cc-label">AllProPay IC+ at your rate</div>
+        <div class="cc-value allpropay">~$2,425</div>
+        <div class="cc-sub">Interchange + 0.25% + $0.10 + $25/mo · ~2.43% effective</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="cc-label">Estimated savings</div>
+        <div class="cc-value savings">~$625 / mo</div>
+        <div class="cc-sub">~$15,000 – $19,000 / year · ~$6,500 in December alone</div>
+      </div>
+    </div>
+    <p class="note" style="text-align:center;">Estimates based on $100K/month average volume, ~$200 average ticket, and a luxury B2C + corporate gifting card mix. Final numbers depend on your actual card mix. We can run exact numbers on a real statement at any time.</p>
+
+    <!-- CTA 1 -->
+    <div class="cta-wrap" style="margin-bottom:32px;">
+      <a href="https://allpropay.com/get-started/" class="cta-btn">Lock In This Rate</a>
+      <div class="cta-print-text">Ready to talk? Call <a href="tel:+19174513036" style="color:inherit;">917-451-3036</a> or email <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+    </div>
+
+    <!-- WHERE YOU ARE NOW -->
+    <div class="section">
+      <div class="section-header">Where You Are Now</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Main site processor</div>
+          <div class="stat-value warn">Square</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Second site processor</div>
+          <div class="stat-value warn">Stripe</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Platform</div>
+          <div class="stat-value">OpenCart</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Square rate (online)</div>
+          <div class="stat-value danger">2.9% + $0.30</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Monthly average</div>
+          <div class="stat-value">$80K – $120K</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">December spike</div>
+          <div class="stat-value">~$1M in one month</div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>Square's flat rate is the same whether the customer pays with a basic debit card or a Visa Infinite.</strong> At $100K/month you're being charged as if every card costs the maximum. Interchange-plus pricing prices each transaction at its actual wholesale cost and adds a small, fixed margin — so basic cards stay cheap and only the premium ones cost what they really cost.</div>
+    </div>
+
+    <!-- THE RATE -->
+    <div class="section">
+      <div class="section-header">The Rate We're Proposing</div>
+      <p>Built for your annual volume, your card mix, and the December spike. Same rate on both sites. Below the rate, we've laid out exactly what makes up the number so you can see it the way you want to — in plain English, line by line.</p>
+
+      <div class="rate-card">
+        <div class="rate-label">Your rate</div>
+        <div class="rate-value">Interchange + 0.25% + $0.10</div>
+        <div class="rate-sub">$25 monthly account fee · No PCI fee · No statement fee · No early termination · Same rate on both sites</div>
+      </div>
+
+      <p>Here's the full anatomy of what you actually pay on a transaction, with nothing hidden:</p>
+
+      <table style="margin-top:10px;">
+        <thead>
+          <tr>
+            <th>Cost component</th>
+            <th>What it is</th>
+            <th>Typical amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Interchange</td>
+            <td>Paid to the card-issuing bank. Set by Visa/MC/Discover. Same for every processor.</td>
+            <td>~1.85% – 2.05%</td>
+          </tr>
+          <tr>
+            <td>Dues &amp; assessments</td>
+            <td>Paid to Visa/MC/Discover. Same for every processor.</td>
+            <td>~0.13% – 0.15%</td>
+          </tr>
+          <tr>
+            <td><strong>AllProPay margin</strong></td>
+            <td><strong>Our markup. Fixed. Transparent. Never changes without notice.</strong></td>
+            <td><strong>0.25% + $0.10</strong></td>
+          </tr>
+          <tr>
+            <td>Monthly account fee</td>
+            <td>Covers reporting, gateway, and account support.</td>
+            <td>$25 / month</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Your estimated effective rate</strong></td>
+            <td>—</td>
+            <td><strong>~2.40% – 2.50% effective</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Effective rate varies a few basis points month to month as your card mix shifts. December's heavier corporate-gifting mix runs slightly higher; January and February run lower. The AllProPay margin and monthly fee never change.</p>
+    </div>
+
+    <!-- COST COMPARISON -->
+    <div class="section">
+      <div class="section-header">Square vs. AllProPay — Line by Line</div>
+
+      <table style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Monthly volume</th>
+            <th>Effective rate</th>
+            <th>Monthly cost</th>
+            <th>Annual cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Square — average month</td>
+            <td>$100,000</td>
+            <td class="flag-red">~3.05%</td>
+            <td class="flag-red">~$3,050</td>
+            <td class="flag-red">~$36,600</td>
+          </tr>
+          <tr>
+            <td><strong>AllProPay — average month</strong></td>
+            <td>$100,000</td>
+            <td class="flag-green"><strong>~2.43%</strong></td>
+            <td class="flag-green"><strong>~$2,425</strong></td>
+            <td class="flag-green"><strong>~$29,100</strong></td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Difference — average month</strong></td>
+            <td>—</td>
+            <td>—</td>
+            <td><strong>~$625 less</strong></td>
+            <td><strong>~$7,500 less</strong></td>
+          </tr>
+          <tr>
+            <td>Square — December spike</td>
+            <td>$1,000,000</td>
+            <td class="flag-red">~3.05%</td>
+            <td class="flag-red">~$30,500</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>AllProPay — December spike</strong></td>
+            <td>$1,000,000</td>
+            <td class="flag-green"><strong>~2.40%</strong></td>
+            <td class="flag-green"><strong>~$24,025</strong></td>
+            <td>—</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Difference — December alone</strong></td>
+            <td>—</td>
+            <td>—</td>
+            <td><strong>~$6,475 less</strong></td>
+            <td>—</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="4"><strong>Estimated total annual savings on $2.5M – $3M</strong></td>
+            <td class="flag-green"><strong>~$15,000 – $19,000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">Estimates based on the volume you shared on our call. AllProPay margin is fixed at 0.25% + $0.10 per transaction; the rest of the rate is wholesale interchange that every processor pays. Savings scale with volume — bigger month, bigger gap.</p>
+    </div>
+
+    <!-- ADDRESSING THE TWO CONCERNS -->
+    <div class="section">
+      <div class="section-header">The Two Things You Asked About</div>
+
+      <div class="answer">
+        <h3>1. Wine vertical — yes, we handle it</h3>
+        <p>Online wine and champagne ecommerce is a standard vertical for us. Your model (UPS, 21+ adult signature, US-only delivery, no PO/APO) is exactly what underwriting expects to see for an online wine merchant. You don't need to be placed with a high-risk processor and you won't be. Same MID structure, same rate, same gateway as any premium ecommerce account.</p>
+      </div>
+
+      <div class="answer">
+        <h3>2. Processor credibility — what makes us different</h3>
+        <p>You said the credibility of the processor matters as much as the rate. Fair concern, and the right one. Here's what's on the table:</p>
+        <ul style="margin-top:6px;">
+          <li><strong>No contract, no cancellation fee.</strong> If we don't deliver, you leave. Nothing to trap you.</li>
+          <li><strong>What you sign is what you pay.</strong> No teaser rate that resets in month four. No surprise "network fee" or "PCI non-compliance" line item. No bait-and-switch.</li>
+          <li><strong>Two humans you can actually reach.</strong> My direct line for anything important, plus a dedicated customer-service contact assigned to your account for day-to-day questions. No ticket queue.</li>
+          <li><strong>Almost 20 years in the business.</strong> I've seen a lot of processors come and go, which is exactly why we run AllProPay the way we do.</li>
+          <li><strong>References on request.</strong> Happy to put you on the phone with current merchants in similar verticals before you sign anything.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTH SITES + OTHER BUSINESSES -->
+    <div class="section">
+      <div class="section-header">Both Sites — and the Other Businesses</div>
+      <p>You mentioned a second site already running on Stripe, plus other businesses across fifteen years. Two notes on that:</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Both wine sites under one umbrella.</strong> Same gateway, same reporting, same rate. Separate MIDs so the books stay clean per entity. Replaces Square on site one and Stripe on site two with one point of contact.</li>
+        <li><strong>Your other businesses get the same treatment.</strong> When you're ready, we review them too. One vendor for everything you process, with rates that reflect total volume across the portfolio. No obligation to bring them over — door's open whenever you want it.</li>
+      </ul>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Transparent pricing.</strong> Interchange-plus with a fixed margin. Every line on every statement is something you can verify.</li>
+        <li><strong>No contract, no cancellation fees, no setup fees</strong> on standard programs.</li>
+        <li><strong>Built for ecommerce.</strong> Drop-in gateway for OpenCart and WordPress on both sites. No platform change, no rebuild, no downtime.</li>
+        <li><strong>Volume-aware pricing.</strong> Your margin reflects your annual volume and your card mix. As volume grows, we review the rate.</li>
+        <li><strong>Real support, two contacts.</strong> A dedicated customer-service rep for everyday questions, and my direct line when something needs to move now. If anything breaks at 11pm on Cyber Monday, you have someone to call.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Here's how this goes from here:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Quick call Tuesday.</strong> 15 minutes. Walk through the proposal, answer any questions, confirm both sites and the technical setup.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Application + underwriting.</strong> Standard online merchant application, two months of processing statements when convenient. Approval typically takes 1–3 business days.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Gateway install, go live.</strong> Drop-in integration on both OpenCart sites. We coordinate the switch to minimize any gap. Live in roughly 5 business days after approval.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "What you sign for is what you pay. No surprises, no small print."
+      </p>
+
+      <!-- CTA 2 -->
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="https://allpropay.com/get-started/" class="cta-btn">Book the 15-Minute Call</a>
+        <div class="cta-print-text">To get started: <a href="tel:+19174513036" style="color:inherit;">917-451-3036</a> &nbsp;|&nbsp; <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:+19174513036" style="color:inherit; text-decoration:none;">917-451-3036</a><br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div>
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span>Confidential — prepared for Wine &amp; Champagne Gifts</span>
+  </div>
+
+</div>
+</body>
+</html>

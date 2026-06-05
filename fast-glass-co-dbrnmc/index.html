@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – HouseCall Pro Add-On Proposal | Fast Glass Co.</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --blue-soft: #E6EEFF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .savings-callout .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .workflow {
+    background: var(--light-gray);
+    border: 1px solid var(--mid-gray);
+    border-radius: 10px;
+    padding: 28px 24px;
+    margin: 18px 0 8px;
+  }
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .flow-node {
+    flex: 1 1 0;
+    background: #fff;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    padding: 12px 10px 10px;
+    text-align: center;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+  }
+  .flow-node .fn-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .flow-node .fn-sub {
+    font-size: 8pt;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .flow-node.middle {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+  .flow-node.middle .fn-title { color: #fff; }
+  .flow-node.middle .fn-sub { color: #DCE7FF; }
+  .flow-arrow {
+    align-self: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding: 0 2px;
+  }
+  .flow-arrow .arrow-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 7pt;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .flow-caption {
+    text-align: center;
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { padding-top: 4px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .step-content .step-title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .col-feature { font-weight: 600; color: var(--text); width: 28%; }
+  .cell-keep { color: var(--green); font-weight: 600; }
+  .cell-change { color: var(--blue); font-weight: 600; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 10px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .why-list li strong { color: var(--text); font-weight: 700; }
+
+  .tradeoff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .tradeoff .to-card {
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 18px 20px;
+    background: #fff;
+  }
+  .tradeoff .to-card.give {
+    border-color: var(--mid-gray);
+    background: #FAFBFD;
+  }
+  .tradeoff .to-card.get {
+    border-color: var(--blue);
+    background: var(--blue-soft);
+  }
+  .tradeoff .to-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .tradeoff .to-card.get .to-label { color: var(--blue); }
+  .tradeoff .to-body { font-size: 10pt; line-height: 1.55; }
+  .tradeoff .to-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .cta-wrap { text-align: center; margin-top: 24px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .savings-callout, .insight, .workflow, .step, table, .tradeoff, .why-list li, thead tr {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .savings-callout, .workflow, .step, .tradeoff, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+
+    .doc-header { padding: 12px 32px 10px; }
+    .doc-header .logo-img { height: 56px; }
+    .content { padding: 18px 32px 24px; }
+    .title-block { margin-bottom: 16px; }
+    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 14px; }
+    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .savings-callout .sc-value { font-size: 18pt; }
+
+    .workflow { padding: 18px 14px; margin: 12px 0 4px; }
+    .flow-node { padding: 8px 6px; }
+    .flow-node .fn-title { font-size: 8pt; }
+    .flow-node .fn-sub { font-size: 6.5pt; }
+    .flow-arrow { font-size: 12pt; }
+    .flow-arrow .arrow-label { font-size: 6pt; }
+    .flow-caption { font-size: 7.5pt; margin-top: 10px; }
+
+    .steps { gap: 8px; margin-top: 10px; }
+    .step-num { min-width: 26px; height: 26px; font-size: 9pt; }
+    .step-content { padding-top: 2px; font-size: 9pt; }
+    .step-content .step-title { font-size: 10pt; margin-bottom: 2px; }
+
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 8.5pt; }
+    table { margin-bottom: 8px; }
+
+    .tradeoff { gap: 10px; margin: 10px 0; }
+    .tradeoff .to-card { padding: 12px 14px; }
+    .tradeoff .to-label { font-size: 7.5pt; }
+    .tradeoff .to-headline { font-size: 10pt; }
+    .tradeoff .to-body { font-size: 8.5pt; }
+
+    .why-list li { padding: 6px 12px; margin-bottom: 4px; font-size: 9pt; }
+
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Keep HouseCall Pro. End Manual Invoice Editing.</h1>
+      <div class="subtitle">POS+ extension proposal for Fast Glass Co.</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Eric &nbsp;|&nbsp; Fast Glass Co. &nbsp;|&nbsp; for owner review</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">HouseCall Pro + Stripe processing (in-field via the HCP app)</span>
+        <span class="label">Recommendation</span>
+        <span class="value">POS+ extension for HouseCall Pro (AllProPay Edge program)</span>
+        <span class="label">Date</span>
+        <span class="value">May 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">The Short Version</div>
+      <p>The headline you raised on our calls: your techs hate manually editing invoices because they do not know up front whether the customer is paying cash or card. That manual decision lives at the end of every job and it eats time, and when it goes wrong it eats the surcharge revenue too.</p>
+      <p>This proposal removes that step entirely. HouseCall Pro stays. Every estimate, job, technician workflow, and in-field card processing continues to run exactly as it does today. We add one extension called POS+ that sits inside HouseCall Pro. The surcharge is calculated and applied automatically at the moment the invoice is created. The customer pays however they want to pay. HouseCall Pro marks the invoice "Paid" and logs the transaction ID on its own.</p>
+      <p>On the processing side, Stripe gets replaced in the backend by AllProPay's Edge program. Your effective processing rate drops to <strong>0%</strong> because the compliant card surcharge passes that cost to the cardholder. At your monthly volume, that puts <strong>$10,000 to $27,000 a year</strong> back in the business.</p>
+    </div>
+
+    <div class="savings-callout">
+      <div>
+        <div class="sc-label">Estimated annual savings</div>
+        <div class="sc-value">$10K – $27K</div>
+        <div class="sc-sub">Based on $30K–$80K monthly volume</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Effective processing rate</div>
+        <div class="sc-value">0%</div>
+        <div class="sc-sub">Surcharge passes the cost to cardholder</div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sc-label">Manual edits per invoice</div>
+        <div class="sc-value">Zero</div>
+        <div class="sc-sub">Cash / card price auto-applied</div>
+      </div>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="section">
+      <div class="section-header">How It Actually Works in the Field</div>
+      <p>The tech workflow on-site stays identical. Eric still builds the estimate. The estimate converts to a job. The tech finishes the job and the invoice goes out from HouseCall Pro. POS+ does the rest behind the scenes.</p>
+
+      <div class="workflow">
+        <div class="flow-row">
+          <div class="flow-node">
+            <div class="fn-title">HCP Estimate</div>
+            <div class="fn-sub">Built in office, approved by customer</div>
+          </div>
+          <div class="flow-arrow">&rarr;<span class="arrow-label">converts</span></div>
+          <div class="flow-node">
+            <div class="fn-title">HCP Job</div>
+            <div class="fn-sub">Tech completes work on-site</div>
+          </div>
+          <div class="flow-arrow">&rarr;<span class="arrow-label">auto-applies</span></div>
+          <div class="flow-node middle">
+            <div class="fn-title">POS+ Invoice</div>
+            <div class="fn-sub">Compliant surcharge added at creation</div>
+          </div>
+          <div class="flow-arrow">&rarr;<span class="arrow-label">customer pays</span></div>
+          <div class="flow-node">
+            <div class="fn-title">HCP "Paid"</div>
+            <div class="fn-sub">Auto-reconciled. Txn ID logged.</div>
+          </div>
+        </div>
+        <div class="flow-caption">All four steps happen inside HouseCall Pro. The tech never leaves the app. Funds hit your bank the next business day.</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <span class="step-title">Estimate and job: no change</span>
+            Eric still builds the estimate in HouseCall Pro the same way. It still converts to a job. The tech still works from the HCP app on the truck. Apartment complex repeat work continues exactly as it does today.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <span class="step-title">Surcharge auto-applied at invoice creation</span>
+            The moment the invoice is generated, POS+ adds the compliant card surcharge as its own line item. The customer sees both prices before they choose how to pay. If they pay cash or check, the surcharge is removed automatically. No tech decision needed.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <span class="step-title">Payment on-site or via link</span>
+            The tech takes the card on the truck through the same HCP screen they use today. Or the customer pays the link by phone after the tech leaves. Either way, the transaction runs through AllProPay's bank-level processor, not Stripe.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <span class="step-title">HCP marks paid automatically. Funds next day.</span>
+            POS+ pushes the paid status and the transaction ID straight back into HouseCall Pro. No manual reconciliation. The deposit hits the operating account the next business day, not on Stripe's standard rolling schedule.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT CHANGES -->
+    <div class="section">
+      <div class="section-header">What Changes (and What Doesn't)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Today (HCP + Stripe)</th>
+            <th>With POS+ Extension</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-feature">Tech workflow on the truck</td>
+            <td>HCP app, take cards in field</td>
+            <td class="cell-keep">100% identical. Same screen.</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Estimate &rarr; job &rarr; invoice flow</td>
+            <td>All inside HouseCall Pro</td>
+            <td class="cell-keep">100% identical</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Cash vs card price decision</td>
+            <td>Manually edited per invoice</td>
+            <td class="cell-change">Auto-applied at invoice creation</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Effective processing cost</td>
+            <td>~2.9% + $0.30 to Stripe</td>
+            <td class="cell-change">0% (surcharge passes to cardholder)</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Funding speed</td>
+            <td>Stripe rolling schedule</td>
+            <td class="cell-change">Next business day</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Invoice marked "Paid"</td>
+            <td>Manual in some cases</td>
+            <td class="cell-change">Auto-synced with transaction ID</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Checks by mail</td>
+            <td>Still accepted, logged in HCP</td>
+            <td class="cell-keep">100% identical</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Apartment complex billing</td>
+            <td>Standard HCP invoicing</td>
+            <td class="cell-keep">Same. Surcharge handled per job.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Effective rate estimates based on the $30K–$80K monthly volume Eric shared. Actual rates depend on final card mix and confirmed monthly volume.</p>
+    </div>
+
+    <!-- VALUE TRADE-OFF -->
+    <div class="section">
+      <div class="section-header">The Honest Trade-Off</div>
+      <p>The owners' top question on the demo call will be tech. Eric flagged that on our call. So the trade-off below is structural, not promotional.</p>
+
+      <div class="tradeoff">
+        <div class="to-card give">
+          <div class="to-label">What changes for the team</div>
+          <div class="to-headline">One backend swap</div>
+          <div class="to-body">Stripe is replaced in the backend by AllProPay's bank-level processor. The HCP UI does not change. Your techs do not learn a new screen. The only visible change is the surcharge line on the invoice (and the funding hitting the bank a day faster).</div>
+        </div>
+        <div class="to-card get">
+          <div class="to-label">What the business gets back</div>
+          <div class="to-headline">$10K to $27K / year, plus reconciliation time</div>
+          <div class="to-body">100% of the sale lands in your account. The surcharge passes processing cost to the cardholder. Manual invoice editing for cash vs card disappears. Next-day funding instead of Stripe's rolling schedule.</div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>How the compliance works:</strong> The card surcharge is applied at the moment the invoice is created in HouseCall Pro, displayed as a separate line item so the cardholder sees it before paying. The configuration follows Visa and Mastercard rules (3% cap on credit, no surcharge on debit, network notification, customer disclosure) and the per-state rules where Fast Glass operates. AllProPay's onboarding team handles the registration and signage requirements. You do not configure any of it yourself.</div>
+    </div>
+
+    <!-- WHAT'S INCLUDED -->
+    <div class="section">
+      <div class="section-header">What's Included</div>
+      <ul class="why-list">
+        <li><strong>POS+ extension for HouseCall Pro.</strong> Direct plug-in. No second window for your techs. Lives inside HCP.</li>
+        <li><strong>Automatic compliant surcharge.</strong> Applied at invoice creation. Removed automatically on cash or check payments.</li>
+        <li><strong>Auto-reconciliation back to HCP.</strong> Invoice closes itself. Transaction ID is logged on the HCP record.</li>
+        <li><strong>Next-day funding.</strong> Bank-level processor, not platform-level. Standard with every account.</li>
+        <li><strong>Take payments on the truck.</strong> Same HCP screen the techs use today. Tap, chip, swipe, or text-to-pay.</li>
+        <li><strong>$25 / month flat platform fee.</strong> Covers the POS+ extension, virtual terminal access, and integration support. No contract, no setup fee, no cancellation fee.</li>
+        <li><strong>24/7 support.</strong> Direct line to Matt at AllProPay plus the POS+ technical team for the install.</li>
+      </ul>
+      <p class="note">No additional per-transaction processing fees on standard credit transactions through the Edge program. Debit and check payments process at standard rates and do not carry the cardholder surcharge.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <ul class="why-list">
+        <li><strong>No contracts.</strong> Month-to-month. If it does not work for the team, you leave.</li>
+        <li><strong>No setup fees. No cancellation fees.</strong> On standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no quiet fee hikes.</li>
+        <li><strong>HouseCall Pro is the integration target.</strong> POS+ is purpose-built for the HCP ecosystem and supported as such.</li>
+        <li><strong>Real human on the phone.</strong> Eric already met Matt. He is your direct line through onboarding and after.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p>The plan we agreed to on the last call:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <span class="step-title">Eric recaps with the owners</span>
+            Eric sits with the owners using this document and the POS+ video walkthrough already in their inbox. Surfaces any tech-side questions they want answered live.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <span class="step-title">Demo call: Wednesday, May 20 at 4:00 PM</span>
+            Matt and AllProPay's technical architect walk the owners through the live POS+ screen inside HouseCall Pro. Field tech questions, compliance setup, funding schedule, anything else on the table.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <span class="step-title">Sign and onboard</span>
+            If the demo lands, one-page application gets signed. POS+ onboarding handles the install and the surcharge configuration. You are live in roughly a week from signed paperwork.
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-wrap">
+        <a href="mailto:matt@allpropay.com?subject=Fast%20Glass%20-%20POS%2B%20Extension%20Demo" class="cta-btn">Reply to Confirm Wed 4PM</a>
+        <div class="cta-print-text">Call <a href="tel:8022784725" style="color:inherit;">802-278-4725</a> &nbsp;|&nbsp; <a href="mailto:matt@allpropay.com" style="color:inherit;">matt@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:8022784725" style="color:inherit; text-decoration:none;">802-278-4725</a><br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span>Estimates based on volume range shared on the call. Actual results depend on final card mix, volume, and program selection.</span>
+  </div>
+
+</div>
+</body>
+</html>

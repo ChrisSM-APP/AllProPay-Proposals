@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay – Accountant Summary | Mama Maids Cleaning Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --blue-soft: #E6EEFF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px 14px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 62px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .content { padding: 24px 36px 32px; }
+
+  .title-block { margin-bottom: 20px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+  .meta-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    font-size: 8.5pt;
+    border-top: 1px solid var(--mid-gray);
+    border-bottom: 1px solid var(--mid-gray);
+    padding: 10px 0;
+    margin-top: 10px;
+  }
+  .meta-row .label { color: var(--muted); font-weight: 500; display: block; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.04em; font-size: 7.5pt; }
+  .meta-row .value { color: var(--text); font-weight: 600; font-size: 9.5pt; }
+
+  .section { margin-bottom: 18px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 10px;
+  }
+
+  table.cost {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+  }
+  table.cost th {
+    text-align: left;
+    background: var(--light-gray);
+    color: var(--navy);
+    font-weight: 700;
+    padding: 8px 10px;
+    border-bottom: 2px solid var(--mid-gray);
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  table.cost td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--mid-gray);
+  }
+  table.cost td.num {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    font-weight: 500;
+  }
+  table.cost tr.total td {
+    font-weight: 700;
+    background: var(--blue-soft);
+    border-bottom: none;
+    border-top: 2px solid var(--blue);
+  }
+  table.cost tr.total td.num {
+    color: var(--blue);
+    font-size: 10pt;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0 4px;
+  }
+  .compare-card {
+    border: 1px solid var(--mid-gray);
+    border-radius: 6px;
+    padding: 14px 14px 12px;
+    background: #fff;
+  }
+  .compare-card.now { border-top: 4px solid var(--red); }
+  .compare-card.us { border-top: 4px solid var(--blue); }
+  .compare-card.save { border-top: 4px solid var(--green); background: #F0FDF4; }
+  .compare-card .ck {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .compare-card .vk {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 2px;
+  }
+  .compare-card.now .vk { color: var(--red); }
+  .compare-card.us .vk { color: var(--blue); }
+  .compare-card.save .vk { color: var(--green); }
+  .compare-card .sub {
+    font-size: 8.5pt;
+    color: var(--muted);
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .annotation {
+    background: var(--light-gray);
+    border-left: 3px solid var(--blue);
+    padding: 10px 12px;
+    font-size: 8.8pt;
+    color: var(--text);
+    border-radius: 0 4px 4px 0;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .annotation strong { color: var(--navy); }
+
+  .footer {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--mid-gray);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+    font-size: 8.5pt;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .footer .next-step {
+    color: var(--text);
+  }
+  .footer .next-step strong { color: var(--navy); display: block; font-size: 9.5pt; margin-bottom: 4px; }
+
+  .disclaimer {
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-top: 14px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  @media print {
+    body { font-size: 9.5pt; }
+    .page { max-width: 100%; }
+    .doc-header .logo-img { height: 52px; }
+    .content { padding: 20px 28px 24px; }
+    .title-block h1 { font-size: 19pt; }
+    .compare-card .vk { font-size: 16pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      <div><strong>Matt Butcher</strong></div>
+      <div>AllProPay &middot; Ext. 703</div>
+      <div>802-278-4725</div>
+      <div>matt@allpropay.com</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Processing Cost Summary</h1>
+      <div class="subtitle">Mama Maids Cleaning Services &middot; Prepared for Accounting Review</div>
+      <div class="meta-row">
+        <div><span class="label">Prepared for</span><span class="value">Brian &middot; Mama Maids</span></div>
+        <div><span class="label">Date</span><span class="value">May 19, 2026</span></div>
+        <div><span class="label">Volume basis</span><span class="value">$60,000 / month</span></div>
+        <div><span class="label">Channel</span><span class="value">Card-not-present (Jobber)</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Side-by-Side Summary</div>
+      <div class="compare-grid">
+        <div class="compare-card now">
+          <div class="ck">Current (Stripe)</div>
+          <div class="vk">$1,812<span style="font-size:9pt;font-weight:500;color:var(--muted);">/mo</span></div>
+          <div class="sub">≈ 3.02% effective on $60K volume</div>
+        </div>
+        <div class="compare-card us">
+          <div class="ck">With AllProPay</div>
+          <div class="vk">$1,111<span style="font-size:9pt;font-weight:500;color:var(--muted);">/mo</span></div>
+          <div class="sub">≈ 1.85% effective on $60K volume</div>
+        </div>
+        <div class="compare-card save">
+          <div class="ck">Estimated Savings</div>
+          <div class="vk">$701<span style="font-size:9pt;font-weight:500;color:var(--green);">/mo</span></div>
+          <div class="sub">≈ $8,412 / year</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Current Stripe Cost (Estimate)</div>
+      <table class="cost">
+        <thead>
+          <tr><th style="width:34%;">Component</th><th>Notes</th><th style="text-align:right;">Rate</th><th style="text-align:right;">Monthly on $60K</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Stripe transaction fee</td>
+            <td>Published Stripe CNP rate. Charged on every dollar regardless of whether the customer paid with a debit card or a credit card.</td>
+            <td class="num">2.90%</td>
+            <td class="num">$1,740.00</td>
+          </tr>
+          <tr>
+            <td>Stripe per-transaction fee</td>
+            <td>$0.30 per authorization. Estimate based on 240 transactions / month.</td>
+            <td class="num">$0.30 / txn</td>
+            <td class="num">$72.00</td>
+          </tr>
+          <tr class="total">
+            <td colspan="3">Estimated current monthly cost</td>
+            <td class="num">$1,812.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-header">AllProPay Cost (Interchange-Plus Program)</div>
+      <table class="cost">
+        <thead>
+          <tr><th style="width:34%;">Component</th><th>Notes</th><th style="text-align:right;">Rate</th><th style="text-align:right;">Monthly on $60K</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Interchange (blended, debit + credit)<sup>1</sup></td>
+            <td>Set by Visa, Mastercard, Discover. Goes to the card-issuing bank. Identical cost on every processor. Estimate assumes a typical residential service-business card mix of approximately 40% debit / 60% credit.</td>
+            <td class="num">~1.13%</td>
+            <td class="num">$678.00</td>
+          </tr>
+          <tr>
+            <td>Card brand assessments</td>
+            <td>Set by the card networks. Goes to Visa, Mastercard, Discover. Identical cost on every processor.</td>
+            <td class="num">0.14%</td>
+            <td class="num">$84.00</td>
+          </tr>
+          <tr>
+            <td>AllProPay processor margin<sup>2</sup></td>
+            <td>Our markup on top of interchange + assessments. This is the only variable line item between AllProPay and other interchange-plus processors.</td>
+            <td class="num">0.50% + $0.10 / txn</td>
+            <td class="num">$324.00</td>
+          </tr>
+          <tr>
+            <td>Platform fee</td>
+            <td>Flat monthly fee for the AllProPay merchant account, statements, reporting portal, and PCI compliance program.</td>
+            <td class="num">$25.00 / mo</td>
+            <td class="num">$25.00</td>
+          </tr>
+          <tr class="total">
+            <td colspan="3">Estimated AllProPay monthly cost</td>
+            <td class="num">$1,111.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-header">How the Two Pricing Models Differ</div>
+      <div class="annotation">
+        <strong>Stripe uses flat-rate pricing.</strong> Brian pays 2.9% + $0.30 on every transaction, regardless of whether the customer used a debit card (which costs Stripe almost nothing) or a high-rewards credit card (which costs Stripe more). Stripe keeps the spread between what they charge and what the card networks actually cost them.
+        <br><br>
+        <strong>AllProPay uses interchange-plus pricing.</strong> The card networks' actual cost is passed through at exact cost, and our markup is a flat, transparent rate on top. When a customer pays with a debit card, Brian pays the regulated debit rate (around 0.05% + $0.21) plus our markup. When a customer pays with a credit card, Brian pays the credit interchange (around 1.65%-2.10%) plus our markup. He gets the savings on debit transactions instead of Stripe pocketing them.
+        <br><br>
+        <strong>Why this matters for a residential cleaning business:</strong> a meaningful share of recurring customer payments come in on personal debit cards rather than credit cards. Stripe charges 2.9% on every debit transaction regardless. AllProPay charges the actual debit interchange (a fraction of 1%) plus our markup. That single mix difference is where most of the savings comes from.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">How Savings Scale with Monthly Volume</div>
+      <table class="cost">
+        <thead>
+          <tr><th>Monthly card volume</th><th style="text-align:right;">Stripe est.</th><th style="text-align:right;">AllProPay est.</th><th style="text-align:right;">Monthly savings</th><th style="text-align:right;">Annual savings</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$50,000</td>
+            <td class="num">$1,510</td>
+            <td class="num">$930</td>
+            <td class="num">$580</td>
+            <td class="num">$6,960</td>
+          </tr>
+          <tr style="background:var(--light-gray);">
+            <td><strong>$60,000 (basis used above)</strong></td>
+            <td class="num"><strong>$1,812</strong></td>
+            <td class="num"><strong>$1,111</strong></td>
+            <td class="num"><strong>$701</strong></td>
+            <td class="num"><strong>$8,412</strong></td>
+          </tr>
+          <tr>
+            <td>$70,000</td>
+            <td class="num">$2,114</td>
+            <td class="num">$1,292</td>
+            <td class="num">$822</td>
+            <td class="num">$9,864</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:8.8pt;color:var(--muted);margin-top:6px;line-height:1.5;">
+        All three scenarios use the same assumptions: 40% debit / 60% credit blended interchange, an average ticket of $250 (used to derive transaction count from monthly volume), and the same $25 / month platform fee. The savings figure scales with volume because Stripe's flat 2.9% applies to every dollar, while AllProPay's interchange-plus margin grows more slowly as volume rises.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Quarter Matters</div>
+      <p style="font-size:9.5pt;line-height:1.55;">
+        April through June is peak season for residential cleaning. Mama Maids is processing more volume right now than at any other point in the calendar year. Every month of delay is the most expensive month of the year to keep the current setup. A typical Q2 month at higher-than-average volume pushes the gap to the upper end of the $700-$800/mo savings range, not the lower end.
+      </p>
+    </div>
+
+    <div class="footer">
+      <div class="next-step">
+        <strong>Next step (recommended by accounting)</strong>
+        Send the last three months of Stripe statements. We re-run these numbers against actual data instead of estimates, and Brian sees the exact dollar difference before signing anything. No application, no commitment. Statement review only.
+      </div>
+      <div>
+        <strong style="color:var(--navy);display:block;">Matt Butcher</strong>
+        AllProPay &middot; Ext. 703<br>
+        802-278-4725<br>
+        matt@allpropay.com
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <sup>1</sup> Card-not-present interchange varies by card type. Regulated debit runs ~0.05% + $0.21 per transaction. Credit interchange runs 1.65%-2.10% depending on rewards tier. The 1.13% blended estimate assumes a 40% debit / 60% credit mix, which is typical for residential service businesses with recurring customer payments. The actual blended rate is visible on the AllProPay statement and is directly verifiable against the published Visa / Mastercard / Discover interchange tables.
+      <br><br>
+      <sup>2</sup> The 0.50% + $0.10 / transaction markup and the $25 / month platform fee shown above represent the AllProPay program tier this proposal is built around. Final program tier is confirmed by AllProPay at the time of application after a review of three months of Stripe statements. Statement review may move pricing in either direction depending on actual card mix, average ticket, and monthly volume.
+      <br><br>
+      All figures above are estimates derived from Brian's stated $50,000-$70,000 / month volume range and standard residential-service-business card-mix assumptions. Actual savings depend on final card mix, monthly volume, transaction count, and confirmed program tier. A review of three months of Stripe statements will replace every estimate above with actual figures before any application is submitted.
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

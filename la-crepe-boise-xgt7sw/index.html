@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | La Crepe Boise</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .content { padding: 36px 40px 48px; }
+
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 16px;
+    font-size: 9.5pt;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-green { color: var(--green); font-weight: 600; }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-blue { color: var(--blue); font-weight: 600; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 20px;
+  }
+  .stat-cell {
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .stat-cell .stat-value.blue { color: var(--blue); }
+  .stat-cell .stat-value.red { color: var(--red); }
+
+  .compare-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .compare-callout .cc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .compare-callout .cc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .compare-callout .cc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .compare-callout .divider { width: 1px; background: #334155; align-self: stretch; }
+
+  .insight {
+    background: #FFFBEB;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .insight strong { color: #B45309; }
+
+  .alert {
+    border-left: 4px solid var(--red);
+    background: #FFF5F5;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .alert h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+
+  .rec-badge {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-btn:hover { background: #003ecc; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-org { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .alert, .insight, .compare-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .compare-callout, .alert, .step, .stats-grid, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 16px 28px 20px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; }
+    .blue-bar { margin: 10px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { font-size: 11.5pt; padding-bottom: 5px; margin-bottom: 10px; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .stat-cell { padding: 9px 12px; }
+    .stat-cell .stat-value { font-size: 12pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    .compare-callout { padding: 14px 20px; margin: 12px 0; }
+    .compare-callout .cc-value { font-size: 18pt; }
+    .steps { gap: 8px; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 8px !important; }
+    .cta-wrap-final { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Payment Processing Proposal</h1>
+      <div class="subtitle">La Crepe Boise</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Cammy &nbsp;|&nbsp; La Crepe Boise &nbsp;|&nbsp; Boise, ID</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Square</span>
+        <span class="label">Date</span>
+        <span class="value">May 20, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- SUMMARY -->
+    <div class="section">
+      <div class="section-header">Summary</div>
+      <p>La Crepe Boise is currently processing through Square and passing card fees to customers - which is exactly the right instinct. The gap is how that fee is being structured. Square does not have a compliant cash discount or dual pricing program, so what is in place today carries compliance exposure under Visa and Mastercard card-brand rules.</p>
+      <p>AllProPay can put a properly structured program in place: customers see the card price upfront, you pay nothing on card transactions, and the compliance piece is handled correctly. The customer rate drops from 3.4% to 3.0% - a cleaner experience all around.</p>
+      <p>Alongside processing, we are recommending a full switch from Square to the EPOSnow POS system, which includes native kitchen display support and is a better fit for a mobile, high-volume food operation.</p>
+    </div>
+
+    <!-- CURRENT SITUATION -->
+    <div class="section">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-label">Current processor</div>
+          <div class="stat-value">Square</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Rate charged to customers</div>
+          <div class="stat-value">3.4%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Your processing cost</div>
+          <div class="stat-value blue">$0</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Approximate daily transactions</div>
+          <div class="stat-value">300</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Monthly platform fee</div>
+          <div class="stat-value">$0</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-label">Compliance status</div>
+          <div class="stat-value red">At risk</div>
+        </div>
+      </div>
+
+      <div class="alert">
+        <h3>Compliance exposure</h3>
+        <p>Adding a percentage to a transaction as a workaround surcharge - without a card-brand-approved dual pricing or cash discount program - violates Visa and Mastercard operating rules. Square does not offer a compliant program for this. Most merchants do this for years without issue, but the exposure is real and can result in penalties or forced termination by the card brands. AllProPay sets this up the right way.</p>
+      </div>
+    </div>
+
+    <!-- THE ALLPROPAY SOLUTION -->
+    <div class="section">
+      <div class="section-header">The AllProPay Solution</div>
+
+      <p>We recommend a <strong>dual pricing / cash discount program</strong>. Here is how it works:</p>
+
+      <ul style="margin-bottom: 16px;">
+        <li>Your menu shows two prices: a cash price and a card price.</li>
+        <li>Customers who pay by card pay 3.0% - built into the displayed price.</li>
+        <li>Customers who pay cash pay the base price.</li>
+        <li>You collect $0 in processing fees. The customer covers the cost transparently.</li>
+        <li>The program is fully compliant with Visa, Mastercard, and card-brand operating rules.</li>
+      </ul>
+
+      <div class="compare-callout">
+        <div>
+          <div class="cc-label">Customer card fee - today (Square)</div>
+          <div class="cc-value">3.4%</div>
+          <div class="cc-sub">Non-compliant surcharge workaround</div>
+        </div>
+        <div class="divider"></div>
+        <div>
+          <div class="cc-label">Customer card fee - AllProPay</div>
+          <div class="cc-value">3.0%</div>
+          <div class="cc-sub">Compliant dual pricing program</div>
+        </div>
+        <div class="divider"></div>
+        <div>
+          <div class="cc-label">Your processing cost</div>
+          <div class="cc-value">$0</div>
+          <div class="cc-sub">Same as today - you pay nothing</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong>Net effect for your customers:</strong> They pay 0.4% less per transaction than they do today. On a $50 crepe order, that is $0.20 back in their pocket. Not dramatic, but it is a cleaner, more professional experience - and your exposure goes away.
+      </div>
+    </div>
+
+    <!-- CTA 1 -->
+    <div class="cta-wrap">
+      <a href="[INSERT SCHEDULING LINK]" class="cta-btn">Book a 15-Minute Call</a>
+      <div class="cta-print-text">Ready to move forward? Call <a href="tel:9174513036" style="color:inherit;">917-451-3036</a> or email <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+    </div>
+
+    <!-- EQUIPMENT -->
+    <div class="section" style="margin-top: 32px;">
+      <div class="section-header">POS Equipment - EPOSnow</div>
+
+      <p>Square hardware does not run EPOSnow. The switch comes with new equipment. Two terminal options:</p>
+
+      <table style="margin-top: 14px;">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>One-time cost</th>
+            <th>What you get</th>
+            <th>Best for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Countertop</strong> (single screen)</td>
+            <td class="flag-blue">$399</td>
+            <td>15.6" touchscreen, built-in 80mm receipt printer</td>
+            <td>Tighter spaces, lower upfront</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Countertop Duo</strong> (dual screen)
+              <span class="rec-badge">Recommended</span>
+            </td>
+            <td class="flag-blue">$479</td>
+            <td>15.6" main screen + 10.1" customer-facing display, built-in printer</td>
+            <td>Dual pricing programs - customer sees their price on their screen</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        <strong>Why the Duo for a dual pricing program:</strong> When customers are paying a different price based on how they pay, showing them the price on their own screen removes any friction or confusion at the register. It is standard practice for cash discount setups and keeps the transaction clean and fast - which matters at 300 transactions a day.
+      </div>
+
+      <p><strong>Kitchen Display System (KDS):</strong> EPOSnow has a native KDS that integrates directly with the POS - no third-party app required. KDS pricing and configuration can be scoped separately based on your current setup and what you want to carry forward. Ask on the call.</p>
+    </div>
+
+    <!-- MONTHLY INVESTMENT -->
+    <div class="section">
+      <div class="section-header">Monthly Investment</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Monthly</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AllProPay platform fee</td>
+            <td>$25</td>
+            <td>Processing account, reporting, support</td>
+          </tr>
+          <tr>
+            <td>EPOSnow POS software</td>
+            <td>$59</td>
+            <td>Cloud POS, back office, KDS app, updates</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Total monthly</strong></td>
+            <td><strong>$84</strong></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">Processing fees: $0. Customers cover the card cost through the dual pricing program. No per-transaction charges to you. No setup fees on standard programs. No cancellation fees.</p>
+    </div>
+
+    <!-- MAKING THE SWITCH -->
+    <div class="section">
+      <div class="section-header">Making the Switch</div>
+
+      <p>You mentioned wanting to keep things stable through the rest of the year and start fresh in January. That timeline works well. Here is what the transition looks like:</p>
+
+      <div class="steps" style="margin-top: 16px;">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Application - about 15 minutes.</strong> Standard merchant application. No commitment to a specific processor yet - that comes after underwriting confirms the best fit for your volume and setup.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Menu import - EPOSnow's team handles it.</strong> Your Square product catalog (items, prices, categories) exports to a spreadsheet in minutes. EPOSnow's onboarding team takes that file and imports it directly. Modifier groups (fillings, toppings, add-ons) are rebuilt with their team during onboarding - typically a few hours of work, and they walk you through it.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Hardware ships, KDS scoped.</strong> Terminal ships once the account is approved. We scope the KDS setup based on what you need and what you want to carry forward from your current setup.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Test run before you go live.</strong> You run the new system through a test cycle before switching over. When you are comfortable, you flip. Your January start date is the target - we work backwards from there.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">Why AllProPay</div>
+      <p>AllProPay is a merchant services broker, not a direct processor. That means we shop your account across multiple processors and set up the one that actually fits your business - not the one that is easiest for us.</p>
+      <ul class="why-list" style="margin-top: 14px;">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you can leave.</li>
+        <li><strong>No cancellation fees. No setup fees</strong> on standard programs.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no surprises six months in.</li>
+        <li><strong>One point of contact.</strong> You deal with Chris, not a call center. If something comes up, you know who to call.</li>
+        <li><strong>Properly set up from day one.</strong> The dual pricing program is structured correctly - not a workaround. Your compliance exposure goes away on day one.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">Next Steps</div>
+      <p>One call is all it takes to confirm the details and answer any questions before moving forward.</p>
+
+      <div class="steps" style="margin-top: 14px;">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>15-minute call with Chris.</strong> Confirm your setup, walk through any questions, and decide on the hardware option.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Application.</strong> Simple paperwork - takes about 15 minutes.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>EPOSnow onboarding begins.</strong> Their team contacts you to start the menu setup on your schedule.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>January go-live.</strong> Clean start, fully compliant, new system ready.
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "The goal is to fix the compliance piece, lower what your customers are paying, and get you on a better system - without disrupting a business that is already running well."
+      </p>
+
+      <!-- CTA 2 -->
+      <div class="cta-wrap cta-wrap-final" style="margin-top:28px;">
+        <a href="[INSERT SCHEDULING LINK]" class="cta-btn">Book My 15-Minute Call with Chris</a>
+        <div class="cta-print-text">To get started: <a href="tel:9174513036" style="color:inherit;">917-451-3036</a> &nbsp;|&nbsp; <a href="mailto:chris@allpropay.com" style="color:inherit;">chris@allpropay.com</a></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-org">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:9174513036" style="color:inherit; text-decoration:none;">917-451-3036</a><br>
+          <a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+    <span>Confidential &nbsp;&middot;&nbsp; Prepared for La Crepe Boise</span>
+  </div>
+
+</div>
+</body>
+</html>
