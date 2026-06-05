@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Car Esthetic Window Tint &amp; Wraps</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>A Better Setup for Car Esthetic</h1>
+      <div class="subtitle">Car Esthetic Window Tint &amp; Wraps</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Gabriel &nbsp;|&nbsp; Car Esthetic Window Tint &amp; Wraps &nbsp;|&nbsp; Florida</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Katie Nigelsky &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">Square, synced to QuickBooks</span>
+        <span class="label">Date</span>
+        <span class="value">June 5, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where You Are Today</div>
+      <p>Gabriel, you have built something real. Square does a decent job on the everyday flow, you are already passing the card fee to your customers, and your sales feed straight into QuickBooks. That part works.</p>
+      <p>What does not work is the part you only feel when something goes wrong. You had a dispute go all the way to court. And even though you pass the fee, Square still takes its cut on top. This page is about fixing those two things without changing the way you run the shop day to day.</p>
+      <p>Here is what we heard matters most to you:</p>
+      <ul>
+        <li>Keep the all-in-one feel: estimates, invoices, text or email to pay, and tap in person, all in one place.</li>
+        <li>Real dispute protection. You should not have to go to court to fight a chargeback alone.</li>
+        <li>Keep 100% of every sale. If your customer is already covering the fee, none of it should be skimmed off the top.</li>
+        <li>Room to grow: add your techs as users with their own permissions, and set up recurring or deposit billing for bigger jobs.</li>
+        <li>Stay connected to QuickBooks so your books do not change.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">The same workflow, a better tool</div>
+          <div class="p-body">An all-in-one app that mirrors how you work in Square: build an estimate, convert it to an invoice in one click, send it by text or email to get paid, or tap the card in person. Recurring and deposit billing built in. Still syncs to QuickBooks.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Real chargeback protection</div>
+          <div class="p-body">Bank-backed processing through North and EPX. Disputes are held and investigated, not auto-refunded the way Square handled yours. You get a dedicated rep who builds the response with you, so you are never standing in front of a judge by yourself again.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">You keep 100%</div>
+          <div class="p-body">A clean cash discount setup. Your customer covers the card fee, the same as today, but there is no processor skimming a piece on top. You net the full ticket, and funds hit your account the next day.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What It Costs</div>
+      <p>Simple and flat. The exact customer-facing rate gets confirmed on a quick call so it lines up with what your customers already see on Square today.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">You keep</div>
+            <div class="pc-value">100%</div>
+            <div class="pc-sub">Of every sale, on cash discount</div>
+          </div>
+          <div>
+            <div class="pc-label">Per-transaction cost to you</div>
+            <div class="pc-value">$0</div>
+            <div class="pc-sub">Customer covers the card fee</div>
+          </div>
+          <div>
+            <div class="pc-label">Platform fee</div>
+            <div class="pc-value">$25/mo</div>
+            <div class="pc-sub">Account, app, statements, support</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>All-in-one app</td><td>Included</td><td>Estimates, invoices, recurring, tap to pay</td></tr>
+          <tr><td>QuickBooks sync</td><td>Included</td><td>Your books do not change</td></tr>
+          <tr><td>Terminal or card reader</td><td>$0</td><td>Free reader included</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, app, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Contract / cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        On cash discount you net the full sale and your monthly cost is the flat <strong>$25 platform fee</strong>, not a slice of every transaction the way Square charges you on top today. The exact rate your customers see is set with you on the call. These are estimates based on the volume and card mix you shared. Actual numbers depend on final card mix.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Flexibility You Asked For</div>
+      <p>You are already passing the fee, so cash discount fits how you run today and the switch is invisible to your customers. But you are not locked into it.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Start on cash discount now.</strong> Keep 100% of the sale, just like you intend to today, with no processor cut on top.</li>
+        <li><strong>Switch to flat low pricing whenever you want.</strong> Same account, same app, same workflow. The fee structure changes, the plumbing does not.</li>
+        <li><strong>Try one, then the other.</strong> Run it, look at a real statement, and decide. No penalty either way.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li>You already pass the fee, so moving to cash discount is invisible to your customers. The difference is you stop letting Square take a cut on top.</li>
+        <li>The dispute that put you in court would have a dedicated rep and a bank-backed risk team behind it next time.</li>
+        <li>Estimate to invoice to paid, in one flow, plus recurring and deposit billing for the bigger wrap and PPF jobs.</li>
+        <li>Add your techs as users with their own permissions as you hire, with admin controls you keep.</li>
+        <li>One real person who owns your account, not a help center queue.</li>
+      </ul>
+      <p style="margin-top:12px;">Quick math: on a $12,000 wrap, cash discount means you net the full $12,000 instead of handing a slice to Square on top of the fee your customer already paid.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">No switch today. Just a quick look to see if the numbers and the dispute coverage are worth it:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>A quick 15-minute call.</strong> Katie connects you with an AllProPay payments specialist who walks through the exact numbers for your volume and answers your dispute and workflow questions.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>See it side by side.</strong> We show you the estimate to invoice to paid flow and how disputes are handled, right next to what Square does today. No pressure either way.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>If it fits, we get you set up.</strong> About a 10-minute walkthrough to open the account. Your first batch funds the next morning. No paperwork marathon.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "Fifteen minutes. If the numbers and the dispute coverage do not beat what you have, you have lost nothing."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303973" class="cta-btn">Text or Call Katie: 929-930-3973</a>
+        <div class="cta-print-text">Text or call Katie: 929-930-3973 &nbsp;|&nbsp; katie@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Katie Nigelsky</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303973" style="color:inherit; text-decoration:none;">929-930-3973</a> (text friendly)<br>
+          <a href="mailto:katie@allpropay.com" style="color:inherit; text-decoration:none;">katie@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Estimates of cost and savings are based on the volume and card-mix information you shared and are not a guarantee. The exact customer-facing rate is confirmed on your call. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
