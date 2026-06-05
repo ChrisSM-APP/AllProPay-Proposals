@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Santa Fe Landscaping LLC</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; text-align: center; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 30pt; font-weight: 800; color: #38BDF8; line-height: 1.1; }
+  .pricing-callout .pc-sub { font-size: 9pt; color: #94A3B8; margin-top: 6px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 16px 18px; }
+    .pricing-callout .pc-value { font-size: 22pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your AllProPay Setup</h1>
+      <div class="subtitle">Santa Fe Landscaping LLC</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Marco &nbsp;|&nbsp; Santa Fe Landscaping LLC &nbsp;|&nbsp; Santa Fe, NM</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Kurt Ravi &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">QuickBooks invoicing</span>
+        <span class="label">Date</span>
+        <span class="value">June 5, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>Marco, this is everything we have talked through over the last several months in one place. The goal of this page is simple: keep QuickBooks exactly the way you run it today, add a clean way to get paid on every invoice, and keep the cost predictable. No big change to how you work.</p>
+      <p>You told me what mattered. The setup is built around it:</p>
+      <ul>
+        <li>Keep invoicing in QuickBooks. You are not changing how you bill or rebuilding anything.</li>
+        <li>Your existing QuickBooks client list syncs over. No re-entering customers by hand.</li>
+        <li>Simple, predictable cost. No application fee, no cancellation fee, no contract.</li>
+        <li>Month-to-month, on your own timeline. You stay in control.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">QuickBooks stays your hub</div>
+          <div class="p-body">Invoices, customers, and reporting stay exactly as they are. Your client list syncs over, so there is nothing to rebuild. Payments post back automatically and your books stay clean.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Card and bank pay on every invoice</div>
+          <div class="p-body">Customers pay online straight from the invoice by card or bank transfer. No more waiting on checks. Funds land in your account the next business day.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">The fee can ride on the customer</div>
+          <div class="p-body">Turn on the cash discount option and the card fee is carried by the paying customer, so you keep the full invoice amount. Fully compliant, and optional.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Pricing</div>
+      <p>This is the offer we put together. One flat service fee, and that is it.</p>
+
+      <div class="pricing-callout">
+        <div class="pc-label">MONTHLY SERVICE FEE</div>
+        <div class="pc-value">$5 / month</div>
+        <div class="pc-sub">Online portal, monthly statements, and support included. No application fee. No cancellation fee. No contract.</div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>QuickBooks integration</td><td>Included</td><td>QuickBooks-native gateway, your client list syncs</td></tr>
+          <tr><td>Online payment portal and statements</td><td>Included</td><td>Customers pay invoices online, you get monthly statements</td></tr>
+          <tr><td>Next-day funding</td><td>Included</td><td>Standard on the account</td></tr>
+          <tr><td>Card fee</td><td>Customer can cover it</td><td>Cash discount option, you keep 100% of the invoice</td></tr>
+          <tr><td>Monthly service fee</td><td>$5 per month</td><td>Account, portal, statements, support</td></tr>
+          <tr><td>Application fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        With the cash discount option turned on, the card fee is carried by the paying customer, so <strong>your only monthly cost is the $5 service fee and you keep the full amount of every invoice.</strong> Prefer to absorb the card fee yourself instead? We can set you up on a low, transparent rate. We will confirm the exact number with you before anything goes live. Either way, no contract.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">You Stay in Control</div>
+      <p>You are not locked into one way of doing this. The account is flexible, and you can change how the card fee is handled whenever you want.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Let the customer cover the fee.</strong> The cash discount option keeps the full invoice amount in your pocket. This is the common choice for service businesses.</li>
+        <li><strong>Or absorb a low, transparent rate yourself.</strong> Same account, same QuickBooks workflow. We confirm the rate with you first, in plain numbers.</li>
+        <li><strong>Switch either way, anytime.</strong> No penalty, no contract. The plumbing does not change, only how the fee is handled.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li>Nothing about how you bill changes. QuickBooks stays, and your client list comes with you.</li>
+        <li>You get paid faster. Customers pay the invoice online by card or bank transfer instead of mailing a check.</li>
+        <li>The cost is predictable. $5 a month, no setup fee, no cancellation fee, cancel anytime.</li>
+        <li>With the cash discount option, the customer covers the card fee and you keep the full invoice amount.</li>
+        <li>You have already designed this with me. Opening the account is the only step left.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three short steps to get you live:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Pick a time with me.</strong> A quick 10-minute call to confirm the details and complete the short application together. No paperwork to chase down on your own.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Approval.</strong> Underwriting takes about 24 to 48 hours. I handle the back and forth so you do not have to.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Connect QuickBooks.</strong> We link the QuickBooks-native gateway, sync your client list, and send a test invoice. You keep working exactly the way you do today.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You have already done the thinking. The setup is built. All that is left is opening the account."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303653" class="cta-btn">Text or Call Kurt: 929-930-3653</a>
+        <div class="cta-print-text">Text or call Kurt: 929-930-3653 &nbsp;|&nbsp; kurt@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Kurt Ravi</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303653" style="color:inherit; text-decoration:none;">929-930-3653</a> (text friendly)<br>
+          <a href="mailto:kurt@allpropay.com" style="color:inherit; text-decoration:none;">kurt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Pricing reflects what was discussed with Kurt. The cash discount option is fully compliant and optional. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
