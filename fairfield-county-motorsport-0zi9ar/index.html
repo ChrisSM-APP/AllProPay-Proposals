@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay - Cost Review + Capital Options | Fairfield County MotorSport</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --red: #C0392B;
+    --orange: #D97706;
+    --green: #15803D;
+    --text: #1A1A2E;
+    --muted: #64748B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .doc-header {
+    display: block;
+    padding: 22px 40px 16px;
+    border-bottom: 3px solid var(--blue);
+    overflow: hidden;
+  }
+  .doc-header .logo-img {
+    height: 52px;
+    width: auto;
+    float: left;
+  }
+  .doc-header .contact {
+    float: right;
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+    padding-top: 6px;
+  }
+  .doc-header::after { content: ''; display: table; clear: both; }
+
+  /* BODY */
+  .content { padding: 36px 40px 48px; }
+
+  /* TITLE BLOCK */
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26pt;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .title-block .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .meta-grid {
+    display: table;
+    width: 100%;
+    border-top: 1px solid var(--mid-gray);
+    padding-top: 16px;
+  }
+  .meta-row { display: table-row; }
+  .meta-label {
+    display: table-cell;
+    width: 170px;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 9.5pt;
+    padding: 3px 16px 3px 0;
+    vertical-align: top;
+  }
+  .meta-value {
+    display: table-cell;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 9.5pt;
+    padding: 3px 0;
+    vertical-align: top;
+  }
+
+  .blue-bar {
+    height: 4px;
+    background: var(--blue);
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+  .section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--blue);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+
+  /* STATS GRID */
+  .stats-grid {
+    border: 1px solid var(--mid-gray);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .stats-row {
+    display: table;
+    width: 100%;
+  }
+  .stat-cell {
+    display: table-cell;
+    width: 25%;
+    padding: 14px 16px;
+    border: 1px solid var(--mid-gray);
+    background: var(--light-gray);
+    vertical-align: top;
+  }
+  .stat-cell:nth-child(odd) { background: #fff; }
+  .stat-cell .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-cell .stat-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .stat-cell .stat-value.danger { color: var(--red); }
+  .stat-cell .stat-value.warn { color: var(--orange); }
+  .stat-cell .stat-value.good { color: var(--green); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 12px;
+  }
+  thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.total-row { background: var(--mid-gray); font-weight: 600; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .flag-red { color: var(--red); font-weight: 600; }
+  .flag-orange { color: var(--orange); font-weight: 600; }
+  .flag-green { color: var(--green); font-weight: 600; }
+
+  /* FINDING BLOCKS */
+  .finding {
+    border-left: 4px solid var(--orange);
+    background: #FFFBEB;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  /* CAPITAL BLOCK */
+  .capital-block {
+    border-left: 4px solid var(--blue);
+    background: #EFF6FF;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+  .capital-block h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  /* STEPS */
+  .steps { display: block; }
+  .step {
+    display: table;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    display: table-cell;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    line-height: 36px;
+  }
+  .step-content {
+    display: table-cell;
+    padding: 6px 0 0 16px;
+    font-size: 10.5pt;
+    vertical-align: top;
+  }
+  .step-content strong { font-weight: 600; color: var(--text); }
+
+  /* WHY BULLETS */
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li {
+    padding: 9px 14px;
+    border-left: 3px solid var(--blue);
+    margin-bottom: 8px;
+    background: var(--light-gray);
+    font-size: 10.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* SAVINGS CALLOUT */
+  .savings-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .sc-col {
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+    padding: 0 10px;
+  }
+  .sc-col:first-child { padding-left: 0; }
+  .sc-col:last-child { padding-right: 0; }
+  .sc-divider {
+    display: inline-block;
+    width: 1px;
+    height: 50px;
+    background: #334155;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+  .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .sc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20pt;
+    font-weight: 800;
+    color: #38BDF8;
+  }
+  .sc-sub { font-size: 8pt; color: #94A3B8; margin-top: 4px; }
+
+  /* CAPITAL HIGHLIGHT */
+  .capital-highlight {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .capital-highlight h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: #38BDF8;
+    margin-bottom: 12px;
+  }
+  .capital-highlight p { color: #E2E8F0; margin-bottom: 8px; font-size: 10pt; }
+  .capital-options {
+    margin: 14px 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .capital-options li {
+    padding: 8px 12px 8px 14px;
+    border-left: 3px solid #38BDF8;
+    background: rgba(255,255,255,0.06);
+    margin-bottom: 8px;
+    border-radius: 0 4px 4px 0;
+    color: #F5F7FA;
+    font-size: 10pt;
+  }
+  .capital-note {
+    font-size: 8.5pt;
+    color: #94A3B8;
+    font-style: italic;
+    margin-top: 12px;
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    padding: 16px 40px;
+    border-top: 1px solid var(--mid-gray);
+    font-size: 8pt;
+    color: var(--muted);
+    overflow: hidden;
+  }
+  .doc-footer .footer-left { float: left; }
+  .doc-footer .footer-right { float: right; }
+  .doc-footer::after { content: ''; display: table; clear: both; }
+
+  /* SIGNATURE BLOCK */
+  .signature-block {
+    overflow: hidden;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  .sig-left { float: left; }
+  .sig-right { float: right; text-align: right; }
+  .signature-block::after { content: ''; display: table; clear: both; }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.9; }
+  .sig-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--black);
+  }
+  .sig-logo span { color: var(--blue); font-style: italic; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background: #F0FDF4;
+    border-left: 4px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin: 14px 0;
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  /* CTA */
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .finding, .capital-highlight, .savings-callout, .step-num, thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .savings-callout, .finding, .step, .stats-row, table { break-inside: avoid; page-break-inside: avoid; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 16px 28px 20px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 20pt; margin-bottom: 4px; }
+    .title-block .subtitle { font-size: 12pt; margin-bottom: 14px; }
+    .meta-label, .meta-value { font-size: 8.5pt; padding: 2px 0; }
+    .blue-bar { margin: 12px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul { margin: 6px 0 6px 18px; }
+    ul li { margin-bottom: 3px; font-size: 9.5pt; }
+    .stat-cell { padding: 8px 12px; }
+    .stat-cell .stat-value { font-size: 11pt; }
+    .stat-cell .stat-label { font-size: 7.5pt; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 8.5pt; }
+    .finding { padding: 10px 14px; margin-bottom: 12px; }
+    .finding h3 { font-size: 10pt; margin-bottom: 4px; }
+    .capital-highlight { padding: 14px 18px; margin: 12px 0; }
+    .capital-highlight h3 { font-size: 11pt; margin-bottom: 8px; }
+    .capital-options li { padding: 5px 10px; margin-bottom: 5px; font-size: 9pt; }
+    .savings-callout { padding: 14px 20px; margin: 12px 0; }
+    .sc-value { font-size: 16pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; }
+    .why-list li { padding: 6px 10px; margin-bottom: 4px; font-size: 9.5pt; }
+    .signature-block { margin-top: 16px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .note { font-size: 7.5pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .cta-wrap { margin-top: 6px; }
+    .cta-wrap-final { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <h1>Cost Review + Capital Options</h1>
+      <div class="subtitle">Fairfield County MotorSport</div>
+      <div class="meta-grid">
+        <div class="meta-row">
+          <span class="meta-label">Prepared for</span>
+          <span class="meta-value">Danny Millett &nbsp;|&nbsp; Fairfield County MotorSport &nbsp;|&nbsp; Fairfield County, CT</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Prepared by</span>
+          <span class="meta-value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Based on</span>
+          <span class="meta-value">Merchant-provided figures &nbsp;·&nbsp; Statement review available upon request</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">May 21, 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-header">Overview</div>
+      <p>Fairfield County MotorSport has been in business since 1987. That kind of longevity says something about how the business is run.</p>
+      <p>This document covers two things. First, a review of your current processing costs based on the figures you shared - $80K to $120K per month on blended pricing, paying roughly $32,000 a year in fees. At your volume and card mix, that number is higher than it needs to be.</p>
+      <p>Second - and this is the part that did not come up before - AllProPay also offers working capital and equipment financing tied to monthly processing volume. That is separate from your banking relationship. It does not require you to move accounts or change anything with your bank.</p>
+      <p>We put this together because we think there is a real case to be made on both sides, and we want you to see the full picture before making a decision.</p>
+    </div>
+
+    <!-- SAVINGS CALLOUT -->
+    <div class="savings-callout">
+      <div class="sc-col">
+        <div class="sc-label">Estimated annual savings</div>
+        <div class="sc-value">$5K - $8K</div>
+        <div class="sc-sub">Estimates only - pending statement review</div>
+      </div>
+      <div class="sc-divider"></div>
+      <div class="sc-col">
+        <div class="sc-label">Monthly volume (avg)</div>
+        <div class="sc-value">~$100K</div>
+        <div class="sc-sub">Merchant-stated $80K-$120K range</div>
+      </div>
+      <div class="sc-divider"></div>
+      <div class="sc-col">
+        <div class="sc-label">Current annual fees</div>
+        <div class="sc-value">~$32,000</div>
+        <div class="sc-sub">~$2,600/month, merchant-confirmed</div>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top: 0;">These are estimates based on merchant-provided volume and fee figures. Actual savings depend on final card mix, program selection, and statement review. If the numbers are not there, we will tell you that directly.</p>
+
+    <!-- CTA 1 -->
+    <div class="cta-wrap">
+      <a href="mailto:chris@allpropay.com?subject=Fairfield County MotorSport - Call Request" class="cta-btn">Schedule 15 Minutes with Chris</a>
+      <div class="cta-print-text">Ready to talk? Call <strong>917-451-3036</strong> or email <strong>chris@allpropay.com</strong></div>
+    </div>
+
+    <!-- CURRENT SETUP -->
+    <div class="section" style="margin-top: 36px;">
+      <div class="section-header">Your Current Setup</div>
+
+      <div class="stats-grid">
+        <div class="stats-row">
+          <div class="stat-cell">
+            <div class="stat-label">Monthly volume</div>
+            <div class="stat-value">$80K-$120K</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Annual fees (stated)</div>
+            <div class="stat-value danger">~$32,000</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Effective rate (est.)</div>
+            <div class="stat-value warn">~2.7%</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Card environment</div>
+            <div class="stat-value">90% CP</div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-cell">
+            <div class="stat-label">Average ticket</div>
+            <div class="stat-value">~$1,500</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">High ticket</div>
+            <div class="stat-value">$20K-$30K</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Years in business</div>
+            <div class="stat-value">37+</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Annual volume (est.)</div>
+            <div class="stat-value">$1M+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight">
+        At 90% card-present volume and over $1M annually, blended pricing is rarely the most cost-efficient structure. Most businesses at this level pay less with a transparent interchange-plus setup where the rate breakdown is visible and the markup is fixed.
+      </div>
+    </div>
+
+    <!-- WHAT WE FOUND -->
+    <div class="section">
+      <div class="section-header">What We Are Seeing</div>
+      <p>Based on your volume, ticket profile, and card environment, three things stand out.</p>
+
+      <div class="finding">
+        <h3>1. Blended Pricing at Scale</h3>
+        <p>Blended rates are straightforward to read but tend to cost more at higher volumes because the pricing does not adjust for card type. Consumer debit, which is typically the cheapest card to process, gets charged the same blended rate as premium rewards cards. For a shop doing your volume, the difference between blended and interchange-plus pricing is often several thousand dollars a year.</p>
+        <p>We cannot put a firm number on this without seeing your statement, but the effective rate you described - roughly 2.7% - is consistent with what we typically see when there is meaningful room to clean up.</p>
+      </div>
+
+      <div class="finding">
+        <h3>2. Manual Fee Pass-Through - Compliance Exposure</h3>
+        <p>Adding a fee manually before running the card through your terminal is a common workaround, but it carries risk. Card brands have specific rules about how fees can be disclosed and applied. A manual process - separate from an automated, compliant program - may not meet those requirements.</p>
+        <p>We are not raising this to alarm you. Most shops running this setup are unaware of the exposure. An automated program handles disclosure, receipt language, and debit exclusion correctly from the start, which eliminates the risk entirely.</p>
+      </div>
+
+      <div class="finding">
+        <h3>3. Equipment and Service Fees</h3>
+        <p>Hardware rental and service fees on legacy terminal arrangements have increased industry-wide. These costs are worth accounting for in the total picture. Depending on your current equipment setup, there may be a straightforward path to better hardware at lower or no ongoing cost.</p>
+      </div>
+    </div>
+
+    <!-- SAVINGS TABLE -->
+    <div class="section">
+      <div class="section-header">Estimated Savings - What the Numbers Could Look Like</div>
+      <p>The table below is a conservative estimate based on your stated volume and the patterns we see at this ticket size and card mix. These are not guarantees. Once we have a single statement, we can show you exact figures.</p>
+
+      <table style="margin-top: 14px;">
+        <thead>
+          <tr>
+            <th>Opportunity</th>
+            <th>Monthly estimate</th>
+            <th>Annual estimate</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rate structure optimization (interchange-plus)</td>
+            <td>$300 - $550</td>
+            <td>$3,600 - $6,600</td>
+            <td class="flag-orange">Medium - needs statement</td>
+          </tr>
+          <tr>
+            <td>Eliminate manual surcharge risk</td>
+            <td>Compliance benefit</td>
+            <td>Compliance benefit</td>
+            <td class="flag-green">High - known exposure</td>
+          </tr>
+          <tr>
+            <td>Hardware and service fee cleanup</td>
+            <td>$30 - $80</td>
+            <td>$360 - $960</td>
+            <td class="flag-orange">Medium - needs review</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Conservative total estimate</strong></td>
+            <td><strong>$330 - $630</strong></td>
+            <td><strong>$4,000 - $7,500+</strong></td>
+            <td>Pending statement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">Actual savings depend on final card mix, program type, and statement review. These figures use $100K/month as the midpoint. At $120K/month, the upper end of savings is proportionally higher.</p>
+    </div>
+
+    <!-- WORKING CAPITAL - NEW SECTION -->
+    <div class="section">
+      <div class="section-header">Working Capital + Equipment Financing</div>
+
+      <p>This is the part that did not come up before, and it matters.</p>
+
+      <p>AllProPay offers working capital and equipment financing tied directly to monthly processing volume. This is not a banking product. It does not touch your M&T relationship, your loan covenants, or any existing lending arrangements. The two are completely separate.</p>
+
+      <div class="capital-highlight">
+        <h3>What This Looks Like for a Business at Your Volume</h3>
+        <p>Merchants processing $1M+ annually typically qualify for meaningful capital options based on consistent monthly volume. The structure is designed around cash flow, not collateral.</p>
+        <ul class="capital-options">
+          <li><strong>Short-term working capital advances</strong> - tied to monthly processing, repaid as a percentage of daily volume. No fixed monthly payment.</li>
+          <li><strong>Equipment financing</strong> - shop upgrades, tooling, lifts, diagnostic equipment. Structured over terms that match the useful life of the equipment.</li>
+          <li><strong>Flexible repayment</strong> - repayment moves with your volume. Slower months mean smaller repayments. You are not locked into a fixed amount regardless of how business is running.</li>
+        </ul>
+        <p class="capital-note">Approval and terms are based on processing history and volume. A 15-minute call is the right place to go through what makes sense for your specific situation - we do not quote terms without knowing the details.</p>
+      </div>
+
+      <p>If access to capital has been part of how you have thought about your banking relationship, knowing this option exists changes the picture. You can keep everything with M&T exactly as it is and still have a capital line tied to your processing volume through AllProPay.</p>
+    </div>
+
+    <!-- WHY ALLPROPAY -->
+    <div class="section">
+      <div class="section-header">How We Work</div>
+      <p>AllProPay is not a large corporate processor. We work directly with merchants to find a setup that fits how they actually run their business.</p>
+      <ul class="why-list" style="margin-top: 14px;">
+        <li><strong>No contracts.</strong> You are not locked in. If it does not work, you can leave.</li>
+        <li><strong>No cancellation fees. No setup fees</strong> on standard programs.</li>
+        <li><strong>Trial approach.</strong> We recommend starting with a trial period so you can see the results before committing to anything.</li>
+        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no surprises 90 days in.</li>
+        <li><strong>Honest review.</strong> If the savings are there, we will show you clearly. If they are not, we will tell you that too. We do not manufacture numbers to close a deal.</li>
+        <li><strong>High-ticket experience.</strong> We handle $20K-$30K transactions routinely. That requires proper underwriting, not a one-size-fits-all setup.</li>
+      </ul>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <div class="section-header">What Happens Next</div>
+      <p style="margin-bottom: 18px;">Simple process. Four steps.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>15-minute call.</strong> We walk through this document together and go over the capital options in detail. No pressure to decide anything on the call.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>One processing statement.</strong> A single recent statement is all we need to run an exact apples-to-apples comparison and replace the estimates in this document with real numbers.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Side-by-side review.</strong> We put your current setup next to what we would propose - monthly, annually, and by fee category. You see exactly what changes and what does not.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content"><strong>Your decision.</strong> Try it on a trial basis, or walk away. No contracts means no pressure. If the numbers do not make the case, they do not make the case.</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px; font-style: italic; color: var(--muted); text-align: center; font-size: 10pt;">
+        "We are not trying to replace a relationship. We are trying to show you what else is available."
+      </p>
+
+      <!-- CTA FINAL -->
+      <div class="cta-wrap cta-wrap-final" style="margin-top: 28px;">
+        <a href="mailto:chris@allpropay.com?subject=Fairfield County MotorSport - Proposal Questions" class="cta-btn">Talk to Chris - 917-451-3036</a>
+        <div class="cta-print-text">To get started: <strong>917-451-3036</strong> &nbsp;|&nbsp; <strong>chris@allpropay.com</strong></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div class="sig-left">
+        <div class="sig-name">Chris Ste-Marie</div>
+        <div class="sig-title">AllProPay</div>
+        <div class="sig-contact">
+          <a href="tel:9174513036" style="color: inherit; text-decoration: none;">917-451-3036</a><br>
+          <a href="tel:8008070356" style="color: inherit; text-decoration: none;">800-807-0356 x201</a><br>
+          <a href="mailto:chris@allpropay.com" style="color: inherit; text-decoration: none;">chris@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color: inherit; text-decoration: none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height: 52px; width: auto; display: block; margin-bottom: 4px; margin-left: auto;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span class="footer-left">AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
+    <span class="footer-right">Confidential &nbsp;·&nbsp; Prepared for Fairfield County MotorSport</span>
+  </div>
+
+</div>
+</body>
+</html>
