@@ -318,6 +318,87 @@
     .doc-footer .sig img { height: 20px; }
     .doc-footer .fine { font-size: 7pt; }
   }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+  }
 </style>
 </head>
 <body>
