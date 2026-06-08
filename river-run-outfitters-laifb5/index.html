@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | River Run Outfitters</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+  /* === AllProPay mobile responsive v3 === screen-only, does not affect print/PDF */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>A Cleaner Deal for River Run Outfitters</h1>
+      <div class="subtitle">River Run Outfitters</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Carolyn &nbsp;|&nbsp; River Run Outfitters &nbsp;|&nbsp; Missouri</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Katie Nigelsky &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Chase, in-store terminal</span>
+        <span class="label">Date</span>
+        <span class="value">June 8, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where You Are Today</div>
+      <p>Carolyn, you have run River Run Outfitters on Chase for a while, taking cards on the terminal at the counter. Chase is a fine bank. The issue is not the name on the machine. It is what their packaged retail pricing quietly takes off the top of every sale, and the fact that right now you are the one absorbing it.</p>
+      <p>You told us you cover the processing fees yourself rather than passing them on. On roughly twenty to twenty-five thousand dollars a month in card volume, that is real money walking out the door every month for a service you could get for less, or in some cases for almost nothing. This page lays out two clean ways to fix that without changing how the shop runs day to day.</p>
+      <p>What we are working from, in your words:</p>
+      <ul>
+        <li>You are with Chase, taking cards in person on a terminal.</li>
+        <li>You are running somewhere around 20k to 25k a month in card volume.</li>
+        <li>You absorb the processing fees today rather than passing them to customers.</li>
+        <li>You want it simple. No new system to learn, no disruption at the counter.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">A lower, transparent rate</div>
+          <div class="p-body">Interchange-plus pricing instead of a packaged retail rate. You see the true cost of each card plus one small, fixed markup. Nothing buried, nothing padded. For most retail shops on a bank's packaged pricing, that alone closes a meaningful gap.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">The option to pay almost nothing</div>
+          <div class="p-body">If you want to stop absorbing the fee entirely, a compliant dual pricing setup passes the card cost to the card-paying customer, the same way many shops post a cash price and a card price. Cash and debit folks pay the lower number. Your choice, not required.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Same counter, a real person</div>
+          <div class="p-body">Keep taking cards on a terminal the way you do now. We supply the equipment if you need it, at no charge. And you get one dedicated rep who owns your account, not a 1-800 queue.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What It Could Look Like</div>
+      <p>We do not have a Chase statement in hand yet, so these are honest ranges, not a quote. A quick look at one recent statement turns these into exact numbers built on your real card mix.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Typical Chase retail all-in</div>
+            <div class="pc-value">2.6 - 3.0%</div>
+            <div class="pc-sub">What packaged retail pricing usually runs</div>
+          </div>
+          <div>
+            <div class="pc-label">Absorbed today, per year</div>
+            <div class="pc-value">~$6k - $9k</div>
+            <div class="pc-sub">Estimated on 20k - 25k a month</div>
+          </div>
+          <div>
+            <div class="pc-label">Platform fee</div>
+            <div class="pc-value">$25/mo</div>
+            <div class="pc-sub">Account, statements, support, PCI</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing model</td><td>Interchange-plus</td><td>True cost plus one small fixed markup, confirmed off your statement</td></tr>
+          <tr><td>Dual pricing option</td><td>Available</td><td>Stop absorbing the fee whenever you want to switch</td></tr>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Terminal / equipment</td><td>$0</td><td>Supplied if you need it</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Contract / cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        On interchange-plus, most retail shops your size land <strong>well under what a packaged bank rate charges</strong>, and on dual pricing the processing cost can drop close to zero. The exact figure depends entirely on your card mix, which is why one Chase statement is the only thing standing between these ranges and hard numbers. These are estimates based on what you shared. Actual cost depends on final card mix and program selection.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Two Ways We Can Set It Up</div>
+      <p>You are absorbing the fee today, so you have a clean choice. Neither one changes how a customer pays you at the counter.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Lower transparent rate.</strong> Keep absorbing the fee like you do now, just at a real interchange-plus cost instead of a packaged retail markup. Nothing changes for the customer. You simply pay less.</li>
+        <li><strong>Dual pricing.</strong> Post a cash price and a card price. Card-paying customers cover the processing, cash and debit customers pay less, and your absorbed cost drops close to zero. Common in retail, fully compliant when set up right.</li>
+        <li><strong>Start one, switch later.</strong> Same account either way. Run the lower rate, see a real statement, and move to dual pricing if and when it makes sense. No penalty.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is Worth a Look</div>
+      <ul class="why-list">
+        <li>Every month you absorb the fee on Chase's packaged pricing, you are paying a markup you cannot see and did not negotiate.</li>
+        <li>Interchange-plus shows you the true cost of each card plus one fixed number. That transparency alone usually saves a retail shop money.</li>
+        <li>If you would rather not pay it at all, dual pricing is a clean, compliant way to hand the card cost to the customer who chose the card.</li>
+        <li>No new system. Keep your counter workflow, keep next-day funding, and get a dedicated rep instead of a call center.</li>
+        <li>No contract and no cancellation fee, so the only thing you are committing to is a look at the numbers.</li>
+      </ul>
+      <p style="margin-top:12px;">Quick math: at the middle of your range, absorbing roughly 2.8 percent on 22k a month is about $615 a month, near $7,400 a year, that you are eating today. That is the number we are aiming to shrink, or move off your plate entirely.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">No switch today. Just enough to turn the ranges above into exact numbers:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Send one recent Chase statement.</strong> Text or email Katie a photo or PDF of a recent monthly statement. That is all we need to build an apples-to-apples comparison on your real card mix.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>A quick 15-minute call.</strong> We walk through the exact numbers side by side with Chase, answer your questions, and show you both the lower-rate and dual pricing options. No pressure either way.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>If it fits, we get you set up.</strong> About a 10-minute walkthrough to open the account. You keep working the counter the same way. First batch funds the next morning.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "One statement and fifteen minutes. If we cannot beat what Chase is taking off the top, you have lost nothing."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303973" class="cta-btn">Text or Call Katie: 929-930-3973</a>
+        <div class="cta-print-text">Text or call Katie: 929-930-3973 &nbsp;|&nbsp; katie@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Katie Nigelsky</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303973" style="color:inherit; text-decoration:none;">929-930-3973</a> (text friendly)<br>
+          <a href="mailto:katie@allpropay.com" style="color:inherit; text-decoration:none;">katie@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Estimates of cost and savings are based on the volume and processor information you shared and are not a guarantee. The "typical Chase retail" range reflects common packaged retail pricing, not your specific statement. Exact figures are confirmed once we review one recent statement. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
