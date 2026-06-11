@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta AllProPay | El Moto Dealer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .lang-tag { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8.5pt; letter-spacing: 0.5px; padding: 4px 12px; border-radius: 4px; margin-bottom: 18px; }
+  .title-block { margin-bottom: 28px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 600; color: var(--blue); margin-bottom: 22px; }
+  .meta-grid { display: grid; grid-template-columns: 170px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 26px 0; border-radius: 2px; }
+  .section { margin-bottom: 32px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .stat-cell { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 14px 16px; border-radius: 0 0 6px 6px; }
+  .stat-label { font-size: 8.5pt; color: var(--muted); margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 16pt; font-weight: 800; color: var(--text); }
+  .stat-value.danger { color: #B91C1C; }
+  .stat-value.good { color: #047857; }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .opt-card { border: 1px solid var(--mid-gray); border-top: 4px solid var(--blue); border-radius: 0 0 8px 8px; padding: 18px 20px; }
+  .opt-card.featured { border-top-color: #047857; background: #F0FDF4; }
+  .opt-tag { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8pt; letter-spacing: 0.5px; color: var(--blue); margin-bottom: 6px; }
+  .opt-card.featured .opt-tag { color: #047857; }
+  .opt-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; color: var(--text); margin-bottom: 8px; }
+  .opt-card p { font-size: 9.5pt; margin-bottom: 8px; }
+  .opt-card ul { margin: 6px 0 6px 18px; }
+  .opt-card ul li { font-size: 9pt; margin-bottom: 4px; }
+  .opt-figure { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; color: #047857; margin-top: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .total-row td { font-weight: 700; background: #EEF2FF !important; border-top: 2px solid var(--blue); }
+  .flag-green { color: #047857; font-weight: 600; }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .cta-wrap { text-align: center; margin-top: 22px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .lang-divider { border: none; border-top: 2px dashed var(--mid-gray); margin: 0; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .stats-grid, .options { display: block; }
+    .stat-cell, .opt-card { margin-bottom: 10px; page-break-inside: avoid; }
+    .insight, thead tr, .step-num, .stat-cell, .opt-card.featured, .total-row td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .step, table, .section, .opt-card { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 22px 32px 28px; }
+    .lang-section.en { page-break-before: always; }
+    .title-block h1 { font-size: 21pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+  }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .sig-contact, .meta-grid .value {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 20pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .stats-grid, .options { display: block !important; }
+    .stat-cell, .opt-card { width: auto !important; margin-bottom: 12px; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .cta-btn { display: block; width: 100%; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img class="logo-img" src="AllProPay_Logo.jpg" alt="AllProPay">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <!-- ============================ SPANISH ============================ -->
+  <div class="content lang-section es">
+
+    <span class="lang-tag">ESPANOL</span>
+
+    <div class="title-block">
+      <h1>Su propuesta de ahorro All<span class="accent">Pro</span>Pay</h1>
+      <div class="subtitle">El Moto Dealer</div>
+      <div class="meta-grid">
+        <span class="label">Preparado para</span>
+        <span class="value">Luis Luna (propietario) y Alva &nbsp;|&nbsp; El Moto Dealer</span>
+        <span class="label">Preparado por</span>
+        <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Procesador actual</span>
+        <span class="value">Square</span>
+        <span class="label">Fecha</span>
+        <span class="value">11 de junio de 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Donde estan hoy</div>
+      <p>Alva, gracias por su tiempo en la llamada. Esto es lo que hablamos, puesto por escrito para que usted y Luis lo puedan revisar juntos. La idea es simple: hoy El Moto Dealer paga las comisiones de Square, y creemos que pueden pagar menos o trasladar ese costo al cliente que paga con tarjeta. Usted elige.</p>
+      <p>Square es facil de usar, pero es de los procesadores mas caros del mercado. Sobre un volumen aproximado de 10,000 dolares al mes, esto es lo que normalmente vemos:</p>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-label">Tarifa efectiva en Square</div><div class="stat-value danger">2.7% a 2.9%</div><div class="stat-sub">Mezcla tipica de tarjetas</div></div>
+        <div class="stat-cell"><div class="stat-label">Costo mensual estimado</div><div class="stat-value danger">$270 a $290</div><div class="stat-sub">Comisiones que pagan hoy</div></div>
+        <div class="stat-cell"><div class="stat-label">Costo anual estimado</div><div class="stat-value danger">$3,250 a $3,500</div><div class="stat-sub">Lo que sale del negocio cada ano</div></div>
+      </div>
+      <p class="note">Rangos basados en lo que se compartio en la llamada. Una llamada corta para confirmar su mezcla de debito y tarjeta ajusta estos numeros a cifras exactas.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Dos formas de ayudarlos</div>
+      <p>No tienen que cambiar de equipo ni dejar QuickBooks. AllProPay funciona junto con sus herramientas actuales. Estas son las dos opciones:</p>
+      <div class="options">
+        <div class="opt-card">
+          <div class="opt-tag">OPCION A</div>
+          <div class="opt-title">Bajar las comisiones</div>
+          <p>Mantienen todo igual para el cliente. Pasamos a un modelo de intercambio mas un margen fijo y transparente, mas bajo que Square.</p>
+          <ul>
+            <li>Tarifa estimada todo incluido: 2.3% a 2.5%</li>
+            <li>El cliente paga el mismo precio de siempre</li>
+            <li>Misma experiencia de cobro</li>
+          </ul>
+          <div class="opt-figure">Ahorro: $300 a $650 al ano</div>
+        </div>
+        <div class="opt-card featured">
+          <div class="opt-tag">OPCION B - EL MAYOR AHORRO</div>
+          <div class="opt-title">Trasladar el costo (precio dual)</div>
+          <p>El costo de procesar tarjetas baja practicamente a cero para el negocio. Se agrega una pequena tarifa, claramente informada, solo al cliente que paga con tarjeta. Quien paga en efectivo, debito o cheque paga el precio de lista.</p>
+          <ul>
+            <li>Costo de tarjetas para el negocio: cerca de $0</li>
+            <li>El negocio conserva lo que hoy paga a Square</li>
+            <li>Totalmente transparente para el cliente</li>
+          </ul>
+          <div class="opt-figure">El negocio retiene cerca de $3,000 al ano</div>
+        </div>
+      </div>
+      <div class="insight">
+        <strong>La diferencia entre las dos:</strong> con la Opcion A pagan menos comision. Con la Opcion B casi no pagan comision porque ese costo lo cubre el cliente que elige pagar con tarjeta. Muchos negocios empiezan con una y cambian a la otra mas adelante. La cuenta es la misma, solo cambia quien paga la comision.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Comparacion de ahorro estimado</div>
+      <table>
+        <thead><tr><th>Escenario</th><th>Costo mensual del negocio</th><th>Costo anual</th><th>Confianza</th></tr></thead>
+        <tbody>
+          <tr><td>Square (hoy)</td><td>$270 a $290</td><td>$3,250 a $3,500</td><td>Referencia</td></tr>
+          <tr><td>Opcion A - Comisiones mas bajas</td><td>aprox. $230 a $255</td><td>aprox. $2,750 a $3,050</td><td class="flag-green">Confirmar en una llamada</td></tr>
+          <tr class="total-row"><td>Opcion B - Precio dual</td><td>cerca de $25 (cuota de plataforma)</td><td>cerca de $300</td><td class="flag-green">Confirmar en una llamada</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Estimaciones basadas en la informacion compartida en la llamada. No son una garantia. El ahorro real depende de la mezcla final de tarjetas, el volumen y el programa elegido. Incluye la cuota de plataforma de $25 al mes.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Lo que no cambia</div>
+      <ul class="why-list">
+        <li><strong>Siguen con QuickBooks.</strong> AllProPay trabaja junto a su contabilidad actual.</li>
+        <li><strong>Deposito al dia siguiente.</strong> Su dinero entra rapido, sin costo adicional.</li>
+        <li><strong>Soporte 24/7 y en espanol.</strong> Una persona real cuando lo necesiten.</li>
+        <li><strong>Sin contrato a largo plazo.</strong> Sin cuota de instalacion y sin penalidad por cancelar.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Siguientes pasos</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Una llamada corta de 10 minutos en espanol.</strong> Confirmamos su mezcla de debito y tarjeta y fijamos los numeros exactos para mostrarle a Luis.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Eligen el camino.</strong> Bajar las comisiones o trasladar el costo con precio dual. Ustedes deciden.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Abrimos la cuenta y hacemos el cambio.</strong> Nosotros manejamos el proceso. Siguen trabajando igual que hoy.</div></div>
+      </div>
+      <div class="cta-wrap">
+        <a href="tel:+19299303050" class="cta-btn">Llame o escriba a Tammy: 929-930-3050</a>
+        <div class="cta-print-text">Llame o escriba a Tammy: 929-930-3050 &nbsp;|&nbsp; tammy@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Tammy Millar</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (mensajes de texto bienvenidos)<br>
+          <a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Acepte pagos en cualquier lugar.</div>
+      </div>
+    </div>
+
+    <p class="note">Las cifras reflejan estimaciones basadas en el volumen y la mezcla de tarjetas compartidos en la llamada y no constituyen una garantia. El costo real depende de la mezcla final de tarjetas, el tamano de la transaccion y el programa elegido. Sin contrato, sin cuota de instalacion y sin penalidad por cancelar.</p>
+
+  </div>
+
+  <hr class="lang-divider">
+
+  <!-- ============================ ENGLISH ============================ -->
+  <div class="content lang-section en">
+
+    <span class="lang-tag">ENGLISH</span>
+
+    <div class="title-block">
+      <h1>Your All<span class="accent">Pro</span>Pay savings proposal</h1>
+      <div class="subtitle">El Moto Dealer</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Luis Luna (owner) and Alva &nbsp;|&nbsp; El Moto Dealer</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Square</span>
+        <span class="label">Date</span>
+        <span class="value">June 11, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where you are today</div>
+      <p>Alva, thank you for your time on the call. Here is what we discussed, put in writing so you and Luis can review it together. The idea is simple: today El Moto Dealer pays the Square fees, and we believe you can either pay less or move that cost to the card-paying customer. Your choice.</p>
+      <p>Square is easy to use, but it is one of the most expensive processors on the market. On roughly $10,000 per month in volume, here is what we typically see:</p>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-label">Effective rate on Square</div><div class="stat-value danger">2.7% to 2.9%</div><div class="stat-sub">Typical card mix</div></div>
+        <div class="stat-cell"><div class="stat-label">Estimated monthly cost</div><div class="stat-value danger">$270 to $290</div><div class="stat-sub">Fees you pay today</div></div>
+        <div class="stat-cell"><div class="stat-label">Estimated annual cost</div><div class="stat-value danger">$3,250 to $3,500</div><div class="stat-sub">Leaving the business each year</div></div>
+      </div>
+      <p class="note">Ranges based on what was shared on the call. A short call to confirm your debit and card mix will tighten these to exact numbers.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Two ways we can help</div>
+      <p>You do not have to change equipment or leave QuickBooks. AllProPay works alongside your current tools. Here are the two options:</p>
+      <div class="options">
+        <div class="opt-card">
+          <div class="opt-tag">OPTION A</div>
+          <div class="opt-title">Lower the fees</div>
+          <p>Everything stays the same for your customer. We move you to a transparent interchange-plus model that is lower than Square.</p>
+          <ul>
+            <li>Estimated all-in rate: 2.3% to 2.5%</li>
+            <li>Customer pays the same price as always</li>
+            <li>Same checkout experience</li>
+          </ul>
+          <div class="opt-figure">Savings: $300 to $650 per year</div>
+        </div>
+        <div class="opt-card featured">
+          <div class="opt-tag">OPTION B - THE BIGGER WIN</div>
+          <div class="opt-title">Move the cost (dual pricing)</div>
+          <p>Your card-processing cost drops to nearly zero. A small, clearly disclosed fee is added only to the customer who pays by card. Anyone paying cash, debit, or check pays the list price.</p>
+          <ul>
+            <li>Card cost to the business: near $0</li>
+            <li>The business keeps what it pays Square today</li>
+            <li>Fully transparent to the customer</li>
+          </ul>
+          <div class="opt-figure">Business keeps about $3,000 per year</div>
+        </div>
+      </div>
+      <div class="insight">
+        <strong>The difference between the two:</strong> with Option A you pay a lower fee. With Option B you pay almost no fee because the cost is covered by the customer who chooses to pay by card. Many businesses start on one and switch to the other later. The account is the same, only who pays the fee changes.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Estimated savings comparison</div>
+      <table>
+        <thead><tr><th>Scenario</th><th>Monthly cost to business</th><th>Annual cost</th><th>Confidence</th></tr></thead>
+        <tbody>
+          <tr><td>Square (today)</td><td>$270 to $290</td><td>$3,250 to $3,500</td><td>Baseline</td></tr>
+          <tr><td>Option A - Lower fees</td><td>about $230 to $255</td><td>about $2,750 to $3,050</td><td class="flag-green">Confirm on a quick call</td></tr>
+          <tr class="total-row"><td>Option B - Dual pricing</td><td>about $25 (platform fee)</td><td>about $300</td><td class="flag-green">Confirm on a quick call</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Estimates based on the information shared on the call. Not a guarantee. Actual savings depend on final card mix, volume, and program selection. Includes the $25 per month platform fee.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What does not change</div>
+      <ul class="why-list">
+        <li><strong>You keep QuickBooks.</strong> AllProPay works alongside your current accounting.</li>
+        <li><strong>Next-day funding.</strong> Your money lands fast, at no extra charge.</li>
+        <li><strong>24/7 support, in Spanish.</strong> A real person when you need one.</li>
+        <li><strong>No long-term contract.</strong> No setup fee and no cancellation penalty.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Next steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>A short 10-minute call in Spanish.</strong> We confirm your debit and card mix and lock the exact numbers for Luis to see.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content"><strong>You choose the path.</strong> Lower the fees or move the cost with dual pricing. Your call.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content"><strong>We open the account and handle the switch.</strong> We manage the process. You keep working the same way you do today.</div></div>
+      </div>
+      <div class="cta-wrap">
+        <a href="tel:+19299303050" class="cta-btn">Call or text Tammy: 929-930-3050</a>
+        <div class="cta-print-text">Call or text Tammy: 929-930-3050 &nbsp;|&nbsp; tammy@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Tammy Millar</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (text friendly)<br>
+          <a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Figures reflect estimates based on the volume and card mix shared on the call and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
