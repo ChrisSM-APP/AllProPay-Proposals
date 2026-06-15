@@ -1,0 +1,21 @@
+name: Validate proposals
+
+# Gate every change to the static proposal site before it deploys via GitHub
+# Pages. A broken proposal (missing logo, unfilled placeholder, lost noindex)
+# should never reach a prospect.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate proposal pages
+        run: python3 scripts/validate_proposals.py

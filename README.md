@@ -15,6 +15,23 @@ Public hosting for AllProPay merchant proposal pages.
 
 The statement-analyzer skill in `AllProPay Sales/statement-analyzer/` handles publishing automatically. It copies the rendered HTML proposal to a new folder here, commits, pushes, and returns the shareable URL.
 
+## Validating proposals
+
+Since this is a static site, the "test suite" guards against publishing
+regressions — broken logos, unfilled placeholders, missing `noindex`, stray
+third-party dependencies. Run it before pushing:
+
+```bash
+python3 scripts/validate_proposals.py
+```
+
+It checks every `*/index.html` for: resolvable local links/assets, required
+structure (`DOCTYPE`, `<html lang>`, non-empty `<title>`, viewport), a
+`noindex,nofollow` robots meta, use of the shared `assets/` logo (no
+per-proposal copies), and an allowlist of external origins. CI runs the same
+check on every push/PR via `.github/workflows/validate.yml`, and a Claude Code
+`SessionStart` hook runs it automatically in web sessions.
+
 ## Removing a proposal
 
 ```powershell

@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 scripts/validate_proposals.py || true"
+          }
+        ]
+      }
+    ]
+  }
+}
