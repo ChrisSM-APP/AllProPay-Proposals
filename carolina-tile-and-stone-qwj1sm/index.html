@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Carolina Tile & Stone</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="subtitle">Carolina Tile & Stone</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Dominic &nbsp;|&nbsp; Carolina Tile & Stone &nbsp;|&nbsp; North Carolina</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">QuickBooks Payments (today you pass 3.5% to card customers on Visa and Mastercard, 4.5% on Amex)</span>
+        <span class="label">Program</span>
+        <span class="value">Edge dual pricing</span>
+        <span class="label">Date</span>
+        <span class="value">July 10, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>You run Carolina Tile & Stone through QuickBooks. Billing and invoicing live there, you take cards in person and on invoices, and you already pass the fee to the card-paying customer by hand. What you asked for on the call was simple. Keep QuickBooks exactly as it is, make the fee pass-through automatic and compliant, and start getting a percentage of your card volume back every month. That is what Edge Plus does.</p>
+      <p>You told us what mattered most. We built the setup around it:</p>
+      <ul>
+        <li>QuickBooks stays the hub for billing and invoicing, with a full two-way sync. Nothing gets rebuilt and you do not have to leave that window.</li><li>The fee keeps moving to the card-paying customer, now automated and kept compliant across Visa, Mastercard, Amex, and Discover.</li><li>Edge Plus returns a percentage of your monthly card volume to the business, on top of card processing that costs you $0.</li><li>A named account manager and 24/7 support, with no contract and no cancellation fee.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">Zero-cost card processing</div>
+          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, or bank transfer customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Built to live inside QuickBooks</div>
+          <div class="p-body">This is the part you have been burned on before, so it is worth being direct: we have integrated with QuickBooks for thousands of businesses. It is what we do. Instead of pressing send in QuickBooks, you save the invoice and the payment details carry over automatically. It is a true two-way sync, not a receipt that lands somewhere and forces you to re-key the invoice. Your books stay clean, nothing gets voided or deleted behind you, and you keep working in the window you already use.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Backed and flexible</div>
+          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Program</div>
+      <p>This is the program we set up for the Carolina Tile & Stone account.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Your cost on card sales</div>
+            <div class="pc-value">$0</div>
+            <div class="pc-sub">The card fee moves to the card-paying customer</div>
+          </div>
+          <div>
+            <div class="pc-label">Cash, check, or bank transfer customers</div>
+            <div class="pc-value">List price</div>
+            <div class="pc-sub">They pay exactly what is on the ticket</div>
+          </div>
+          <div>
+            <div class="pc-label">Card-paying customers</div>
+            <div class="pc-value">Small adjustment</div>
+            <div class="pc-sub">Clearly disclosed before they pay</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
+          <tr><td>QuickBooks integration + in-person card terminal</td><td>Included</td><td>Configured for automated, compliant dual pricing in person and on invoices</td></tr>
+          <tr><td>QuickBooks two-way sync</td><td>Included</td><td>Save the invoice in QuickBooks and payment details carry over. Your books stay clean.</td></tr><tr><td>Invoice tracking</td><td>Included</td><td>See when a customer opens an invoice, and outstanding invoices attach automatically to the next one</td></tr><tr><td>Account manager + 24/7 support</td><td>Included</td><td>A named contact plus round-the-clock help, weekends included</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money back in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$6,000 to $8,400+</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">on top of card processing that costs the business $0</div></div>Edge moves the processing fee to the card-paying customer, the same thing you do today, so the cost to the business stays at <strong>$0</strong>. Edge Plus then pays a percentage of your card volume back to you each month. At roughly <strong>0.5% on $120,000 to $140,000 a month</strong>, that is an estimated <strong>$500 to $700 back every month</strong>, or about <strong>$6,000 to $8,400 a year</strong>. QuickBooks' own add-on runs about $50 a month and returns nothing. These figures come straight from the volume you shared, so we already have what we need. If you ever want them shown against one of your actual months we are happy to, but there is nothing to dig up to get started.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Flexibility You Asked For</div>
+      <p>You told me you have tried this before and it fell apart. So the account is built to start simple and stay flexible.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li>Start on Edge with $0 card cost to the business. If you ever decide you would rather absorb the fee yourself, we move you to flat interchange-plus on the same account, no reapplication.</li><li>Take cards in person and on invoices from one account, both set for automated dual pricing.</li><li>The Edge Plus rebate scales with your volume. The more card volume you run, the more comes back.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li>A percentage of your card volume comes back every month. Estimated <strong>$500 to $700</strong> at your volume, roughly <strong>$6,000 to $8,400 a year</strong>. QuickBooks' own tool costs about $50 a month and returns nothing.</li><li>Card processing costs the business <strong>$0</strong>. The fee moves to the card-paying customer, automated and kept compliant across Visa, Mastercard, Amex, and Discover.</li><li>Full two-way QuickBooks sync. Billing and invoicing stay exactly where they are, and your books stay clean.</li><li>See when customers open their invoices, and outstanding invoices attach automatically so you get paid faster.</li><li>No contract, no setup fee, no cancellation fee. A named account manager and 24/7 support.</li>
+      </ul>
+      <p style="margin-top:12px;">At $120,000 to $140,000 a month in card volume, a rebate near 0.5% puts an estimated $6,000 to $8,400 back in the business over a year, while the processing itself stays at $0 cost to you. These figures come from the volume you already run, so we can move whenever you are ready. If you ever want them shown against a specific month, we are glad to.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>One short call to open the account.</strong> We finish a quick application together over the phone and you e-sign on the spot. We already have your numbers from our conversation, so there is nothing to prepare. If you would rather see the QuickBooks integration live first, we set up a 20-minute demo so you can watch how clean it runs.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Switch on.</strong> Your account arrives connected to QuickBooks and set for automated dual pricing, in person and on invoices. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "Keep QuickBooks exactly as it is. The fee still moves to the card customer, only now it is automated and compliant, and a percentage of your card volume comes back every month."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303050" class="cta-btn">Text or Call Tammy Millar: 929-930-3050</a>
+        <div class="cta-print-text">Text or call Tammy Millar: 929-930-3050 &nbsp;|&nbsp; tammy@allpropay.com</div>
+      </div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Tammy Millar.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy Millar" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122106">Open the booking page</a>.</div></div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Tammy Millar</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (text friendly)<br>
+          <a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, or bank transfer customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
