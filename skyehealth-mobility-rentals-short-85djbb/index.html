@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | SkyeHealth Mobility Rentals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --text: #1A1A2E;
+    --muted: #64748B;
+    --cyan: #38BDF8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px 14px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 62px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .content { padding: 28px 36px 32px; }
+
+  .title-block { margin-bottom: 18px; }
+  .title-block .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30pt;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 28px;
+    border-top: 1px solid var(--mid-gray);
+    border-bottom: 1px solid var(--mid-gray);
+    padding: 10px 0;
+    font-size: 9pt;
+  }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 26px 30px;
+    margin: 22px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16pt;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .price-cell { padding: 4px 0; }
+  .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .price-cell .pc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
+
+  .terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 18px;
+  }
+  .terms-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--mid-gray);
+  }
+  .terms-table td:first-child {
+    color: var(--muted);
+    width: 40%;
+    font-weight: 500;
+  }
+  .terms-table td:last-child {
+    color: var(--text);
+    font-weight: 600;
+    text-align: right;
+  }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  .why-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0 6px;
+  }
+  .why-cell {
+    background: var(--light-gray);
+    border-left: 3px solid var(--blue);
+    padding: 14px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .why-cell .wc-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .why-cell .wc-body { font-size: 9pt; color: var(--text); line-height: 1.45; }
+
+  .steps-bar {
+    display: flex;
+    gap: 10px;
+    margin: 18px 0 6px;
+    align-items: stretch;
+  }
+  .step-card {
+    flex: 1;
+    background: #fff;
+    border: 1.5px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .step-card .step-num {
+    background: var(--blue);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 11pt;
+    margin-bottom: 8px;
+  }
+  .step-card .step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-card .step-body { font-size: 9pt; color: var(--muted); line-height: 1.45; }
+
+  .cta-block {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 28px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .cta-text .ct-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14pt;
+    margin-bottom: 4px;
+  }
+  .cta-text .ct-sub { font-size: 9.5pt; opacity: 0.92; }
+  .cta-action { text-align: right; flex-shrink: 0; }
+  .cta-action .ca-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 18pt;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    line-height: 1.1;
+  }
+  .cta-action .ca-name { font-size: 9pt; opacity: 0.9; margin-top: 2px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: #64748b; margin-top: 8px; }
+  .booking-embed .be-fallback a { color: #0052FF; }
+
+  .sec-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  .doc-footer {
+    border-top: 1px solid var(--mid-gray);
+    padding: 12px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .doc-footer .sig {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .doc-footer .sig img { height: 26px; width: auto; }
+  .doc-footer .fine { font-size: 7.5pt; color: var(--muted); font-style: italic; max-width: 60%; text-align: right; line-height: 1.4; }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .wc-body, .step-body, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row, .why-bar, .steps-bar { display: block !important; }
+    .price-cell, .why-cell, .step-card { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .price-cell .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    .terms-table { font-size: 9.5pt; max-width: 100%; }
+    .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.3in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.4; }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .step-card .step-num, .why-cell { -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+    .doc-header { padding: 10px 24px 8px; }
+    .doc-header .logo-img { height: 48px; }
+    .content { padding: 16px 24px 16px; }
+    .title-block { margin-bottom: 10px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .merchant { font-size: 11pt; margin-bottom: 8px; }
+    .title-block .eyebrow { font-size: 8pt; margin-bottom: 2px; }
+    .meta-row { padding: 6px 0; font-size: 8pt; gap: 18px; }
+    .hero { padding: 16px 20px; margin: 12px 0; }
+    .hero h2 { font-size: 13pt; margin-bottom: 10px; }
+    .hero .hero-eyebrow { font-size: 7.5pt; margin-bottom: 5px; }
+    .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .price-cell .pc-value { font-size: 16pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
+    .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
+    .terms-table { margin-bottom: 10px; }
+    .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
+    .why-cell { padding: 8px 10px; }
+    .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
+    .why-cell .wc-body { font-size: 8pt; line-height: 1.35; }
+    .steps-bar { display: flex; gap: 6px; margin: 10px 0 4px; }
+    .step-card { padding: 8px 10px; }
+    .step-card .step-num { width: 20px; height: 20px; font-size: 9pt; margin-bottom: 4px; }
+    .step-card .step-title { font-size: 9pt; margin-bottom: 2px; }
+    .step-card .step-body { font-size: 8pt; line-height: 1.35; }
+    .cta-block { padding: 12px 18px; margin-top: 10px; }
+    .booking-embed { display: none !important; }
+    .cta-text .ct-title { font-size: 12pt; }
+    .cta-text .ct-sub { font-size: 8.5pt; }
+    .cta-action .ca-phone { font-size: 15pt; }
+    .cta-action .ca-name { font-size: 8pt; }
+    .sec-label { font-size: 8pt; margin-bottom: 2px; }
+    .doc-footer { padding: 8px 24px; font-size: 7.5pt; }
+    .doc-footer .sig img { height: 20px; }
+    .doc-footer .fine { font-size: 7pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <div class="eyebrow">Prepared for Roland &middot; July 10, 2026</div>
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="merchant">SkyeHealth Mobility Rentals &nbsp;&middot;&nbsp; Virginia</div>
+      <div class="meta-row">
+        <div><span>Current setup:</span><strong>Stripe, fees passed to customers (reviewed: discovery call 2026-07-08, no statement yet)</strong></div>
+        <div><span>Program:</span><strong>Edge dual pricing</strong></div>
+        <div><span>Prepared by:</span><strong>Tammy Millar</strong></div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">Your Program</div>
+      <h2>Keep your card cost at $0. Get a person on the phone when you need one.</h2>
+      <div class="price-row">
+        <div class="price-cell">
+          <div class="pc-label">YOUR COST ON CARD SALES</div>
+          <div class="pc-value">$0</div>
+          <div class="pc-sub">Card fee moves to the customer, same as Stripe today</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label">KEPT IN THE BUSINESS</div>
+          <div class="pc-value">$1.8k to $2.5k</div>
+          <div class="pc-sub">estimated per year versus absorbing roughly 3 percent yourself</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label">CARD CUSTOMERS</div>
+          <div class="pc-value">Small adj.</div>
+          <div class="pc-sub">Clearly disclosed at checkout, like today</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-label">The Account</div>
+    <table class="terms-table">
+      <tr><td>Next-day funding</td><td>Included</td></tr>
+      <tr><td>Tap-to-pay on your phone + digital invoicing</td><td>Included (dual-pricing)</td></tr>
+      <tr><td>Integration check before switch</td><td>Included</td></tr>
+      <tr><td>Monthly platform fee</td><td>$25</td></tr>
+      <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
+    </table>
+
+    <div class="sec-label">Why This Fit</div>
+    <div class="why-bar">
+      <div class="why-cell">
+        <div class="wc-title">Card cost stays $0</div>
+        <div class="wc-body">You pass the fee on Stripe today. Edge keeps that exactly, clearly disclosed, an estimated <strong>$1.8k to $2.5k a year</strong> kept versus absorbing it.</div>
+      </div>
+      <div class="why-cell">
+        <div class="wc-title">Integration mapped first</div>
+        <div class="wc-body">Not sure what Stripe is plugged into? We check before anything moves, so nothing breaks.</div>
+      </div>
+      <div class="why-cell">
+        <div class="wc-title">Built for mobile</div>
+        <div class="wc-body">Tap-to-pay and invoices from your phone. No storefront needed.</div>
+      </div>
+    </div>
+
+    <div class="sec-label">How We Get You Live</div>
+    <div class="steps-bar">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">One quick call</div>
+        <div class="step-body">Send Tammy one recent Stripe statement. It confirms volume and what Stripe is connected to.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Approval</div>
+        <div class="step-body">Underwriting in 24 to 48 hours. We handle the back and forth.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Switch on</div>
+        <div class="step-body">Tap-to-pay and invoicing go live, set for dual pricing. Your next card sale costs you $0.</div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-text">
+        <div class="ct-title">One statement to get it moving</div>
+        <div class="ct-sub">Text or call Tammy. She confirms the integration and puts the setup in writing.</div>
+      </div>
+      <div class="cta-action">
+        <a href="tel:+19299303050" class="ca-phone">929-930-3050</a>
+        <div class="ca-name">Tammy Millar &middot; tammy@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Tammy Millar.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy Millar" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122106">Open the booking page</a>.</div></div>
+
+  </div>
+
+  <div class="doc-footer">
+    <div class="sig">
+      <img src="AllProPay_Logo.jpg" alt="AllProPay">
+      <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
+    </div>
+    <div class="fine">The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on ticket sizes provided. No contract, no setup fee, no cancellation fee.</div>
+  </div>
+
+</div>
+</body>
+</html>
