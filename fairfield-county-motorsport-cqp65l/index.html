@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Fairfield County MotorSport</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="subtitle">Fairfield County MotorSport</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Danny &nbsp;|&nbsp; Fairfield County MotorSport &nbsp;|&nbsp; Oxford, Connecticut</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">Clover through M&T Bank since 2019, about $2,600 a month, roughly $32,000 a year</span>
+        <span class="label">Date</span>
+        <span class="value">July 14, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>Danny, the short version first: keep your bank. Your loan rates, your discounted banking fees, and your retirement accounts at M&T are worth protecting, and nothing on this page asks you to touch any of them. Processing and banking are two separate decisions that only got bundled together because your bank happens to sell a card machine. This proposal is about the card machine, and nothing else.</p>
+      <p>You told us what mattered most. We built the setup around it:</p>
+      <ul>
+        <li>M&T stays exactly where it is. Loans, deposits, banking fees, and retirement accounts are not on the table and never were.</li><li>Your deposits still land in your M&T account, next day. Changing who processes the cards does not move your money anywhere else.</li><li>RRO Writer and the counter workflow stay put. We confirm the hand-off in writing before anything changes.</li><li>Real numbers before any commitment. One statement, one side-by-side, and if it does not clearly beat what you have, we will tell you.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">Your bank stays your bank</div>
+          <div class="p-body">M&T keeps your loans, your discounted banking fees, and your retirement accounts. Switching who processes your cards does not move a dollar of that and does not put your banking relationship on the table. Your funding still settles into the same M&T account the next morning. The only thing that changes is the company handling the cards.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">True-cost pricing, no tiers</div>
+          <div class="p-body">You pay interchange, the true cost set by Visa and Mastercard, plus a flat 0.6 percent and 5 cents a transaction. That is the entire markup. What it removes is the tier game: the qualified, mid-qualified, and non-qualified buckets that quietly reprice your biggest sales into the most expensive category.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Real support, and no contract</div>
+          <div class="p-body">A named rep who answers the phone and handles chargeback paperwork with you. We confirm in writing how card payments hand off to RRO Writer before anything changes, and if it cannot be done cleanly we will tell you and you stay where you are. No contract and no cancellation fee.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Pricing</div>
+      <p>This is the locked pricing for the Fairfield County MotorSport account.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Credit and debit cards</div>
+            <div class="pc-value">Interchange + 0.6% + $0.05</div>
+            <div class="pc-sub">Interchange-plus, all card brands</div>
+          </div>
+          <div>
+            <div class="pc-label">AMEX (OptBlue)</div>
+            <div class="pc-value">Interchange + 0.6% + $0.05</div>
+            <div class="pc-sub">Direct AMEX program, no separate AMEX bill</div>
+          </div>
+          <div>
+            <div class="pc-label">ACH</div>
+            <div class="pc-value">0.60%</div>
+            <div class="pc-sub">Hard cap at $5 per transaction</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account, with the RRO Writer hand-off confirmed in writing before anything changes</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        A dealer with your mix, about 90 percent card present at a $1,500 average ticket, typically blends out at <strong>an estimated 2.3 to 2.7 percent all-in</strong> across Visa, Mastercard, AMEX, and ACH. The $2,600 a month you pay now works out to roughly 2.2 to 3.2 percent effective depending on whether the month lands at $80,000 or $120,000. So the gap is real, but it is not enormous, and we are not going to inflate it. Where it does widen is on your biggest sales, because tiered pricing reprices those hardest. These are estimates based on what you shared. One statement makes them exact.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">A Separate Conversation: Working Capital and Equipment Financing</div>
+      <p>This one is deliberately kept apart from everything above, because it is a different decision and it should not be used to sweeten a rate pitch. AllProPay can also look at working capital and equipment financing for the shop. It does not depend on you moving your processing, and it does not touch your M&T relationship. If seasonal inventory, a lift, a trailer, or a slow winter is ever the pinch, we can put real numbers in front of you and you can compare them against whatever your bank offers, the same way you would compare anything else.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>Working capital and equipment financing are their own lane.</strong> They do not require moving your processing, and they do not require moving anything at M&T.</li><li><strong>Compare it against your bank, openly.</strong> If M&T gives you a better number, take theirs. We would rather be second on this than talk you into something.</li><li><strong>The 1 percent you add on card sales today.</strong> Whichever way you go on processing, we will confirm it is set up correctly for Connecticut before anything goes live.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li class="why"><strong>You do not have to choose between your bank and your card rate.</strong> M&T keeps your loans, your discounted banking fees, and your retirement accounts, and your deposits still land in the same M&T account. Only the company processing the cards changes.</li><li class="why"><strong>An estimated $2,000 to $6,000 a year.</strong> You pay about $2,600 a month, roughly $32,000 a year, on $80,000 to $120,000 of volume. Interchange plus a flat 0.6 percent and 5 cents is estimated to land around 2.3 to 2.7 percent all-in. Estimated, not guaranteed, and one statement makes it exact.</li><li class="why"><strong>Your biggest sales are where tiered pricing hurts most.</strong> A $20,000 or $30,000 machine that gets bumped into a non-qualified tier can cost a few hundred dollars more than it should, on a single sale. Interchange-plus prices that sale off the real cost instead of a bucket.</li><li class="why"><strong>RRO Writer and the counter stay as they are.</strong> We confirm the hand-off in writing before anything changes. If it cannot be done cleanly, we will tell you and you stay put.</li><li class="why"><strong>No contract and no cancellation fee.</strong> You reversed course in February and that was entirely your right. Nothing here locks you into anything either.</li>
+      </ul>
+      <p style="margin-top:12px;"><div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated annual savings</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$2,000 to $6,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated, against the roughly $32,000 a year you pay now on $80,000 to $120,000 a month</div></div>Here is the math on your own numbers. You pay about $2,600 a month, roughly $32,000 a year. Spread across $80,000 to $120,000 of monthly volume, that is an effective cost of roughly 2.2 to 3.2 percent depending on the month. With about 90 percent of your sales taken in person at a $1,500 average ticket, interchange plus a flat 0.6 percent and 5 cents is estimated to blend out around 2.3 to 2.7 percent all-in, plus the $25 monthly platform fee. That is an estimated $170 to $500 a month, on the order of $2,000 to $6,000 a year. The gap widens on the $20,000 and $30,000 sales, because those are exactly the transactions a tiered plan reprices hardest. These are estimates based on the volume and card mix you shared on the call, not a guarantee. One recent statement replaces every range on this page with your exact numbers.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three steps, and not one of them touches your bank:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send one recent processing statement so we can tighten these ranges.</strong> One PDF, whichever month is handy. That is all we need to replace the estimates on this page with your exact numbers.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>We build the side-by-side.</strong> Line by line against what you pay today, including how card payments hand off to RRO Writer and exactly what stays with M&T. If it does not clearly beat what you have, we will tell you.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>You decide, on your own timeline.</strong> If you move, your deposits still land in your M&T account and your loans, banking fees, and retirement accounts are untouched. No contract and no cancellation fee.</div></div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "Keep the bank. This was only ever about the card machine."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303050" class="cta-btn">Text or Call Tammy Millar: 929-930-3050</a>
+        <div class="cta-print-text">Text or call Tammy Millar: 929-930-3050 &nbsp;|&nbsp; tammy@allpropay.com</div>
+      </div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Tammy Millar.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy Millar" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122106">Open the booking page</a>.</div></div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Tammy Millar</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (text friendly)<br>
+          <a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
