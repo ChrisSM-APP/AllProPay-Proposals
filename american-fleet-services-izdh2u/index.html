@@ -44,6 +44,26 @@
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  /* Two-option cards */
+  .opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0 6px; }
+  .opt-card { border: 2px solid var(--mid-gray); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+  .opt-card.featured { border-color: #F59E0B; }
+  .opt-head { padding: 14px 18px 12px; background: var(--light-gray); border-bottom: 1px solid var(--mid-gray); }
+  .opt-card.featured .opt-head { background: #FFFBEB; }
+  .opt-eyebrow { font-size: 8.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .opt-card.featured .opt-eyebrow { color: #B45309; }
+  .opt-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 12.5pt; color: var(--text); margin-top: 3px; line-height: 1.2; }
+  .opt-big { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 21pt; line-height: 1.1; margin-top: 10px; color: var(--blue); }
+  .opt-card.featured .opt-big { color: #B45309; }
+  .opt-big small { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 8.5pt; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+  .opt-body { padding: 12px 18px 16px; font-size: 9.5pt; }
+  .opt-body ul { list-style: none; margin: 0; padding: 0; }
+  .opt-body li { padding: 6px 0 6px 22px; position: relative; border-bottom: 1px solid var(--mid-gray); line-height: 1.4; }
+  .opt-body li:last-child { border-bottom: none; }
+  .opt-body li:before { content: "\2713"; position: absolute; left: 0; top: 6px; color: var(--blue); font-weight: 700; }
+  .opt-card.featured .opt-body li:before { color: #B45309; }
+  .cmp th.us { background: var(--blue); }
+  .cmp td.us { background: #EFF6FF; font-weight: 500; }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -83,8 +103,8 @@
     .title-block .subtitle { font-size: 13pt; }
     .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
     .meta-grid .label { margin-top: 9px; }
-    .pillars, .pricing-grid { display: block !important; }
-    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pillars, .pricing-grid, .opt-grid { display: block !important; }
+    .pillar, .pricing-grid > div, .opt-card { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
     .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
     [class*="grid"] { grid-template-columns: 1fr !important; }
     .pricing-callout { padding: 18px; }
@@ -102,7 +122,9 @@
     .pillars, .pricing-grid { display: block; }
     .pillar { margin-bottom: 8px; page-break-inside: avoid; }
     .pricing-grid > div { margin-bottom: 10px; }
-    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .opt-grid { gap: 10px; }
+    .opt-card { break-inside: avoid; page-break-inside: avoid; }
+    .pricing-callout, .insight, thead tr, .step-num, .opt-card.featured .opt-head { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
     .doc-header { padding: 12px 32px 10px; }
     .content { padding: 20px 32px 28px; }
@@ -152,8 +174,8 @@
         <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current setup</span>
         <span class="value">ShopMonkey (about 4% passed to card customers, roughly $100k/month in card volume)</span>
-        <span class="label">Program</span>
-        <span class="value">Edge dual pricing</span>
+        <span class="label">What is inside</span>
+        <span class="value">Two options to choose from &mdash; pick the one that fits</span>
         <span class="label">Date</span>
         <span class="value">July 23, 2026</span>
       </div>
@@ -163,86 +185,92 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You have the important part handled already, Sam. You invoice through ShopMonkey, your customers pay from the invoice online or in person, and the card fee already sits with the card-paying customer instead of the business. When we talked, you were open to two things: your customers paying a little less at checkout, and the business actually earning something back on the card volume you already run. This lays out both, side by side, so you can pick the one that fits.</p>
-      <p>You told us what mattered most. We built the setup around it:</p>
-      <ul>
-        <li>Your ShopMonkey invoicing and pay-from-invoice workflow stays exactly as it is.</li><li>Card-paying customers keep carrying the fee, so the business stays at $0 cost on card sales.</li><li>About $100k a month in cards is already running through the system today.</li><li>No contract and no setup fee. If we ever stop earning it, you walk.</li>
-      </ul>
+      <p>You have the important part handled already, Sam. You invoice through ShopMonkey, your customers pay from the invoice online or in person, and the card fee already sits with the card-paying customer instead of the business. When we talked, you were open to two things: your customers paying a little less at checkout, and the business actually earning something back on the card volume you already run.</p>
+      <p>So I built you <strong>two options</strong>. Both keep your business at $0 cost on cards and change nothing about how you invoice. You just pick the direction you want the numbers to move.</p>
     </div>
 
     <div class="section">
-      <div class="section-header">What You Get</div>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and ACH customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+      <div class="section-header">Your Two Options</div>
+      <div class="opt-grid">
+        <div class="opt-card">
+          <div class="opt-head">
+            <div class="opt-eyebrow">Option 1</div>
+            <div class="opt-title">Lower the fee your customers pay</div>
+            <div class="opt-big">About 3%<small>What card customers pay at checkout, down from about 4% today</small></div>
+          </div>
+          <div class="opt-body">
+            <ul>
+              <li>Your cost on card sales stays <strong>$0</strong></li>
+              <li>Runs on your ShopMonkey through a simple browser extension</li>
+              <li>Nothing changes in how you invoice or get paid</li>
+              <li>Best if you want your customers to feel a lower price at checkout</li>
+            </ul>
+          </div>
         </div>
-        <div class="pillar">
-          <div class="p-title">Works with ShopMonkey</div>
-          <div class="p-body">No new software to learn. Option A runs on top of your current ShopMonkey invoicing through a simple browser extension. Option B connects through a deeper POS+ integration so the business can earn on the card volume. Either way, you keep invoicing the way you do now.</div>
-        </div>
-        <div class="pillar">
-          <div class="p-title">Backed and flexible</div>
-          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+        <div class="opt-card featured">
+          <div class="opt-head">
+            <div class="opt-eyebrow">Option 2 &mdash; Edge Plus</div>
+            <div class="opt-title">Earn money back on your card volume</div>
+            <div class="opt-big">$3,000 to $6,000+<small>Estimated back to the business per year, on about $100k a month in cards</small></div>
+          </div>
+          <div class="opt-body">
+            <ul>
+              <li>Card customers keep paying the fee, your cost stays <strong>$0</strong></li>
+              <li>The business earns an estimated percentage back each month</li>
+              <li>Connects through a POS+ integration with ShopMonkey, which I set up for you</li>
+              <li>Best if you want the business earning on the volume you already run</li>
+            </ul>
+          </div>
         </div>
       </div>
+      <p class="note">Both options include $0 cost to you on cards, next-day funding, no contract, and a $25/month platform fee. The figures above are estimates based on what you shared on the call. Final numbers depend on your card mix and volume.</p>
     </div>
 
     <div class="section">
-      <div class="section-header">Your Program</div>
-      <p>This is the program we set up for the American Fleet Services account.</p>
-
-      <div class="pricing-callout">
-        <div class="pricing-grid">
-          <div>
-            <div class="pc-label">Your cost on card sales</div>
-            <div class="pc-value">$0</div>
-            <div class="pc-sub">The card fee moves to the card-paying customer</div>
-          </div>
-          <div>
-            <div class="pc-label">Cash, check, and ACH customers</div>
-            <div class="pc-value">List price</div>
-            <div class="pc-sub">They pay exactly what is on the ticket</div>
-          </div>
-          <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">Small adjustment</div>
-            <div class="pc-sub">Clearly disclosed before they pay</div>
-          </div>
-        </div>
-      </div>
-
+      <div class="section-header">What Is Included (Either Option)</div>
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
           <tr><td>ShopMonkey browser extension + Tap to Pay</td><td>Included</td><td>Set up for dual pricing on your current invoicing, nothing new to learn</td></tr>
+          <tr><td>POS+ integration (Option 2)</td><td>Included</td><td>Connects Edge Plus to ShopMonkey so the money-back tracks automatically</td></tr>
           <tr><td>ACH for large invoices (optional)</td><td>0.50%, capped at $5</td><td>A $5,000 fleet invoice clears for $5 instead of card rates</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
-
-      <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money back to the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$3,000 to $6,000+</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated on Option B (Edge Plus), on about $100k a month in cards</div></div>Two ways to go, Sam. <strong>Option A</strong> keeps the business at $0 on card sales and brings what your customers pay down from about 4% to closer to 3%, so they feel it at checkout while your cost stays zero. <strong>Option B (Edge Plus)</strong> keeps the fee with the card customer and pays the business a percentage back on the card volume you already run, an estimated <strong>$3,000 to $6,000 or more a year</strong> on $100k a month. Option A needs nothing but a browser extension on your ShopMonkey. Option B needs the deeper POS+ integration, which I set up for you. These are estimates based on what you shared on the call; final numbers depend on your card mix and volume.
-      </div>
     </div>
 
     <div class="section">
-      <div class="section-header">The Flexibility You Asked For</div>
-      <p>You do not have to pick the bigger move on day one. The account is built so you can start simple and turn on more when you are ready.</p>
-      <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Option A with $0 card cost and a lower customer-facing rate, on the same ShopMonkey invoicing you use today.</li><li>Move to Option B (Edge Plus) whenever you want the business earning on the card volume. Same account, I just connect the POS+ integration.</li><li>Turn on the ACH lane for your larger fleet invoices so a big job does not carry card rates at all.</li>
-      </ul>
+      <div class="section-header">Why Not a Flat-Rate Box</div>
+      <p>You may have looked at the simple all-in-one options like Square or Clover. They are easy to start, but for a shop running about $100k a month in invoices they quietly cost more and give you less control. Here is the honest comparison.</p>
+      <table class="cmp">
+        <thead>
+          <tr><th style="width:26%;">&nbsp;</th><th>A flat-rate box (Square, Clover)</th><th class="us">AllProPay Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Who absorbs the card fee</strong></td><td>The business does, on every card sale</td><td class="us">The card-paying customer &mdash; your cost is $0</td></tr>
+          <tr><td><strong>Debit and lower-cost cards</strong></td><td>Charged the same flat rate as credit, so you overpay</td><td class="us">You are not locked into one high rate on every card type</td></tr>
+          <tr><td><strong>Invoice and keyed payments</strong></td><td>Land in the highest flat tier, often around 3.3% or more</td><td class="us">Handled at $0 cost to you under dual pricing</td></tr>
+          <tr><td><strong>Your equipment</strong></td><td>Buy or lease a terminal, and Clover hardware is usually tied to the processor that sold it</td><td class="us">Use ShopMonkey plus Tap to Pay &mdash; nothing to buy, no lock-in</td></tr>
+          <tr><td><strong>Getting your money</strong></td><td>Aggregator accounts are known to hold or freeze funds on large or unusual batches</td><td class="us">Your own direct merchant account with next-day funding</td></tr>
+          <tr><td><strong>Leaving later</strong></td><td>Tied to the device and the processor that sold it</td><td class="us">No contract and no cancellation fee &mdash; if we ever stop earning it, you walk</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Comparison reflects how flat-rate aggregator platforms are generally structured. Your exact experience depends on the plan and reseller.</p>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>Option A: your customers pay closer to 3% instead of about 4%, and the business stays at $0 on cards.</li><li>Option B: the business earns an estimated $3,000 to $6,000 or more a year back on the card volume you already run.</li><li>Nothing about how you invoice through ShopMonkey changes.</li><li>No contract, no setup fee, no cancellation fee. If we ever stop earning it, you walk.</li><li>Next-day funding and phone support that actually answers.</li>
+        <li>Either way, your business stays at $0 cost on card sales.</li>
+        <li>Option 1 brings what your customers pay down from about 4% to closer to 3%.</li>
+        <li>Option 2 (Edge Plus) puts an estimated $3,000 to $6,000 or more a year back in the business.</li>
+        <li>Nothing about how you invoice through ShopMonkey changes.</li>
+        <li>No contract, no setup fee, no cancellation fee. Next-day funding and phone support that actually answers.</li>
       </ul>
-      <p style="margin-top:12px;">On a $500 card invoice today your customer pays about $20. On Option A that is closer to $15, money they feel at checkout. On Option B that same $500 keeps the fee with the customer and puts an estimated cut of it back to the business, month after month, on the volume you are already running.</p>
+      <p style="margin-top:12px;">On a $500 card invoice today your customer pays about $20. On Option 1 that is closer to $15, money they feel at checkout. On Option 2 that same $500 keeps the fee with the customer and puts an estimated cut of it back to the business, month after month, on the volume you are already running.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
@@ -259,7 +287,7 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your ShopMonkey setup is configured for dual pricing, and for Option B I connect the POS+ integration so the money-back tracks automatically. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> Your ShopMonkey setup is configured for dual pricing, and for Option 2 I connect the POS+ integration so the money-back tracks automatically. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
         </div>
       </div>
 
@@ -289,7 +317,7 @@
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current or alternative processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
 
   </div>
 
