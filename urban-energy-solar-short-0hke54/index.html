@@ -161,6 +161,24 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What card processing costs you every month</div><table><tr><td class="hc-lab">Square today</td><td><span class="hc-bar hc-now" style="width:66%"></span><span class="hc-val hc-val-now">about $500</span></td></tr><tr><td class="hc-lab">On Edge</td><td><span class="hc-bar hc-new" style="width:3.3%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">Based on the $16,000 a month and roughly $500 in fees you walked us through. About $475 a month back.</div></div>).
+     Styled here rather than inline in the spec so the print block below can
+     compact it - this page must stay ONE page. Bar widths are the only thing
+     the spec sets inline, since they are per-deal data. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
   .why-bar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -333,6 +351,13 @@
     .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
     .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
     .terms-table { margin-bottom: 10px; }
+    .hero-chart { margin-top: 9px; padding-top: 8px; }
+    .hero-chart .hc-title { font-size: 6.5pt; margin-bottom: 5px; }
+    .hero-chart td { padding-bottom: 4px; }
+    .hero-chart .hc-bar { height: 11px; }
+    .hero-chart .hc-val { font-size: 8.5pt; }
+    .hero-chart td.hc-lab { font-size: 7.5pt; width: 74px; }
+    .hero-chart .hc-note { font-size: 6.5pt; margin-top: 4px; }
     .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
     .why-cell { padding: 8px 10px; }
     .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
@@ -398,7 +423,7 @@
           <div class="pc-sub">Most of your customers pay by check and see no change</div>
         </div>
       </div>
-      <div style="margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:7.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin-bottom:10px;">What card processing costs you every month</div><table style="width:100%; border-collapse:collapse;"><tr><td style="width:88px; padding:0 10px 8px 0; border:none; font-size:8.5pt; font-weight:600; color:#E2E8F0;">Square today</td><td style="border:none; padding:0 0 8px 0; white-space:nowrap;"><span style="display:inline-block; width:66%; background:#64748B; height:18px; border-radius:3px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:11pt; font-weight:800; color:#CBD5E1; margin-left:9px; vertical-align:middle;">about $500</span></td></tr><tr><td style="width:88px; padding:0 10px 0 0; border:none; font-size:8.5pt; font-weight:600; color:#E2E8F0;">On Edge</td><td style="border:none; padding:0; white-space:nowrap;"><span style="display:inline-block; width:3.3%; background:#3B82F6; height:18px; border-radius:3px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:11pt; font-weight:800; color:#60A5FA; margin-left:9px; vertical-align:middle;">$25</span></td></tr></table><div style="font-size:7.5pt; color:#94A3B8; margin-top:9px;">Based on the $16,000 a month and roughly $500 in fees you walked us through. About $475 a month back in the business.</div></div>
+      <div class="hero-chart"><div class="hc-title">What card processing costs you every month</div><table><tr><td class="hc-lab">Square today</td><td><span class="hc-bar hc-now" style="width:66%"></span><span class="hc-val hc-val-now">about $500</span></td></tr><tr><td class="hc-lab">On Edge</td><td><span class="hc-bar hc-new" style="width:3.3%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">Based on the $16,000 a month and roughly $500 in fees you walked us through. About $475 a month back.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
