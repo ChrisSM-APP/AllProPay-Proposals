@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Phelps Diesel &amp; Fleet Repair</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="subtitle">Phelps Diesel &amp; Fleet Repair</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Laura &nbsp;|&nbsp; Phelps Diesel &amp; Fleet Repair &nbsp;|&nbsp; Kentucky</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">QuickBooks Payments (roughly 2.9% to 3.5% per card sale)</span>
+        <span class="label">Program</span>
+        <span class="value">Edge dual pricing</span>
+        <span class="label">Date</span>
+        <span class="value">August 4, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>You started this in January and you are only now taking your first card payments, which is honestly the best possible time to have this conversation. Bill is out on the road doing the work and you are the one holding the books together. When we talked you told me passing the card cost was already somewhere on your list. It was not that you disagreed with the idea. It was that working out how to actually set it up was one more thing on a list that is already too long. That is the part I want to take off you.</p>
+      <p>You told us what mattered most. We built the setup around it:</p>
+      <ul>
+        <li>It has to be cheap to run. One flat monthly cost, no contract, and no equipment lease to sign in your first year.</li><li>You should not be the one figuring out the pricing setup, the disclosure, or the signage. That is my job, not yours.</li><li>Payments need to land in QuickBooks so the bookkeeping does not turn into a second job.</li><li>It has to work in the field. Bill is on the side of the road, not behind a counter.</li><li>ACH has to be there for the fleet contracts you are working toward.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">Zero-cost card processing</div>
+          <div class="p-body">Your posted price is the card price, so a card sale costs the business nothing. Cash, check, and ACH customers get 3.5% off that posted price instead. It is the same structure you already see on the sign at any gas station, and it is disclosed on the invoice and at the truck before anybody pays, so nobody is surprised.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Set up for you, not by you</div>
+          <div class="p-body">You said this was already on the list and the list is long, so it does not go on your list. I build the pricing, write the disclosure, and get the signage made before anything goes live, and you approve it. Bill takes a card at the side of the road or you text a payment link from the house, and the pricing is already correct on both. There is nothing for you to configure to make it work.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Backed and flexible</div>
+          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Program</div>
+      <p>This is the program we set up for the Phelps Diesel &amp; Fleet Repair account.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Your cost on card sales</div>
+            <div class="pc-value">$0</div>
+            <div class="pc-sub">A flat $25 a month covers the whole account</div>
+          </div>
+          <div>
+            <div class="pc-label">Cash, check, and ACH customers</div>
+            <div class="pc-value">3.5% less</div>
+            <div class="pc-sub">About $70 back on a $2,000 repair</div>
+          </div>
+          <div>
+            <div class="pc-label">Your total monthly cost</div>
+            <div class="pc-value">$25</div>
+            <div class="pc-sub">Account, support, PCI, and equipment. Nothing else</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin:20px 0 4px; padding:18px 20px; border:1px solid #E2E8F0; border-radius:8px; background:#F5F7FA;"><div style="font-family:'Montserrat',sans-serif; font-size:11pt; font-weight:700; color:#0B1120; margin-bottom:2px;">What card processing costs you every month</div><div style="font-size:8.5pt; color:#64748B; margin-bottom:16px;">Estimated, at about $15,000 a month in card sales</div><table style="width:100%; border-collapse:collapse;"><tr><td style="width:130px; padding:0 12px 12px 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">QuickBooks today</td><td style="border:none; padding:0 0 12px 0; white-space:nowrap;"><span style="display:inline-block; width:70%; background:#94A3B8; height:28px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:13pt; font-weight:800; color:#475569; margin-left:10px; vertical-align:middle;">about $480</span></td></tr><tr><td style="width:130px; padding:0 12px 0 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">On Edge</td><td style="border:none; padding:0; white-space:nowrap;"><span style="display:inline-block; width:3.6%; background:#0052FF; height:28px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:13pt; font-weight:800; color:#0052FF; margin-left:10px; vertical-align:middle;">$25</span></td></tr></table><div style="font-size:8.5pt; color:#64748B; margin-top:14px; border-top:1px solid #E2E8F0; padding-top:10px;">That is roughly <strong style="color:#0B1120;">$455 a month</strong>, or <strong style="color:#0B1120;">$4,900 to $6,000 a year</strong>, that stays in the business. Estimated from QuickBooks Payments published rates and a monthly volume I assumed, because you are brand new. Give me your real number and I will put it here.</div></div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
+          <tr><td>Wireless mobile terminal, tap to pay, and pay-by-text</td><td>Included</td><td>Set up for dual pricing before it ships, ready for roadside work</td></tr>
+          <tr><td>ACH for fleet accounts</td><td>Available at setup</td><td>Built for the fleet contracts you are working toward. It costs a fraction of card rates, and I will put the exact number in writing before you sign anything</td></tr><tr><td>QuickBooks connection</td><td>Included</td><td>A basic sync, not a full one. Each payment posts into QuickBooks and you match it to your invoice by amount and time, the way I described on the call</td></tr><tr><td>Contract</td><td>None</td><td>Month to month. No cancellation fee and no equipment lease</td></tr><tr><td>Support</td><td>My direct line</td><td>You get a person, not a help page. My cell is on this page</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$4,900 to $6,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated, at about $15,000 a month in card sales</div></div>QuickBooks Payments runs somewhere around <strong>2.9% to 3.5%</strong> plus a per-transaction charge, depending on whether the card gets tapped in the field or paid off an invoice. On a <strong>$2,000 roadside repair that is roughly $58 to $70 gone</strong> before the money reaches your account, and on a $3,000 job it is closer to $105. <strong>On Edge your cost on card sales is $0 and your entire monthly is a flat $25.</strong> The number above assumes about $15,000 a month in card sales, and I want to be straight with you: that is my assumption, not your number, because you are seven months old and there is no history to pull from yet. Tell me what a normal month looks like once a few fleet jobs land and I will put your real figure on this page.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Flexibility You Asked For</div>
+      <p>You are seven months in and the fleet work is only starting, so the account is built to not get in the way of where this goes.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li>Start on Edge with $0 card cost to the business. If you two ever decide you would rather absorb the card cost yourselves, we move you to flat interchange-plus on the same account, with no reapplication and no new paperwork.</li><li>The ACH lane turns on when the fleet contracts do. A large fleet invoice does not have to run on a card at all.</li><li>A second phone, a second truck, or Bill putting on a hand costs nothing extra. The $25 is the account, not the seat.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li>Your cost on card sales goes to $0, and your whole monthly is a flat $25 with the equipment included.</li><li>Cash, check, and ACH customers pay 3.5% less than the posted price, so the people paying you the cheap way get rewarded for it.</li><li>You are not the one setting this up. I handle the pricing, the disclosure, and the signage, and you approve it before it goes live.</li><li>Payments post into QuickBooks, so you are matching a line instead of re-keying a receipt.</li><li>Month to month. No contract, no setup fee, no cancellation fee, and no equipment lease in your first year of business.</li>
+      </ul>
+      <p style="margin-top:12px;">One roadside call at two in the morning on a $2,500 repair costs you about $73 to $88 today, purely for the privilege of getting paid. Do that a few times a week and it adds up to a set of tools you would rather own. Nothing about the job changes here. The only thing that changes is who covers the card cost.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>One 10-minute call, with both of you on it.</strong> We finish the application together over the phone and you e-sign on the spot. Get Bill on the line too so it only has to happen once.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Switch on.</strong> Your terminal and your payment links arrive already set for dual pricing, and your next card job costs the business $0. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You already decided you should be doing this. All that is left is the ten minutes, and I will handle the setup part."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+        <div class="cta-print-text">Text or call me: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+      </div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge program is set up here as dual pricing: your posted price is the card price, and cash, check, and ACH customers pay a clearly displayed discount off it. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
