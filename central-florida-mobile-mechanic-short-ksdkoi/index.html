@@ -139,6 +139,25 @@
   }
   .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
 
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Estimated monthly cost at about $12,000 a month</div><table><tr><td class="hc-lab">Tiered plan</td><td><span class="hc-bar hc-now" style="width:88%"></span><span class="hc-val hc-val-now">$351</span></td></tr><tr><td class="hc-lab">On AllProPay</td><td><span class="hc-bar hc-new" style="width:78%"></span><span class="hc-val hc-val-new">$313</span></td></tr></table><div class="hc-note">Estimated, not a quote. Assumes a typical 2.8 percent tiered all-in rate. Your real number needs one statement.</div></div>).
+     Dark-background twin of  on the long template. Ported from
+     proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
+     chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
+     Chrome headless renders that into the PDF reliably where flex/grid collapse. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
   .terms-table {
     width: 100%;
     border-collapse: collapse;
@@ -321,6 +340,29 @@
     .doc-footer .sig img { height: 20px; }
     .doc-footer .fine { font-size: 7pt; }
     .booking-embed { display: none !important; }
+
+    /* Hero chart, compacted for print. Ported from the Edge one-pager 2026-08-05. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+
+    /* Conditional space recovery: only pages that actually carry a hero chart give
+       up this padding, so chart-less one-pagers keep their original spacing. The
+       chart costs about a third of a page, and without this the sheet runs to two. */
+    .page:has(.hero-chart) .content { padding: 13px 24px 12px; }
+    .page:has(.hero-chart) .title-block h1 { font-size: 19pt; }
+    .page:has(.hero-chart) .title-block { margin-bottom: 7px; }
+    .page:has(.hero-chart) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(.hero-chart) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(.hero-chart) .terms-table td { padding: 4px 10px; }
+    .page:has(.hero-chart) .terms-table { margin-bottom: 7px; }
+    .page:has(.hero-chart) .why-cell, .page:has(.hero-chart) .step-card { padding: 7px 10px; }
+    .page:has(.hero-chart) .why-bar, .page:has(.hero-chart) .steps-bar { margin: 8px 0 3px; }
+    .page:has(.hero-chart) .cta-block { padding: 10px 18px; margin-top: 8px; }
   }
   /* === AllProPay mobile responsive v3 (auto-injected) ===
      Screen-only. Does not affect print/PDF (those use @media print).
@@ -448,6 +490,7 @@
           <div class="pc-sub">$5 cap per transaction</div>
         </div>
       </div>
+      <div class="hero-chart"><div class="hc-title">Estimated monthly cost at about $12,000 a month</div><table><tr><td class="hc-lab">Tiered plan</td><td><span class="hc-bar hc-now" style="width:88%"></span><span class="hc-val hc-val-now">$351</span></td></tr><tr><td class="hc-lab">On AllProPay</td><td><span class="hc-bar hc-new" style="width:78%"></span><span class="hc-val hc-val-new">$313</span></td></tr></table><div class="hc-note">Estimated, not a quote. Assumes a typical 2.8 percent tiered all-in rate. Your real number needs one statement.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
