@@ -1,0 +1,44 @@
+name: Deploy proposals site to GitHub Pages
+
+# Replaces GitHub's deprecated "legacy" Pages builder, which hung on every
+# build from 2026-08-05 16:40 UTC onward and silently froze the live site
+# (new proposals 404'd, rebuilt proposals kept serving their old version).
+# This publishes the repo as-is: no Jekyll, no processing, just an upload.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let an in-flight deploy finish rather than cancelling it, so a rep's link
+# is never briefly missing because a second proposal was published.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
