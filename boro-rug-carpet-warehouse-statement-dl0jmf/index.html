@@ -68,7 +68,22 @@
   .booking-embed .be-fallback a { color: var(--blue); }
   .sig { margin-top: 16px; font-size: 9pt; text-align: center; color: var(--muted); }
   .sig .name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
-  @media print { body { font-size: 9.5pt; } .doc-header, .content { padding-left: 28px; padding-right: 28px; } .cta-btn { display: none; } .cta-print { display: block !important; } .booking-embed { display: none !important; } }
+  @media print {
+    body { font-size: 9.5pt; }
+    .doc-header, .content { padding-left: 28px; padding-right: 28px; }
+    .cta-btn { display: none; }
+    .cta-print { display: block !important; }
+    .booking-embed { display: none !important; }
+    /* Tail compression: keeps the signature + disclaimer on the last content
+       page instead of orphaning them onto a 4th. */
+    .section { margin-bottom: 18px; }
+    .takeaways { gap: 7px; }
+    .takeaway { padding: 9px 12px; }
+    .cta-block { margin-top: 14px; padding: 12px 18px; }
+    .cta-line { margin-bottom: 6px; }
+    .sig { margin-top: 10px; }
+    .note { margin-top: 10px; padding-top: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -107,9 +122,9 @@
 
     <div class="hero-band">
       <div class="sf-tag">Estimated Savings Found</div>
-      <div class="sf-figure">$3,000 to $6,600<span class="sf-unit"> / year</span></div>
-      <div class="sf-sub">An estimated $250 to $550 a month on a month that looks like July</div>
-      <div class="sf-note">Estimated from your June and July statements, not a guarantee. I have written below exactly which part of your bill I cannot reduce.</div>
+      <div class="sf-figure">$3,600 to $5,800<span class="sf-unit"> / year</span></div>
+      <div class="sf-sub">An estimated $300 to $480 a month on a month that looks like July</div>
+      <div class="sf-note">On the pricing alone. There are two bigger levers below. Estimated from your June and July statements, not a guarantee.</div>
     </div>
 
     <div class="section">
@@ -125,7 +140,7 @@
           <tr class="total-row"><td>Total</td><td class="num">45</td><td class="num">$3,147.39</td><td class="num">$141,355.98</td><td class="num">100%</td><td class="num">100%</td></tr>
         </tbody>
       </table>
-      <div class="insight"><strong>American Express went from 57 percent of your book in June to 69 percent in July</strong>, and your average American Express ticket was $4,062. That single fact shapes everything below, so I want to be straight with you about it rather than let you find it later. It is also why your Visa share dropped even though your Visa dollars barely moved. One more detail worth knowing: <strong>about two thirds of your Visa volume was keyed rather than swiped</strong> ($22,886 of $33,762), which is exactly the traffic tiered pricing punishes hardest.</div>
+      <div class="insight">The detail that costs you money is buried in the Visa line: <strong>about two thirds of your Visa volume was keyed rather than swiped</strong> ($22,886 of $33,762), because so much of your business comes in over the phone. Keyed orders are exactly what tiered pricing punishes hardest, and that is where your penalties are coming from. Your average American Express ticket was $4,062, which matters for a different reason, and I have put that at the bottom of this page.</div>
     </div>
 
     <div class="section">
@@ -136,7 +151,7 @@
         </thead>
         <tbody>
           <tr class="group"><td colspan="5">American Express &nbsp;&middot;&nbsp; $3,209.37 on $97,480.14 &nbsp;&middot;&nbsp; 3.29%</td></tr>
-          <tr><td>Program fees</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">$2,404.68</td><td><span class="flag ok">Pass-through.</span> American Express's own cost. No processor can change this one.</td></tr>
+          <tr><td>Program fees</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">$2,404.68</td><td><span class="flag ok">Pass-through.</span> American Express's own program cost.</td></tr>
           <tr><td>Discount rate (Disc 1)</td><td class="num">$97,480.14</td><td class="num">0.460%</td><td class="num">$448.41</td><td>Your processor's markup on American Express.</td></tr>
           <tr><td>Network fee</td><td class="num">$97,480.14</td><td class="num">0.365%</td><td class="num">$355.80</td><td>Network pass-through.</td></tr>
           <tr><td>Amex acquirer transaction fee</td><td class="num">24</td><td class="num">$0.02000</td><td class="num">$0.48</td><td>Per-sale fee.</td></tr>
@@ -158,7 +173,7 @@
           <tr class="total-row"><td>Total fees charged in July</td><td class="num">$141,355.98</td><td class="num">3.36%</td><td class="num">$4,755.68</td><td>Deducted before your deposits. You were funded $136,600.30.</td></tr>
         </tbody>
       </table>
-      <div class="insight"><strong>Add the two non-qualified lines together and July cost you $807.20 in downgrade penalties alone.</strong> In June that same number was $628.62. It is the fastest-growing line on your statement, and it is the one that disappears completely on interchange-plus pricing, because there is no qualified or non-qualified bucket for a card to fall out of.</div>
+      <div class="insight"><strong>The two non-qualified lines together cost you $807.20 in July, up from $628.62 in June.</strong> Against the Visa and Mastercard volume they sit on, that is <strong>1.83 percent on top of the 1.60 percent base rate you were quoted</strong>. It is the fastest-growing line on your statement, and the one that disappears completely on interchange-plus.</div>
     </div>
 
     <div class="section">
@@ -166,15 +181,15 @@
       <div class="takeaways">
         <div class="takeaway">
           <div><span class="t-num">1</span><span class="t-title">Growing made your rate worse, and it should not have</span></div>
-          <div class="t-body">Volume up 67 percent, fees up 76 percent, rate up from 3.20 to 3.36 percent. On tiered pricing your rate drifts with your card mix and you cannot control it. On interchange-plus you pay the true cost of the card plus one flat markup, so a bigger month is just a bigger month. Worth an estimated $250 to $550 a month at July's volume.</div>
+          <div class="t-body">Volume up 67 percent, fees up 76 percent, rate up from 3.20 to 3.36 percent. On tiered pricing your rate drifts with your card mix and you cannot control it. On interchange-plus you pay the true cost of the card plus one flat markup, so a bigger month is just a bigger month.</div>
         </div>
         <div class="takeaway">
-          <div><span class="t-num">2</span><span class="t-title">About half your bill is American Express's own cost, and I cannot touch it</span></div>
-          <div class="t-body">Of the $4,755.68 you paid in July, roughly $2,400 is American Express's program cost. That is a pass-through, the same with me or anyone else, and I would rather say so now than have you find it on the comparison. It is the honest reason my number is $3,000 to $6,600 a year and not something larger. What I can take off is the $807 in downgrade penalties and part of the markup on top.</div>
+          <div><span class="t-num">2</span><span class="t-title">Your Visa and Mastercard ran 3.48 percent, and $807 of it was penalty</span></div>
+          <div class="t-body">Your Visa and Mastercard came to $44,152 in July and cost $1,537, which is 3.48 percent. Of that, $807 was downgrade penalty, not a rate you agreed to. On interchange-plus that bucket does not exist, and keying phone orders with address verification and an order number attached is what stops a business card downgrading in the first place. Worth an estimated $300 to $480 a month.</div>
         </div>
         <div class="takeaway">
           <div><span class="t-num">3</span><span class="t-title">Your biggest lever is not the rate, it is how the big invoices get paid</span></div>
-          <div class="t-body">Your average American Express ticket in July was $4,062, and each one costs you roughly $130 in fees. Bank transfer on your account runs 0.50 percent and is capped. If even one in three of those large invoices settled that way, that is roughly $800 a month on its own, more than the rate change is worth. Nothing is forced, and customers who want their points keep paying by card. It is simply an option you do not have today.</div>
+          <div class="t-body">Your average American Express ticket in July was $4,062, and each one costs you roughly $130. Bank transfer runs 0.50 percent, capped. If one in three of those large invoices settled that way, that is roughly $800 a month, more than the rate change is worth. Nothing is forced, and customers who want their points keep using their card. The proposal also sets out a further option where the posted price becomes the card price and cash, check or bank transfer gets a discount: that takes your card cost to zero, roughly $45,000 a year at your two-month average.</div>
         </div>
       </div>
     </div>
@@ -196,7 +211,7 @@
     </div>
 
     <div class="note">
-      Every figure above is taken from your Sola statements for June 1-30 and July 1-31, 2026, merchant number 5189 9332 0902125. Savings figures are estimates from those two statements, not a guarantee: your card mix, ticket sizes and the share of orders keyed rather than swiped set the exact number month to month. AllProPay accounts carry no contract, no setup fee and no cancellation fee.
+      Figures taken from your Sola statements for June 1-30 and July 1-31, 2026, merchant number 5189 9332 0902125. Savings are estimates from those two statements, not a guarantee: your card mix and ticket sizes set the exact number month to month. AllProPay accounts carry no contract, no setup fee and no cancellation fee.
     </div>
   </div>
 </div>
