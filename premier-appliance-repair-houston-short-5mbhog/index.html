@@ -139,6 +139,25 @@
   }
   .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
 
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What you keep out of the 4 percent you collect, at about $12,000 a month</div><table><tr><td class="hc-lab">Today on Square</td><td><span class="hc-bar hc-now" style="width:28%"></span><span class="hc-val hc-val-now">about $120</span></td></tr><tr><td class="hc-lab">On AllProPay Rate</td><td><span class="hc-bar hc-new" style="width:50%"></span><span class="hc-val hc-val-new">about $215</span></td></tr></table><div class="hc-note">Estimated. Same 4 percent, same customers. Only your cost to run the card changes.</div></div>).
+     Dark-background twin of  on the long template. Ported from
+     proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
+     chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
+     Chrome headless renders that into the PDF reliably where flex/grid collapse. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
   .terms-table {
     width: 100%;
     border-collapse: collapse;
@@ -160,24 +179,6 @@
     text-align: right;
   }
   .terms-table tr:last-child td { border-bottom: none; }
-
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Where the card fee lands each month, at about $15,000 in card sales</div><table><tr><td class="hc-lab">Customers today, 4% by hand</td><td><span class="hc-bar hc-now" style="width:62%"></span><span class="hc-val hc-val-now">about $600</span></td></tr><tr><td class="hc-lab">Customers on Edge, 3.5% automatic</td><td><span class="hc-bar hc-now" style="width:54%"></span><span class="hc-val hc-val-now">about $525</span></td></tr><tr><td class="hc-lab">What the business pays</td><td><span class="hc-bar hc-new" style="width:2.6%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">Estimated. Your side is already $0 and stays $0. Your customers pay roughly $75 a month less.</div></div>).
-     Styled here rather than inline in the spec so the print block below can
-     compact it - this page must stay ONE page. Bar widths are the only thing
-     the spec sets inline, since they are per-deal data. */
-  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
-  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
-  .hero-chart table { width: 100%; border-collapse: collapse; }
-  .hero-chart td { border: none; padding: 0 0 7px 0; }
-  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
-  .hero-chart tr:last-child td { padding-bottom: 0; }
-  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
-  .hero-chart .hc-now { background: #64748B; }
-  .hero-chart .hc-new { background: #3B82F6; }
-  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
-  .hero-chart .hc-val-now { color: #CBD5E1; }
-  .hero-chart .hc-val-new { color: #60A5FA; }
-  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
 
   .why-bar {
     display: grid;
@@ -265,7 +266,6 @@
     line-height: 1.1;
   }
   .cta-action .ca-name { font-size: 9pt; opacity: 0.9; margin-top: 2px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 20px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -300,36 +300,6 @@
   .doc-footer .sig img { height: 26px; width: auto; }
   .doc-footer .fine { font-size: 7.5pt; color: var(--muted); font-style: italic; max-width: 60%; text-align: right; line-height: 1.4; }
 
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .pc-sub, .wc-body, .step-body, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .merchant { font-size: 12pt; }
-    .title-block .eyebrow { font-size: 8.5pt; }
-    .meta-row { flex-direction: column; gap: 7px; }
-    .price-row, .why-bar, .steps-bar { display: block !important; }
-    .price-cell, .why-cell, .step-card { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .hero { padding: 20px; }
-    .hero::before { display: none; }
-    .price-cell .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
-    .cta-action { text-align: left; }
-    .cta-action .ca-phone { font-size: 21pt; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
-    .terms-table { font-size: 9.5pt; max-width: 100%; }
-    .terms-table td { padding: 7px 8px; }
-    .terms-table td:first-child { width: 50%; }
-  }
-
   @media print {
     @page { size: letter; margin: 0.3in; }
     body { background: #fff; font-size: 9pt; line-height: 1.4; }
@@ -351,33 +321,6 @@
     .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
     .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
     .terms-table { margin-bottom: 10px; }
-    /* The chart costs roughly 70px on screen. Print has no room to spare on a
-       one-pager, so it shrinks hard here. Verified: both Carl proposals render
-       to a single page with these values. If you loosen them, re-check the page
-       count - a 2-page "one-pager" is a defect. */
-    .hero-chart { margin-top: 7px; padding-top: 6px; }
-    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
-    .hero-chart td { padding-bottom: 3px; }
-    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
-    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
-    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
-    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
-    /* A one-pager with no chart already fills the page almost exactly, so the
-       chart alone pushes it to two. Rather than tighten every Edge one-pager to
-       make room for a chart most of them will not have, claw back the ~50px ONLY
-       on pages that actually carry one. :has() is supported in the Chrome that
-       renders these PDFs; if it ever silently stops matching, the symptom is a
-       2-page one-pager, so re-check the page count after touching this. */
-    .page:has(.hero-chart) .content { padding: 13px 24px 12px; }
-    .page:has(.hero-chart) .title-block h1 { font-size: 19pt; }
-    .page:has(.hero-chart) .title-block { margin-bottom: 7px; }
-    .page:has(.hero-chart) .hero { padding: 13px 20px; margin: 9px 0; }
-    .page:has(.hero-chart) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
-    .page:has(.hero-chart) .terms-table td { padding: 4px 10px; }
-    .page:has(.hero-chart) .terms-table { margin-bottom: 7px; }
-    .page:has(.hero-chart) .why-cell, .page:has(.hero-chart) .step-card { padding: 7px 10px; }
-    .page:has(.hero-chart) .why-bar, .page:has(.hero-chart) .steps-bar { margin: 8px 0 3px; }
-    .page:has(.hero-chart) .cta-block { padding: 10px 18px; margin-top: 8px; }
     .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
     .why-cell { padding: 8px 10px; }
     .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
@@ -388,7 +331,6 @@
     .step-card .step-title { font-size: 9pt; margin-bottom: 2px; }
     .step-card .step-body { font-size: 8pt; line-height: 1.35; }
     .cta-block { padding: 12px 18px; margin-top: 10px; }
-    .booking-embed { display: none !important; }
     .cta-text .ct-title { font-size: 12pt; }
     .cta-text .ct-sub { font-size: 8.5pt; }
     .cta-action .ca-phone { font-size: 15pt; }
@@ -397,6 +339,111 @@
     .doc-footer { padding: 8px 24px; font-size: 7.5pt; }
     .doc-footer .sig img { height: 20px; }
     .doc-footer .fine { font-size: 7pt; }
+    .booking-embed { display: none !important; }
+
+    /* Hero chart, compacted for print. Ported from the Edge one-pager 2026-08-05. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+
+    /* Conditional space recovery: only pages that actually carry a hero chart give
+       up this padding, so chart-less one-pagers keep their original spacing. The
+       chart costs about a third of a page, and without this the sheet runs to two. */
+    .page:has(.hero-chart) .content { padding: 13px 24px 12px; }
+    .page:has(.hero-chart) .title-block h1 { font-size: 19pt; }
+    .page:has(.hero-chart) .title-block { margin-bottom: 7px; }
+    .page:has(.hero-chart) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(.hero-chart) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(.hero-chart) .terms-table td { padding: 4px 10px; }
+    .page:has(.hero-chart) .terms-table { margin-bottom: 7px; }
+    .page:has(.hero-chart) .why-cell, .page:has(.hero-chart) .step-card { padding: 7px 10px; }
+    .page:has(.hero-chart) .why-bar, .page:has(.hero-chart) .steps-bar { margin: 8px 0 3px; }
+    .page:has(.hero-chart) .cta-block { padding: 10px 18px; margin-top: 8px; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
 </head>
@@ -413,87 +460,74 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Jody &middot; August 7, 2026</div>
+      <div class="eyebrow">Prepared for Jody &middot; August 11, 2026</div>
       <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
       <div class="merchant">Premier Appliance Repair Houston &nbsp;&middot;&nbsp; Houston, Texas</div>
       <div class="meta-row">
-        <div><span>Current setup:</span><strong>Chase mobile and Stripe, with a 4% fee you work out and key in by hand on every invoice</strong></div>
-        <div><span>Program:</span><strong>Edge dual pricing</strong></div>
+        <div><span>Current processor:</span><strong>Square (2.6% + 15 cents in person, 3.3% + 30 cents on invoices)</strong></div>
+        <div><span>Gateway:</span><strong>AllProPay</strong></div>
         <div><span>Prepared by:</span><strong>Matt Butcher</strong></div>
       </div>
     </div>
 
     <div class="hero">
-      <div class="hero-eyebrow">Your Program</div>
-      <h2>You already pass the fee. Now it applies itself, and your customers pay less.</h2>
+      <div class="hero-eyebrow">Estimated. Your side moves with the card, Square's side is their published rate.</div>
+      <h2>Keep the same 4 percent. Just stop handing so much of it to Square.</h2>
       <div class="price-row">
         <div class="price-cell">
-          <div class="pc-label">YOUR COST ON CARD SALES</div>
-          <div class="pc-value">$0</div>
-          <div class="pc-sub">Your cost on card sales. Flat $25 a month, no contract</div>
+          <div class="pc-label">DEBIT CARDS</div>
+          <div class="pc-value">~0.8 to 1.5%</div>
+          <div class="pc-sub">Square charges 2.6% flat on a debit card, same as any other.</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">YOUR CUSTOMERS</div>
-          <div class="pc-value">3.5%</div>
-          <div class="pc-sub">Down from the 4% you key in by hand, about $900 a year less</div>
+          <div class="pc-label">IN PERSON, CREDIT</div>
+          <div class="pc-value">~2.0 to 2.6%</div>
+          <div class="pc-sub">Square charges 2.6% plus 15 cents, whatever the card.</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">YOUR MANUAL MATH</div>
-          <div class="pc-value">Gone</div>
-          <div class="pc-sub">Priced on the invoice automatically, across one system instead of three</div>
+          <div class="pc-label">INVOICED</div>
+          <div class="pc-value">~2.7 to 3.0%</div>
+          <div class="pc-sub">Square charges 3.3% plus 30 cents.</div>
         </div>
       </div>
-      <div class="hero-chart"><div class="hc-title">Where the card fee lands each month, at about $15,000 in card sales</div><table><tr><td class="hc-lab">Customers today, 4% by hand</td><td><span class="hc-bar hc-now" style="width:62%"></span><span class="hc-val hc-val-now">about $600</span></td></tr><tr><td class="hc-lab">Customers on Edge, 3.5% automatic</td><td><span class="hc-bar hc-now" style="width:54%"></span><span class="hc-val hc-val-now">about $525</span></td></tr><tr><td class="hc-lab">What the business pays</td><td><span class="hc-bar hc-new" style="width:2.6%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">Estimated. Your side is already $0 and stays $0. Your customers pay roughly $75 a month less.</div></div>
+      <div class="hero-chart"><div class="hc-title">What you keep out of the 4 percent you collect, at about $12,000 a month</div><table><tr><td class="hc-lab">Today on Square</td><td><span class="hc-bar hc-now" style="width:28%"></span><span class="hc-val hc-val-now">about $120</span></td></tr><tr><td class="hc-lab">On AllProPay Rate</td><td><span class="hc-bar hc-new" style="width:50%"></span><span class="hc-val hc-val-new">about $215</span></td></tr></table><div class="hc-note">Estimated. Same 4 percent, same customers. Only your cost to run the card changes.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>Tap to pay on your phone plus invoicing and payment links</td><td>Included (dual-pricing)</td></tr>
-      <tr><td>Contract</td><td>None, month to month</td></tr>
+      <tr><td>AllProPay integration</td><td>Included</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
-      <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
+      <tr><td>American Express, if you ever add it</td><td>Same interchange + 0.6%</td></tr><tr><td>ACH bank payment</td><td>0.60%</td></tr>
+      <tr><td>Setup fee</td><td>$0</td></tr>
+      <tr><td>Contract / cancellation fee</td><td>None</td></tr>
     </table>
 
     <div class="sec-label">Why This Fit</div>
     <div class="why-bar">
       <div class="why-cell">
-        <div class="wc-title">No more math in the van</div>
-        <div class="wc-body">The 4% you work out by hand on every invoice gets priced in automatically instead.</div>
+        <div class="wc-title">You are not actually free</div>
+        <div class="wc-body">Square bills its rate on the total, including the 4 percent you just added. You keep about a quarter of what you collect.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Inside the rules</div>
-        <div class="wc-body">A flat 4% added on top is not something the card brands allow. Dual pricing is, and we set it up to Texas and network requirements.</div>
+        <div class="wc-title">Invoicing gets cheaper</div>
+        <div class="wc-body">On Square an invoice costs more than tapping the card. Priced off the real card, that gap mostly disappears.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">One account, not three</div>
-        <div class="wc-body">Chase, Stripe, and your manual add-on become one deposit and one place to look.</div>
+        <div class="wc-title">Nothing about your day changes</div>
+        <div class="wc-body">Same tap on the same phone, same 4 percent, same invoices. No contract and nothing to lease.</div>
       </div>
     </div>
 
-    <div class="sec-label">How We Get You Live</div>
+    <div class="sec-label">Tuesday morning</div>
     <div class="steps-bar">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-title">One quick call</div>
-        <div class="step-body">About 10 minutes with me. No statement needed. We finish the application together and you e-sign on the spot.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-title">Approval</div>
-        <div class="step-body">Underwriting in 24 to 48 hours. We handle the back and forth.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-title">Switch on</div>
-        <div class="step-body">Your phone and your invoices are set for dual pricing. The 4% math stops being your job.</div>
-      </div>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Ten minutes at 8am Tuesday.</strong> Tell me roughly what you run in a month and I will make every number here exact.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>We do the application together</strong> and you e-sign from your phone.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>Tap to pay and invoicing are live</strong> and your 4 percent keeps working the way it does now.</div></div>
     </div>
 
     <div class="cta-block">
       <div class="cta-text">
-        <div class="ct-title">One call to open the account</div>
-        <div class="ct-sub">Text or call me. Ten minutes to finish the file and e-sign.</div>
+        <div class="ct-title">Talk Tuesday at 8</div>
+        <div class="ct-sub">Call or text me before then if something comes up. Ten minutes is all this takes.</div>
       </div>
       <div class="cta-action">
         <a href="tel:+19299303969" class="ca-phone">929-930-3969</a>
@@ -510,7 +544,7 @@
       <img src="AllProPay_Logo.jpg" alt="AllProPay">
       <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
     </div>
-    <div class="fine">The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on ticket sizes provided. No contract, no setup fee, no cancellation fee.</div>
+    <div class="fine">Estimates based on volume and card mix you provided. Actual cost depends on final card mix. No contract, no setup fee, no cancellation fee.</div>
   </div>
 
 </div>

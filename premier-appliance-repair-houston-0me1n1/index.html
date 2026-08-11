@@ -56,7 +56,6 @@
   .cta-wrap { text-align: center; margin-top: 20px; }
   .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
   .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 24px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -69,33 +68,6 @@
   .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
   .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
   .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
-    .pillars, .pricing-grid { display: block !important; }
-    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .pricing-callout { padding: 18px; }
-    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td { padding: 7px 8px; }
-  }
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
@@ -127,6 +99,87 @@
     .cta-print-text { display: block !important; }
     .booking-embed { display: none !important; }
   }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+  }
 </style>
 </head>
 <body>
@@ -150,12 +203,10 @@
         <span class="value">Jody &nbsp;|&nbsp; Premier Appliance Repair Houston &nbsp;|&nbsp; Houston, Texas</span>
         <span class="label">Prepared by</span>
         <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
-        <span class="label">Current setup</span>
-        <span class="value">Chase mobile and Stripe, with a 4% fee you work out and key in by hand on every invoice</span>
-        <span class="label">Program</span>
-        <span class="value">Edge dual pricing</span>
+        <span class="label">Current processor</span>
+        <span class="value">Square (2.6% + 15 cents in person, 3.3% + 30 cents on invoices)</span>
         <span class="label">Date</span>
-        <span class="value">August 7, 2026</span>
+        <span class="value">August 11, 2026</span>
       </div>
     </div>
 
@@ -163,10 +214,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You already solved the hard part. You decided a long time ago that card fees were not coming out of your pocket, and you built a 4% into every invoice to make sure they did not. Nobody has to sell you on the idea. The problem is the way it is running right now. You are doing that math by hand, on your phone, between jobs, across three different systems, and the flat 4% is outside what the card brands actually allow. Same outcome, done properly and done for you.</p>
+      <p>You told me you are free right now because you add 4 percent to the customer. You are closer to right than most people I talk to, and I am not going to tell you to stop doing it. But free is not quite what is happening. Square charges its rate on the whole amount, including the 4 percent you just added, so a piece of that add-on goes straight back out the door. What I want to do is shrink the piece that leaves. You keep the 4 percent, you keep tapping on your phone, you keep invoicing the way you invoice. More of it just stays with you.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>The fee keeps coming off the customer, not the business. That does not change.</li><li>It gets calculated and applied automatically on the invoice, so you stop doing arithmetic in the van.</li><li>Chase, Stripe, and your manual add-on collapse into one account with one deposit.</li><li>The program gets set up to Texas and card-brand rules, which a flat 4% add-on is not.</li>
+        <li>You keep adding your 4 percent exactly the way you do it now. Nothing about how you charge changes.</li><li>What it costs you to run the card drops from about 3 percent to about 2 percent, so more of that 4 percent stays in your pocket.</li><li>Invoicing comes with the account, and invoices stop being the most expensive way you get paid.</li><li>Tap to pay on the phone at the job site, same as today. No terminal to buy, no contract, no cancellation fee.</li>
       </ul>
     </div>
 
@@ -174,99 +225,202 @@
       <div class="section-header">What You Get</div>
       <div class="pillars">
         <div class="pillar">
-          <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">Your posted price is the card price, and cash and check customers pay less than that. It is the same result you get today with your 4%, except it is built into the price instead of bolted on at the end, it applies itself, and it holds up to the card-brand rules that a flat add-on fee does not.</div>
+          <div class="p-title">Invoicing that is not the expensive lane</div>
+          <div class="p-body">You asked about invoicing, so start there. On Square an invoice is your priciest way to get paid, 3.3 percent plus 30 cents, higher than taking the card in person. On interchange plus pricing an invoice is priced off the actual card, so the gap between invoicing and tapping mostly disappears. Send the invoice from the truck, the customer pays the link, and it stops costing you extra to bill that way.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Built for a one-man mobile shop</div>
-          <div class="p-body">There is no counter and no back office, so the account does not assume one. Tap a card on your phone at the job, or send the invoice and let the customer pay the link. Either way the pricing applies itself, and the money lands in one place instead of two.</div>
+          <div class="p-body">There is no counter and no back office, so the account does not assume one. Tap a card on your phone at the job, or send the invoice and let the customer pay it later. Same account, same deposit, nothing new to carry in the van.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Backed and flexible</div>
-          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+          <div class="p-title">A person, not a help page</div>
+          <div class="p-body">You get me and a named service rep who picks up. If a deposit looks wrong or a customer disputes a repair, you call a human who already knows your account. No contract and no cancellation fee, so we have to keep earning it.</div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-header">Your Program</div>
-      <p>This is the program we set up for the Premier Appliance Repair Houston account.</p>
+      <div class="section-header">Your Pricing</div>
+      <p>This is the locked pricing for the Premier Appliance Repair Houston account.</p>
 
       <div class="pricing-callout">
         <div class="pricing-grid">
           <div>
-            <div class="pc-label">Your cost on card sales</div>
-            <div class="pc-value">$0</div>
-            <div class="pc-sub">Your cost on card sales. A flat $25 a month covers the account</div>
+            <div class="pc-label">Credit and debit cards</div>
+            <div class="pc-value">Interchange + 0.6% + $0.05</div>
+            <div class="pc-sub">Interchange-plus, all card brands</div>
           </div>
           <div>
-            <div class="pc-label">Your card customers</div>
-            <div class="pc-value">3.5%</div>
-            <div class="pc-sub">Down from the 4% you add by hand today</div>
+            <div class="pc-label">AMEX (OptBlue)</div>
+            <div class="pc-value">Interchange + 0.6% + $0.05</div>
+            <div class="pc-sub">Direct AMEX program, no separate AMEX bill</div>
           </div>
           <div>
-            <div class="pc-label">Your total monthly cost</div>
-            <div class="pc-value">$25</div>
-            <div class="pc-sub">Account, support, PCI, and the mobile setup. Nothing else</div>
+            <div class="pc-label">ACH</div>
+            <div class="pc-value">0.60%</div>
+            <div class="pc-sub">Hard cap at $5 per transaction</div>
           </div>
         </div>
       </div>
 
-      <div style="margin:20px 0 4px; padding:18px 20px; border:1px solid #E2E8F0; border-radius:8px; background:#F5F7FA;"><div style="font-family:'Montserrat',sans-serif; font-size:11pt; font-weight:700; color:#0B1120; margin-bottom:2px;">Where the card fee lands, every month</div><div style="font-size:8.5pt; color:#64748B; margin-bottom:16px;">Estimated at about $15,000 a month in card sales, the middle of the $12k to $20k you quoted</div><table style="width:100%; border-collapse:collapse;"><tr><td style="width:150px; padding:0 12px 12px 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">Your customers today, at 4% by hand</td><td style="border:none; padding:0 0 12px 0; white-space:nowrap;"><span style="display:inline-block; width:66%; background:#94A3B8; height:26px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:12.5pt; font-weight:800; color:#475569; margin-left:10px; vertical-align:middle;">about $600</span></td></tr><tr><td style="width:150px; padding:0 12px 12px 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">Your customers on Edge, at 3.5% automatic</td><td style="border:none; padding:0 0 12px 0; white-space:nowrap;"><span style="display:inline-block; width:57.8%; background:#64748B; height:26px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:12.5pt; font-weight:800; color:#475569; margin-left:10px; vertical-align:middle;">about $525</span></td></tr><tr><td style="width:150px; padding:0 12px 0 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">What the business pays</td><td style="border:none; padding:0; white-space:nowrap;"><span style="display:inline-block; width:2.8%; background:#0052FF; height:26px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:12.5pt; font-weight:800; color:#0052FF; margin-left:10px; vertical-align:middle;">$25</span></td></tr></table><div style="font-size:8.5pt; color:#64748B; margin-top:14px; border-top:1px solid #E2E8F0; padding-top:10px;">Your side of this is already $0 and it stays $0. What moves is that your customers pay <strong style="color:#0B1120;">roughly $75 a month less</strong>, and you stop working out the number yourself on every invoice. Estimated. Give me your real monthly and I will put your exact figure here.</div></div>
+      <div style="margin:20px 0 4px; padding:18px 20px; border:1px solid #E2E8F0; border-radius:8px; background:#F5F7FA;"><div style="font-family:'Montserrat',sans-serif; font-size:11pt; font-weight:700; color:#0B1120; margin-bottom:2px;">What you keep out of the 4 percent you collect</div><div style="font-size:8.5pt; color:#64748B; margin-bottom:16px;">Estimated on $12,000 a month in card sales, split about evenly between tapping in person and invoicing</div><table style="width:100%; border-collapse:collapse;"><tr><td style="width:170px; padding:0 12px 12px 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">What you keep today on Square</td><td style="border:none; padding:0 0 12px 0; white-space:nowrap;"><span style="display:inline-block; width:28%; background:#94A3B8; height:26px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:12.5pt; font-weight:800; color:#475569; margin-left:10px; vertical-align:middle;">about $120</span></td></tr><tr><td style="width:170px; padding:0 12px 0 0; border:none; font-size:9.5pt; font-weight:600; color:#1A1A2E;">What you keep on AllProPay Rate</td><td style="border:none; padding:0; white-space:nowrap;"><span style="display:inline-block; width:50%; background:#0052FF; height:26px; border-radius:4px; vertical-align:middle;"></span><span style="font-family:'Montserrat',sans-serif; font-size:12.5pt; font-weight:800; color:#0052FF; margin-left:10px; vertical-align:middle;">about $215</span></td></tr></table><div style="font-size:8.5pt; color:#64748B; margin-top:14px; border-top:1px solid #E2E8F0; padding-top:10px;">Both bars are the same 4 percent charged to the same customers. The difference is what it costs you to run the card. Estimated, and the estimate moves with your card mix. Tell me your real monthly and I will put your exact figure here.</div></div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Tap to pay on your phone plus invoicing and payment links</td><td>Included</td><td>Set up for dual pricing, works from the van with no counter</td></tr>
-          <tr><td>Contract</td><td>None</td><td>Month to month. Stop any time, no cancellation fee</td></tr><tr><td>Your ShopMonkey workflow</td><td>Stays</td><td>You keep closing jobs the way you close them now</td></tr><tr><td>Support</td><td>A direct line</td><td>You get a person, not a help page. My cell is on this proposal</td></tr>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (invoicing, card on file, and tap-to-pay in the field)</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">What card processing costs the business on Edge</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">on roughly $180,000 a year in card sales, at about $15,000 a month</div></div>I am not going to tell you I found you savings, because you already took the fee off your own back. What I found is three things your current setup is costing you that are not showing up as a line item. <strong>You are doing the 4% math by hand on every single invoice</strong>, across Chase and Stripe and ShopMonkey, usually while you are driving. <strong>Your customers are paying 4% when the program runs at 3.5%</strong>, so they are paying more than they need to. And <strong>a flat 4% added on top is not something the card brands allow</strong>: a surcharge is capped at the lesser of 3% or your actual cost, it has to be registered with the networks, and it can never be applied to a debit card. Set up as dual pricing instead of an add-on fee, every one of those problems goes away and your cost stays exactly where you put it, at zero.
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated to stay in your pocket every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$1,100 to $2,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">on $12,000 to $20,000 a month in card sales, charging the same 4 percent you charge today</div></div>Here is the part that is easy to miss. When you add 4 percent to a $350 job, you are running $364 through the card, and Square takes its rate on all of it. In person that is about $9.60. On an invoice it is about $12.30. So of the $14 you collected, you keep somewhere between two and four dollars. <strong>Across a month, that means you collect roughly $480 in fees and keep about $120 of it.</strong> Nothing about that is your fault, it is just how a flat rate works on top of an add-on. Move the same 4 percent onto interchange plus pricing and your cost falls to roughly 2 percent, so <strong>you keep closer to $215 a month instead of $120</strong>. Same 4 percent, same phone, same invoices. A smaller cut leaves.
       </div>
     </div>
 
+    <div class="section apc-calc" style="display:none">
+      <div class="section-header">Estimate Your Own Savings</div>
+      <p>Every business runs a different volume, so put your own numbers in and see a live estimate against what you pay today. Nothing here is a bill or a commitment. It just turns the pricing above into real dollars for your shop.</p>
+
+      <style>
+        .apc-calc .apc-money { background:#0B1120; color:#fff; border-radius:8px; padding:20px 24px; margin:16px 0; text-align:center; }
+        .apc-calc .apc-money .apc-money-label { font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin-bottom:6px; }
+        .apc-calc .apc-money .apc-money-value { font-family:'Montserrat',sans-serif; font-size:30pt; font-weight:800; color:#38BDF8; line-height:1.1; }
+        .apc-calc .apc-money .apc-money-sub { font-size:8.5pt; color:#94A3B8; margin-top:6px; }
+        .apc-calc .apc-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:16px 0; }
+        .apc-calc .apc-field label { display:block; font-size:8.5pt; font-weight:600; color:#334155; margin-bottom:5px; }
+        .apc-calc .apc-field .apc-inwrap { position:relative; }
+        .apc-calc .apc-field input { width:100%; font-family:'Inter',Arial,sans-serif; font-size:12pt; font-weight:600; color:#1A1A2E; padding:11px 12px; border:1.5px solid #CBD5E1; border-radius:6px; background:#fff; }
+        .apc-calc .apc-field input:focus { outline:none; border-color:#0052FF; }
+        .apc-calc .apc-field .apc-pre { padding-left:26px; }
+        .apc-calc .apc-field .apc-sign { position:absolute; left:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-field .apc-suf { padding-right:26px; }
+        .apc-calc .apc-field .apc-pct { position:absolute; right:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-lines { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; background:#F5F7FA; border-radius:8px; padding:16px 20px; margin-top:6px; }
+        .apc-calc .apc-line { display:flex; justify-content:space-between; align-items:baseline; font-size:10pt; }
+        .apc-calc .apc-line .apc-k { color:#64748B; }
+        .apc-calc .apc-line .apc-v { font-weight:700; color:#1A1A2E; font-family:'Montserrat',sans-serif; }
+        .apc-calc .apc-hint { font-size:8.5pt; color:#64748B; font-style:italic; margin-top:12px; line-height:1.5; }
+        .apc-calc .apc-print { display:none; }
+        @media screen and (max-width:640px) { .apc-calc .apc-inputs { grid-template-columns:1fr; } .apc-calc .apc-lines { grid-template-columns:1fr; } }
+        @media print {
+          .apc-calc .apc-inputs, .apc-calc .apc-lines { display:none; }
+          .apc-calc .apc-money .apc-money-value { color:#0052FF; font-size:18pt; }
+          .apc-calc .apc-money { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+          .apc-calc .apc-print { display:block; font-size:9pt; color:#334155; margin-top:8px; font-style:italic; }
+        }
+      </style>
+
+      <div class="apc-money">
+        <div class="apc-money-label">Estimated money kept in the business every year</div>
+        <div class="apc-money-value" id="apcAnnual">Enter your numbers</div>
+        <div class="apc-money-sub" id="apcMonthlyLine">Type your volume below to see a live estimate</div>
+      </div>
+
+      <div class="apc-inputs">
+        <div class="apc-field">
+          <label for="apcVol">Card sales per month</label>
+          <div class="apc-inwrap"><span class="apc-sign">$</span><input id="apcVol" class="apc-pre" type="text" inputmode="numeric" placeholder="e.g. 45,000"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcTxn">Card transactions per month</label>
+          <div class="apc-inwrap"><input id="apcTxn" type="text" inputmode="numeric" placeholder="e.g. 350"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcRate">What you pay now</label>
+          <div class="apc-inwrap"><input id="apcRate" class="apc-suf" type="text" inputmode="decimal" value="3.5"><span class="apc-pct">%</span></div>
+        </div>
+      </div>
+
+      <div class="apc-lines">
+        <div class="apc-line"><span class="apc-k">You pay now, per month</span><span class="apc-v" id="apcNow">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated with AllProPay</span><span class="apc-v" id="apcAp">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per month</span><span class="apc-v" id="apcSaveM">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per year</span><span class="apc-v" id="apcSaveY">-</span></div>
+      </div>
+
+      <p class="apc-hint">Estimates only, not a bill or a guarantee. AllProPay cost assumes an interchange-plus blended rate of about 1.9 to 2.2 percent on card-present sales, plus 5 cents a transaction and a 25 dollar monthly platform fee. Your exact interchange depends on your card mix. One QuickBooks payout summary or one recent statement locks these numbers to the penny.</p>
+      <p class="apc-print">Enter your monthly card volume and rate on the online version of this proposal to see your live savings estimate.</p>
+
+      <script>
+        (function () {
+          var vol = document.getElementById('apcVol');
+          var txn = document.getElementById('apcTxn');
+          var rate = document.getElementById('apcRate');
+          if (!vol) return;
+          var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+          var APC_LOW = 0.019, APC_HIGH = 0.022, PER_TXN = 0.05, MONTHLY = 25;
+          function num(el) {
+            if (!el) return 0;
+            var v = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+            return isNaN(v) ? 0 : v;
+          }
+          function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+          function range(a, b) { return fmt.format(Math.max(0, Math.round(a))) + ' to ' + fmt.format(Math.max(0, Math.round(b))); }
+          function calc() {
+            var v = num(vol), t = num(txn), r = num(rate);
+            if (v <= 0 || r <= 0) {
+              set('apcAnnual', 'Enter your numbers');
+              set('apcMonthlyLine', 'Type your volume below to see a live estimate');
+              set('apcNow', '-'); set('apcAp', '-'); set('apcSaveM', '-'); set('apcSaveY', '-');
+              return;
+            }
+            var now = v * (r / 100);
+            var apLow = v * APC_LOW + t * PER_TXN + MONTHLY;
+            var apHigh = v * APC_HIGH + t * PER_TXN + MONTHLY;
+            var saveHigh = now - apLow;
+            var saveLow = now - apHigh;
+            set('apcNow', fmt.format(Math.round(now)));
+            set('apcAp', range(apLow, apHigh));
+            if (saveHigh <= 0) {
+              set('apcAnnual', 'The win is the terminal');
+              set('apcMonthlyLine', 'At that rate the savings are small. The real win is a working terminal and no more hand-keying.');
+              set('apcSaveM', fmt.format(0));
+              set('apcSaveY', fmt.format(0));
+              return;
+            }
+            set('apcSaveM', range(saveLow, saveHigh));
+            set('apcSaveY', range(saveLow * 12, saveHigh * 12));
+            set('apcAnnual', range(saveLow * 12, saveHigh * 12));
+            set('apcMonthlyLine', 'About ' + range(saveLow, saveHigh) + ' a month, estimated, versus what you pay today');
+          }
+          vol.addEventListener('input', calc);
+          if (txn) txn.addEventListener('input', calc);
+          if (rate) rate.addEventListener('input', calc);
+          calc();
+        })();
+      </script>
+    </div>
+
     <div class="section">
-      <div class="section-header">The Flexibility You Asked For</div>
-      <p>You run this alone, so the account is built to not need managing.</p>
+      <div class="section-header">If you ever want your customers to pay less</div>
+      <p>Worth knowing about, not something I am pushing you toward. There is a second way to run this called AllProPay Edge, where the card price is the posted price and cash pays less. On Edge your card cost is zero and the fee your customers see drops from the 4 percent you charge now to 3.5 percent. To be straight with you: that is a better deal for your customers, not a bigger number for you, because you would stop making the small margin you make on the 4 percent today. Some owners want that trade and some do not. It runs on the same account and the same application, so if you ever want to move to it, you tell me and we switch it. No new paperwork, no new equipment.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Edge with $0 card cost to the business. If you ever decide you would rather absorb the card cost yourself and stop pricing two ways, we move you to flat interchange-plus on the same account with no reapplication.</li><li>Tap on the phone at the job, or send a link and let them pay it later. Same pricing either way, so you never have to think about which one costs you more.</li><li>Take a second van or a helper on and nothing changes. The $25 is the account, not the seat.</li><li>Nothing is locked. If we stop earning it, you walk, and you take your customers and your history with you.</li>
+        <li>Start on AllProPay Rate and keep charging your 4 percent exactly as you do now.</li><li>Move to AllProPay Edge later if you would rather your customers paid 3.5 percent. Same account, no reapplication.</li><li>Tap on the phone at the job or send a link and let them pay it later. Priced the same either way.</li><li>Add a second van or a helper and nothing changes. The account is the account, not a seat.</li><li>Nothing is locked. If we stop earning it you walk, and you take your customers and your history with you.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>You stop doing the 4% math by hand. It applies itself on the invoice, every time, including the ones you write while you are driving.</li><li>Your customers pay <strong>3.5% instead of 4%</strong>, which is roughly <strong>$900 a year</strong> that stays with the people who keep calling you back.</li><li>A flat 4% add-on is outside the card-brand rules. Dual pricing is not, and we set it up to Texas and network requirements so it is not a problem waiting to happen.</li><li>Chase, Stripe, and the manual add-on become one account, one deposit, and one place to look when a payment does not land.</li><li>Your cost on card sales stays $0. Your whole monthly is a flat $25, with no contract and nothing to lease.</li>
+        <li class="why"><strong>You keep about $215 a month instead of about $120</strong>, out of the same 4 percent you already charge. Estimated on $12,000 a month.</li><li class="why"><strong>You pay interchange plus a flat 0.6 percent and 5 cents a transaction.</strong> Interchange is the real cost of the card, set by Visa and Mastercard. That flat 0.6 is the entire markup, and it does not move.</li><li class="why"><strong>Invoicing stops being your expensive lane.</strong> Square charges 3.3 percent plus 30 cents on an invoice, more than taking the card in person. Priced off the actual card, that gap mostly goes away.</li><li class="why"><strong>Debit is where a flat rate hurts you most.</strong> Square bills 2.6 percent on a debit card the same as a rewards credit card. Debit costs a fraction of that, and on interchange plus you pay the fraction.</li><li class="why"><strong>No contract and no cancellation fee.</strong> Nothing to lease, nothing to send back.</li>
       </ul>
-      <p style="margin-top:12px;">Take a normal $400 repair. Today you finish the job, work out $16, key it into the invoice, and hope you did not fat-finger it on a phone in a driveway. On Edge the customer sees $414 on a card and $400 in cash, it is priced that way before you ever touch it, and you go to the next call.</p>
+      <p style="margin-top:12px;">Take a normal $350 repair. You add your 4 percent, so the customer pays $364. Tapped in person on Square that runs you about $9.60 and you keep about $4.40 of the $14. Sent as an invoice it runs about $12.30 and you keep about $1.70. On interchange plus pricing that same $364 costs roughly $7.30 in person and $8.90 on an invoice, so you keep six to nine dollars instead of two to four. Multiply that by a month of jobs and it is the difference between keeping about $120 and keeping about $215. These are estimates based on Square's published rates and a typical card mix for residential service work, not a guarantee. One look at a statement makes them exact.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
       <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+      <p style="margin-bottom:18px;">You told me Tuesday between 8 and 9 in the morning, so that is when I will call. Here is what that looks like.</p>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content"><strong>One 10-minute call.</strong> No statement needed. Chase and Stripe publish their rates and you already told me what you charge, so there is nothing left to look up. We finish the application together over the phone and you e-sign on the spot.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your phone and your invoices are set for dual pricing, and the 4% math stops being your job. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Ten minutes on the phone Tuesday morning.</strong> I already know Square's published rates, so there is nothing for you to dig up. If you can tell me roughly what you run in a month I will replace every estimate on this page with your real number while we talk.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>We fill the application out together.</strong> I do the typing, you answer the questions, and you e-sign from your phone. It does not need a desk.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>You keep working.</strong> Tap to pay is on your phone the same day, invoicing is set up for you, and I stay on the account. Your 4 percent keeps working exactly the way it does now.</div></div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You already made this decision years ago. All that is left is having it run itself, and having it run inside the rules."
+        You already did the hard part years ago when you decided the fee was not coming out of your pocket. This just means less of it walks back out.
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
@@ -291,7 +445,7 @@
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. Set up here as dual pricing: the posted price is the card price, and cash and check customers pay a clearly displayed discount off it. We configure the program to Texas and card-brand rules. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
 
   </div>
 
