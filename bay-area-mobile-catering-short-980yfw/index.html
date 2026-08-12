@@ -127,7 +127,8 @@
     position: relative;
     z-index: 1;
   }
-  .price-cell { padding: 4px 0; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .price-cell { padding: 4px 0; text-align: center; }
   .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
   .price-cell .pc-value {
     font-family: 'Montserrat', sans-serif;
@@ -161,7 +162,7 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What card processing costs the business each month</div><table><tr><td class="hc-lab">Today</td><td><span class="hc-bar hc-now" style="width:265px"></span><span class="hc-val" style="color:#CBD5E1">about $3,480</span></td></tr><tr><td class="hc-lab">On Edge</td><td><span class="hc-bar hc-new" style="width:6px"></span><span class="hc-val" style="color:#3B82F6">$0</span></td></tr><tr><td class="hc-lab" style="color:#4ADE80">Paid back</td><td><span class="hc-bar" style="width:69px; background:#22C55E"></span><span class="hc-val" style="color:#4ADE80">+ about $188 at 4%</span></td></tr></table><div class="hc-note" style="color:#94A3B8;"><strong style="color:#CBD5E1;">The rate your customers see, not a cost to you:</strong> 3.5% flat, or 4% with the rebate. On SpotOn today they pay about 4.6% at a $15 ticket.</div></div>).
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What card processing costs the business each month</div><table><tr><td class="hc-lab">Today</td><td><span class="hc-bar hc-now" style="width:265px"></span><span class="hc-val" style="color:#CBD5E1">about $3,480</span></td></tr><tr><td class="hc-lab">On Edge</td><td><span class="hc-bar hc-new" style="width:6px"></span><span class="hc-val" style="color:#3B82F6">$0</span></td></tr><tr><td class="hc-lab" style="color:#4ADE80">Edge Plus</td><td><span class="hc-bar" style="width:69px; background:#22C55E"></span><span class="hc-val" style="color:#4ADE80">+ about $188 a month, back to you</span></td></tr></table><div class="hc-note" style="color:#94A3B8;"><strong style="color:#CBD5E1;">The rate your customers see, not a cost to you:</strong> 3.5% flat, or 4% with the rebate. On SpotOn today they pay about 4.6% at a $15 ticket.</div></div>).
      Styled here rather than inline in the spec so the print block below can
      compact it - this page must stay ONE page. Bar widths are the only thing
      the spec sets inline, since they are per-deal data. */
@@ -443,7 +444,7 @@
           <div class="pc-sub">60 cents on a $15 order, or run 3.5%</div>
         </div>
       </div>
-      <div class="hero-chart"><div class="hc-title">What card processing costs the business each month</div><table><tr><td class="hc-lab">Today</td><td><span class="hc-bar hc-now" style="width:265px"></span><span class="hc-val" style="color:#CBD5E1">about $3,480</span></td></tr><tr><td class="hc-lab">On Edge</td><td><span class="hc-bar hc-new" style="width:6px"></span><span class="hc-val" style="color:#3B82F6">$0</span></td></tr><tr><td class="hc-lab" style="color:#4ADE80">Paid back</td><td><span class="hc-bar" style="width:69px; background:#22C55E"></span><span class="hc-val" style="color:#4ADE80">+ about $188 at 4%</span></td></tr></table><div class="hc-note" style="color:#94A3B8;"><strong style="color:#CBD5E1;">The rate your customers see, not a cost to you:</strong> 3.5% flat, or 4% with the rebate. On SpotOn today they pay about 4.6% at a $15 ticket.</div></div>
+      <div class="hero-chart"><div class="hc-title">What card processing costs the business each month</div><table><tr><td class="hc-lab">Today</td><td><span class="hc-bar hc-now" style="width:265px"></span><span class="hc-val" style="color:#CBD5E1">about $3,480</span></td></tr><tr><td class="hc-lab">On Edge</td><td><span class="hc-bar hc-new" style="width:6px"></span><span class="hc-val" style="color:#3B82F6">$0</span></td></tr><tr><td class="hc-lab" style="color:#4ADE80">Edge Plus</td><td><span class="hc-bar" style="width:69px; background:#22C55E"></span><span class="hc-val" style="color:#4ADE80">+ about $188 a month, back to you</span></td></tr></table><div class="hc-note" style="color:#94A3B8;"><strong style="color:#CBD5E1;">The rate your customers see, not a cost to you:</strong> 3.5% flat, or 4% with the rebate. On SpotOn today they pay about 4.6% at a $15 ticket.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
