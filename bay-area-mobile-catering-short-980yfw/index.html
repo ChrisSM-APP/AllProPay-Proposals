@@ -161,7 +161,7 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
-  /* Cost-comparison bars inside the dark hero ().
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What a card customer pays on a $15 order</div><table><tr><td class="hc-lab">SpotOn today</td><td><span class="hc-bar hc-now" style="width:250px"></span><span class="hc-val" style="color:#CBD5E1">3.7% to 4.6%</span></td></tr><tr><td class="hc-lab">Edge at 4%</td><td><span class="hc-bar hc-new" style="width:217px"></span><span class="hc-val" style="color:#3B82F6">4.0% &nbsp;+&nbsp; 0.25% back to you</span></td></tr><tr><td class="hc-lab">Edge at 3.5%</td><td><span class="hc-bar hc-new" style="width:190px"></span><span class="hc-val" style="color:#3B82F6">3.5%</span></td></tr></table><div style="font-size:7pt; color:#94A3B8; margin-top:7px;">SpotOn's own published rates worked out at your $15 average ticket. Their 25 cents per sale is worth 1.67% at that size. Edge has no per-sale cents, and your cost is $0 in every row.</div></div>).
      Styled here rather than inline in the spec so the print block below can
      compact it - this page must stay ONE page. Bar widths are the only thing
      the spec sets inline, since they are per-deal data. */
@@ -443,7 +443,7 @@
           <div class="pc-sub">About 60 cents on a $15 order. Or run 3.5% with no rebate.</div>
         </div>
       </div>
-      
+      <div class="hero-chart"><div class="hc-title">What a card customer pays on a $15 order</div><table><tr><td class="hc-lab">SpotOn today</td><td><span class="hc-bar hc-now" style="width:250px"></span><span class="hc-val" style="color:#CBD5E1">3.7% to 4.6%</span></td></tr><tr><td class="hc-lab">Edge at 4%</td><td><span class="hc-bar hc-new" style="width:217px"></span><span class="hc-val" style="color:#3B82F6">4.0% &nbsp;+&nbsp; 0.25% back to you</span></td></tr><tr><td class="hc-lab">Edge at 3.5%</td><td><span class="hc-bar hc-new" style="width:190px"></span><span class="hc-val" style="color:#3B82F6">3.5%</span></td></tr></table><div style="font-size:7pt; color:#94A3B8; margin-top:7px;">SpotOn's own published rates worked out at your $15 average ticket. Their 25 cents per sale is worth 1.67% at that size. Edge has no per-sale cents, and your cost is $0 in every row.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
@@ -459,15 +459,15 @@
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">You get paid back</div>
-        <div class="wc-body">At 4% we send you 0.25% of card volume every month, plus $100 across your first six. At $50k/mo that is about $125 back monthly.</div>
+        <div class="wc-body">0.25% of card volume every month at 4%, plus $100 over your first six. About $125 a month at $50k.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">The checks were not free</div>
-        <div class="wc-body">QuickBooks charged 1% on every check, capped at $20. That was $75.50 in July, on top of 2.99% on the cards you allowed.</div>
+        <div class="wc-body">QuickBooks took 1% on every check, capped at $20. That was $75.50 in July, plus 2.99% on the cards.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">The 25 cents on the truck</div>
-        <div class="wc-body">SpotOn publishes 25 cents per sale on top of the rate. On a $15 order that is another 1.67% your customers carry. Edge has no per-sale cents.</div>
+        <div class="wc-title">No per-sale cents</div>
+        <div class="wc-body">SpotOn adds 25 cents to every sale. On a $15 order that is 1.67% on its own. Edge adds none.</div>
       </div>
     </div>
 
@@ -476,7 +476,7 @@
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">One quick call</div>
-        <div class="step-body">Send me the SpotOn statement with its fee column. It is the one number missing on the truck side.</div>
+        <div class="step-body">Send me the SpotOn statement with its fee column. It is the one number still missing.</div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -486,7 +486,7 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">Switch on</div>
-        <div class="step-body">Terminals arrive programmed and catering invoices switch the same week. Your first card sale costs you $0.</div>
+        <div class="step-body">Terminals arrive programmed, catering invoices switch the same week. First card sale costs you $0.</div>
       </div>
     </div>
 
