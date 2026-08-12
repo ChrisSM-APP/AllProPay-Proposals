@@ -127,7 +127,8 @@
     position: relative;
     z-index: 1;
   }
-  .price-cell { padding: 4px 0; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .price-cell { padding: 4px 0; text-align: center; }
   .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
   .price-cell .pc-value {
     font-family: 'Montserrat', sans-serif;
@@ -161,7 +162,7 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Monthly card cost on your QuickBooks invoices</div><table><tr><td class="hc-lab">QuickBooks today</td><td><span class="hc-bar hc-now" style="width:70%"></span><span class="hc-val hc-val-now">about $240</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:7%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">QuickBooks charges a flat 2.99% on cards. Estimated at $8,000 a month invoiced. Not guaranteed.</div></div>).
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Monthly card cost on your QuickBooks invoices</div><table><tr><td class="hc-lab">QuickBooks today</td><td><span class="hc-bar hc-now" style="width:70%"></span><span class="hc-val hc-val-now">about $240</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:7%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">QuickBooks charges a flat 2.99% on cards. Estimated at $8,000 a month invoiced.</div></div>).
      Styled here rather than inline in the spec so the print block below can
      compact it - this page must stay ONE page. Bar widths are the only thing
      the spec sets inline, since they are per-deal data. */
@@ -425,7 +426,7 @@
 
     <div class="hero">
       <div class="hero-eyebrow">Your Program</div>
-      <h2>Zero-cost card processing, with your QuickBooks still in the middle.</h2>
+      <h2>Zero-cost card processing. Your QuickBooks stays.</h2>
       <div class="price-row">
         <div class="price-cell">
           <div class="pc-label">YOUR COST ON CARD SALES</div>
@@ -435,15 +436,15 @@
         <div class="price-cell">
           <div class="pc-label">BACK IN YOUR POCKET</div>
           <div class="pc-value">$1.8k to $3.3k</div>
-          <div class="pc-sub">Estimated per year at $6k to $10k a month invoiced through QuickBooks</div>
+          <div class="pc-sub">Estimated per year at $6k to $10k a month invoiced</div>
         </div>
         <div class="price-cell">
           <div class="pc-label">CARD ADJUSTMENT</div>
           <div class="pc-value">4%</div>
-          <div class="pc-sub">Disclosed before they pay. Cash, check, and bank transfer pay as invoiced</div>
+          <div class="pc-sub">Disclosed before they pay. Cash and check pay as invoiced</div>
         </div>
       </div>
-      <div class="hero-chart"><div class="hc-title">Monthly card cost on your QuickBooks invoices</div><table><tr><td class="hc-lab">QuickBooks today</td><td><span class="hc-bar hc-now" style="width:70%"></span><span class="hc-val hc-val-now">about $240</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:7%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">QuickBooks charges a flat 2.99% on cards. Estimated at $8,000 a month invoiced. Not guaranteed.</div></div>
+      <div class="hero-chart"><div class="hc-title">Monthly card cost on your QuickBooks invoices</div><table><tr><td class="hc-lab">QuickBooks today</td><td><span class="hc-bar hc-now" style="width:70%"></span><span class="hc-val hc-val-now">about $240</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:7%"></span><span class="hc-val hc-val-new">$25</span></td></tr></table><div class="hc-note">QuickBooks charges a flat 2.99% on cards. Estimated at $8,000 a month invoiced.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
@@ -459,15 +460,15 @@
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">You already do this</div>
-        <div class="wc-body">Your Chase call-ins already pass the fee to the customer. Edge does the same thing on your QuickBooks invoices, where you pay 2.99% yourself today.</div>
+        <div class="wc-body">Your Chase call-ins already pass the fee. Edge does the same on your QuickBooks invoices, where you pay 2.99% yourself today.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">Stop waiting on checks</div>
-        <div class="wc-body">You front the material on a roof. When saying yes to a card costs you nothing, you stop nudging customers to mail a check and get paid the next morning.</div>
+        <div class="wc-body">You front the material on a roof. When a card costs you nothing, you stop steering customers to mail a check.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">One account, QuickBooks kept</div>
-        <div class="wc-body">Payments sync back against the invoice. Call-ins move onto the same account. No contract, no setup fee, no cancellation fee.</div>
+        <div class="wc-body">Payments sync back against the invoice. No contract, no setup fee, no cancellation fee.</div>
       </div>
     </div>
 
@@ -486,14 +487,14 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">Switch on</div>
-        <div class="step-body">QuickBooks connected, dual pricing on. Your next card job costs the business $0.</div>
+        <div class="step-body">QuickBooks connected, dual pricing on. Your next card job costs $0.</div>
       </div>
     </div>
 
     <div class="cta-block">
       <div class="cta-text">
         <div class="ct-title">Ten minutes and the account is open</div>
-        <div class="ct-sub">Text or call me. I am your account manager on this, not a support queue.</div>
+        <div class="ct-sub">Text or call me. You get me directly, not a support queue.</div>
       </div>
       <div class="cta-action">
         <a href="tel:+19294934037" class="ca-phone">929-493-4037</a>
