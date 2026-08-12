@@ -139,6 +139,25 @@
   }
   .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
 
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">On a $400 job, after you add your 3 percent ($12)</div><table><tr><td class="hc-lab">QuickBooks today</td><td><span class="hc-bar hc-now" style="width:74%"></span><span class="hc-val hc-val-now">$14.01 fee</span></td></tr><tr><td class="hc-lab">Square today</td><td><span class="hc-bar hc-now" style="width:57%"></span><span class="hc-val hc-val-now">$10.81 fee</span></td></tr><tr><td class="hc-lab">AllProPay Rate</td><td><span class="hc-bar hc-new" style="width:53%"></span><span class="hc-val hc-val-new">$10.15 fee</span></td></tr></table><div class="hc-note">You collected $12. Through QuickBooks that job cost you about two dollars. Estimated, not guaranteed.</div></div>).
+     Dark-background twin of  on the long template. Ported from
+     proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
+     chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
+     Chrome headless renders that into the PDF reliably where flex/grid collapse. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
   .terms-table {
     width: 100%;
     border-collapse: collapse;
@@ -247,7 +266,6 @@
     line-height: 1.1;
   }
   .cta-action .ca-name { font-size: 9pt; opacity: 0.9; margin-top: 2px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 20px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -282,36 +300,6 @@
   .doc-footer .sig img { height: 26px; width: auto; }
   .doc-footer .fine { font-size: 7.5pt; color: var(--muted); font-style: italic; max-width: 60%; text-align: right; line-height: 1.4; }
 
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .pc-sub, .wc-body, .step-body, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .merchant { font-size: 12pt; }
-    .title-block .eyebrow { font-size: 8.5pt; }
-    .meta-row { flex-direction: column; gap: 7px; }
-    .price-row, .why-bar, .steps-bar { display: block !important; }
-    .price-cell, .why-cell, .step-card { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .hero { padding: 20px; }
-    .hero::before { display: none; }
-    .price-cell .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
-    .cta-action { text-align: left; }
-    .cta-action .ca-phone { font-size: 21pt; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
-    .terms-table { font-size: 9.5pt; max-width: 100%; }
-    .terms-table td { padding: 7px 8px; }
-    .terms-table td:first-child { width: 50%; }
-  }
-
   @media print {
     @page { size: letter; margin: 0.3in; }
     body { background: #fff; font-size: 9pt; line-height: 1.4; }
@@ -343,7 +331,6 @@
     .step-card .step-title { font-size: 9pt; margin-bottom: 2px; }
     .step-card .step-body { font-size: 8pt; line-height: 1.35; }
     .cta-block { padding: 12px 18px; margin-top: 10px; }
-    .booking-embed { display: none !important; }
     .cta-text .ct-title { font-size: 12pt; }
     .cta-text .ct-sub { font-size: 8.5pt; }
     .cta-action .ca-phone { font-size: 15pt; }
@@ -352,6 +339,111 @@
     .doc-footer { padding: 8px 24px; font-size: 7.5pt; }
     .doc-footer .sig img { height: 20px; }
     .doc-footer .fine { font-size: 7pt; }
+    .booking-embed { display: none !important; }
+
+    /* Hero chart, compacted for print. Ported from the Edge one-pager 2026-08-05. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+
+    /* Conditional space recovery: only pages that actually carry a hero chart give
+       up this padding, so chart-less one-pagers keep their original spacing. The
+       chart costs about a third of a page, and without this the sheet runs to two. */
+    .page:has(.hero-chart) .content { padding: 13px 24px 12px; }
+    .page:has(.hero-chart) .title-block h1 { font-size: 19pt; }
+    .page:has(.hero-chart) .title-block { margin-bottom: 7px; }
+    .page:has(.hero-chart) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(.hero-chart) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(.hero-chart) .terms-table td { padding: 4px 10px; }
+    .page:has(.hero-chart) .terms-table { margin-bottom: 7px; }
+    .page:has(.hero-chart) .why-cell, .page:has(.hero-chart) .step-card { padding: 7px 10px; }
+    .page:has(.hero-chart) .why-bar, .page:has(.hero-chart) .steps-bar { margin: 8px 0 3px; }
+    .page:has(.hero-chart) .cta-block { padding: 10px 18px; margin-top: 8px; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
 </head>
@@ -368,94 +460,82 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Paul &middot; July 11, 2026</div>
+      <div class="eyebrow">Prepared for Paul &middot; August 12, 2026</div>
       <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
-      <div class="merchant">Pauls Mobile Tire Service Inc &nbsp;&middot;&nbsp; Tampa, Florida</div>
+      <div class="merchant">Pauls Mobile Tire Service Inc &nbsp;&middot;&nbsp; Plant City, Florida</div>
       <div class="meta-row">
-        <div><span>Current setup:</span><strong>Square + QuickBooks, passing about 3% to customers (discovery call 2026-07-01)</strong></div>
-        <div><span>Program:</span><strong>Edge dual pricing</strong></div>
-        <div><span>Prepared by:</span><strong>Chris Ste-Marie</strong></div>
+        <div><span>Current processor:</span><strong>Square in the field and QuickBooks for invoices, with a 3 percent adjustment added to the customer</strong></div>
+        <div><span>Gateway:</span><strong>AllProPay</strong></div>
+        <div><span>Prepared by:</span><strong>Carl Brown</strong></div>
       </div>
     </div>
 
     <div class="hero">
-      <div class="hero-eyebrow">Your Program</div>
-      <h2>Zero-cost card processing, built for the truck.</h2>
+      <div class="hero-eyebrow">AllProPay Rate, My Recommendation. Our side estimated, theirs published.</div>
+      <h2>Your 3 percent finally covers the fee.</h2>
       <div class="price-row">
         <div class="price-cell">
-          <div class="pc-label">YOUR COST ON CARD SALES</div>
-          <div class="pc-value">$0</div>
-          <div class="pc-sub">The card fee moves to the card-paying customer</div>
+          <div class="pc-label">QUICKBOOKS INVOICE</div>
+          <div class="pc-value">~2.4 to 2.8%</div>
+          <div class="pc-sub">QuickBooks charges about 3.4% on an invoiced card. This is the lane where your 3% does not cover you today.</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">CASH & CHECK CUSTOMERS</div>
-          <div class="pc-value">List price</div>
-          <div class="pc-sub">They pay exactly what is on the ticket</div>
+          <div class="pc-label">KEYED OVER THE PHONE</div>
+          <div class="pc-value">~2.6 to 3.0%</div>
+          <div class="pc-sub">Square charges 3.5% to punch a card in by hand.</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">CARD CUSTOMERS</div>
-          <div class="pc-value">Small adjustment</div>
-          <div class="pc-sub">About the same 3% you pass today, clearly disclosed</div>
+          <div class="pc-label">IN PERSON AT THE TRUCK</div>
+          <div class="pc-value">~2.2 to 2.8%</div>
+          <div class="pc-sub">Square charges 2.6% plus a dime, whatever the card.</div>
         </div>
       </div>
+      <div class="hero-chart"><div class="hc-title">On a $400 job, after you add your 3 percent ($12)</div><table><tr><td class="hc-lab">QuickBooks today</td><td><span class="hc-bar hc-now" style="width:74%"></span><span class="hc-val hc-val-now">$14.01 fee</span></td></tr><tr><td class="hc-lab">Square today</td><td><span class="hc-bar hc-now" style="width:57%"></span><span class="hc-val hc-val-now">$10.81 fee</span></td></tr><tr><td class="hc-lab">AllProPay Rate</td><td><span class="hc-bar hc-new" style="width:53%"></span><span class="hc-val hc-val-new">$10.15 fee</span></td></tr></table><div class="hc-note">You collected $12. Through QuickBooks that job cost you about two dollars. Estimated, not guaranteed.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>Tap to Pay on your phone + wireless reader</td><td>Included (dual-pricing)</td></tr>
-      <tr><td>Pay-by-text / online link</td><td>Included</td></tr>
+      <tr><td>AllProPay integration</td><td>Included</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
-      <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
+      <tr><td>American Express</td><td>Same markup</td></tr><tr><td>ACH / bank transfer</td><td>0.70%</td></tr>
+      <tr><td>Setup fee</td><td>$0</td></tr>
+      <tr><td>Contract / cancellation fee</td><td>None</td></tr>
     </table>
 
     <div class="sec-label">Why This Fit</div>
     <div class="why-bar">
       <div class="why-cell">
-        <div class="wc-title">You keep the whole sale</div>
-        <div class="wc-body">Card fee moves to the customer. On $10k to $20k a month, an estimated $500 to $1,500 a year in leakage you stop paying.</div>
+        <div class="wc-title">The 3% stops falling short</div>
+        <div class="wc-body">Square and QuickBooks charge their percentage on the total after your 3% is added, so you keep only what is left. On invoices there is nothing left. An estimated $240 to $800 a year swing at $10k to $20k a month.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Nothing changes for customers</div>
-        <div class="wc-body">You already pass about 3%. This just does it on a program built for it, so none of it lands back on you.</div>
+        <div class="wc-title">It runs itself, debit comes off</div>
+        <div class="wc-body">The adjustment is built into the account instead of typed in by hand. Debit customers pay the plain price, which is less than they pay today.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Built for the field</div>
-        <div class="wc-body">Tap to Pay at the truck, a wireless reader in the bag, and an online link. Works alongside QuickBooks.</div>
+        <div class="wc-title">Nothing gets rebuilt</div>
+        <div class="wc-body">Square at the truck becomes tap to pay on your phone, QuickBooks stays where it is. No contract, no setup fee, no cancellation fee.</div>
       </div>
     </div>
 
     <div class="sec-label">How We Get You Live</div>
     <div class="steps-bar">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-title">One quick call</div>
-        <div class="step-body">Send Chris one recent Square statement. That is all we need to put exact numbers next to these and show the side-by-side.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-title">Approval</div>
-        <div class="step-body">Underwriting in 24 to 48 hours. We handle the back and forth.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-title">Switch on</div>
-        <div class="step-body">Your phone and reader arrive set for dual pricing. Your next card job costs the business $0.</div>
-      </div>
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Tell me the split</div><div class="step-body">How much is QuickBooks invoices against tapping at the truck. No statement needed.</div></div><div class="step-card"><div class="step-num">2</div><div class="step-title">Confirm and sign</div><div class="step-body">A photo of your license finishes the application. Approval in 24 to 48 hours.</div></div><div class="step-card"><div class="step-num">3</div><div class="step-title">Switch on</div><div class="step-body">Tap to pay at the truck, invoicing carries the adjustment. First batch funds the next morning.</div></div>
     </div>
 
     <div class="cta-block">
       <div class="cta-text">
-        <div class="ct-title">Send a statement, see the exact numbers</div>
-        <div class="ct-sub">Text or call Chris. One statement and we will show you the side-by-side.</div>
+        <div class="ct-title">Text me your invoice split</div>
+        <div class="ct-sub">One sentence and every estimate here becomes exact. No contract, no setup fee, no cancellation fee.</div>
       </div>
       <div class="cta-action">
-        <a href="tel:+19299303970" class="ca-phone">929-930-3970</a>
-        <div class="ca-name">Chris Ste-Marie &middot; chris@allpropay.com</div>
+        <a href="tel:+19294934037" class="ca-phone">929-493-4037</a>
+        <div class="ca-name">Carl Brown &middot; carl@allpropay.com</div>
       </div>
     </div>
 
-    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Chris Ste-Marie.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
+    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000178006" title="Book a call with Carl Brown" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000178006">Open the booking page</a>.</div></div>
 
   </div>
 
@@ -464,7 +544,7 @@
       <img src="AllProPay_Logo.jpg" alt="AllProPay">
       <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
     </div>
-    <div class="fine">The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on ticket sizes provided. No contract, no setup fee, no cancellation fee.</div>
+    <div class="fine">Estimates based on volume and card mix you provided. Actual cost depends on final card mix. No contract, no setup fee, no cancellation fee.</div>
   </div>
 
 </div>
