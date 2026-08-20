@@ -41,8 +41,13 @@
   td.save { color: var(--green); font-weight: 700; }
   td.add { color: var(--muted); }
   .merged-cell { background: #F0F6FF; }
-  .zero-strip { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 9pt; }
-  .zero-strip .zs-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--green); font-size: 9.5pt; margin-bottom: 4px; }
+  .zero-panel { background: #F0FDF4; border: 2px solid var(--green); border-radius: 10px; padding: 16px 20px 14px; margin-top: 14px; text-align: center; }
+  .zero-panel .zp-big { font-family: 'Montserrat', sans-serif; font-size: 30pt; font-weight: 800; color: var(--green); display: block; line-height: 1; }
+  .zero-panel .zp-title { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 700; color: var(--navy); display: block; margin-top: 4px; letter-spacing: 0.3px; }
+  .zero-panel .zp-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; }
+  .zero-panel .zp-item { background: #fff; border: 1px solid #BBF7D0; border-radius: 6px; padding: 8px 6px; font-size: 8pt; font-weight: 600; color: var(--navy); }
+  .zero-panel .zp-item .zi-zero { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--green); font-size: 11pt; }
+  .zero-panel .zp-foot { font-size: 8.5pt; color: var(--muted); margin-top: 10px; }
   .insight { background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 9.5pt; }
   .insight strong { color: var(--amber); }
   .hero-band { background: linear-gradient(135deg, #15803D 0%, #16A34A 55%, #22C55E 100%); border-radius: 10px; padding: 15px 22px; margin: 0 0 26px; color: #fff; box-shadow: 0 4px 14px rgba(21,128,61,0.22); text-align: center; }
@@ -122,9 +127,22 @@
           <tr><td><strong>Chargeback fee</strong></td><td><strong>$15</strong> per chargeback</td><td>Charged only when a customer disputes a sale, per occurrence. You had zero chargebacks in June and July.</td></tr>
         </tbody>
       </table>
-      <div class="zero-strip">
-        <div class="zs-title">Not on your bill, ever: $0</div>
-        Setup fee, annual fee, PCI fee, statement fee, equipment charges, gateway charges, downgrade penalties, network per-item fees, early termination fee, cancellation fee. None of these exist on this account.
+      <div class="zero-panel">
+        <span class="zp-big">$0</span>
+        <span class="zp-title">Not on your bill. Ever.</span>
+        <div class="zp-grid">
+          <div class="zp-item"><span class="zi-zero">$0</span>Setup fee</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Annual fee</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>PCI fee</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Statement fee</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Equipment charges</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Gateway charges</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Downgrade penalties</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Per-item network fees</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Early termination</div>
+          <div class="zp-item"><span class="zi-zero">$0</span>Cancellation fee</div>
+        </div>
+        <div class="zp-foot">None of these exist on this account.</div>
       </div>
     </div>
 
@@ -185,7 +203,6 @@
         <div class="term-cell"><div class="term-label">Setup fee</div><div class="term-value">$0</div><div class="term-sub">Application included</div></div>
         <div class="term-cell"><div class="term-label">Cancellation fee</div><div class="term-value">$0</div><div class="term-sub">Walk anytime</div></div>
       </div>
-      <p>The merchant agreement comes along with this document, so you can verify every one of these terms in the contract itself, not just on my page. If any line in the agreement reads differently from this schedule, this schedule is the deal I am offering you and I will put it in writing on the application.</p>
     </div>
 
     <div class="cta-block">
