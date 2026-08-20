@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing In Writing | Boro Rug &amp; Carpet Warehouse</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --text: #1A1A2E; --muted: #64748B;
+    --red: #B91C1C; --amber: #B45309; --green: #15803D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10pt; color: var(--text); background: #fff; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: 820px; margin: 0 auto; }
+  .draft-banner { background: #FEF3C7; border-bottom: 2px solid #F59E0B; color: #92400E; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; text-align: center; padding: 8px 20px; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px 14px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 64px; width: auto; }
+  .doc-header .contact { font-size: 8pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 28px 40px 40px; }
+  .title-block { margin-bottom: 22px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 23pt; font-weight: 800; color: #000; line-height: 1.1; margin-bottom: 4px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 600; color: var(--blue); margin-bottom: 16px; }
+  .meta-grid { display: grid; grid-template-columns: 170px 1fr; gap: 4px 16px; font-size: 9pt; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .meta-grid .sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); vertical-align: middle; margin: 0 8px 2px; }
+  .section { margin-bottom: 26px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 700; color: var(--blue); padding-bottom: 6px; border-bottom: 2px solid var(--blue); margin-bottom: 14px; }
+  .lead { font-size: 10pt; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  th.num, td.num { text-align: right; white-space: nowrap; }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  td .cell-sub { display: block; font-size: 7.5pt; color: var(--muted); font-weight: 400; white-space: normal; }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.subtotal-row td { font-weight: 700; background: #EEF2FF; }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  td.save { color: var(--green); font-weight: 700; }
+  td.add { color: var(--muted); }
+  .merged-cell { background: #F0F6FF; }
+  .zero-strip { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 9pt; }
+  .zero-strip .zs-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--green); font-size: 9.5pt; margin-bottom: 4px; }
+  .insight { background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 9.5pt; }
+  .insight strong { color: var(--amber); }
+  .hero-band { background: linear-gradient(135deg, #15803D 0%, #16A34A 55%, #22C55E 100%); border-radius: 10px; padding: 15px 22px; margin: 0 0 26px; color: #fff; box-shadow: 0 4px 14px rgba(21,128,61,0.22); text-align: center; }
+  .hero-band .sf-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; background: rgba(255,255,255,0.22); padding: 3px 13px; border-radius: 999px; margin-bottom: 7px; }
+  .hero-band .sf-figure { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 800; line-height: 1.02; }
+  .hero-band .sf-figure .sf-unit { font-size: 11pt; font-weight: 700; opacity: 0.9; }
+  .hero-band .sf-sub { font-size: 9.5pt; margin-top: 7px; font-weight: 600; }
+  .hero-band .sf-note { font-size: 7.5pt; margin-top: 5px; opacity: 0.9; }
+  .terms-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px; }
+  .term-cell { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; text-align: center; }
+  .term-label { font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .term-value { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 800; color: var(--green); line-height: 1.1; }
+  .term-sub { font-size: 7.5pt; color: var(--muted); margin-top: 3px; }
+  .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .cta-block { text-align: center; margin-top: 24px; padding: 18px 22px; background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 10px; }
+  .cta-line { font-size: 10pt; color: var(--text); margin-bottom: 12px; font-weight: 500; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; padding: 12px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.2px; }
+  .cta-print { display: none; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed { margin-top: 18px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .sig { margin-top: 16px; font-size: 9pt; text-align: center; color: var(--muted); }
+  .sig .name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+  @media print {
+    body { font-size: 9.5pt; }
+    .doc-header, .content { padding-left: 28px; padding-right: 28px; }
+    .cta-btn { display: none; }
+    .cta-print { display: block !important; }
+    .booking-embed { display: none !important; }
+    .section { margin-bottom: 18px; }
+    .cta-block { margin-top: 14px; padding: 12px 18px; }
+    .cta-line { margin-bottom: 6px; }
+    .sig { margin-top: 10px; }
+    .note { margin-top: 10px; padding-top: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <img class="logo-img" src="AllProPay_Logo.jpg" alt="AllProPay">
+    <div class="contact">
+      Tammy Millar &nbsp;&middot;&nbsp; 929-930-3050 &nbsp;&middot;&nbsp; tammy@allpropay.com<br>
+      AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="title-block">
+      <h1>Your Pricing, <span class="accent">In Writing</span></h1>
+      <div class="subtitle">Boro Rug and Carpet Warehouse Outlet Corp</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Joseph Stern<span class="sep"></span>Boro Rug and Carpet Warehouse Outlet Corp</span>
+        <span class="label">In response to</span>
+        <span class="value">Your request of August 20, 2026 for the full written pricing</span>
+        <span class="label">Statements re-priced</span>
+        <span class="value">Sola<span class="sep"></span>June 1-30 and July 1-31, 2026</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar<span class="sep"></span>AllProPay</span>
+      </div>
+    </div>
+
+    <p class="lead">Joseph, you asked for the exact numbers in writing: the markup, the per-transaction fees, the American Express pricing, every fee on the account, and the agreement terms. Here they are, all of them. My pricing is one rate over cost and one monthly fee. Then I took your own June and July statements and re-priced them line by line, so you can see exactly what each month would have looked like on my pricing instead of what you paid.</p>
+
+    <div class="section">
+      <div class="section-header">1. The Complete Fee Schedule</div>
+      <table>
+        <thead><tr><th style="width:30%">Item</th><th style="width:30%">Your cost</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Visa and Mastercard</strong></td><td><strong>Interchange + 0.50% + $0.08</strong> per transaction</td><td>Interchange is the true cost set by Visa and Mastercard, not by me, and it prints line by line on your statement. The 0.50% and 8 cents is my entire margin. No qualified or non-qualified tiers, no downgrade buckets.</td></tr>
+          <tr><td><strong>American Express</strong></td><td><strong>AMEX program rates at cost + 0.50% + $0.08</strong> per transaction</td><td>Same markup as Visa and Mastercard, and no separate AMEX network fee. Sola charges you 0.46% plus a 0.365% network fee on every AMEX dollar. That is why your AMEX gets cheaper in the side-by-side below.</td></tr>
+          <tr><td><strong>Bank transfer (ACH)</strong></td><td><strong>0.50%, capped at $10</strong> per transaction</td><td>For your large invoices. A $4,000 invoice by bank transfer costs $10 instead of roughly $130 on a card.</td></tr>
+          <tr><td><strong>Monthly platform fee</strong></td><td><strong>$25 per month</strong></td><td>The only fixed fee on the account, and it covers everything: your equipment, gateway, payment links, statements, PCI compliance, and support. One fee keeps it simple. Sola charges you a $9 statement fee today, so the honest difference is $16 a month.</td></tr>
+          <tr><td><strong>Chargeback fee</strong></td><td><strong>$15</strong> per chargeback</td><td>Charged only when a customer disputes a sale, per occurrence. You had zero chargebacks in June and July.</td></tr>
+        </tbody>
+      </table>
+      <div class="zero-strip">
+        <div class="zs-title">Not on your bill, ever: $0</div>
+        Setup fee, annual fee, PCI fee, statement fee, equipment charges, gateway charges, downgrade penalties, network per-item fees, early termination fee, cancellation fee. None of these exist on this account.
+      </div>
+    </div>
+
+    <div class="hero-band">
+      <div class="sf-tag">Your Own Two Months, Re-Priced</div>
+      <div class="sf-figure">$400 to $600<span class="sf-unit"> / month</span></div>
+      <div class="sf-sub">An estimated $4,700 to $7,200 a year against what Sola charged you in June and July</div>
+      <div class="sf-note">Estimated from your statements, not a guarantee. The month-by-month math is below.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">2. Your June Statement, Re-Priced</div>
+      <table>
+        <thead><tr><th>Line</th><th class="num">On your Sola statement</th><th class="num">On AllProPay</th><th class="num">Difference</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="4">American Express &nbsp;&middot;&nbsp; $48,217 across 23 sales</td></tr>
+          <tr><td>AMEX's own program fees<span class="cell-sub">Set by AMEX, pass through on both sides</span></td><td class="num">$1,053.02</td><td class="num">$1,053.02</td><td class="num">$0.00</td></tr>
+          <tr><td>Processor markup on AMEX</td><td class="num">$400.93<span class="cell-sub">0.46% + 0.365% network + per-item</span></td><td class="num">$242.92<span class="cell-sub">0.50% + $0.08, no network fee</span></td><td class="num save">-$158.01</td></tr>
+          <tr class="subtotal-row"><td>American Express subtotal</td><td class="num">$1,453.95</td><td class="num">$1,295.94</td><td class="num save">-$158.01 exact</td></tr>
+          <tr class="group"><td colspan="4">Visa and Mastercard &nbsp;&middot;&nbsp; $36,548 across 24 sales</td></tr>
+          <tr><td>Base discount, 1.60% tier</td><td class="num">$584.77</td><td class="num merged-cell" rowspan="3" style="vertical-align:middle; text-align:center;">Interchange at cost<br>+ 0.50% + $0.08<br><strong>est. $914 to $1,096</strong><br><span style="font-size:8pt; color:#64748B;">No downgrade buckets.<br>No per-item network fees.</span></td><td class="num merged-cell save" rowspan="3" style="vertical-align:middle; text-align:center;">-$142 to -$324</td></tr>
+          <tr><td>Non-qualified downgrade penalties</td><td class="num">$628.62</td></tr>
+          <tr><td>Network and per-item fees</td><td class="num">$24.60</td></tr>
+          <tr class="subtotal-row"><td>Visa and Mastercard subtotal</td><td class="num">$1,237.99 &nbsp;&middot;&nbsp; 3.39%</td><td class="num">est. $914 to $1,096</td><td class="num save">-$142 to -$324</td></tr>
+          <tr><td>Fixed monthly fees<span class="cell-sub">Their statement fee, my platform fee</span></td><td class="num">$9.00</td><td class="num">$25.00</td><td class="num add">+$16.00</td></tr>
+          <tr class="total-row"><td>June total &nbsp;&middot;&nbsp; $84,507.08 in card sales</td><td class="num">$2,700.94 &nbsp;&middot;&nbsp; 3.20%</td><td class="num">est. $2,234 to $2,417 &nbsp;&middot;&nbsp; 2.64% to 2.86%</td><td class="num save">-$284 to -$466</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-header">3. Your July Statement, Re-Priced</div>
+      <table>
+        <thead><tr><th>Line</th><th class="num">On your Sola statement</th><th class="num">On AllProPay</th><th class="num">Difference</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="4">American Express &nbsp;&middot;&nbsp; $97,480 across 24 sales</td></tr>
+          <tr><td>AMEX's own program fees<span class="cell-sub">Set by AMEX, pass through on both sides</span></td><td class="num">$2,404.68</td><td class="num">$2,404.68</td><td class="num">$0.00</td></tr>
+          <tr><td>Processor markup on AMEX</td><td class="num">$804.69<span class="cell-sub">0.46% + 0.365% network + per-item</span></td><td class="num">$489.32<span class="cell-sub">0.50% + $0.08, no network fee</span></td><td class="num save">-$315.37</td></tr>
+          <tr class="subtotal-row"><td>American Express subtotal</td><td class="num">$3,209.37</td><td class="num">$2,894.00</td><td class="num save">-$315.37 exact</td></tr>
+          <tr class="group"><td colspan="4">Visa and Mastercard &nbsp;&middot;&nbsp; $44,152 across 21 sales</td></tr>
+          <tr><td>Base discount, 1.60% tier</td><td class="num">$706.43</td><td class="num merged-cell" rowspan="3" style="vertical-align:middle; text-align:center;">Interchange at cost<br>+ 0.50% + $0.08<br><strong>est. $1,104 to $1,325</strong><br><span style="font-size:8pt; color:#64748B;">No downgrade buckets.<br>No per-item network fees.</span></td><td class="num merged-cell save" rowspan="3" style="vertical-align:middle; text-align:center;">-$213 to -$434</td></tr>
+          <tr><td>Non-qualified downgrade penalties</td><td class="num">$807.20</td></tr>
+          <tr><td>Network and per-item fees</td><td class="num">$23.68</td></tr>
+          <tr class="subtotal-row"><td>Visa and Mastercard subtotal</td><td class="num">$1,537.31 &nbsp;&middot;&nbsp; 3.48%</td><td class="num">est. $1,104 to $1,325</td><td class="num save">-$213 to -$434</td></tr>
+          <tr><td>Fixed monthly fees<span class="cell-sub">Their statement fee, my platform fee</span></td><td class="num">$9.00</td><td class="num">$25.00</td><td class="num add">+$16.00</td></tr>
+          <tr class="total-row"><td>July total &nbsp;&middot;&nbsp; $141,355.98 in card sales</td><td class="num">$4,755.68 &nbsp;&middot;&nbsp; 3.36%</td><td class="num">est. $4,023 to $4,244 &nbsp;&middot;&nbsp; 2.85% to 3.00%</td><td class="num save">-$512 to -$733</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight"><strong>Why the American Express lines are exact and the Visa and Mastercard lines are a range.</strong> AMEX's own program fees pass through identically on both sides, so the AMEX difference is plain arithmetic, to the penny. Visa and Mastercard are shown as a range because exact interchange depends on each card that comes through the door. A retail business like yours, with cards present in the store, tends to sit toward the better end of that band.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">4. The Agreement Terms</div>
+      <div class="terms-row">
+        <div class="term-cell"><div class="term-label">Term commitment</div><div class="term-value">None</div><div class="term-sub">Month to month</div></div>
+        <div class="term-cell"><div class="term-label">Early termination</div><div class="term-value">$0</div><div class="term-sub">No penalty to leave</div></div>
+        <div class="term-cell"><div class="term-label">Setup fee</div><div class="term-value">$0</div><div class="term-sub">Application included</div></div>
+        <div class="term-cell"><div class="term-label">Cancellation fee</div><div class="term-value">$0</div><div class="term-sub">Walk anytime</div></div>
+      </div>
+      <p>The merchant agreement comes along with this document, so you can verify every one of these terms in the contract itself, not just on my page. If any line in the agreement reads differently from this schedule, this schedule is the deal I am offering you and I will put it in writing on the application.</p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-line">Fifteen minutes with me and we go through both months line by line.</div>
+      <a class="cta-btn" href="https://book.allpropay.com/#/14701000000122106">Book 15 Minutes With Me</a>
+      <div class="cta-print">Call me directly: 929-930-3050</div>
+      <div class="booking-embed">
+        <div class="be-title">Pick a time that works for you</div>
+        <iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" frameborder="0" allowfullscreen></iframe>
+        <div class="be-fallback">If the calendar does not load, <a href="https://book.allpropay.com/#/14701000000122106">book here</a> or call 929-930-3050.</div>
+      </div>
+    </div>
+
+    <div class="sig">
+      <span class="name">Tammy Millar</span><br>
+      AllProPay &nbsp;&middot;&nbsp; 929-930-3050 &nbsp;&middot;&nbsp; tammy@allpropay.com
+    </div>
+
+    <p class="note">All AllProPay figures marked "est." are estimates built from your June and July 2026 Sola statements and are not a guarantee. Interchange and AMEX program fees are set by the card brands and pass through at cost; the exact figure each month depends on the cards your customers present. Two July lines (AMEX program fees and Visa non-qualified interchange) were read from the statement scan; your statement's own totals reconcile under either reading and none of the differences shown change. No term commitment, no setup fee, no annual fee, no cancellation fee.</p>
+  </div>
+</div>
+</body>
+</html>
