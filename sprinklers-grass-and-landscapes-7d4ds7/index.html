@@ -43,7 +43,23 @@
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title">Estimated processing cost to you each month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:190px; padding:5px 10px 5px 0;">On Square today</td><td style="padding:5px 0;"><span class="pc-bar" style="display:inline-block; width:72%; height:14px; background:#64748B; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#E2E8F0;">$198 to $330</span></td></tr><tr><td class="pc-lab" style="width:190px; padding:5px 10px 5px 0;">Your total on AllProPay Edge</td><td style="padding:5px 0;"><span class="pc-bar" style="display:inline-block; width:6%; height:14px; background:#3B82F6; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#3B82F6; font-weight:700;">$25 flat</span></td></tr></table><div class="pc-note">Estimated at $6,000 to $10,000 a month in card sales across landscaping and recurring lawn care.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -149,13 +165,13 @@
         <span class="label">Prepared for</span>
         <span class="value">Cristian &nbsp;|&nbsp; Sprinklers Grass and Landscapes &nbsp;|&nbsp; Georgetown, Texas</span>
         <span class="label">Prepared by</span>
-        <span class="value">Tammy Millar &nbsp;|&nbsp; AllProPay</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current setup</span>
-        <span class="value">Square (roughly 2.6% to 3.3% per card sale, paid by the business)</span>
+        <span class="value">Square (about 3.3% on every invoice, absorbed by the business)</span>
         <span class="label">Program</span>
         <span class="value">Edge dual pricing</span>
         <span class="label">Date</span>
-        <span class="value">July 28, 2026</span>
+        <span class="value">August 20, 2026</span>
       </div>
     </div>
 
@@ -163,10 +179,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You are on Square today at about $5,000 a month in card sales, and right now those fees come straight out of your pocket. What you told me you want is simple: keep taking cards the easy way, in the field and on invoices, and stop paying the processor out of your own margin. That is exactly what Edge does.</p>
+      <p>You told me how you run it: landscaping projects with $2,000 to $5,000 tickets invoiced through Square, and a new recurring lawn care service you are launching that should add around $2,000 a month on autopay. Square takes about 3.3% of every card payment, and right now that comes out of your side. You also told me the thing that matters most: you do not want two systems. One account, one portal, that handles the big one-off invoices and the automatic monthly lawn care charges together.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Keep taking cards the same easy way you do now, on the job site and on invoices.</li><li>Stop paying the card fee out of your own pocket the way Square makes you today.</li><li>Cash and check customers keep paying list price, no change for them.</li><li>One flat monthly cost, no contract, no long-term commitment.</li>
+        <li>One portal for both sides of the business: high-ticket landscaping invoices and recurring lawn care autopay.</li><li>Cards on file for lawn care customers, charged automatically every month. No chasing payments from the field.</li><li>Your customers keep paying online from an invoice link, the same way they do today.</li><li>The roughly 3.3% Square takes on every invoice stops coming out of your pocket.</li>
       </ul>
     </div>
 
@@ -175,11 +191,11 @@
       <div class="pillars">
         <div class="pillar">
           <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and ACH customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash and check customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Built for the field</div>
-          <div class="p-body">No storefront needed. Take a card right from your phone on a job site, use a wireless reader if you prefer, and send invoices with a pay link so customers can pay online. You pick per job.</div>
+          <div class="p-title">One portal for both businesses</div>
+          <div class="p-body">Your AllProPay account handles the $3,000 landscaping invoice and the $150 monthly lawn care charge from the same login. Send invoices for project work, vault cards on file for the lawn care route, and set the recurring charges to run themselves. One deposit stream, one place to look, no second processor to manage.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Backed and flexible</div>
@@ -197,27 +213,28 @@
           <div>
             <div class="pc-label">Your cost on card sales</div>
             <div class="pc-value">$0</div>
-            <div class="pc-sub">The card fee moves to the card-paying customer</div>
+            <div class="pc-sub">On every card payment, one-off invoice or monthly autopay</div>
           </div>
           <div>
-            <div class="pc-label">Cash, check, and ACH customers</div>
-            <div class="pc-value">List price</div>
-            <div class="pc-sub">They pay exactly what is on the ticket</div>
+            <div class="pc-label">Estimated back in your pocket</div>
+            <div class="pc-value">$170 to $305/mo</div>
+            <div class="pc-sub">Estimated at your $6,000 to $10,000 a month in card sales</div>
           </div>
           <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">Small adjustment</div>
-            <div class="pc-sub">Clearly disclosed before they pay</div>
+            <div class="pc-label">Your total monthly cost</div>
+            <div class="pc-value">$25 flat</div>
+            <div class="pc-sub">One portal for invoices and recurring autopay, month to month</div>
           </div>
         </div>
+        <div class="prog-chart"><div class="pchart-title">Estimated processing cost to you each month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:190px; padding:5px 10px 5px 0;">On Square today</td><td style="padding:5px 0;"><span class="pc-bar" style="display:inline-block; width:72%; height:14px; background:#64748B; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#E2E8F0;">$198 to $330</span></td></tr><tr><td class="pc-lab" style="width:190px; padding:5px 10px 5px 0;">Your total on AllProPay Edge</td><td style="padding:5px 0;"><span class="pc-bar" style="display:inline-block; width:6%; height:14px; background:#3B82F6; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#3B82F6; font-weight:700;">$25 flat</span></td></tr></table><div class="pc-note">Estimated at $6,000 to $10,000 a month in card sales across landscaping and recurring lawn care.</div></div>
       </div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Tap to pay on your phone + wireless reader</td><td>Included</td><td>Set up for dual pricing, ready on the job site</td></tr>
-          <tr><td>Invoices with a pay link</td><td>Included</td><td>Send a bill, the card fee rides with the card-paying customer, you get the full amount</td></tr><tr><td>Card on file (optional)</td><td>Included</td><td>Store a card for repeat and recurring maintenance customers</td></tr>
+          <tr><td>Online invoicing + recurring autopay, no terminal needed</td><td>Included</td><td>Invoices, card on file, and automatic monthly charges, all set up for dual pricing</td></tr>
+          <tr><td>Recurring billing and card vaulting</td><td>Included</td><td>Cards on file for lawn care customers, charged automatically each month</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
@@ -225,24 +242,24 @@
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$1,300 to $1,700</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus paying Square the fee yourself on about $5,000 a month</div></div>On about $5,000 a month in cards, Square is taking roughly <strong>$150 a month</strong> out of your pocket, close to <strong>$1,800 a year</strong>. On Edge your cost on card sales is <strong>$0</strong> - the small card fee moves to the card-paying customer, and cash or check customers pay list price. You pay one flat <strong>$25 a month</strong>, so most of what you hand Square today stays in the business. On a $300 job, the roughly $9 you lose to Square now moves off your books. <em>These are estimates from what you shared on the call. One quick look at a Square statement locks them to the exact dollar.</em>
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money back in your pocket every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$2,000 to $3,600+</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus the roughly 3.3% Square takes on your card sales today</div></div>Today Square charges about 2.9% plus 30 cents on every invoice payment, and you absorb it. At $6,000 to $10,000 a month across landscaping and the new lawn care route, that is roughly <strong>$198 to $330 a month</strong> leaving the business. <strong>On AllProPay Edge the card fee is added to the card payment itself, automatically and clearly disclosed, so your cost on card sales is $0.</strong> Your total cost becomes a flat $25 a month, which puts an estimated <strong>$170 to $305 a month</strong> back in your pocket. These are estimates based on the numbers you shared on the call; actual figures depend on final card mix and volume.
       </div>
     </div>
 
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You asked me to keep this simple and give you a choice, so the account is built to flex.</p>
+      <p>You are building something new with the lawn care route, and the account is built to grow with it.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Edge with $0 card cost to the business. If you would rather absorb the fee yourself instead of passing it to customers, I move you to interchange-plus on the same account: your true cost from Visa and Mastercard plus one small flat markup, no reapplication.</li><li>Take a card from your phone or a wireless reader, whichever fits the job that day.</li><li>Invoicing and card on file are ready whenever your recurring accounts make them worth turning on.</li>
+        <li>Start on Edge with $0 card cost to the business. If you ever decide you would rather absorb the fee yourself, we move you to AllProPay Rate, a flat interchange-plus program, on the same account with no new application.</li><li>Run it alongside Square for as long as you want. Nothing forces a hard cutover; most people switch fully after the first $0-fee deposit.</li><li>No contract, no setup fee, no cancellation fee. If it does not earn its keep, you walk.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>Your cost on card sales drops from about $150 a month to $0.</li><li>Cash and check customers pay exactly what is on the ticket, no change.</li><li>Card customers pay a small, clearly disclosed adjustment instead of you eating the fee.</li><li>One flat $25 a month. No contract, no setup fee, no cancellation fee. If we ever stop earning it, you walk.</li><li>Nothing about how you take payments in the field changes.</li>
+        <li>Your cost on card sales goes to $0. An estimated <strong>$2,000 to $3,600+ a year</strong> stops leaving the business.</li><li>One login runs both sides: project invoices for landscaping and automatic recurring charges for lawn care.</li><li>The lawn care launch starts clean. Cards on file, autopay on schedule, no invoicing it by hand every month.</li><li>Your customers keep paying online the same way they do now.</li><li>Month to month. No contract, no setup fee, no cancellation fee.</li>
       </ul>
-      <p style="margin-top:12px;">Over a full season at about $5,000 a month, the fee you hand Square today adds up to real money. On Edge that money stays with you, and you did not change a thing about how you take a card.</p>
+      <p style="margin-top:12px;">On a $3,000 landscaping invoice paid by card through Square today, about $87 comes out before it hits your account. On Edge your payout is the full $3,000, and the fee rides on the card payment as a small, clearly disclosed line. Same math on every $150 lawn care autopay: you keep all of it, every month, automatically.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
@@ -251,7 +268,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>One 10-minute call.</strong> We finish the application together over the phone and you e-sign on the spot. No paperwork to chase down.</div>
+          <div class="step-content"><strong>One 10-minute call.</strong> I know you are in the field, so we keep it short. We finish the application together over the phone and you e-sign right from your phone on the spot.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -259,27 +276,27 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your phone and reader arrive set up for dual pricing, so your next card job costs you $0. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> Your portal is built with invoicing and recurring autopay ready. Your next card payment costs you $0. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
         </div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You are already taking cards every day. This just stops them from costing you. One short call and the account is open."
+        "You wanted one account that runs both businesses and stops the fee bleed. This is that account, and one short call opens it."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
-        <a href="tel:+19299303050" class="cta-btn">Text or Call Me: 929-930-3050</a>
-        <div class="cta-print-text">Text or call me: 929-930-3050 &nbsp;|&nbsp; tammy@allpropay.com</div>
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+        <div class="cta-print-text">Text or call me: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
       </div>
-      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy Millar" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122106">Open the booking page</a>.</div></div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
     </div>
 
     <div class="signature-block">
       <div>
-        <div class="sig-name">Tammy Millar</div>
+        <div class="sig-name">Matt Butcher</div>
         <div class="sig-contact">
-          <a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (text friendly)<br>
-          <a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br>
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
           <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
         </div>
       </div>
@@ -289,7 +306,7 @@
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash and check customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
 
   </div>
 
