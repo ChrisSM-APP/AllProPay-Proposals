@@ -60,6 +60,32 @@
   .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
   .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
   .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -246,11 +272,13 @@
       </div>
     </div>
 
+    <div class="section"><div class="section-header">Your Two Options</div><p>You asked to see both, so here are both, priced. Option A is what I recommend and I will tell you exactly why underneath. Option B is a real offer, not a decoy, and you can move between the two on the same account without reapplying.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">Option A<br>AllProPay Edge</div><div class="opt-mech">The card fee moves to the card-paying customer. Cash and check customers pay less than the posted price.</div><div class="opt-figure">$1,315</div><div class="opt-figure-sub">Estimated kept per year</div><ul class="opt-list"><li>Your cost to accept a card is <strong>$0</strong>.</li><li>Your only cost is $25 a month.</li><li>Your rate stops mattering, so a heavy debit month cannot be overcharged.</li><li>Nothing changes at your counter.</li></ul></div><div class="opt opt-b"><div class="opt-tag">If you would rather absorb it</div><div class="opt-name">Option B<br>AllProPay Rate</div><div class="opt-mech">You keep paying the processing yourself, but you pay true cost plus a flat markup instead of one blanket rate.</div><div class="opt-figure">$200 to $400</div><div class="opt-figure-sub">Estimated kept per year</div><ul class="opt-list"><li>Interchange plus <strong>0.75% and $0.05</strong> per transaction.</li><li>Debit is finally priced as debit instead of 2.66%.</li><li>Estimated 2.4% to 2.9% all in, against 3.31% today.</li><li>Nothing changes for your customers.</li></ul></div></div><div class="opt-note">Both figures are estimates built from the $48,872 in card sales on your own statements over the last twelve months, and both assume the $25 monthly. The gap between them is not a sales tactic, it is arithmetic: Option B can only ever save you part of what you pay, because you are still paying it. Option A removes the cost. That is why I am pointing you at A, and why I would still rather put you on B than leave you where you are.</div></div>
+
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You asked to see the straight-rate option next to Edge, so here it is. Both are on the table and you can move between them on the same account.</p>
+      <p>Whichever one you pick, you are not locked into it. If you start on Edge and decide you would rather go back to absorbing the fee, we move you to AllProPay Rate on the same account, no reapplication and no new paperwork.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li><strong>AllProPay Edge</strong> is what I am recommending. Your cost to accept a card is $0 and the fee sits with the card-paying customer. On your volume that is the option that actually moves money.</li><li><strong>AllProPay Rate</strong> is the straight-rate alternative if you would rather keep absorbing the fee yourself. You pay true interchange plus a flat markup instead of one blanket 2.66%, so your debit finally gets priced as debit. It is a real improvement over what you have, but I want to be straight with you: on your volume it is a smaller win than Edge.</li><li>You are not locked into the choice. If you start on Edge and decide you would rather absorb the fee, we move you to AllProPay Rate on the same account with no reapplication.</li>
+        <li>Switch between Option A and Option B on the same account. Same terminal, same deposits, no new application.</li><li>You can absorb the fee yourself on a big repair if you want to, and still run Edge on everyday parts and service. That call stays yours, per job.</li><li>Your season is built into this. In a $197 January and an $11,074 June the account costs you the same $25, so the slow months never carry a bill you did not earn.</li>
       </ul>
     </div>
 
