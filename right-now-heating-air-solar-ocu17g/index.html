@@ -163,8 +163,10 @@
   }
   .lane-cell .l-body { font-size: 8.5pt; color: #9fb0c9; line-height: 1.45; }
 
-  /* ---- Demo video (screen only) ---- */
+  /* ---- Demo videos (screen only) ---- */
   .demo-wrap { margin-top: 14px; }
+  table.demo-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.demo-cell { width: 50%; vertical-align: top; }
   .demo-wrap video {
     width: 100%;
     border-radius: 12px;
@@ -341,6 +343,8 @@
     td.lane-cell { display: block; width: 100%; margin-bottom: 10px; }
     table.opt-row, table.opt-row tbody, table.opt-row tr { display: block; margin: 0; }
     td.opt-cell { display: block; width: 100%; margin-bottom: 10px; }
+    table.demo-row, table.demo-row tbody, table.demo-row tr { display: block; margin: 0; }
+    td.demo-cell { display: block; width: 100%; margin-bottom: 12px; }
     table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
     td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
     td.bc-label { font-size: 7.5pt; }
@@ -467,12 +471,12 @@
       <td class="lane-cell">
         <div class="l-name">In The Field</div>
         <div class="l-head">Techs keep taking cards on the job</div>
-        <div class="l-body">Mobile readers work the way they do today. The payment lands on the ServiceTitan job, and the money funds next day.</div>
+        <div class="l-body">Card payments taken at the job post back to the ServiceTitan invoice, and the money funds next day.</div>
       </td>
       <td class="lane-cell">
         <div class="l-name">Invoices</div>
         <div class="l-head">Customers pay ServiceTitan invoices as usual</div>
-        <div class="l-body">Send the invoice from ServiceTitan like always. AllProPay runs the payment behind it and posts it back automatically.</div>
+        <div class="l-body">Send the invoice or a payment link from ServiceTitan like always. Larger jobs can also run as bank payments (ACH) with a capped fee.</div>
       </td>
       <td class="lane-cell">
         <div class="l-name">Call-In Cards</div>
@@ -483,12 +487,23 @@
 
     <div class="demo-wrap">
       <div class="sec-label">See It Work</div>
-      <div class="sec-sub">One minute of POS+ running a payment inside ServiceTitan. This is the actual screen your office would use.</div>
-      <video controls preload="metadata">
-        <source src="posplus-servicetitan-demo.mp4" type="video/mp4">
-        Your browser does not support embedded video.
-      </video>
-      <div class="demo-caption">POS+ inside ServiceTitan &middot; about one minute</div>
+      <div class="sec-sub">Two short demos of POS+ working with ServiceTitan. These are the actual screens your team would use.</div>
+      <table class="demo-row"><tr>
+        <td class="demo-cell">
+          <video controls preload="metadata">
+            <source src="posplus-servicetitan-demo.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <div class="demo-caption">Running a payment inside ServiceTitan &middot; about 1 minute</div>
+        </td>
+        <td class="demo-cell">
+          <video controls preload="metadata">
+            <source src="posplus-servicetitan-dashboard-demo.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <div class="demo-caption">The POS+ dashboard: deposits, refunds, reporting &middot; under 3 minutes</div>
+        </td>
+      </tr></table>
     </div>
 
     <div class="sec-label">Two Ways To Price It</div>
@@ -556,7 +571,7 @@
       <td class="counter-cell">
         <div class="cs-num">3</div>
         <div class="cs-title">POS+ connects to ServiceTitan</div>
-        <div class="cs-body">We schedule the switch around your calendar. Your team keeps working while it happens, and I stay on it until it is done.</div>
+        <div class="cs-body">POS+ guides the setup with me. We need a few minutes of admin access on your side, the switch is scheduled around your calendar, and I stay on it until it is done.</div>
       </td>
     </tr></table>
 
@@ -565,7 +580,8 @@
       <tr><td>Option A &middot; AllProPay Edge</td><td>Posted card price 4% &middot; your card cost $0</td></tr>
       <tr><td>Option B &middot; AllProPay Rate</td><td>Interchange plus a small flat markup</td></tr>
       <tr><td>ServiceTitan connection through POS+</td><td>Included</td></tr>
-      <tr><td>Mobile readers, invoicing, and keyed payments</td><td>Included</td></tr>
+      <tr><td>Invoicing, payment links, and keyed payments</td><td>Included</td></tr>
+      <tr><td>Bank payment (ACH) on invoices</td><td>0.50%, capped at $10 per payment</td></tr>
       <tr><td>Next-day funding</td><td>Included</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
       <tr><td>Setup fee / contract / cancellation fee</td><td>None</td></tr>
