@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Right Now Heating, Air &amp; Solar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --surface: #121c30;
+    --panel-border: #243049;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --text: #1A1A2E;
+    --muted: #64748B;
+    --cyan: #38BDF8;
+    --amber: #B45309;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 36px 12px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+
+  .content { padding: 22px 36px 28px; }
+
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26pt;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+  }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    border-top: 1px solid var(--mid-gray);
+    border-bottom: 1px solid var(--mid-gray);
+    padding: 8px 0;
+    font-size: 9pt;
+  }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px 28px;
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: center; }
+  .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .price-cell .pc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20pt;
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
+
+  .sec-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 14px 0 8px;
+  }
+  .sec-sub { font-size: 9pt; color: var(--muted); margin: -4px 0 10px; }
+
+  /* ---- Lane cards ---- */
+  table.lane-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.lane-cell {
+    width: 33.3%;
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 100%);
+    border: 1.5px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 14px 16px 12px;
+    vertical-align: top;
+    color: #fff;
+  }
+  .lane-cell .l-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+  .lane-cell .l-head {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5pt; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 5px;
+  }
+  .lane-cell .l-body { font-size: 8.5pt; color: #9fb0c9; line-height: 1.45; }
+
+  /* ---- Cost chart ---- */
+  .chart-card {
+    background: var(--light-gray);
+    border: 1.5px solid var(--mid-gray);
+    border-radius: 12px;
+    padding: 14px 18px 12px;
+    margin-top: 12px;
+  }
+  .chart-card .cc-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text); margin-bottom: 8px;
+  }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label {
+    width: 17%; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; padding-right: 10px;
+  }
+  td.bc-track { width: 58%; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; }
+  td.bc-value {
+    width: 25%; text-align: right; font-family: 'Montserrat', sans-serif;
+    font-size: 11pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums;
+    padding-left: 12px;
+  }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* ---- Steps strip ---- */
+  table.counter-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.counter-cell {
+    width: 33.3%;
+    background: var(--light-gray);
+    border: 1.5px solid var(--mid-gray);
+    border-radius: 10px;
+    padding: 11px 14px;
+    vertical-align: top;
+  }
+  .counter-cell .cs-num {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block; width: 20px; height: 20px; line-height: 20px;
+    background: var(--blue); color: #fff; border-radius: 50%;
+    font-size: 9pt; font-weight: 800; text-align: center; margin-bottom: 6px;
+  }
+  .counter-cell .cs-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt; font-weight: 700; color: var(--text); margin-bottom: 3px;
+  }
+  .counter-cell .cs-body { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); }
+  .terms-table td:first-child { color: var(--muted); width: 54%; font-weight: 500; }
+  .terms-table td:last-child { color: var(--text); font-weight: 600; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  .cta-block {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px 26px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .cta-text .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13pt; margin-bottom: 3px; }
+  .cta-text .ct-sub { font-size: 9pt; opacity: 0.92; }
+  .cta-action { text-align: right; flex-shrink: 0; }
+  .cta-action .ca-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 17pt; color: #fff;
+    text-decoration: none; display: block; line-height: 1.1;
+  }
+  .cta-action .ca-name { font-size: 9pt; opacity: 0.9; margin-top: 2px; }
+
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: #64748b; margin-top: 8px; }
+  .booking-embed .be-fallback a { color: #0052FF; }
+
+  .doc-footer {
+    border-top: 1px solid var(--mid-gray);
+    padding: 10px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .cs-body, .cc-note, .ct-sub, .l-body { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    table.lane-row, table.lane-row tbody, table.lane-row tr { display: block; margin: 0; }
+    td.lane-cell { display: block; width: 100%; margin-bottom: 10px; }
+    table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
+    td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
+    td.bc-label { font-size: 7.5pt; }
+    td.bc-value { font-size: 9.5pt; }
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.28in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.35; }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, td.lane-cell, .chart-card, td.counter-cell, .bc-bar, .cs-num {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact;
+    }
+    .doc-header { padding: 8px 22px 6px; }
+    .doc-header .logo-img { height: 40px; }
+    .content { padding: 10px 22px 8px; }
+    .title-block { margin-bottom: 6px; }
+    .title-block h1 { font-size: 18pt; }
+    .title-block .merchant { font-size: 10pt; margin-bottom: 6px; }
+    .title-block .eyebrow { font-size: 7.5pt; margin-bottom: 2px; }
+    .meta-row { padding: 5px 0; font-size: 7.5pt; gap: 16px; }
+    .hero { padding: 11px 18px; margin: 8px 0; border-radius: 9px; }
+    .hero h2 { font-size: 11.5pt; margin-bottom: 8px; }
+    .hero .hero-eyebrow { font-size: 7pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell { padding: 2px 0; }
+    .price-cell .pc-value { font-size: 13pt; margin-bottom: 2px; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7pt; }
+    .sec-label { font-size: 7.5pt; margin: 7px 0 4px; }
+    .sec-sub { font-size: 7.5pt; margin: -2px 0 5px; }
+    table.lane-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.lane-cell { padding: 7px 11px 6px; border-radius: 8px; }
+    .lane-cell .l-name { font-size: 6.5pt; margin-bottom: 2px; }
+    .lane-cell .l-head { font-size: 8.5pt; margin-bottom: 3px; }
+    .lane-cell .l-body { font-size: 6.5pt; line-height: 1.35; }
+    .chart-card { padding: 8px 12px 7px; margin-top: 7px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 7pt; margin-bottom: 4px; }
+    table.bar-chart td { padding: 2.5px 0; }
+    td.bc-track .bc-bar { height: 13px; }
+    td.bc-label { font-size: 7pt; }
+    td.bc-value { font-size: 8.5pt; }
+    .chart-card .cc-note { font-size: 6pt; margin-top: 3px; }
+    table.counter-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.counter-cell { padding: 6px 10px; border-radius: 7px; }
+    .counter-cell .cs-num { width: 15px; height: 15px; line-height: 15px; font-size: 7.5pt; margin-bottom: 3px; }
+    .counter-cell .cs-title { font-size: 7.5pt; margin-bottom: 1px; }
+    .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
+    .terms-table { margin-bottom: 2px; }
+    .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
+    .cta-block { padding: 9px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-text .ct-title { font-size: 10.5pt; }
+    .cta-text .ct-sub { font-size: 7.5pt; }
+    .cta-action .ca-phone { font-size: 13pt; }
+    .cta-action .ca-name { font-size: 7pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
+    .doc-footer .sig img { height: 16px; }
+    .doc-footer .fine { font-size: 6pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <div class="eyebrow">Prepared for Chandra &middot; August 31, 2026</div>
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="merchant">Right Now Heating, Air &amp; Solar</div>
+      <div class="meta-row">
+        <div><span>Card volume:</span><strong>$100,000+ a month</strong></div>
+        <div><span>Your software:</span><strong>ServiceTitan &middot; it stays</strong></div>
+        <div><span>Prepared by:</span><strong>Carl Brown</strong></div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">Your Program &middot; AllProPay Rate</div>
+      <h2>Keep ServiceTitan. Keep your workflow. Cut the processing bill roughly in half.</h2>
+      <div class="price-row">
+        <div class="price-cell">
+          <div class="pc-label">WHAT YOU PAY TODAY</div>
+          <div class="pc-value">$6,000<span style="font-size:10pt; font-weight:700;">/mo</span></div>
+          <div class="pc-sub">The average you shared. About $72,000 a year in card fees.</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label">WITH ALLPROPAY, ESTIMATED</div>
+          <div class="pc-value">$2,500&ndash;$3,500<span style="font-size:10pt; font-weight:700;">/mo</span></div>
+          <div class="pc-sub">True-cost pricing: interchange plus a small flat markup.</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label">KEPT IN THE BUSINESS, PER YEAR</div>
+          <div class="pc-value">$30,000&ndash;$40,000</div>
+          <div class="pc-sub">Estimated at $100,000+ a month in card sales.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-label">Nothing Changes In Your Day</div>
+    <div class="sec-sub">POS+ is the connector. It plugs AllProPay processing directly into ServiceTitan, so payments, invoices, and customer records keep living where they live now. Your team does not learn new software.</div>
+    <table class="lane-row"><tr>
+      <td class="lane-cell">
+        <div class="l-name">In The Field</div>
+        <div class="l-head">Techs keep taking cards on the job</div>
+        <div class="l-body">Mobile readers work the way they do today. The payment lands on the ServiceTitan job, and the money funds next day.</div>
+      </td>
+      <td class="lane-cell">
+        <div class="l-name">Invoices</div>
+        <div class="l-head">Customers pay ServiceTitan invoices as usual</div>
+        <div class="l-body">Send the invoice from ServiceTitan like always. AllProPay runs the payment behind it and posts it back automatically.</div>
+      </td>
+      <td class="lane-cell">
+        <div class="l-name">Call-In Cards</div>
+        <div class="l-head">The office keys in phone payments as usual</div>
+        <div class="l-body">Same screen, same steps. The card runs on AllProPay pricing instead of what you pay now.</div>
+      </td>
+    </tr></table>
+
+    <div class="chart-card">
+      <div class="cc-title">What A $100,000 Month In Card Sales Costs You</div>
+      <table class="bar-chart">
+        <tr>
+          <td class="bc-label">Today</td>
+          <td class="bc-track"><div class="bc-bar" style="width:100%; background:#94A3B8;"></div></td>
+          <td class="bc-value" style="color:#64748B;">$6,000</td>
+        </tr>
+        <tr>
+          <td class="bc-label">AllProPay</td>
+          <td class="bc-track"><div class="bc-bar" style="width:50%; background:#0052FF;"></div></td>
+          <td class="bc-value" style="color:#0052FF;">$2,500&ndash;$3,500 est.</td>
+        </tr>
+      </table>
+      <div class="cc-note">Ranges are based on what was shared on the call. A statement review replaces these with exact numbers, and every fee is itemized line by line on your monthly statement.</div>
+    </div>
+
+    <div class="sec-label">How We Get There</div>
+    <table class="counter-row"><tr>
+      <td class="counter-cell">
+        <div class="cs-num">1</div>
+        <div class="cs-title">Send me one recent statement</div>
+        <div class="cs-body">I run your exact numbers line by line and turn these ranges into a firm side-by-side you can put in front of the team.</div>
+      </td>
+      <td class="counter-cell">
+        <div class="cs-num">2</div>
+        <div class="cs-title">A 10-minute application</div>
+        <div class="cs-body">We fill it in together and you e-sign from your phone. Underwriting takes 24 to 48 hours.</div>
+      </td>
+      <td class="counter-cell">
+        <div class="cs-num">3</div>
+        <div class="cs-title">POS+ connects to ServiceTitan</div>
+        <div class="cs-body">We schedule the switch around your calendar. Your team keeps working while it happens, and I stay on it until it is done.</div>
+      </td>
+    </tr></table>
+
+    <div class="sec-label">The Account</div>
+    <table class="terms-table">
+      <tr><td>Pricing model</td><td>Interchange plus a small flat markup</td></tr>
+      <tr><td>ServiceTitan connection through POS+</td><td>Included</td></tr>
+      <tr><td>Mobile readers, invoicing, and keyed payments</td><td>Included</td></tr>
+      <tr><td>Next-day funding</td><td>Included</td></tr>
+      <tr><td>Monthly platform fee</td><td>$25</td></tr>
+      <tr><td>Setup fee / contract / cancellation fee</td><td>None</td></tr>
+    </table>
+
+    <div class="cta-block">
+      <div class="cta-text">
+        <div class="ct-title">One statement locks these numbers</div>
+        <div class="ct-sub">Text or email me a recent processing statement and I will build the exact side-by-side for you to present internally. Questions first? Ten minutes with me is all it takes.</div>
+      </div>
+      <div class="cta-action">
+        <a href="tel:19294934037" class="ca-phone">929-493-4037</a>
+        <div class="ca-name">Carl Brown &middot; carl@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="booking-embed">
+      <div class="be-title">Prefer to grab a time? Book me directly.</div>
+      <iframe src="https://book.allpropay.com/portal-embed#/14701000000178006" title="Book a call with Carl"></iframe>
+      <div class="be-fallback">If the calendar does not load, <a href="https://book.allpropay.com/#/14701000000178006">open my booking page</a>.</div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <div class="sig">
+      <img src="AllProPay_Logo.jpg" alt="AllProPay">
+      <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
+    </div>
+    <div class="fine">Figures are estimates based on the discovery call of August 27, 2026, not a quote. Actual pricing and savings depend on final card mix, volume, and program selection, and are confirmed with a statement review. AllProPay Rate pricing is interchange plus a flat markup, itemized on every statement. No contract, no setup fee, no cancellation fee.</div>
+  </div>
+
+</div>
+</body>
+</html>
