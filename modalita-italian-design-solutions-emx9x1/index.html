@@ -43,7 +43,49 @@
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title">What card fees run through your books each month</div><table><tr><td class="pc-lab">Today (QuickBooks)</td><td><span class="pc-bar" style="width:300px; background:#64748B;"></span><span class="pc-num" style="color:#CBD5E1;">$1,000 to $2,800 (est.)</span></td></tr><tr><td class="pc-lab">On AllProPay Edge</td><td><span class="pc-bar" style="width:6px; background:#3B82F6;"></span><span class="pc-num" style="color:#60A5FA;">$0</span></td></tr></table><div class="pc-note">Estimated at $30,000 to $80,000 a month in card volume at the 2.99% plus 30 cents Intuit charges today. On Edge the fee is presented to the card-paying customer, and your big payers can use the ACH lane instead.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -151,11 +193,11 @@
         <span class="label">Prepared by</span>
         <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current setup</span>
-        <span class="value">QuickBooks (phone) + PayPal (online), fees passed to customers at 3.5%, per your calls</span>
+        <span class="value">QuickBooks (Intuit) invoicing at 2.99% + $0.30 per transaction, fees passed to customers manually</span>
         <span class="label">Program</span>
         <span class="value">Edge dual pricing</span>
         <span class="label">Date</span>
-        <span class="value">July 11, 2026</span>
+        <span class="value">September 1, 2026</span>
       </div>
     </div>
 
@@ -163,10 +205,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You run Modalita as a showroom - orders placed in person, long fulfillment windows, and most of your revenue coming in by wire and ACH with the occasional card by phone or in person. You already pass the card fee to customers. The goal you described is to keep it simple: keep QuickBooks, stop juggling manual fee lines and separate PayPal links, and add on only when it makes sense.</p>
+      <p>You were clear about what matters at Modalita: your team works out of QuickBooks, and that cannot change. Cards are a real part of the business now - $30,000 to $80,000 a month depending on the month, including an $80,000 card week just recently - and you already pass the fee to card-paying customers. The problem is not the idea, it is the plumbing: Intuit charges 2.99% plus 30 cents, takes it off your deposit, holds the money for days, and leaves the pass-through to manual line items.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Keep QuickBooks as your hub. One "Connect to QuickBooks" and invoices sync both ways - you re-enter nothing.</li><li>Keep passing the card fee to card-paying customers automatically, so you keep 100% of the sale. No more manual 3.5% line items.</li><li>Replace the separate PayPal links with branded text or email invoices - the same experience for your client, fewer steps for your team.</li><li>A low-cost ACH lane for the big B2B invoices, plus a free reader for the rare in-person card.</li>
+        <li>Keep working out of QuickBooks. The extension is fully integrated - invoices post and reconcile automatically. Zero transition for your team.</li><li>The card fee is presented to the card payer automatically. No more manual fee lines, and your cost on card sales goes to $0.</li><li>Next-day funding. An $80,000 card week is in your account the next business day, not on hold.</li><li>An ACH lane for the big B2B invoices, so a large payer can skip the card fee entirely.</li>
       </ul>
     </div>
 
@@ -178,8 +220,8 @@
           <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. ACH, wire, check, and cash customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Built for a showroom, not a counter</div>
-          <div class="p-body">Most of your revenue comes in by wire and ACH, with the occasional card by phone. The setup matches that: text and email invoicing for cards, a low-cost ACH lane for the big jobs, and a free reader for the rare in-person sale. No POS to buy.</div>
+          <div class="p-title">Fully inside QuickBooks - not next to it</div>
+          <div class="p-body">This is the part you said was non-negotiable, so it is the part everything is built around. The extension is a true two-way QuickBooks Online integration: it posts the transactions, reconciles the invoices, and your team keeps working exactly where they work today. Clickable invoices still go out the same way. Nothing is semi-integrated, and nothing about your workflow changes.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Backed and flexible</div>
@@ -197,52 +239,55 @@
           <div>
             <div class="pc-label">Your cost on card sales</div>
             <div class="pc-value">$0</div>
-            <div class="pc-sub">The card fee moves to the card-paying customer</div>
+            <div class="pc-sub">Presented to the card-paying customer automatically, inside the QuickBooks invoice</div>
           </div>
           <div>
-            <div class="pc-label">ACH, wire, check, and cash customers</div>
+            <div class="pc-label">ACH, wire, check and cash customers</div>
             <div class="pc-value">List price</div>
-            <div class="pc-sub">They pay exactly what is on the ticket</div>
+            <div class="pc-sub">Big B2B payers can skip the card fee entirely via the ACH lane</div>
           </div>
           <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">Small adjustment</div>
-            <div class="pc-sub">Clearly disclosed before they pay</div>
+            <div class="pc-label">Your total monthly cost</div>
+            <div class="pc-value">$50</div>
+            <div class="pc-sub">Full QuickBooks integration included. No contract.</div>
           </div>
         </div>
+        <div class="prog-chart"><div class="pchart-title">What card fees run through your books each month</div><table><tr><td class="pc-lab">Today (QuickBooks)</td><td><span class="pc-bar" style="width:300px; background:#64748B;"></span><span class="pc-num" style="color:#CBD5E1;">$1,000 to $2,800 (est.)</span></td></tr><tr><td class="pc-lab">On AllProPay Edge</td><td><span class="pc-bar" style="width:6px; background:#3B82F6;"></span><span class="pc-num" style="color:#60A5FA;">$0</span></td></tr></table><div class="pc-note">Estimated at $30,000 to $80,000 a month in card volume at the 2.99% plus 30 cents Intuit charges today. On Edge the fee is presented to the card-paying customer, and your big payers can use the ACH lane instead.</div></div>
       </div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>QuickBooks two-way sync + text/email invoicing (free reader included)</td><td>Included</td><td>Replaces manual fee lines and PayPal links; free Bluetooth reader for the rare in-person card</td></tr>
-          <tr><td>ACH for large B2B invoices</td><td>About 1%, capped</td><td>A $20k invoice clears for roughly $200 instead of card rates</td></tr>
-          <tr><td>Platform fee</td><td>$25 per month (waived after $50k processed)</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Fully integrated QuickBooks Online extension (two-way sync)</td><td>Included</td><td>Included in the $50 monthly. Invoices post and reconcile automatically - zero transition for your team.</td></tr>
+          <tr><td>ACH for large B2B invoices</td><td>About 1%, capped</td><td>A $20,000 invoice clears for roughly $200 (estimated) and your payer skips the card fee</td></tr><tr><td>Monthly processing minimum</td><td>$50</td><td>Applies only in a month with little to no card activity; a normal month covers it</td></tr>
+          <tr><td>Platform fee</td><td>$50 per month (full QuickBooks integration included)</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Your cost on every card sale</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">card payers cover the fee, automated; the real dollars move on the big B2B invoices via ACH</div></div>Today your team hand-builds a 3.5% line item in QuickBooks and sends separate PayPal links for online orders. On Edge the card fee is passed automatically, so <strong>your cost on every card sale is $0</strong> and you keep 100% of the ticket. The bigger win is the ACH lane: a $20,000 B2B invoice paid by bank clears for about $200 instead of roughly $700 on a card, and the platform fee is a flat $25 a month, waived once you pass $50k processed. These are estimates based on what you shared; a recent statement makes them exact.
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Your cost on every card sale</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">an estimated $12,000 to $33,600 a year in card fees, handled by the program instead of your books</div></div>Today Intuit charges you 2.99% plus 30 cents on every card invoice - roughly $1,000 to $2,800 a month at your volume - takes it off the deposit, and leaves your team rebuilding it with manual fee lines. On Edge the card fee is presented to the card-paying customer automatically, inside the same QuickBooks invoice, so <strong>your cost on every card sale is $0</strong> and 100% of the invoice lands in your account the next business day. Invoices post and reconcile in QuickBooks on their own - no fee math, no separate lines, no change to how your team works. These are estimates based on what you shared on our calls; actual figures depend on final card mix.
       </div>
     </div>
 
+    <div class="section"><div class="section-header">Your Two Options</div><p>We talked through both on the phone, so here are both, priced. Option A is what I recommend and the reason is underneath. Option B is a real offer, not a decoy, and you can move between the two on the same account without reapplying.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">Option A<br>AllProPay Edge</div><div class="opt-mech">The card fee is presented to the card-paying customer automatically. ACH, wire, check, and cash payers pay the list price.</div><div class="opt-figure">$0</div><div class="opt-figure-sub">Your cost on every card sale</div><ul class="opt-list"><li>You keep <strong>100% of every invoice</strong>, deposited the next business day.</li><li>Fully integrated with QuickBooks Online - invoices post and reconcile on their own.</li><li>No more manual fee lines for your team to build and defend.</li><li>Your only fixed cost is $50 a month, integration included.</li></ul></div><div class="opt opt-b"><div class="opt-tag">If you would rather absorb it</div><div class="opt-name">Option B<br>AllProPay Rate</div><div class="opt-mech">You pay the processing yourself, at a rate about a third below what QuickBooks charges you today.</div><div class="opt-figure">~2.2%</div><div class="opt-figure-sub">Estimated, with no per-transaction fee - vs 2.99% + $0.30 today</div><ul class="opt-list"><li>About <strong>$330 to $1,040 a month less</strong> than absorbing at today's QuickBooks pricing (estimated at your volume).</li><li>No 30-cent per-transaction fee.</li><li>Same account, same full QuickBooks integration.</li><li>Switch between the two programs anytime, no reapplication.</li></ul></div></div><div class="opt-note">Both are real offers on the same account. The reason I point you at A is arithmetic: Option B lowers a bill you keep paying, and Option A removes it. You already pass the fee today - Edge simply finishes what you started and automates it. These are estimates based on the volumes you shared; actual costs depend on final card mix.</div></div>
+
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You asked to keep it simple and add on only when it makes sense. The account is built that way.</p>
+      <p>You told me to keep this simple. The account is built to flex without paperwork:</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Edge with $0 card cost. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account - around 1.75% to 1.90% plus $0.05 - no reapplication.</li><li>The ACH lane is there for the big B2B invoices whenever a client would rather pay by bank.</li><li>Free reader in the account for the rare in-person card; no POS to buy.</li>
+        <li><strong>Start on Edge with $0 card cost.</strong> If your team ever prefers to absorb the fee instead, we move you to AllProPay Rate - about 2.2% estimated - on the same account. No reapplication.</li><li><strong>The ACH lane is always there.</strong> Big B2B payers can pay by bank and skip the card fee entirely.</li><li><strong>A lighter option exists.</strong> A semi-integrated version runs $25 a month - but for the fully-in-QuickBooks workflow you described, the $50 full extension is the right build.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>Your cost on card sales is <strong>$0</strong> - the card-paying customer covers the fee automatically, and you keep 100% of the ticket.</li><li>No more manual 3.5% line items in QuickBooks and no separate PayPal links. One connected flow, invoices sync both ways.</li><li>A low-cost ACH lane for the big jobs - <strong>a $20k invoice clears for about $200 instead of roughly $700</strong> on a card (estimated).</li><li>$25 a month flat, waived once you pass $50k processed. No contract, no cancellation fee.</li><li>Free reader for the rare in-person card; nothing new for your clients to learn.</li>
+        <li>Your cost on card sales is <strong>$0</strong> - the fee is presented to the card-paying customer automatically, and you keep 100% of every invoice.</li><li><strong>Zero transition.</strong> Your team keeps working out of QuickBooks - the extension posts and reconciles the transactions itself.</li><li><strong>Next-day funding.</strong> No more multi-day holds while a five-figure payment sits in limbo.</li><li><strong>A team on your side if a card is disputed.</strong> A large-ticket chargeback stops being an instant refund - the transaction is frozen and investigated, and we work it with you.</li><li><strong>One flat $50 a month</strong>, integration included. No contract, no cancellation fee - you are not locked in.</li>
       </ul>
-      <p style="margin-top:12px;">Your card volume is light - roughly $50,000 to $60,000 a year - and your customers already cover the card fee, so the day-one story is a simpler, cleaner setup rather than a big rate cut. Where real dollars move is the big B2B invoices: paid by ACH at about 1 percent, a $20,000 invoice clears for roughly $200 instead of the ~$700 it would cost on a card. Add the flat $25 a month, waived after $50k processed, and the hours your team gets back from manual fee math, and the account pays for itself on simplicity alone. These are estimates based on what you shared on the calls. One recent QuickBooks fee summary and a PayPal receipt make them exact.</p>
+      <p style="margin-top:12px;">Take the week you just had: one customer paid $60,000 and another paid $20,000 by card. At 2.99% plus 30 cents, roughly $2,400 in fees came off those two deposits before you saw the money, and your team had to build the recovery into the invoices by hand. On Edge the same two invoices go out of QuickBooks the same way, the card fee is presented to each payer automatically, the full $80,000 lands in your account the next business day, and your cost is $0. And if the $20,000 payer would rather not pay a card fee at all, the ACH lane clears it for about $200 (estimated). These are estimates based on what you shared on our call.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
@@ -251,7 +296,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>Send one recent statement.</strong> Last month's QuickBooks fee summary and one PayPal receipt - that is all we need to turn this into an exact, one-page side-by-side. No commitment, and we can pick it right back up when you are back in August.</div>
+          <div class="step-content"><strong>Share this with your team.</strong> This page and the one-page summary are built to forward. We are on for Wednesday at 12:00 noon Eastern - bring the questions, and when it all makes sense the e-sign takes about ten minutes.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -259,19 +304,19 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your QuickBooks is connected with two-way sync, text and email invoicing replaces the PayPal links, and the free reader is ready for in-person. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> Your QuickBooks Online is connected with the full two-way extension - invoices post and reconcile automatically, and the fee program runs inside the workflow your team already uses. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
         </div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "Keep QuickBooks, keep passing the fee, lose the manual work. One short call when you are back opens the account."
+        "You already pass the fee. Edge just does it for you - automatically, inside QuickBooks, with your money next day. We talk Wednesday at noon."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
-        <a href="tel:+19299303969" class="cta-btn">Text or Call Matt Butcher: 929-930-3969</a>
-        <div class="cta-print-text">Text or call Matt Butcher: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+        <div class="cta-print-text">Text or call me: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
       </div>
-      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Matt Butcher.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
     </div>
 
     <div class="signature-block">

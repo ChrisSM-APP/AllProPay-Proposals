@@ -127,7 +127,8 @@
     position: relative;
     z-index: 1;
   }
-  .price-cell { padding: 4px 0; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .price-cell { padding: 4px 0; text-align: center; }
   .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
   .price-cell .pc-value {
     font-family: 'Montserrat', sans-serif;
@@ -161,6 +162,43 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
+  /* Cost-comparison bars inside the dark hero ().
+     Styled here rather than inline in the spec so the print block below can
+     compact it - this page must stay ONE page. Bar widths are the only thing
+     the spec sets inline, since they are per-deal data. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
+  /* --- Compact two-offer row (OPTIONS_ROW_SHORT token), added 2026-08-27.
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included, and an
+     unsupplied one hard-fails the build.
+     The one-pager twin of OPTIONS_SECTION on the long template. Deliberately
+     thin - name, one money figure, one line - because this page must still print
+     to ONE page. Option A stays dominant (blue); B is slate. */
+  .opt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 2px; }
+  .opt-mini { border: 1px solid var(--mid-gray); border-radius: 7px; padding: 9px 12px; }
+  .opt-mini.a { border-top: 3px solid var(--blue); }
+  .opt-mini.b { border-top: 3px solid #94A3B8; }
+  .opt-mini .om-tag { font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .opt-mini.a .om-tag { color: var(--blue); }
+  .opt-mini.b .om-tag { color: #94A3B8; }
+  .opt-mini .om-name { font-family: 'Montserrat', sans-serif; font-size: 10pt; font-weight: 800; color: var(--navy); margin-top: 1px; }
+  .opt-mini .om-fig { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 800; margin-top: 4px; line-height: 1.1; }
+  .opt-mini.a .om-fig { color: var(--blue); }
+  .opt-mini.b .om-fig { color: #64748B; }
+  .opt-mini .om-sub { font-size: 8pt; color: #64748B; margin-top: 2px; line-height: 1.35; }
   .why-bar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -333,8 +371,43 @@
     .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
     .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
     .terms-table { margin-bottom: 10px; }
+    /* The chart costs roughly 70px on screen. Print has no room to spare on a
+       one-pager, so it shrinks hard here. Verified: both Carl proposals render
+       to a single page with these values. If you loosen them, re-check the page
+       count - a 2-page "one-pager" is a defect. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+    /* A one-pager with no chart already fills the page almost exactly, so the
+       chart alone pushes it to two. Rather than tighten every Edge one-pager to
+       make room for a chart most of them will not have, claw back the ~50px ONLY
+       on pages that actually carry one. :has() is supported in the Chrome that
+       renders these PDFs; if it ever silently stops matching, the symptom is a
+       2-page one-pager, so re-check the page count after touching this. */
+    .page:has(:is(.hero-chart, .opt-row)) .content { padding: 13px 24px 12px; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block h1 { font-size: 19pt; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table td { padding: 4px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-cell, .page:has(:is(.hero-chart, .opt-row)) .step-card { padding: 7px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-bar, .page:has(:is(.hero-chart, .opt-row)) .steps-bar { margin: 8px 0 3px; }
+    .page:has(:is(.hero-chart, .opt-row)) .cta-block { padding: 10px 18px; margin-top: 8px; }
     .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
     .why-cell { padding: 8px 10px; }
+    /* keep the two-offer row on the grid in print and compact it hard - it is
+       extra content on a page that was already full (OPTIONS_ROW_SHORT) */
+    .opt-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px; margin: 6px 0 2px; }
+    .opt-mini { display: block !important; width: auto !important; padding: 6px 9px; margin-bottom: 0 !important; }
+    .opt-mini .om-tag { font-size: 5.5pt; letter-spacing: 0.7px; }
+    .opt-mini .om-name { font-size: 8.5pt; }
+    .opt-mini .om-fig { font-size: 11pt; margin-top: 2px; }
+    .opt-mini .om-sub { font-size: 6.8pt; margin-top: 1px; }
     .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
     .why-cell .wc-body { font-size: 8pt; line-height: 1.35; }
     .steps-bar { display: flex; gap: 6px; margin: 10px 0 4px; }
@@ -368,11 +441,11 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Gianluca &middot; July 11, 2026</div>
+      <div class="eyebrow">Prepared for Gianluca &middot; September 1, 2026</div>
       <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
       <div class="merchant">Modalita - Italian Design Solutions &nbsp;&middot;&nbsp; New York, New York</div>
       <div class="meta-row">
-        <div><span>Current setup:</span><strong>QuickBooks (phone) + PayPal (online), fees passed to customers at 3.5%, per your calls</strong></div>
+        <div><span>Current setup:</span><strong>QuickBooks (Intuit) invoicing at 2.99% + $0.30 per transaction, fees passed to customers manually</strong></div>
         <div><span>Program:</span><strong>Edge dual pricing</strong></div>
         <div><span>Prepared by:</span><strong>Matt Butcher</strong></div>
       </div>
@@ -380,48 +453,51 @@
 
     <div class="hero">
       <div class="hero-eyebrow">Your Program</div>
-      <h2>Keep 100% of the sale. The card fee moves to the customer, automatically.</h2>
+      <h2>Keep 100% of every invoice. Fully inside QuickBooks.</h2>
       <div class="price-row">
         <div class="price-cell">
           <div class="pc-label">YOUR COST ON CARD SALES</div>
           <div class="pc-value">$0</div>
-          <div class="pc-sub">Card payers cover the fee - no more manual 3.5% line items</div>
+          <div class="pc-sub">Your cost on card sales - the fee is presented to the card payer automatically</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">BIG B2B INVOICES VIA ACH</div>
+          <div class="pc-label">BIG INVOICES VIA ACH</div>
           <div class="pc-value">~1%, capped</div>
-          <div class="pc-sub">A $20k invoice clears for about $200 instead of ~$700 on a card</div>
+          <div class="pc-sub">A $20,000 invoice clears for about $200 (est.) - your payer skips the card fee</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">PLATFORM FEE</div>
-          <div class="pc-value">$25/mo</div>
-          <div class="pc-sub">Waived after $50k processed. No contract.</div>
+          <div class="pc-label">TOTAL MONTHLY</div>
+          <div class="pc-value">$50</div>
+          <div class="pc-sub">Full QuickBooks integration included. No contract.</div>
         </div>
       </div>
+      
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>QuickBooks two-way sync + text/email invoicing (free reader)</td><td>Included (dual-pricing)</td></tr>
-      <tr><td>ACH for large invoices</td><td>~1%, capped</td></tr>
-      <tr><td>Monthly platform fee</td><td>$25 (waived after $50k)</td></tr>
+      <tr><td>Fully integrated QuickBooks Online extension (two-way sync)</td><td>Included (dual-pricing)</td></tr>
+      <tr><td>ACH for large B2B invoices</td><td>About 1%, capped</td></tr><tr><td>Monthly processing minimum</td><td>$50, light months only</td></tr>
+      <tr><td>Monthly platform fee</td><td>$50</td></tr>
       <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
     </table>
+
+    <div class="opt-row"><div class="opt-mini a"><div class="om-tag">Option A &middot; What I recommend</div><div class="om-name">AllProPay Edge</div><div class="om-fig">$0</div><div class="om-sub">Your cost on card sales. The fee is presented to the card payer automatically, inside QuickBooks.</div></div><div class="opt-mini b"><div class="om-tag">Option B &middot; If you would rather absorb it</div><div class="om-name">AllProPay Rate</div><div class="om-fig">~2.2% (est.)</div><div class="om-sub">About a third below QuickBooks today, with no per-transaction fee.</div></div></div>
 
     <div class="sec-label">Why This Fit</div>
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">$0 card cost</div>
-        <div class="wc-body">The card-paying customer covers the fee. You keep 100% of the ticket.</div>
+        <div class="wc-body">The fee is presented to the card-paying customer automatically. You keep 100% of the invoice.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">One connected flow</div>
-        <div class="wc-body">No manual QuickBooks fee lines, no separate PayPal links. Invoices sync both ways.</div>
+        <div class="wc-title">Zero transition</div>
+        <div class="wc-body">Your team keeps working out of QuickBooks. Invoices post and reconcile automatically.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Cheaper big jobs</div>
-        <div class="wc-body">The ACH lane clears a $20k invoice for about $200 instead of ~$700 (estimated).</div>
+        <div class="wc-title">Next-day funding</div>
+        <div class="wc-body">An $80,000 card week lands the next business day - no multi-day holds.</div>
       </div>
     </div>
 
@@ -430,7 +506,7 @@
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">One quick call</div>
-        <div class="step-body">Send last month's QuickBooks fee summary and one PayPal receipt. We build the exact side-by-side. No commitment.</div>
+        <div class="step-body">Share this with your team. The full proposal link has the complete detail. We are on for Wednesday at 12:00 noon Eastern.</div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -440,14 +516,14 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">Switch on</div>
-        <div class="step-body">QuickBooks connected, text/email invoicing replaces PayPal links, free reader ready.</div>
+        <div class="step-body">QuickBooks connected with the full two-way extension. Your team works exactly as it does today.</div>
       </div>
     </div>
 
     <div class="cta-block">
       <div class="cta-text">
-        <div class="ct-title">Pick it up in August</div>
-        <div class="ct-sub">Text or call Matt when you are back. One statement and we finish the side-by-side.</div>
+        <div class="ct-title">We talk Wednesday at noon</div>
+        <div class="ct-sub">Questions before then? Text or call me. When you are ready, the e-sign takes about ten minutes.</div>
       </div>
       <div class="cta-action">
         <a href="tel:+19299303969" class="ca-phone">929-930-3969</a>
@@ -455,7 +531,7 @@
       </div>
     </div>
 
-    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Matt Butcher.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
+    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
 
   </div>
 
