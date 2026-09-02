@@ -43,7 +43,49 @@
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div style="font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#64748B; font-weight:600; margin:18px 0 10px;">Card fees leaving the shop every month (estimated)</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0 0 4px;"><tr><td style="width:34%; padding:7px 10px 7px 0; font-size:9pt; color:#4B5563; vertical-align:middle;">Today at the bank</td><td style="padding:7px 0; vertical-align:middle;"><table role="presentation" style="border-collapse:collapse;"><tr><td style="background:#94A3B8; height:22px; width:280px; border-radius:3px;"></td><td style="padding-left:9px; font-size:11pt; font-weight:700; color:#64748B; white-space:nowrap;">~$800</td></tr></table></td></tr><tr><td style="width:34%; padding:7px 10px 7px 0; font-size:9pt; color:#1A1A2E; font-weight:600; vertical-align:middle;">On AllProPay Edge</td><td style="padding:7px 0; vertical-align:middle;"><table role="presentation" style="border-collapse:collapse;"><tr><td style="background:#0052FF; height:22px; width:6px; border-radius:3px;"></td><td style="padding-left:9px; font-size:11pt; font-weight:700; color:#0052FF; white-space:nowrap;">$0</td></tr></table></td></tr></table> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -155,7 +197,7 @@
         <span class="label">Program</span>
         <span class="value">Edge dual pricing</span>
         <span class="label">Date</span>
-        <span class="value">August 3, 2026</span>
+        <span class="value">September 2, 2026</span>
       </div>
     </div>
 
@@ -163,10 +205,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>Ralph, we have talked a few times now and the picture is clear. The shop runs $20,000 to $30,000 a month in card payments, all in person, on a terminal you paid $500 for. Bank of America has handled the processing since you opened in February, and right now the business absorbs every card fee itself. You told me your wife manages the account, so I wrote this page for the two of you to look over together. It is short on purpose.</p>
+      <p>Ralph, our Saturday call filled in the last piece. The shop runs $20,000 to $30,000 a month in card payments, all in person, and you are short-staffed and under cars most of the day. Meanwhile your wife is stuck doing the books by hand: matching card payments in QuickBooks one at a time and fixing the ones that did not sync right. This page is written for both of you, because the setup I am proposing fixes her problem and the fee problem at the same time.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Every card fee comes out of the shop's pocket today, an estimated 3 to 4 percent of every card sale.</li><li>Nobody has time to dig through bank logins and statements to fix this. On Edge there is nothing to look up, because the fee stops being yours.</li><li>Banking stays exactly where it is. Deposits keep landing in the same Bank of America account.</li><li>No contract, month to month, and the equipment comes free. Not another $500 terminal.</li>
+        <li>Card payments do not post to QuickBooks cleanly today, so the manual matching and fixing lands on your wife.</li><li>The shop absorbs every card fee itself, an estimated $800 a month at Bank of America.</li><li>Nobody at the shop has spare hours. The right setup should remove work, not add a project.</li><li>Banking stays exactly where it is. Deposits keep landing in the same Bank of America account, next day.</li>
       </ul>
     </div>
 
@@ -178,8 +220,8 @@
           <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and ACH customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Same counter, same workflow</div>
-          <div class="p-body">The new terminal works the way your current one does. The customer taps or inserts, and the money lands in your same Bank of America account. The only difference is the screen shows two prices, and the card price already includes the fee.</div>
+          <div class="p-title">The books do themselves</div>
+          <div class="p-body">Every payment runs through one terminal, and every transaction posts to QuickBooks automatically. Payments match and reconcile on their own, so there is no more hand-typing card payments and no more hunting down the ones that did not sync. Your wife opens QuickBooks and the work is already done.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Backed and flexible</div>
@@ -200,24 +242,25 @@
             <div class="pc-sub">The card fee moves to the card-paying customer</div>
           </div>
           <div>
-            <div class="pc-label">Cash, check, and ACH customers</div>
-            <div class="pc-value">List price</div>
-            <div class="pc-sub">They pay exactly what is on the ticket</div>
+            <div class="pc-label">Kept in the shop</div>
+            <div class="pc-value">$9,600+</div>
+            <div class="pc-sub">estimated per year, based on the roughly $800 a month in fees you shared</div>
           </div>
           <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">Small adjustment</div>
-            <div class="pc-sub">Clearly disclosed before they pay</div>
+            <div class="pc-label">QuickBooks entries to type</div>
+            <div class="pc-value">Zero</div>
+            <div class="pc-sub">every card payment posts and reconciles automatically</div>
           </div>
         </div>
+        <div style="font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#64748B; font-weight:600; margin:18px 0 10px;">Card fees leaving the shop every month (estimated)</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0 0 4px;"><tr><td style="width:34%; padding:7px 10px 7px 0; font-size:9pt; color:#4B5563; vertical-align:middle;">Today at the bank</td><td style="padding:7px 0; vertical-align:middle;"><table role="presentation" style="border-collapse:collapse;"><tr><td style="background:#94A3B8; height:22px; width:280px; border-radius:3px;"></td><td style="padding-left:9px; font-size:11pt; font-weight:700; color:#64748B; white-space:nowrap;">~$800</td></tr></table></td></tr><tr><td style="width:34%; padding:7px 10px 7px 0; font-size:9pt; color:#1A1A2E; font-weight:600; vertical-align:middle;">On AllProPay Edge</td><td style="padding:7px 0; vertical-align:middle;"><table role="presentation" style="border-collapse:collapse;"><tr><td style="background:#0052FF; height:22px; width:6px; border-radius:3px;"></td><td style="padding-left:9px; font-size:11pt; font-weight:700; color:#0052FF; white-space:nowrap;">$0</td></tr></table></td></tr></table>
       </div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Countertop terminal (free, dual pricing built in)</td><td>Included</td><td>Replaces the $500 terminal you had to buy. Arrives programmed and ready.</td></tr>
-          <tr><td>Bank of America business account</td><td>Stays as-is</td><td>Deposits keep landing in the same account. Only the processing changes.</td></tr>
+          <tr><td>Countertop terminal (free, QuickBooks sync built in)</td><td>Included</td><td>Replaces the $500 terminal you had to buy. Arrives programmed: dual pricing on the screen, transactions posting straight to QuickBooks.</td></tr>
+          <tr><td>QuickBooks sync</td><td>Included</td><td>Every transaction posts, matches, and reconciles automatically.</td></tr><tr><td>Bank of America business account</td><td>Stays as-is</td><td>Deposits keep landing in the same account, next day. Only the processing changes.</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
@@ -225,13 +268,15 @@
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the shop every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$7,000 to $14,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus absorbing an estimated 3 to 4 percent at the bank today</div></div>At $20,000 to $30,000 a month, an estimated 3 to 4 percent means roughly <strong>$600 to $1,200 every month</strong> leaves the shop in card fees. On Edge, your cost on card sales is <strong>$0</strong>. The ticket shows two prices, and the card-paying customer covers the small difference. <strong>You do not need to find a single statement to make this happen, because the fee stops being yours entirely.</strong> These are estimates based on what you shared on our calls. Actual figures depend on final card mix and volume.
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the shop every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$9,600+</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus absorbing roughly $800 a month at the bank today</div></div>You are paying an estimated <strong>$800 every month</strong> in card fees right now. On Edge, your cost on card sales is <strong>$0</strong>. The ticket shows two prices, and the card-paying customer covers the small difference. And because every transaction posts to QuickBooks on its own, the fee disappears and so does the bookkeeping it used to create. These are estimates based on what you shared on our calls. Actual figures depend on final card mix and volume.
       </div>
     </div>
 
+    
+
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You told me on our first call that your cup was full. So the account is built to stay simple, and flexible if anything changes.</p>
+      <p>You told me your cup was full, so the account is built to stay simple, and flexible if anything changes.</p>
       <ul class="why-list" style="margin-top:14px;">
         <li>Start on Edge with $0 card cost to the shop. If the two of you ever decide you would rather absorb the fee yourselves, we move you to transparent interchange-plus pricing on the same account. No reapplication.</li><li>If your wife ever wants an exact side-by-side against the Bank of America numbers, one statement is all it takes and I will do the math line by line. Welcome any time, but not required to start.</li><li>Tap to Pay on a phone is included if you ever want to take a card out in the lot or at pickup.</li>
       </ul>
@@ -240,9 +285,9 @@
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>Your cost on card sales goes to $0. That is an estimated <strong>$7,000 to $14,000 a year</strong> staying in the shop.</li><li>Nothing to dig up. No statement hunt, no logins, no homework. Ten minutes on the phone and it is done.</li><li>Your Bank of America account stays. Deposits land in the same place they do today.</li><li>The terminal is free and arrives ready. No repeat of the $500 you paid last time.</li><li>No contract, no setup fee, no cancellation fee. If we ever stop earning your business, you walk.</li><li>Two-price counters are everywhere in auto repair now. Your customers have seen this before.</li>
+        <li>The manual QuickBooks work is over. Card payments post, match, and reconcile on their own, so your wife gets her hours back.</li><li>Your cost on card sales goes to $0. That is an estimated <strong>$9,600 or more a year</strong> staying in the shop.</li><li>Everything is tracked and funded next day. One terminal, one clean record, no loose ends for the back office.</li><li>Your Bank of America account stays. Deposits land in the same place they do today.</li><li>The terminal is free and arrives ready. No repeat of the $500 you paid last time.</li><li>No contract, no setup fee, no cancellation fee. If we ever stop earning your business, you walk.</li>
       </ul>
-      <p style="margin-top:12px;">On a $500 repair, the ticket shows $500 for cash or check and $517.50 for card. The customer picks. Either way the shop keeps the full $500, instead of quietly handing the bank $15 to $20 of it.</p>
+      <p style="margin-top:12px;">On a $500 repair, the ticket shows $500 for cash or check and $517.50 for card. The customer picks. Either way the shop keeps the full $500, instead of quietly handing the bank $15 to $20 of it. And either way, the payment is already sitting in QuickBooks, matched, before anyone thinks about it.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
@@ -251,7 +296,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>One 10-minute call.</strong> We finish the application together over the phone and you e-sign on the spot. Your wife is welcome on the call, and I am happy to answer her questions directly.</div>
+          <div class="step-content"><strong>One short call, five to ten minutes.</strong> I will show your wife exactly how the QuickBooks auto-sync works so she can see the manual matching come off her plate, and we finish the application together with an e-sign on the spot.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -259,12 +304,12 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your free terminal arrives programmed for dual pricing, ready to plug in next to the register. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> Your free terminal arrives programmed: dual pricing on screen, every transaction posting straight to QuickBooks. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
         </div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "No statements to find, no contract to sign into, nothing about how the shop runs changes. One short call and the fee stops coming out of your pocket."
+        "No statements to find, no contract to sign into, and no more typing card payments into QuickBooks by hand. One short call, the fee stops coming out of your pocket, and the books start doing themselves."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">

@@ -127,7 +127,8 @@
     position: relative;
     z-index: 1;
   }
-  .price-cell { padding: 4px 0; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .price-cell { padding: 4px 0; text-align: center; }
   .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
   .price-cell .pc-value {
     font-family: 'Montserrat', sans-serif;
@@ -161,6 +162,43 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Card fees leaving the shop every month (estimated)</div><table><tr><td class="hc-lab">Today at the bank</td><td><span class="hc-bar hc-now" style="width:64%"></span><span class="hc-val hc-val-now">~$800</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:2%"></span><span class="hc-val hc-val-new">$0</span></td></tr></table><div class="hc-note">Estimated from what you shared on our calls. Every transaction posts to QuickBooks automatically either way.</div></div>).
+     Styled here rather than inline in the spec so the print block below can
+     compact it - this page must stay ONE page. Bar widths are the only thing
+     the spec sets inline, since they are per-deal data. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
+  /* --- Compact two-offer row (OPTIONS_ROW_SHORT token), added 2026-08-27.
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included, and an
+     unsupplied one hard-fails the build.
+     The one-pager twin of OPTIONS_SECTION on the long template. Deliberately
+     thin - name, one money figure, one line - because this page must still print
+     to ONE page. Option A stays dominant (blue); B is slate. */
+  .opt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 2px; }
+  .opt-mini { border: 1px solid var(--mid-gray); border-radius: 7px; padding: 9px 12px; }
+  .opt-mini.a { border-top: 3px solid var(--blue); }
+  .opt-mini.b { border-top: 3px solid #94A3B8; }
+  .opt-mini .om-tag { font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .opt-mini.a .om-tag { color: var(--blue); }
+  .opt-mini.b .om-tag { color: #94A3B8; }
+  .opt-mini .om-name { font-family: 'Montserrat', sans-serif; font-size: 10pt; font-weight: 800; color: var(--navy); margin-top: 1px; }
+  .opt-mini .om-fig { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 800; margin-top: 4px; line-height: 1.1; }
+  .opt-mini.a .om-fig { color: var(--blue); }
+  .opt-mini.b .om-fig { color: #64748B; }
+  .opt-mini .om-sub { font-size: 8pt; color: #64748B; margin-top: 2px; line-height: 1.35; }
   .why-bar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -333,8 +371,43 @@
     .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
     .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
     .terms-table { margin-bottom: 10px; }
+    /* The chart costs roughly 70px on screen. Print has no room to spare on a
+       one-pager, so it shrinks hard here. Verified: both Carl proposals render
+       to a single page with these values. If you loosen them, re-check the page
+       count - a 2-page "one-pager" is a defect. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+    /* A one-pager with no chart already fills the page almost exactly, so the
+       chart alone pushes it to two. Rather than tighten every Edge one-pager to
+       make room for a chart most of them will not have, claw back the ~50px ONLY
+       on pages that actually carry one. :has() is supported in the Chrome that
+       renders these PDFs; if it ever silently stops matching, the symptom is a
+       2-page one-pager, so re-check the page count after touching this. */
+    .page:has(:is(.hero-chart, .opt-row)) .content { padding: 13px 24px 12px; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block h1 { font-size: 19pt; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table td { padding: 4px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-cell, .page:has(:is(.hero-chart, .opt-row)) .step-card { padding: 7px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-bar, .page:has(:is(.hero-chart, .opt-row)) .steps-bar { margin: 8px 0 3px; }
+    .page:has(:is(.hero-chart, .opt-row)) .cta-block { padding: 10px 18px; margin-top: 8px; }
     .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
     .why-cell { padding: 8px 10px; }
+    /* keep the two-offer row on the grid in print and compact it hard - it is
+       extra content on a page that was already full (OPTIONS_ROW_SHORT) */
+    .opt-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px; margin: 6px 0 2px; }
+    .opt-mini { display: block !important; width: auto !important; padding: 6px 9px; margin-bottom: 0 !important; }
+    .opt-mini .om-tag { font-size: 5.5pt; letter-spacing: 0.7px; }
+    .opt-mini .om-name { font-size: 8.5pt; }
+    .opt-mini .om-fig { font-size: 11pt; margin-top: 2px; }
+    .opt-mini .om-sub { font-size: 6.8pt; margin-top: 1px; }
     .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
     .why-cell .wc-body { font-size: 8pt; line-height: 1.35; }
     .steps-bar { display: flex; gap: 6px; margin: 10px 0 4px; }
@@ -368,7 +441,7 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Ralph &middot; August 3, 2026</div>
+      <div class="eyebrow">Prepared for Ralph &middot; September 2, 2026</div>
       <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
       <div class="merchant">Stoner Bros. Bodyshop &nbsp;&middot;&nbsp; Miami, Florida</div>
       <div class="meta-row">
@@ -380,7 +453,7 @@
 
     <div class="hero">
       <div class="hero-eyebrow">Your Program</div>
-      <h2>Your card cost goes to $0. No statement hunt, no contract, free terminal.</h2>
+      <h2>Card payments that post to QuickBooks on their own. Your card cost: $0.</h2>
       <div class="price-row">
         <div class="price-cell">
           <div class="pc-label">YOUR COST ON CARD SALES</div>
@@ -389,8 +462,8 @@
         </div>
         <div class="price-cell">
           <div class="pc-label">KEPT IN THE SHOP</div>
-          <div class="pc-value">$7k to $14k</div>
-          <div class="pc-sub">estimated per year versus absorbing 3 to 4% at the bank</div>
+          <div class="pc-value">$9,600+</div>
+          <div class="pc-sub">estimated per year versus absorbing about $800 a month at the bank</div>
         </div>
         <div class="price-cell">
           <div class="pc-label">CARD CUSTOMERS</div>
@@ -398,30 +471,33 @@
           <div class="pc-sub">Shown right on the ticket. Cash and check pay list price.</div>
         </div>
       </div>
+      <div class="hero-chart"><div class="hc-title">Card fees leaving the shop every month (estimated)</div><table><tr><td class="hc-lab">Today at the bank</td><td><span class="hc-bar hc-now" style="width:64%"></span><span class="hc-val hc-val-now">~$800</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:2%"></span><span class="hc-val hc-val-new">$0</span></td></tr></table><div class="hc-note">Estimated from what you shared on our calls. Every transaction posts to QuickBooks automatically either way.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>Countertop terminal (free)</td><td>Included (dual-pricing)</td></tr>
-      <tr><td>Bank of America account</td><td>Stays as-is</td></tr>
+      <tr><td>Countertop terminal (free, QuickBooks sync built in)</td><td>Included (dual-pricing)</td></tr>
+      <tr><td>QuickBooks sync</td><td>Included, automatic</td></tr><tr><td>Bank of America account</td><td>Stays as-is</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
       <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
     </table>
 
+    
+
     <div class="sec-label">Why This Fit</div>
     <div class="why-bar">
       <div class="why-cell">
-        <div class="wc-title">Nothing to dig up</div>
-        <div class="wc-body">No statement hunt, no bank logins. The fee stops being yours, so there is nothing to audit.</div>
+        <div class="wc-title">The books do themselves</div>
+        <div class="wc-body">Every card payment posts, matches, and reconciles in QuickBooks automatically. No more manual matching.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">Keep your bank</div>
-        <div class="wc-body">Deposits keep landing in the same Bank of America account. Only the processing changes.</div>
+        <div class="wc-body">Deposits keep landing in the same Bank of America account, next day. Only the processing changes.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">Free equipment</div>
-        <div class="wc-body">New terminal included, programmed for dual pricing. No repeat of the $500 you paid.</div>
+        <div class="wc-body">New terminal included, programmed and ready. No repeat of the $500 you paid.</div>
       </div>
     </div>
 
@@ -430,7 +506,7 @@
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">One quick call</div>
-        <div class="step-body">About 10 minutes with me on the phone. We finish the application together and you e-sign on the spot. Your wife is welcome on the call.</div>
+        <div class="step-body">Five to ten minutes with me on the phone. I show your wife the QuickBooks auto-sync live, we finish the application together, and you e-sign on the spot.</div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -440,14 +516,14 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">Switch on</div>
-        <div class="step-body">The free terminal arrives programmed for dual pricing. Plug it in and you are live.</div>
+        <div class="step-body">The free terminal arrives programmed. Plug it in and every transaction starts posting to QuickBooks on its own.</div>
       </div>
     </div>
 
     <div class="cta-block">
       <div class="cta-text">
         <div class="ct-title">One call to open the account</div>
-        <div class="ct-sub">Text or call me. Ten minutes to finish the file and e-sign.</div>
+        <div class="ct-sub">Text or call me. A few minutes to see the QuickBooks sync, finish the file, and e-sign.</div>
       </div>
       <div class="cta-action">
         <a href="tel:+19299303969" class="ca-phone">929-930-3969</a>
