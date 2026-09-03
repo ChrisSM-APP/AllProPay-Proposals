@@ -43,7 +43,49 @@
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title" style="font-size:7.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin:14px 0 9px;">The fee on an invoice paid by card</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:130px; padding:0 10px 8px 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">Square invoice</td><td style="padding:0 0 8px 0;"><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:76%; background:#64748B; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#CBD5E1; margin-left:9px; vertical-align:middle;">3.3% + $0.30</span></td></tr><tr><td class="pc-lab" style="width:130px; padding:0 10px 0 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">Your cost on Edge</td><td><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:3%; background:#3B82F6; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#22C55E; margin-left:9px; vertical-align:middle;">$0</span></td></tr></table><div class="pc-note" style="font-size:7.5pt; color:#94A3B8; margin-top:8px;">3.3% plus 30 cents is Square's published rate for an invoice paid online. On Edge that cost comes off the business, it is disclosed to the customer before they pay, and debit is excluded.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -147,15 +189,15 @@
       <div class="subtitle">D & M Master Electric L.L.C</div>
       <div class="meta-grid">
         <span class="label">Prepared for</span>
-        <span class="value">D'kei &nbsp;|&nbsp; D & M Master Electric L.L.C &nbsp;|&nbsp; New Jersey</span>
+        <span class="value">Eldaly &nbsp;|&nbsp; D & M Master Electric L.L.C &nbsp;|&nbsp; New Jersey</span>
         <span class="label">Prepared by</span>
         <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current setup</span>
-        <span class="value">Square, roughly 3 to 4 years, with the card fee passed to the customer - per the discovery call May 29, 2026, to confirm</span>
+        <span class="value">Square, about four years. Invoices with deposits, payment links, and tap on the phone in the field</span>
         <span class="label">Program</span>
         <span class="value">Edge dual pricing</span>
         <span class="label">Date</span>
-        <span class="value">July 16, 2026</span>
+        <span class="value">September 3, 2026</span>
       </div>
     </div>
 
@@ -163,10 +205,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You told me exactly what you want: one clean, professional system for booking and scheduling instead of texting a link by hand on every job, off Square, and no second piece of software just to handle the payment. You looked at Zen Electrical, and you tried HouseCall Pro before and it did not stick. Those are built for big crews with dispatch and inventory. That is not your problem. This page is the plan, in plain English.</p>
+      <p>You walked me through exactly how you get paid, so let me give it back to you the way I heard it. Small jobs get collected on the spot, tapped on the phone. Anything over about $1,500 gets an invoice with a deposit on it, usually 50 percent, and you set the percentage yourself depending on the job. The link stays live until it is paid, because you go by when the work is finished, not by whatever date the system made you type in. Big jobs come in as checks and you mark them paid. A few customers push the money from their own bank, so that costs you nothing and it should stay exactly that way. Nothing about that has to change. This is that same day, run on our side instead of Square's.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>You get a booking system with D & M's name, look, and your own web address on it. Not a generic app with somebody else's logo.</li><li>Customers book you online. It sends the reminders and syncs your calendar, so nothing gets double-booked.</li><li>The card payment happens right inside the booking, and I process it. That is how you get off Square.</li><li>No contract on the payment side and no contract on the software. If it is not working, you walk.</li>
+        <li><strong>Invoices with a deposit.</strong> Set the deposit percentage per job. Save the ones you use most, so a job over $1,500 is one click at 50 percent and you can still drop it to 30 for a customer you want to look after.</li><li><strong>The link stays live until it is paid.</strong> Same as now. Put a date on it or do not, the customer can still pay when the job is actually done.</li><li><strong>Card on file, so you stop chasing the balance.</strong> They pay the deposit, you keep the card in a protected vault, and when the job is finished the balance goes on that card. No second link, no reminder chain.</li><li><strong>You hear about a decline.</strong> Right now Square tells your customer the card failed and you find out later. Here the alert comes to you the moment it happens.</li><li><strong>Tap on the phone in the field.</strong> Same as your setup today, on the phone that is already in his pocket.</li><li><strong>Checks and bank transfers stay as they are.</strong> Mark them paid, no fee, nothing routed through us that does not need to be.</li>
       </ul>
     </div>
 
@@ -175,11 +217,11 @@
       <div class="pillars">
         <div class="pillar">
           <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash and check customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+          <div class="p-body">Your cost to accept a card goes to $0. The small adjustment sits on the card-paying customer and it is disclosed on the invoice before they pay it. Debit is excluded, and you can switch it off for any customer you choose. Cash, check, and bank transfers pay list price, which is what already happens on your big jobs.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Booking that's actually yours</div>
-          <div class="p-body">The booking system is BookingKoala. It carries D & M's branding and your own web address, syncs your calendar, and sends reminders automatically. It starts at $27 a month, paid to them directly, and it has a free 14-day trial so you can look at the whole thing before you spend a dollar. I picked it over the others for one reason: it is the one that lets me handle your card processing instead of locking you into somebody else's payment system.</div>
+          <div class="p-title">Payroll stays exactly where it is</div>
+          <div class="p-body">You told me Square Payroll works and it is the cheapest you found at $85 a month. Leave it. It runs off your bank account, not off your card processing, so moving the card side does not touch it and you are not rebuilding payroll a second time. The only thing that moves is how the cards get processed.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Backed and flexible</div>
@@ -197,26 +239,27 @@
           <div>
             <div class="pc-label">Your cost on card sales</div>
             <div class="pc-value">$0</div>
-            <div class="pc-sub">The card fee moves to the card-paying customer</div>
+            <div class="pc-sub">What a card sale costs you. Debit is excluded.</div>
           </div>
           <div>
-            <div class="pc-label">Cash and check customers</div>
+            <div class="pc-label">Check and bank transfer</div>
             <div class="pc-value">List price</div>
-            <div class="pc-sub">They pay exactly what is on the ticket</div>
+            <div class="pc-sub">Your big jobs already come in this way. Nothing changes on them.</div>
           </div>
           <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">Small adjustment</div>
-            <div class="pc-sub">Clearly disclosed before they pay</div>
+            <div class="pc-label">On a $5,000 invoice</div>
+            <div class="pc-value">$5,000</div>
+            <div class="pc-sub">What lands in the account. Nothing shaved off the top.</div>
           </div>
         </div>
+        <div class="prog-chart"><div class="pchart-title" style="font-size:7.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin:14px 0 9px;">The fee on an invoice paid by card</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:130px; padding:0 10px 8px 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">Square invoice</td><td style="padding:0 0 8px 0;"><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:76%; background:#64748B; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#CBD5E1; margin-left:9px; vertical-align:middle;">3.3% + $0.30</span></td></tr><tr><td class="pc-lab" style="width:130px; padding:0 10px 0 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">Your cost on Edge</td><td><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:3%; background:#3B82F6; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#22C55E; margin-left:9px; vertical-align:middle;">$0</span></td></tr></table><div class="pc-note" style="font-size:7.5pt; color:#94A3B8; margin-top:8px;">3.3% plus 30 cents is Square's published rate for an invoice paid online. On Edge that cost comes off the business, it is disclosed to the customer before they pay, and debit is excluded.</div></div>
       </div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Card capture built into the booking, plus Tap to Pay on your phone for on-site jobs</td><td>Included</td><td>Nothing to buy. You already have the phone.</td></tr>
+          <tr><td>Tap to Pay on the phone for on-site jobs, plus invoicing, payment links, and card on file</td><td>Included</td><td>Nothing to buy. You already have the phone.</td></tr>
           
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
@@ -225,24 +268,26 @@
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">What it costs you to accept a card</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">the same target you already have on Square, with the fee configured properly instead of a flat blanket rate</div></div>This is the part not to overthink. On Edge, the card fee moves to the card-paying customer, so your cost on a card sale is <strong>$0</strong>. That is the same thing you are already aiming at on Square, so the money side does not get worse. What changes is everything around it: the booking, the branding, the reminders, and who is on the other end of the phone when something goes sideways. Two things get configured the right way that Square will not do for you - <strong>debit is excluded from the surcharge</strong>, and you can <strong>turn it off entirely for specific customers</strong> you want to protect. If you would rather absorb the card fee yourself instead of passing it on, say so and we set it up that way instead.
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">What it costs you to accept a card</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">On every card sale, at any volume, with debit excluded</div></div><p>Square charges 3.3 percent plus 30 cents on an invoice paid online by card. On a $5,000 job that is about $165, and on the 50 percent deposit for that same job it is another $25 before you have even finished the work. Whether you absorb that today or add it on yourself, on Edge it is handled properly, it is disclosed on the invoice, and <strong>your side of it is $0</strong>.</p>
       </div>
     </div>
 
+    <div class="section"><div class="section-header">Two Ways to Do This</div><p>Your average job is a lot bigger than a coffee, so it is fair to ask what a card adjustment looks like on a $5,000 invoice before you agree to it. Here are both ways, priced. I recommend Edge, because it is the only one that takes your cost to zero instead of just lowering it.</p><div class="options"><div class="opt opt-a"><span class="opt-tag">What I recommend</span><div class="opt-name">AllProPay Edge</div><div class="opt-mech">The small card fee sits on the card-paying customer and is disclosed on the invoice.</div><div class="opt-figure">$0</div><div class="opt-figure-sub">Your cost on card sales. Cash, check, and bank transfer pay list price.</div><ul class="opt-list"><li>Your card cost is zero whatever your volume does this month.</li><li>Debit is excluded, so a customer paying off their bank card sees no adjustment at all.</li><li>You can switch it off for any customer you want to look after, job by job.</li><li>Your big jobs already come in as checks, so most of your money never touches it.</li></ul></div><div class="opt opt-b"><span class="opt-tag">Also available</span><div class="opt-name">AllProPay Rate</div><div class="opt-mech">You keep paying the fee yourself, but at true cost instead of a flat 3.3 percent.</div><div class="opt-figure">Cost + 0.60%</div><div class="opt-figure-sub">You pay wholesale card cost plus a flat 0.60 percent and 10 cents. Nothing changes for the customer.</div><ul class="opt-list"><li>Nothing appears on the invoice that is not there today.</li><li>Replaces Square's flat 3.3 percent and 30 cents with real cost plus a small markup.</li><li>Saves the most on debit, where Square charges you the same flat rate as a credit card.</li><li>The right pick if you would rather not put anything in front of a customer on a big job.</li></ul></div></div><p class="opt-note">The honest difference: AllProPay Rate can only lower what you pay, because you are still the one paying it. Edge takes the cost off the business. Either way there is no contract, no setup fee, and no cancellation fee, and you can move between the two on the same account.</p></div>
+
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You told me you are slow to make decisions. Fair enough. So nothing here asks you to decide anything today.</p>
+      <p>You said it yourself, you do not want to redo work you have already done. So nothing here asks you to rebuild anything you just finished.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>The booking software has a free 14-day trial. Look at the whole thing before you spend a dollar, and before you commit to anything on the payment side.</li><li>Start with the card fee passed to the customer. If you would rather absorb it yourself later, we switch you to flat interchange-plus pricing on the same account, no new application.</li><li>Nothing gets switched off at Square until you are fully set up and taking cards on our side. You are never sitting there unable to get paid.</li>
+        <li>Payroll stays at Square. We move the card processing only, and payroll runs off your bank account, not off it.</li><li>Nothing at Square gets switched off until you are fully live on our side and you have run a payment through it.</li><li>The booking form on your website stays exactly as it is. You book, you go look at the job, you quote it. If you ever want a deposit collected at the booking, we can add that later, but it is not part of this.</li><li>If you would rather absorb the fee yourself instead of putting it on the customer, we move you to AllProPay Rate on the same account. You are not locked to the choice you make on Friday.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>One branded system for booking, scheduling, and getting paid, instead of texting a link by hand on every job.</li><li>Your cost on card sales is $0, the same target as today, with debit excluded and a toggle for customers you want to protect.</li><li>The software starts at $27 a month with a free trial. The platform fee on the payment side is $25 a month.</li><li>No contract, no setup fee, no cancellation fee, on either piece.</li><li>You said you wanted a go-to. That is the whole point of this. You call me, not a support queue.</li>
+        <li>Every part of how you get paid today still works the same way: deposits by percentage, links that stay live until the job is done, tap on the phone, checks marked paid.</li><li>Your cost on card sales is $0, with debit excluded and a switch for the customers you choose.</li><li>The balance comes off the card you already have on file when you mark the job finished, so you are not chasing anybody for the back half of a $5,000 job.</li><li>You find out about a declined card. Square tells your customer and leaves you guessing.</li><li>When something goes wrong you call me, not a support queue. That is the part Square cannot sell you at any price.</li>
       </ul>
-      <p style="margin-top:12px;">One thing worth saying plainly, because you will do this math anyway. The booking software is $27 a month and the payment platform fee is $25 a month, so you are at about $52 a month all in. Zen Electrical starts around $60 and goes up from there, and their consolidation pitch means using their payments, at their rate, on their terms. So this is a little cheaper, but that is not really the argument. The argument is that you are not locked in, the branding is yours, and I am the one handling your card side.</p>
+      <p style="margin-top:12px;">One honest note, because you will think about it anyway. Keeping payroll at Square means one more login, and you told me that is exactly what you do not like. I am not going to pretend otherwise. What you get for it is that everything about getting paid lives in one place, and there is a person on the other end of it. Right now, when a card fails or a deposit is late, you are on your own with a help page. That is the trade, and I think it is worth it.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
@@ -251,7 +296,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>Start the free trial. It costs nothing.</strong> I will send you the link. Take 14 days, poke at it, see if the booking flow makes sense for how you actually run jobs. You are not committing to the payment side by doing this.</div>
+          <div class="step-content"><strong>Friday morning, we go through this together.</strong> Ten to eleven, the way we set it up. I will walk you through the invoicing, the deposits, and the card on file so you can see it working rather than read about it. Nothing gets switched on that morning.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -259,19 +304,19 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> The booking system goes live with D & M's branding and your card processing runs through AllProPay. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> Your invoicing, deposits, card on file, and tap on the phone are all set up and tested before anything at Square is turned off. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
         </div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You already did the paperwork once. Let's get the booking sorted, get you off Square, and make sure you are not overpaying to take a card."
+        "You already did the paperwork once, and the bank account is sorted. Let's move the card side over and leave everything else exactly where it is."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
-        <a href="tel:+19299303970" class="cta-btn">Text or Call Chris Ste-Marie: 929-930-3970</a>
-        <div class="cta-print-text">Text or call Chris Ste-Marie: 929-930-3970 &nbsp;|&nbsp; chris@allpropay.com</div>
+        <a href="tel:+19299303970" class="cta-btn">Text or Call Me: 929-930-3970</a>
+        <div class="cta-print-text">Text or call me: 929-930-3970 &nbsp;|&nbsp; chris@allpropay.com</div>
       </div>
-      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Chris Ste-Marie.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
     </div>
 
     <div class="signature-block">
@@ -289,7 +334,7 @@
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash and check customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <p class="note">Program and terms reflect what was discussed and agreed during prior calls.  Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
 
   </div>
 

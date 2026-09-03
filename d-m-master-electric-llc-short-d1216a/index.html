@@ -127,7 +127,8 @@
     position: relative;
     z-index: 1;
   }
-  .price-cell { padding: 4px 0; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .price-cell { padding: 4px 0; text-align: center; }
   .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
   .price-cell .pc-value {
     font-family: 'Montserrat', sans-serif;
@@ -161,6 +162,43 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
+  /* Cost-comparison bars inside the dark hero (<table style="width:100%; border-collapse:collapse;"><tr><td class="hc-lab" style="width:118px; padding:0 10px 7px 0; font-size:8pt; font-weight:600; white-space:nowrap;">Square invoice</td><td style="padding:0 0 7px 0;"><span style="display:inline-block; height:13px; border-radius:3px; width:76%; background:#64748B; vertical-align:middle;"></span><span class="hc-now" style="font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:800; margin-left:9px; vertical-align:middle;">3.3% + $0.30</span></td></tr><tr><td class="hc-lab" style="width:118px; padding:0 10px 0 0; font-size:8pt; font-weight:600; white-space:nowrap;">Your cost on Edge</td><td><span style="display:inline-block; height:13px; border-radius:3px; width:3%; background:#3B82F6; vertical-align:middle;"></span><span class="hc-new" style="font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:800; margin-left:9px; vertical-align:middle;">$0</span></td></tr></table>).
+     Styled here rather than inline in the spec so the print block below can
+     compact it - this page must stay ONE page. Bar widths are the only thing
+     the spec sets inline, since they are per-deal data. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
+  /* --- Compact two-offer row (OPTIONS_ROW_SHORT token), added 2026-08-27.
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included, and an
+     unsupplied one hard-fails the build.
+     The one-pager twin of OPTIONS_SECTION on the long template. Deliberately
+     thin - name, one money figure, one line - because this page must still print
+     to ONE page. Option A stays dominant (blue); B is slate. */
+  .opt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 2px; }
+  .opt-mini { border: 1px solid var(--mid-gray); border-radius: 7px; padding: 9px 12px; }
+  .opt-mini.a { border-top: 3px solid var(--blue); }
+  .opt-mini.b { border-top: 3px solid #94A3B8; }
+  .opt-mini .om-tag { font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .opt-mini.a .om-tag { color: var(--blue); }
+  .opt-mini.b .om-tag { color: #94A3B8; }
+  .opt-mini .om-name { font-family: 'Montserrat', sans-serif; font-size: 10pt; font-weight: 800; color: var(--navy); margin-top: 1px; }
+  .opt-mini .om-fig { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 800; margin-top: 4px; line-height: 1.1; }
+  .opt-mini.a .om-fig { color: var(--blue); }
+  .opt-mini.b .om-fig { color: #64748B; }
+  .opt-mini .om-sub { font-size: 8pt; color: #64748B; margin-top: 2px; line-height: 1.35; }
   .why-bar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -333,8 +371,43 @@
     .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
     .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
     .terms-table { margin-bottom: 10px; }
+    /* The chart costs roughly 70px on screen. Print has no room to spare on a
+       one-pager, so it shrinks hard here. Verified: both Carl proposals render
+       to a single page with these values. If you loosen them, re-check the page
+       count - a 2-page "one-pager" is a defect. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+    /* A one-pager with no chart already fills the page almost exactly, so the
+       chart alone pushes it to two. Rather than tighten every Edge one-pager to
+       make room for a chart most of them will not have, claw back the ~50px ONLY
+       on pages that actually carry one. :has() is supported in the Chrome that
+       renders these PDFs; if it ever silently stops matching, the symptom is a
+       2-page one-pager, so re-check the page count after touching this. */
+    .page:has(:is(.hero-chart, .opt-row)) .content { padding: 13px 24px 12px; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block h1 { font-size: 19pt; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table td { padding: 4px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-cell, .page:has(:is(.hero-chart, .opt-row)) .step-card { padding: 7px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-bar, .page:has(:is(.hero-chart, .opt-row)) .steps-bar { margin: 8px 0 3px; }
+    .page:has(:is(.hero-chart, .opt-row)) .cta-block { padding: 10px 18px; margin-top: 8px; }
     .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
     .why-cell { padding: 8px 10px; }
+    /* keep the two-offer row on the grid in print and compact it hard - it is
+       extra content on a page that was already full (OPTIONS_ROW_SHORT) */
+    .opt-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px; margin: 6px 0 2px; }
+    .opt-mini { display: block !important; width: auto !important; padding: 6px 9px; margin-bottom: 0 !important; }
+    .opt-mini .om-tag { font-size: 5.5pt; letter-spacing: 0.7px; }
+    .opt-mini .om-name { font-size: 8.5pt; }
+    .opt-mini .om-fig { font-size: 11pt; margin-top: 2px; }
+    .opt-mini .om-sub { font-size: 6.8pt; margin-top: 1px; }
     .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
     .why-cell .wc-body { font-size: 8pt; line-height: 1.35; }
     .steps-bar { display: flex; gap: 6px; margin: 10px 0 4px; }
@@ -368,11 +441,11 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for D'kei &middot; July 16, 2026</div>
+      <div class="eyebrow">Prepared for Eldaly &middot; September 3, 2026</div>
       <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
       <div class="merchant">D & M Master Electric L.L.C &nbsp;&middot;&nbsp; New Jersey</div>
       <div class="meta-row">
-        <div><span>Current setup:</span><strong>Square, roughly 3 to 4 years, with the card fee passed to the customer - per the discovery call May 29, 2026, to confirm</strong></div>
+        <div><span>Current setup:</span><strong>Square, about four years. Invoices with deposits, payment links, and tap on the phone in the field</strong></div>
         <div><span>Program:</span><strong>Edge dual pricing</strong></div>
         <div><span>Prepared by:</span><strong>Chris Ste-Marie</strong></div>
       </div>
@@ -380,48 +453,51 @@
 
     <div class="hero">
       <div class="hero-eyebrow">Your Program</div>
-      <h2>Booking that carries D & M's name, a card that costs you $0 to accept, and no contract on either one.</h2>
+      <h2>Your setup, rebuilt. Same invoices, same deposits, same tap on the phone. Your card cost, $0.</h2>
       <div class="price-row">
         <div class="price-cell">
           <div class="pc-label">YOUR COST ON CARD SALES</div>
           <div class="pc-value">$0</div>
-          <div class="pc-sub">Card fee moves to the customer, same target as today</div>
+          <div class="pc-sub">What a card sale costs you. Debit is excluded.</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">BOOKING SOFTWARE</div>
-          <div class="pc-value">From $27/mo</div>
-          <div class="pc-sub">Free 14-day trial, your branding, your web address</div>
+          <div class="pc-label">ON A $5,000 INVOICE</div>
+          <div class="pc-value">$5,000</div>
+          <div class="pc-sub">What lands in the account. Nothing shaved off the top.</div>
         </div>
         <div class="price-cell">
-          <div class="pc-label">CARD CUSTOMERS</div>
-          <div class="pc-value">Small adj.</div>
-          <div class="pc-sub">Clearly disclosed before they pay, debit excluded</div>
+          <div class="pc-label">YOUR PAYROLL</div>
+          <div class="pc-value">Stays put</div>
+          <div class="pc-sub">Square Payroll runs off your bank, not your card processing. Nothing to rebuild.</div>
         </div>
       </div>
+      <table style="width:100%; border-collapse:collapse;"><tr><td class="hc-lab" style="width:118px; padding:0 10px 7px 0; font-size:8pt; font-weight:600; white-space:nowrap;">Square invoice</td><td style="padding:0 0 7px 0;"><span style="display:inline-block; height:13px; border-radius:3px; width:76%; background:#64748B; vertical-align:middle;"></span><span class="hc-now" style="font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:800; margin-left:9px; vertical-align:middle;">3.3% + $0.30</span></td></tr><tr><td class="hc-lab" style="width:118px; padding:0 10px 0 0; font-size:8pt; font-weight:600; white-space:nowrap;">Your cost on Edge</td><td><span style="display:inline-block; height:13px; border-radius:3px; width:3%; background:#3B82F6; vertical-align:middle;"></span><span class="hc-new" style="font-family:'Montserrat',sans-serif; font-size:10pt; font-weight:800; margin-left:9px; vertical-align:middle;">$0</span></td></tr></table>
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>Card capture inside the booking + Tap to Pay in the field</td><td>Included (dual-pricing)</td></tr>
+      <tr><td>Tap to Pay on the phone, invoicing, payment links, and card on file</td><td>Included (dual-pricing)</td></tr>
       
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
       <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
     </table>
 
+    <div class="opt-row"><div class="opt-mini a"><div class="om-tag">What I recommend</div><div class="om-name">AllProPay Edge</div><div class="om-fig">$0</div><div class="om-sub">Your card cost. The fee sits on the card-paying customer, debit excluded.</div></div><div class="opt-mini b"><div class="om-tag">Also available</div><div class="om-name">AllProPay Rate</div><div class="om-fig">Cost + 0.60%</div><div class="om-sub">You absorb it, but at true cost plus 10 cents, not a flat 3.3%.</div></div></div>
+
     <div class="sec-label">Why This Fit</div>
     <div class="why-bar">
       <div class="why-cell">
-        <div class="wc-title">One branded system</div>
-        <div class="wc-body">Booking, scheduling, reminders, and the card payment run through one flow with D & M's name and your own web address on it. No more manual links.</div>
+        <div class="wc-title">Everything you do now still works</div>
+        <div class="wc-body">Invoices with the deposit percentage you pick, links that stay live until the job is actually done, tap on the phone on site, checks marked paid. Same day, our side.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">$0 to accept a card</div>
-        <div class="wc-body">The fee moves to the card-paying customer, same target as your Square setup, but debit is excluded and you can toggle it off for customers you choose.</div>
+        <div class="wc-title">Stop chasing the balance</div>
+        <div class="wc-body">The deposit card sits in a protected vault. Mark the job finished and the balance goes on it. No second link, no reminder chain, no waiting on a $5,000 back half.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Nothing to decide today</div>
-        <div class="wc-body">The booking software has a free 14-day trial. Look at it first. Nothing at Square gets switched off until you are fully live on our side.</div>
+        <div class="wc-title">You hear about a decline</div>
+        <div class="wc-body">Square tells your customer the card failed and leaves you guessing. Here the alert comes to you the moment it happens, so nothing sits unpaid without you knowing.</div>
       </div>
     </div>
 
@@ -430,7 +506,7 @@
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">One quick call</div>
-        <div class="step-body">Start the free 14-day trial. Chris sends the link, you look at it on your own time, and you are not committing to the payment side by trying it.</div>
+        <div class="step-body">Friday morning, ten to eleven, I walk you through the invoicing, the deposits, and the card on file so you can see it rather than read about it. Nothing gets switched on that morning.</div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -440,14 +516,14 @@
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">Switch on</div>
-        <div class="step-body">The booking goes live with your branding, your card processing runs through AllProPay, and your next card job costs you $0.</div>
+        <div class="step-body">Everything is set up and tested on our side first. Square stays on until you have run a real payment through us and you are happy with it.</div>
       </div>
     </div>
 
     <div class="cta-block">
       <div class="cta-text">
-        <div class="ct-title">Start with the free trial</div>
-        <div class="ct-sub">Text or call Chris for the link. Fourteen days free, nothing to decide until you have seen it.</div>
+        <div class="ct-title">Friday morning, 10 to 11</div>
+        <div class="ct-sub">I will call you. Bring anything you want to see, and if D'kei wants to be on it, put him on.</div>
       </div>
       <div class="cta-action">
         <a href="tel:+19299303970" class="ca-phone">929-930-3970</a>
@@ -455,7 +531,7 @@
       </div>
     </div>
 
-    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Chris Ste-Marie.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
+    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
 
   </div>
 
