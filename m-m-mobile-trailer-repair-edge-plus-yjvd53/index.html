@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Edge Plus Proposal | M &amp; M Mobile Trailer Repair</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --surface: #121c30;
+    --panel-border: #243049;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --text: #1A1A2E;
+    --muted: #64748B;
+    --cyan: #38BDF8;
+    --amber: #B45309;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 36px 12px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+
+  .content { padding: 22px 36px 28px; }
+
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26pt;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+  }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    border-top: 1px solid var(--mid-gray);
+    border-bottom: 1px solid var(--mid-gray);
+    padding: 8px 0;
+    font-size: 9pt;
+  }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px 28px;
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: center; }
+  .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .price-cell .pc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21pt;
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .price-cell .pc-value.tight { font-size: 15pt; }
+  .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
+
+  .sec-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 14px 0 8px;
+  }
+  .sec-sub { font-size: 9pt; color: var(--muted); margin: -4px 0 10px; }
+
+  /* ---- Tier ladder ---- */
+  table.tier-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.tier-cell {
+    width: 33.3%;
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 100%);
+    border: 1.5px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 14px 16px 12px;
+    vertical-align: top;
+    color: #fff;
+  }
+  td.tier-cell.mid { border-color: var(--blue); position: relative; }
+  .tier-cell .t-pop {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    background: var(--blue); color: #fff;
+    border-radius: 999px; padding: 2px 9px; margin-bottom: 6px;
+  }
+  .tier-cell .t-pop.ghost { background: transparent; color: transparent; }
+  .tier-cell .t-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 2px;
+  }
+  .tier-cell .t-cash {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18pt; font-weight: 800; color: #fff; line-height: 1.1;
+  }
+  .tier-cell .t-cashsub { font-size: 8pt; color: #9fb0c9; margin-bottom: 8px; }
+  table.t-facts { width: 100%; border-collapse: collapse; }
+  table.t-facts td { padding: 3.5px 0; font-size: 8.5pt; border-top: 1px solid rgba(255,255,255,0.14); }
+  table.t-facts td.k { color: #9fb0c9; padding-right: 8px; }
+  table.t-facts td.v { text-align: right; font-weight: 700; color: #E2E8F0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* ---- First-year cash back chart ---- */
+  .chart-card {
+    background: var(--light-gray);
+    border: 1.5px solid var(--mid-gray);
+    border-radius: 12px;
+    padding: 14px 18px 12px;
+    margin-top: 12px;
+  }
+  .chart-card .cc-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text); margin-bottom: 8px;
+  }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label {
+    width: 15%; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; padding-right: 10px;
+  }
+  td.bc-track { width: 63%; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; }
+  td.bc-value {
+    width: 22%; text-align: right; font-family: 'Montserrat', sans-serif;
+    font-size: 11.5pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums;
+    padding-left: 12px;
+  }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* ---- QuickBooks / gateway band ---- */
+  table.qb-band { width: 100%; border-collapse: collapse; background: var(--light-gray);
+    border: 1.5px solid var(--mid-gray); border-radius: 12px; margin-top: 12px; }
+  td.qb-copy { vertical-align: top; padding: 13px 16px 12px 18px; width: 62%; }
+  td.qb-art { vertical-align: middle; padding: 10px 14px 10px 0; width: 38%; text-align: center; }
+  td.qb-art img { width: 100%; max-width: 250px; height: auto; border-radius: 8px; border: 1px solid var(--mid-gray); background: #fff; }
+  .qb-copy .qb-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--text); margin-bottom: 6px;
+  }
+  .qb-copy .qb-item { margin-bottom: 6px; font-size: 8.8pt; color: var(--muted); line-height: 1.45; }
+  .qb-copy .qb-item strong { color: var(--text); font-weight: 700; }
+  .qb-copy .qb-item:last-child { margin-bottom: 0; }
+
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); }
+  .terms-table td:first-child { color: var(--muted); width: 56%; font-weight: 500; }
+  .terms-table td:last-child { color: var(--text); font-weight: 600; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  .cta-block {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px 26px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .cta-text .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13pt; margin-bottom: 3px; }
+  .cta-text .ct-sub { font-size: 9pt; opacity: 0.92; }
+  .cta-action { text-align: right; flex-shrink: 0; }
+  .cta-action .ca-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 17pt; color: #fff;
+    text-decoration: none; display: block; line-height: 1.1;
+  }
+  .cta-action .ca-name { font-size: 9pt; opacity: 0.9; margin-top: 2px; }
+
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: #64748b; margin-top: 8px; }
+  .booking-embed .be-fallback a { color: #0052FF; }
+
+  .doc-footer {
+    border-top: 1px solid var(--mid-gray);
+    padding: 10px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .qb-item, .cc-note, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
+    .price-cell .pc-value.tight { font-size: 18pt; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    table.tier-row, table.tier-row tbody, table.tier-row tr { display: block; margin: 0; }
+    td.tier-cell { display: block; width: 100%; margin-bottom: 10px; }
+    table.qb-band, table.qb-band tbody, table.qb-band tr { display: block; }
+    td.qb-copy, td.qb-art { display: block; width: 100%; padding: 12px 16px; }
+    td.qb-art img { max-width: 320px; }
+    td.bc-label { font-size: 7.5pt; }
+    td.bc-value { font-size: 10pt; }
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.20in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.32; }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, td.tier-cell, .chart-card, table.qb-band, .bc-bar, .t-pop {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact;
+    }
+    .doc-header { padding: 6px 20px 4px; }
+    .doc-header .logo-img { height: 32px; }
+    .content { padding: 7px 20px 4px; }
+    .title-block { margin-bottom: 3px; }
+    .title-block h1 { font-size: 16pt; }
+    .title-block .merchant { font-size: 9pt; margin-bottom: 4px; }
+    .title-block .eyebrow { font-size: 7pt; margin-bottom: 2px; }
+    .meta-row { padding: 3px 0; font-size: 6.8pt; gap: 14px; }
+    .hero { padding: 8px 16px; margin: 5px 0; border-radius: 9px; }
+    .hero h2 { font-size: 9.5pt; margin-bottom: 5px; }
+    .hero .hero-eyebrow { font-size: 6.5pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell { padding: 2px 0; }
+    .price-cell .pc-value { font-size: 13.5pt; margin-bottom: 2px; }
+    .price-cell .pc-value.tight { font-size: 10.5pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 6.4pt; }
+    .sec-label { font-size: 7pt; margin: 4px 0 2px; }
+    .sec-sub { font-size: 6.8pt; margin: -2px 0 4px; }
+    table.tier-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.tier-cell { padding: 6px 11px 5px; border-radius: 8px; }
+    .tier-cell .t-pop { font-size: 5.5pt; padding: 1.5px 7px; margin-bottom: 3px; }
+    .tier-cell .t-name { font-size: 6.5pt; }
+    .tier-cell .t-cash { font-size: 12.5pt; }
+    .tier-cell .t-cashsub { font-size: 6.5pt; margin-bottom: 4px; }
+    table.t-facts td { padding: 1.8px 0; font-size: 6.4pt; }
+    .chart-card { padding: 6px 11px 5px; margin-top: 5px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 6.5pt; margin-bottom: 3px; }
+    table.bar-chart td { padding: 1.8px 0; }
+    td.bc-track .bc-bar { height: 11px; }
+    td.bc-label { font-size: 6.4pt; }
+    td.bc-value { font-size: 8pt; }
+    .chart-card .cc-note { font-size: 5.3pt; margin-top: 2px; }
+    table.qb-band { margin-top: 4px; }
+    td.qb-copy { padding: 5px 10px 4px 11px; }
+    td.qb-art { padding: 4px 9px 4px 0; }
+    td.qb-art img { max-width: 100%; max-height: 1in; width: auto; }
+    .qb-copy .qb-title { font-size: 6.4pt; margin-bottom: 2px; }
+    .qb-copy .qb-item { font-size: 6pt; margin-bottom: 2px; line-height: 1.28; }
+    .terms-table { margin-bottom: 2px; }
+    .terms-table td { padding: 1.7px 10px; font-size: 6.5pt; }
+    .cta-block { padding: 7px 14px; margin-top: 5px; border-radius: 8px; }
+    .cta-text .ct-title { font-size: 9.5pt; }
+    .cta-text .ct-sub { font-size: 6.6pt; }
+    .cta-action .ca-phone { font-size: 12pt; }
+    .cta-action .ca-name { font-size: 6.4pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 3px 20px; font-size: 6pt; }
+    .doc-footer .sig img { height: 13px; }
+    .doc-footer .fine { font-size: 4.8pt; max-width: 72%; line-height: 1.3; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      Tammy Millar &nbsp;&middot;&nbsp; 929-930-3050 &nbsp;&middot;&nbsp; tammy@allpropay.com<br>
+      AllProPay &nbsp;&middot;&nbsp; allpropay.com
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <div class="eyebrow">Prepared for Michael &middot; September 10, 2026</div>
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="merchant">M &amp; M Mobile Trailer Repair &middot; Arizona</div>
+      <div class="meta-row">
+        <div><span>Card volume:</span><strong>about $15,000 a month</strong></div>
+        <div><span>Recommended:</span><strong>AllProPay Edge Plus</strong></div>
+        <div><span>Prepared by:</span><strong>Tammy Millar</strong></div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">Your Program &middot; Keep QuickBooks, Stop Eating The Fee</div>
+      <h2>You told me you are absorbing roughly three to three and a half percent on every QuickBooks invoice. That money only stops being your cost when the posted card price carries it. Edge Plus does that, and then pays you every month on top.</h2>
+      <div class="price-row">
+        <div class="price-cell">
+          <div class="pc-label">YOUR COST ON CARD SALES</div>
+          <div class="pc-value">$0</div>
+          <div class="pc-sub">The posted card price covers it</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label">WHAT YOU STOP PAYING</div>
+          <div class="pc-value tight">$4,800 to $5,700</div>
+          <div class="pc-sub">Estimated per year, after the monthly fee</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label">CASH BACK TO YOU, YEAR ONE</div>
+          <div class="pc-value">$1,330</div>
+          <div class="pc-sub">Estimated on the tier I recommend, bonus included</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-label">Pick Your Tier</div>
+    <div class="sec-sub">Every tier takes your cost on cards to $0. What changes is how much comes back to you each month, and the card price your customers see on the invoice. <strong>My recommendation is the third one.</strong></div>
+    <table class="tier-row"><tr>
+      <td class="tier-cell">
+        <div class="t-pop ghost">&nbsp;</div>
+        <div class="t-name">Tier 1 &middot; Standard</div>
+        <div class="t-cash">$37.50<span style="font-size:9pt; font-weight:700;">/mo</span></div>
+        <div class="t-cashsub">back to you every month</div>
+        <table class="t-facts">
+          <tr><td class="k">Your cost on card sales</td><td class="v">$0</td></tr>
+          <tr><td class="k">Card price your customers see</td><td class="v">3.99%</td></tr>
+          <tr><td class="k">Loyalty bonus</td><td class="v">$100</td></tr>
+          <tr><td class="k">Cash back, year one</td><td class="v">about $550</td></tr>
+        </table>
+      </td>
+      <td class="tier-cell">
+        <div class="t-pop ghost">&nbsp;</div>
+        <div class="t-name">Tier 2 &middot; Plus</div>
+        <div class="t-cash">$60<span style="font-size:9pt; font-weight:700;">/mo</span></div>
+        <div class="t-cashsub">back to you every month</div>
+        <table class="t-facts">
+          <tr><td class="k">Your cost on card sales</td><td class="v">$0</td></tr>
+          <tr><td class="k">Card price your customers see</td><td class="v">4.49%</td></tr>
+          <tr><td class="k">Loyalty bonus</td><td class="v">$150</td></tr>
+          <tr><td class="k">Cash back, year one</td><td class="v">about $870</td></tr>
+        </table>
+      </td>
+      <td class="tier-cell mid">
+        <div class="t-pop">What I recommend</div>
+        <div class="t-name">Tier 3 &middot; Max</div>
+        <div class="t-cash">$90<span style="font-size:9pt; font-weight:700;">/mo</span></div>
+        <div class="t-cashsub">back to you every month</div>
+        <table class="t-facts">
+          <tr><td class="k">Your cost on card sales</td><td class="v">$0</td></tr>
+          <tr><td class="k">Card price your customers see</td><td class="v">4.99%</td></tr>
+          <tr><td class="k">Loyalty bonus</td><td class="v">$250</td></tr>
+          <tr><td class="k">Cash back, year one</td><td class="v">about $1,330</td></tr>
+        </table>
+      </td>
+    </tr></table>
+
+    <div class="chart-card">
+      <div class="cc-title">What Each Tier Pays You Back, Year One</div>
+      <table class="bar-chart">
+        <tr>
+          <td class="bc-label">Standard</td>
+          <td class="bc-track"><div class="bc-bar" style="width:41%; background:#94A3B8;"></div></td>
+          <td class="bc-value" style="color:#64748B;">about $550</td>
+        </tr>
+        <tr>
+          <td class="bc-label">Plus</td>
+          <td class="bc-track"><div class="bc-bar" style="width:65%; background:#3B82F6;"></div></td>
+          <td class="bc-value" style="color:#0052FF;">about $870</td>
+        </tr>
+        <tr>
+          <td class="bc-label">Max</td>
+          <td class="bc-track"><div class="bc-bar" style="width:100%; background:#0052FF;"></div></td>
+          <td class="bc-value" style="color:#0052FF;">about $1,330</td>
+        </tr>
+      </table>
+      <div class="cc-note">Cash back is paid by direct deposit in any month you run at least $10,000 in card volume. Figures are estimated at about $15,000 a month, which is the number you gave me, so a lighter month pays less and a busier one pays more. Your cost on card sales is $0 on all three tiers, in every month, whatever the volume.</div>
+    </div>
+
+    <div class="sec-label">Your QuickBooks, Upgraded</div>
+    <table class="qb-band"><tr>
+      <td class="qb-copy">
+        <div class="qb-title">You Keep Billing Exactly The Way You Do Now</div>
+        <div class="qb-item"><strong>Your books do not move.</strong> Same QuickBooks, same invoices, same customers. You are not learning a new system and you are not rebuilding anything.</div>
+        <div class="qb-item"><strong>You get the tools QuickBooks does not give you.</strong> Get paid by text, email, QR code or payment link, keep a card on file, set up recurring invoices, key a payment in yourself, and take bank payments. Each payment now links back to its bundled daily deposit, so a lumped deposit matches in one confirm instead of by hand.</div>
+        <div class="qb-item"><strong>The card price runs right on your invoices.</strong> Intuit does not offer this at all, so it is the one piece you cannot get by staying where you are.</div>
+      </td>
+      <td class="qb-art">
+        <img src="hyfin-qbo-auto-reconciliation.png" alt="Card and bank deposits matched back to QuickBooks Online in one confirm">
+      </td>
+    </tr></table>
+
+    <div class="sec-label">The Account</div>
+    <table class="terms-table">
+      <tr><td>Your cost to accept cards</td><td>$0</td></tr>
+      <tr><td>Monthly fee, QuickBooks integration included</td><td>$50</td></tr>
+      <tr><td>Monthly processing minimum</td><td>$50, only tops up a month with almost no card volume</td></tr>
+      <tr><td>Posted card price on Edge Plus Max</td><td>4.99%</td></tr>
+      <tr><td>Cash back paid to you</td><td>$90 a month, by direct deposit</td></tr>
+      <tr><td>Loyalty bonus</td><td>$250, paid in two parts</td></tr>
+      <tr><td>Next-day funding</td><td>Included</td></tr>
+      <tr><td>Contract, setup fee, cancellation fee</td><td>None</td></tr>
+    </table>
+
+    <div class="cta-block">
+      <div class="cta-text">
+        <div class="ct-title">Fifteen minutes and you have a real answer</div>
+        <div class="ct-sub">You asked me to circle back once you had your hands free, so here it is on one page instead of another long email. On the call we pick your tier, I show you exactly what a customer sees on a $400 invoice and on a $1,500 one, and if it fits I fill in the application with you. You keep working out of QuickBooks the whole time.</div>
+      </div>
+      <div class="cta-action">
+        <a href="tel:19299303050" class="ca-phone">929-930-3050</a>
+        <div class="ca-name">Tammy Millar &middot; tammy@allpropay.com</div>
+      </div>
+    </div>
+
+    <div class="booking-embed">
+      <div class="be-title">Want to grab a time now? Book me directly.</div>
+      <iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy"></iframe>
+      <div class="be-fallback">If the calendar does not load, <a href="https://book.allpropay.com/#/14701000000122106">open my booking page</a>.</div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <div class="sig">
+      <img src="AllProPay_Logo.jpg" alt="AllProPay">
+      <span>AllProPay &middot; Tammy Millar &middot; 929-930-3050 &middot; allpropay.com</span>
+    </div>
+    <div class="fine">Prepared from our calls between May and July 2026 at about $15,000 a month in card volume. No processing statement was reviewed, so the figures for what you pay today are ranges based on what you told me, not exact numbers. Edge is dual pricing: the posted price is the card price, and cash, check and bank transfer customers pay a lower price. All figures are estimates, not a quote, and depend on final card mix, volume and program selection. Edge Plus cash back is paid under the Edge Plus Rebate Agreement in months at or above $10,000 in eligible card volume and is conditioned on maintaining the posted card price for the tier selected; the loyalty bonus pays half after month 3 and half after month 6, once cumulative volume reaches $30,000 and $60,000. Cash back is paid to the business and is reportable income. A $50 monthly fee applies, with a $50 monthly processing minimum. No contract, no setup fee, no cancellation fee.</div>
+  </div>
+
+</div>
+</body>
+</html>
