@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>August 2026 Statement Breakdown | Mr. Electric of Greensboro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --text: #1A1A2E; --muted: #64748B;
+    --red: #B91C1C; --amber: #B45309; --green: #15803D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10pt; color: var(--text); background: #fff; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: 820px; margin: 0 auto; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px 14px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 64px; width: auto; }
+  .doc-header .contact { font-size: 8pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 28px 40px 40px; }
+  .title-block { margin-bottom: 22px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 23pt; font-weight: 800; color: #000; line-height: 1.1; margin-bottom: 4px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 600; color: var(--blue); margin-bottom: 16px; }
+  .meta-grid { display: grid; grid-template-columns: 150px 1fr; gap: 4px 16px; font-size: 9pt; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .meta-grid .sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); vertical-align: middle; margin: 0 8px 2px; }
+  .section { margin-bottom: 26px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 700; color: var(--blue); padding-bottom: 6px; border-bottom: 2px solid var(--blue); margin-bottom: 14px; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat-cell { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .stat-label { font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 17pt; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .stat-value.danger { color: var(--red); }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  th.num, td.num { text-align: right; }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  /* --- Side-by-side "Today vs AllProPay" grid (added 2026-08-27) ------------
+     Column roles: .now = incumbent (slate), .new = the recommended AllProPay
+     program (brand blue, visually dominant), .alt = the optional second program
+     (light, deliberately subordinate - never co-equal with .new).
+     Colors follow the chart house rule: slate + brand blue, never red/green. */
+  table.sxs { font-size: 8.5pt; }
+  table.sxs th, table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  table.sxs th.band.b-lbl { background: var(--navy); }
+  table.sxs th.band.b-now { background: #64748B; }
+  table.sxs th.band.b-new { background: var(--blue); }
+  table.sxs th.band.b-alt { background: #94A3B8; }
+  table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F1F5F9; color: #475569; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F8FAFC; color: #64748B; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #DBEAFE; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #F1F5F9; color: #475569; font-size: 10pt; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 8px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #60A5FA; white-space: nowrap; }
+  /* Subordinate variant for the second offer. Use when the rep asks for two
+     programs: Option A keeps the solid navy band, Option B gets this lighter
+     one so the two read as RANKED, not co-equal (2026-08-27). */
+  .sxs-save.alt { background: #F1F5F9; color: #334155; border: 1px solid var(--mid-gray); padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #64748B; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #94A3B8; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #64748B; }
+  .flag { font-weight: 700; }
+  .flag.red { color: var(--red); }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .insight { background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 9.5pt; }
+  .insight strong { color: var(--amber); }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .hero-band { background: linear-gradient(135deg, #15803D 0%, #16A34A 55%, #22C55E 100%); border-radius: 10px; padding: 15px 22px; margin: 0 0 26px; color: #fff; box-shadow: 0 4px 14px rgba(21,128,61,0.22); text-align: center; }
+  .hero-band .sf-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; background: rgba(255,255,255,0.22); padding: 3px 13px; border-radius: 999px; margin-bottom: 7px; }
+  .hero-band .sf-figure { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 800; line-height: 1.02; }
+  .hero-band .sf-figure .sf-unit { font-size: 11pt; font-weight: 700; opacity: 0.9; }
+  .hero-band .sf-sub { font-size: 9.5pt; margin-top: 7px; font-weight: 600; }
+  .hero-band .sf-note { font-size: 7.5pt; margin-top: 5px; opacity: 0.9; }
+  .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .cta-block { text-align: center; margin-top: 24px; padding: 18px 22px; background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 10px; }
+  .cta-line { font-size: 10pt; color: var(--text); margin-bottom: 12px; font-weight: 500; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; padding: 12px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.2px; }
+  .cta-print { display: none; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed { margin-top: 18px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .sig { margin-top: 16px; font-size: 9pt; text-align: center; color: var(--muted); }
+  .sig .name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+  @media print { body { font-size: 9.5pt; } .doc-header, .content { padding-left: 28px; padding-right: 28px; } .cta-btn { display: none; } .cta-print { display: block !important; } .booking-embed { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <img class="logo-img" src="AllProPay_Logo.jpg" alt="AllProPay">
+    <div class="contact">
+      Tammy Millar &nbsp;&middot;&nbsp; 929-930-3050 &nbsp;&middot;&nbsp; tammy@allpropay.com<br>
+      AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="title-block">
+      <h1>Your August 2026 Statement, <span class="accent">Decoded</span></h1>
+      <div class="subtitle">Mr. Electric of Greensboro</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Emily<span class="sep"></span>Mr. Electric of Greensboro</span>
+        <span class="label">Statement reviewed</span>
+        <span class="value">Propeller Payments<span class="sep"></span>August 1-31, 2026</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar<span class="sep"></span>AllProPay</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Month at a Glance</div>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$43,951.34</div><div class="stat-sub">65 jobs, average ticket $676.17</div></div>
+        <div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$1,097.18</div><div class="stat-sub">what card acceptance cost you in August</div></div>
+        <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">2.50%</div><div class="stat-sub">of everything you collected</div></div>
+      </div>
+      <div class="insight">Spread across 65 jobs, that is <strong>$16.88 coming out of every job you invoiced in August</strong>. Annualised across your last ten months of volume, you are spending roughly <strong>$12,900 a year</strong> to accept cards.</div>
+    </div>
+
+    <div class="hero-band">
+      <div class="sf-tag">Your Card Cost On Edge</div>
+      <div class="sf-figure">$0<span class="sf-unit"> per month</span></div>
+      <div class="sf-sub">The card price is posted up front. The customer who chooses to pay by card covers the cost, and cash, check, and ACH customers pay less than the card price.</div>
+      <div class="sf-note">On your August statement that is <strong>$1,072.18</strong> back in the business for the month, and an estimated <strong>$12,000 to $13,500 a year</strong>.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Where Your Volume Came From</div>
+      <table>
+        <thead>
+          <tr><th>Card type</th><th>Volume</th><th>Jobs</th><th>Average ticket</th><th>% of volume</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Visa</td><td>$25,906.11</td><td>41</td><td>$631.86</td><td>58.94%</td></tr><tr><td>Mastercard</td><td>$12,542.19</td><td>15</td><td>$836.15</td><td>28.54%</td></tr><tr><td>American Express</td><td>$4,539.28</td><td>6</td><td>$756.55</td><td>10.33%</td></tr><tr><td>Discover</td><td>$963.76</td><td>3</td><td>$321.25</td><td>2.19%</td></tr><tr class="total-row"><td><strong>Total</strong></td><td><strong>$43,951.34</strong></td><td><strong>65</strong></td><td><strong>$676.17</strong></td><td><strong>100%</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="insight">Two things stand out. <strong>Almost all of this volume was keyed or taken over the phone rather than tapped</strong>, which is the most expensive way a card can be run. And your average job is $676, so every point of rate is real money. <strong>Amex is 10.33% of your volume</strong>, which is worth knowing because Amex prices its own rates and no processor can discount them.</div>
+    </div>
+
+    <div class="section"><h2>Line by Line: Today vs AllProPay</h2><p>This is your August statement, brand by brand, re-run on both programs. Same volume, same transaction counts, same customers. Check the middle columns against the statement in front of you, then read across.</p><table class="sxs"><tr class="band"><th colspan="3">Your August statement</th><th colspan="2">Propeller today</th><th>Option A: Edge</th><th>Option B: AllProPay Rate</th></tr><tr class="sub"><th>Card type</th><th>Volume</th><th>Jobs</th><th>Your rate</th><th>You paid</th><th>You pay</th><th>You pay (est.)</th></tr><tr><td><strong>Visa</strong></td><td>$25,906.11</td><td>41</td><td class="now">2.26%</td><td class="now">$585.74</td><td class="new">$0.00</td><td class="alt">$682.00</td></tr><tr><td><strong>Mastercard</strong></td><td>$12,542.19</td><td>15</td><td class="now">2.52%</td><td class="now">$316.39</td><td class="new">$0.00</td><td class="alt">$361.73</td></tr><tr><td><strong>American Express</strong></td><td>$4,539.28</td><td>6</td><td class="now">2.55%</td><td class="now">$115.89</td><td class="new">$0.00</td><td class="alt">$142.63</td></tr><tr><td><strong>Discover</strong></td><td>$963.76</td><td>3</td><td class="now">2.19%</td><td class="now">$21.12</td><td class="new">$0.00</td><td class="alt">$24.74</td></tr><tr><td><strong>Account and monthly fees</strong></td><td>&mdash;</td><td>&mdash;</td><td class="now">&mdash;</td><td class="now">$58.04</td><td class="new">$25.00</td><td class="alt">$55.35</td></tr><tr class="total-row"><td><strong>Total for August</strong></td><td><strong>$43,951.34</strong></td><td><strong>65</strong></td><td class="now"><strong>2.50%</strong></td><td class="now"><strong>$1,097.18</strong></td><td class="new"><strong>$25.00</strong></td><td class="alt"><strong>$1,266.45</strong></td></tr></table><div class="sxs-save"><strong>Option A (Edge): you keep $1,072.18 in August.</strong> Your cost on card sales is $0. The card price is posted, the card-paying customer covers it, and cash, check, and ACH customers pay less than the card price.</div><div class="sxs-save alt"><strong>Option B (AllProPay Rate): about $169.27 a month more than you pay now.</strong> I am showing you that instead of hiding it. Interchange-plus only changes the markup sitting on top of the card cost, and Propeller is already charging you about 0.28% over cost. There is nothing left there for me to win, so I will not pretend there is.</div><p class="note">Option B is modeled at our standard published pricing: interchange at cost, plus a flat 0.60% and 5 cents a transaction, plus $25 a month. Interchange is set by the card networks and varies with the exact card presented, so the per-brand figures in that column are estimates within roughly plus or minus 0.10%. Option A and the Propeller column are your actual statement figures.</p></div>
+
+    <div class="section"><h2>Every Fee, Itemized</h2><p>Your August statement runs to six pages and about sixty separate line items. Here is all $1,097.18 of it, sorted into what it actually is. Every figure below comes off your own statement.</p><table><tr><th>What it is</th><th style="text-align:right;">August</th></tr><tr><td><strong>Interchange and assessments</strong><br><span style="font-size:8pt; color:#64748B;">Paid to the bank that issued your customer's card, plus the Visa, Mastercard, and Discover network assessments. Nobody keeps this, and it is the same on any processor.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$829.05</strong></td></tr><tr><td><strong>American Express program fees</strong><br><span style="font-size:8pt; color:#64748B;">Amex prices its own volume. Your Amex ran about 2.37% before anything else was added.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$115.09</strong></td></tr><tr><td><strong>Propeller's markup (0.20%)</strong><br><span style="font-size:8pt; color:#64748B;">Charged as seven separate SALES DISCOUNT lines, one per card type, rather than a single figure. Added together it is 0.20% of your volume.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$87.91</strong></td></tr><tr><td><strong>Visa and Mastercard monthly and per-item network fees</strong><br><span style="font-size:8pt; color:#64748B;">Includes the $15.00 Visa CNP network fee and the $2.00 Visa CP fee, the $1.25 Mastercard location fee, and the per-item MOTO, digital enablement, and network access fees.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$30.35</strong></td></tr><tr><td><strong>CardPointe platform fee</strong><br><span style="font-size:8pt; color:#64748B;">The monthly fee for the platform your account sits on.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$20.00</strong></td></tr><tr><td><strong>Authorization fees</strong><br><span style="font-size:8pt; color:#64748B;">10 cents every time a card is authorized. 72 authorizations in August.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$7.20</strong></td></tr><tr><td><strong>Regulatory product fee</strong><br><span style="font-size:8pt; color:#64748B;">A flat monthly line item. It is not a government charge and it is not passed to anyone.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$3.50</strong></td></tr><tr><td><strong>Address verification, batch settlement, and data fees</strong><br><span style="font-size:8pt; color:#64748B;">Small per-item charges for AVS checks, closing your batch each day, and clearing files.</span></td><td style="text-align:right; white-space:nowrap;"><strong>$4.08</strong></td></tr><tr class="total-row"><td><strong>Total fees, August 2026</strong></td><td style="text-align:right;"><strong>$1,097.18</strong></td></tr></table><div class="insight">Only about <strong>$122.69 of that $1,097.18 is money Propeller keeps</strong>. The other $974.49 is the card networks and the issuing banks, and it follows you to any processor in the country. That is the single most important number on this page, and it is why I am not pitching you a cheaper rate.</div><p class="note">One thing worth diarising: page 2 of your statement says the non-receipt of PCI validation fee is going up to $49.99, and that it starts billing monthly if your PCI validation is not completed by October 25, 2026. You are not being charged it today. Please do not let that one switch on by accident.</p></div>
+
+    <div class="section">
+      <div class="section-header">What This Means</div>
+      <div class="takeaways">
+        <div class="takeaway"><h3>1. Your processor is not overcharging you</h3><p>Propeller keeps about 0.28% over the true cost of the card. That is genuinely tight, and it is why interchange-plus does not help you. If a competitor tells you they can cut your rate, ask them what their markup is and compare it to 0.28%. I would rather tell you that now than sell you something that does not work.</p></div><div class="takeaway"><h3>2. Your customers pay with the most expensive cards there are</h3><p>Corporate cards, purchasing cards, and business rewards cards ran a large share of your August volume, and those carry the highest interchange the networks publish, up to 3.15%. Before anyone adds a markup, your card cost was already 1.96%. No processor can negotiate that down, because no processor sets it.</p></div><div class="takeaway"><h3>3. The only lever left is who pays the fee</h3><p>You cannot lower interchange and there is almost nothing left in the markup. What you can change is whether the cost comes out of your job or is covered by the customer choosing to pay by card. That is Edge, and on your August numbers it is worth about $1,072 a month to you.</p></div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-line">Give me ten minutes and I will walk you through this statement line by line, so you can see where every number came from before you decide anything.</div>
+      <a href="tel:19299303050" class="cta-btn">Text or Call Me: 929-930-3050</a>
+      <div class="cta-print">Text or call me: 929-930-3050 &nbsp;&bull;&nbsp; tammy@allpropay.com</div>
+    </div>
+
+    <div class="booking-embed">
+      <div class="be-title">Prefer to grab a time now? Book directly with me.</div>
+      <iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy Millar" loading="lazy"></iframe>
+      <div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122106">Open the booking page</a>.</div>
+    </div>
+
+    <div class="sig">
+      <span class="name">Tammy Millar</span> &nbsp;&bull;&nbsp; AllProPay &nbsp;&bull;&nbsp; 929-930-3050 &nbsp;&bull;&nbsp; tammy@allpropay.com
+    </div>
+
+    <div class="note">
+      Prepared by Tammy Millar, AllProPay, from the Propeller Payments statement for August 1-31, 2026 (merchant number ending 8885). Savings figures are estimates based on that statement. Actual results depend on final card mix, volume, and the program you choose. Option B figures are modeled at our standard published pricing and are estimates, not statement figures. No contract, no setup fee, and no cancellation fee.
+    </div>
+  </div>
+</div>
+</body>
+</html>
