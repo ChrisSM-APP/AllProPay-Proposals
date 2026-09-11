@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | LeatherFix</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="subtitle">LeatherFix</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Lee &nbsp;|&nbsp; LeatherFix &nbsp;|&nbsp; Texas</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Carl Brown &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">First Data (about 2.5 percent all-in, per your own estimate)</span>
+        <span class="label">Date</span>
+        <span class="value">September 11, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>You told me two things on the phone that shaped this page. First, that you pay about 2.5 percent all-in with First Data. Second, that you have moved before and gone back every time, because nobody stayed true to what they said. So this is not a pitch. It is every number and every term, in writing, so you can hold me to it.</p>
+      <p>You told us what mattered most. We built the setup around it:</p>
+      <ul>
+        <li><strong>You pay about 2.5 percent all-in today.</strong> We did not have a statement in front of us, so we worked backward from that number. Everything on this page is built on it. When you do pull up a statement, I will swap every estimate here for your exact figures.</li><li><strong>You have been burned before.</strong> You switched, the terms changed, and you went back. I am not going to tell you it will be different. I am going to show you, on paper, what the terms are, and give you a free exit if any of it moves.</li><li><strong>You want a person, not a queue.</strong> You have my direct number. I am your account manager, not a call center, and that does not change after the paperwork is signed.</li><li><strong>Nothing about how you take cards has to change.</strong> A terminal comes included, programmed and ready. This is a pricing and service change, not a project.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">A terminal, included</div>
+          <div class="p-body">Your terminal comes with the account at no charge. No lease, no rental, no purchase, and nothing to send back if you leave. It ships programmed, so you plug it in and take a card the same way you do today.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">AllProPay Rate, itemized</div>
+          <div class="p-body">You pay interchange, the true cost set by Visa and Mastercard, plus a flat 0.50 percent and 5 cents a transaction. That is the entire markup. Interchange is shown as interchange, markup as markup, and $20 a month is the only fixed fee. No tiers, no qualified and non-qualified games, no fee you did not see on this page first.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Me, directly</div>
+          <div class="p-body">I set the account up, I answer the phone after it is live, and I handle chargeback paperwork with you. No contract, no setup fee, no cancellation fee. If a fee ever shows up on your statement that is not on this page, you call me, and if I cannot fix it you leave at no cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Pricing</div>
+      <p>This is the locked pricing for the LeatherFix account.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Your markup on top of interchange</div>
+            <div class="pc-value">0.50% + $0.05</div>
+            <div class="pc-sub">Interchange is the true cost Visa and Mastercard set, identical for every processor. This is the only part anyone controls.</div>
+          </div>
+          <div>
+            <div class="pc-label">Your estimated all-in rate</div>
+            <div class="pc-value">2.0% to 2.3%</div>
+            <div class="pc-sub">Down from the 2.5 percent you told me you pay today. Estimated, not guaranteed, until I see one statement.</div>
+          </div>
+          <div>
+            <div class="pc-label">Your terminal</div>
+            <div class="pc-value">Included</div>
+            <div class="pc-sub">No lease, no rental, no purchase. Ships programmed and ready.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#64748B; font-weight:600; margin:18px 0 10px;">Your all-in rate, today and on AllProPay Rate</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0 0 4px;"><tr><td style="width:34%; padding:7px 10px 7px 0; font-size:9pt; color:#4B5563; vertical-align:middle;">Today (your estimate)</td><td style="padding:7px 0; vertical-align:middle;"><table role="presentation" style="border-collapse:collapse;"><tr><td style="background:#94A3B8; height:22px; width:280px; border-radius:3px;"></td><td style="padding-left:9px; font-size:11pt; font-weight:700; color:#64748B; white-space:nowrap;">2.50%</td></tr></table></td></tr><tr><td style="width:34%; padding:7px 10px 7px 0; font-size:9pt; color:#1A1A2E; font-weight:600; vertical-align:middle;">AllProPay Rate (estimated)</td><td style="padding:7px 0; vertical-align:middle;"><table role="presentation" style="border-collapse:collapse;"><tr><td style="background:#0052FF; height:22px; width:240px; border-radius:3px;"></td><td style="padding-left:9px; font-size:11pt; font-weight:700; color:#0052FF; white-space:nowrap;">2.0% to 2.3%</td></tr></table></td></tr></table><div style="font-size:8pt; color:#6B7280; margin-top:2px;">Interchange sits underneath both bars and is identical either way. What changes is the markup on top and the fixed fees around it. The AllProPay bar is an estimate built on the 2.5 percent you gave me; one statement replaces it with an exact number.</div><div style="font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#64748B; font-weight:600; margin:22px 0 8px;">What comes down, line by line</div><table style="width:100%; border-collapse:collapse; font-size:9.5pt;"><tr style="background:#F5F7FA;"><th style="text-align:left; padding:8px 10px; font-weight:600; color:#334155; border-bottom:1px solid #E2E8F0;">Line</th><th style="text-align:left; padding:8px 10px; font-weight:600; color:#334155; border-bottom:1px solid #E2E8F0;">Today</th><th style="text-align:left; padding:8px 10px; font-weight:600; color:#0052FF; border-bottom:1px solid #E2E8F0;">AllProPay Rate</th></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">All-in rate</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; color:#64748B;">about 2.5%</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600; color:#0052FF;">2.0% to 2.3% (est.)</td></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">Markup over interchange</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; color:#64748B;">bundled into the 2.5%</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600; color:#0052FF;">0.50% + $0.05, shown on its own line</td></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">Fixed monthly fees</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; color:#64748B;">on your statement</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600; color:#0052FF;">$20, one line</td></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">Terminal</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; color:#64748B;">on your statement</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600; color:#0052FF;">Included, no lease</td></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">PCI, statement, batch, annual, regulatory fees</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; color:#64748B;">on your statement</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600; color:#0052FF;">$0</td></tr><tr><td style="padding:7px 10px;">Contract, setup, cancellation</td><td style="padding:7px 10px; color:#64748B;">on your agreement</td><td style="padding:7px 10px; font-weight:600; color:#0052FF;">None</td></tr></table><div style="font-size:8pt; color:#6B7280; margin-top:7px;">I have not seen your First Data statement, so the Today column says where each line lives rather than guessing a number. Pull it up next to this page and fill the column in yourself. That is the comparison I want you to make.</div><div style="font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#64748B; font-weight:600; margin:22px 0 8px;">Find your row</div><table style="width:100%; border-collapse:collapse; font-size:9.5pt;"><tr style="background:#F5F7FA;"><th style="text-align:left; padding:8px 10px; font-weight:600; color:#334155; border-bottom:1px solid #E2E8F0;">Card sales a month</th><th style="text-align:left; padding:8px 10px; font-weight:600; color:#334155; border-bottom:1px solid #E2E8F0;">Estimated kept a month</th><th style="text-align:left; padding:8px 10px; font-weight:600; color:#334155; border-bottom:1px solid #E2E8F0;">Estimated kept a year</th></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">$10,000</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">about $10 to $40</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600;">about $100 to $450</td></tr><tr><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">$20,000</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6;">about $35 to $95</td><td style="padding:7px 10px; border-bottom:1px solid #EEF2F6; font-weight:600;">about $400 to $1,100</td></tr><tr><td style="padding:7px 10px;">$30,000</td><td style="padding:7px 10px;">about $60 to $150</td><td style="padding:7px 10px; font-weight:600;">about $750 to $1,800</td></tr></table><div style="font-size:8pt; color:#6B7280; margin-top:7px;">Each row is your 2.5 percent against the estimated all-in above, with the $20 a month and the 5 cents a transaction already taken out. Estimated, not guaranteed. Tell me which row is closest and I will replace this table with one exact number.</div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (terminal, invoicing, and card on file)</td></tr>
+          <tr><td>Platform fee</td><td>$20 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Terminal</td><td>Included, no charge</td><td>No lease, no rental, no purchase. Ships programmed and ready to use.</td></tr><tr><td>American Express</td><td>Interchange + 0.50% + $0.05</td><td>Same markup as every other card, no separate AMEX bill</td></tr><tr><td>ACH / bank transfer</td><td>0.50%, capped at $10</td><td>Optional, for invoices customers pay from their bank</td></tr><tr><td>PCI, statement, batch, annual, regulatory fees</td><td>$0</td><td>None of these are on your bill. The platform fee is the only fixed fee.</td></tr><tr><td>Chargeback</td><td>$15 each</td><td>Only if one happens. I handle the paperwork with you.</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Your estimated all-in rate on AllProPay Rate</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">2.0% to 2.3%</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">down from the 2.5 percent you told me you pay today, with $20 a month as the only fixed fee</div></div><p>I do not have your statement, so I built this on the one number you gave me and I have shown you exactly what I assumed rather than presenting it as your figure. What is <strong>not</strong> an assumption is the structure: interchange at cost, <strong>0.50 percent and 5 cents on top, $20 a month, terminal included, and nothing else on the bill.</strong> That holds whatever your volume turns out to be. All the volume decides is how many dollars the gap is worth, and the table above shows that honestly, including the fact that it is modest on a light month. If it turns out your 2.5 percent is already close to the bottom for your card mix, I will tell you that and we stop there. Estimated, not guaranteed.</p>
+      </div>
+    </div>
+
+    <div class="section apc-calc" style="display:none">
+      <div class="section-header">Estimate Your Own Savings</div>
+      <p>Every business runs a different volume, so put your own numbers in and see a live estimate against what you pay today. Nothing here is a bill or a commitment. It just turns the pricing above into real dollars for your shop.</p>
+
+      <style>
+        .apc-calc .apc-money { background:#0B1120; color:#fff; border-radius:8px; padding:20px 24px; margin:16px 0; text-align:center; }
+        .apc-calc .apc-money .apc-money-label { font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin-bottom:6px; }
+        .apc-calc .apc-money .apc-money-value { font-family:'Montserrat',sans-serif; font-size:30pt; font-weight:800; color:#38BDF8; line-height:1.1; }
+        .apc-calc .apc-money .apc-money-sub { font-size:8.5pt; color:#94A3B8; margin-top:6px; }
+        .apc-calc .apc-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:16px 0; }
+        .apc-calc .apc-field label { display:block; font-size:8.5pt; font-weight:600; color:#334155; margin-bottom:5px; }
+        .apc-calc .apc-field .apc-inwrap { position:relative; }
+        .apc-calc .apc-field input { width:100%; font-family:'Inter',Arial,sans-serif; font-size:12pt; font-weight:600; color:#1A1A2E; padding:11px 12px; border:1.5px solid #CBD5E1; border-radius:6px; background:#fff; }
+        .apc-calc .apc-field input:focus { outline:none; border-color:#0052FF; }
+        .apc-calc .apc-field .apc-pre { padding-left:26px; }
+        .apc-calc .apc-field .apc-sign { position:absolute; left:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-field .apc-suf { padding-right:26px; }
+        .apc-calc .apc-field .apc-pct { position:absolute; right:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-lines { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; background:#F5F7FA; border-radius:8px; padding:16px 20px; margin-top:6px; }
+        .apc-calc .apc-line { display:flex; justify-content:space-between; align-items:baseline; font-size:10pt; }
+        .apc-calc .apc-line .apc-k { color:#64748B; }
+        .apc-calc .apc-line .apc-v { font-weight:700; color:#1A1A2E; font-family:'Montserrat',sans-serif; }
+        .apc-calc .apc-hint { font-size:8.5pt; color:#64748B; font-style:italic; margin-top:12px; line-height:1.5; }
+        .apc-calc .apc-print { display:none; }
+        @media screen and (max-width:640px) { .apc-calc .apc-inputs { grid-template-columns:1fr; } .apc-calc .apc-lines { grid-template-columns:1fr; } }
+        @media print {
+          .apc-calc .apc-inputs, .apc-calc .apc-lines { display:none; }
+          .apc-calc .apc-money .apc-money-value { color:#0052FF; font-size:18pt; }
+          .apc-calc .apc-money { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+          .apc-calc .apc-print { display:block; font-size:9pt; color:#334155; margin-top:8px; font-style:italic; }
+        }
+      </style>
+
+      <div class="apc-money">
+        <div class="apc-money-label">Estimated money kept in the business every year</div>
+        <div class="apc-money-value" id="apcAnnual">Enter your numbers</div>
+        <div class="apc-money-sub" id="apcMonthlyLine">Type your volume below to see a live estimate</div>
+      </div>
+
+      <div class="apc-inputs">
+        <div class="apc-field">
+          <label for="apcVol">Card sales per month</label>
+          <div class="apc-inwrap"><span class="apc-sign">$</span><input id="apcVol" class="apc-pre" type="text" inputmode="numeric" placeholder="e.g. 45,000"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcTxn">Card transactions per month</label>
+          <div class="apc-inwrap"><input id="apcTxn" type="text" inputmode="numeric" placeholder="e.g. 350"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcRate">What you pay now</label>
+          <div class="apc-inwrap"><input id="apcRate" class="apc-suf" type="text" inputmode="decimal" value="3.5"><span class="apc-pct">%</span></div>
+        </div>
+      </div>
+
+      <div class="apc-lines">
+        <div class="apc-line"><span class="apc-k">You pay now, per month</span><span class="apc-v" id="apcNow">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated with AllProPay</span><span class="apc-v" id="apcAp">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per month</span><span class="apc-v" id="apcSaveM">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per year</span><span class="apc-v" id="apcSaveY">-</span></div>
+      </div>
+
+      <p class="apc-hint">Estimates only, not a bill or a guarantee. AllProPay cost assumes an interchange-plus blended rate of about 1.9 to 2.2 percent on card-present sales, plus 5 cents a transaction and a 25 dollar monthly platform fee. Your exact interchange depends on your card mix. One QuickBooks payout summary or one recent statement locks these numbers to the penny.</p>
+      <p class="apc-print">Enter your monthly card volume and rate on the online version of this proposal to see your live savings estimate.</p>
+
+      <script>
+        (function () {
+          var vol = document.getElementById('apcVol');
+          var txn = document.getElementById('apcTxn');
+          var rate = document.getElementById('apcRate');
+          if (!vol) return;
+          var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+          var APC_LOW = 0.019, APC_HIGH = 0.022, PER_TXN = 0.05, MONTHLY = 25;
+          function num(el) {
+            if (!el) return 0;
+            var v = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+            return isNaN(v) ? 0 : v;
+          }
+          function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+          function range(a, b) { return fmt.format(Math.max(0, Math.round(a))) + ' to ' + fmt.format(Math.max(0, Math.round(b))); }
+          function calc() {
+            var v = num(vol), t = num(txn), r = num(rate);
+            if (v <= 0 || r <= 0) {
+              set('apcAnnual', 'Enter your numbers');
+              set('apcMonthlyLine', 'Type your volume below to see a live estimate');
+              set('apcNow', '-'); set('apcAp', '-'); set('apcSaveM', '-'); set('apcSaveY', '-');
+              return;
+            }
+            var now = v * (r / 100);
+            var apLow = v * APC_LOW + t * PER_TXN + MONTHLY;
+            var apHigh = v * APC_HIGH + t * PER_TXN + MONTHLY;
+            var saveHigh = now - apLow;
+            var saveLow = now - apHigh;
+            set('apcNow', fmt.format(Math.round(now)));
+            set('apcAp', range(apLow, apHigh));
+            if (saveHigh <= 0) {
+              set('apcAnnual', 'The win is the terminal');
+              set('apcMonthlyLine', 'At that rate the savings are small. The real win is a working terminal and no more hand-keying.');
+              set('apcSaveM', fmt.format(0));
+              set('apcSaveY', fmt.format(0));
+              return;
+            }
+            set('apcSaveM', range(saveLow, saveHigh));
+            set('apcSaveY', range(saveLow * 12, saveHigh * 12));
+            set('apcAnnual', range(saveLow * 12, saveHigh * 12));
+            set('apcMonthlyLine', 'About ' + range(saveLow, saveHigh) + ' a month, estimated, versus what you pay today');
+          }
+          vol.addEventListener('input', calc);
+          if (txn) txn.addEventListener('input', calc);
+          if (rate) rate.addEventListener('input', calc);
+          calc();
+        })();
+      </script>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Every Term, in Writing</div>
+      <p>You told me you have switched before and gone back, because what you were promised on the phone was not what showed up on the statement. I am not going to ask you to take my word for it. This section is the list of what I am committing to, in writing, and each line is something you can check against your first statement with me.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>The markup is fixed at 0.50 percent and 5 cents.</strong> Interchange changes only when Visa and Mastercard change it, and that passes through at cost, itemized, the same for every processor in the country. My part does not move.</li><li><strong>$20 a month is the only fixed fee.</strong> No PCI fee, no statement fee, no batch fee, no annual fee, no regulatory fee, no terminal lease. If a fee appears on your statement that is not on this page, you call me, and if I cannot fix it you leave at no cost.</li><li><strong>No contract, no setup fee, no cancellation fee.</strong> You are not locked in. The only thing keeping you here is that the numbers hold, month after month, which is the way it should be.</li><li><strong>You get me, not a queue.</strong> My direct number is on this page. I set the account up, I answer after it is live, and I do the chargeback paperwork with you. That does not change once the application is signed.</li><li><strong>You do not have to close anything on day one.</strong> Run your first deposits with me, check them against this page, and shut the old account down only when you have seen it hold.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li class="why"><strong>Your all-in comes down from about 2.5 percent to an estimated 2.0 to 2.3 percent.</strong> Same interchange underneath, a flat half a percent on top instead of whatever is bundled into your rate today. Estimated until I see one statement.</li><li class="why"><strong>Every fee is on this page before you sign.</strong> Markup, monthly, terminal, chargeback, and a $0 next to everything else. There is nothing to discover later, which is the part that went wrong last time.</li><li class="why"><strong>Your terminal is included.</strong> No lease, no rental, nothing to buy, nothing to send back. It ships programmed and you take a card the same way you do today.</li><li class="why"><strong>You have a direct line to the person who set it up.</strong> That is me. Not a ticket, not a hold queue, not someone reading your file for the first time.</li><li class="why"><strong>No contract, no setup fee, no cancellation fee.</strong> If I stop earning it, you walk, and it costs you nothing to walk.</li>
+      </ul>
+      <p style="margin-top:12px;">Here is the math on a $20,000 month, the middle row in the table above, at a typical ticket of a couple hundred dollars. At 2.5 percent you pay about $500 to your processor. On AllProPay Rate you pay interchange at cost, plus $100 in markup, about $5 in per-transaction fees, and $20 for the month. Depending on your mix of debit and credit cards, that lands somewhere between about $405 and $465, so roughly $35 to $95 stays in the business, call it $400 to $1,100 a year. On a lighter month the fixed $20 eats more of that gap, and I would rather tell you that here than have you find it on a statement. These are estimates built on the 2.5 percent you gave me, not a guarantee. One statement, or even just your monthly volume, turns every range on this page into a single exact number.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">Three short steps, and the first one is just reading:</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Check this page against your online statement.</strong> You do not have to send me anything. Pull up your First Data statement and put it next to this page: what they charge on top of interchange, what the fixed fees add up to, and what I am putting in writing. If you would rather do it together, call me while you are at the computer and I will read it back line by line.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>Ten minutes with me on the phone to fill in the application.</strong> I do the typing. You confirm the business details and send a photo of your driver's license. Underwriting is usually 24 to 48 hours and I handle the back and forth.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>Switch on, on your terms.</strong> The terminal arrives programmed. Run your first deposits, check them against this page, and close the old account only when you have seen the numbers hold. First settled batch lands the next morning.</div></div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You told me the last people did not keep their word. So I put mine on paper."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19294934037" class="cta-btn">Text or Call Me: 929-493-4037</a>
+        <div class="cta-print-text">Text or call me: 929-493-4037 &nbsp;|&nbsp; carl@allpropay.com</div>
+      </div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000178006" title="Book a call with Carl Brown" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000178006">Open the booking page</a>.</div></div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Carl Brown</div>
+        <div class="sig-contact">
+          <a href="tel:+19294934037" style="color:inherit; text-decoration:none;">929-493-4037</a> (text friendly)<br>
+          <a href="mailto:carl@allpropay.com" style="color:inherit; text-decoration:none;">carl@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
