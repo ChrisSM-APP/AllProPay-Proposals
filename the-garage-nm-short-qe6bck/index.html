@@ -151,7 +151,7 @@
   .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
   .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 1.1; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What your processor keeps on your July volume</div><table><tr><td class="hc-lab">Wells Fargo today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,009</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:58.4%"></span><span class="hc-val hc-val-new">$685</span><span class="chip hc-chip">-32%</span></td></tr></table><div class="hc-note">Your own July statement, both bars. The $5,528 card cost set by the networks is the same on either side and is not in the bars.</div></div>).
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What your processor keeps on your July volume</div><table><tr><td class="hc-lab">Wells Fargo today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,009</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:48.0%"></span><span class="hc-val hc-val-new">$563</span><span class="chip hc-chip">-44%</span></td></tr></table><div class="hc-note">Your own July statement, both bars. The $5,528 card cost set by the networks is the same on either side and is not in the bars.</div></div>).
      Dark-background twin of  on the long template. Ported from
      proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
      chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
@@ -491,9 +491,9 @@
 
     <div class="hero">
       <div class="hero-eyebrow">Your July statement, re-priced</div>
-      <h2>July says 2.48%, not 2.2%. A third off the part anyone can change.</h2>
-      <div class="price-row two"><div class="price-cell"><div class="pc-label"><span class="pill pill-today">Today</span> Wells Fargo kept, July</div><div class="pc-value today">$1,009</div><div class="pc-sub">0.358% over the card cost plus $60.25 a month.</div></div><div class="price-cell"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">$685 <span class="chip">32% less</span></div><div class="pc-sub">0.25% over the same card cost plus $25 a month.</div></div></div>
-      <div class="hero-chart"><div class="hc-title">What your processor keeps on your July volume</div><table><tr><td class="hc-lab">Wells Fargo today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,009</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:58.4%"></span><span class="hc-val hc-val-new">$685</span><span class="chip hc-chip">-32%</span></td></tr></table><div class="hc-note">Your own July statement, both bars. The $5,528 card cost set by the networks is the same on either side and is not in the bars.</div></div>
+      <h2>July says 2.48%, not 2.2%. Nearly half off the part anyone can change.</h2>
+      <div class="price-row two"><div class="price-cell"><div class="pc-label"><span class="pill pill-today">Today</span> Wells Fargo kept, July</div><div class="pc-value today">$1,009</div><div class="pc-sub">0.358% over the card cost plus $60.25 a month.</div></div><div class="price-cell"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">$563 <span class="chip">44% less</span></div><div class="pc-sub">0.20% + 5c over the same card cost plus $25 a month.</div></div></div>
+      <div class="hero-chart"><div class="hc-title">What your processor keeps on your July volume</div><table><tr><td class="hc-lab">Wells Fargo today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,009</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:48.0%"></span><span class="hc-val hc-val-new">$563</span><span class="chip hc-chip">-44%</span></td></tr></table><div class="hc-note">Your own July statement, both bars. The $5,528 card cost set by the networks is the same on either side and is not in the bars.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
@@ -501,7 +501,7 @@
       <tr><td>Next-day funding</td><td>Included</td></tr>
       <tr><td>AllProPay integration</td><td>Included</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
-      <tr><td>Visa, Mastercard, Discover, AMEX</td><td>Card cost + 0.25%</td></tr><tr><td>ACH (cap $10) / chargeback</td><td>0.50% / $15</td></tr>
+      <tr><td>Visa, Mastercard, Discover, AMEX</td><td>Card cost + 0.20% + $0.05</td></tr><tr><td>ACH (cap $10) / chargeback</td><td>0.50% / $15</td></tr>
       <tr><td>Setup fee</td><td>$0</td></tr>
       <tr><td>Contract / cancellation fee</td><td>None</td></tr>
     </table>
@@ -510,7 +510,7 @@
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">Every line comes down</div>
-        <div class="wc-body">Rate over the card cost 0.358% to 0.25%, monthly fees $60.25 to $25, and five fees off entirely.</div>
+        <div class="wc-body">Rate over the card cost 0.358% to 0.20%, monthly fees $60.25 to $25, and five fees off entirely.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">Check every number</div>
