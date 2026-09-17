@@ -44,6 +44,18 @@
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
+  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
+     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
+     carries the percent drop. */
+  .pricing-callout .pc-label { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .pricing-callout .pc-value { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
+  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
+  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 1.1; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -204,9 +216,9 @@
         <span class="label">Prepared by</span>
         <span class="value">Carl Brown &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current processor</span>
-        <span class="value">Wells Fargo Merchant Services (quoted about 2.2%; 2.6% also came up on our calls)</span>
+        <span class="value">Wells Fargo Merchant Services (July 2026 statement, 2.48% all-in)</span>
         <span class="label">Date</span>
-        <span class="value">August 31, 2026</span>
+        <span class="value">September 17, 2026</span>
       </div>
     </div>
 
@@ -214,10 +226,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You were straight with me, and I appreciate it. The shop runs on Wells Fargo today, the relationship goes back a long way, and the number on the table is about 2.2% on every card sale. You said it plainly: much lower than 2.2% earns a look. Here is my honest answer. I price one way, interchange plus a flat markup you can see, and I do not quote savings I cannot stand behind. One recent statement tells us both exactly where you stand, and if it shows 2.2% really is all you pay, I will tell you to stay put.</p>
+      <p>Thank you for sending the July statement. You set the bar at much lower than 2.2 percent, and I said one statement would tell us both whether I clear it. Here is the straight answer. The 2.2 percent was never the whole number: July's all-in is 2.48 percent, and 2.09 of that is the cost of the cards themselves, which Visa, Mastercard, Discover and AMEX set and no processor can move. The part anyone can change is the layer Wells Fargo adds on top, and that layer I can take down by about a third, line by line, with every number on this page checkable against the statement in your hand.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>The offer has to land meaningfully below the 2.2% you were quoted, or it is not worth the switch.</li><li>A quoted rate and a real statement are rarely the same number. Per-item fees, monthly fees, and padding usually push the true cost higher, and 2.6% also came up on our calls. The statement settles it.</li><li>Nothing about the counter changes: same workflow, a terminal that ships programmed and just works.</li><li>No long commitment. The current setup is with someone the shop knows, so trying us cannot mean being trapped.</li>
+        <li>The offer has to be meaningfully better than what you have today, or it is not worth the switch. It is: every fee Wells Fargo adds on top of the card cost comes down, and five of them come off entirely.</li><li>Nothing changes at the counter. Same workflow, a terminal that ships programmed and just works, and deposits that match the ticket so month end stays clean for you.</li><li>The relationship with Wells Fargo is personal, so trying us cannot mean being trapped. No contract, no setup fee, no cancellation fee.</li><li>You asked about getting under 2 percent. On this card mix that cannot happen on this model, and I would rather say so here than let you find out later. There is a way to do it, and it is on this page too.</li>
       </ul>
     </div>
 
@@ -225,45 +237,29 @@
       <div class="section-header">What You Get</div>
       <div class="pillars">
         <div class="pillar">
-          <div class="p-title">Same counter, same workflow</div>
-          <div class="p-body">We ship a countertop terminal already programmed for the account, and it is a like-for-like swap: unplug one, plug in the other. Your team rings up a repair exactly the way they do today, and deposits match the ticket so month end stays clean for whoever runs the books.</div>
+          <div class="p-title">The same pricing model, priced better</div>
+          <div class="p-body">You are already on interchange-plus, which is the model I would have put you on anyway. You pay the true cost of the card, and your processor adds a layer on top. In July that layer was 0.358 percent on every card brand plus $60.25 a month in account fees. Mine is 0.25 percent and $25 a month. That is the whole difference, and it is the only part of your bill anybody can change.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Pricing you can audit</div>
-          <div class="p-body">You pay interchange, the true cost set by Visa and Mastercard, plus a flat 0.60 percent and 5 cents a transaction. That is the entire markup, printed on every statement. No tiers, no padding, and nothing that creeps up after month three.</div>
+          <div class="p-title">Five fees off the statement entirely</div>
+          <div class="p-body">July carried a $25 PCI non-validation fee, a $10 PCI program fee, a $10 paper statement fee, a digital investment fee, and a handful of system and connectivity charges. We do not bill any of them. Your $25 platform fee covers PCI, statements, support, and the account, and that is the only monthly line there is.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">The statement review</div>
-          <div class="p-body">Send one recent Wells Fargo statement and I decode it line by line: your real effective rate against the 2.2% you were quoted, every fee itemized, and an exact side-by-side at our pricing. If the honest answer is that you should stay where you are, that is what I will tell you.</div>
+          <div class="p-title">Numbers you can audit</div>
+          <div class="p-body">The left-hand column of every table on this page is your own July statement, to the cent. I have not rounded anything in my favour and I have not left a line out. Your first statement with me should read the way this page reads, and if it does not, you call me and I fix it or you walk.</div>
         </div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-header">Your Pricing</div>
-      <p>This is the locked pricing for the The Garage account.</p>
+      <p>Here is your July statement, line by line, with what you pay now against what you would pay with me. Every number in the Today column came off your own statement, so you can check it.</p>
 
       <div class="pricing-callout">
-        <div class="pricing-grid">
-          <div>
-            <div class="pc-label">Credit and debit cards</div>
-            <div class="pc-value">Interchange + 0.60% + $0.05</div>
-            <div class="pc-sub">Interchange-plus, all card brands</div>
-          </div>
-          <div>
-            <div class="pc-label">AMEX (OptBlue)</div>
-            <div class="pc-value">Interchange + 0.60% + $0.05</div>
-            <div class="pc-sub">Direct AMEX program, no separate AMEX bill</div>
-          </div>
-          <div>
-            <div class="pc-label">ACH</div>
-            <div class="pc-value">0.50%</div>
-            <div class="pc-sub">Hard cap at $5 per transaction</div>
-          </div>
-        </div>
+        <div class="pricing-grid two"><div><div class="pc-label"><span class="pill pill-today">Today</span> Wells Fargo kept, July</div><div class="pc-value today">$1,009</div><div class="pc-sub">0.38% on top of the card cost, plus $60.25 a month in account fees. Your all-in was 2.48%.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">$685 <span class="chip">32% less</span></div><div class="pc-sub">0.25% on top of the same card cost, $25 a month, nothing else. Your all-in lands at about 2.35%.</div></div></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">What your processor keeps on your July volume ($264,014)</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:130px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Wells Fargo today</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:86%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$1,009</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:58.4%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">$685</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-32%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Both bars are your own July statement. The card cost itself, $5,528 set by Visa, Mastercard, Discover and AMEX, is the same on either side and is not in the bars.</div></div>
       </div>
 
-      
+      <table style="width:100%; border-collapse:collapse; margin:6px 0 4px; font-size:9.5pt;"><tr><th style="text-align:left; padding:7px 9px; background:#0B1120; color:#FFFFFF; font-size:8pt; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">What your processor charges on top of the card cost</th><th style="text-align:right; padding:7px 9px; background:#64748B; color:#FFFFFF; font-size:8pt; letter-spacing:0.06em; text-transform:uppercase; font-weight:600; width:22%;">Today</th><th style="text-align:right; padding:7px 9px; background:#0052FF; color:#FFFFFF; font-size:8pt; letter-spacing:0.06em; text-transform:uppercase; font-weight:600; width:22%;">With me</th></tr><tr><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0;">Rate over the card cost, Visa / Mastercard / Discover</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#64748B;">0.358%</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#0052FF; font-weight:700;">0.25%</td></tr><tr><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0;">Rate over the AMEX program cost</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#64748B;">0.358%</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#0052FF; font-weight:700;">0.25%</td></tr><tr><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0;">Per-transaction markup</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#64748B;">$0.00</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#0052FF; font-weight:700;">$0.00</td></tr><tr><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0;">Monthly account fees, all in<br><span style="font-size:8pt; color:#64748B;">Service charge $15, PCI non-validation $25, PCI program $10, paper statement $10, digital investment $0.25</span></td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#64748B;">$60.25</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#0052FF; font-weight:700;">$25.00</td></tr><tr><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0;">System file, clearing and connectivity fees</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#64748B;">$0.53</td><td style="padding:7px 9px; border-bottom:1px solid #E2E8F0; text-align:right; color:#0052FF; font-weight:700;">$0.00</td></tr><tr><td style="padding:8px 9px; background:#F1F5F9; font-weight:700;">What your processor keeps, July</td><td style="padding:8px 9px; background:#F1F5F9; text-align:right; font-weight:700; color:#475569;">$1,009.28</td><td style="padding:8px 9px; background:#0052FF; text-align:right; font-weight:700; color:#FFFFFF;">$685.04</td></tr></table>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
@@ -271,14 +267,14 @@
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
           <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (countertop terminal, invoicing, and card on file)</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
-          
+          <tr><td>Visa, Mastercard, Discover</td><td>Interchange + 0.25%</td><td>No per-transaction markup, same as today. Your July rate over the card cost was 0.358%.</td></tr><tr><td>American Express</td><td>AMEX program rate + 0.25%</td><td>Same 0.25% layer. Your July AMEX layer was 0.358%.</td></tr><tr><td>ACH for large repair invoices</td><td>0.50%, capped at $10</td><td>A $2,000 invoice clears for $10 instead of card rates</td></tr><tr><td>Chargeback fee</td><td>$15 each</td><td>Only if one is raised. You had none in July.</td></tr><tr><td>PCI, statement, and system fees</td><td>$0.00</td><td>We do not charge any of them. Your July statement carried $45.78 of them.</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
       <div class="insight">
-        A shop like yours, mostly card-present, typically blends out around <strong>1.8 to 2.2 percent all-in</strong> on this structure. Against the 2.2% you were quoted, that means the win depends on what your statement actually shows: if your true cost runs at the 2.6% end that came up on our calls, or the statement carries monthly fees and padding on top of the rate, there is real money here. If it shows a clean 2.2% all-in, I will say so and tell you to stay. These ranges are based on what was shared on our calls; one statement replaces them with exact numbers.
+        <strong>Your all-in goes from 2.48 percent in July to about 2.35 percent, and what your processor keeps drops by 32 percent.</strong> The card cost itself, $5,528 in July, is set by the networks and is identical on either side, so I am not going to pretend to lower it. What I am lowering is every line on top of it. On your July volume that is about $324 a month, and I show the honest annual figure further down rather than dressing it up.
       </div>
     </div>
 
@@ -397,30 +393,30 @@
     </div>
 
     <div class="section">
-      <div class="section-header">The Flexibility You Asked For</div>
-      <p>The account is built so you are never boxed in. If the shop ever decides it would rather not carry the card fee at all, the same account switches to AllProPay Edge, where a small, clearly disclosed adjustment moves the cost to the card-paying customer and your side goes to $0. No new application, no new equipment, same counter.</p>
+      <div class="section-header">The Only Way Under 2 Percent: Your Card Cost At Zero</div>
+      <p>You asked whether anyone can get you under 2 percent. On this page, no. Your customers pay with business cards, fleet cards, premium rewards cards and AMEX, and those cost 2.09 percent before any processor adds a cent. The only way under 2 is to stop carrying the cost, and that is a real option on the same account.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li><strong>Start on interchange-plus now.</strong> Clean, transparent, and lower than what you pay today.</li><li><strong>Switch to dual pricing whenever you want.</strong> Same account, same gateway, same workflow. The fee structure changes, the plumbing does not.</li><li><strong>Try one, then the other.</strong> Run a few months on IC+, see the actual cost on your statement, and decide if you want to move it to the customer. No penalty either way.</li>
+        <li><strong>AllProPay Edge.</strong> You post a card price and a cash price. The customer who chooses to pay by card covers the cost, and cash, check and ACH customers pay less. Your cost on card sales goes to zero and your deposits come in whole.</li><li><strong>On your July statement that is $6,512 kept in the business for the month</strong>, an estimated $65,000 to $78,000 a year, against the $324 a month on this page. The gap exists because this page can only ever lower part of what you pay, since you are still the one paying it. Edge removes the cost.</li><li>Same account, same terminal, same counter either way. Start on this page and switch later, or start there. No new application and nothing to reinstall.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li class="why"><strong>You pay interchange plus a flat 0.60 percent and 5 cents a transaction.</strong> No tiers, no padding. That is all you pay over the true cost of the card.</li><li class="why"><strong>Every fee is visible.</strong> The markup is printed on the statement, so you can check it any month you like. Nothing creeps.</li><li class="why"><strong>The numbers get proven before you sign anything.</strong> One statement, decoded line by line, exact side-by-side. If staying with Wells Fargo wins, I tell you that.</li><li class="why"><strong>Nothing changes at the counter.</strong> The terminal ships programmed, it is a like-for-like swap, and your team works exactly the way they do today.</li><li class="why"><strong>No contract, no setup fee, no cancellation fee.</strong> If we ever stop earning the business, you walk, and nothing personal has to break to try us.</li>
+        <li class="why"><strong>Every line comes down.</strong> Your rate over the card cost drops from 0.358 to 0.25 percent on every brand, your monthly fees drop from $60.25 to $25, and five separate fees come off the statement completely.</li><li class="why"><strong>You can check every number.</strong> The Today column is your own July statement. Nothing rounded in my favour, nothing left out.</li><li class="why"><strong>The expensive part is not your processor, and I will not pretend it is.</strong> $5,528 of your $6,537 in July was interchange, set by the card networks, because your customers pay with commercial and premium cards. Nobody can lower that. Anyone who tells you they can is not showing you the whole statement.</li><li class="why"><strong>No junk fees, ever.</strong> No PCI fee, no statement fee, no system fee, no annual fee. Your monthly is $25 and that is the whole of it.</li><li class="why"><strong>Nothing changes at the counter.</strong> A terminal that ships programmed, a like-for-like swap, and your team rings up a repair exactly the way they do today. No contract, no setup fee, no cancellation fee.</li>
       </ul>
-      <p style="margin-top:12px;">Put numbers on it. For every $10,000 a month in card sales, the 2.2% you were quoted is about $220 a month. If your real cost sits at the 2.6% that also came up on our calls, that is $260. On interchange plus 0.60 percent and 5 cents, the same volume typically lands around $180 to $220 in processing plus our $25 monthly. If your statement runs at the higher end, that is up to roughly $650 a year back for every $10,000 a month you put on cards. If it truly runs at a clean 2.2% all-in, the honest answer is that the gap is small, and I will say so. These are estimates based on what was shared on our calls, not a guarantee. One statement makes them exact.</p>
+      <p style="margin-top:12px;">Put honest numbers on it. On your July volume, the layer on top of the card cost goes from $1,009.28 to $685.04, which is about $324 a month back, roughly $3,300 to $3,900 a year depending on how the year runs against July. That is the straightforward version, and I am not going to dress it up: a third off a small number is still a small number. One more thing worth doing whatever you decide. The $25 PCI non-validation fee on your July statement is charged because the PCI questionnaire has not been completed. With me there is no PCI fee at all, but if you stay put, completing it turns that $300 a year off. These are estimates based on your July statement, not a guarantee; your card mix and volume set the exact number.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
       <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">Here is how we get you a real answer:</p>
+      <p style="margin-bottom:18px;">Three steps, and the first one is short.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send one recent processing statement.</strong> A photo or PDF of any recent month is enough. Text it to me or reply to my email, or just have it handy for our call Tuesday at 4:00.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>I decode it line by line.</strong> Your real effective rate against the quoted 2.2%, every fee itemized, and an exact side-by-side at interchange plus 0.60 percent. You see the same document I do.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>We decide on the numbers.</strong> If the win is real, we finish the application together in about ten minutes and you e-sign on the spot. If it is not, I tell you to stay put and we part friends.</div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>About ten minutes with me and Mike.</strong> We go through the July statement together so you can both see where every number on this page came from. If the win is real for you, I finish the application with you on the call and you e-sign on the spot.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>I set the account up around how the shop actually gets paid.</strong> Countertop terminal for the counter, invoicing and card on file for the bigger repair tickets, ACH for the ones where it makes sense.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>You check the first statement against this page.</strong> Every line on it should read the way it reads here. If one of them does not, call me and I fix it or you walk.</div></div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You set the bar at much lower than 2.2. One statement tells us both whether I clear it, and if I do not, I will be the one to say so."
+        "You asked for much lower than 2.2. The honest version is that July was 2.48, a third of the changeable part comes off with me, and the only way under 2 is to stop carrying the cost at all. All three of those are on this page."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
