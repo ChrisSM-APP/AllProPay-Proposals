@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Mo Cookies</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title">Estimated card fees on about $50,000 a month through Square</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:30%;">Square today (est.)</td><td style="width:50%;"><span class="pc-bar" style="width:100%; background:#64748B;"></span></td><td class="pc-num" style="width:20%;">$1,550 to $1,925</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:0.5%; background:#3B82F6;"></span></td><td class="pc-num">$0</td></tr></table><div class="pc-note">Per month, estimated from Square's published 2.6% + 10 cents at average tickets between $8 and $20. Your real volume and ticket size set the exact number.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <div class="contact">
+      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="subtitle">Mo Cookies</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Mo &nbsp;|&nbsp; Mo Cookies &nbsp;|&nbsp; Tallahassee, Florida</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current setup</span>
+        <span class="value">Square (2.6% + 10 cents per tap in store)</span>
+        <span class="label">Program</span>
+        <span class="value">Edge dual pricing</span>
+        <span class="label">Date</span>
+        <span class="value">September 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="blue-bar"></div>
+
+    <div class="section">
+      <div class="section-header">Where We Are</div>
+      <p>You asked me to be quick and to skip the performance, so here it is on one page. You run Mo Cookies on Square, you pay the card fees yourself, and you have already been thinking about moving that cost to the customer. Square will not let you do it, so the only way is off Square, and you do not want a science project to get there. This is two plug-in stations, a bakery register built for what you sell, and a card terminal beside each one that puts the card cost on the card-paying customer. Your cost on card sales goes to $0, your menu prices stay where they are, and your delivery tablets stay exactly as they are.</p>
+      <p>You told us what mattered most. We built the setup around it:</p>
+      <ul>
+        <li><strong>The fee goes on the card, the right way.</strong> Square cannot do it because it is not compliant with the Visa and Mastercard rules for this, and you already knew that. Our terminals are built for it: card price and cash price on the screen, disclosed before the customer taps.</li><li><strong>Nothing heavy.</strong> Two stationary setups, no mobile terminals you did not ask for. They arrive programmed. You put them on the counter and plug them in.</li><li><strong>Your menu prices do not move.</strong> Cash customers pay what is on the board. Card customers see the card price on the terminal. You are not reprinting anything or explaining a price change.</li><li><strong>You stay in control.</strong> Your delivery tablets stay off the register, by your design. No walled garden, no contract, no cancellation fee, and if you ever want off, you leave.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">Zero-cost card processing</div>
+          <div class="p-body">You said it yourself: you have been thinking about putting the processing fee on the customer. That is exactly what this program does, and it does it the compliant way Square cannot. The terminal shows the card price and the cash price, the customer picks, and on a card sale your business keeps the full ticket. The 2.6 percent and 10 cents Square takes off every tap today stops coming off.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">A bakery register on two plug-in stations</div>
+          <div class="p-body">Each station is an EPOS Now bakery point of sale: a touchscreen register with your menu and modifiers, a receipt printer, a cash drawer, and end-of-day reporting you can read from your phone. Beside it sits a countertop card terminal programmed for dual pricing. It is the whole shebang we talked about, and it is built to be plugged in, not built out. We confirm your existing Epson printers and drawers at setup so you only replace what you have to.</div>
+        </div>
+        <div class="pillar">
+          <div class="p-title">Backed and flexible</div>
+          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Your Program</div>
+      <p>This is the program we set up for the Mo Cookies account.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid">
+          <div>
+            <div class="pc-label">Your cost on card sales</div>
+            <div class="pc-value">$0</div>
+            <div class="pc-sub">The card-paying customer covers the card. Your deposits come in whole.</div>
+          </div>
+          <div>
+            <div class="pc-label">Your menu prices</div>
+            <div class="pc-value">Unchanged</div>
+            <div class="pc-sub">Cash customers pay what is on the board. Nothing to reprint.</div>
+          </div>
+          <div>
+            <div class="pc-label">Card-paying customers</div>
+            <div class="pc-value">About 24 cents</div>
+            <div class="pc-sub">on a $6 sale, shown on the terminal before they tap. That is what covers the card.</div>
+          </div>
+        </div>
+        <div class="prog-chart"><div class="pchart-title">Estimated card fees on about $50,000 a month through Square</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:30%;">Square today (est.)</td><td style="width:50%;"><span class="pc-bar" style="width:100%; background:#64748B;"></span></td><td class="pc-num" style="width:20%;">$1,550 to $1,925</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:0.5%; background:#3B82F6;"></span></td><td class="pc-num">$0</td></tr></table><div class="pc-note">Per month, estimated from Square's published 2.6% + 10 cents at average tickets between $8 and $20. Your real volume and ticket size set the exact number.</div></div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
+          <tr><td>Two countertop card terminals</td><td>Included</td><td>One per station, programmed for dual pricing, plug in and go</td></tr>
+          <tr><td>EPOS Now bakery point of sale, two stations</td><td>Quoted separately</td><td>Touchscreen register, printer, cash drawer, software and support. No long lease, confirmed with you before anything ships.</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+        </tbody>
+      </table>
+
+      <div class="insight">
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$18,000 to $23,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated at about $50,000 a month in card sales through Square, in store. Roughly $3,700 to $4,600 a year for every $10,000 a month, so scale it to your real number.</div></div><p>Square is simple, and simple is expensive on a bakery ticket. <strong>Square's published in-store rate is 2.6 percent plus 10 cents on every tap, and on a $6 cookie sale that 10 cents alone is 1.7 percent, so the real cost on that sale is about 4.3 percent.</strong> On $10,000 a month that is roughly $310 to $385 out of your deposits, and the smaller your average ticket, the closer you sit to the top of that range. On Edge the card-paying customer covers about 24 cents on that same $6 sale, shown on the terminal before they tap, and you keep the $6. Your cost on the sale is $0. The whole account is $25 a month.</p>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <div class="section-header">The Flexibility You Asked For</div>
+      <p>You told me you are exploring options, so here is how this one stays flexible instead of boxing you in.</p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li>Start on Edge and your cost on card sales is $0 from the first tap. If you ever decide you would rather carry the cost yourself again, the same account switches to AllProPay Rate, which is interchange plus a small flat markup. No new application, no new terminals.</li><li>The register and the card terminal are separate pieces, so if you only ever want the card side changed, we can start there and add the register later.</li><li>No contract and no cancellation fee. If it is not better than Square, you go back and it cost you nothing to find out.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Why This Is the Right Move</div>
+      <ul class="why-list">
+        <li><strong>It is the thing you were already going to do.</strong> You have been considering putting the fee on the customer. This does it compliantly, at the terminal, without you having to build it yourself.</li><li><strong>The number is real and it scales.</strong> Roughly $310 to $385 a month leaves your deposits for every $10,000 you run through Square. At about $50,000 a month that is an <strong>estimated $18,000 to $23,000 a year</strong> kept in the business. On Edge your cost on card sales is $0.</li><li><strong>Your prices and your customers do not feel it.</strong> The menu stays the same. A card customer sees about 24 cents on a $6 sale, on the screen, before they tap. Cash customers pay the board price.</li><li><strong>Plug and play, on your terms.</strong> Two stationary stations, nothing mobile, delivery tablets untouched. Everything arrives programmed.</li><li><strong>No lock-in.</strong> No contract, no setup fee, no cancellation fee, and the point-of-sale runs on no long lease. You keep the freedom of choice you have protected so far.</li>
+      </ul>
+      <p style="margin-top:12px;">Put it on one sale. A customer buys a $6 cookie and pays by card. On Square today you keep about $5.74. On Edge the terminal shows $6.24 for card or $6.00 for cash, the customer picks, and either way you keep $6.00. Across $50,000 a month that is an estimated $1,550 to $1,925 a month that stays in the business, or $18,000 to $23,000 a year. These are estimates from Square's published rate and the volume we talked about, not a guarantee; your real volume and ticket size set the exact figure, and I will trade the estimate for your number on the call.</p>
+    </div>
+
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
+      <div class="section-header">Next Steps</div>
+      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Ten minutes with me on Monday.</strong> You give me your real monthly number and we confirm the two stations. I finish the application with you on the call and you e-sign on the spot.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Switch on.</strong> Both stations arrive set up: the bakery register with your menu loaded, and a card terminal beside each one programmed for dual pricing. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You asked for quick and direct. Two stations, plug them in, your card cost goes to zero, your menu does not change. Ten minutes Monday and the account is open."
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+        <div class="cta-print-text">Text or call me: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+      </div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
+    </div>
+
+    <div class="signature-block">
+      <div>
+        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-contact">
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
+          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+        </div>
+      </div>
+      <div class="sig-right">
+        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
+        <div class="sig-tagline">Accept payments anywhere.</div>
+      </div>
+    </div>
+
+    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. On Edge the card price is shown on the terminal and the card-paying customer covers the card cost, disclosed before payment; cash customers pay the lower menu price. Point-of-sale hardware and software are quoted separately and are not included in the $0 figures. Square figures are Square's published in-store rate and are estimates, not a statement review. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+  </div>
+
+</div>
+</body>
+</html>
