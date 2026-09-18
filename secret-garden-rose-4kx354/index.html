@@ -49,18 +49,24 @@
   /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
      smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
      carries the percent drop. */
-  .pricing-callout .pc-label { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-  .pricing-callout .pc-value { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
   .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
   .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
   .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
   .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
   .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
-  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 1.1; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step { display: flex; gap: 16px; align-items: flex-start; }
-  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
   .step-content strong { font-weight: 600; color: var(--text); }
   .why-list { list-style: none; margin: 0; padding: 0; }
   .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
@@ -103,7 +109,7 @@
     tbody td { padding: 5px 10px; font-size: 9pt; }
     .pricing-callout { padding: 14px 18px; }
     .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
     .step-content { font-size: 9.5pt; padding-top: 4px; }
     .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
     .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
@@ -219,7 +225,7 @@
         <span class="label">Current processor</span>
         <span class="value">Stripe, through Shopify (published online rate 2.9% + 30 cents on every order)</span>
         <span class="label">Date</span>
-        <span class="value">September 17, 2026</span>
+        <span class="value">September 18, 2026</span>
       </div>
     </div>
 
@@ -227,10 +233,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>Luke, good talking with you. Here is what you told me, so you know I was listening: Secret Garden Rose runs on Shopify today and is moving up to Shopify Plus, with Stripe handling the card processing underneath. At your volume a flat rate is the expensive way to take cards. The plan is simple: keep Shopify Plus, connect our processing behind it through Authorize.net, and pay true cost plus one small flat markup on every card, online or in the shop.</p>
+      <p>Luke, good talking with you. Here is what you told me, so you know I was listening: Secret Garden Rose runs on Shopify, with Stripe handling the card processing underneath. At your volume a flat rate is the expensive way to take cards. The plan is simple: keep Shopify, connect our processing behind it through Authorize.net, and pay true cost plus one small flat markup on every card, online or in the shop.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Keep Shopify Plus as the store. Checkout, orders, and same-day delivery run exactly as they do for your customers today. Only the processing behind it changes.</li><li>One rate for every card, Visa, Mastercard, Discover, and AMEX alike: interchange plus 0.40 percent and 15 cents. Same in person and online, and it is locked.</li><li>One monthly fee that covers the gateway, PCI, statements, and support. No annual fee, no surprises.</li><li>Month to month, no contract. If we ever stop earning it, you walk.</li>
+        <li>Keep Shopify as the store. Checkout, orders, and same-day delivery run exactly as they do for your customers today. Only the processing behind it changes.</li><li>One rate for every card, Visa, Mastercard, Discover, and AMEX alike: interchange plus 0.20 percent and 15 cents. Same in person and online, and it is locked.</li><li>One monthly fee that covers the gateway, PCI, statements, and support. No annual fee, no surprises.</li><li>Month to month, no contract. If we ever stop earning it, you walk.</li>
       </ul>
     </div>
 
@@ -238,16 +244,16 @@
       <div class="section-header">What You Get</div>
       <div class="pillars">
         <div class="pillar">
-          <div class="p-title">Shopify Plus stays</div>
-          <div class="p-body">You keep the store you are building. Authorize.net is one of the payment gateways Shopify supports, so it connects to Shopify Plus as your payment provider and our processing sits behind it. Orders, checkout, and delivery run the way they do today. The money just settles to you at true cost. Cards taken in the shop run on the same account and the same markup.</div>
+          <div class="p-title">Shopify stays</div>
+          <div class="p-body">You keep the store you have. Authorize.net is one of the payment gateways Shopify supports, so it connects to Shopify as your payment provider and our processing sits behind it. Orders, checkout, and delivery run the way they do today. The money just settles to you at true cost. Cards taken in the shop run on the same account and the same markup.</div>
         </div>
         <div class="pillar">
           <div class="p-title">True-cost pricing</div>
-          <div class="p-body">You pay interchange, the real cost set by Visa, Mastercard, and the card brands, plus a flat 0.40 percent and 15 cents a transaction. That is the entire markup, and it is the same on every card. Stripe charges one flat 2.9 percent plus 30 cents on every online order, whatever the card. Most cards cost far less than that to run. On true-cost pricing you keep the difference.</div>
+          <div class="p-body">You pay interchange, the real cost set by Visa, Mastercard, and the card brands, plus a flat 0.20 percent and 15 cents a transaction. That is the entire markup, and it is the same on every card. Stripe charges one flat 2.9 percent plus 30 cents on every online order, whatever the card. Most cards cost far less than that to run. On true-cost pricing you keep the difference.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Real support, no lock-in</div>
-          <div class="p-body">A named rep who connects the gateway alongside your Shopify Plus setup, answers the phone, and handles any chargeback paperwork with you. One flat monthly fee covers the gateway, PCI, statements, and support. No annual fee, no setup fee, no contract, no cancellation fee.</div>
+          <div class="p-body">A named rep who connects the gateway to your Shopify store, answers the phone, and handles any chargeback paperwork with you. One flat monthly fee covers the gateway, PCI, statements, and support. No annual fee, no setup fee, no contract, no cancellation fee.</div>
         </div>
       </div>
     </div>
@@ -257,7 +263,7 @@
       <p>This is the locked pricing for the Secret Garden Rose account.</p>
 
       <div class="pricing-callout">
-        <div class="pricing-grid two"><div><div class="pc-label"><span class="pill pill-today">Today</span> Stripe</div><div class="pc-value today">2.9% + 30c</div><div class="pc-sub">Stripe's published online rate. About 3.2% all-in on a $100 order, whatever the card.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.6% <span class="chip">18% less</span></div><div class="pc-sub">All-in estimate on a $100 online order, per-transaction included. True cost plus one flat markup, Interchange + 0.40% + $0.15, shown in the table below.</div></div></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">Card fees on a $50,000 month of online orders</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:120px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Stripe today</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:86%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$1,600</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:70%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">~$1,300</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-18%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Estimated at about $50,000 a month in online orders at a $100 average, since we have not run your real volume yet. Roughly $2,400 to $4,800 a year kept at that volume; it scales with yours. Your card mix sets the exact number.</div></div>
+        <div class="pricing-grid two"><div><div class="pc-label"><span class="pill pill-today">Today</span> Stripe</div><div class="pc-value today">2.9% + 30c</div><div class="pc-sub">Stripe's published online rate. About 3.2% all-in on a $100 order, whatever the card.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.4% <span class="chip">25% less</span></div><div class="pc-sub">All-in estimate on a $100 online order, per-transaction included. True cost plus one flat markup, Interchange + 0.20% + $0.15, shown in the table below.</div></div></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">Card fees on a $50,000 month of online orders</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:120px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Stripe today</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:86%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$1,600</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:64%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">~$1,200</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-25%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Estimated at about $50,000 a month in online orders at a $100 average, since we have not run your real volume yet. Roughly $3,600 to $6,000 a year kept at that volume; it scales with yours. Your card mix sets the exact number.</div></div>
       </div>
 
       
@@ -266,16 +272,16 @@
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
-          <tr><td>Gateway integration</td><td>Included</td><td>Authorize.net, connected to Shopify Plus. Any Shopify-side charge for using an outside gateway is set by your Plus plan, and I will confirm that figure with you</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Authorize.net, connected to Shopify. Any Shopify-side charge for using an outside gateway is set by your Shopify plan, and I will confirm that figure with you</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
-          <tr><td>Card rate, every brand (AMEX included)</td><td>Interchange + 0.40% + $0.15</td><td>The whole markup. Same online, in the shop, and on phone orders. Locked, it does not go up</td></tr><tr><td>Chargeback</td><td>$15 per case</td><td>Only if one happens</td></tr>
+          <tr><td>Card rate, every brand (AMEX included)</td><td>Interchange + 0.20% + $0.15</td><td>The whole markup. Same online, in the shop, and on phone orders. Locked, it does not go up</td></tr><tr><td>Chargeback</td><td>$15 per case</td><td>Only if one happens</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
       <div class="insight">
-        <strong>These are estimates from what you shared on the call, not a guarantee.</strong> On a $100 online order, Stripe's published 2.9 percent plus 30 cents works out to about 3.2 percent all-in. On true-cost pricing the same order lands around 2.4 to 2.8 percent all-in, per-transaction included, depending on the card your customer uses. The markup, 0.40 percent and 15 cents, is the only part we control, and it is locked. Fifteen minutes with your real monthly volume and I will show you the exact number.
+        <strong>These are estimates from what you shared on the call, not a guarantee.</strong> On a $100 online order, Stripe's published 2.9 percent plus 30 cents works out to about 3.2 percent all-in. On true-cost pricing the same order lands around 2.2 to 2.6 percent all-in, per-transaction included, depending on the card your customer uses. The markup, 0.20 percent and 15 cents, is the only part we control, and it is locked. Fifteen minutes with your real monthly volume and I will show you the exact number.
       </div>
     </div>
 
@@ -395,25 +401,25 @@
 
     <div class="section">
       <div class="section-header">Online, in the Shop, and Over the Phone</div>
-      <p>You asked for the fee structure for both in-person and remote payments. It is one structure. The markup is the same whether a customer taps a card at the counter on 28th Street, checks out on the website, or calls in an order: interchange plus 0.40 percent and 15 cents. The only thing that moves is interchange itself, and it is lower on a card that is physically present, so in-shop sales land below the online estimate on this page.</p>
+      <p>You asked for the fee structure for both in-person and remote payments. It is one structure. The markup is the same whether a customer taps a card at the counter on 28th Street, checks out on the website, or calls in an order: interchange plus 0.20 percent and 15 cents. The only thing that moves is interchange itself, and it is lower on a card that is physically present, so in-shop sales land below the online estimate on this page.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li><strong>Online:</strong> Authorize.net connected to Shopify Plus. Checkout does not change.</li><li><strong>In the shop:</strong> the same account and the same markup, at card-present interchange, which runs lower.</li><li><strong>Phone orders:</strong> keyed on the same account, same markup. One statement for all of it.</li>
+        <li><strong>Online:</strong> Authorize.net connected to Shopify. Checkout does not change.</li><li><strong>In the shop:</strong> the same account and the same markup, at card-present interchange, which runs lower.</li><li><strong>Phone orders:</strong> keyed on the same account, same markup. One statement for all of it.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li class="why"><strong>Interchange plus a flat 0.40 percent and 15 cents.</strong> That is the whole markup over the true cost of the card, on every card brand, and it does not go up.</li><li class="why"><strong>You stop paying a flat 2.9 percent on cards that cost far less to run.</strong> Debit and everyday cards cost a fraction of that at true cost. On true-cost pricing you keep the difference on every order.</li><li class="why"><strong>Shopify Plus stays exactly as you build it.</strong> Authorize.net is a Shopify-supported gateway. Checkout, orders, and same-day delivery do not change.</li><li class="why"><strong>One monthly fee, nothing hidden.</strong> Gateway, PCI, statements, and support in one line. No annual fee, no setup fee.</li><li class="why"><strong>Month to month, no contract, no cancellation fee.</strong> If we ever stop earning it, you walk.</li>
+        <li class="why"><strong>Interchange plus a flat 0.20 percent and 15 cents.</strong> That is the whole markup over the true cost of the card, on every card brand, and it does not go up.</li><li class="why"><strong>You stop paying a flat 2.9 percent on cards that cost far less to run.</strong> Debit and everyday cards cost a fraction of that at true cost. On true-cost pricing you keep the difference on every order.</li><li class="why"><strong>Shopify stays exactly as it is.</strong> Authorize.net is a Shopify-supported gateway. Checkout, orders, and same-day delivery do not change.</li><li class="why"><strong>One monthly fee, nothing hidden.</strong> Gateway, PCI, statements, and support in one line. No annual fee, no setup fee.</li><li class="why"><strong>Month to month, no contract, no cancellation fee.</strong> If we ever stop earning it, you walk.</li>
       </ul>
-      <p style="margin-top:12px;">Here is the math on a $50,000 month of online orders at about $100 an order. On Stripe's published 2.9 percent plus 30 cents that is about $1,600 in card fees. On interchange plus 0.40 percent and 15 cents, the same month lands around $1,200 to $1,400 including the monthly fee, so roughly $200 to $400 a month stays in the business, about $2,400 to $4,800 a year, and it scales with your volume. I picked $50,000 to show the shape of it. Give me your real monthly number and I will run it exactly. These are estimates, not a guarantee. The only thing that moves them is your card mix, and I can show you that live in fifteen minutes.</p>
+      <p style="margin-top:12px;">Here is the math on a $50,000 month of online orders at about $100 an order. On Stripe's published 2.9 percent plus 30 cents that is about $1,600 in card fees. On interchange plus 0.20 percent and 15 cents, the same month lands around $1,100 to $1,300 including the monthly fee, so roughly $300 to $500 a month stays in the business, about $3,600 to $6,000 a year, and it scales with your volume. I picked $50,000 to show the shape of it. Give me your real monthly number and I will run it exactly. These are estimates, not a guarantee. The only thing that moves them is your card mix, and I can show you that live in fifteen minutes.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
       <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">A few easy steps, on your timeline with Shopify Plus:</p>
+      <p style="margin-bottom:18px;">A few easy steps, on your timeline:</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Fifteen minutes with your real numbers.</strong> Send me your monthly online volume and a rough order count, or just text me a time. I run the exact math and you decide. No pressure either way.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>Confirm and sign.</strong> I fill in the application from what you already gave me. A photo of your driver's license finishes most of it. Approval usually runs 24 to 48 hours.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>We connect Authorize.net to Shopify Plus.</strong> I line the gateway setup up with your Plus launch. You are never without a way to take orders, and you switch Stripe off only after we are live.</div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Fifteen minutes with your real numbers.</strong> Send me your monthly online volume and a rough order count, or just text me a time. I run the exact math and you decide. No pressure either way.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>Confirm and sign.</strong> I fill in the application from what you already gave me. A photo of your driver's license finishes most of it. Approval usually runs 24 to 48 hours.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>We connect Authorize.net to Shopify.</strong> It is one connection in your Shopify payment settings, and I do it with you. You are never without a way to take orders, and you switch Stripe off only after we are live.</div></div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">

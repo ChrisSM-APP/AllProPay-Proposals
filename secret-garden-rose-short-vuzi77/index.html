@@ -142,16 +142,19 @@
   /* Hero default 2026-09-11: THEIR number grey and smaller, OUR number cyan,
      larger, with a soft glow. Pills tag the two sides; the chip carries the
      percent drop. Labels/values are flex so a pill or chip can sit inline. */
-  .price-cell .pc-label { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-  .price-cell .pc-value { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .price-cell .pc-label { display: block; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .price-cell .pc-value { display: block; }
+  .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
   .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
   .price-cell .pc-value.us { font-size: 26pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
   .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
   .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
   .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
-  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 1.1; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Card fees on a $50,000 month of online orders</div><table><tr><td class="hc-lab">Stripe today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,600</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:70%"></span><span class="hc-val hc-val-new">~$1,300</span><span class="chip hc-chip">-18%</span></td></tr></table><div class="hc-note">Estimated at about $50,000 a month at a $100 average order, since we have not run your real volume yet. Your card mix sets the exact number.</div></div>).
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Card fees on a $50,000 month of online orders</div><table><tr><td class="hc-lab">Stripe today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,600</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:64%"></span><span class="hc-val hc-val-new">~$1,200</span><span class="chip hc-chip">-25%</span></td></tr></table><div class="hc-note">Estimated at about $50,000 a month at a $100 average order, since we have not run your real volume yet. Your card mix sets the exact number.</div></div>).
      Dark-background twin of  on the long template. Ported from
      proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
      chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
@@ -232,10 +235,10 @@
     color: #fff;
     width: 26px;
     height: 26px;
+    line-height: 26px;
+    text-align: center;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 11pt;
@@ -345,7 +348,7 @@
     .why-cell .wc-body { font-size: 8pt; line-height: 1.35; }
     .steps-bar { display: flex; gap: 6px; margin: 10px 0 4px; }
     .step-card { padding: 8px 10px; }
-    .step-card .step-num { width: 20px; height: 20px; font-size: 9pt; margin-bottom: 4px; }
+    .step-card .step-num { width: 20px; height: 20px; line-height: 20px; font-size: 9pt; margin-bottom: 4px; }
     .step-card .step-title { font-size: 9pt; margin-bottom: 2px; }
     .step-card .step-body { font-size: 8pt; line-height: 1.35; }
     .cta-block { padding: 12px 18px; margin-top: 10px; }
@@ -479,29 +482,29 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Luke &middot; September 17, 2026</div>
+      <div class="eyebrow">Prepared for Luke &middot; September 18, 2026</div>
       <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
       <div class="merchant">Secret Garden Rose &nbsp;&middot;&nbsp; New York, New York</div>
       <div class="meta-row">
         <div><span>Current processor:</span><strong>Stripe, through Shopify (published online rate 2.9% + 30 cents on every order)</strong></div>
-        <div><span>Gateway:</span><strong>Authorize.net on Shopify Plus</strong></div>
+        <div><span>Gateway:</span><strong>Authorize.net on Shopify</strong></div>
         <div><span>Prepared by:</span><strong>Carl Brown</strong></div>
       </div>
     </div>
 
     <div class="hero">
-      <div class="hero-eyebrow">Your pricing on Shopify Plus, estimated from our call</div>
-      <h2>About 18% less in card fees. Shopify Plus stays as you build it.</h2>
-      <div class="price-row two"><div class="price-cell"><div class="pc-label"><span class="pill pill-today">Today</span> Stripe</div><div class="pc-value today">2.9% + 30c</div><div class="pc-sub">Stripe's published online rate. About 3.2% all-in on a $100 order.</div></div><div class="price-cell"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.6% <span class="chip">18% less</span></div><div class="pc-sub">All-in estimate on a $100 online order, per-transaction included. True cost plus one flat markup.</div></div></div>
-      <div class="hero-chart"><div class="hc-title">Card fees on a $50,000 month of online orders</div><table><tr><td class="hc-lab">Stripe today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,600</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:70%"></span><span class="hc-val hc-val-new">~$1,300</span><span class="chip hc-chip">-18%</span></td></tr></table><div class="hc-note">Estimated at about $50,000 a month at a $100 average order, since we have not run your real volume yet. Your card mix sets the exact number.</div></div>
+      <div class="hero-eyebrow">Your pricing on Shopify, estimated from our call</div>
+      <h2>About 25% less in card fees. Shopify stays as it is.</h2>
+      <div class="price-row two"><div class="price-cell"><div class="pc-label"><span class="pill pill-today">Today</span> Stripe</div><div class="pc-value today">2.9% + 30c</div><div class="pc-sub">Stripe's published online rate. About 3.2% all-in on a $100 order.</div></div><div class="price-cell"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.4% <span class="chip">25% less</span></div><div class="pc-sub">All-in estimate on a $100 online order, per-transaction included. True cost plus one flat markup.</div></div></div>
+      <div class="hero-chart"><div class="hc-title">Card fees on a $50,000 month of online orders</div><table><tr><td class="hc-lab">Stripe today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,600</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:64%"></span><span class="hc-val hc-val-new">~$1,200</span><span class="chip hc-chip">-25%</span></td></tr></table><div class="hc-note">Estimated at about $50,000 a month at a $100 average order, since we have not run your real volume yet. Your card mix sets the exact number.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>Authorize.net on Shopify Plus integration</td><td>Included</td></tr>
+      <tr><td>Authorize.net on Shopify integration</td><td>Included</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
-      <tr><td>Card rate, every brand (AMEX included)</td><td>Interchange + 0.40% + $0.15</td></tr><tr><td>Chargeback (only if one happens)</td><td>$15</td></tr>
+      <tr><td>Card rate, every brand (AMEX included)</td><td>Interchange + 0.20% + $0.15</td></tr><tr><td>Chargeback (only if one happens)</td><td>$15</td></tr>
       <tr><td>Setup fee</td><td>$0</td></tr>
       <tr><td>Contract / cancellation fee</td><td>None</td></tr>
     </table>
@@ -510,10 +513,10 @@
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">True-cost pricing</div>
-        <div class="wc-body">Interchange plus a flat 0.40% and 15 cents on every card, against Stripe's flat 2.9% + 30c. You keep the difference.</div>
+        <div class="wc-body">Interchange plus a flat 0.20% and 15 cents on every card, against Stripe's flat 2.9% + 30c. You keep the difference.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Shopify Plus stays</div>
+        <div class="wc-title">Shopify stays</div>
         <div class="wc-body">Authorize.net is a Shopify-supported gateway. Checkout, orders, and same-day delivery do not change.</div>
       </div>
       <div class="why-cell">
@@ -524,7 +527,7 @@
 
     <div class="sec-label">How We Get You Live</div>
     <div class="steps-bar">
-      <strong>1.</strong> Send me your monthly online volume, or text me a time. <strong>2.</strong> I run the exact math in 15 minutes, you decide. <strong>3.</strong> We connect Authorize.net to Shopify Plus and you go live.
+      <strong>1.</strong> Send me your monthly online volume, or text me a time. <strong>2.</strong> I run the exact math in 15 minutes, you decide. <strong>3.</strong> We connect Authorize.net to Shopify and you go live.
     </div>
 
     <div class="cta-block">
