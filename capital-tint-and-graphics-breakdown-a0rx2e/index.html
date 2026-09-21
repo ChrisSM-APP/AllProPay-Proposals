@@ -3,349 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllProPay Proposal | Capital Tint and Graphics</title>
+<title>May and July 2026 Statement Breakdown | Capital Tint and Graphics</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
   :root {
     --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
-    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+    --mid-gray: #E2E8F0; --text: #1A1A2E; --muted: #64748B;
+    --red: #B91C1C; --amber: #B45309; --green: #15803D;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
-  .page { max-width: 820px; margin: 0 auto; padding: 0; }
-  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
-  .doc-header .logo-img { height: 72px; width: auto; }
-  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
-  .content { padding: 36px 40px 48px; }
-  .title-block { margin-bottom: 32px; }
-  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
-  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
-  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
-  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10pt; color: var(--text); background: #fff; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: 820px; margin: 0 auto; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px 14px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 64px; width: auto; }
+  .doc-header .contact { font-size: 8pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 28px 40px 40px; }
+  .title-block { margin-bottom: 22px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 23pt; font-weight: 800; color: #000; line-height: 1.1; margin-bottom: 4px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 600; color: var(--blue); margin-bottom: 16px; }
+  .meta-grid { display: grid; grid-template-columns: 150px 1fr; gap: 4px 16px; font-size: 9pt; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
   .meta-grid .label { color: var(--muted); font-weight: 500; }
   .meta-grid .value { color: var(--text); font-weight: 500; }
-  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
-  .section { margin-bottom: 36px; }
-  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
-  p { margin-bottom: 10px; font-size: 10.5pt; }
-  ul { margin: 10px 0 10px 20px; }
-  ul li { margin-bottom: 6px; font-size: 10.5pt; }
-  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
-  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
-  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
-  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
-  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
-  thead tr { background: var(--navy); color: #fff; }
-  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
-  tbody tr:nth-child(even) { background: var(--light-gray); }
-  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
-  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
-  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
-  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
-  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
-  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  /* Cells centre under their labels (Chris, 2026-08-12). */
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
-  /* <div class="prog-chart"><div class="pchart-title" style="font-size:7.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin:14px 0 9px;">What card processing costs you a month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:150px; padding:0 10px 8px 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">Today on SDPay</td><td style="padding:0 0 8px 0;"><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:74%; background:#64748B; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#CBD5E1; margin-left:9px; vertical-align:middle;">$2,188</span></td></tr><tr><td class="pc-lab" style="width:150px; padding:0 10px 0 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">On AllProPay Edge</td><td><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:3.4%; background:#3B82F6; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#22C55E; margin-left:9px; vertical-align:middle;">$100</span></td></tr></table><div class="pc-note" style="font-size:7.5pt; color:#94A3B8; margin-top:8px;">Your May and July statements averaged $2,188 a month in fees on $99,632 of card sales. The $100 is the whole monthly bill on Edge: terminal, QuickBooks Online sync, and invoicing. Bars are drawn to the numbers.</div></div> now renders INSIDE the navy band, under the three cells,
-     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
-     better for this section"). Spec-supplied chart markup must therefore use
-     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
-     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
-  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
-  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
-  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
-  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
-  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
-  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
-  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
-  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
-  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
-  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
-  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
-     NOTE: braces are omitted from token names in CSS comments on purpose - the
-     builder substitutes {{...}} anywhere in the file, comments included.
-     Option A is OUR recommendation and must stay visually dominant: blue rule,
-     "What I recommend" badge, blue figure. Option B is the honest alternative
-     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
-     house rule) - the ranking is what makes showing two offers safe. */
-  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
-  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
-  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
-  .opt.opt-b { border-top: 4px solid #94A3B8; }
-  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
-  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
-  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
-  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
-  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
-  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
-  .opt.opt-a .opt-figure { color: var(--blue); }
-  .opt.opt-b .opt-figure { color: #64748B; }
-  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
-  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
-  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
-  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
-  .opt.opt-a .opt-list li:before { background: var(--blue); }
-  .opt.opt-b .opt-list li:before { background: #94A3B8; }
-  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
-  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
-     which strips display:flex. Float + line-height centering survives the paste. */
-  .steps { display: block; }
-  .step { display: block; overflow: hidden; margin-bottom: 14px; }
-  .step:last-child { margin-bottom: 0; }
-  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
-  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
-  .step-content strong { font-weight: 600; color: var(--text); }
-  .why-list { list-style: none; margin: 0; padding: 0; }
-  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
-  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
-  .insight strong { color: #B45309; }
-  .cta-wrap { text-align: center; margin-top: 20px; }
-  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
-  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
-  .booking-embed { margin-top: 24px; }
-  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
-  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
-  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .meta-grid .sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); vertical-align: middle; margin: 0 8px 2px; }
+  .section { margin-bottom: 26px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 700; color: var(--blue); padding-bottom: 6px; border-bottom: 2px solid var(--blue); margin-bottom: 14px; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat-cell { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .stat-label { font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 17pt; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .stat-value.danger { color: var(--red); }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  th.num, td.num { text-align: right; }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  /* --- Side-by-side "Today vs AllProPay" grid (added 2026-08-27) ------------
+     Column roles: .now = incumbent (slate), .new = the recommended AllProPay
+     program (brand blue, visually dominant), .alt = the optional second program
+     (light, deliberately subordinate - never co-equal with .new).
+     Colors follow the chart house rule: slate + brand blue, never red/green. */
+  table.sxs { font-size: 8.5pt; }
+  table.sxs th, table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  table.sxs th.band.b-lbl { background: var(--navy); }
+  table.sxs th.band.b-now { background: #64748B; }
+  table.sxs th.band.b-new { background: var(--blue); }
+  table.sxs th.band.b-alt { background: #94A3B8; }
+  table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F1F5F9; color: #475569; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F8FAFC; color: #64748B; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #DBEAFE; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #F1F5F9; color: #475569; font-size: 10pt; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 8px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #60A5FA; white-space: nowrap; }
+  /* Subordinate variant for the second offer. Use when the rep asks for two
+     programs: Option A keeps the solid navy band, Option B gets this lighter
+     one so the two read as RANKED, not co-equal (2026-08-27). */
+  .sxs-save.alt { background: #F1F5F9; color: #334155; border: 1px solid var(--mid-gray); padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #64748B; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #94A3B8; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #64748B; }
+  .flag { font-weight: 700; }
+  .flag.red { color: var(--red); }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .insight { background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 9.5pt; }
+  .insight strong { color: var(--amber); }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .hero-band { background: linear-gradient(135deg, #15803D 0%, #16A34A 55%, #22C55E 100%); border-radius: 10px; padding: 15px 22px; margin: 0 0 26px; color: #fff; box-shadow: 0 4px 14px rgba(21,128,61,0.22); text-align: center; }
+  .hero-band .sf-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; background: rgba(255,255,255,0.22); padding: 3px 13px; border-radius: 999px; margin-bottom: 7px; }
+  .hero-band .sf-figure { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 800; line-height: 1.02; }
+  .hero-band .sf-figure .sf-unit { font-size: 11pt; font-weight: 700; opacity: 0.9; }
+  .hero-band .sf-sub { font-size: 9.5pt; margin-top: 7px; font-weight: 600; }
+  .hero-band .sf-note { font-size: 7.5pt; margin-top: 5px; opacity: 0.9; }
+  .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .cta-block { text-align: center; margin-top: 24px; padding: 18px 22px; background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 10px; }
+  .cta-line { font-size: 10pt; color: var(--text); margin-bottom: 12px; font-weight: 500; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; padding: 12px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.2px; }
+  .cta-print { display: none; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed { margin-top: 18px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
   .booking-embed .be-fallback a { color: var(--blue); }
-  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
-  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
-  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
-  .sig-right { text-align: right; }
-  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
-  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
-  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
-    .pillars, .pricing-grid { display: block !important; }
-    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .pricing-callout { padding: 18px; }
-    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td { padding: 7px 8px; }
-  }
-  @media print {
-    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
-    .page { max-width: 100%; }
-    .pillars, .pricing-grid { display: block; }
-    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
-    .pricing-grid > div { margin-bottom: 10px; }
-    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
-    .doc-header { padding: 12px 32px 10px; }
-    .content { padding: 20px 32px 28px; }
-    .title-block { margin-bottom: 18px; }
-    .title-block h1 { font-size: 22pt; }
-    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
-    .blue-bar { margin: 14px 0; }
-    .section { margin-bottom: 18px; }
-    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
-    p { margin-bottom: 6px; font-size: 9.5pt; }
-    ul li { font-size: 9.5pt; margin-bottom: 3px; }
-    thead th { padding: 6px 10px; font-size: 8pt; }
-    tbody td { padding: 5px 10px; font-size: 9pt; }
-    .pricing-callout { padding: 14px 18px; }
-    .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
-    .step-content { font-size: 9.5pt; padding-top: 4px; }
-    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
-    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
-    .sig-name { font-size: 11pt; }
-    .cta-btn { display: none; }
-    .cta-print-text { display: block !important; }
-    .booking-embed { display: none !important; }
-  }
+  .sig { margin-top: 16px; font-size: 9pt; text-align: center; color: var(--muted); }
+  .sig .name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+  @media print { body { font-size: 9.5pt; } .doc-header, .content { padding-left: 28px; padding-right: 28px; } .cta-btn { display: none; } .cta-print { display: block !important; } .booking-embed { display: none !important; } }
 </style>
 </head>
 <body>
 <div class="page">
-
   <div class="doc-header">
-    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <img class="logo-img" src="AllProPay_Logo.jpg" alt="AllProPay">
     <div class="contact">
-      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
-      108 W 39th Street, Suite 1006, New York, NY 10018
+      Matt Butcher &nbsp;&middot;&nbsp; 929-930-3969 &nbsp;&middot;&nbsp; matt@allpropay.com<br>
+      AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018
     </div>
   </div>
 
   <div class="content">
-
     <div class="title-block">
-      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <h1>Your May and July Statement, <span class="accent">Decoded</span></h1>
       <div class="subtitle">Capital Tint and Graphics</div>
       <div class="meta-grid">
         <span class="label">Prepared for</span>
-        <span class="value">Marilyn &nbsp;|&nbsp; Capital Tint and Graphics &nbsp;|&nbsp; Colonie, New York</span>
+        <span class="value">Marilyn<span class="sep"></span>Capital Tint and Graphics</span>
+        <span class="label">Statement reviewed</span>
+        <span class="value">SDPay<span class="sep"></span>May 1-31 and July 1-31, 2026</span>
         <span class="label">Prepared by</span>
-        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
-        <span class="label">Current setup</span>
-        <span class="value">SDPay, interchange-plus (2.20% all in on your May and July statements)</span>
-        <span class="label">Program</span>
-        <span class="value">Edge dual pricing</span>
-        <span class="label">Date</span>
-        <span class="value">September 21, 2026</span>
-      </div>
-    </div>
-
-    <div class="blue-bar"></div>
-
-    <div class="section">
-      <div class="section-header">Where We Are</div>
-      <p>Marilyn, thank you for printing everything out and taking the call on Friday. You were right about the version on my last page: one posted price with a discount taken off at the counter is not how this runs in a showroom with a hundred tagged items, and I should have shown you the real setup the first time. You also told me how the shop actually works. Nearly every sale happens with a person in front of you paying by card, some of your dealer and business customers pay QuickBooks invoices by bank transfer, most of what you sell is quoted work with no barcode, and nobody is re-pricing the showroom. So this is the same program, rebuilt around that. The money is the same. The way it shows up in your shop is different.</p>
-      <p>You told us what mattered most. We built the setup around it:</p>
-      <ul>
-        <li><strong>Your showroom tags do not change.</strong> The price on every tag is your cash price, the price on it today. Someone comparing you to the shop down the road still sees your number.</li><li><strong>Two prices, shown before anyone pays.</strong> The terminal screen shows the card price and the cash price side by side before the customer taps. Quotes and QuickBooks invoices show both as well. The customer picks, and nothing is added after they have seen the price.</li><li><strong>QuickBooks stays, and gets the one thing Intuit does not offer.</strong> QuickBooks on its own does not let you show a card price on an invoice, which is why you switched cards off. Our invoice shows the card price and the bank-transfer price. Terminal sales and invoices post to QuickBooks Online, and your dealers keep paying by bank transfer at half the rate QuickBooks charges you now.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <div class="section-header">What You Get</div>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">Every price you show carries two numbers side by side: the card price and the cash price. The cash price is what you charge today. The card price is 3.25% more, shown beside it on the terminal screen before anyone taps, on every quote, and on every QuickBooks invoice. Nothing is added at the register. On a card sale your cost is $0 and the sale lands whole.</div>
-        </div>
-        <div class="pillar">
-          <div class="p-title">Same counter, same workflow</div>
-          <div class="p-body">Ninety-five percent of your sales happen with a customer in front of you, and that does not change. The terminal shows the card price and the cash price, the customer picks, you tap. Tint, graphics, bedliners, undercoating, tires, and labor never needed a barcode and still do not, because the quote is where those prices live and the quote carries both numbers.</div>
-        </div>
-        <div class="pillar">
-          <div class="p-title">Backed and flexible</div>
-          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
-        </div>
+        <span class="value">Matt Butcher<span class="sep"></span>AllProPay</span>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-header">Your Program</div>
-      <p>This is the program we set up for the Capital Tint and Graphics account.</p>
-
-      <div class="pricing-callout">
-        <div class="pricing-grid">
-          <div>
-            <div class="pc-label">Your cost on card sales</div>
-            <div class="pc-value">$0</div>
-            <div class="pc-sub">What a card sale costs you. Cash, check, and bank transfer pay the cash price.</div>
-          </div>
-          <div>
-            <div class="pc-label">A $450 tonneau cover, card price</div>
-            <div class="pc-value">$464.63</div>
-            <div class="pc-sub">The cash price stays $450. Both numbers on the terminal screen before the customer taps.</div>
-          </div>
-          <div>
-            <div class="pc-label">Your total monthly cost</div>
-            <div class="pc-value">$100</div>
-            <div class="pc-sub">Terminal, QuickBooks Online sync, and invoicing included. That is the whole bill.</div>
-          </div>
-        </div>
-        <div class="prog-chart"><div class="pchart-title" style="font-size:7.5pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin:14px 0 9px;">What card processing costs you a month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:150px; padding:0 10px 8px 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">Today on SDPay</td><td style="padding:0 0 8px 0;"><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:74%; background:#64748B; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#CBD5E1; margin-left:9px; vertical-align:middle;">$2,188</span></td></tr><tr><td class="pc-lab" style="width:150px; padding:0 10px 0 0; font-size:8.5pt; font-weight:600; color:#E2E8F0; white-space:nowrap;">On AllProPay Edge</td><td><span class="pc-bar" style="display:inline-block; height:15px; border-radius:3px; width:3.4%; background:#3B82F6; vertical-align:middle;"></span><span class="pc-num" style="font-family:'Montserrat',sans-serif; font-size:10.5pt; font-weight:800; color:#22C55E; margin-left:9px; vertical-align:middle;">$100</span></td></tr></table><div class="pc-note" style="font-size:7.5pt; color:#94A3B8; margin-top:8px;">Your May and July statements averaged $2,188 a month in fees on $99,632 of card sales. The $100 is the whole monthly bill on Edge: terminal, QuickBooks Online sync, and invoicing. Bars are drawn to the numbers.</div></div>
+      <div class="section-header">The Month at a Glance</div>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$199,264</div><div class="stat-sub">284 sales across both months, average ticket $701.64</div></div>
+        <div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$4,376</div><div class="stat-sub">$2,188 a month on average, about $26,257 a year</div></div>
+        <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">2.20%</div><div class="stat-sub">2.28% in May, 2.04% in July</div></div>
       </div>
+      <div class="insight">You asked what you are really paying, so I pulled both statements apart line by line. Here is the part most people never get shown: <strong>only about a tenth of one percent of that is your processor's markup.</strong> Their cut is roughly $124 to $188 a month. The other $2,000 or so every month is interchange and card brand fees, set by Visa, Mastercard, Discover and American Express. Your processor collects it and hands it straight through.</div>
+    </div>
 
+    <div class="hero-band">
+      <div class="sf-tag">Your Card Cost On Edge</div>
+      <div class="sf-figure">$0<span class="sf-unit"> on card sales</span></div>
+      <div class="sf-sub">About $25,000 a year stops leaving your business. Your cash prices stay where they are; the card price is shown beside them.</div>
+      <div class="sf-note">Estimated from your own May and July statements. Actual figures move with your volume and card mix.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Where Your Volume Came From</div>
       <table>
-        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+        <thead>
+          <tr><th>Card type</th><th style="text-align:right">Volume</th><th style="text-align:right">Sales</th><th style="text-align:right">Share</th><th style="text-align:right">What it cost you</th><th style="text-align:right">Effective rate</th></tr>
+        </thead>
         <tbody>
-          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Countertop smart terminal with two-price display</td><td>Included</td><td>Shows the card price and the cash price on screen before the customer pays. Set up and tested beside SDPay before you switch.</td></tr>
-          <tr><td>Posted card price</td><td>3.25%</td><td>Shown beside the cash price on the terminal, on quotes, and on invoices</td></tr><tr><td>QuickBooks Online sync and invoicing</td><td>Included</td><td>Terminal sales and invoices post to QuickBooks. Pay by link or email, card on file, bank transfer.</td></tr><tr><td>Bank transfer (ACH) on invoices</td><td>0.50% per payment</td><td>QuickBooks charges you 1% today. A $2,000 dealer invoice clears for $10 instead of $20.</td></tr><tr><td>Showroom tags</td><td>Unchanged</td><td>The price on the tag is your cash price. The card price shows on the terminal before the customer taps.</td></tr>
-          <tr><td>Platform fee</td><td>$100 per month, QuickBooks Online sync and terminal included</td><td>Account, statements, support, PCI</td></tr>
-          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
-          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+          <tr><td>Visa</td><td style="text-align:right">$100,275.65</td><td style="text-align:right">111</td><td style="text-align:right">50.3%</td><td style="text-align:right">$2,078.02</td><td style="text-align:right">2.07%</td></tr><tr><td>Mastercard</td><td style="text-align:right">$73,910.29</td><td style="text-align:right">139</td><td style="text-align:right">37.1%</td><td style="text-align:right">$1,548.59</td><td style="text-align:right">2.10%</td></tr><tr><td>American Express</td><td style="text-align:right">$17,310.26</td><td style="text-align:right">20</td><td style="text-align:right">8.7%</td><td style="text-align:right">$490.73</td><td style="text-align:right">2.84%</td></tr><tr><td>Discover</td><td style="text-align:right">$7,768.22</td><td style="text-align:right">14</td><td style="text-align:right">3.9%</td><td style="text-align:right">$173.48</td><td style="text-align:right">2.23%</td></tr><tr class="total-row"><td>Total</td><td style="text-align:right">$199,264.42</td><td style="text-align:right">284</td><td style="text-align:right">100%</td><td style="text-align:right">$4,290.82</td><td style="text-align:right">2.15%</td></tr>
         </tbody>
       </table>
-
-      <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">About $25,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated on the $99,632 monthly average of your May and July statements, after the $100 monthly</div></div><p>Take a $450 tonneau cover. Today that sale costs you about $9.90, and you never see it, because SDPay takes it out of your deposit at the end of the month along with everything else, $2,188 on an average month. On AllProPay Edge the terminal shows $464.63 card and $450 cash before the customer taps. Pay by card and the customer pays $464.63 and you keep $450, whole. Pay cash and they pay $450 and you keep $450. <strong>Either way, your cost on the sale is $0.</strong> That is the whole difference between this and the $52 a month AllProPay Rate would save you. A lower rate trims what you pay. This stops you paying it. Figures are estimates from your own two statements, not a guarantee; a lighter month returns less and a heavier one more.</p>
-      </div>
+      <div class="insight">Your book is <strong>commercial</strong>. Fleet, business and corporate cards run through your terminal constantly, and those carry the most expensive interchange there is. Your May statement alone has $9,729 on Mastercard Business Level 5 at 3.00% and $6,650 on Mastercard Commercial at 2.70%. That is why your rate sits where it does, and it is not something a cheaper processor can undo. Adding Level 2 data to those sales would shave a little off, and I will set that up, but it is worth tens of dollars a month, not thousands.</div>
     </div>
 
-    <div class="section"><div class="section-header">How This Runs in Your Shop</div><p>You were right on Friday: the version on my last page did not fit a shop that sells the way yours does. So here is the version built around how you actually sell. The card price and the cash price are shown side by side before anyone pays, the customer picks, and nothing is added after that.</p><table style="width:100%; border-collapse:collapse; margin:14px 0 6px;"><tr><td style="vertical-align:top; width:33%; padding:12px 14px; background:#F5F7FA; border:1px solid #E2E8F0; border-radius:6px;"><div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10pt; color:#0B1120; margin-bottom:6px;">Quoted and custom work</div><div style="font-size:8pt; color:#64748B; margin-bottom:8px;">Most of what you sell</div><p style="margin:0; font-size:9.5pt;">Tint, graphics, bedliners, undercoating, tires, labor. No barcode, no tag, and none needed. The quote is where the price lives, and every quote, in person or by email, shows the card price and the cash price. The terminal shows both again before the customer pays.</p></td><td style="width:1.5%;"></td><td style="vertical-align:top; width:33%; padding:12px 14px; background:#F5F7FA; border:1px solid #E2E8F0; border-radius:6px;"><div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10pt; color:#0B1120; margin-bottom:6px;">The showroom</div><div style="font-size:8pt; color:#64748B; margin-bottom:8px;">About 100 tagged items</div><p style="margin:0; font-size:9.5pt;">Your tags do not change. The price on the tag is your cash price, and a cash customer pays exactly that. When a card comes out, the terminal shows the card price and the cash price side by side before the customer taps. Nobody is re-pricing the store and nobody is printing new tags.</p></td><td style="width:1.5%;"></td><td style="vertical-align:top; width:33%; padding:12px 14px; background:#F5F7FA; border:1px solid #E2E8F0; border-radius:6px;"><div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10pt; color:#0B1120; margin-bottom:6px;">QuickBooks invoices</div><div style="font-size:8pt; color:#64748B; margin-bottom:8px;">Dealers and business customers</div><p style="margin:0; font-size:9.5pt;">QuickBooks on its own does not let you put a card price on an invoice, which is why you switched cards off. Ours does: the invoice shows the card price and the bank-transfer price. Most of these customers pay by bank transfer already and keep doing that, at 0.50% instead of the 1% QuickBooks charges you now. Terminal sales post to QuickBooks as well, so the books stay in one place.</p></td></tr></table><p style="margin:12px 0 0;"><strong>What you will not be doing.</strong> No re-tagging the showroom. No raising your cash prices. No second price list to maintain, because the terminal and the invoice print the second number for you. No fee the customer did not see on the screen before they paid. This is the same program running in shops across New York today, set up the same way.</p></div><div class="section"><div class="section-header">Your QuickBooks, Upgraded</div><table style="width:100%; border-collapse:collapse;"><tr><td style="vertical-align:top; padding:0 20px 0 0; width:58%;"><p style="margin:0 0 10px;"><strong>Your books do not move.</strong> Same QuickBooks Online, same customers, same reports. Terminal sales and invoices post to it.</p><p style="margin:0 0 10px;"><strong>You get the tools QuickBooks does not give you.</strong> Send an invoice by email or payment link, keep a card on file for your dealers, key a payment in yourself for the customer who calls to pay before pickup, and take bank transfers at half the rate you pay now. Card and bank deposits land separately, and each payment links back to its bundled daily deposit, so a lumped deposit matches in QuickBooks in one confirm instead of by hand.</p><p style="margin:0;"><strong>The card price and the cash price print on the invoice itself.</strong> Intuit does not offer this at all, which is why turning the card option off in QuickBooks was your only move until now.</p></td><td style="vertical-align:top; width:42%;"><img src="hyfin-qbo-auto-reconciliation.png" alt="Card and bank deposits matched back to QuickBooks Online in one confirm" style="width:100%; height:auto; display:block; border-radius:6px; border:1px solid #E2E8F0;"></td></tr></table></div><div class="section"><div class="section-header">Two Ways to Do This</div><p>Both are real offers, priced off your own statements. I recommend Edge, and you told me yourself why: the other one saves you $52 a month, and that is not worth changing processors for.</p><div class="options"><div class="opt opt-a"><span class="opt-tag">What I recommend</span><div class="opt-name">AllProPay Edge</div><div class="opt-mech">Card price and cash price shown side by side on the terminal, every quote, and every invoice. Card customers pay the card price.</div><div class="opt-figure">About $25,000</div><div class="opt-figure-sub">Estimated kept in the business per year on your May and July average, after the $100 monthly. Your cost per card sale: $0.</div><ul class="opt-list"><li>Your cost on card sales is $0 whatever the month does.</li><li>Your cash prices stay exactly where they are.</li><li>Both numbers shown before anyone pays, so there is never a surprise at the register.</li><li>Turn it off for any customer you want to look after, job by job.</li></ul></div><div class="opt opt-b"><span class="opt-tag">Also available</span><div class="opt-name">AllProPay Rate</div><div class="opt-mech">You keep paying the fee yourself. Interchange, the true cost set by Visa and Mastercard, plus 0.07% and 7 cents a sale.</div><div class="opt-figure">About $620</div><div class="opt-figure-sub">Estimated saved per year against SDPay. About $52 a month.</div><ul class="opt-list"><li>Nothing changes for your customers.</li><li>Your SDPay pricing is already sharp, which is why this number is small.</li><li>The right pick only if you decide you would rather absorb the cost.</li></ul></div></div><p class="opt-note">The honest difference: AllProPay Rate can only lower what you pay, because you are still the one paying it. Edge takes the cost off the business. Either way there is no contract, no setup fee, and no cancellation fee, and you can move between the two on the same account.</p></div>
+    <div class="section"><div class="section-header">Line by Line: Today vs AllProPay</div><table class="sxs"><thead><tr><th class="band b-lbl">Your statements</th><th class="band b-now" colspan="3">What SDPay charged you</th><th class="band b-new">AllProPay Edge</th><th class="band b-alt">AllProPay Rate</th></tr><tr><th class="sub first">Card type</th><th class="sub">Volume</th><th class="sub">Your rate</th><th class="sub">You paid</th><th class="sub">You pay</th><th class="sub">You pay (est.)</th></tr></thead><tbody><tr><td class="brand">Visa</td><td class="now">$100,275.65</td><td class="now">2.07%</td><td class="now">$2,078.02</td><td class="new">$0.00</td><td class="alt">$2,044.64</td></tr><tr><td class="brand">Mastercard</td><td class="now">$73,910.29</td><td class="now">2.10%</td><td class="now">$1,548.59</td><td class="new">$0.00</td><td class="alt">$1,522.34</td></tr><tr><td class="brand">American Express</td><td class="now">$17,310.26</td><td class="now">2.84%</td><td class="now">$490.73</td><td class="new">$0.00</td><td class="alt">$484.91</td></tr><tr><td class="brand">Discover</td><td class="now">$7,768.22</td><td class="now">2.23%</td><td class="now">$173.48</td><td class="new">$0.00</td><td class="alt">$170.70</td></tr><tr><td class="brand">Account fees</td><td class="now">&mdash;</td><td class="now">&mdash;</td><td class="now">$85.40</td><td class="new">$200.00</td><td class="alt">$50.00</td></tr><tr class="total-row"><td class="brand">Two months, all in</td><td class="now">$199,264.42</td><td class="now">2.20%</td><td class="now">$4,376.22</td><td class="new">$200.00</td><td class="alt">$4,272.58</td></tr></tbody></table><div class="sxs-save"><div><div class="ss-label">What you keep on Edge</div><div class="ss-sub">Your own two months, re-run. Roughly $2,088 a month, about $25,000 a year.</div></div><div class="ss-figure">$4,176.22</div></div><div class="sxs-save alt"><div><div class="ss-label">What you keep on AllProPay Rate</div><div class="ss-sub">Same two months. About $52 a month, roughly $620 a year.</div></div><div class="ss-figure">$103.64</div></div><p class="note">Everything in the SDPay columns is lifted straight off your May and July statements and adds back to the totals they printed. The Edge column is $0 because the card price shown beside your cash price covers the card cost, so nothing comes out of your deposit. The AllProPay Rate column is an estimate: it keeps your interchange and card brand fees exactly as they are, since nobody sets those, and replaces only your processor's markup with ours at 0.07% plus $0.07 a sale. That is why the numbers land so close to what you already pay. Account fees on our side are the monthly platform fee, two months shown: $100 on Edge (terminal, QuickBooks Online sync, and invoicing included) and $25 on AllProPay Rate.</p></div>
+
+    <div class="section"><div class="section-header">Every Fee, Itemized</div><p style="margin-bottom:12px">This is your July statement taken apart. I have grouped it the way it actually works, rather than the way it is printed, so you can see who keeps what.</p><table class="sxs"><thead><tr><th class="sub first">What it is</th><th class="sub">Who sets it</th><th class="sub">Who keeps it</th><th class="sub">July</th><th class="sub">% of volume</th></tr></thead><tbody><tr><td class="brand">Interchange (Program Charges)</td><td class="now" style="text-align:left">Visa, Mastercard, Discover, Amex</td><td class="now" style="text-align:left">The card issuing banks</td><td class="now">$1,140.50</td><td class="now">1.67%</td></tr><tr><td class="brand">Assessments and network dues</td><td class="now" style="text-align:left">The card brands</td><td class="now" style="text-align:left">The card brands</td><td class="now">$129.69</td><td class="now">0.19%</td></tr><tr><td class="brand">Discount markup at 0.10%</td><td class="now" style="text-align:left">Your processor</td><td class="now" style="text-align:left">Your processor</td><td class="now">$68.35</td><td class="now">0.10%</td></tr><tr><td class="brand">Authorizations, 134 at $0.10</td><td class="now" style="text-align:left">Your processor</td><td class="now" style="text-align:left">Your processor</td><td class="now">$13.40</td><td class="now">0.02%</td></tr><tr><td class="brand">Batch capture, 26 at $0.25</td><td class="now" style="text-align:left">Your processor</td><td class="now" style="text-align:left">Your processor</td><td class="now">$6.50</td><td class="now">0.01%</td></tr><tr><td class="brand">Address verification</td><td class="now" style="text-align:left">Your processor</td><td class="now" style="text-align:left">Your processor</td><td class="now">$0.45</td><td class="now">&mdash;</td></tr><tr><td class="brand">Monthly service charge</td><td class="now" style="text-align:left">Your processor</td><td class="now" style="text-align:left">Your processor</td><td class="now">$29.95</td><td class="now">&mdash;</td></tr><tr><td class="brand">Equipment and supplies</td><td class="now" style="text-align:left">Your processor</td><td class="now" style="text-align:left">Your processor</td><td class="now">$5.95</td><td class="now">&mdash;</td></tr><tr class="total-row"><td class="brand">July total</td><td class="now" style="text-align:left">&mdash;</td><td class="now" style="text-align:left">&mdash;</td><td class="now">$1,394.79</td><td class="now">2.04%</td></tr></tbody></table><div class="insight">Add up the four rows your processor actually keeps and it comes to <strong>$124.60 out of $1,394.79</strong>. I want to be straight with you: <strong>your pricing is good.</strong> Nobody is padding your statement. That is also exactly why the banks you sent it to went quiet on you.</div><p class="note">Two changes were announced on these statements and are worth watching. Your May statement said qualified discount rates could rise 0.05% and the per authorization fee could rise $0.03 from June 1. Your July statement added annual PIN debit network fees from August: PULSE $21.00, NYCE $19.00 and CULIANCE $19.00 per location.</p></div>
 
     <div class="section">
-      <div class="section-header">The Flexibility You Asked For</div>
-      <p>You have run this shop a long time and you know which customers you want to look after. The program bends to that, not the other way around.</p>
-      <ul class="why-list" style="margin-top:14px;">
-        <li><strong>Turn it off for anyone you choose.</strong> A long-time customer, a dealer you want to keep sweet: one tap on the terminal and that sale runs at the cash price on a card.</li><li><strong>Dealers on account pay how they pay.</strong> Bank transfer customers keep the cash price and their payment clears for 0.50%. A dealer who wants to put it on a company card sees the card price on the invoice, the same way they would anywhere.</li><li><strong>If you ever want to absorb the fee again,</strong> we move you to AllProPay Rate on the same account, at interchange plus 0.07% and 7 cents. It is on this page so you know it is real.</li><li><strong>Nothing gets switched off until a real sale has run through the new setup.</strong> SDPay stays live until you have watched it work on your own counter.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <div class="section-header">Why This Is the Right Move</div>
-      <ul class="why-list">
-        <li>An estimated <strong>$25,000 a year</strong> stops coming out of your deposits. Not because your rate went down, because the cost stopped being yours.</li><li>Your cash prices do not move. The card price is printed beside them, and a comparison shopper still sees your number.</li><li>It is set up the way the guidance you read describes: both prices shown, before payment, with nothing added at the register.</li><li>QuickBooks stays, terminal sales post to it, and your bank-transfer invoices get cheaper.</li><li>No contract, no setup fee, no cancellation fee. If it is not landing with your customers after ninety days, we move you to AllProPay Rate on the same account. You are not locked in.</li>
-      </ul>
-      <p style="margin-top:12px;">Here is what it looks like at both ends of your range. A $450 tonneau cover: $464.63 card, $450 cash. A $2,000 wrap: $2,065 card, $2,000 cash. Today those two sales cost you about $9.90 and about $44, and you never see either one, because SDPay takes it all out of your deposit at month end, $2,188 on an average month. On Edge you see both numbers on the terminal, and so does your customer, and the sale lands whole either way. These are estimates from your May and July statements, not a guarantee.</p>
-    </div>
-
-    <div class="section" style="break-after: avoid; page-break-after: avoid;">
-      <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content"><strong>Fifteen minutes with me.</strong> I show you the terminal screen and a sample invoice made up for your own products, you tell me what you would change, and we finish the application together on the call. Nothing gets switched on.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> The terminal, the QuickBooks Online link, and your invoice format are set up and tested beside SDPay before anything is turned off. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
-        </div>
-      </div>
-
-      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You were right about the fine print. This is the version that fits it, and it still takes the card cost off your books."
-      </p>
-
-      <div class="cta-wrap" style="margin-top:28px;">
-        <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
-        <div class="cta-print-text">Text or call me: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
-      </div>
-      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
-    </div>
-
-    <div class="signature-block">
-      <div>
-        <div class="sig-name">Matt Butcher</div>
-        <div class="sig-contact">
-          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
-          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
-          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
-        </div>
-      </div>
-      <div class="sig-right">
-        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
-        <div class="sig-tagline">Accept payments anywhere.</div>
+      <div class="section-header">What This Means</div>
+      <div class="takeaways">
+        <div class="takeaway"><span class="t-num">1</span><span class="t-title">Your processor is not the problem</span><div class="t-body">They keep about a tenth of a percent. I have looked at a lot of statements and that is a sharp deal. You told my opener you like your current guy for his support, and nothing in these two statements argues with you. I am not going to pretend otherwise to win your business.</div></div><div class="takeaway"><span class="t-num">2</span><span class="t-title">Which is why shopping the rate cannot fix this</span><div class="t-body">You sent your statement to banks a month ago and never heard back. This is why. There is almost no markup left to cut, so nobody can find you a number worth switching for. The $26,000 a year is not markup. It is interchange, and every processor in the country pays the same table.</div></div><div class="takeaway"><span class="t-num">3</span><span class="t-title">The cost only leaves when it stops being yours</span><div class="t-body">You told me on Friday how the shop really works, and you were right about the fine print. So the program is set up the way the guidance you read describes: the card price is shown, the cash price is shown beside it, on the tag, the quote, the QuickBooks invoice, and the terminal, and nothing is added at the register. Your cash prices do not move. Your cost on card sales goes to $0. My proposal walks through how it runs at your counter, in your showroom, and on your invoices.</div></div>
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. On the AllProPay Edge program every posted, quoted, and invoiced price shows a card price and a cash price side by side; customers who pay by cash, check, or bank transfer pay the cash price, and card customers pay the card price shown to them before payment. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <div class="cta-block">
+      <div class="cta-line">You asked me to make it fit how you actually sell. This is it. Fifteen minutes and I will show you the terminal screen and a sample two-price tag and invoice made up for your own products.</div>
+      <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+      <div class="cta-print">Text or call me: 929-930-3969 &nbsp;&bull;&nbsp; matt@allpropay.com</div>
+    </div>
 
+    <div class="booking-embed">
+      <div class="be-title">Prefer to grab a time now? Book directly with me.</div>
+      <iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe>
+      <div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div>
+    </div>
+
+    <div class="sig">
+      <span class="name">Matt Butcher</span> &nbsp;&bull;&nbsp; AllProPay &nbsp;&bull;&nbsp; 929-930-3969 &nbsp;&bull;&nbsp; matt@allpropay.com
+    </div>
+
+    <div class="note">
+      Prepared by Matt Butcher for Capital Tint and Graphics from the SDPay statements for May and July 2026, merchant number 400321000000671, trading as Adirondack Offroad. All figures on the left hand side are taken from those statements. AllProPay figures are estimates based on that volume and card mix and are not a quote; actual amounts depend on final card mix, volume and program selection. On the AllProPay Edge program every posted, quoted, and invoiced price shows a card price and a cash price side by side; customers who pay by cash, check, or bank transfer pay the cash price, and card customers pay the card price shown to them before payment. A $100 monthly platform fee applies on Edge (terminal, QuickBooks Online sync, and invoicing included); $25 on AllProPay Rate. No contract, no setup fee, no cancellation fee.
+    </div>
   </div>
-
-  <div class="doc-footer">
-    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
-  </div>
-
 </div>
 </body>
 </html>
