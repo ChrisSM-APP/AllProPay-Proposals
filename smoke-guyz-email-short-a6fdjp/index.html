@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email version - AllProPay Proposal | Smoke Guyz</title>
+<style>
+  :root {
+    --blue: #0052FF;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --black: #000000;
+    --text: #1A1A2E;
+    --muted: #64748B;
+    --cyan: #38BDF8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px 14px;
+    border-bottom: 3px solid var(--blue);
+  }
+  .doc-header .logo-img { height: 62px; width: auto; }
+  .doc-header .contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .content { padding: 28px 36px 32px; }
+
+  .title-block { margin-bottom: 18px; }
+  .title-block .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .title-block h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30pt;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 28px;
+    border-top: 1px solid var(--mid-gray);
+    border-bottom: 1px solid var(--mid-gray);
+    padding: 10px 0;
+    font-size: 9pt;
+  }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 26px 30px;
+    margin: 22px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16pt;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .price-cell { padding: 4px 0; text-align: center; }
+  .price-cell .pc-label { font-size: 8.5pt; color: #94A3B8; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .price-cell .pc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
+
+  .terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 18px;
+  }
+  .terms-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--mid-gray);
+  }
+  .terms-table td:first-child {
+    color: var(--muted);
+    width: 40%;
+    font-weight: 500;
+  }
+  .terms-table td:last-child {
+    color: var(--text);
+    font-weight: 600;
+    text-align: right;
+  }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">How long you pay for the register</div><table><tr><td class="hc-lab">Clover rental</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">forever</span></td></tr><tr><td class="hc-lab">Lease-to-own</td><td><span class="hc-bar hc-new" style="width:22%"></span><span class="hc-val hc-val-new">about 6 months, then $0</span></td></tr></table><div class="hc-note">Drawn to the idea, not to a dollar figure. Send me one Clover bill and I put the exact numbers here.</div></div>).
+     Styled here rather than inline in the spec so the print block below can
+     compact it - this page must stay ONE page. Bar widths are the only thing
+     the spec sets inline, since they are per-deal data. */
+  .hero-chart { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .hero-chart .hc-title { font-size: 7.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 600; margin-bottom: 9px; }
+  .hero-chart table { width: 100%; border-collapse: collapse; }
+  .hero-chart td { border: none; padding: 0 0 7px 0; }
+  .hero-chart td.hc-lab { width: 86px; padding-right: 10px; font-size: 8.5pt; font-weight: 600; color: #E2E8F0; white-space: nowrap; }
+  .hero-chart tr:last-child td { padding-bottom: 0; }
+  .hero-chart .hc-bar { display: inline-block; height: 16px; border-radius: 3px; vertical-align: middle; }
+  .hero-chart .hc-now { background: #64748B; }
+  .hero-chart .hc-new { background: #3B82F6; }
+  .hero-chart .hc-val { font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; margin-left: 9px; vertical-align: middle; white-space: nowrap; }
+  .hero-chart .hc-val-now { color: #CBD5E1; }
+  .hero-chart .hc-val-new { color: #60A5FA; }
+  .hero-chart .hc-note { font-size: 7.5pt; color: #94A3B8; margin-top: 8px; }
+
+  /* --- Compact two-offer row (OPTIONS_ROW_SHORT token), added 2026-08-27.
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included, and an
+     unsupplied one hard-fails the build.
+     The one-pager twin of OPTIONS_SECTION on the long template. Deliberately
+     thin - name, one money figure, one line - because this page must still print
+     to ONE page. Option A stays dominant (blue); B is slate. */
+  .opt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 2px; }
+  .opt-mini { border: 1px solid var(--mid-gray); border-radius: 7px; padding: 9px 12px; }
+  .opt-mini.a { border-top: 3px solid var(--blue); }
+  .opt-mini.b { border-top: 3px solid #94A3B8; }
+  .opt-mini .om-tag { font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .opt-mini.a .om-tag { color: var(--blue); }
+  .opt-mini.b .om-tag { color: #94A3B8; }
+  .opt-mini .om-name { font-family: 'Montserrat', sans-serif; font-size: 10pt; font-weight: 800; color: var(--navy); margin-top: 1px; }
+  .opt-mini .om-fig { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 800; margin-top: 4px; line-height: 1.1; }
+  .opt-mini.a .om-fig { color: var(--blue); }
+  .opt-mini.b .om-fig { color: #64748B; }
+  .opt-mini .om-sub { font-size: 8pt; color: #64748B; margin-top: 2px; line-height: 1.35; }
+  .why-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0 6px;
+  }
+  .why-cell {
+    background: var(--light-gray);
+    border-left: 3px solid var(--blue);
+    padding: 14px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .why-cell .wc-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .why-cell .wc-body { font-size: 9pt; color: var(--text); line-height: 1.45; }
+
+  .steps-bar {
+    display: flex;
+    gap: 10px;
+    margin: 18px 0 6px;
+    align-items: stretch;
+  }
+  .step-card {
+    flex: 1;
+    background: #fff;
+    border: 1.5px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .step-card .step-num {
+    background: var(--blue);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 11pt;
+    margin-bottom: 8px;
+  }
+  .step-card .step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-card .step-body { font-size: 9pt; color: var(--muted); line-height: 1.45; }
+
+  .cta-block {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 28px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .cta-text .ct-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14pt;
+    margin-bottom: 4px;
+  }
+  .cta-text .ct-sub { font-size: 9.5pt; opacity: 0.92; }
+  .cta-action { text-align: right; flex-shrink: 0; }
+  .cta-action .ca-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 18pt;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    line-height: 1.1;
+  }
+  .cta-action .ca-name { font-size: 9pt; opacity: 0.9; margin-top: 2px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: #64748b; margin-top: 8px; }
+  .booking-embed .be-fallback a { color: #0052FF; }
+
+  .sec-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  .doc-footer {
+    border-top: 1px solid var(--mid-gray);
+    padding: 12px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .doc-footer .sig {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .doc-footer .sig img { height: 26px; width: auto; }
+  .doc-footer .fine { font-size: 7.5pt; color: var(--muted); font-style: italic; max-width: 60%; text-align: right; line-height: 1.4; }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .wc-body, .step-body, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row, .why-bar, .steps-bar { display: block !important; }
+    .price-cell, .why-cell, .step-card { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .price-cell .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    .terms-table { font-size: 9.5pt; max-width: 100%; }
+    .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.3in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.4; }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .step-card .step-num, .why-cell { -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+    .doc-header { padding: 10px 24px 8px; }
+    .doc-header .logo-img { height: 48px; }
+    .content { padding: 16px 24px 16px; }
+    .title-block { margin-bottom: 10px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .merchant { font-size: 11pt; margin-bottom: 8px; }
+    .title-block .eyebrow { font-size: 8pt; margin-bottom: 2px; }
+    .meta-row { padding: 6px 0; font-size: 8pt; gap: 18px; }
+    .hero { padding: 16px 20px; margin: 12px 0; }
+    .hero h2 { font-size: 13pt; margin-bottom: 10px; }
+    .hero .hero-eyebrow { font-size: 7.5pt; margin-bottom: 5px; }
+    .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .price-cell .pc-value { font-size: 16pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7.5pt; }
+    .terms-table td { padding: 5px 10px; font-size: 8.5pt; }
+    .terms-table { margin-bottom: 10px; }
+    /* The chart costs roughly 70px on screen. Print has no room to spare on a
+       one-pager, so it shrinks hard here. Verified: both Carl proposals render
+       to a single page with these values. If you loosen them, re-check the page
+       count - a 2-page "one-pager" is a defect. */
+    .hero-chart { margin-top: 7px; padding-top: 6px; }
+    .hero-chart .hc-title { font-size: 6pt; margin-bottom: 4px; letter-spacing: 0.9px; }
+    .hero-chart td { padding-bottom: 3px; }
+    .hero-chart .hc-bar { height: 9px; border-radius: 2px; }
+    .hero-chart .hc-val { font-size: 8pt; margin-left: 7px; }
+    .hero-chart td.hc-lab { font-size: 7pt; width: 66px; padding-right: 8px; }
+    .hero-chart .hc-note { font-size: 6pt; margin-top: 3px; }
+    /* A one-pager with no chart already fills the page almost exactly, so the
+       chart alone pushes it to two. Rather than tighten every Edge one-pager to
+       make room for a chart most of them will not have, claw back the ~50px ONLY
+       on pages that actually carry one. :has() is supported in the Chrome that
+       renders these PDFs; if it ever silently stops matching, the symptom is a
+       2-page one-pager, so re-check the page count after touching this. */
+    .page:has(:is(.hero-chart, .opt-row)) .content { padding: 13px 24px 12px; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block h1 { font-size: 19pt; }
+    .page:has(:is(.hero-chart, .opt-row)) .title-block { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero { padding: 13px 20px; margin: 9px 0; }
+    .page:has(:is(.hero-chart, .opt-row)) .hero h2 { font-size: 12pt; margin-bottom: 8px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table td { padding: 4px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .terms-table { margin-bottom: 7px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-cell, .page:has(:is(.hero-chart, .opt-row)) .step-card { padding: 7px 10px; }
+    .page:has(:is(.hero-chart, .opt-row)) .why-bar, .page:has(:is(.hero-chart, .opt-row)) .steps-bar { margin: 8px 0 3px; }
+    .page:has(:is(.hero-chart, .opt-row)) .cta-block { padding: 10px 18px; margin-top: 8px; }
+    .why-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0 4px; }
+    .why-cell { padding: 8px 10px; }
+    /* keep the two-offer row on the grid in print and compact it hard - it is
+       extra content on a page that was already full (OPTIONS_ROW_SHORT) */
+    .opt-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px; margin: 6px 0 2px; }
+    .opt-mini { display: block !important; width: auto !important; padding: 6px 9px; margin-bottom: 0 !important; }
+    .opt-mini .om-tag { font-size: 5.5pt; letter-spacing: 0.7px; }
+    .opt-mini .om-name { font-size: 8.5pt; }
+    .opt-mini .om-fig { font-size: 11pt; margin-top: 2px; }
+    .opt-mini .om-sub { font-size: 6.8pt; margin-top: 1px; }
+    .why-cell .wc-title { font-size: 9pt; margin-bottom: 3px; }
+    .why-cell .wc-body { font-size: 8pt; line-height: 1.35; }
+    .steps-bar { display: flex; gap: 6px; margin: 10px 0 4px; }
+    .step-card { padding: 8px 10px; }
+    .step-card .step-num { width: 20px; height: 20px; line-height: 20px; font-size: 9pt; margin-bottom: 4px; }
+    .step-card .step-title { font-size: 9pt; margin-bottom: 2px; }
+    .step-card .step-body { font-size: 8pt; line-height: 1.35; }
+    .cta-block { padding: 12px 18px; margin-top: 10px; }
+    .booking-embed { display: none !important; }
+    .cta-text .ct-title { font-size: 12pt; }
+    .cta-text .ct-sub { font-size: 8.5pt; }
+    .cta-action .ca-phone { font-size: 15pt; }
+    .cta-action .ca-name { font-size: 8pt; }
+    .sec-label { font-size: 8pt; margin-bottom: 2px; }
+    .doc-footer { padding: 8px 24px; font-size: 7.5pt; }
+    .doc-footer .sig img { height: 20px; }
+    .doc-footer .fine { font-size: 7pt; }
+  }
+</style>
+<style id="email-mode">
+  /* email-mode overrides (make_email_version.py) */
+  .page { max-width: 680px !important; margin: 0 auto !important; }
+  .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
+  .steps-bar, .cta-block { display: block !important; }
+  .doc-header { padding: 18px 28px 14px !important; }
+  .content { padding-left: 28px !important; padding-right: 28px !important; }
+  .doc-footer { text-align: center !important; padding: 14px 28px !important; }
+  .cta-btn { display: inline-block !important; }
+  .cta-print-text { display: none !important; }
+  .apc-calc, .booking-embed, script { display: none !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
+  .steps { display: block !important; }
+  .step { display: block !important; overflow: hidden; margin-bottom: 14px; }
+  .step-num { display: block !important; float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; }
+  .step-content { display: block !important; overflow: hidden; }
+  .pricing-callout .pc-label, .pricing-callout .pc-value, .price-cell .pc-label, .price-cell .pc-value { display: block !important; }
+  .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .chip { line-height: 13px !important; vertical-align: middle; }
+  /* short one-pager blocks (flex/grid on the page) */
+  .meta-row, .why-bar, .price-row, .steps-bar, .cta-block, .doc-footer, .doc-footer .sig { display: block !important; }
+  .meta-row > div { display: block; padding: 2px 0; }
+  .doc-footer .sig img { vertical-align: middle; margin-right: 8px; }
+  .doc-footer .fine { max-width: 100% !important; text-align: left !important; margin-top: 6px; }
+  .why-cell { display: block !important; }
+  /* neutralise the page's data-table styling on our layout tables */
+  table.em-cols { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 !important; font-size: inherit !important; }
+  table.em-cols tr, table.em-cols td { background: transparent !important; border: 0 !important; }
+</style><style id="email-toolbar-css">
+  #em-toolbar { position: sticky; top: 0; z-index: 50; background: #0B1120; color: #E2E8F0;
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; padding: 12px 20px;
+    border-bottom: 3px solid #0052FF; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  #em-toolbar b { color: #fff; }
+  #em-toolbar .em-btn { background: #0052FF; color: #fff; border: 0; border-radius: 6px;
+    font-weight: 700; font-size: 13px; padding: 9px 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+  #em-toolbar .em-btn.alt { background: transparent; border: 1.5px solid #64748B; color: #E2E8F0; }
+  #em-toolbar .em-note { color: #94A3B8; flex-basis: 100%; }
+  #em-toolbar .em-ok { color: #7DD3FC; font-weight: 700; }
+  #em-toolbar .em-to { color: #94A3B8; }
+  @media print { #em-toolbar { display: none; } }
+</style></head>
+<body>
+<div id="em-toolbar"><span><b>Email version</b> · Smoke Guyz  ·  Houston, Texas</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="doc-header">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" class="logo-img" src="https://proposals.allpropay.com/smoke-guyz-short-xfa286/AllProPay_Logo.jpg"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
+      800-807-0356  ·  support@allpropay.com  ·  allpropay.com
+    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/smoke-guyz-short-xfa286/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="content">
+<div class="title-block">
+<div class="eyebrow">Prepared for Shaggy · September 21, 2026</div>
+<h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+<div class="merchant">Smoke Guyz  ·  Houston, Texas</div>
+<div class="meta-row">
+<div><span>Current setup:</span><strong>Clover, rented units, cash discount at the register</strong></div>
+<div><span>Program:</span><strong>Edge dual pricing</strong></div>
+<div><span>Prepared by:</span><strong>Matt Butcher</strong></div>
+</div>
+</div>
+<div class="hero">
+<div class="hero-eyebrow">Your Program</div>
+<h2>Card sales cost you $0. The Clover rent stops.</h2>
+<div class="price-row">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label">YOUR COST ON CARD SALES</div>
+<div class="pc-value">$0</div>
+<div class="pc-sub">At all three stores. The card price covers it, like today.</div>
+</div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label">REGISTER RENT</div>
+<div class="pc-value">6 months</div>
+<div class="pc-sub">Lease-to-own, then it is yours</div>
+</div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label">ONE ITEM LIST</div>
+<div class="pc-value">3 stores + web</div>
+<div class="pc-sub">6,500 items, entered once</div>
+</div></td></tr></table></div>
+<div class="hero-chart"><div class="hc-title">How long you pay for the register</div><table style="width:100%" width="100%"><tr><td class="hc-lab">Clover rental</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">forever</span></td></tr><tr><td class="hc-lab">Lease-to-own</td><td><span class="hc-bar hc-new" style="width:22%"></span><span class="hc-val hc-val-new">about 6 months, then $0</span></td></tr></table><div class="hc-note">Drawn to the idea, not to a dollar figure. Send me one Clover bill and I put the exact numbers here.</div></div>
+</div>
+<div class="sec-label">The Account</div>
+<table class="terms-table" style="width:100%" width="100%">
+<tr><td>Next-day funding</td><td>Included</td></tr>
+<tr><td>Card terminal at each register</td><td>Included (dual-pricing)</td></tr>
+<tr><td>Epos Now register, 3 stores</td><td>Priced separately, lease-to-own, no long lease</td></tr>
+<tr><td>Monthly platform fee</td><td>$25 per store</td></tr>
+<tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
+</table>
+<div class="sec-label">Why This Fit</div>
+<div class="why-bar">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="wc-title">Card sales cost you $0</div>
+<div class="wc-body">At all three stores, the way you already run it, without Clover's bill behind it.</div>
+</div></td><td style="width:10px; padding:0;" width="10"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="wc-title">One list, everywhere</div>
+<div class="wc-body">6,500 items with a barcode, picture, count, and category. Three stores and your Wix site, one count.</div>
+</div></td><td style="width:10px; padding:0;" width="10"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="wc-title">Test one store first</div>
+<div class="wc-body">One store moves to Edge and Epos Now. The other two stay on Clover until you have seen it work.</div>
+</div></td></tr></table></div>
+<div class="sec-label">How We Get You Live</div>
+<div class="steps-bar">
+<div class="step-card">
+<div class="step-num">1</div>
+<div class="step-title">One quick call</div>
+<div class="step-body">About 10 minutes with me. We pick the first store, finish the application together, and you e-sign.</div>
+</div>
+<div class="step-card">
+<div class="step-num">2</div>
+<div class="step-title">Approval</div>
+<div class="step-body">Underwriting in 24 to 48 hours. We handle the back and forth.</div>
+</div>
+<div class="step-card">
+<div class="step-num">3</div>
+<div class="step-title">Switch on</div>
+<div class="step-body">First store's register and terminal arrive set for dual pricing, item list loaded. Next card sale costs you $0.</div>
+</div>
+</div>
+<div class="cta-block">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:66%; padding:0 12px 0 0px; vertical-align:middle;" valign="middle" width="66%"><div class="cta-text">
+<div class="ct-title">One call to start the first store</div>
+<div class="ct-sub">Text or call me. Ten minutes to pick the store and finish the file.</div>
+</div></td><td style="width:34%; padding:0 0px 0 12px; vertical-align:middle;" valign="middle" width="34%"><div class="cta-action" style="text-align:right">
+<a class="ca-phone" href="tel:+19299303969" style="color:#fff; text-decoration:none; display:block; font-weight:800">929-930-3969</a>
+<div class="ca-name">Matt Butcher · matt@allpropay.com</div>
+</div></td></tr></table></div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000123129" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
+
+</div>
+<div class="doc-footer">
+
+
+<div class="sig" style="display:block; white-space:nowrap">
+<img alt="AllProPay" src="https://proposals.allpropay.com/smoke-guyz-short-xfa286/AllProPay_Logo.jpg"/>
+<span>AllProPay · 800-807-0356 · allpropay.com</span>
+</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on ticket sizes provided. No contract, no setup fee, no cancellation fee.</div></div>
+</td></tr></table></div>
+<script id="em-compose" type="application/json">{"subject": "Smoke Guyz - your AllProPay proposal", "body": "Hi Shaggy,\n\nGood talking with you. Here is everything from our call in writing:\n\nhttps://proposals.allpropay.com/smoke-guyz-qkygmw/\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nMatt Butcher\nAllProPay\n929-930-3969\n"}</script><script>
+(function () {
+  var page = document.querySelector('.page');
+  var status = document.getElementById('em-status');
+  function copyPage() {
+    var range = document.createRange();
+    range.selectNodeContents(page);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    window.scrollTo(0, 0);
+    return ok;
+  }
+  // Compose data: subject + note are embedded at build time; the recipient is NOT
+  // (this page is published). It arrives as ?to= on the link stored in the CRM.
+  var compose = null;
+  try { compose = JSON.parse(document.getElementById('em-compose').textContent); } catch (e) { compose = null; }
+  var qs = new URLSearchParams(window.location.search);
+  var to = (qs.get('to') || (compose && compose.to) || '').trim();
+  function gmailUrl() {
+    if (!compose) return null;
+    var u = 'https://mail.google.com/mail/?view=cm&fs=1';
+    if (to) u += '&to=' + encodeURIComponent(to);
+    u += '&su=' + encodeURIComponent(compose.subject || '');
+    u += '&body=' + encodeURIComponent(compose.body || '');
+    return u;
+  }
+  var draft = document.getElementById('em-draft');
+  if (draft) {
+    var gu = gmailUrl();
+    if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+  }
+  var toLabel = document.getElementById('em-to');
+  if (toLabel) toLabel.textContent = to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.';
+  var copyBtn = document.getElementById('em-copy');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    status.textContent = ok
+      ? 'Copied. Open your Gmail draft and press Ctrl+V in the body.'
+      : 'Copy was blocked. Click inside the page, press Ctrl+A then Ctrl+C.';
+    status.className = ok ? 'em-ok' : '';
+  });
+  var sendBtn = document.getElementById('em-send');
+  if (sendBtn) sendBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    var gu = gmailUrl();
+    if (gu) window.open(gu, '_blank', 'noopener');
+    status.textContent = ok
+      ? 'Proposal copied. In the Gmail tab that just opened, click under the note and press Ctrl+V. Read it, adjust, send.'
+      : 'Gmail opened, but the copy was blocked. Click inside this page, Ctrl+A, Ctrl+C, then paste in Gmail.';
+    status.className = ok ? 'em-ok' : '';
+  });
+})();
+</script></body>
+</html>
