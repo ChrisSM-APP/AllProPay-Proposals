@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email version - AllProPay Proposal | Jay's RV Repairs &amp; Mobile Service</title>
+<style>
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title">What card processing costs you on a $10,000 month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%;">Bank machine + Square today</td><td style="width:52%;"><span class="pc-bar" style="width:86%; background:#64748B;"></span></td><td class="pc-num" style="width:14%;">~$260 to $300</td></tr><tr><td class="pc-lab">AllProPay Rate</td><td><span class="pc-bar" style="width:74%; background:#0052FF;"></span></td><td class="pc-num">~$225 to $250</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:0.5%; background:#0B1120;"></span></td><td class="pc-num">$0</td></tr></table><div class="pc-note">Estimated on a $10,000 month, Square's published in-person rate and a typical bank terminal rate. Card fees only; the $25 monthly account fee is in the table below. Your real month sets the exact number.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+</style>
+<style id="email-mode">
+  /* email-mode overrides (make_email_version.py) */
+  .page { max-width: 680px !important; margin: 0 auto !important; }
+  .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
+  .steps-bar, .cta-block { display: block !important; }
+  .doc-header { padding: 18px 28px 14px !important; }
+  .content { padding-left: 28px !important; padding-right: 28px !important; }
+  .doc-footer { text-align: center !important; padding: 14px 28px !important; }
+  .cta-btn { display: inline-block !important; }
+  .cta-print-text { display: none !important; }
+  .apc-calc, .booking-embed, script { display: none !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
+  .steps { display: block !important; }
+  .step { display: block !important; overflow: hidden; margin-bottom: 14px; }
+  .step-num { display: block !important; float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; }
+  .step-content { display: block !important; overflow: hidden; }
+  .pricing-callout .pc-label, .pricing-callout .pc-value, .price-cell .pc-label, .price-cell .pc-value { display: block !important; }
+  .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .chip { line-height: 13px !important; vertical-align: middle; }
+  /* short one-pager blocks (flex/grid on the page) */
+  .meta-row, .why-bar, .price-row, .steps-bar, .cta-block, .doc-footer, .doc-footer .sig { display: block !important; }
+  .meta-row > div { display: block; padding: 2px 0; }
+  .doc-footer .sig img { vertical-align: middle; margin-right: 8px; }
+  .doc-footer .fine { max-width: 100% !important; text-align: left !important; margin-top: 6px; }
+  .why-cell { display: block !important; }
+  /* neutralise the page's data-table styling on our layout tables */
+  table.em-cols { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 !important; font-size: inherit !important; }
+  table.em-cols tr, table.em-cols td { background: transparent !important; border: 0 !important; }
+</style><style id="email-toolbar-css">
+  #em-toolbar { position: sticky; top: 0; z-index: 50; background: #0B1120; color: #E2E8F0;
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; padding: 12px 20px;
+    border-bottom: 3px solid #0052FF; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  #em-toolbar b { color: #fff; }
+  #em-toolbar .em-btn { background: #0052FF; color: #fff; border: 0; border-radius: 6px;
+    font-weight: 700; font-size: 13px; padding: 9px 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+  #em-toolbar .em-btn.alt { background: transparent; border: 1.5px solid #64748B; color: #E2E8F0; }
+  #em-toolbar .em-note { color: #94A3B8; flex-basis: 100%; }
+  #em-toolbar .em-ok { color: #7DD3FC; font-weight: 700; }
+  #em-toolbar .em-to { color: #94A3B8; }
+  @media print { #em-toolbar { display: none; } }
+</style></head>
+<body>
+<div id="em-toolbar"><span><b>Email version</b> · Jay's RV Repairs &amp; Mobile Service</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="doc-header">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" src="https://proposals.allpropay.com/jays-rv-repairs-mobile-service-7to0zw/AllProPay_Logo.jpg" style="height:72px; width:auto;"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
+      800-807-0356  ·  support@allpropay.com  ·  allpropay.com<br/>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/jays-rv-repairs-mobile-service-7to0zw/" style="color:#0052FF; font-weight:700;">Open the full proposal in your browser</a>.</div>
+<div class="content">
+<div class="title-block">
+<h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+<div class="subtitle">Jay's RV Repairs &amp; Mobile Service</div>
+<div class="meta-grid">
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Jay  |  Jay's RV Repairs &amp; Mobile Service  |  Texas</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Chris Ste-Marie  |  AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current setup</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">A bank card machine plus Square on your phone (Square published about 2.6% + 10 to 15 cents in person)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Program</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Edge dual pricing</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">September 21, 2026</span></td></tr></table></div>
+</div>
+<div class="blue-bar"></div>
+<div class="section">
+<div class="section-header">Where We Are</div>
+<p>Jay, thanks for taking the call today. You asked a straight question, what are our rates, so this is the straight answer in writing. Here is what I heard: you run Jay's RV Repairs and Mobile Service, most of your work is on the road, and right now you take cards two ways, a card machine through your bank and Square on your phone. Two systems, two deposits, two sets of fees, and every card sale costs you somewhere around 2.6 to 3 percent before it lands. I am going to show you two ways to price it. One of them takes your card cost to $0.</p>
+<p>You told us what mattered most. We built the setup around it:</p>
+<ul>
+<li>Two systems today: a bank card machine and Square on your phone. Two deposits, two fee schedules, two places to look when something does not add up.</li><li>Square in person is published at about 2.6 percent plus 10 to 15 cents a swipe. The bank machine is usually in the same range once the monthly fees are added in. On an RV repair ticket that is real money on every job.</li><li>You are on the road. Tap to Pay on the phone you already carry, a payment link on the invoice, or a card machine on the truck if you want one. Same account either way.</li><li>Edge: cash, check, and bank customers pay the price on the ticket. Card customers see the card price. Your cost on card sales goes to $0.</li>
+</ul>
+</div>
+<div class="section">
+<div class="section-header">What You Get</div>
+<div class="pillars">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Zero-cost card processing</div>
+<div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and bank customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">One account instead of two systems.</div>
+<div class="p-body">Right now a job on the road goes through Square and a job at the shop goes through the bank machine, and the money shows up in two different ways with two different fees taken out. On AllProPay it is one account. In the field you tap the card on your phone through the AllProPay app, or text the customer a payment link with the invoice. If you want a card machine for the truck or the counter, we set one up on the same account. One deposit the next morning, one statement, one number to call.</div>
+</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Backed and flexible</div>
+<div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+</div></td></tr></table></div>
+</div>
+<div class="section">
+<div class="section-header">Your Program</div>
+<p>This is the program we set up for the Jay's RV Repairs &amp; Mobile Service account.</p>
+<div class="pricing-callout">
+<div class="pricing-grid">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Your cost on card sales</div>
+<div class="pc-value">$0</div>
+<div class="pc-sub">Your cost on card sales. The card-paying customer covers it, disclosed before they pay</div>
+</div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Back in the business</div>
+<div class="pc-value">$3,100 to $3,600</div>
+<div class="pc-sub">Estimated per year at about $10,000 a month in card sales. Your real number replaces this on our call</div>
+</div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Systems to run</div>
+<div class="pc-value">One</div>
+<div class="pc-sub">One account, one deposit, one statement, instead of a bank machine and Square side by side</div>
+</div></td></tr></table></div>
+<div class="prog-chart"><div class="pchart-title">What card processing costs you on a $10,000 month</div><table style="width:100%; border-collapse:collapse;; width:100%" width="100%"><tr><td class="pc-lab" style="width:34%;">Bank machine + Square today</td><td style="width:52%;"><span class="pc-bar" style="width:86%; background:#64748B;"></span></td><td class="pc-num" style="width:14%;">~$260 to $300</td></tr><tr><td class="pc-lab">AllProPay Rate</td><td><span class="pc-bar" style="width:74%; background:#0052FF;"></span></td><td class="pc-num">~$225 to $250</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:0.5%; background:#0B1120;"></span></td><td class="pc-num">$0</td></tr></table><div class="pc-note">Estimated on a $10,000 month, Square's published in-person rate and a typical bank terminal rate. Card fees only; the $25 monthly account fee is in the table below. Your real month sets the exact number.</div></div>
+</div>
+<table style="width:100%" width="100%">
+<thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
+<tr><td>Tap to Pay on your phone, payment links, and invoicing</td><td>Included</td><td>The AllProPay app on the phone you already carry. A card machine is available if you want one on the truck or the counter</td></tr>
+<tr><td>Card machine (optional)</td><td>Only if you want one</td><td>Tap to Pay on your phone is included. If you want a machine for the truck or the counter, I price it for you on our call before anything is added</td></tr>
+<tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+<tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+<tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+</tbody>
+</table>
+<div class="insight">
+<div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$3,100 to $3,600</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated at about $10,000 a month in card sales, versus paying roughly 2.6% to 3% yourself today</div></div><p>Right now Square and the bank machine each take their cut out of every card sale before it lands in your account, somewhere around 2.6 to 3 percent between the rate, the per-swipe cents, and the monthly fees. On $10,000 a month in card sales that is roughly $260 to $300 a month, and it comes out whether the job was a $150 service call or a $1,500 repair. On Edge, the card fee moves to the card-paying customer as a small, clearly disclosed adjustment, so <strong>your cost on a card sale is $0 and you deposit the full amount every single time.</strong> That $260 to $300 a month goes back in your pocket. I used $10,000 a month because you did not give me a number yet; tell me your real month and I will redo this with your figures. These are estimates, not a guarantee.</p>
+</div>
+</div>
+<div class="section"><h2>The Two Ways I Can Price You</h2><p>You asked what our rates are, so here are both programs with numbers on them. Everything below is estimated at about $10,000 a month in card sales until I have your real figures.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">AllProPay Edge</div><div class="opt-mech">The card price is posted and the card-paying customer covers the cost. Cash, check, and bank customers pay less than the card price.</div><div class="opt-figure">$3,100 to $3,600</div><div class="opt-figure-sub">estimated kept per year at about $10,000 a month in card sales</div><ul class="opt-list"><li>Your cost on card sales is $0. A $600 repair lands as $600, not $584.</li><li>Cash, check, and bank customers pay about 3.8 percent less than the card price, about $23 on a $600 job. Most of them will thank you for it.</li><li>Every price is disclosed before the customer pays, on the phone screen, the payment link, or the machine.</li><li>One account for the road and the shop. Your monthly is $25, PCI compliance included.</li></ul></div><div class="opt opt-b"><div class="opt-tag">The alternative</div><div class="opt-name">AllProPay Rate</div><div class="opt-mech">You keep absorbing the card cost, and I make that cost smaller. You pay the true card cost set by Visa and Mastercard plus one small flat layer on top.</div><div class="opt-figure">About 10% to 15% less</div><div class="opt-figure-sub">than you pay today, estimated. Roughly $400 to $700 a year at $10,000 a month</div><ul class="opt-list"><li>Interchange plus 0.50 percent and 10 cents a transaction. No tiers, no bundled rate, nothing hidden in the swipe.</li><li>Your all-in lands around 2.1 to 2.4 percent, estimated, against about 2.6 to 3 percent today. Your card mix sets the exact number.</li><li>Still one account, still next-day funding, still $25 a month with PCI included.</li><li>Best fit if you would rather eat the fee than show a card price to the customer.</li></ul></div></div><p class="opt-note">Both of these are real offers and I am happy to write either one. The gap between them is not me pricing Option B badly. Option B can only ever save you part of what you pay, because you are still paying it. Option A removes the cost. Either way you are out of two systems and into one.</p></div>
+<div class="section">
+<div class="section-header">The Flexibility You Asked For</div>
+<p>You called a payments company to ask what we charge, which tells me you like to know the numbers before you move. The account is built to give you a straight answer today and to flex if your business changes.</p>
+<ul class="why-list" style="margin-top:14px;">
+<li>Start on the phone you already carry. Tap to Pay and payment links go live on day one, and the bank machine and Square can wind down on your schedule, not mine.</li><li>If you decide you would rather absorb the card fee than pass it on, I move you to AllProPay Rate on the same account, no new application.</li><li>Want a card machine for the truck or the counter? We add one to the same account, priced before it ships, never a surprise on a statement.</li><li>No contract, no commitment. If it ever stops working for you, you walk.</li>
+</ul>
+</div>
+<div class="section">
+<div class="section-header">Why This Is the Right Move</div>
+<ul class="why-list">
+<li>One account replaces the bank machine and Square. One deposit, one statement, one number to call.</li><li>Your cost on card sales goes from about 2.6 to 3 percent to $0. An estimated <strong>$3,100 to $3,600 a year</strong> stays in the business at about $10,000 a month in card sales.</li><li>You deposit the full amount on every card job. A $600 repair lands as $600.</li><li>Money comes in next day. Square holds it one to two days today, the bank machine usually longer.</li><li>Nothing to buy. Tap to Pay on your phone, payment links, and invoicing are all in the app. A machine is there if you want it.</li><li>If you would rather pay the fee yourself, AllProPay Rate is priced in this document too, and it is still an estimated 10 to 15 percent less than today.</li><li>No contract, no setup fee, no cancellation fee, and a real person to call.</li>
+</ul>
+<p style="margin-top:12px;">Take a $600 repair on the road. Today the customer taps on Square, about $584 lands in your account a day or two later, and the $16 is gone. On Edge, the same customer taps on your phone in the AllProPay app. A customer paying cash, check, or from their bank pays $600. A customer paying by card sees $624 on the screen before they pay and chooses it. Either way, $600 is in your account the next morning. Across a month of jobs, that is the estimated $260 to $300 a month you pay today going back in your pocket.</p>
+</div>
+<div class="section" style="break-after: avoid; page-break-after: avoid;">
+<div class="section-header">Next Steps</div>
+<p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content"><strong>Tomorrow morning I call you.</strong> Ten minutes: you tell me your real monthly card sales and average job, I redo the numbers with your figures, and if it makes sense we start the application on the spot. If the time I texted does not work, text me one that does.</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content"><strong>Switch on.</strong> You download the AllProPay app on your phone. Tap to Pay, payment links, and invoicing are live under dual pricing. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+</div>
+</div>
+<p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "You asked what our rates are. Here they are, both ways, in writing. Tomorrow morning we put your real numbers on it."
+      </p>
+<div class="cta-wrap" style="margin-top:28px;">
+<a class="cta-btn" href="tel:+19299303970">Text or Call Me: 929-930-3970</a>
+<div class="cta-print-text">Text or call me: 929-930-3970  |  chris@allpropay.com</div>
+</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
+
+</div>
+<div class="signature-block">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:60%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="60%"><div>
+<div class="sig-name">Chris Ste-Marie</div>
+<div class="sig-contact">
+<a href="tel:+19299303970" style="color:inherit; text-decoration:none;">929-930-3970</a> (text friendly)<br/>
+<a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br/>
+<a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+</div>
+</div></td><td style="width:40%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="40%"><div class="sig-right">
+<img alt="AllProPay" src="https://proposals.allpropay.com/jays-rv-repairs-mobile-service-7to0zw/AllProPay_Logo.jpg" style="height:58px; width:auto; display:block; margin-bottom:4px;"/>
+<div class="sig-tagline">Accept payments anywhere.</div>
+</div></td></tr></table></div>
+<p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and bank customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+</div>
+<div class="doc-footer">
+<span>AllProPay  ·  108 W 39th Street, Suite 1006, New York, NY 10018  ·  800-807-0356</span>
+</div>
+</td></tr></table></div>
+<script id="em-compose" type="application/json">{"subject": "Jay's RV Repairs & Mobile Service - your AllProPay proposal", "body": "Hi Jay,\n\nGood talking with you. Here is everything from our call in writing:\n\nhttps://proposals.allpropay.com/jays-rv-repairs-mobile-service-7to0zw/\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n"}</script><script>
+(function () {
+  var page = document.querySelector('.page');
+  var status = document.getElementById('em-status');
+  function copyPage() {
+    var range = document.createRange();
+    range.selectNodeContents(page);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    window.scrollTo(0, 0);
+    return ok;
+  }
+  // Compose data: subject + note are embedded at build time; the recipient is NOT
+  // (this page is published). It arrives as ?to= on the link stored in the CRM.
+  var compose = null;
+  try { compose = JSON.parse(document.getElementById('em-compose').textContent); } catch (e) { compose = null; }
+  var qs = new URLSearchParams(window.location.search);
+  var to = (qs.get('to') || (compose && compose.to) || '').trim();
+  function gmailUrl() {
+    if (!compose) return null;
+    var u = 'https://mail.google.com/mail/?view=cm&fs=1';
+    if (to) u += '&to=' + encodeURIComponent(to);
+    u += '&su=' + encodeURIComponent(compose.subject || '');
+    u += '&body=' + encodeURIComponent(compose.body || '');
+    return u;
+  }
+  var draft = document.getElementById('em-draft');
+  if (draft) {
+    var gu = gmailUrl();
+    if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+  }
+  var toLabel = document.getElementById('em-to');
+  if (toLabel) toLabel.textContent = to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.';
+  var copyBtn = document.getElementById('em-copy');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    status.textContent = ok
+      ? 'Copied. Open your Gmail draft and press Ctrl+V in the body.'
+      : 'Copy was blocked. Click inside the page, press Ctrl+A then Ctrl+C.';
+    status.className = ok ? 'em-ok' : '';
+  });
+  var sendBtn = document.getElementById('em-send');
+  if (sendBtn) sendBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    var gu = gmailUrl();
+    if (gu) window.open(gu, '_blank', 'noopener');
+    status.textContent = ok
+      ? 'Proposal copied. In the Gmail tab that just opened, click under the note and press Ctrl+V. Read it, adjust, send.'
+      : 'Gmail opened, but the copy was blocked. Click inside this page, Ctrl+A, Ctrl+C, then paste in Gmail.';
+    status.className = ok ? 'em-ok' : '';
+  });
+})();
+</script></body>
+</html>
