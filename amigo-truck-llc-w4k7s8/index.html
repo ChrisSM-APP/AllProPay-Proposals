@@ -38,58 +38,35 @@
   thead tr { background: var(--navy); color: #fff; }
   thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
   tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
   tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
   .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  /* Cells centre under their labels (Chris, 2026-08-12). */
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
-  /* <div class="prog-chart"><div class="pchart-title">The parts counter, today and on Edge</div><table><thead><tr><td class="pc-lab"></td><td style="font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#94A3B8; font-weight:700; padding-bottom:6px;">Today</td><td style="font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#60A5FA; font-weight:700; padding-bottom:6px;">On Edge</td></tr></thead><tbody><tr><td class="pc-lab">Adding the 3%</td><td style="color:#94A3B8; padding-right:14px;">You work it out and type it in, every sale</td><td style="color:#FFFFFF; font-weight:600;">Shown on the terminal, automatically</td></tr><tr><td class="pc-lab">The terminal</td><td style="color:#94A3B8; padding-right:14px;">Down. Cards run on a phone app</td><td style="color:#FFFFFF; font-weight:600;">Working terminal, plus phone and online</td></tr><tr><td class="pc-lab">QuickBooks</td><td style="color:#94A3B8; padding-right:14px;">Entered by hand</td><td style="color:#FFFFFF; font-weight:600;">Every sale posts on its own</td></tr><tr><td class="pc-lab">The rules on the fee</td><td style="color:#94A3B8; padding-right:14px;">On you</td><td style="color:#FFFFFF; font-weight:600;">Registered and disclosed for you</td></tr><tr><td class="pc-lab">Your cost on a card sale</td><td style="color:#94A3B8; padding-right:14px;">$0, when the fee was added</td><td style="color:#60A5FA; font-family:'Montserrat',sans-serif; font-weight:800; font-size:12pt;">$0, every time</td></tr></tbody></table><div class="pc-note">Built from what you shared on the call. Nothing in this table depends on your volume.</div></div> now renders INSIDE the navy band, under the three cells,
-     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
-     better for this section"). Spec-supplied chart markup must therefore use
-     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
-     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
-  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
-  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
-  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
-  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
-  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
-  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
-  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
-  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
-  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
-  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
-  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
-     NOTE: braces are omitted from token names in CSS comments on purpose - the
-     builder substitutes {{...}} anywhere in the file, comments included.
-     Option A is OUR recommendation and must stay visually dominant: blue rule,
-     "What I recommend" badge, blue figure. Option B is the honest alternative
-     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
-     house rule) - the ranking is what makes showing two offers safe. */
-  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
-  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
-  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
-  .opt.opt-b { border-top: 4px solid #94A3B8; }
-  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
-  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
-  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
-  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
-  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
-  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
-  .opt.opt-a .opt-figure { color: var(--blue); }
-  .opt.opt-b .opt-figure { color: #64748B; }
-  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
-  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
-  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
-  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
-  .opt.opt-a .opt-list li:before { background: var(--blue); }
-  .opt.opt-b .opt-list li:before { background: #94A3B8; }
-  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step { display: flex; gap: 16px; align-items: flex-start; }
-  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
+  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
+     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
+     carries the percent drop. */
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
+  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
+  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
   .step-content strong { font-weight: 600; color: var(--text); }
   .why-list { list-style: none; margin: 0; padding: 0; }
   .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
@@ -98,7 +75,6 @@
   .cta-wrap { text-align: center; margin-top: 20px; }
   .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
   .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 24px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -111,33 +87,6 @@
   .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
   .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
   .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
-    .pillars, .pricing-grid { display: block !important; }
-    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .pricing-callout { padding: 18px; }
-    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td { padding: 7px 8px; }
-  }
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
@@ -160,7 +109,7 @@
     tbody td { padding: 5px 10px; font-size: 9pt; }
     .pricing-callout { padding: 14px 18px; }
     .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
     .step-content { font-size: 9.5pt; padding-top: 4px; }
     .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
     .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
@@ -168,6 +117,87 @@
     .cta-btn { display: none; }
     .cta-print-text { display: block !important; }
     .booking-embed { display: none !important; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
 </head>
@@ -192,12 +222,10 @@
         <span class="value">Evelyn &nbsp;|&nbsp; Amigo Truck LLC &nbsp;|&nbsp; Houston, Texas</span>
         <span class="label">Prepared by</span>
         <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
-        <span class="label">Current setup</span>
-        <span class="value">Bank merchant account, 3% added by hand, terminal down, cards on a phone app</span>
-        <span class="label">Program</span>
-        <span class="value">Edge dual pricing</span>
+        <span class="label">Current processor</span>
+        <span class="value">Fiserv (Clover) through Wells Fargo, quoted at 1 percent. Discovery call 2026-09-23, no statement reviewed yet.</span>
         <span class="label">Date</span>
-        <span class="value">September 16, 2026</span>
+        <span class="value">September 23, 2026</span>
       </div>
     </div>
 
@@ -205,10 +233,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>Thanks for the few minutes yesterday. I know I caught you on the way to lunch, so here is the overview you asked for. Amigo Truck has always been truck sales, where a card rarely comes into it. The parts counter is new, the tickets are smaller, and cards are suddenly part of every day. Right now the bank's terminal is down, so you are taking cards on a phone app, working out the 3% on each sale yourself, and typing it in. It works, but it depends on you, every single time. I am not writing to tell you I found savings on a processing bill. Your customers already carry the card fee. I am writing to take that job off your plate and make the parts counter run the way the rest of the business does.</p>
+      <p>You have already signed with Fiserv through the bank, so nothing here is asking you to rush. The first thing I sent you was built on passing the fee to your customers. You told me plainly that is not how you do business, and you were right to push back on it. That was the wrong proposal for you. This one has no customer fee in it anywhere. It is the same idea your bank sold you, priced honestly, with your bank relationship left exactly where it is.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>The 3% your parts customers pay stays exactly where it is. You are not raising it and you are not eating it.</li><li>Nobody types a fee in by hand. The card price is worked out and shown before the customer pays.</li><li>QuickBooks is your system of record and stays that way. Sales post on their own.</li><li>Your money keeps landing in the business bank account you use today. Nothing about your banking changes.</li><li>A terminal that works at the counter, plus a way to take a card for phone and online parts orders.</li>
+        <li><strong>Your customers never pay a fee.</strong> Not at the parts counter, not on a down payment, not on any card. A customer buying $2,500 in parts pays $2,500. The card cost stays with the business, where you said it belongs.</li><li><strong>Your Wells Fargo relationship does not change.</strong> Same bank, same deposits, same contact. Only the back end where the cards are processed moves, and your deposits still route to the accounts you already use.</li><li><strong>One monthly fee for both sides of the business.</strong> The dealership account sits underneath the parts account, so the truck side carries no monthly charge of its own in the months it takes nothing.</li><li><strong>Nothing locked.</strong> Month to month, no term, no cancellation fee. And if the Fiserv agreement you just signed carries an early termination fee, I cover it, up to $250.</li>
       </ul>
     </div>
 
@@ -216,100 +244,186 @@
       <div class="section-header">What You Get</div>
       <div class="pillars">
         <div class="pillar">
-          <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and ACH customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+          <div class="p-title">Your customers pay nothing extra</div>
+          <div class="p-body">No surcharge, no service fee, no separate cash price and card price. Somebody handing you a card for $2,500 in parts pays $2,500. The cost of the card stays with the business, and I have priced it so that costs you less than what you are about to pay Fiserv.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Same counter, no math</div>
-          <div class="p-body">A working terminal at the parts counter and a card link for phone and online parts orders, on one account. Ring up the part, the terminal shows the card price and the cash price, the customer picks, done. Every sale posts to QuickBooks on its own, so the bookkeeping you do today stops being a second job.</div>
+          <div class="p-title">True cost plus a quarter of a percent</div>
+          <div class="p-body">You pay interchange, the wholesale cost Visa and Mastercard set on every card, plus a flat 0.25 percent and 5 cents a transaction. That is the entire markup. The 1 percent the bank quoted you sits on top of that same interchange, exactly the way mine does. Mine is a quarter the size.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Backed and flexible</div>
-          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+          <div class="p-title">One account, both sides, a person who answers</div>
+          <div class="p-body">The parts counter runs on the main account and the dealership sits underneath it as a sub account, so a quiet month on the truck side costs you nothing extra. Deposits still split to the bank accounts you already keep separate. And when something goes wrong you text me, not a phone tree.</div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-header">Your Program</div>
-      <p>This is the program we set up for the Amigo Truck LLC account.</p>
+      <div class="section-header">Your Pricing</div>
+      <p>The markup below is locked for the Amigo Truck LLC account. The blended estimates are honest ranges, not promises, until I see one statement.</p>
 
       <div class="pricing-callout">
-        <div class="pricing-grid">
-          <div>
-            <div class="pc-label">Your cost on card sales</div>
-            <div class="pc-value">$0</div>
-            <div class="pc-sub">Worked out and applied by the terminal. Nothing to type.</div>
-          </div>
-          <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">3%</div>
-            <div class="pc-sub">Same as today, shown on screen before they pay</div>
-          </div>
-          <div>
-            <div class="pc-label">Your bank account</div>
-            <div class="pc-value">Stays</div>
-            <div class="pc-sub">Next-day deposits into the business account you use now</div>
-          </div>
-        </div>
-        <div class="prog-chart"><div class="pchart-title">The parts counter, today and on Edge</div><table><thead><tr><td class="pc-lab"></td><td style="font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#94A3B8; font-weight:700; padding-bottom:6px;">Today</td><td style="font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#60A5FA; font-weight:700; padding-bottom:6px;">On Edge</td></tr></thead><tbody><tr><td class="pc-lab">Adding the 3%</td><td style="color:#94A3B8; padding-right:14px;">You work it out and type it in, every sale</td><td style="color:#FFFFFF; font-weight:600;">Shown on the terminal, automatically</td></tr><tr><td class="pc-lab">The terminal</td><td style="color:#94A3B8; padding-right:14px;">Down. Cards run on a phone app</td><td style="color:#FFFFFF; font-weight:600;">Working terminal, plus phone and online</td></tr><tr><td class="pc-lab">QuickBooks</td><td style="color:#94A3B8; padding-right:14px;">Entered by hand</td><td style="color:#FFFFFF; font-weight:600;">Every sale posts on its own</td></tr><tr><td class="pc-lab">The rules on the fee</td><td style="color:#94A3B8; padding-right:14px;">On you</td><td style="color:#FFFFFF; font-weight:600;">Registered and disclosed for you</td></tr><tr><td class="pc-lab">Your cost on a card sale</td><td style="color:#94A3B8; padding-right:14px;">$0, when the fee was added</td><td style="color:#60A5FA; font-family:'Montserrat',sans-serif; font-weight:800; font-size:12pt;">$0, every time</td></tr></tbody></table><div class="pc-note">Built from what you shared on the call. Nothing in this table depends on your volume.</div></div>
+        <div class="pricing-grid two"><div><div class="pc-label"><span class="pill pill-today">Today</span> Fiserv through the bank</div><div class="pc-value today">1.00%</div><div class="pc-sub">The 1 percent you were quoted. It sits on top of the cost of the card, not instead of it.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">0.25% <span class="chip">75% less</span></div><div class="pc-sub">Plus 5 cents a transaction, on the exact same card cost underneath. That is the whole markup.</div></div></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">What your processor keeps on a $2,500 parts sale</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:120px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Fiserv today</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:86%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$25.00</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:21.7%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">$6.30</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-75%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Interchange, the card cost Visa and Mastercard set, is identical on both sides and is not shown here. This compares only the part the processor keeps.</div></div>
       </div>
+
+      
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Countertop terminal, programmed and ready</td><td>Included</td><td>Replaces the terminal that is down. Card price and cash price shown on screen.</td></tr>
-          <tr><td>QuickBooks sync</td><td>Included</td><td>Every sale posts to QuickBooks on its own</td></tr><tr><td>Phone and online parts orders</td><td>Included</td><td>Card links and a virtual terminal on the same account, same 3% handled the same way</td></tr><tr><td>Your bank account</td><td>Stays</td><td>Deposits land in the business account you use today, next business day</td></tr><tr><td>Program registration and disclosure</td><td>We handle it</td><td>Registered with the card networks, wording on the terminal and the receipt</td></tr>
-          <tr><td>Platform fee</td><td>$35 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account, with a countertop terminal at the parts counter and secure payment links for the dealership side</td></tr>
+          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Visa, Mastercard, Discover</td><td>Interchange + 0.25% + $0.05</td><td>The wholesale card cost, plus my markup. Nothing else is added</td></tr><tr><td>American Express</td><td>Interchange + 0.25% + $0.05</td><td>Same markup. No separate AMEX bill and no AMEX network fee from us</td></tr><tr><td>Dealership sub account</td><td>$0 per month</td><td>Rides under the parts account. No monthly of its own and no separate minimum</td></tr><tr><td>Bank transfer (ACH), optional</td><td>0.75%, capped at $10</td><td>Only if you ever want to take bank payments through the account</td></tr><tr><td>Chargeback fee</td><td>$15</td><td>Only if one happens. I work the paperwork with you</td></tr><tr><td>Fiserv early termination fee</td><td>Covered, up to $250</td><td>If the agreement you signed carries one</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Your cost to accept a card on parts</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">estimated at about $10,000 a month in parts sales, that is roughly $3,600 a year in card fees that stay off your books, and none of it typed in by hand</div></div><p>You already pass the 3% on today, so I will not pretend I found you a pile of savings. What changes is everything around that 3%. Today it is a number you work out and type into a phone app, on every sale, on every card, with a terminal that is down. If it gets missed, you eat it. And a fee typed in after the sale is a surcharge, which has its own rules: it has to be registered, it has to be disclosed before the customer pays, and it cannot be put on a debit card. Edge is built the other way around. <strong>The card price is the posted price, shown on the terminal before the customer pays, and the program is registered and disclosed for you.</strong> Same 3% for your customers. $0 for you. Nothing for you to remember.</p>
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated saving at about $10,000 a month in parts card sales</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">About $900 a year</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus the 1 percent markup on the agreement you just signed</div></div><p>You have not given me a volume yet, so that $10,000 a month is my illustration, not your number. Here is the part that does not depend on it: the saving is <strong>0.75 percent of every dollar you run</strong>, because that is simply the difference between their markup and mine, and the cost of the card underneath cancels out on both sides. It holds at any volume. Blended across all your cards you should land around <strong>1.8 to 2.0 percent all-in</strong>, against about 2.5 to 3.8 percent on the Fiserv agreement. That blended figure moves with your card mix. The markup does not, which is exactly why it is the number worth comparing. These are estimates based on what you shared on the call, not a guarantee. One statement makes them exact.</p>
       </div>
     </div>
 
-    
+    <div class="section apc-calc" style="display:none">
+      <div class="section-header">Estimate Your Own Savings</div>
+      <p>Every business runs a different volume, so put your own numbers in and see a live estimate against what you pay today. Nothing here is a bill or a commitment. It just turns the pricing above into real dollars for your shop.</p>
+
+      <style>
+        .apc-calc .apc-money { background:#0B1120; color:#fff; border-radius:8px; padding:20px 24px; margin:16px 0; text-align:center; }
+        .apc-calc .apc-money .apc-money-label { font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin-bottom:6px; }
+        .apc-calc .apc-money .apc-money-value { font-family:'Montserrat',sans-serif; font-size:30pt; font-weight:800; color:#38BDF8; line-height:1.1; }
+        .apc-calc .apc-money .apc-money-sub { font-size:8.5pt; color:#94A3B8; margin-top:6px; }
+        .apc-calc .apc-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:16px 0; }
+        .apc-calc .apc-field label { display:block; font-size:8.5pt; font-weight:600; color:#334155; margin-bottom:5px; }
+        .apc-calc .apc-field .apc-inwrap { position:relative; }
+        .apc-calc .apc-field input { width:100%; font-family:'Inter',Arial,sans-serif; font-size:12pt; font-weight:600; color:#1A1A2E; padding:11px 12px; border:1.5px solid #CBD5E1; border-radius:6px; background:#fff; }
+        .apc-calc .apc-field input:focus { outline:none; border-color:#0052FF; }
+        .apc-calc .apc-field .apc-pre { padding-left:26px; }
+        .apc-calc .apc-field .apc-sign { position:absolute; left:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-field .apc-suf { padding-right:26px; }
+        .apc-calc .apc-field .apc-pct { position:absolute; right:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-lines { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; background:#F5F7FA; border-radius:8px; padding:16px 20px; margin-top:6px; }
+        .apc-calc .apc-line { display:flex; justify-content:space-between; align-items:baseline; font-size:10pt; }
+        .apc-calc .apc-line .apc-k { color:#64748B; }
+        .apc-calc .apc-line .apc-v { font-weight:700; color:#1A1A2E; font-family:'Montserrat',sans-serif; }
+        .apc-calc .apc-hint { font-size:8.5pt; color:#64748B; font-style:italic; margin-top:12px; line-height:1.5; }
+        .apc-calc .apc-print { display:none; }
+        @media screen and (max-width:640px) { .apc-calc .apc-inputs { grid-template-columns:1fr; } .apc-calc .apc-lines { grid-template-columns:1fr; } }
+        @media print {
+          .apc-calc .apc-inputs, .apc-calc .apc-lines { display:none; }
+          .apc-calc .apc-money .apc-money-value { color:#0052FF; font-size:18pt; }
+          .apc-calc .apc-money { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+          .apc-calc .apc-print { display:block; font-size:9pt; color:#334155; margin-top:8px; font-style:italic; }
+        }
+      </style>
+
+      <div class="apc-money">
+        <div class="apc-money-label">Estimated money kept in the business every year</div>
+        <div class="apc-money-value" id="apcAnnual">Enter your numbers</div>
+        <div class="apc-money-sub" id="apcMonthlyLine">Type your volume below to see a live estimate</div>
+      </div>
+
+      <div class="apc-inputs">
+        <div class="apc-field">
+          <label for="apcVol">Card sales per month</label>
+          <div class="apc-inwrap"><span class="apc-sign">$</span><input id="apcVol" class="apc-pre" type="text" inputmode="numeric" placeholder="e.g. 45,000"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcTxn">Card transactions per month</label>
+          <div class="apc-inwrap"><input id="apcTxn" type="text" inputmode="numeric" placeholder="e.g. 350"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcRate">What you pay now</label>
+          <div class="apc-inwrap"><input id="apcRate" class="apc-suf" type="text" inputmode="decimal" value="3.5"><span class="apc-pct">%</span></div>
+        </div>
+      </div>
+
+      <div class="apc-lines">
+        <div class="apc-line"><span class="apc-k">You pay now, per month</span><span class="apc-v" id="apcNow">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated with AllProPay</span><span class="apc-v" id="apcAp">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per month</span><span class="apc-v" id="apcSaveM">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per year</span><span class="apc-v" id="apcSaveY">-</span></div>
+      </div>
+
+      <p class="apc-hint">Estimates only, not a bill or a guarantee. AllProPay cost assumes an interchange-plus blended rate of about 1.9 to 2.2 percent on card-present sales, plus 5 cents a transaction and a 25 dollar monthly platform fee. Your exact interchange depends on your card mix. One QuickBooks payout summary or one recent statement locks these numbers to the penny.</p>
+      <p class="apc-print">Enter your monthly card volume and rate on the online version of this proposal to see your live savings estimate.</p>
+
+      <script>
+        (function () {
+          var vol = document.getElementById('apcVol');
+          var txn = document.getElementById('apcTxn');
+          var rate = document.getElementById('apcRate');
+          if (!vol) return;
+          var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+          var APC_LOW = 0.019, APC_HIGH = 0.022, PER_TXN = 0.05, MONTHLY = 25;
+          function num(el) {
+            if (!el) return 0;
+            var v = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+            return isNaN(v) ? 0 : v;
+          }
+          function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+          function range(a, b) { return fmt.format(Math.max(0, Math.round(a))) + ' to ' + fmt.format(Math.max(0, Math.round(b))); }
+          function calc() {
+            var v = num(vol), t = num(txn), r = num(rate);
+            if (v <= 0 || r <= 0) {
+              set('apcAnnual', 'Enter your numbers');
+              set('apcMonthlyLine', 'Type your volume below to see a live estimate');
+              set('apcNow', '-'); set('apcAp', '-'); set('apcSaveM', '-'); set('apcSaveY', '-');
+              return;
+            }
+            var now = v * (r / 100);
+            var apLow = v * APC_LOW + t * PER_TXN + MONTHLY;
+            var apHigh = v * APC_HIGH + t * PER_TXN + MONTHLY;
+            var saveHigh = now - apLow;
+            var saveLow = now - apHigh;
+            set('apcNow', fmt.format(Math.round(now)));
+            set('apcAp', range(apLow, apHigh));
+            if (saveHigh <= 0) {
+              set('apcAnnual', 'The win is the terminal');
+              set('apcMonthlyLine', 'At that rate the savings are small. The real win is a working terminal and no more hand-keying.');
+              set('apcSaveM', fmt.format(0));
+              set('apcSaveY', fmt.format(0));
+              return;
+            }
+            set('apcSaveM', range(saveLow, saveHigh));
+            set('apcSaveY', range(saveLow * 12, saveHigh * 12));
+            set('apcAnnual', range(saveLow * 12, saveHigh * 12));
+            set('apcMonthlyLine', 'About ' + range(saveLow, saveHigh) + ' a month, estimated, versus what you pay today');
+          }
+          vol.addEventListener('input', calc);
+          if (txn) txn.addEventListener('input', calc);
+          if (rate) rate.addEventListener('input', calc);
+          calc();
+        })();
+      </script>
+    </div>
 
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You did not ask for a big change. You asked for the parts counter to stop being manual. The account starts there and only moves if you want it to.</p>
+      <p>You asked me directly whether there is a plan for an account that sits quiet most months, because Wells Fargo charges you $20 a month for a dealership terminal you barely touch. There is, and it is the reason I want both sides of your business on one account instead of two.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Edge with $0 card cost and your customers paying the same 3% they pay today. If you ever decide you would rather build the fee into your parts pricing and absorb it, we move you to flat interchange-plus on the same account. No reapplication.</li><li>The truck side of the business does not have to change. If a buyer ever wants to put a deposit on a card, the same account takes it.</li><li>Terminal at the counter, tap to pay on your phone, links for online. One account, one setup, so however a parts customer wants to pay, the 3% is handled the same way.</li>
+        <li><strong>The dealership rides under the parts account.</strong> One application, one monthly fee, and the truck side carries no monthly charge of its own. A month with no card down payments costs you nothing extra.</li><li><strong>Deposits still go where you want them.</strong> Parts money to the parts account, dealership money to the dealership account. Separate deposits, one processing relationship.</li><li><strong>The dealership terminal is yours to use or ignore.</strong> If that side takes a card three times a year, fine. You are not paying a monthly fee to keep it sitting on the counter.</li><li><strong>Nothing is locked.</strong> Month to month, no cancellation fee, and no automatic renewal waiting for you a year from now.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>Your cost on a card sale is <strong>$0</strong>, applied by the terminal, not when you remember.</li><li>Your customers see the <strong>same 3%</strong> they see today, on screen, before they pay.</li><li>A working terminal at the counter replaces the phone-app workaround, and phone and online parts orders run on the same account.</li><li>QuickBooks stays. Sales post on their own, so the books match the drawer without re-keying.</li><li>Deposits keep landing in your own business bank account, next business day.</li><li>No contract, no setup fee, no cancellation fee. If it does not make the parts counter easier, you walk.</li>
+        <li class="why"><strong>Your customers pay nothing extra.</strong> No surcharge, no service fee, no separate cash price. That was your line in the sand and it is the first thing I built around.</li><li class="why"><strong>A quarter of a percent over cost instead of a full percent.</strong> On a $2,500 parts sale that is $6.30 kept by the processor instead of $25.00. Same cards, same interchange underneath, a quarter of the markup on top.</li><li class="why"><strong>One monthly fee covers both sides.</strong> $25 a month for the parts counter and the dealership together, instead of a Wells Fargo terminal fee on one side and a Fiserv monthly on the other.</li><li class="why"><strong>Nothing changes with your bank.</strong> Same bank, same deposits, same contact. You can take these numbers to your bank contact and ask them to match them. If they do, you have won either way.</li><li class="why"><strong>Month to month, and I cover your exit.</strong> No term and no cancellation fee on my side. If the Fiserv agreement carries an early termination fee, I cover it up to $250.</li>
       </ul>
-      <p style="margin-top:12px;">On a $400 parts sale paid by card, the terminal shows $412 for card and $400 for cash, the customer picks, and you deposit the full $400. That is what you are doing today with a calculator and a phone app. The difference is that you did not have to do anything.</p>
+      <p style="margin-top:12px;">Here is the math on a $3,000 parts invoice. Interchange on a card like that runs somewhere between 1.5 and 2.8 percent depending on what the customer hands you, and both of us pay that identically. On top of it, Fiserv keeps 1 percent, which is $30.00. I keep 0.25 percent plus 5 cents, which is $7.55. That $22 difference repeats on every invoice and it does not move with your card mix, because the card cost cancels out on both sides. At about $10,000 a month in parts card sales, which is my illustration until you tell me the real figure, that is roughly $900 a year. These are estimates based on what you shared on the call, not a guarantee. Send me one statement and I will replace every range on this page with your actual numbers.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
       <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+      <p style="margin-bottom:18px;">Three steps, and the first one costs you nothing:</p>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content"><strong>One 10-minute call.</strong> We finish the application together on the phone and you e-sign on the spot. There is no statement to dig up and nothing to compare, because your cost on a card sale is already $0. What we are replacing is the manual work.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your terminal arrives programmed for dual pricing, your card links go live, and QuickBooks is connected. Plug in and ring up the first part.. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send me the Fiserv rate page and the agreement you signed.</strong> I will read it line by line and tell you exactly what it costs you to run and what it costs to leave. If it turns out to be a good deal, I will tell you to stay on it.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>I put your real numbers next to mine.</strong> Same cards, same format, no spin. You can take it to your bank contact and ask them to match it.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>You decide with the facts in front of you.</strong> If you move, it is one application, the dealership rides underneath it, and I handle getting you out of Fiserv.</div></div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You already charge the 3%. The only thing that changes is that you stop doing the math."
+        "You have not made a mistake you cannot undo. Read what you signed, then let me show you the same numbers side by side."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
@@ -334,7 +448,7 @@
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
 
   </div>
 
