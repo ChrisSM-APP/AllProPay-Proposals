@@ -162,7 +162,7 @@
   }
   .terms-table tr:last-child td { border-bottom: none; }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Card fees on a $50,000 month in card sales</div><table><tr><td class="hc-lab">Square today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,500</span></td></tr><tr><td class="hc-lab">AllProPay Rate</td><td><span class="hc-bar hc-new" style="width:56%; background:#2563EB;"></span><span class="hc-val hc-val-new">~$975</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:0.5%"></span><span class="hc-val hc-val-new">$0</span></td></tr></table><div class="hc-note">Card fees only, at about 1,000 sales a month. The $25 monthly is not in the bars. Estimates.</div></div>).
+  /* Cost-comparison bars inside the dark hero ().
      Styled here rather than inline in the spec so the print block below can
      compact it - this page must stay ONE page. Bar widths are the only thing
      the spec sets inline, since they are per-deal data. */
@@ -453,17 +453,17 @@
 
     <div class="hero">
       <div class="hero-eyebrow">Your Program</div>
-      <h2>Your card cost goes to $0. About $17,700 a year stays in the store.</h2>
+      <h2>About $17,700 a year back. Your card cost goes to $0.</h2>
       <div class="price-row">
         <div class="price-cell">
           <div class="pc-label">YOUR COST ON CARD SALES</div>
           <div class="pc-value">$0</div>
-          <div class="pc-sub">Your cost on card sales, against about $1,500 a month on Square today</div>
+          <div class="pc-sub">Your cost on card sales, vs about $1,500 a month on Square</div>
         </div>
         <div class="price-cell">
           <div class="pc-label">BACK IN THE STORE</div>
-          <div class="pc-value">$17,700/yr</div>
-          <div class="pc-sub">Estimated, at the $50,000 a month in card sales you are doing now</div>
+          <div class="pc-value">$17.7k</div>
+          <div class="pc-sub">Estimated per year, at the $50,000 a month in card sales you do now</div>
         </div>
         <div class="price-cell">
           <div class="pc-label">YOUR TOTAL MONTHLY</div>
@@ -471,33 +471,33 @@
           <div class="pc-sub">Terminal, PCI compliance, statements and support included</div>
         </div>
       </div>
-      <div class="hero-chart"><div class="hc-title">Card fees on a $50,000 month in card sales</div><table><tr><td class="hc-lab">Square today</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$1,500</span></td></tr><tr><td class="hc-lab">AllProPay Rate</td><td><span class="hc-bar hc-new" style="width:56%; background:#2563EB;"></span><span class="hc-val hc-val-new">~$975</span></td></tr><tr><td class="hc-lab">AllProPay Edge</td><td><span class="hc-bar hc-new" style="width:0.5%"></span><span class="hc-val hc-val-new">$0</span></td></tr></table><div class="hc-note">Card fees only, at about 1,000 sales a month. The $25 monthly is not in the bars. Estimates.</div></div>
+      
     </div>
 
     <div class="sec-label">The Account</div>
     <table class="terms-table">
       <tr><td>Next-day funding</td><td>Included</td></tr>
       <tr><td>Countertop terminal</td><td>Included (dual-pricing)</td></tr>
-      <tr><td>Funding</td><td>Next business day</td></tr>
+      
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
       <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
     </table>
 
-    <div class="opt-row"><div class="opt-mini a"><div class="om-tag">What I recommend</div><div class="om-name">AllProPay Edge</div><div class="om-fig">$17,700 a year</div><div class="om-sub">est. kept. Your card cost is $0 and your tags do not change.</div></div><div class="opt-mini b"><div class="om-tag">The alternative</div><div class="om-name">AllProPay Rate</div><div class="om-fig">About 30% less</div><div class="om-sub">You keep absorbing it. Est. 1.8% to 2.1% all-in, 5 cents a sale.</div></div></div>
+    <div class="opt-row"><div class="opt-mini a"><div class="om-tag">What I recommend</div><div class="om-name">AllProPay Edge</div><div class="om-fig">$17,700 a year</div><div class="om-sub">est. kept. Card cost $0, your tags do not change.</div></div><div class="opt-mini b"><div class="om-tag">The alternative</div><div class="om-name">AllProPay Rate</div><div class="om-fig">About 30% less</div><div class="om-sub">You keep absorbing it. Est. 1.8% to 2.1% all-in.</div></div></div>
 
     <div class="sec-label">Why This Fit</div>
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">Your tags stay the same</div>
-        <div class="wc-body">A $50 item stays $50, and $50 is what a cash customer pays. The terminal shows both prices before the tap. Nobody re-tags the store.</div>
+        <div class="wc-body">A $50 item stays $50, and that is what a cash customer pays.</div>
       </div>
       <div class="why-cell">
-        <div class="wc-title">Nothing at the counter changes</div>
-        <div class="wc-body">One terminal, custom ring-ups, no inventory system to set up. Tournament Saturdays and release weekends work the same way.</div>
+        <div class="wc-title">The counter does not change</div>
+        <div class="wc-body">One terminal, custom ring-ups, no inventory system to set up.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">Next-day funding, no contract</div>
-        <div class="wc-body">Saturday's money lands Monday. Month to month, no setup fee and no cancellation fee. Every figure here comes off your own Square numbers.</div>
+        <div class="wc-body">Saturday's money lands Monday. No setup or cancellation fee.</div>
       </div>
     </div>
 
@@ -506,7 +506,7 @@
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">One quick call</div>
-        <div class="step-body">Our call Monday morning. Bring your August fee total from Square and I will run the exact figures with you.</div>
+        <div class="step-body">Our call Monday morning. Bring your August fee total from Square and I run the exact figures.</div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -523,7 +523,7 @@
     <div class="cta-block">
       <div class="cta-text">
         <div class="ct-title">One call and the account is open</div>
-        <div class="ct-sub">Text or call me over the weekend if a question comes up. Ten minutes Monday to finish the file and e-sign. - Matt</div>
+        <div class="ct-sub">Text or call me if a question comes up. Ten minutes Monday to finish the file and e-sign. - Matt</div>
       </div>
       <div class="cta-action">
         <a href="tel:+19299303969" class="ca-phone">929-930-3969</a>
