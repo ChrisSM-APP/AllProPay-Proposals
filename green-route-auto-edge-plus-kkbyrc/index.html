@@ -129,6 +129,16 @@
   }
   .price-cell .pc-sub { font-size: 8.5pt; color: #cbd5e1; }
 
+  .money-band {
+    position: relative; z-index: 1; text-align: center;
+    padding: 12px 10px 14px; margin: 0 0 16px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+  .money-band .mb-label { font-size: 8pt; letter-spacing: 1.5px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 6px; }
+  .money-band .mb-value { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--cyan); line-height: 1.05; }
+  .money-band .mb-sub { font-size: 8.5pt; color: #CBD5E1; margin-top: 7px; }
+
   .sec-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 9pt;
@@ -314,6 +324,10 @@
     .hero { padding: 9px 16px; margin: 7px 0; border-radius: 9px; }
     .hero h2 { font-size: 10.5pt; margin-bottom: 6px; }
     .hero .hero-eyebrow { font-size: 6.5pt; margin-bottom: 2px; }
+    .money-band { padding: 6px 8px 7px; margin: 0 0 8px; }
+    .money-band .mb-label { font-size: 6.2pt; letter-spacing: 1.1px; margin-bottom: 2px; }
+    .money-band .mb-value { font-size: 18pt; }
+    .money-band .mb-sub { font-size: 6.4pt; margin-top: 3px; }
     .price-row { gap: 12px; }
     .price-cell { padding: 1px 0; }
     .price-cell .pc-value { font-size: 13.5pt; margin-bottom: 2px; }
@@ -366,7 +380,7 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Khalid &middot; September 22, 2026</div>
+      <div class="eyebrow">Prepared for Khalid &middot; September 23, 2026</div>
       <h1>All<span class="accent">Pro</span>Pay Edge Plus</h1>
       <div class="merchant">Green Route Auto &middot; New Haven, Connecticut</div>
       <div class="meta-row">
@@ -379,6 +393,11 @@
     <div class="hero">
       <div class="hero-eyebrow">Your Program &middot; Zero Card Cost Plus Cash Back</div>
       <h2>Right now every card you run costs you 2.9% to 3.2%. On Edge Plus that goes to zero, and we pay you on top of it.</h2>
+      <div class="money-band">
+        <div class="mb-label">Estimated money kept in the business, year one</div>
+        <div class="mb-value">$4,100 to $4,500</div>
+        <div class="mb-sub">Per $10,000 a month in card sales: the card cost you stop carrying, less the $25 account fee, plus your first year of cash back and the loyalty bonus. About $3,900 to $4,300 every year after that. Estimated, and you have not given me a volume yet, so scale it to whatever you actually run.</div>
+      </div>
       <div class="price-row">
         <div class="price-cell">
           <div class="pc-label">YOUR COST ON CARD SALES</div>
