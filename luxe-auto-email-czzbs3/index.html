@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email version - AllProPay Proposal | Luxe Auto</title>
+<style>
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
+  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
+     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
+     carries the percent drop. */
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
+  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
+  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+  }
+</style>
+<style id="email-mode">
+  /* email-mode overrides (make_email_version.py) */
+  .page { max-width: 680px !important; margin: 0 auto !important; }
+  .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
+  .steps-bar, .cta-block { display: block !important; }
+  .doc-header { padding: 18px 28px 14px !important; }
+  .content { padding-left: 28px !important; padding-right: 28px !important; }
+  .doc-footer { text-align: center !important; padding: 14px 28px !important; }
+  .cta-btn { display: inline-block !important; }
+  .cta-print-text { display: none !important; }
+  .apc-calc, .booking-embed, script { display: none !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
+  .steps { display: block !important; }
+  .step { display: block !important; overflow: hidden; margin-bottom: 14px; }
+  .step-num { display: block !important; float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; }
+  .step-content { display: block !important; overflow: hidden; }
+  .pricing-callout .pc-label, .pricing-callout .pc-value, .price-cell .pc-label, .price-cell .pc-value { display: block !important; }
+  .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .chip { line-height: 13px !important; vertical-align: middle; }
+  /* short one-pager blocks (flex/grid on the page) */
+  .meta-row, .why-bar, .price-row, .steps-bar, .cta-block, .doc-footer, .doc-footer .sig { display: block !important; }
+  .meta-row > div { display: block; padding: 2px 0; }
+  .doc-footer .sig img { vertical-align: middle; margin-right: 8px; }
+  .doc-footer .fine { max-width: 100% !important; text-align: left !important; margin-top: 6px; }
+  .why-cell { display: block !important; }
+  /* neutralise the page's data-table styling on our layout tables */
+  table.em-cols { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 !important; font-size: inherit !important; }
+  table.em-cols tr, table.em-cols td { background: transparent !important; border: 0 !important; }
+</style><style id="email-toolbar-css">
+  #em-toolbar { position: sticky; top: 0; z-index: 50; background: #0B1120; color: #E2E8F0;
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; padding: 12px 20px;
+    border-bottom: 3px solid #0052FF; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  #em-toolbar b { color: #fff; }
+  #em-toolbar .em-btn { background: #0052FF; color: #fff; border: 0; border-radius: 6px;
+    font-weight: 700; font-size: 13px; padding: 9px 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+  #em-toolbar .em-btn.alt { background: transparent; border: 1.5px solid #64748B; color: #E2E8F0; }
+  #em-toolbar .em-note { color: #94A3B8; flex-basis: 100%; }
+  #em-toolbar .em-ok { color: #7DD3FC; font-weight: 700; }
+  #em-toolbar .em-to { color: #94A3B8; }
+  @media print { #em-toolbar { display: none; } }
+</style></head>
+<body>
+<div id="em-toolbar"><span><b>Email version</b> · Luxe Auto</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="doc-header">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" src="https://proposals.allpropay.com/luxe-auto-1ukbut/AllProPay_Logo.jpg" style="height:72px; width:auto;"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
+      800-807-0356  ·  support@allpropay.com  ·  allpropay.com<br/>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/luxe-auto-1ukbut/" style="color:#0052FF; font-weight:700;">Open the full proposal in your browser</a>.</div>
+<div class="content">
+<div class="title-block">
+<h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+<div class="subtitle">Luxe Auto</div>
+<div class="meta-grid">
+
+
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Mario  |  Luxe Auto  |  Tallahassee, Florida</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Tammy Millar  |  AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current processor</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">A bank-integrated setup through SmartBank (about 3 percent all-in, passed on to your customers)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">September 25, 2026</span></td></tr></table></div>
+</div>
+<div class="blue-bar"></div>
+<div class="section">
+<div class="section-header">Where We Are</div>
+<p>Here is what you told me on the phone, so you know I was listening. You pay about 3 percent, you pass that 3 percent on to your customers, and you are getting pushback on it. You do not want them paying more. Fair enough. So the plan is not to change what you charge them. The plan is to bring down what the card actually costs you, which is the only honest way that 3 percent ever comes down.</p>
+<p>You told us what mattered most. We built the setup around it:</p>
+<ul>
+<li>Keep taking payments exactly how you do now: in person on the lot, and by invoice for the deals that get done over the phone or by email.</li><li>Move your card cost to true cost. You pay interchange, the real price Visa and Mastercard set, plus one small flat markup. Nothing hidden on top of it.</li><li>Keep passing the fee on if you want to. That is still your call. The difference is you would be passing on a smaller number instead of a flat 3 percent.</li><li>Take big invoices by bank transfer for a flat 45 cents up to a $10 maximum, so a large down payment stops costing a percentage at all.</li><li>No contract and no cancellation fee. If we ever stop earning it, you walk.</li>
+</ul>
+</div>
+<div class="section">
+<div class="section-header">What You Get</div>
+<div class="pillars">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Nothing on the lot changes</div>
+<div class="p-body">You keep running deals the way you run them today, in person and by invoice, and you keep your own software for VIN work and estimates. We are changing what the card costs you, not how you sell cars. I handle the paperwork and the setup with you.</div>
+</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">True-cost pricing</div>
+<div class="p-body">You pay interchange, the real cost of the card set by Visa and Mastercard, plus a flat 0.45 percent and 10 cents a transaction. That is the entire markup. There are no tiers, no padding, and no surprise line items. On a setup like yours that lands somewhere around 2.1 to 2.6 percent all-in, against the 3 percent you are running today.</div>
+</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Bank transfer on the big ones</div>
+<div class="p-body">For a large down payment or a deal invoiced out, bank transfer costs 0.75 percent capped at $10. On a $3,000 payment that is $10 instead of $90. For a car lot that alone is worth the conversation, and your customer pays nothing extra.</div>
+</div></td></tr></table></div>
+</div>
+<div class="section">
+<div class="section-header">Your Pricing</div>
+<p>Here is the whole price list. There is nothing underneath it.</p>
+<div class="pricing-callout">
+<div class="pricing-grid two"><table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div style="display:block; width:auto"><div class="pc-label"><span class="pill pill-today">Today</span> SmartBank setup</div><div class="pc-value today">3%</div><div class="pc-sub">What the card costs you, and what your customers are being asked to cover.</div></div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div style="display:block; width:auto"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.35% <span class="chip">21% less</span></div><div class="pc-sub">All-in estimate, about 2.1 to 2.6 percent depending on your card mix. True cost plus one flat markup, Interchange + 0.45% + $0.10, shown in the table below.</div></div></td></tr></table></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">Card fees on a $15,000 month</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:130px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Today at 3%</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:67.1%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$450</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay Rate</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:52.9%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">~$355</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-21%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Estimated, at about $15,000 a month in card sales. You told me it moves month to month, so tell me the real number and I will redo this on it.</div></div>
+</div>
+<table style="width:100%" width="100%">
+<thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+<tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (in-person payments, invoicing, and card on file)</td></tr>
+<tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+<tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+<tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+</tbody>
+</table>
+<div class="insight">
+<strong>These are estimates from what you told me on the call, not a guarantee.</strong> The range moves with your card mix, and a car lot's mix is the one thing I cannot guess at: a book that leans on debit and everyday cards lands near the bottom of it, a book that leans on rewards credit lands near the top. Send me one recent statement, one month is plenty, and I will replace the range with your exact numbers and show you the math line by line.
+      </div>
+</div>
+
+<div class="section">
+<div class="section-header">Who pays the fee stays your call</div>
+<p>You already pass the fee on, so you know exactly how this works. Nothing about that has to change. What changes is the size of the number you are passing on. Right now you are asking a customer to cover 3 percent, and they are pushing back on it, because 3 percent on a car is real money. Bring your own cost down to true cost and you have room to move: charge them less, charge them nothing, or keep it where it is and keep the difference yourself. One account, and you can change your mind later without new paperwork or new equipment.</p>
+<ul class="why-list" style="margin-top:14px;">
+<li>Lower what your customers are asked to cover, and take the pushback off the table.</li><li>Or stop passing it on entirely, and absorb a cost that is now a lot smaller than 3 percent.</li><li>Or keep passing it on as you do today, and the gap stays with you.</li><li>Offer bank transfer on the big-ticket deals, where 0.75 percent capped at $10 beats any card, for you and for them.</li>
+</ul>
+</div>
+<div class="section">
+<div class="section-header">Why This Is the Right Move</div>
+<ul class="why-list">
+<li class="why"><strong>Interchange plus a flat 0.45 percent and 10 cents.</strong> That is the whole markup over the real cost of the card. No tiers, no padding, no junk lines.</li><li class="why"><strong>Your 3 percent finally has somewhere to go.</strong> A flat 3 percent from a bank setup is a number you cannot negotiate down. True-cost pricing moves with the card, so when the card is cheap, you are charged cheap.</li><li class="why"><strong>Estimated around 2.1 to 2.6 percent all-in</strong>, against about 3 percent today. On roughly $15,000 a month that is in the neighborhood of <strong>$1,100 a year</strong> less in card fees, and that is before the bank-transfer option on the big deals.</li><li class="why"><strong>Bank transfer at 0.75 percent capped at $10.</strong> A $3,000 down payment costs $10 instead of about $90. On a car lot that is the single biggest line in this document.</li><li class="why"><strong>No contract, no cancellation fee, no setup fee.</strong> If we ever stop earning it, you walk.</li>
+</ul>
+<p style="margin-top:12px;">Here is the math on a $15,000 month in card sales. At 3 percent that is $450, and right now your customers are the ones covering it and telling you about it. On interchange plus 0.45 percent and 10 cents, a mix like yours lands somewhere around 2.1 to 2.6 percent, call it roughly $355. That is about $95 a month, somewhere near $1,100 a year, that either goes back to your customers as a smaller fee or stays with you. Then there is the part that matters more on a car lot: move one $3,000 down payment a month onto bank transfer and that single payment costs $10 instead of about $90. These are estimates from the volume you gave me, not a guarantee. One statement makes them exact.</p>
+</div>
+<div class="section" style="break-after: avoid; page-break-after: avoid;">
+<div class="section-header">Next Steps</div>
+<p style="margin-bottom:18px;">Three easy steps, on your time:</p>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send me one recent statement.</strong> One month is plenty. That is the only thing standing between the range above and your exact numbers, and it takes you about two minutes to forward.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>Give me fifteen minutes.</strong> I walk the numbers with you line by line and we settle what your customers should actually be asked to cover, if anything. No pressure either way.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>We set it up around how you already work.</strong> In person on the lot, invoicing for the deals done remotely, and bank transfer on the big ones. You keep your own software for VIN work and estimates.</div></div>
+</div>
+<p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        You have been in this long enough to know when a number is being dressed up. This one is not. Send me a statement and I will show you exactly where your 3 percent is going.
+      </p>
+<div class="cta-wrap" style="margin-top:28px;">
+<a class="cta-btn" href="tel:+19299303050">Text or Call Me: 929-930-3050</a>
+<div class="cta-print-text">Text or call me: 929-930-3050  |  tammy@allpropay.com</div>
+</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122106" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
+
+</div>
+<div class="signature-block">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:60%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="60%"><div>
+<div class="sig-name">Tammy Millar</div>
+<div class="sig-contact">
+<a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (text friendly)<br/>
+<a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br/>
+<a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+</div>
+</div></td><td style="width:40%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="40%"><div class="sig-right">
+<img alt="AllProPay" src="https://proposals.allpropay.com/luxe-auto-1ukbut/AllProPay_Logo.jpg" style="height:58px; width:auto; display:block; margin-bottom:4px;"/>
+<div class="sig-tagline">Accept payments anywhere.</div>
+</div></td></tr></table></div>
+<p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+</div>
+<div class="doc-footer">
+<span>AllProPay  ·  108 W 39th Street, Suite 1006, New York, NY 10018  ·  800-807-0356</span>
+</div>
+</td></tr></table></div>
+<script id="em-compose" type="application/json">{"subject": "Luxe Auto - your AllProPay proposal", "body": "Hi Mario,\n\nGood talking with you. Here is everything from our call in writing:\n\nhttps://proposals.allpropay.com/luxe-auto-1ukbut/\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nTammy Millar\nAllProPay\n929-930-3050\n"}</script><script>
+(function () {
+  var page = document.querySelector('.page');
+  var status = document.getElementById('em-status');
+  function copyPage() {
+    var range = document.createRange();
+    range.selectNodeContents(page);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    window.scrollTo(0, 0);
+    return ok;
+  }
+  // Compose data: subject + note are embedded at build time; the recipient is NOT
+  // (this page is published). It arrives as ?to= on the link stored in the CRM.
+  var compose = null;
+  try { compose = JSON.parse(document.getElementById('em-compose').textContent); } catch (e) { compose = null; }
+  var qs = new URLSearchParams(window.location.search);
+  var to = (qs.get('to') || (compose && compose.to) || '').trim();
+  function gmailUrl() {
+    if (!compose) return null;
+    var u = 'https://mail.google.com/mail/?view=cm&fs=1';
+    if (to) u += '&to=' + encodeURIComponent(to);
+    u += '&su=' + encodeURIComponent(compose.subject || '');
+    u += '&body=' + encodeURIComponent(compose.body || '');
+    return u;
+  }
+  var draft = document.getElementById('em-draft');
+  if (draft) {
+    var gu = gmailUrl();
+    if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+  }
+  var toLabel = document.getElementById('em-to');
+  if (toLabel) toLabel.textContent = to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.';
+  var copyBtn = document.getElementById('em-copy');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    status.textContent = ok
+      ? 'Copied. Open your Gmail draft and press Ctrl+V in the body.'
+      : 'Copy was blocked. Click inside the page, press Ctrl+A then Ctrl+C.';
+    status.className = ok ? 'em-ok' : '';
+  });
+  var sendBtn = document.getElementById('em-send');
+  if (sendBtn) sendBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    var gu = gmailUrl();
+    if (gu) window.open(gu, '_blank', 'noopener');
+    status.textContent = ok
+      ? 'Proposal copied. In the Gmail tab that just opened, click under the note and press Ctrl+V. Read it, adjust, send.'
+      : 'Gmail opened, but the copy was blocked. Click inside this page, Ctrl+A, Ctrl+C, then paste in Gmail.';
+    status.className = ok ? 'em-ok' : '';
+  });
+})();
+</script></body>
+</html>
