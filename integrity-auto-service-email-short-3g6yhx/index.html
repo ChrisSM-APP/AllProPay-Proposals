@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllProPay Proposal | Integrity Auto Service</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email version - AllProPay Proposal | Integrity Auto Service</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
   :root {
     --blue: #0052FF;
     --navy: #0B1120;
@@ -427,122 +425,206 @@
     .doc-footer .fine { font-size: 7pt; }
   }
 </style>
-</head>
+<style id="email-mode">
+  /* email-mode overrides (make_email_version.py) */
+  .page { max-width: 680px !important; margin: 0 auto !important; }
+  .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
+  .steps-bar, .cta-block { display: block !important; }
+  .doc-header { padding: 18px 28px 14px !important; }
+  .content { padding-left: 28px !important; padding-right: 28px !important; }
+  .doc-footer { text-align: center !important; padding: 14px 28px !important; }
+  .cta-btn { display: inline-block !important; }
+  .cta-print-text { display: none !important; }
+  .apc-calc, .booking-embed, script { display: none !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
+  .steps { display: block !important; }
+  .step { display: block !important; overflow: hidden; margin-bottom: 14px; }
+  .step-num { display: block !important; float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; }
+  .step-content { display: block !important; overflow: hidden; }
+  .pricing-callout .pc-label, .pricing-callout .pc-value, .price-cell .pc-label, .price-cell .pc-value { display: block !important; }
+  .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .chip { line-height: 13px !important; vertical-align: middle; }
+  /* short one-pager blocks (flex/grid on the page) */
+  .meta-row, .why-bar, .price-row, .steps-bar, .cta-block, .doc-footer, .doc-footer .sig { display: block !important; }
+  .meta-row > div { display: block; padding: 2px 0; }
+  .doc-footer .sig img { vertical-align: middle; margin-right: 8px; }
+  .doc-footer .fine { max-width: 100% !important; text-align: left !important; margin-top: 6px; }
+  .why-cell { display: block !important; }
+  /* neutralise the page's data-table styling on our layout tables */
+  table.em-cols { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 !important; font-size: inherit !important; }
+  table.em-cols tr, table.em-cols td { background: transparent !important; border: 0 !important; }
+</style><style id="email-toolbar-css">
+  #em-toolbar { position: sticky; top: 0; z-index: 50; background: #0B1120; color: #E2E8F0;
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; padding: 12px 20px;
+    border-bottom: 3px solid #0052FF; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  #em-toolbar b { color: #fff; }
+  #em-toolbar .em-btn { background: #0052FF; color: #fff; border: 0; border-radius: 6px;
+    font-weight: 700; font-size: 13px; padding: 9px 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+  #em-toolbar .em-btn.alt { background: transparent; border: 1.5px solid #64748B; color: #E2E8F0; }
+  #em-toolbar .em-note { color: #94A3B8; flex-basis: 100%; }
+  #em-toolbar .em-ok { color: #7DD3FC; font-weight: 700; }
+  #em-toolbar .em-to { color: #94A3B8; }
+  @media print { #em-toolbar { display: none; } }
+</style></head>
 <body>
-<div class="page">
+<div id="em-toolbar"><span><b>Email version</b> · Integrity Auto Service  ·  Las Vegas, Nevada</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="doc-header">
 
-  <div class="doc-header">
-    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
-    <div class="contact">
-      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com
-    </div>
-  </div>
 
-  <div class="content">
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" class="logo-img" src="https://proposals.allpropay.com/integrity-auto-service-short-ezu5jl/AllProPay_Logo.jpg"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
+      800-807-0356  ·  support@allpropay.com  ·  allpropay.com
+    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/integrity-auto-service-short-ezu5jl/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="content">
+<div class="title-block">
+<div class="eyebrow">Prepared for Joey · September 28, 2026</div>
+<h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+<div class="merchant">Integrity Auto Service  ·  Las Vegas, Nevada</div>
+<div class="meta-row">
+<div><span>Current setup:</span><strong>Stripe inside Tekmetric, with the fees absorbed by the shop</strong></div>
+<div><span>Program:</span><strong>Edge dual pricing</strong></div>
+<div><span>Prepared by:</span><strong>Matt Butcher</strong></div>
+</div>
+</div>
+<div class="hero">
+<div class="hero-eyebrow">Your Program</div>
+<h2>Tekmetric stays. Your card cost goes to $0.</h2>
+<div class="price-row">
 
-    <div class="title-block">
-      <div class="eyebrow">Prepared for Joey &middot; September 28, 2026</div>
-      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
-      <div class="merchant">Integrity Auto Service &nbsp;&middot;&nbsp; Las Vegas, Nevada</div>
-      <div class="meta-row">
-        <div><span>Current setup:</span><strong>Stripe inside Tekmetric, with the fees absorbed by the shop</strong></div>
-        <div><span>Program:</span><strong>Edge dual pricing</strong></div>
-        <div><span>Prepared by:</span><strong>Matt Butcher</strong></div>
-      </div>
-    </div>
 
-    <div class="hero">
-      <div class="hero-eyebrow">Your Program</div>
-      <h2>Tekmetric stays. Your card cost goes to $0.</h2>
-      <div class="price-row">
-        <div class="price-cell">
-          <div class="pc-label">YOUR COST ON CARD SALES</div>
-          <div class="pc-value">$0</div>
-          <div class="pc-sub">What a card sale costs you. Cash, check, and bank transfer pay the cash price.</div>
-        </div>
-        <div class="price-cell">
-          <div class="pc-label">BACK IN THE SHOP</div>
-          <div class="pc-value">$13k to $24k</div>
-          <div class="pc-sub">Est. per year at $40k to $70k a month on a 3% blend.</div>
-        </div>
-        <div class="price-cell">
-          <div class="pc-label">YOUR TOTAL MONTHLY</div>
-          <div class="pc-value">$75</div>
-          <div class="pc-sub">Tekmetric connection, terminal, and text-to-pay. Whole bill.</div>
-        </div>
-      </div>
-      
-    </div>
 
-    <div class="sec-label">The Account</div>
-    <table class="terms-table">
-      <tr><td>Next-day funding</td><td>Included</td></tr>
-      <tr><td>POS+ inside Tekmetric, counter terminal, text-to-pay</td><td>Included (dual-pricing)</td></tr>
-      <tr><td>Covered card rate</td><td>3.8461%, carried by the card customer</td></tr>
-      <tr><td>Monthly platform fee</td><td>$75</td></tr>
-      <tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
-    </table>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label">YOUR COST ON CARD SALES</div>
+<div class="pc-value">$0</div>
+<div class="pc-sub">What a card sale costs you. Cash, check, and bank transfer pay the cash price.</div>
+</div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label">BACK IN THE SHOP</div>
+<div class="pc-value">$13k to $24k</div>
+<div class="pc-sub">Est. per year at $40k to $70k a month on a 3% blend.</div>
+</div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label">YOUR TOTAL MONTHLY</div>
+<div class="pc-value">$75</div>
+<div class="pc-sub">Tekmetric connection, terminal, and text-to-pay. Whole bill.</div>
+</div></td></tr></table></div>
+</div>
+<div class="sec-label">The Account</div>
+<table class="terms-table" style="width:100%" width="100%">
+<tr><td>Next-day funding</td><td>Included</td></tr>
+<tr><td>POS+ inside Tekmetric, counter terminal, text-to-pay</td><td>Included (dual-pricing)</td></tr>
+<tr><td>Covered card rate</td><td>3.8461%, carried by the card customer</td></tr>
+<tr><td>Monthly platform fee</td><td>$75</td></tr>
+<tr><td>Setup fee / contract / cancellation</td><td>None</td></tr>
+</table>
+<div class="opt-row"><div class="opt-mini a"><div class="om-tag">What I recommend</div><div class="om-name">AllProPay Edge</div><div class="om-fig">$0</div><div class="om-sub">Your cost per card sale. Card price and cash price on the invoice, every card covered.</div></div><div class="opt-mini b"><div class="om-tag">Also available</div><div class="om-name">AllProPay Rate</div><div class="om-fig">1.8% to 2%</div><div class="om-sub">You keep absorbing it, at a lower rate. Est. $4k to $8k a year.</div></div></div>
+<div class="sec-label">Why This Fit</div>
+<div class="why-bar">
 
-    <div class="opt-row"><div class="opt-mini a"><div class="om-tag">What I recommend</div><div class="om-name">AllProPay Edge</div><div class="om-fig">$0</div><div class="om-sub">Your cost per card sale. Card price and cash price on the invoice, every card covered.</div></div><div class="opt-mini b"><div class="om-tag">Also available</div><div class="om-name">AllProPay Rate</div><div class="om-fig">1.8% to 2%</div><div class="om-sub">You keep absorbing it, at a lower rate. Est. $4k to $8k a year.</div></div></div>
 
-    <div class="sec-label">Why This Fit</div>
-    <div class="why-bar">
-      <div class="why-cell">
-        <div class="wc-title">Nothing to relearn</div>
-        <div class="wc-body">POS+ takes the payment from the repair order inside Tekmetric. Text-to-pay works the same. Stripe stays native.</div>
-      </div>
-      <div class="why-cell">
-        <div class="wc-title">The fee comes off the shop</div>
-        <div class="wc-body">You absorb it today. On Edge it sits on the card side, disclosed before they pay, and you keep 100%.</div>
-      </div>
-      <div class="why-cell">
-        <div class="wc-title">Every card covered</div>
-        <div class="wc-body">3.8461% covers rewards cards and Amex too, so no sale comes back short.</div>
-      </div>
-    </div>
 
-    <div class="sec-label">How We Get You Live</div>
-    <div class="steps-bar">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-title">One quick call</div>
-        <div class="step-body">Ten minutes on a screen share with Randy on it. I show you POS+ inside Tekmetric on a real invoice.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-title">Approval</div>
-        <div class="step-body">Underwriting in 24 to 48 hours. We handle the back and forth.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-title">Switch on</div>
-        <div class="step-body">POS+ tested inside Tekmetric before anything is switched. Terminal arrives set for dual pricing.</div>
-      </div>
-    </div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="wc-title">Nothing to relearn</div>
+<div class="wc-body">POS+ takes the payment from the repair order inside Tekmetric. Text-to-pay works the same. Stripe stays native.</div>
+</div></td><td style="width:10px; padding:0;" width="10"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="wc-title">The fee comes off the shop</div>
+<div class="wc-body">You absorb it today. On Edge it sits on the card side, disclosed before they pay, and you keep 100%.</div>
+</div></td><td style="width:10px; padding:0;" width="10"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="wc-title">Every card covered</div>
+<div class="wc-body">3.8461% covers rewards cards and Amex too, so no sale comes back short.</div>
+</div></td></tr></table></div>
+<div class="sec-label">How We Get You Live</div>
+<div class="steps-bar">
+<div class="step-card">
+<div class="step-num">1</div>
+<div class="step-title">One quick call</div>
+<div class="step-body">Ten minutes on a screen share with Randy on it. I show you POS+ inside Tekmetric on a real invoice.</div>
+</div>
+<div class="step-card">
+<div class="step-num">2</div>
+<div class="step-title">Approval</div>
+<div class="step-body">Underwriting in 24 to 48 hours. We handle the back and forth.</div>
+</div>
+<div class="step-card">
+<div class="step-num">3</div>
+<div class="step-title">Switch on</div>
+<div class="step-body">POS+ tested inside Tekmetric before anything is switched. Terminal arrives set for dual pricing.</div>
+</div>
+</div>
+<div class="cta-block">
 
-    <div class="cta-block">
-      <div class="cta-text">
-        <div class="ct-title">Ten minutes, with Randy on the call</div>
-        <div class="ct-sub">Text or call me. Ten minutes to see it inside Tekmetric, finish the file, and e-sign.</div>
-      </div>
-      <div class="cta-action">
-        <a href="tel:+19299303969" class="ca-phone">929-930-3969</a>
-        <div class="ca-name">Matt Butcher &middot; matt@allpropay.com</div>
-      </div>
-    </div>
 
-    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
-
-  </div>
-
-  <div class="doc-footer">
-    <div class="sig">
-      <img src="AllProPay_Logo.jpg" alt="AllProPay">
-      <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
-    </div>
-    <div class="fine">The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on ticket sizes provided. No contract, no setup fee, no cancellation fee.</div>
-  </div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:66%; padding:0 12px 0 0px; vertical-align:middle;" valign="middle" width="66%"><div class="cta-text">
+<div class="ct-title">Ten minutes, with Randy on the call</div>
+<div class="ct-sub">Text or call me. Ten minutes to see it inside Tekmetric, finish the file, and e-sign.</div>
+</div></td><td style="width:34%; padding:0 0px 0 12px; vertical-align:middle;" valign="middle" width="34%"><div class="cta-action" style="text-align:right">
+<a class="ca-phone" href="tel:+19299303969" style="color:#fff; text-decoration:none; display:block; font-weight:800">929-930-3969</a>
+<div class="ca-name">Matt Butcher · matt@allpropay.com</div>
+</div></td></tr></table></div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000123129" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
 
 </div>
-</body>
+<div class="doc-footer">
+
+
+<div class="sig" style="display:block; white-space:nowrap">
+<img alt="AllProPay" src="https://proposals.allpropay.com/integrity-auto-service-short-ezu5jl/AllProPay_Logo.jpg"/>
+<span>AllProPay · 800-807-0356 · allpropay.com</span>
+</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on ticket sizes provided. No contract, no setup fee, no cancellation fee.</div></div>
+</td></tr></table></div>
+<script id="em-compose" type="application/json">{"subject": "Integrity Auto - the numbers in writing, built on your 1.5% and 2.8%", "body": "Hi Joey,\n\nThanks for the time on the phone. You asked for the numbers in writing instead of a statement, so here they are:\n\nhttps://proposals.allpropay.com/integrity-auto-service-ye26yy/\n\nShort version: Tekmetric stays, POS+ runs inside it, and on the program I recommend your cost on a card sale is $0. At the $50,000 a month you called conservative, that is about $1,075 a month staying in the shop, right as the Tekmetric bill starts. There is a second option on the page if you would rather keep absorbing the fee at a lower rate.\n\nEvery figure is built on the 1.5% and 2.8% you gave me, so you can check the math. There is also a 45-second clip of POS+ inside a Tekmetric repair order.\n\nAre you at a computer at 10 or 2 tomorrow for a ten-minute screen share?\n\nMatt Butcher\nAllProPay\n929-930-3969"}</script><script>
+(function () {
+  var page = document.querySelector('.page');
+  var status = document.getElementById('em-status');
+  function copyPage() {
+    var range = document.createRange();
+    range.selectNodeContents(page);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    window.scrollTo(0, 0);
+    return ok;
+  }
+  // Compose data: subject + note are embedded at build time; the recipient is NOT
+  // (this page is published). It arrives as ?to= on the link stored in the CRM.
+  var compose = null;
+  try { compose = JSON.parse(document.getElementById('em-compose').textContent); } catch (e) { compose = null; }
+  var qs = new URLSearchParams(window.location.search);
+  var to = (qs.get('to') || (compose && compose.to) || '').trim();
+  function gmailUrl() {
+    if (!compose) return null;
+    var u = 'https://mail.google.com/mail/?view=cm&fs=1';
+    if (to) u += '&to=' + encodeURIComponent(to);
+    u += '&su=' + encodeURIComponent(compose.subject || '');
+    u += '&body=' + encodeURIComponent(compose.body || '');
+    return u;
+  }
+  var draft = document.getElementById('em-draft');
+  if (draft) {
+    var gu = gmailUrl();
+    if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+  }
+  var toLabel = document.getElementById('em-to');
+  if (toLabel) toLabel.textContent = to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.';
+  var copyBtn = document.getElementById('em-copy');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    status.textContent = ok
+      ? 'Copied. Open your Gmail draft and press Ctrl+V in the body.'
+      : 'Copy was blocked. Click inside the page, press Ctrl+A then Ctrl+C.';
+    status.className = ok ? 'em-ok' : '';
+  });
+  var sendBtn = document.getElementById('em-send');
+  if (sendBtn) sendBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    var gu = gmailUrl();
+    if (gu) window.open(gu, '_blank', 'noopener');
+    status.textContent = ok
+      ? 'Proposal copied. In the Gmail tab that just opened, click under the note and press Ctrl+V. Read it, adjust, send.'
+      : 'Gmail opened, but the copy was blocked. Click inside this page, Ctrl+A, Ctrl+C, then paste in Gmail.';
+    status.className = ok ? 'em-ok' : '';
+  });
+})();
+</script></body>
 </html>
