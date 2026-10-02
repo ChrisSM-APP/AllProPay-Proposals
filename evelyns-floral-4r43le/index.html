@@ -38,6 +38,7 @@
   thead tr { background: var(--navy); color: #fff; }
   thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
   tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
   tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
   .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
@@ -48,18 +49,24 @@
   /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
      smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
      carries the percent drop. */
-  .pricing-callout .pc-label { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-  .pricing-callout .pc-value { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
   .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
   .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
   .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
   .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
   .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
-  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 1.1; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step { display: flex; gap: 16px; align-items: flex-start; }
-  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
   .step-content strong { font-weight: 600; color: var(--text); }
   .why-list { list-style: none; margin: 0; padding: 0; }
   .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
@@ -102,7 +109,7 @@
     tbody td { padding: 5px 10px; font-size: 9pt; }
     .pricing-callout { padding: 14px 18px; }
     .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
     .step-content { font-size: 9.5pt; padding-top: 4px; }
     .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
     .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
@@ -200,7 +207,7 @@
   <div class="doc-header">
     <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
     <div class="contact">
-      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      929-930-3970 &nbsp;&middot;&nbsp; chris@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
       108 W 39th Street, Suite 1006, New York, NY 10018
     </div>
   </div>
@@ -216,9 +223,9 @@
         <span class="label">Prepared by</span>
         <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current processor</span>
-        <span class="value">Square (about 2.6% + 10 cents in person, higher on keyed and online; roughly $270 to $540 a month on $10k to $20k)</span>
+        <span class="value">Square (2.6% + 10 cents in person, 3.5% + 15 cents keyed, 2.9% + 30 cents online; about $408 a month on $15k in person)</span>
         <span class="label">Date</span>
-        <span class="value">September 11, 2026</span>
+        <span class="value">October 2, 2026</span>
       </div>
     </div>
 
@@ -242,7 +249,7 @@
         </div>
         <div class="pillar">
           <div class="p-title">True-cost card pricing</div>
-          <div class="p-body">You pay interchange, the real cost set by Visa and Mastercard, plus a flat 0.7 percent and 10 cents a transaction. That is the entire markup. On Square you pay a flat 2.6 percent on every card, including debit, where the true cost is a fraction of that. On true-cost pricing you keep the difference, most of it on debit and everyday cards.</div>
+          <div class="p-body">You pay interchange, the real cost set by Visa and Mastercard, plus a flat 0.5 percent and 8 cents a transaction. That is the entire markup. On Square you pay a flat 2.6 percent on every card, including debit, where the true cost is a fraction of that. On true-cost pricing you keep the difference, most of it on debit and everyday cards.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Real support, no lock-in</div>
@@ -256,7 +263,7 @@
       <p>This is the locked pricing for the Evelyn's Floral account.</p>
 
       <div class="pricing-callout">
-        <div class="pricing-grid two"><div><div class="pc-label"><span class="pill pill-today">Today</span> Square</div><div class="pc-value today">2.6% + 10c</div><div class="pc-sub">One flat price on every card, even debit.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.3% <span class="chip">15% less</span></div><div class="pc-sub">All-in estimate on your ticket size. True cost plus one small flat markup, Interchange + 0.7% + $0.10, shown in the table below.</div></div></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">Card fees on a $15,000 month</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:120px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Square today</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:86%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$408</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:72.7%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">~$345</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-15%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Estimates from the volume and ticket size you shared. Your card mix sets the exact number.</div></div>
+        <div class="pricing-grid two"><div><div class="pc-label"><span class="pill pill-today">Today</span> Square</div><div class="pc-value today">2.6% + 10c</div><div class="pc-sub">One flat price on every card, even debit. 3.5% + 15 cents the moment you key one in.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.4% <span class="chip">about 10% less</span></div><div class="pc-sub">All-in estimate on your card mix. Interchange + 0.5% + $0.08, and that is the whole markup.</div></div></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">Card fees on a $15,000 month</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:120px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Square today</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:86%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$408</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:18px; width:77%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">~$365</span><span class="chip" style="margin-left:8px; vertical-align:middle;">-10%</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Estimated from the volume and ticket size you shared. The more debit you run, the bigger the gap.</div></div>
       </div>
 
       
@@ -274,7 +281,7 @@
       </table>
 
       <div class="insight">
-        <strong>These are estimates from what you shared on the call, not a guarantee.</strong> Most Square shops your size land around 2.1 to 2.5 percent all-in on true-cost pricing, against about 2.6 to 3 percent on Square today. The EPOS Now register runs about $80 a month, and the rate drop plus the cleaner setup are meant to cover most of that. Square publishes its rates, so there is nothing you need to dig up. Fifteen minutes with you and Kelsey and I will walk the exact math for both shops.
+        <strong>These are estimates from what you shared on the call, not a guarantee.</strong> Square charges one flat price no matter which card gets handed over, so your debit sales and your everyday cards subsidise the premium ones. On true cost, a debit sale costs a fraction of a rewards card and you only pay what each one actually costs, plus a flat 0.5% and 8 cents. The more debit you run, the wider the gap gets. Two things make it wider still: any order you key in by phone, which Square charges 3.5% plus 15 cents for, and anything you take online at 2.9% plus 30 cents. Fifteen minutes with you and Kelsey and I will walk the exact math for both shops.
       </div>
     </div>
 
@@ -394,18 +401,18 @@
 
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You told me you would rather absorb the card fee for now than surprise your regulars, and in a small town that is the right call. So this starts as a straight rate improvement, nothing your customers see. If you and Kelsey ever change your mind, the same account can move your card cost to zero by passing the fee at checkout, the way a lot of shops do now. No new application and no new equipment. Your move, whenever, or never.</p>
+      <p>You told me you would rather absorb the card fee for now than surprise your regulars, and in a small town that is the right call. So this starts as a straight rate improvement, nothing your customers see. If you and Kelsey ever change your mind, the same account can take your card cost to zero by showing two prices at checkout, the way a lot of shops do now. On a small sale the difference is a few cents and most customers never mention it. No new application, no new equipment. Your move, whenever, or never.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on true-cost pricing. Nothing your customers notice.</li><li>Flip to dual pricing later on the same account if you ever want your card cost at zero. No rebuild, no new gear.</li><li>Either way, no contract. You are never locked in.</li>
+        <li>Start on true-cost pricing. Nothing your customers notice.</li><li>Move to two-price checkout later on the same account and your card cost goes to zero. On a small ticket the adjustment is a few cents.</li><li>Either way, no contract. You are never locked in.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li class="why"><strong>Interchange plus a flat 0.7 percent and 10 cents.</strong> That is the whole markup over the true cost of the card. No tiers, no padding.</li><li class="why"><strong>You stop paying Square's flat 2.6 percent on debit.</strong> Debit and everyday cards cost a fraction of that at true cost, and on true-cost pricing you keep the difference.</li><li class="why"><strong>An upgraded register, and we move your items over for you.</strong> You send the spreadsheet you already have and we rebuild it with pictures. Same handheld tap-to-pay on deliveries and at school events.</li><li class="why"><strong>No long lease, no contract, no cancellation fee.</strong> If we ever stop earning it, you walk.</li><li class="why"><strong>Zero card cost is there if you ever want it.</strong> The same account flips to dual pricing down the road, no rebuild, whenever you and Kelsey are ready.</li>
+        <li class="why"><strong>Interchange plus a flat 0.5 percent and 8 cents.</strong> That is the whole markup over the true cost of the card. No tiers, no padding.</li><li class="why"><strong>You stop paying Square's flat 2.6 percent on debit.</strong> Debit and everyday cards cost a fraction of that at true cost, and on true-cost pricing you keep the difference.</li><li class="why"><strong>An upgraded register, and we move your items over for you.</strong> You send the spreadsheet you already have and we rebuild it with pictures. Same handheld tap-to-pay on deliveries and at school events.</li><li class="why"><strong>No long lease, no contract, no cancellation fee.</strong> If we ever stop earning it, you walk.</li><li class="why"><strong>Zero card cost is there if you ever want it.</strong> The same account flips to dual pricing down the road, no rebuild, whenever you and Kelsey are ready.</li>
       </ul>
-      <p style="margin-top:12px;">Here is the math on a $15,000 month. On Square's flat 2.6 percent plus 10 cents you are paying somewhere around $400 a month in card fees, and more of that than you would think is on debit cards that barely cost anything to run. On interchange plus 0.7 percent and 10 cents, with most of your volume taken in person, the processing lands closer to $330 to $360, and the EPOS Now register is about $80 a month. So the card savings cover most of the upgraded system and you come out with a better register and true-cost pricing instead of a flat rate you can never lower. These are estimates from the volume and ticket size you shared, not a guarantee. The only thing that moves them is your card mix, and I can show you that live in fifteen minutes.</p>
+      <p style="margin-top:12px;">Here is the math on a $15,000 month at your ticket size, about 176 sales. On Square's flat 2.6 percent plus 10 cents you are paying about $408 a month in card fees, and that same 2.6 percent is charged on debit cards that cost a fraction of it to run. On interchange plus 0.5 percent and 8 cents, with most of your volume taken in person, the card fees land around $365, and lower than that if your debit share is healthy. The register runs about $80 a month, so the card savings go a long way toward the upgraded system and you end up with a better setup and a rate that can actually come down, instead of a flat number you can never move. If you key funeral orders in over the phone, that is where the gap is widest: Square takes 3.5 percent plus 15 cents on those. These are estimates from the volume and ticket size you shared, not a guarantee.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
