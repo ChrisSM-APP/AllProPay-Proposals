@@ -3,398 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllProPay – QuickBooks Surcharge Integration Proposal | Tampa Bay Boatlift Service</title>
+<title>AllProPay Proposal | Tampa Bay Area Boat Lift Service and Repair Inc.</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
   :root {
-    --blue: #0052FF;
-    --blue-soft: #E6EEFF;
-    --navy: #0B1120;
-    --light-gray: #F5F7FA;
-    --mid-gray: #E2E8F0;
-    --black: #000000;
-    --red: #C0392B;
-    --orange: #D97706;
-    --green: #15803D;
-    --text: #1A1A2E;
-    --muted: #64748B;
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 10.5pt;
-    color: var(--text);
-    background: #fff;
-    line-height: 1.55;
-  }
-
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
   .page { max-width: 820px; margin: 0 auto; padding: 0; }
-
-  .doc-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 40px 16px;
-    border-bottom: 3px solid var(--blue);
-  }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
   .doc-header .logo-img { height: 72px; width: auto; }
-  .doc-header .contact {
-    font-size: 8.5pt;
-    color: var(--muted);
-    text-align: right;
-    line-height: 1.7;
-  }
-
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
   .content { padding: 36px 40px 48px; }
-
   .title-block { margin-bottom: 32px; }
-  .title-block h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28pt;
-    font-weight: 800;
-    color: var(--black);
-    line-height: 1.1;
-    margin-bottom: 6px;
-  }
-  .title-block .subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15pt;
-    font-weight: 600;
-    color: var(--blue);
-    margin-bottom: 24px;
-  }
-  .meta-grid {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 6px 16px;
-    font-size: 9.5pt;
-    border-top: 1px solid var(--mid-gray);
-    padding-top: 16px;
-  }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
   .meta-grid .label { color: var(--muted); font-weight: 500; }
   .meta-grid .value { color: var(--text); font-weight: 500; }
-
   .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
-
   .section { margin-bottom: 36px; }
-  .section-header {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13pt;
-    font-weight: 700;
-    color: var(--blue);
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--blue);
-    margin-bottom: 16px;
-  }
-
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
   p { margin-bottom: 10px; font-size: 10.5pt; }
   ul { margin: 10px 0 10px 20px; }
   ul li { margin-bottom: 6px; font-size: 10.5pt; }
-
-  .savings-callout {
-    background: var(--navy);
-    color: #fff;
-    border-radius: 8px;
-    padding: 24px 28px;
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-  .savings-callout .sc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
-  .savings-callout .sc-value {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22pt;
-    font-weight: 800;
-    color: #38BDF8;
-  }
-  .savings-callout .sc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .savings-callout .divider { width: 1px; background: #334155; align-self: stretch; }
-
-  .workflow {
-    background: var(--light-gray);
-    border: 1px solid var(--mid-gray);
-    border-radius: 10px;
-    padding: 28px 24px;
-    margin: 18px 0 8px;
-  }
-  .flow-row {
-    display: flex;
-    align-items: stretch;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: nowrap;
-  }
-  .flow-node {
-    flex: 1 1 0;
-    background: #fff;
-    border: 2px solid var(--blue);
-    border-radius: 8px;
-    padding: 12px 10px 10px;
-    text-align: center;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-  }
-  .flow-node .fn-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 9.5pt;
-    color: var(--black);
-    margin-bottom: 4px;
-  }
-  .flow-node .fn-sub {
-    font-size: 8pt;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-  .flow-node.middle {
-    background: var(--blue);
-    border-color: var(--blue);
-  }
-  .flow-node.middle .fn-title { color: #fff; }
-  .flow-node.middle .fn-sub { color: #DCE7FF; }
-  .flow-arrow {
-    align-self: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16pt;
-    font-weight: 700;
-    color: var(--blue);
-    padding: 0 2px;
-  }
-  .flow-arrow .arrow-label {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 7pt;
-    font-weight: 500;
-    color: var(--muted);
-    margin-top: 2px;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-  }
-  .flow-caption {
-    text-align: center;
-    font-size: 8.5pt;
-    color: var(--muted);
-    margin-top: 14px;
-    font-style: italic;
-  }
-
-  .steps { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
-  .step { display: flex; gap: 16px; align-items: flex-start; }
-  .step-num {
-    background: var(--blue);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 12pt;
-    min-width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .step-content { padding-top: 4px; font-size: 10.5pt; }
-  .step-content strong { font-weight: 600; color: var(--text); }
-  .step-content .step-title {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 11pt;
-    color: var(--black);
-    margin-bottom: 4px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 9.5pt;
-    margin-bottom: 12px;
-  }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
   thead tr { background: var(--navy); color: #fff; }
-  thead th {
-    padding: 10px 14px;
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 9pt;
-    letter-spacing: 0.3px;
-  }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
   tbody tr:nth-child(even) { background: var(--light-gray); }
-  tbody tr:nth-child(odd) { background: #fff; }
-  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
-  .col-feature { font-weight: 600; color: var(--text); width: 28%; }
-  .cell-keep { color: var(--green); font-weight: 600; }
-  .cell-change { color: var(--blue); font-weight: 600; }
-
-  .insight {
-    background: #FFFBEB;
-    border-left: 4px solid #F59E0B;
-    border-radius: 0 6px 6px 0;
-    padding: 14px 18px;
-    margin: 14px 0;
-    font-size: 10pt;
-    line-height: 1.55;
-  }
-  .insight strong { color: #B45309; }
-
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
+  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
+     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
+     carries the percent drop. */
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
+  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
+  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
   .why-list { list-style: none; margin: 0; padding: 0; }
-  .why-list li {
-    padding: 10px 14px;
-    border-left: 3px solid var(--blue);
-    margin-bottom: 8px;
-    background: var(--light-gray);
-    font-size: 10.5pt;
-    border-radius: 0 4px 4px 0;
-  }
-  .why-list li strong { color: var(--text); font-weight: 700; }
-
-  .tradeoff {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 16px 0;
-  }
-  .tradeoff .to-card {
-    border: 1px solid var(--mid-gray);
-    border-radius: 8px;
-    padding: 18px 20px;
-    background: #fff;
-  }
-  .tradeoff .to-card.give {
-    border-color: var(--mid-gray);
-    background: #FAFBFD;
-  }
-  .tradeoff .to-card.get {
-    border-color: var(--blue);
-    background: var(--blue-soft);
-  }
-  .tradeoff .to-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 8.5pt;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .tradeoff .to-card.get .to-label { color: var(--blue); }
-  .tradeoff .to-body { font-size: 10pt; line-height: 1.55; }
-  .tradeoff .to-headline {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 11.5pt;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .cta-wrap { text-align: center; margin-top: 24px; }
-  .cta-btn {
-    display: inline-block;
-    background: var(--blue);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 11.5pt;
-    padding: 14px 36px;
-    border-radius: 6px;
-    text-decoration: none;
-    letter-spacing: 0.3px;
-  }
-  .cta-btn:hover { background: #003ecc; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
   .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-
-  .signature-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid var(--mid-gray);
-  }
-  .sig-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13pt;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .sig-title { font-size: 9.5pt; color: var(--muted); margin-top: 2px; }
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
   .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
   .sig-right { text-align: right; }
   .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
-
-  .doc-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 40px;
-    border-top: 1px solid var(--mid-gray);
-    font-size: 8pt;
-    color: var(--muted);
-  }
-
   .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
-
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
-    .savings-callout, .insight, .workflow, .step, table, .tradeoff, .why-list li, thead tr {
-      -webkit-print-color-adjust: exact; print-color-adjust: exact;
-    }
-    .savings-callout, .workflow, .step, .tradeoff, table { break-inside: avoid; page-break-inside: avoid; }
-    .section { break-inside: avoid; page-break-inside: avoid; }
-    tr { break-inside: avoid; page-break-inside: avoid; }
-
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
     .doc-header { padding: 12px 32px 10px; }
-    .doc-header .logo-img { height: 56px; }
-    .content { padding: 18px 32px 24px; }
-    .title-block { margin-bottom: 16px; }
-    .title-block h1 { font-size: 22pt; margin-bottom: 4px; }
-    .title-block .subtitle { font-size: 13pt; margin-bottom: 14px; }
-    .meta-grid { padding-top: 10px; gap: 3px 12px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
     .blue-bar { margin: 14px 0; }
     .section { margin-bottom: 18px; }
     .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
     p { margin-bottom: 6px; font-size: 9.5pt; }
-    ul { margin: 6px 0 6px 18px; }
-    ul li { margin-bottom: 3px; font-size: 9.5pt; }
-
-    .savings-callout { padding: 14px 20px; margin: 12px 0; }
-    .savings-callout .sc-value { font-size: 18pt; }
-
-    .workflow { padding: 18px 14px; margin: 12px 0 4px; }
-    .flow-node { padding: 8px 6px; }
-    .flow-node .fn-title { font-size: 8pt; }
-    .flow-node .fn-sub { font-size: 6.5pt; }
-    .flow-arrow { font-size: 12pt; }
-    .flow-arrow .arrow-label { font-size: 6pt; }
-    .flow-caption { font-size: 7.5pt; margin-top: 10px; }
-
-    .steps { gap: 8px; margin-top: 10px; }
-    .step-num { min-width: 26px; height: 26px; font-size: 9pt; }
-    .step-content { padding-top: 2px; font-size: 9pt; }
-    .step-content .step-title { font-size: 10pt; margin-bottom: 2px; }
-
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
     thead th { padding: 6px 10px; font-size: 8pt; }
-    tbody td { padding: 5px 10px; font-size: 8.5pt; }
-    table { margin-bottom: 8px; }
-
-    .tradeoff { gap: 10px; margin: 10px 0; }
-    .tradeoff .to-card { padding: 12px 14px; }
-    .tradeoff .to-label { font-size: 7.5pt; }
-    .tradeoff .to-headline { font-size: 10pt; }
-    .tradeoff .to-body { font-size: 8.5pt; }
-
-    .why-list li { padding: 6px 12px; margin-bottom: 4px; font-size: 9pt; }
-
-    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
     .sig-name { font-size: 11pt; }
     .cta-btn { display: none; }
     .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
   }
   /* === AllProPay mobile responsive v3 (auto-injected) ===
      Screen-only. Does not affect print/PDF (those use @media print).
@@ -483,9 +205,9 @@
 <div class="page">
 
   <div class="doc-header">
-    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
     <div class="contact">
-      800-807-0356 &nbsp;·&nbsp; support@allpropay.com &nbsp;·&nbsp; allpropay.com<br>
+      929-930-3969 &nbsp;&middot;&nbsp; matt@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
       108 W 39th Street, Suite 1006, New York, NY 10018
     </div>
   </div>
@@ -493,268 +215,229 @@
   <div class="content">
 
     <div class="title-block">
-      <h1>Keep QuickBooks. Stop Hiding the 3% in Your Labor Pricing.</h1>
-      <div class="subtitle">QuickBooks surcharge integration proposal for Tampa Bay Boatlift Service</div>
+      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
+      <div class="subtitle">Tampa Bay Area Boat Lift Service and Repair Inc.</div>
       <div class="meta-grid">
         <span class="label">Prepared for</span>
-        <span class="value">Miguel &nbsp;|&nbsp; Tampa Bay Boatlift Service and Repair</span>
+        <span class="value">Miguel &nbsp;|&nbsp; Tampa Bay Area Boat Lift Service and Repair Inc. &nbsp;|&nbsp; Tampa Bay, Florida</span>
         <span class="label">Prepared by</span>
         <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
-        <span class="label">Current setup</span>
-        <span class="value">QuickBooks Payments (Intuit) – flat 3% + $0.30 per transaction, fees deducted daily</span>
-        <span class="label">Recommendation</span>
-        <span class="value">POS+ surcharge integration for QuickBooks (AllProPay Edge program)</span>
+        <span class="label">Current processor</span>
+        <span class="value">QuickBooks Payments (2.90% flat on every card)</span>
         <span class="label">Date</span>
-        <span class="value">May 19, 2026</span>
+        <span class="value">October 5, 2026</span>
       </div>
     </div>
 
     <div class="blue-bar"></div>
 
-    <!-- EXECUTIVE SUMMARY -->
     <div class="section">
-      <div class="section-header">The Short Version</div>
-      <p>You told us on the call you already bake the 3% processing cost into your labor pricing. That works, but it puts you in a corner. When a customer pushes back on your quote, you either eat the 3% to win the job or walk away from the work. And every month you spend time doing the math to make sure the 3% landed where it needed to.</p>
-      <p>This proposal removes the math and the corner. QuickBooks stays exactly where it is. Every invoice, every customer, every report, every accounting entry continues to live in QuickBooks the way it does today. We add one integration that calculates the compliant card surcharge automatically and shows it as its own line on the invoice. Cash and check customers see the lower price. Card customers see both prices and choose. You stop padding labor.</p>
-      <p>On the processing side, your effective cost on credit drops to <strong>0%</strong> because the surcharge passes that cost to the cardholder. At your $100K monthly volume, that puts roughly <strong>$30,000 to $36,000 a year</strong> back in the business through cleaner labor pricing or recovered margin, whichever direction you choose to take it.</p>
+      <div class="section-header">Where We Are</div>
+      <p>Last time around I brought you a program that moved the card fee to your customers, and you were right to kill it. The moment the fee showed up at checkout your customers reached for a checkbook, and you went from same-week money to waiting 14 or 15 days for the mail. This is a different build. You absorb the fee, exactly as you do now, and the work goes into making the fee smaller and visible instead of flat and hidden.</p>
+      <p>You told us what mattered most. We built the setup around it:</p>
+      <ul>
+        <li>You keep absorbing the processing cost. Nobody asks your customer to pay a fee, so nobody reaches for a checkbook and nothing slows your funding down.</li><li>QuickBooks does not move. Same invoices, same customers, same books, same workflow. The payments side improves underneath it.</li><li>About 90 percent of your card volume is American Express. Whatever your AMEX cost turns out to be, you see it, in writing, before you sign.</li><li>No contract and no cancellation fee. You already paid $1,500 to get out of one agreement. You are not signing another one.</li>
+      </ul>
     </div>
 
-    <div class="savings-callout">
-      <div>
-        <div class="sc-label">Estimated annual upside</div>
-        <div class="sc-value">$30K – $36K</div>
-        <div class="sc-sub">Based on $100K avg monthly volume</div>
-      </div>
-      <div class="divider"></div>
-      <div>
-        <div class="sc-label">Effective rate on credit</div>
-        <div class="sc-value">0%</div>
-        <div class="sc-sub">Surcharge passes cost to cardholder</div>
-      </div>
-      <div class="divider"></div>
-      <div>
-        <div class="sc-label">Monthly labor math</div>
-        <div class="sc-value">Zero</div>
-        <div class="sc-sub">Surcharge auto-applied per invoice</div>
-      </div>
-    </div>
-
-    <!-- WORKFLOW -->
     <div class="section">
-      <div class="section-header">How It Works Inside QuickBooks</div>
-      <p>Your team keeps invoicing the same way. Build the invoice in QuickBooks, email it to the customer, customer pays the link. The integration does the surcharge math and the reconciliation in the background.</p>
-
-      <div class="workflow">
-        <div class="flow-row">
-          <div class="flow-node">
-            <div class="fn-title">QB Invoice</div>
-            <div class="fn-sub">Built in QuickBooks, emailed to customer</div>
-          </div>
-          <div class="flow-arrow">&rarr;<span class="arrow-label">auto-applies</span></div>
-          <div class="flow-node middle">
-            <div class="fn-title">Surcharge Line</div>
-            <div class="fn-sub">Compliant 3% card line added automatically</div>
-          </div>
-          <div class="flow-arrow">&rarr;<span class="arrow-label">customer pays</span></div>
-          <div class="flow-node">
-            <div class="fn-title">Card or Check</div>
-            <div class="fn-sub">Cash / check skips the surcharge</div>
-          </div>
-          <div class="flow-arrow">&rarr;<span class="arrow-label">reconciled</span></div>
-          <div class="flow-node">
-            <div class="fn-title">QB "Paid"</div>
-            <div class="fn-sub">Full amount lands. Fees billed monthly.</div>
-          </div>
+      <div class="section-header">What You Get</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-title">QuickBooks stays exactly where it is</div>
+          <div class="p-body">You keep invoicing out of QuickBooks the way you do today. What changes is underneath: you can get paid by text, email, QR code, or a link in the invoice, take a card on file for repeat lift service, set up recurring invoices, run a card by hand, and take ACH. Your books and your workflow do not move an inch.</div>
         </div>
-        <div class="flow-caption">All four steps happen inside or directly against QuickBooks. Your bookkeeping does not change. Funds hit your bank the next business day.</div>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <span class="step-title">Invoicing in QuickBooks: no change</span>
-            You still build the invoice in QuickBooks. You still email it. The customer still clicks the pay link. The integration sits on top of the workflow you already use.
-          </div>
+        <div class="pillar">
+          <div class="p-title">You see the card's cost, and you see what I keep</div>
+          <div class="p-body">Visa, Mastercard, Discover, and American Express all publish what they charge. You pay that, at cost, and then a flat 0.35 percent and 5 cents a transaction on top. That is the entire markup and it never moves with the card. There is no tier, no qualified or non-qualified sorting, and no padding sitting inside a single flat number where you cannot see it.</div>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <span class="step-title">Surcharge auto-applied at invoice creation</span>
-            The moment the invoice is generated, the compliant 3% credit-card surcharge is added as its own line item. The customer sees both totals before paying. If they pay cash, check, or debit, the surcharge is removed automatically. No more building it into labor pricing by hand.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <span class="step-title">Full deposit lands. Fees billed once a month.</span>
-            Today QuickBooks pulls the 3% out the same day funds hit. With this setup, you get the full deposit the next business day and the fees come out once at month end on a clean statement. Sales and deposits match every day.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <span class="step-title">Marked paid in QuickBooks automatically</span>
-            The integration pushes the paid status and the transaction ID back to the QuickBooks invoice. No manual reconciliation. Your bookkeeper does not change anything about how she works.
-          </div>
+        <div class="pillar">
+          <div class="p-title">Nothing holds you here but the pricing</div>
+          <div class="p-body">Month to month from the first day. No contract, no term, no early termination fee, no equipment lease. If the numbers ever stop making sense you give notice and leave, and it costs you nothing. That is the only honest answer to what your last processor did to you.</div>
         </div>
       </div>
     </div>
 
-    <!-- WHAT CHANGES -->
     <div class="section">
-      <div class="section-header">What Changes (and What Doesn't)</div>
+      <div class="section-header">Your Pricing</div>
+      <p>Two things go on paper before you sign anything, Miguel: what the card costs, and what I keep. Those are separate numbers on your account and you will see both of them every month.</p>
+
+      <div class="pricing-callout">
+        <div class="pricing-grid"><div><div class="pc-label"><span class="pill pill-today">Today</span> QuickBooks Payments</div><div class="pc-value today">2.90%</div><div class="pc-sub">One flat rate on every card, whatever that card actually costs Intuit.</div></div><div><div class="pc-label"><span class="pill pill-us">With AllProPay</span> Day one</div><div class="pc-value us">Cost&nbsp;+&nbsp;0.35%</div><div class="pc-sub">The card's real published cost, plus 35 cents per hundred dollars and 5 cents a transaction. That is the entire markup, and it is printed on your agreement.</div></div><div><div class="pc-label">If you ever want out</div><div class="pc-value us">$0</div><div class="pc-sub">Month to month from day one. No contract, no early termination fee, no $1,500 exit.</div></div></div>
+      </div>
+
+      
+
       <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Today (QuickBooks Payments)</th>
-            <th>With POS+ Integration</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="col-feature">QuickBooks invoicing</td>
-            <td>All invoices built in QB</td>
-            <td class="cell-keep">100% identical</td>
-          </tr>
-          <tr>
-            <td class="col-feature">Bookkeeping / accounting</td>
-            <td>Lives in QuickBooks</td>
-            <td class="cell-keep">100% identical</td>
-          </tr>
-          <tr>
-            <td class="col-feature">Customer payment link</td>
-            <td>QB-generated pay link</td>
-            <td class="cell-keep">Same. Branded for you.</td>
-          </tr>
-          <tr>
-            <td class="col-feature">Labor pricing math</td>
-            <td>3% baked into labor by hand</td>
-            <td class="cell-change">Surcharge line is auto-calculated</td>
-          </tr>
-          <tr>
-            <td class="col-feature">Effective processing cost</td>
-            <td>3% + $0.30 to Intuit</td>
-            <td class="cell-change">0% on credit (surcharge passes)</td>
-          </tr>
-          <tr>
-            <td class="col-feature">How fees are billed</td>
-            <td>Pulled daily out of each deposit</td>
-            <td class="cell-change">Once a month on a clean statement</td>
-          </tr>
-          <tr>
-            <td class="col-feature">Funding speed</td>
-            <td>Next business day (with daily fee deduction)</td>
-            <td class="cell-change">Next business day (full deposit)</td>
-          </tr>
-          <tr>
-            <td class="col-feature">Amex handling</td>
-            <td>Flat 3% via Intuit, no exception</td>
-            <td class="cell-change">Surcharge applies to Amex same as Visa / MC</td>
-          </tr>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Direct QuickBooks Online integration, invoicing, pay by text or email or link, card on file, recurring invoices, virtual terminal, and ACH</td></tr>
+          <tr><td>Monthly fee</td><td>$50 per month</td><td>The QuickBooks integration, invoicing, card on file, the virtual terminal, statements, PCI, and support. One fee, nothing stacked on top.</td></tr>
+          
+          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
+          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
-      <p class="note">Estimates based on the volume and card mix you shared on the call. Actual savings depend on final card mix, volume, and program selection.</p>
+
+      <div class="insight">
+        <strong>Here is the thing your last processor could not do, and Intuit cannot do either: show you the two numbers separately.</strong> A flat 2.90 percent is one number with the card's cost and the processor's cut welded together, so you have no way to tell which part is which. On your account they are two lines. The card's published cost goes to Visa or American Express, not to me. My cut is 0.35 percent and 5 cents, and it is the same 0.35 percent whether the customer hands you a debit card or a Platinum card. That is how you make sure nobody ever charges you 4 or 5 percent on an AMEX again: not by trusting a promise, but by reading a rate you can look up yourself.
+      </div>
     </div>
 
-    <!-- AMEX -->
-    <div class="section">
-      <div class="section-header">The Amex Question</div>
-      <p>You said roughly 90% of your customers pay with Amex. That is the single most important fact for choosing the right program, and it is why a generic interchange-plus pitch would have wasted your time.</p>
-      <p>With the POS+ surcharge program, Amex is treated the same as Visa and Mastercard. The 3% compliant credit-card surcharge applies across all three brands. You do not lose money on the Amex transactions because the surcharge offsets the processing cost on every credit card, not just the cheap ones.</p>
-      <div class="insight"><strong>Why this matters for your business:</strong> Most processors quote a low headline rate that only shows up on basic Visa transactions, then quietly charge full retail on Amex. With 90% Amex volume, that pricing model would crush you. The surcharge program sidesteps the whole problem because the cardholder pays the surcharge no matter which brand they hand you.</p>
-    </div>
+    <div class="section apc-calc" style="display:none">
+      <div class="section-header">Estimate Your Own Savings</div>
+      <p>Every business runs a different volume, so put your own numbers in and see a live estimate against what you pay today. Nothing here is a bill or a commitment. It just turns the pricing above into real dollars for your shop.</p>
 
-    <!-- VALUE TRADE-OFF -->
-    <div class="section">
-      <div class="section-header">The Honest Trade-Off</div>
-      <p>You told us you have been burned before, so we want this part plain.</p>
+      <style>
+        .apc-calc .apc-money { background:#0B1120; color:#fff; border-radius:8px; padding:20px 24px; margin:16px 0; text-align:center; }
+        .apc-calc .apc-money .apc-money-label { font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin-bottom:6px; }
+        .apc-calc .apc-money .apc-money-value { font-family:'Montserrat',sans-serif; font-size:30pt; font-weight:800; color:#38BDF8; line-height:1.1; }
+        .apc-calc .apc-money .apc-money-sub { font-size:8.5pt; color:#94A3B8; margin-top:6px; }
+        .apc-calc .apc-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:16px 0; }
+        .apc-calc .apc-field label { display:block; font-size:8.5pt; font-weight:600; color:#334155; margin-bottom:5px; }
+        .apc-calc .apc-field .apc-inwrap { position:relative; }
+        .apc-calc .apc-field input { width:100%; font-family:'Inter',Arial,sans-serif; font-size:12pt; font-weight:600; color:#1A1A2E; padding:11px 12px; border:1.5px solid #CBD5E1; border-radius:6px; background:#fff; }
+        .apc-calc .apc-field input:focus { outline:none; border-color:#0052FF; }
+        .apc-calc .apc-field .apc-pre { padding-left:26px; }
+        .apc-calc .apc-field .apc-sign { position:absolute; left:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-field .apc-suf { padding-right:26px; }
+        .apc-calc .apc-field .apc-pct { position:absolute; right:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-lines { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; background:#F5F7FA; border-radius:8px; padding:16px 20px; margin-top:6px; }
+        .apc-calc .apc-line { display:flex; justify-content:space-between; align-items:baseline; font-size:10pt; }
+        .apc-calc .apc-line .apc-k { color:#64748B; }
+        .apc-calc .apc-line .apc-v { font-weight:700; color:#1A1A2E; font-family:'Montserrat',sans-serif; }
+        .apc-calc .apc-hint { font-size:8.5pt; color:#64748B; font-style:italic; margin-top:12px; line-height:1.5; }
+        .apc-calc .apc-print { display:none; }
+        @media screen and (max-width:640px) { .apc-calc .apc-inputs { grid-template-columns:1fr; } .apc-calc .apc-lines { grid-template-columns:1fr; } }
+        @media print {
+          .apc-calc .apc-inputs, .apc-calc .apc-lines { display:none; }
+          .apc-calc .apc-money .apc-money-value { color:#0052FF; font-size:18pt; }
+          .apc-calc .apc-money { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+          .apc-calc .apc-print { display:block; font-size:9pt; color:#334155; margin-top:8px; font-style:italic; }
+        }
+      </style>
 
-      <div class="tradeoff">
-        <div class="to-card give">
-          <div class="to-label">What changes for you</div>
-          <div class="to-headline">One backend swap and a visible surcharge line</div>
-          <div class="to-body">Intuit's processing is replaced in the backend by AllProPay's bank-level processor. QuickBooks itself does not change. The one thing customers will notice is a clean line that says "Credit Card Surcharge 3%" on card invoices. Cash and check invoices show the lower price.</div>
+      <div class="apc-money">
+        <div class="apc-money-label">Estimated money kept in the business every year</div>
+        <div class="apc-money-value" id="apcAnnual">Enter your numbers</div>
+        <div class="apc-money-sub" id="apcMonthlyLine">Type your volume below to see a live estimate</div>
+      </div>
+
+      <div class="apc-inputs">
+        <div class="apc-field">
+          <label for="apcVol">Card sales per month</label>
+          <div class="apc-inwrap"><span class="apc-sign">$</span><input id="apcVol" class="apc-pre" type="text" inputmode="numeric" placeholder="e.g. 45,000"></div>
         </div>
-        <div class="to-card get">
-          <div class="to-label">What you get back</div>
-          <div class="to-headline">~$30K to $36K / year, plus cleaner pricing</div>
-          <div class="to-body">100% of the invoice lands in your account. You can drop labor pricing back to true cost and compete more aggressively on quotes, or hold labor where it is and let the surcharge revenue replace the hidden markup. Same net cash either way, but the math stops living in your head.</div>
+        <div class="apc-field">
+          <label for="apcTxn">Card transactions per month</label>
+          <div class="apc-inwrap"><input id="apcTxn" type="text" inputmode="numeric" placeholder="e.g. 350"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcRate">What you pay now</label>
+          <div class="apc-inwrap"><input id="apcRate" class="apc-suf" type="text" inputmode="decimal" value="3.5"><span class="apc-pct">%</span></div>
         </div>
       </div>
 
-      <div class="insight"><strong>How the compliance works:</strong> The surcharge is applied at invoice creation in QuickBooks, displayed as a separate line item so the cardholder sees it before paying. The configuration follows Visa, Mastercard, and Amex rules (3% cap on credit, no surcharge on debit, network notification, customer disclosure) and Florida's state rules. AllProPay's onboarding team handles the registration and the customer-facing signage. You do not configure any of it yourself.</div>
+      <div class="apc-lines">
+        <div class="apc-line"><span class="apc-k">You pay now, per month</span><span class="apc-v" id="apcNow">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated with AllProPay</span><span class="apc-v" id="apcAp">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per month</span><span class="apc-v" id="apcSaveM">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per year</span><span class="apc-v" id="apcSaveY">-</span></div>
+      </div>
+
+      <p class="apc-hint">Estimates only, not a bill or a guarantee. AllProPay cost assumes an interchange-plus blended rate of about 1.9 to 2.2 percent on card-present sales, plus 5 cents a transaction and a 25 dollar monthly platform fee. Your exact interchange depends on your card mix. One QuickBooks payout summary or one recent statement locks these numbers to the penny.</p>
+      <p class="apc-print">Enter your monthly card volume and rate on the online version of this proposal to see your live savings estimate.</p>
+
+      <script>
+        (function () {
+          var vol = document.getElementById('apcVol');
+          var txn = document.getElementById('apcTxn');
+          var rate = document.getElementById('apcRate');
+          if (!vol) return;
+          var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+          var APC_LOW = 0.019, APC_HIGH = 0.022, PER_TXN = 0.05, MONTHLY = 25;
+          function num(el) {
+            if (!el) return 0;
+            var v = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+            return isNaN(v) ? 0 : v;
+          }
+          function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+          function range(a, b) { return fmt.format(Math.max(0, Math.round(a))) + ' to ' + fmt.format(Math.max(0, Math.round(b))); }
+          function calc() {
+            var v = num(vol), t = num(txn), r = num(rate);
+            if (v <= 0 || r <= 0) {
+              set('apcAnnual', 'Enter your numbers');
+              set('apcMonthlyLine', 'Type your volume below to see a live estimate');
+              set('apcNow', '-'); set('apcAp', '-'); set('apcSaveM', '-'); set('apcSaveY', '-');
+              return;
+            }
+            var now = v * (r / 100);
+            var apLow = v * APC_LOW + t * PER_TXN + MONTHLY;
+            var apHigh = v * APC_HIGH + t * PER_TXN + MONTHLY;
+            var saveHigh = now - apLow;
+            var saveLow = now - apHigh;
+            set('apcNow', fmt.format(Math.round(now)));
+            set('apcAp', range(apLow, apHigh));
+            if (saveHigh <= 0) {
+              set('apcAnnual', 'The win is the terminal');
+              set('apcMonthlyLine', 'At that rate the savings are small. The real win is a working terminal and no more hand-keying.');
+              set('apcSaveM', fmt.format(0));
+              set('apcSaveY', fmt.format(0));
+              return;
+            }
+            set('apcSaveM', range(saveLow, saveHigh));
+            set('apcSaveY', range(saveLow * 12, saveHigh * 12));
+            set('apcAnnual', range(saveLow * 12, saveHigh * 12));
+            set('apcMonthlyLine', 'About ' + range(saveLow, saveHigh) + ' a month, estimated, versus what you pay today');
+          }
+          vol.addEventListener('input', calc);
+          if (txn) txn.addEventListener('input', calc);
+          if (rate) rate.addEventListener('input', calc);
+          calc();
+        })();
+      </script>
     </div>
 
-    <!-- WHAT'S INCLUDED -->
     <div class="section">
-      <div class="section-header">What's Included</div>
-      <ul class="why-list">
-        <li><strong>POS+ surcharge integration for QuickBooks.</strong> Sits against QuickBooks Online. Auto-applies the compliant surcharge line at invoice creation.</li>
-        <li><strong>Auto-removed on cash / check / debit.</strong> Surcharge only applies when the customer actually pays with a credit card.</li>
-        <li><strong>Auto-reconciliation back to QuickBooks.</strong> Invoice closes itself. Transaction ID logged on the QB record.</li>
-        <li><strong>Next-day funding, full deposit.</strong> No more daily fee deductions out of each batch. Statement comes once a month.</li>
-        <li><strong>Same payment surface.</strong> Customer still gets an email with a pay link. Same one-click experience, branded for Tampa Bay Boatlift.</li>
-        <li><strong>$25 / month flat platform fee.</strong> Covers the integration, virtual terminal access, and onboarding support. No contract, no setup fee, no cancellation fee.</li>
-        <li><strong>Direct line to Matt.</strong> Same rep through onboarding and after. Not a 1-800 queue.</li>
+      <div class="section-header">Your QuickBooks, Upgraded</div>
+      <p>The payments layer we put under QuickBooks does something Intuit does not. Your deposits already land in your bank as one lump covering a batch of invoices. This links every single payment back to the deposit it was bundled into, so QuickBooks finds the match itself instead of you tying it out by hand. Card deposits and ACH deposits come through separately, so your reporting stays clean.<br><br><img src="hyfin-qbo-auto-reconciliation.png" alt="Bank deposits on one side and card and ACH deposits on the other, matched to one confirm in QuickBooks Online" style="display:block; width:100%; max-width:430px; margin:16px auto 4px; border-radius:10px;"></p>
+      <ul class="why-list" style="margin-top:14px;">
+        <li><strong>You keep QuickBooks Online.</strong> Nothing about how you bill changes. The integration sits beside your books, it does not replace them.</li><li><strong>Better tools than QuickBooks Payments gives you.</strong> Pay by text, email, QR code, or link. Card on file. Recurring and scheduled invoices. Virtual terminal. ACH.</li><li><strong>Your lumped deposits reconcile themselves.</strong> Each payment carries its deposit date and batch, so a single deposit covering two dozen invoices matches in one confirm.</li>
       </ul>
-      <p class="note">No additional per-transaction processing fees on standard credit transactions through the Edge program. Debit, ACH, and check do not carry the cardholder surcharge.</p>
     </div>
 
-    <!-- WHY ALLPROPAY -->
     <div class="section">
-      <div class="section-header">Why AllProPay</div>
+      <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li><strong>No contracts.</strong> Month-to-month. If it does not fit how you run the business, you leave.</li>
-        <li><strong>No setup fees. No cancellation fees.</strong> On standard programs.</li>
-        <li><strong>Transparent pricing.</strong> What you sign for is what you pay. No rate games, no quiet fee hikes.</li>
-        <li><strong>Compatible with QuickBooks workflow.</strong> The integration is purpose-built to sit against QB Online. Your bookkeeping does not change.</li>
-        <li><strong>Built for high-ticket service businesses.</strong> $2K average ticket with heavy Amex is exactly the volume profile this program is sized for.</li>
+        <li class="why"><strong>The markup is 0.35 percent and 5 cents a transaction, on every card type.</strong> AMEX included. There is no separate AMEX rate for me to pad, because I do not set the AMEX rate. You pay what American Express charges, plus the same 0.35 percent you pay on a Visa.</li><li class="why"><strong>On Visa, Mastercard, and Discover the gap is already clear.</strong> Published interchange on those cards runs well under 2.90 percent, so that part of your book comes down the day you switch. It is a smaller slice of your volume than AMEX, but it is the part nobody has to confirm.</li><li class="why"><strong>The checks are not free either.</strong> QuickBooks takes 1 percent of every bank transfer, capped at $20. Bank payments on your account run 0.75 percent, capped at $10. Every invoice a customer pays from their bank costs you less.</li><li class="why"><strong>One monthly fee of $50, all in.</strong> That covers the QuickBooks integration, invoicing, card on file, the virtual terminal, statements, PCI, and support. No setup fee, no gateway fee, no PCI charge, no annual fee, no statement fee.</li><li class="why"><strong>No contract and no cancellation fee.</strong> You paid $1,500 to leave the last one. You will not pay a dollar to leave this one.</li>
       </ul>
+      <p style="margin-top:12px;">Let me be straight with you about where the math stands, because you have been told a number before and had it turn out to be something else. At roughly $100,000 a month, QuickBooks keeps 2.90 percent of everything, about $2,900, no matter what the card underneath actually cost. On your account what I keep is 0.35 percent plus 5 cents a transaction, about $350 plus the transaction count. Everything else is the card's own published cost and it goes to Visa or American Express, not to me. On the Visa and Mastercard side that is already a win, because published interchange on those cards sits well below 2.90 percent. On the American Express side, which is about 90 percent of your volume, the answer depends on one number: American Express's own program rate for boat lift service at your ticket size. I am not going to guess at it and hand you a savings figure built on a guess. Send me one recent QuickBooks statement, I will put the AMEX rate in writing next to your current cost, and you will see the real number instead of a promise. These are estimates based on what you shared on the call, not a guarantee.</p>
     </div>
 
-    <!-- NEXT STEPS -->
-    <div class="section">
+    <div class="section" style="break-after: avoid; page-break-after: avoid;">
       <div class="section-header">Next Steps</div>
-      <p>The plan we left on the call:</p>
+      <p style="margin-bottom:18px;">Three steps, and the first one is on me only after you do it:</p>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <span class="step-title">Read through this on your time</span>
-            No rush. The numbers and the workflow are right here on paper, plus the structure of how the surcharge actually works.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <span class="step-title">Friday at 3:00 PM: short call back</span>
-            Twenty minutes. Walk through any questions, confirm your actual card-mix splits if you want a tighter number, and we cover what onboarding would look like.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <span class="step-title">If it makes sense, sign and onboard</span>
-            One-page application. Onboarding handles the QuickBooks integration and the surcharge configuration. Live in roughly a week from signed paperwork.
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send me one recent QuickBooks statement or transaction report.</strong> That is the whole ask. It gives me your real AMEX volume, your ticket sizes, and your transaction count, which is everything I need to replace the ranges on this page with exact numbers.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>I come back with the AMEX rate in writing.</strong> American Express's program rate for your business and your ticket size, side by side with the 2.90 percent you pay today. If it does not beat what you are paying, I will tell you that and you should stay put.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>If the numbers work, we open the account.</strong> I fill in the application with you, we connect QuickBooks, and you are month to month from the first day with nothing to cancel.</div></div>
       </div>
 
-      <div class="cta-wrap">
-        <a href="mailto:matt@allpropay.com?subject=Tampa%20Bay%20Boatlift%20-%20Friday%203PM%20Confirm" class="cta-btn">Confirm Friday 3PM</a>
-        <div class="cta-print-text">Call <a href="tel:9299303969" style="color:inherit;">929-930-3969</a> &nbsp;|&nbsp; <a href="mailto:matt@allpropay.com" style="color:inherit;">matt@allpropay.com</a></div>
+      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        You already told me what you need: your money fast, your customers not nickeled, and nobody holding you hostage. None of that is hard. It just needs the real numbers on the table.
+      </p>
+
+      <div class="cta-wrap" style="margin-top:28px;">
+        <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+        <div class="cta-print-text">Text or call me: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
       </div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
     </div>
 
-    <!-- SIGNATURE -->
     <div class="signature-block">
       <div>
         <div class="sig-name">Matt Butcher</div>
-        <div class="sig-title">AllProPay</div>
         <div class="sig-contact">
-          <a href="tel:9299303969" style="color:inherit; text-decoration:none;">929-930-3969</a><br>
+          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
           <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
           <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
         </div>
@@ -765,11 +448,12 @@
       </div>
     </div>
 
+    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+
   </div>
 
   <div class="doc-footer">
-    <span>AllProPay &nbsp;·&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;·&nbsp; 800-807-0356</span>
-    <span>Estimates based on volume and card mix shared on the call. Actual results depend on final card mix, volume, and program selection.</span>
+    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
   </div>
 
 </div>
