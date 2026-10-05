@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email version - Propuesta AllProPay | Bingo Auto Sales</title>
+<style>
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
+  .page { max-width: 820px; margin: 0 auto; padding: 0; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 72px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 36px 40px 48px; }
+  .title-block { margin-bottom: 32px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
+  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
+  .section { margin-bottom: 36px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
+  p { margin-bottom: 10px; font-size: 10.5pt; }
+  ul { margin: 10px 0 10px 20px; }
+  ul li { margin-bottom: 6px; font-size: 10.5pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
+  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
+  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
+  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
+  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
+  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
+  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
+  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title">Lo que le cuesta al lote aceptar tarjetas cada mes, con unos $10,000 en ventas con tarjeta</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:170px; padding:4px 8px 4px 0;">Pagando las comisiones usted</td><td style="padding:4px 0;"><span class="pc-bar" style="display:inline-block; height:14px; width:250px; background:#64748B; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#E2E8F0;">unos $300</span></td></tr><tr><td class="pc-lab" style="width:170px; padding:4px 8px 4px 0;">AllProPay Edge</td><td style="padding:4px 0;"><span class="pc-bar" style="display:inline-block; height:14px; width:21px; background:#3B82F6; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#3B82F6; font-weight:700;">$25</span></td></tr></table><div class="pc-note">Ilustraci&#243;n con unos $10,000 al mes en ventas con tarjeta y una tasa t&#237;pica de procesador del 3 por ciento. El lote hoy solo acepta efectivo, as&#237; que esta es la comparaci&#243;n para cuando active las tarjetas.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
+  .step-content strong { font-weight: 600; color: var(--text); }
+  .why-list { list-style: none; margin: 0; padding: 0; }
+  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
+  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .insight strong { color: #B45309; }
+  .cta-wrap { text-align: center; margin-top: 20px; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
+  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
+  .booking-embed { margin-top: 24px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
+  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
+  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
+  .sig-right { text-align: right; }
+  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
+  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
+  @media print {
+    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
+    .page { max-width: 100%; }
+    .pillars, .pricing-grid { display: block; }
+    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
+    .pricing-grid > div { margin-bottom: 10px; }
+    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
+    .doc-header { padding: 12px 32px 10px; }
+    .content { padding: 20px 32px 28px; }
+    .title-block { margin-bottom: 18px; }
+    .title-block h1 { font-size: 22pt; }
+    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
+    .blue-bar { margin: 14px 0; }
+    .section { margin-bottom: 18px; }
+    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
+    p { margin-bottom: 6px; font-size: 9.5pt; }
+    ul li { font-size: 9.5pt; margin-bottom: 3px; }
+    thead th { padding: 6px 10px; font-size: 8pt; }
+    tbody td { padding: 5px 10px; font-size: 9pt; }
+    .pricing-callout { padding: 14px 18px; }
+    .pricing-callout .pc-value { font-size: 16pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
+    .step-content { font-size: 9.5pt; padding-top: 4px; }
+    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
+    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
+    .sig-name { font-size: 11pt; }
+    .cta-btn { display: none; }
+    .cta-print-text { display: block !important; }
+    .booking-embed { display: none !important; }
+  }
+</style>
+<style id="email-mode">
+  /* email-mode overrides (make_email_version.py) */
+  .page { max-width: 680px !important; margin: 0 auto !important; }
+  .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
+  .steps-bar, .cta-block { display: block !important; }
+  .doc-header { padding: 18px 28px 14px !important; }
+  .content { padding-left: 28px !important; padding-right: 28px !important; }
+  .doc-footer { text-align: center !important; padding: 14px 28px !important; }
+  .cta-btn { display: inline-block !important; }
+  .cta-print-text { display: none !important; }
+  .apc-calc, .booking-embed, script { display: none !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
+  .steps { display: block !important; }
+  .step { display: block !important; overflow: hidden; margin-bottom: 14px; }
+  .step-num { display: block !important; float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; }
+  .step-content { display: block !important; overflow: hidden; }
+  .pricing-callout .pc-label, .pricing-callout .pc-value, .price-cell .pc-label, .price-cell .pc-value { display: block !important; }
+  .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .chip { line-height: 13px !important; vertical-align: middle; }
+  /* short one-pager blocks (flex/grid on the page) */
+  .meta-row, .why-bar, .price-row, .steps-bar, .cta-block, .doc-footer, .doc-footer .sig { display: block !important; }
+  .meta-row > div { display: block; padding: 2px 0; }
+  .doc-footer .sig img { vertical-align: middle; margin-right: 8px; }
+  .doc-footer .fine { max-width: 100% !important; text-align: left !important; margin-top: 6px; }
+  .why-cell { display: block !important; }
+  /* neutralise the page's data-table styling on our layout tables */
+  table.em-cols { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 !important; font-size: inherit !important; }
+  table.em-cols tr, table.em-cols td { background: transparent !important; border: 0 !important; }
+</style><style id="email-toolbar-css">
+  #em-toolbar { position: sticky; top: 0; z-index: 50; background: #0B1120; color: #E2E8F0;
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; padding: 12px 20px;
+    border-bottom: 3px solid #0052FF; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  #em-toolbar b { color: #fff; }
+  #em-toolbar .em-btn { background: #0052FF; color: #fff; border: 0; border-radius: 6px;
+    font-weight: 700; font-size: 13px; padding: 9px 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+  #em-toolbar .em-btn.alt { background: transparent; border: 1.5px solid #64748B; color: #E2E8F0; }
+  #em-toolbar .em-note { color: #94A3B8; flex-basis: 100%; }
+  #em-toolbar .em-ok { color: #7DD3FC; font-weight: 700; }
+  #em-toolbar .em-to { color: #94A3B8; }
+  @media print { #em-toolbar { display: none; } }
+</style></head>
+<body>
+<div id="em-toolbar"><span><b>Email version</b> &#183; Bingo Auto Sales</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="doc-header">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" src="https://proposals.allpropay.com/propuesta-bingo-auto-sales-yqhbvd/AllProPay_Logo.jpg" style="height:72px; width:auto;"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
+      929-930-3050 &#160;&#183;&#160; tammy@allpropay.com &#160;&#183;&#160; allpropay.com<br/>
+      108 W 39th Street, Suite 1006, New York, NY 10018
+    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">&#191;Lo est&#225; leyendo en su correo? <a href="https://proposals.allpropay.com/propuesta-bingo-auto-sales-yqhbvd/" style="color:#0052FF; font-weight:700;">Abra la propuesta completa en su navegador</a>.</div>
+<div class="content">
+<div class="title-block">
+<h1>Su Plan All<span class="accent">Pro</span>Pay</h1>
+<div class="subtitle">Bingo Auto Sales</div>
+<div class="meta-grid">
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Preparado para</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Rodolfo &#160;|&#160; Bingo Auto Sales &#160;|&#160; Laredo, Texas</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Preparado por</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Tammy Millar &#160;|&#160; AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Sistema actual</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Solo efectivo y cheques; cuenta en IBC (llamada del 5 de oct.)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Programa</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Edge, precio dual</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Fecha</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">5 de octubre de 2026</span></td></tr></table></div>
+</div>
+<div class="blue-bar"></div>
+<div class="section">
+<div class="section-header">D&#243;nde Estamos</div>
+<p>Rodolfo, gracias por tomar la llamada hoy. As&#237; entiendo su situaci&#243;n. Bingo Auto Sales trabaja hoy con efectivo y cheques, su cuenta est&#225; en IBC, y no acepta tarjetas. En un lote de carros eso significa que el comprador que no trae todo el enganche en efectivo regresa otro d&#237;a o compra en otro lado. Lo que usted quiere es una manera de aceptar tarjetas que no le cueste nada al lote en cada venta, que deje el precio en efectivo exactamente donde est&#225;, y que no lo amarre a un contrato. Eso es lo que explica esta p&#225;gina. Si algo de esto est&#225; mal, d&#237;game y lo corrijo.</p>
+<p>Usted nos dijo qu&#233; era lo m&#225;s importante. Armamos el plan alrededor de eso:</p>
+<ul>
+<li><strong>Hoy solo efectivo y cheques.</strong> El comprador que no trae el efectivo es una venta que espera o se va.</li><li>Las comisiones de tarjeta nunca salen del lote. Con Edge su costo en ventas con tarjeta es <strong>$0</strong>: el precio en efectivo sigue igual, y el cliente con tarjeta cubre el precio con tarjeta.</li><li>Nada que aprender en el escritorio. La terminal llega programada con los dos precios: usted teclea el monto, el cliente acerca o inserta su tarjeta, y la pantalla hace el resto.</li><li>Nada por adelantado. No compra equipo, no hay cargo de instalaci&#243;n, no hay contrato. Toda la cuenta cuesta <strong>$25 al mes</strong>.</li>
+</ul>
+</div>
+<div class="section">
+<div class="section-header">Lo Que Recibe</div>
+<div class="pillars">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Acepte tarjetas sin costo para el lote</div>
+<div class="p-body">Con Edge el lote muestra dos precios: el precio en efectivo que usted cobra hoy, y un precio con tarjeta al lado. Los clientes que pagan en efectivo o con cheque pagan exactamente lo mismo que ahora. El cliente que decide pagar con tarjeta cubre el precio con tarjeta, y su costo en esa venta es $0. Usted deposita el precio en efectivo de cualquier manera.</div>
+</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Hecho para un lote de carros</div>
+<div class="p-body">Los enganches son montos grandes, y ah&#237; es justo donde una tarjeta le ayuda a cerrar la venta. El comprador que trae una parte en efectivo y pone el resto en su tarjeta se lleva el carro hoy, no la semana que viene. Usted teclea el monto, el cliente ve el precio en efectivo y el precio con tarjeta en la pantalla y escoge, acerca o inserta la tarjeta, y listo. Para un pago muy grande, una transferencia bancaria se procesa por un m&#225;ximo fijo de $10. Yo lo configuro con usted por tel&#233;fono, en espa&#241;ol o en ingl&#233;s.</div>
+</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
+<div class="p-title">Respaldado y flexible</div>
+<div class="p-body">Aprobaci&#243;n directa, dep&#243;sitos al d&#237;a siguiente, sin contrato y sin cargo por cancelaci&#243;n. Si alg&#250;n d&#237;a prefiere absorber la comisi&#243;n usted mismo, lo pasamos a una tarifa interchange-plus en la misma cuenta.</div>
+</div></td></tr></table></div>
+</div>
+<div class="section">
+<div class="section-header">Su Programa</div>
+<p>Este es el programa que preparamos para la cuenta de Bingo Auto Sales.</p>
+<div class="pricing-callout">
+<div class="pricing-grid">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Su costo en ventas con tarjeta</div>
+<div class="pc-value">$0</div>
+<div class="pc-sub">El cliente que paga en efectivo paga el precio en efectivo. El que paga con tarjeta ve el precio con tarjeta al lado.</div>
+</div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Su costo mensual total</div>
+<div class="pc-value">$25</div>
+<div class="pc-sub">Terminal, soporte y cumplimiento incluidos. Nada por adelantado.</div>
+</div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Se queda en el lote al a&#241;o (est.)</div>
+<div class="pc-value">$3k a $4k</div>
+<div class="pc-sub">Por cada $10,000 al mes en ventas con tarjeta, comparado con pagar las comisiones usted mismo</div>
+</div></td></tr></table></div>
+<div class="prog-chart"><div class="pchart-title">Lo que le cuesta al lote aceptar tarjetas cada mes, con unos $10,000 en ventas con tarjeta</div><table style="width:100%; border-collapse:collapse;; width:100%" width="100%"><tr><td class="pc-lab" style="width:170px; padding:4px 8px 4px 0;">Pagando las comisiones usted</td><td style="padding:4px 0;"><span class="pc-bar" style="display:inline-block; height:14px; width:250px; background:#64748B; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#E2E8F0;">unos $300</span></td></tr><tr><td class="pc-lab" style="width:170px; padding:4px 8px 4px 0;">AllProPay Edge</td><td style="padding:4px 0;"><span class="pc-bar" style="display:inline-block; height:14px; width:21px; background:#3B82F6; border-radius:3px; vertical-align:middle;"></span> <span class="pc-num" style="color:#3B82F6; font-weight:700;">$25</span></td></tr></table><div class="pc-note">Ilustraci&#243;n con unos $10,000 al mes en ventas con tarjeta y una tasa t&#237;pica de procesador del 3 por ciento. El lote hoy solo acepta efectivo, as&#237; que esta es la comparaci&#243;n para cuando active las tarjetas.</div></div>
+</div>
+<table style="width:100%" width="100%">
+<thead><tr><th>Concepto</th><th>Costo</th><th>Notas</th></tr></thead>
+<tbody>
+<tr><td>Dep&#243;sitos al d&#237;a siguiente</td><td>Incluido, sin cargo</td><td>Est&#225;ndar en la cuenta, sin cargo por acceder a su propio dinero</td></tr>
+<tr><td>Terminal de mostrador (sin contacto, chip y banda)</td><td>Incluido</td><td>Programada con los dos precios antes de enviarse. Se conecta, y yo lo gu&#237;o en la primera venta por tel&#233;fono</td></tr>
+<tr><td>Precio con tarjeta para sus clientes</td><td>4% publicado (tasa de contrato 3.8461%)</td><td>Las dos cifras son el mismo dinero. La tasa de contrato se cobra sobre el total que paga el cliente con tarjeta, comisi&#243;n incluida, lo que equivale al 4% de su precio en efectivo. Los clientes con efectivo o cheque pagan el precio en efectivo.</td></tr><tr><td>Transferencia bancaria (ACH) para pagos grandes (opcional)</td><td>0.75%, m&#225;ximo $10</td><td>Un pago de $5,000 se procesa por $10 en vez de un porcentaje</td></tr>
+<tr><td>Cuota de plataforma</td><td>$25 al mes</td><td>Cuenta, estados de cuenta, soporte y cumplimiento PCI</td></tr>
+<tr><td>Cargo de instalaci&#243;n</td><td>$0</td><td>Ninguno</td></tr>
+<tr><td>Cargo por cancelaci&#243;n</td><td>$0</td><td>Sin contrato, sin penalidad por terminar</td></tr>
+</tbody>
+</table>
+<div class="insight">
+<div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimado que se queda en el lote cada a&#241;o</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$3,000 a $4,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">por cada $10,000 al mes en ventas con tarjeta, comparado con pagar las comisiones usted mismo</div></div><p>Cuando un lote acepta tarjetas de la manera tradicional, m&#225;s o menos el 3 por ciento de cada pago con tarjeta se va al procesador y el lote lo absorbe. En un enganche de $1,000 son unos $30 que se van antes de que el dinero le llegue, y esa es una raz&#243;n v&#225;lida para quedarse solo con efectivo. <strong>Con Edge el precio con tarjeta se muestra junto al precio en efectivo, el cliente con tarjeta cubre la diferencia, y su costo en ventas con tarjeta es $0.</strong> Su &#250;nico costo es una cuota fija de $25 al mes por toda la cuenta, terminal incluida. Los $10,000 al mes son una ilustraci&#243;n, porque el lote todav&#237;a no acepta tarjetas. Cuando tenga un mes real en la cuenta, lo reemplazo con su n&#250;mero. Y nada de esto cuenta a los compradores que hoy se van porque no trajeron suficiente efectivo.</p>
+</div>
+</div>
+<div class="section">
+<div class="section-header">La Flexibilidad Que Usted Pidi&#243;</div>
+<p>Hoy no se compromete a nada, y la cuenta est&#225; hecha para adaptarse a como termine trabajando el lote.</p>
+<ul class="why-list" style="margin-top:14px;">
+<li><strong>Empiece cuando est&#233; listo.</strong> Abrimos la cuenta cuando usted me diga. La terminal llega programada y lista, y la primera venta est&#225; a una llamada de distancia.</li><li><strong>El precio en efectivo nunca cambia.</strong> Sus compradores que pagan en efectivo no notan ninguna diferencia. Solo el cliente que escoge tarjeta ve el precio con tarjeta, y lo ve antes de decidir.</li><li><strong>Usted decide, venta por venta.</strong> Si en alguna venta en particular prefiere cubrir usted el precio con tarjeta para cerrar el trato, puede quitarlo en esa venta directamente en la terminal.</li><li>Sin contrato, sin cargo de instalaci&#243;n, sin cargo por cancelaci&#243;n. Si esto no se gana su lugar en el lote, usted se va.</li>
+</ul>
+</div>
+<div class="section">
+<div class="section-header">Por Qu&#233; Es la Decisi&#243;n Correcta</div>
+<ul class="why-list">
+<li>El lote empieza a aceptar tarjetas <strong>sin pagar por ello</strong>. Su costo en cada venta con tarjeta es <strong>$0</strong>.</li><li><strong>Nada por adelantado</strong>, y una sola cuota fija de $25 al mes cubre la terminal, el soporte y el cumplimiento.</li><li>Los enganches se cierran m&#225;s r&#225;pido. El comprador al que le falta efectivo pone el resto en su tarjeta y se lleva el carro hoy.</li><li>Cualquiera en el escritorio puede usarla desde el primer d&#237;a. Los dos precios est&#225;n en la pantalla, as&#237; que no hay porcentaje que recordar ni cuentas que hacer.</li><li>Un estimado de <strong>$3,000 a $4,000 al a&#241;o</strong> se queda en el lote por cada $10,000 al mes en ventas con tarjeta, comparado con pagar las comisiones usted mismo.</li><li>Sin contrato, sin cargo de instalaci&#243;n, sin cargo por cancelaci&#243;n.</li>
+</ul>
+<p style="margin-top:12px;">Tome un enganche de $1,000. El comprador que paga en efectivo paga $1,000, igual que hoy. El comprador que quiere usar tarjeta ve $1,040 en la pantalla, y si lo escoge, el lote deposita los $1,000 completos sin que se descuente nada. En un pago de $2,500, el comprador con tarjeta ve $2,600. De cualquier manera el lote se queda con cada d&#243;lar de su precio, y el comprador que solo tra&#237;a una tarjeta sigue siendo su cliente. Son ilustraciones; las cifras reales salen de su primer mes en la cuenta.</p>
+</div>
+<div class="section" style="break-after: avoid; page-break-after: avoid;">
+<div class="section-header">Pr&#243;ximos Pasos</div>
+<p style="margin-bottom:18px;">Lo dif&#237;cil ya est&#225; hecho. Una llamada corta y su cuenta queda abierta:</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content"><strong>Nuestra llamada ma&#241;ana por la ma&#241;ana, unos 10 minutos.</strong> En espa&#241;ol o en ingl&#233;s, como usted prefiera. Llenamos la solicitud juntos por tel&#233;fono y usted firma electr&#243;nicamente en el momento. Si le es m&#225;s f&#225;cil, la persona que le ayuda en el lote tambi&#233;n puede estar en la l&#237;nea.</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content"><strong>Revisi&#243;n y aprobaci&#243;n.</strong> Normalmente de 24 a 48 horas. Nosotros nos encargamos del papeleo para que usted no tenga que hacerlo.</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content"><strong>Activaci&#243;n.</strong> Su terminal llega al lote programada con los dos precios, y yo lo gu&#237;o en la primera venta por tel&#233;fono. Usted hace su primera venta con tarjeta sin costo para el lote, y el primer dep&#243;sito llega a la ma&#241;ana siguiente.</div>
+</div>
+</div>
+<p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
+        "El lote ha estado dejando ir a compradores con tarjeta para evitar una comisi&#243;n. Con Edge no hay comisi&#243;n que evitar."
+      </p>
+<div class="cta-wrap" style="margin-top:28px;">
+<a class="cta-btn" href="tel:+19299303050">Ll&#225;meme o env&#237;eme un texto: 929-930-3050</a>
+<div class="cta-print-text">Ll&#225;meme o env&#237;eme un texto: 929-930-3050 &#160;|&#160; tammy@allpropay.com</div>
+</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122106" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">O reserve un horario en mi calendario</a></div>
+
+</div>
+<div class="signature-block">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:60%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="60%"><div>
+<div class="sig-name">Tammy Millar</div>
+<div class="sig-contact">
+<a href="tel:+19299303050" style="color:inherit; text-decoration:none;">929-930-3050</a> (acepta textos)<br/>
+<a href="mailto:tammy@allpropay.com" style="color:inherit; text-decoration:none;">tammy@allpropay.com</a><br/>
+<a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
+</div>
+</div></td><td style="width:40%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="40%"><div class="sig-right">
+<img alt="AllProPay" src="https://proposals.allpropay.com/propuesta-bingo-auto-sales-yqhbvd/AllProPay_Logo.jpg" style="height:58px; width:auto; display:block; margin-bottom:4px;"/>
+<div class="sig-tagline">Acepte pagos donde sea.</div>
+</div></td></tr></table></div>
+<p class="note">El programa y los t&#233;rminos reflejan lo conversado y acordado en llamadas anteriores. El programa Edge muestra un precio en efectivo y un precio con tarjeta, lado a lado, antes del pago. Los clientes que pagan en efectivo o con cheque pagan el precio en efectivo; los que pagan con tarjeta pagan el precio con tarjeta publicado, que cubre el costo del procesamiento. Cualquier comparaci&#243;n en d&#243;lares con su procesador actual es un estimado basado en los montos de venta que usted comparti&#243; y no es una garant&#237;a. Sin contrato, sin cargo de instalaci&#243;n, sin cargo por cancelaci&#243;n.</p>
+</div>
+<div class="doc-footer">
+<span>AllProPay &#160;&#183;&#160; 108 W 39th Street, Suite 1006, New York, NY 10018 &#160;&#183;&#160; 800-807-0356</span>
+</div>
+</td></tr></table></div>
+<script id="em-compose" type="application/json">{"subject": "Bingo Auto Sales: aceptar tarjetas sin costo para el lote / taking cards at $0 cost to the lot", "body": "Hola Rodolfo,\n\nFue un gusto hablar con usted hoy. Aqui esta la propuesta que le prometi, en espanol y en ingles:\n\nEn espanol: https://proposals.allpropay.com/propuesta-bingo-auto-sales-yqhbvd/\nEnglish: https://proposals.allpropay.com/bingo-auto-sales-khjj0l/\n\nEn resumen: el lote empieza a aceptar tarjetas, el precio en efectivo sigue igual, y el cliente con tarjeta cubre el precio con tarjeta. Su costo en ventas con tarjeta es $0, y toda la cuenta cuesta $25 al mes, sin nada por adelantado y sin contrato. La terminal llega programada con los dos precios.\n\nHablamos manana por la manana. Llameme o envieme un texto cuando quiera antes, en espanol o en ingles.\n\n---\n\nHi Rodolfo,\n\nGood talking with you today. Here is the proposal I promised, in Spanish and in English:\n\nEn espanol: https://proposals.allpropay.com/propuesta-bingo-auto-sales-yqhbvd/\nEnglish: https://proposals.allpropay.com/bingo-auto-sales-khjj0l/\n\nThe short version: the lot starts taking cards, the cash price stays the cash price, and the card customer covers the card price. Your cost on card sales is $0, and the whole account is $25 a month with nothing upfront and no contract. The terminal arrives programmed with both prices.\n\nWe talk tomorrow morning. Text or call me any time before then, in Spanish or English.\n\nTammy Millar\nAllProPay\n929-930-3050"}</script><script>
+(function () {
+  var page = document.querySelector('.page');
+  var status = document.getElementById('em-status');
+  function copyPage() {
+    var range = document.createRange();
+    range.selectNodeContents(page);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    window.scrollTo(0, 0);
+    return ok;
+  }
+  // Compose data: subject + note are embedded at build time; the recipient is NOT
+  // (this page is published). It arrives as ?to= on the link stored in the CRM.
+  var compose = null;
+  try { compose = JSON.parse(document.getElementById('em-compose').textContent); } catch (e) { compose = null; }
+  var qs = new URLSearchParams(window.location.search);
+  var to = (qs.get('to') || (compose && compose.to) || '').trim();
+  function gmailUrl() {
+    if (!compose) return null;
+    var u = 'https://mail.google.com/mail/?view=cm&fs=1';
+    if (to) u += '&to=' + encodeURIComponent(to);
+    u += '&su=' + encodeURIComponent(compose.subject || '');
+    u += '&body=' + encodeURIComponent(compose.body || '');
+    return u;
+  }
+  var draft = document.getElementById('em-draft');
+  if (draft) {
+    var gu = gmailUrl();
+    if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+  }
+  var toLabel = document.getElementById('em-to');
+  if (toLabel) toLabel.textContent = to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.';
+  var copyBtn = document.getElementById('em-copy');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    status.textContent = ok
+      ? 'Copied. Open your Gmail draft and press Ctrl+V in the body.'
+      : 'Copy was blocked. Click inside the page, press Ctrl+A then Ctrl+C.';
+    status.className = ok ? 'em-ok' : '';
+  });
+  var sendBtn = document.getElementById('em-send');
+  if (sendBtn) sendBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    var gu = gmailUrl();
+    if (gu) window.open(gu, '_blank', 'noopener');
+    status.textContent = ok
+      ? 'Proposal copied. In the Gmail tab that just opened, click under the note and press Ctrl+V. Read it, adjust, send.'
+      : 'Gmail opened, but the copy was blocked. Click inside this page, Ctrl+A, Ctrl+C, then paste in Gmail.';
+    status.className = ok ? 'em-ok' : '';
+  });
+})();
+</script></body>
+</html>
