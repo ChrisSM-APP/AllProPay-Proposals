@@ -46,7 +46,7 @@
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
   /* Cells centre under their labels (Chris, 2026-08-12). */
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
-  /* <div class="prog-chart"><div class="pchart-title">What card processing costs you each month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%;">Stripe today</td><td style="width:52%;"><span class="pc-bar" style="width:86%; background:#64748B;"></span></td><td class="pc-num" style="width:14%;">$875</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:3%; background:#3B82F6;"></span></td><td class="pc-num">$25</td></tr></table><div class="pc-note">Estimated, based on the $25,000 a month in card sales you described. A statement will replace these with exact numbers.</div></div> now renders INSIDE the navy band, under the three cells,
+  /* <div class="prog-chart"><div class="pchart-title">What the jobs you collect by hand cost you each month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%;">Stripe today</td><td style="width:52%;"><span class="pc-bar" style="width:86%; background:#64748B;"></span></td><td class="pc-num" style="width:14%;">$175</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:12%; background:#3B82F6;"></span></td><td class="pc-num">$25</td></tr></table><div class="pc-note">Estimated on about $5,000 a month in phone-collected and high-ticket jobs. Your online bookings are not in this chart; they stay on Stripe.</div></div> now renders INSIDE the navy band, under the three cells,
      matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
      better for this section"). Spec-supplied chart markup must therefore use
      light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
@@ -197,11 +197,11 @@
         <span class="label">Prepared by</span>
         <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current setup</span>
-        <span class="value">Stripe through your Field platform (about 3.5% per card sale)</span>
+        <span class="value">Stripe inside your Fieldd platform (about 3.5% per card sale)</span>
         <span class="label">Program</span>
-        <span class="value">Edge dual pricing</span>
+        <span class="value">Edge dual pricing, on the jobs you collect by hand</span>
         <span class="label">Date</span>
-        <span class="value">October 2, 2026</span>
+        <span class="value">October 7, 2026</span>
       </div>
     </div>
 
@@ -209,10 +209,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You have built something that runs itself, and you were clear with me that you are not interested in breaking it. Cards get authorized when the customer books, your tech closes the job in the worker app, and the charge settles. Roughly 95 percent of your collection happens without you touching it. The only thing you want changed is the part where 3.5 percent of every detail leaves your bank account on the way through.</p>
+      <p>You were right. I took Fieldd to my tech lead and it is a closed system: it books, schedules, invoices and pays through Stripe, and nothing else plugs into it. Your payroll, your scheduling and your automated bookings all live there, so a full migration is off the table. I am not going to break a process that runs about 90 percent of your collection without you touching it. What I can do is take the fee off the jobs you already handle by hand: the e-signed ceramic coatings and the cards you collect over the phone. Those run through your AllProPay portal at zero cost to you, and everything else stays exactly where it is.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Nothing changes for your techs. The card is authorized at booking, charged when the job closes, in the same app on the same phones. No new app, no second swipe.</li><li>You keep the full ticket. The processing cost moves to the card-paying customer, and cash and check customers pay list price.</li><li>Your Stripe balance and its repayment terms get reviewed before any volume moves, so nothing on that loan catches you out mid-switch.</li><li>Real dispute support. When one lands you call me, not an 800 number.</li>
+        <li>Fieldd stays. Online bookings, scheduling, payroll and your automated $230 jobs keep running through Fieldd and Stripe. Nobody on your team learns a new app.</li><li>Your high-ticket jobs stop paying 3.5 percent. When a customer e-signs a quote and you take the card over the phone, you run it through your AllProPay portal instead. The card-paying customer covers the fee and you keep the full ticket.</li><li>Your Stripe balance is left alone. The automated bookings keep flowing through Stripe, so the loan keeps paying down on the same terms it does today. Nothing to refinance, nothing to re-sign.</li><li>Real dispute support. When one lands you call me, not an 800 number.</li>
       </ul>
     </div>
 
@@ -224,8 +224,8 @@
           <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash and check customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Your field workflow stays the same</div>
-          <div class="p-body">The card is captured when the customer books, held, and charged when your tech marks the job complete. That is exactly how it works today and that is how it works after. Before anything moves I walk your Field booking flow through with my tech lead and send you the mapping in writing, so you can see what your techs do differently before you decide. The answer should be nothing, and you get to check my work rather than take my word for it.</div>
+          <div class="p-title">Two lanes, one simple rule</div>
+          <div class="p-body">If the customer books and pays online, it stays on Fieldd and Stripe. If you are collecting the card yourself, it goes through your AllProPay portal. That is the whole rule. The portal gives you a virtual terminal for the cards you take over the phone, payment links and invoices for the customer who cannot sign off on site, and recurring billing for the monthly subscriptions you are rolling out. You still mark the job paid in Fieldd, the same way you do now.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Backed and flexible</div>
@@ -243,28 +243,28 @@
           <div>
             <div class="pc-label">Your cost on card sales</div>
             <div class="pc-value">$0</div>
-            <div class="pc-sub">A flat $25 a month covers the whole account</div>
+            <div class="pc-sub">On every job you run through the portal. A flat $25 a month covers the account</div>
           </div>
           <div>
-            <div class="pc-label">What you keep per job</div>
-            <div class="pc-value">$250</div>
-            <div class="pc-sub">The full ticket on a $250 detail, instead of $241.25 after Stripe</div>
+            <div class="pc-label">What you keep on a $1,400 coating</div>
+            <div class="pc-value">$1,400</div>
+            <div class="pc-sub">The full ticket, instead of about $1,351 after Stripe</div>
           </div>
           <div>
-            <div class="pc-label">Your total monthly cost</div>
-            <div class="pc-value">$25</div>
-            <div class="pc-sub">Down from roughly $875 a month in Stripe fees</div>
+            <div class="pc-label">What changes in Fieldd</div>
+            <div class="pc-value">Nothing</div>
+            <div class="pc-sub">Online bookings, scheduling and payroll stay where they are</div>
           </div>
         </div>
-        <div class="prog-chart"><div class="pchart-title">What card processing costs you each month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%;">Stripe today</td><td style="width:52%;"><span class="pc-bar" style="width:86%; background:#64748B;"></span></td><td class="pc-num" style="width:14%;">$875</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:3%; background:#3B82F6;"></span></td><td class="pc-num">$25</td></tr></table><div class="pc-note">Estimated, based on the $25,000 a month in card sales you described. A statement will replace these with exact numbers.</div></div>
+        <div class="prog-chart"><div class="pchart-title">What the jobs you collect by hand cost you each month</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%;">Stripe today</td><td style="width:52%;"><span class="pc-bar" style="width:86%; background:#64748B;"></span></td><td class="pc-num" style="width:14%;">$175</td></tr><tr><td class="pc-lab">AllProPay Edge</td><td><span class="pc-bar" style="width:12%; background:#3B82F6;"></span></td><td class="pc-num">$25</td></tr></table><div class="pc-note">Estimated on about $5,000 a month in phone-collected and high-ticket jobs. Your online bookings are not in this chart; they stay on Stripe.</div></div>
       </div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Your existing phones and Field booking flow</td><td>Included</td><td>Set up for dual pricing. No new hardware and no new app for your techs</td></tr>
-          <tr><td>Dispute and chargeback support</td><td>Included</td><td>You call me when one comes in. I build the response with you and we file it on your behalf</td></tr><tr><td>Your Stripe loan balance</td><td>Reviewed first</td><td>We read your repayment terms together and size the move around them before any volume shifts</td></tr>
+          <tr><td>Your AllProPay portal: virtual terminal, payment links, invoicing, recurring billing</td><td>Included</td><td>No hardware. Set up for dual pricing on the phones you already use</td></tr>
+          <tr><td>Your Fieldd bookings and Stripe</td><td>Unchanged</td><td>Online bookings, scheduling and payroll stay exactly where they are</td></tr><tr><td>Your Stripe loan balance</td><td>Left alone</td><td>Automated bookings keep running through Stripe, so the balance keeps paying down on the same terms</td></tr><tr><td>Dispute and chargeback support</td><td>Included</td><td>You call me when one comes in. I build the response with you and we file it on your behalf</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
@@ -272,7 +272,7 @@
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$10,200</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus the roughly 3.5% Stripe takes out of your account today</div></div>On a $250 detail, 3.5 percent is $8.75 that never reaches you. At about $25,000 a month in card sales that is roughly <strong>$875 every month, or $10,500 a year, leaving the business in slices you never see on an invoice.</strong> On Edge your cost on card sales is $0 and your monthly is a flat $25. Same jobs, same price on the ticket, same app in your techs' hands.
+        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$1,800 to $3,900</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">on the jobs you collect by hand, at $5,000 to $10,000 a month routed through the portal</div></div>On a $1,400 ceramic coating, 3.5 percent is about $49 that never reaches you. <strong>Route the jobs you already collect by hand through your AllProPay portal and that $49 stays in the business, on every one of them.</strong> At about $5,000 a month in those jobs that is roughly $175 a month, or $2,100 a year, before the flat $25. At $10,000 a month it is about $4,200. You told me roughly 90 percent of your payments run without you touching them, so the real number depends on how many of the big ones you route. Trade my estimate for your figure and the math holds either way.
       </div>
     </div>
 
@@ -280,18 +280,18 @@
 
     <div class="section">
       <div class="section-header">The Flexibility You Asked For</div>
-      <p>You said you do not want to be locked into anything you cannot reverse. The account is built that way.</p>
+      <p>The split is yours to set, and it can move.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Edge with $0 card cost to the business. If you ever decide you would rather absorb the fee yourself, we move you to flat interchange-plus on the same account with no reapplication.</li><li>Online bookings and the charges your techs take in the field run on one account, so there is one place to look when you reconcile.</li>
+        <li>Start with the jobs you already collect by hand. If you want more volume off Stripe, send more invoices and payment links from the portal. If you want less, send fewer. No reapplication either way.</li><li>The monthly subscriptions you are rolling out can bill from the portal on a set date, card on file, receipt sent automatically. Or they can live in Fieldd. Your call, customer by customer.</li><li>If you ever decide you would rather absorb the fee yourself on these jobs, we move you to flat interchange-plus on the same account.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>The 3.5 percent Stripe pulls out of your account goes to $0 on card sales. An estimated <strong>$10,200 a year</strong> stays in the business.</li><li>Your collection process does not change. Card at booking, charge at completion, same worker app, no extra step for anyone.</li><li>Your Stripe loan terms get read before we move volume, so a minimum repayment clause never surprises you halfway through a switch.</li><li>When a dispute comes in you call me. I already know your account and how your jobs flow, so we are not starting from scratch.</li><li>No contract, no setup fee, no cancellation fee. If we stop earning it, you walk.</li>
+        <li>Nothing you rely on changes. Fieldd keeps booking, scheduling and paying your techs. Nobody installs anything.</li><li>The 3.5 percent comes off the jobs where it costs you the most. A $1,400 ceramic coating banks $1,400, not about $1,351. An estimated <strong>$1,800 to $3,900 a year</strong> stays in the business at $5,000 to $10,000 a month routed.</li><li>Your Stripe balance keeps paying down exactly as it does today. No refinance, no new paperwork, no change to the sweep.</li><li>When a dispute comes in you call me. I know your account and how your jobs flow, so we are not starting from scratch.</li><li>No contract, no setup fee, no cancellation fee. If we stop earning it, you walk.</li>
       </ul>
-      <p style="margin-top:12px;">Across a year at about $25,000 a month on cards, that is an estimated $10,200 that stays in the business instead of leaving it 3.5 percent at a time. On a single $250 detail it is the difference between banking $250 and banking $241.25.</p>
+      <p style="margin-top:12px;">Take one ceramic coating at $1,400. Through Stripe you bank about $1,351. Through your AllProPay portal you bank $1,400. Do that on the jobs you already collect by hand and, at about $5,000 to $10,000 a month, it adds up to an estimated $1,800 to $3,900 a year that stays in the business. Everything booked online stays exactly where it is.</p>
     </div>
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
@@ -300,7 +300,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>I send you the Field mapping in writing.</strong> I walk your booking-to-charge flow through with my tech lead first and put it in front of you on paper, so you can see exactly what changes for your techs before you commit to anything.</div>
+          <div class="step-content"><strong>About 10 minutes with me.</strong> We finish the application together and you e-sign on the spot. I set the portal up for dual pricing and you get your login the same day.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -308,12 +308,12 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your Field booking flow and the worker app are set for dual pricing, with the card price shown to the customer at checkout. Your next detail settles with zero cost to you, and the first batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> Your portal is live with the virtual terminal, payment links, invoicing and recurring billing set for dual pricing. The next card you collect over the phone settles with zero cost to you, and the first batch lands the next morning.</div>
         </div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "Your process already works. This changes one number on it, and it is the number costing you about $875 a month."
+        "Your process already works. This takes the fee off the jobs you handle yourself and leaves everything else exactly where it is."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
