@@ -152,7 +152,7 @@
   .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
   .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">One $1,000 deposit taken by phone</div><table><tr><td class="hc-lab">Square, keyed</td><td><span class="hc-bar hc-now" style="width:80%"></span><span class="hc-val hc-val-now">$35.15</span></td></tr><tr><td class="hc-lab">AllProPay, credit</td><td><span class="hc-bar hc-new" style="width:63%"></span><span class="hc-val hc-val-new">$25 to $30</span></td></tr><tr><td class="hc-lab">AllProPay, debit</td><td><span class="hc-bar hc-new" style="width:20%"></span><span class="hc-val hc-val-new">under $10</span></td></tr><tr><td class="hc-lab">AllProPay, bank</td><td><span class="hc-bar hc-new" style="width:17%"></span><span class="hc-val hc-val-new">$7.50</span></td></tr></table><div class="hc-note">Estimates. Card cost depends on the card the buyer reads you.</div></div>).
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">What one $500 deposit costs you</div><table><tr><td class="hc-lab">Square, keyed</td><td><span class="hc-bar hc-now" style="width:80%"></span><span class="hc-val hc-val-now">$17.65</span></td></tr><tr><td class="hc-lab">Rate, credit</td><td><span class="hc-bar hc-new" style="width:59%"></span><span class="hc-val hc-val-new">$12 to $14</span></td></tr><tr><td class="hc-lab">Bank transfer</td><td><span class="hc-bar hc-new" style="width:17%"></span><span class="hc-val hc-val-new">$3.75</span></td></tr><tr><td class="hc-lab">Edge, credit</td><td><span class="hc-bar hc-new" style="width:2%"></span><span class="hc-val hc-val-new">$0 (buyer pays $517.50)</span></td></tr></table><div class="hc-note">Estimates. Card cost depends on the card the buyer reads you.</div></div>).
      Dark-background twin of  on the long template. Ported from
      proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
      chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
@@ -466,6 +466,7 @@
     .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
+<style id="fit-one-page">@media print { html { zoom: 0.96; } }</style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
   .page { max-width: 680px !important; margin: 0 auto !important; }
@@ -531,15 +532,15 @@
 <div class="hero">
 <div class="hero-eyebrow">Prepared for AJ and Jeremy - Garage Kept Motors</div>
 <h2>Stop paying Square's top rate on every deposit.</h2>
-<div class="price-row two"><table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto"><div class="pc-label"><span class="pill pill-today">Today</span> Square</div><div class="pc-value today">$30,000</div><div class="pc-sub">Card fees so far this year, your number. On pace for about $40,000.</div></div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~$25,500 <span class="chip">about 15% less</span></div><div class="pc-sub">Estimated, same months. More when buyers pay by debit or bank.</div></div></td></tr></table></div>
-<div class="hero-chart"><div class="hc-title">One $1,000 deposit taken by phone</div><table style="width:100%" width="100%"><tr><td class="hc-lab">Square, keyed</td><td><span class="hc-bar hc-now" style="width:80%"></span><span class="hc-val hc-val-now">$35.15</span></td></tr><tr><td class="hc-lab">AllProPay, credit</td><td><span class="hc-bar hc-new" style="width:63%"></span><span class="hc-val hc-val-new">$25 to $30</span></td></tr><tr><td class="hc-lab">AllProPay, debit</td><td><span class="hc-bar hc-new" style="width:20%"></span><span class="hc-val hc-val-new">under $10</span></td></tr><tr><td class="hc-lab">AllProPay, bank</td><td><span class="hc-bar hc-new" style="width:17%"></span><span class="hc-val hc-val-new">$7.50</span></td></tr></table><div class="hc-note">Estimates. Card cost depends on the card the buyer reads you.</div></div>
+<div class="price-row two"><table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto"><div class="pc-label"><span class="pill pill-today">Today</span> Square</div><div class="pc-value today">$30,000</div><div class="pc-sub">Card fees so far this year, your number. On pace for about $40,000.</div></div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto"><div class="pc-label"><span class="pill pill-us">AllProPay Rate</span></div><div class="pc-value us">~$21,000 <span class="chip">about 30% less</span></div><div class="pc-sub">Estimated, lower rate alone. Edge or bank links take it lower.</div></div></td></tr></table></div>
+<div class="hero-chart"><div class="hc-title">What one $500 deposit costs you</div><table style="width:100%" width="100%"><tr><td class="hc-lab">Square, keyed</td><td><span class="hc-bar hc-now" style="width:80%"></span><span class="hc-val hc-val-now">$17.65</span></td></tr><tr><td class="hc-lab">Rate, credit</td><td><span class="hc-bar hc-new" style="width:59%"></span><span class="hc-val hc-val-new">$12 to $14</span></td></tr><tr><td class="hc-lab">Bank transfer</td><td><span class="hc-bar hc-new" style="width:17%"></span><span class="hc-val hc-val-new">$3.75</span></td></tr><tr><td class="hc-lab">Edge, credit</td><td><span class="hc-bar hc-new" style="width:2%"></span><span class="hc-val hc-val-new">$0 (buyer pays $517.50)</span></td></tr></table><div class="hc-note">Estimates. Card cost depends on the card the buyer reads you.</div></div>
 </div>
 <div class="sec-label">The Account</div>
 <table class="terms-table" style="width:100%" width="100%">
 <tr><td>Next-day funding</td><td>Included</td></tr>
 <tr><td>AllProPay integration</td><td>Included</td></tr>
 <tr><td>Monthly platform fee</td><td>$25</td></tr>
-<tr><td>Keyed or invoiced</td><td>Same price, no extra tier</td></tr>
+<tr><td>Card terminal for the counter</td><td>Free</td></tr><tr><td>Keyed or invoiced</td><td>Interchange + 0.5% + $0.08</td></tr>
 <tr><td>Setup fee</td><td>$0</td></tr>
 <tr><td>Contract / cancellation fee</td><td>None</td></tr>
 </table>
@@ -550,24 +551,24 @@
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
 <div class="wc-title">No keyed-in penalty</div>
-<div class="wc-body">Square charges 3.5% + 15 cents when you key a card in. With me it is the same markup as in person.</div>
+<div class="wc-body">Square charges 3.5% + 15 cents when you key a card in. With me it is interchange + 0.5% + 8 cents, the same as in person.</div>
 </div></td><td style="width:10px; padding:0;" width="10"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="wc-title">A link instead of a check</div>
-<div class="wc-body">Text a payment link. Card, or bank at 0.75% capped at $10. Mark the car pending in minutes.</div>
+<div class="wc-title">Edge or a bank link</div>
+<div class="wc-body">On Edge, credit buyers pay 3.5% ($500 becomes $517.50) and you pay $0. Paid by bank, it costs you 0.75%.</div>
 </div></td><td style="width:10px; padding:0;" width="10"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-left:3px solid #0052FF !important; border-radius:0 6px 6px 0; padding:12px 14px;" valign="top" width="32%"><div class="why-cell" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="wc-title">A real person</div>
-<div class="wc-body">Disputed deposit? You call me, not a chat queue. No contract, no cancellation fee.</div>
+<div class="wc-title">Free terminal, real person</div>
+<div class="wc-body">Free card terminal for the counter. Deposit protection if you want bigger card amounts. No contract.</div>
 </div></td></tr></table></div>
 <div class="sec-label">How We Get You Live</div>
 <div class="steps-bar">
-<strong>1.</strong> Send me your Square fee report for this year. <strong>2.</strong> Fifteen minutes Tuesday with you and Jeremy. <strong>3.</strong> Go live before you close Square.
+<strong>1.</strong> Quick chat Tuesday with you and Jeremy to confirm the details and pick your program. <strong>2.</strong> I set it up and your free terminal ships. <strong>3.</strong> Go live before you close Square.
     </div>
 <div class="cta-block">
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:66%; padding:0 12px 0 0px; vertical-align:middle;" valign="middle" width="66%"><div class="cta-text">
 <div class="ct-title">Fifteen minutes Tuesday, then you decide</div>
-<div class="ct-sub">Send the fee report when you can and I will bring exact numbers for you and Jeremy. Text or call me anytime. - Chris</div>
+<div class="ct-sub">We make sure everything is right and you and Jeremy pick the program. Text or call me anytime. - Chris</div>
 </div></td><td style="width:34%; padding:0 0px 0 12px; vertical-align:middle;" valign="middle" width="34%"><div class="cta-action" style="text-align:right">
 <a class="ca-phone" href="tel:+19299303970" style="color:#fff; text-decoration:none; display:block; font-weight:800">929-930-3970</a>
 <div class="ca-name">Chris Ste-Marie &#183; chris@allpropay.com</div>
@@ -582,7 +583,7 @@
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">Estimates based on volume and card mix you provided. Actual cost depends on final card mix. No contract, no setup fee, no cancellation fee.</div></div>
 </td></tr></table></div>
-<script id="em-compose" type="application/json">{"subject": "Garage Kept Motors - what Square's three tiers cost you, and what changes", "body": "Hi AJ,\n\nGood talking with you today. Copying Jeremy so you two have it for Tuesday.\n\nYou asked what each of Square's tiers costs you. Here it is in short:\n\n- In person: 2.6% + 15 cents on Square. Interchange + 0.5% + 8 cents with me.\n- Invoice: 3.3% + 30 cents on Square. Same price with me.\n- Keyed over the phone: 3.5% + 15 cents on Square. Same price with me. No penalty for keying it in.\n- Bank transfer by text link: 0.75%, capped at $10. A $1,000 deposit costs $7.50.\n\nOn the $30,000 you have paid Square so far this year, that is an estimated 15% to 25% less on the rate alone. Passing the card fee on is there whenever you want it.\n\nThe full breakdown is below. If you can send your Square fee report for this year, I will bring exact numbers to Tuesday.\n\nThe chargeback protection we talked about is a separate program, so I will send that in its own email.\n\nChris"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "Garage Kept Motors - what Square's three tiers cost you, and your options", "body": "Hi AJ,\n\nGood talking with you today. Copying Jeremy so you two have it for Tuesday.\n\nYou asked what each of Square's tiers costs you. With me it is one rate on all of them:\n\n- In person: 2.6% + 15 cents on Square. Interchange + 0.5% + 8 cents with me.\n- Invoice: 3.3% + 30 cents on Square. Interchange + 0.5% + 8 cents with me.\n- Keyed over the phone: 3.5% + 15 cents on Square. Interchange + 0.5% + 8 cents with me.\n\nOn a $500 deposit keyed in, Square takes $17.65. With me:\n\n- Credit card: about $12 to $14\n- Bank transfer by text link: $3.75\n- Edge, where credit card buyers pay 3.5% ($517.50): $0 to you\n\nOn the lower rate alone that is an estimated 30% less than the $30,000 you have paid Square this year. A card terminal for the counter is included free.\n\nThe full breakdown is below, including the deposit protection program if you ever want to take bigger amounts on a card. Talk Tuesday.\n\nChris"}</script><script>
 (function () {
   var page = document.querySelector('.page');
   var status = document.getElementById('em-status');
