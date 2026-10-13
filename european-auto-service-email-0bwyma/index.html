@@ -43,22 +43,49 @@
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
-  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
-     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
-     carries the percent drop. */
-  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
-  .pricing-callout .pc-label { display: block; }
-  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
-  .pricing-callout .pc-value { display: block; }
-  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
-  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
-  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
-  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
-  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
-  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
-  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Cells centre under their labels (Chris, 2026-08-12). */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
+  /* <div class="prog-chart"><div class="pchart-title">Your monthly card processing cost</div><table><tbody><tr><td class="pc-lab">September, today</td><td><span class="pc-bar" style="width:78%; background:#64748B;"></span> <span class="pc-num">$5,927.30</span></td></tr><tr><td class="pc-lab">On AllProPay Edge</td><td><span class="pc-bar" style="width:2px; background:#3B82F6;"></span> <span class="pc-num">$0</span></td></tr></tbody></table><div class="pc-note">From your September 2026 Provident statement, $279,501.16 in card sales at a 2.12% effective rate.</div></div> now renders INSIDE the navy band, under the three cells,
+     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
+     better for this section"). Spec-supplied chart markup must therefore use
+     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
+     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
+  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
+  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
+  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
+  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
+  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
+  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
+  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
+  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
+  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
+  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
+     NOTE: braces are omitted from token names in CSS comments on purpose - the
+     builder substitutes {{...}} anywhere in the file, comments included.
+     Option A is OUR recommendation and must stay visually dominant: blue rule,
+     "What I recommend" badge, blue figure. Option B is the honest alternative
+     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
+     house rule) - the ranking is what makes showing two offers safe. */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
+  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
+  .opt.opt-b { border-top: 4px solid #94A3B8; }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
+  .opt.opt-b .opt-tag { background: #F1F5F9; color: #64748B; }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
+  .opt.opt-a .opt-figure { color: var(--blue); }
+  .opt.opt-b .opt-figure { color: #64748B; }
+  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
+  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .opt.opt-a .opt-list li:before { background: var(--blue); }
+  .opt.opt-b .opt-list li:before { background: #94A3B8; }
+  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
      which strips display:flex. Float + line-height centering survives the paste. */
   .steps { display: block; }
@@ -74,6 +101,7 @@
   .cta-wrap { text-align: center; margin-top: 20px; }
   .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
   .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
+  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 24px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -86,6 +114,33 @@
   .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
   .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
   .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .pillars, .pricing-grid { display: block !important; }
+    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
+    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    .pricing-callout { padding: 18px; }
+    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td { padding: 7px 8px; }
+  }
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
@@ -116,87 +171,6 @@
     .cta-btn { display: none; }
     .cta-print-text { display: block !important; }
     .booking-embed { display: none !important; }
-  }
-  /* === AllProPay mobile responsive v3 (auto-injected) ===
-     Screen-only. Does not affect print/PDF (those use @media print).
-     Unstacks every multi-column band to a single column on phones so pricing
-     numbers never clip and nothing renders stretched. Forcing the container to
-     display:block neutralizes all three layout modes (CSS grid, flexbox, and
-     display:table) uniformly -- the standard templates and every bespoke
-     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
-     and pillar grids, cta-footer) collapse the same way. */
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
-    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
-      overflow-wrap: anywhere; word-break: break-word;
-    }
-    /* Header: stack logo above contact, left-align */
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    /* Titles scaled so they never overflow */
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .title-block .merchant { font-size: 12pt; }
-    .title-block .eyebrow { font-size: 8.5pt; }
-    /* Meta: drop fixed label column, stack label over value (stays a grid) */
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
-    .meta-row { flex-direction: column; gap: 7px; }
-    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
-    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
-    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
-    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
-      display: block !important;
-    }
-    /* full-width block children (resets table-cell / flex:1 columns) */
-    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
-    .flow-node, .step-card, .roadmap .step,
-    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
-    .compare-callout > div, .cta-footer > div {
-      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
-    }
-    .savings-callout > div:last-child, .pricing-grid > div:last-child,
-    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    /* generic safety net for any other real CSS-grid container */
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    /* Flow-diagram arrows: point down between stacked nodes */
-    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
-    .flow-arrow .arrow-label { display: none; }
-    /* Big callout numbers: full width, slightly smaller, never clipped */
-    .pricing-callout { padding: 18px; }
-    .hero { padding: 20px; }
-    .hero::before { display: none; }
-    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
-    .snapshot-callout .pc-value, .compare-callout .cc-value {
-      font-size: 20pt; overflow-wrap: anywhere;
-    }
-    /* Hide now-pointless vertical dividers in stacked callouts */
-    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
-    /* CTA strip (short template): stack text above the phone number */
-    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
-    .cta-action { text-align: left; }
-    .cta-action .ca-phone { font-size: 21pt; }
-    /* CTA button: full-width tap target */
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    /* Signature + footer: stack and left-align */
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
-    /* Tables: tighter; wide comparison tables scroll within their wrapper */
-    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td, .terms-table td { padding: 7px 8px; }
-    .terms-table td:first-child { width: 50%; }
-    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
-    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
 <style id="email-mode">
@@ -264,15 +238,17 @@
 
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Tammy &#160;|&#160; European Auto Service &#160;|&#160; Willis, Texas</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Matt Butcher &#160;|&#160; AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current processor</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Provident (discovery call October 7, 2026; statement not yet reviewed)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">October 8, 2026</span></td></tr></table></div>
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Tammy &#160;|&#160; European Auto Service &#160;|&#160; Willis, Texas</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Matt Butcher &#160;|&#160; AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current setup</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Provident Payments, 2.12% all in for September</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Program</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Edge dual pricing</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">October 13, 2026</span></td></tr></table></div>
 </div>
 <div class="blue-bar"></div>
 <div class="section">
 <div class="section-header">Where We Are</div>
-<p>When we spoke on October 7 you were straight with me, so I will be straight back. You said you would look at this if someone could get you under 2 percent, and that you absorb every cent of the card fee today. I am not going to pretend I can confirm a number like that off a phone call. What I can do is show you the one part of the price any processor actually controls, put it in writing, and then price your own statement against it.</p>
+<p>Thanks for sending September over, Tammy. You told me the bar was under 2%, so I took the statement apart line by line before writing a word of this. Here is what it says, and here are two ways to act on it, with real numbers on both.</p>
 <p>You told us what mattered most. We built the setup around it:</p>
 <ul>
-<li>Tekmetric stays. You run booking, scheduling, estimates and repair orders on it, and nothing on this page asks you to move any of that.</li><li>Both lanes stay covered the way they run now: cards at the counter, and a payment link on the invoices you send out.</li><li>One fixed monthly fee, no contract and no cancellation fee. If this ever stops earning its keep you walk.</li><li>Nothing happens on your end until you have seen your own numbers priced line by line. That is the next step, and it is the only one I am asking for.</li>
+<li>You ran <strong>$279,501</strong> in card sales in September and paid <strong>$5,927.30</strong> to take them. That is <strong>2.12%</strong> all in. August ran about 2.35%.</li><li><strong>Provident is not overcharging you.</strong> They kept $680.56, about 0.24%. The other $5,246.74 is what Visa, Mastercard, Discover and AMEX charge every processor the same way.</li><li>That is why under 2% is hard on a rate. Before anyone adds a cent, your September cards cost 1.88%. The way to get the number you asked for is to stop paying it.</li><li>Tekmetric stays exactly as it is. Payments run beside it at the counter and on your payment links.</li>
 </ul>
 </div>
 <div class="section">
@@ -282,59 +258,88 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Tekmetric does not move</div>
-<div class="p-body">You keep Tekmetric for everything it is good at. Payments run beside it: a terminal at the counter and a payment link on the invoices you already send. Your service advisors learn nothing new. If you later want the payments connected inside Tekmetric instead, there is a path for that too, and it is your choice rather than a requirement.</div>
+<div class="p-title">Zero-cost card processing</div>
+<div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and ACH customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
 </div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">True cost, plus a markup you can read</div>
-<div class="p-body">You pay interchange, the true cost of the card set by Visa and Mastercard, plus a flat 0.25 percent and 5 cents a transaction. That is the entire markup, on every brand, with no tiers and no padding. One $25 monthly fee covers the equipment, the payment links, the gateway, statements, PCI and support.</div>
+<div class="p-title">Nothing moves in Tekmetric</div>
+<div class="p-body">Booking, scheduling and estimates stay where they are. The counter terminal and your payment links are the only things that change, and they arrive set up so your advisors take a payment the same way they do today.</div>
 </div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Bank transfer on the big jobs</div>
-<div class="p-body">On a large repair bill the cheapest way for a customer to pay is a bank transfer, and it is built into the same payment link. It runs at 0.75 percent with a hard cap of $10 a transaction, so a $2,500 job costs you ten dollars to collect instead of a percentage of the whole thing. You offer it or you do not, job by job.</div>
+<div class="p-title">Backed and flexible</div>
+<div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
 </div></td></tr></table></div>
 </div>
 <div class="section">
-<div class="section-header">Your Pricing</div>
-<p>This is the locked pricing for the European Auto Service account.</p>
+<div class="section-header">Your Program</div>
+<p>This is the program we set up for the European Auto Service account.</p>
 <div class="pricing-callout">
-<div class="pricing-grid"><table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto"><div class="pc-label"><span class="pill pill-today">Today</span> What you absorb</div><div class="pc-value today">All of it</div><div class="pc-sub">Every card fee lands on the shop, at the counter and on the pay-by-link side.</div></div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto"><div class="pc-label"><span class="pill pill-us">With AllProPay</span> Our markup over true cost</div><div class="pc-value us">0.25% + $0.05</div><div class="pc-sub">Interchange is set by Visa and Mastercard and is the same for every processor. The markup is the only part anyone controls. At $200,000 a month, every 0.10% of markup is about $200.</div></div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto"><div class="pc-label">When you are ready</div><div class="pc-value us">0%</div><div class="pc-sub">Your card cost, if you ever decide to price cash and card differently. Your call, and not a condition of anything here.</div></div></td></tr></table></div>
+<div class="pricing-grid">
+
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Your cost on card sales</div>
+<div class="pc-value">$0</div>
+<div class="pc-sub">No monthly fee either. There is no fixed cost on this account at all</div>
+</div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Cash, check, and ACH</div>
+<div class="pc-value">Your price</div>
+<div class="pc-sub">Card-paying customers see a 3.25% card price</div>
+</div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
+<div class="pc-label">Your total monthly cost</div>
+<div class="pc-value">$0</div>
+<div class="pc-sub">Down from $5,927.30 in September</div>
+</div></td></tr></table></div>
+<div class="prog-chart"><div class="pchart-title">Your monthly card processing cost</div><table style="width:100%" width="100%"><tbody><tr><td class="pc-lab">September, today</td><td><span class="pc-bar" style="width:78%; background:#64748B;"></span> <span class="pc-num">$5,927.30</span></td></tr><tr><td class="pc-lab">On AllProPay Edge</td><td><span class="pc-bar" style="width:2px; background:#3B82F6;"></span> <span class="pc-num">$0</span></td></tr></tbody></table><div class="pc-note">From your September 2026 Provident statement, $279,501.16 in card sales at a 2.12% effective rate.</div></div>
 </div>
 <table style="width:100%" width="100%">
 <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
-<tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (counter terminal, pay-by-link, and card on file)</td></tr>
-<tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
+<tr><td>Counter terminal and payment links</td><td>Included</td><td>Set up with both prices before they reach you. Tekmetric is not touched</td></tr>
+<tr><td>Monthly pricing report</td><td>Included</td><td>Sent every month so you can check the pricing is exactly what I promised</td></tr><tr><td>PCI compliance</td><td>Included</td><td>We handle it. No compliance fee</td></tr>
+<tr><td>Platform fee</td><td>No monthly fee</td><td>Account, statements, support, PCI</td></tr>
 <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
 <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
 </tbody>
 </table>
 <div class="insight">
-<div class="insight">Interchange is not ours and it is not Provident's. It is the cost Visa and Mastercard set on each card, and it is identical whoever processes you. <strong>The only number a processor competes on is the markup it adds on top, and mine is 0.25 percent and 5 cents a transaction, in writing, on every brand.</strong> I have not seen your statement yet, so I am not going to put a blended percentage on this page and ask you to trust it. Send me one month and I will price your own card mix against this structure, line by line. If it turns out Provident is already at or under this, I will tell you to stay exactly where you are.</div>
+<div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated card processing cost kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$53,000 to $71,000</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">Estimated. Low end: your last 12 months of sales at September's rate. High end: September's pace for a year.</div></div><p>In September you paid <strong>$5,927.30</strong> to take <strong>$279,501</strong> in cards. On Edge your cost on card sales is <strong>$0.00</strong> and there is <strong>no monthly fee</strong>, so your total cost to take cards is zero. Your effective rate stops being a number you have to watch, because you stop paying one.</p>
 </div>
 </div>
-
+<div class="section"><div class="section-header">Two Ways To Do This</div><p>Here is your own September, re-run both ways. One removes the cost. The other lowers it.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">AllProPay Edge</div><div class="opt-mech">Two prices. Cash, check and ACH pay your price; card-paying customers see a 3.25% card price, and that covers the card cost.</div><div class="opt-figure">$53,000 to $71,000</div><div class="opt-figure-sub">Estimated card processing cost kept per year</div><ul class="opt-list"><li>Your cost on card sales is $0.00 and there is no monthly fee.</li><li>Your deposits come in whole. September's $5,927.30 becomes $0.</li><li>Card brand fees changed on October 1, per your own statement. On Edge that is not your cost either.</li><li>Customers see both prices before they pay, at the counter and on the payment link.</li></ul></div><div class="opt opt-b"><div class="opt-tag">If you would rather keep absorbing it</div><div class="opt-name">AllProPay Rate</div><div class="opt-mech">You keep paying the fees yourself, at interchange plus a smaller markup than Provident charges you today.</div><div class="opt-figure">27% less</div><div class="opt-figure-sub">Kept by your processor than on your September statement</div><ul class="opt-list"><li>0.20% down to 0.15% over interchange on Visa, Mastercard and Discover.</li><li>AMEX down from 0.40% to 0.35%.</li><li>Authorizations down from 5 cents to 3. Regulatory, batch, address-verification and business-card charges go to $0.00.</li><li>About $181 a month back on September's numbers.</li></ul></div></div><div style="margin-top:16px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:10.5pt; color:#0B1120;">Your September, side by side</div><table style="width:100%; border-collapse:collapse; font-size:8.5pt; margin-top:6px;; width:100%" width="100%"><thead><tr><th style="background:#0B1120; color:#fff; text-align:left; padding:6px 8px;">Card type</th><th style="background:#64748B; color:#fff; text-align:right; padding:6px 8px;">Volume</th><th style="background:#64748B; color:#fff; text-align:right; padding:6px 8px;">Provident charged you</th><th style="background:#0052FF; color:#fff; text-align:right; padding:6px 8px;">AllProPay Edge</th><th style="background:#94A3B8; color:#fff; text-align:right; padding:6px 8px;">AllProPay Rate (est.)</th></tr></thead><tbody><tr><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; font-weight:600;">Visa</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$171,902.08</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$3,037.76</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#EFF6FF; color:#0052FF; font-weight:700;">$0.00</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F8FAFC; color:#64748B;">$2,946.94</td></tr><tr><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; font-weight:600;">Mastercard</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$67,766.26</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$1,829.80</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#EFF6FF; color:#0052FF; font-weight:700;">$0.00</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F8FAFC; color:#64748B;">$1,766.92</td></tr><tr><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; font-weight:600;">American Express</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$21,723.42</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$615.45</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#EFF6FF; color:#0052FF; font-weight:700;">$0.00</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F8FAFC; color:#64748B;">$604.01</td></tr><tr><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; font-weight:600;">Discover</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$18,109.40</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$386.34</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#EFF6FF; color:#0052FF; font-weight:700;">$0.00</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F8FAFC; color:#64748B;">$377.06</td></tr><tr><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; font-weight:600;">Account and network fees</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; background:#F1F5F9;"></td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F1F5F9; color:#475569;">$57.95</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#EFF6FF; color:#0052FF; font-weight:700;">$0.00</td><td style="padding:5px 8px; border-bottom:1px solid #E2E8F0; text-align:right; background:#F8FAFC; color:#64748B;">$51.15</td></tr><tr><td style="padding:6px 8px; border-top:2px solid #0B1120; font-weight:700; background:#F5F7FA;">September, all in</td><td style="padding:6px 8px; border-top:2px solid #0B1120; text-align:right; font-weight:700; background:#E2E8F0; color:#334155;">$279,501.16</td><td style="padding:6px 8px; border-top:2px solid #0B1120; text-align:right; font-weight:700; background:#E2E8F0; color:#334155;">$5,927.30</td><td style="padding:6px 8px; border-top:2px solid #0B1120; text-align:right; font-weight:800; background:#DBEAFE; color:#0052FF; font-size:10pt;">$0.00</td><td style="padding:6px 8px; border-top:2px solid #0B1120; text-align:right; font-weight:700; background:#F1F5F9; color:#475569;">$5,746.08</td></tr></tbody></table><p style="font-size:8pt; color:#64748B; margin-top:6px;">The Provident column is lifted straight off your September statement and adds back to the $5,927.30 it printed. The AllProPay Rate column keeps your interchange and card brand fees exactly as printed and replaces only Provident's charges with mine, including the $25 monthly.</p><p class="opt-note">The gap between the two is not me pricing the second one badly. AllProPay Rate can only ever lower what you pay, because you are still the one paying it. Edge removes it.</p></div>
 <div class="section">
 <div class="section-header">The Flexibility You Asked For</div>
-<p>You said you do not have time for a project, so here is the honest version of what changes and what does not. There are two ways to run this, the pricing above is the same either way, and you do not have to decide today.</p>
+<p>You are not locked into the choice you make this week. The account is built so you can move.</p>
 <ul class="why-list" style="margin-top:14px;">
-<li><strong>Beside Tekmetric, which is what I recommend.</strong> Cards at the counter go through a terminal. Invoices go out of Tekmetric exactly as they do now, with our payment link alongside, and the customer pays on the link. You mark the repair order paid. It is one extra step per payment, and at the handful of payments a day a shop your size takes, it is nothing. This is the fastest path and it changes nothing about how you work.</li><li><strong>Connected inside Tekmetric, if you want it.</strong> There is an extension that puts the payment inside the Tekmetric screen so there is no second step at all. It is a bigger setup and it carries its own software cost, so I will not quote you a number for it until I have confirmed it for your exact setup. Worth a conversation only if the extra step genuinely bothers you.</li><li><strong>Bank transfer on the large bills.</strong> 0.75 percent, capped at $10 a transaction, on the same link. Your call per job.</li><li><strong>And if you ever want your card cost at zero.</strong> Some shops price cash and card differently and post it at the counter, which takes the card cost off the business entirely. You absorb it today and nothing here asks you to change that. The same account does it whenever you say so, with no new application.</li>
+<li>Start on Edge, and if your customers do not like it, we move you to AllProPay Rate on the same account with no new paperwork and no fee to switch.</li><li>No contract, no setup fee and no cancellation fee, so nothing about this has to be permanent to be worth trying.</li>
 </ul>
 </div>
 <div class="section">
 <div class="section-header">Why This Is the Right Move</div>
 <ul class="why-list">
-<li class="why"><strong>The markup is in writing and it is 0.25 percent plus 5 cents.</strong> Every brand, no tiers, no downgrade categories, no padding. You can check it against any statement you ever get from us.</li><li class="why"><strong>At $200,000 a month, every 0.10 percent of markup is about $200.</strong> That is the whole reason this is worth twenty minutes of your time, and it is arithmetic on your own number rather than a claim about anyone's rate.</li><li class="why"><strong>One $25 monthly fee, and that is the only fixed fee there is.</strong> No PCI fee, no statement fee, no batch fee, no annual fee. We keep you PCI compliant as part of the service.</li><li class="why"><strong>Tekmetric stays and your advisors learn nothing.</strong> This is a backend change, not a software change.</li><li class="why"><strong>No contract and no cancellation fee.</strong> Month to month from day one.</li>
+<li>Your effective rate on card sales goes to <strong>0%</strong>. That beats the under 2% you asked for by the whole 2%.</li><li><strong>My pricing holds while you process with me.</strong> Interchange is set by Visa and Mastercard and nobody controls that, but my side stays exactly where I put it, and I send you a report every month so you can check it.</li><li>Your statement already announces card brand fee changes for October 1. That keeps happening. On Edge it stops being your problem.</li><li>Tekmetric does not move. Booking, scheduling and estimates stay exactly as they are.</li>
 </ul>
-<p style="margin-top:12px;">Here is the arithmetic, on the $200,000 a month you gave me. Interchange is a pass-through cost and it is the same wherever you process, so it cancels out of any comparison. What does not cancel out is the markup on top of it. At $200,000 a month, a tenth of a percent of markup is about $200 a month, which is roughly $2,400 a year. So if Provident is keeping half a percent and I am keeping a quarter, that is about $500 a month, call it $6,000 a year, and if they are keeping less than that the gap is smaller. I genuinely do not know which it is yet, and that is exactly why I want one statement instead of guessing in front of you. These are estimates built on the volume you described, not a guarantee, and one statement turns all of them into exact figures.</p>
+<p style="margin-top:12px;">On your $790 average repair ticket the card price is about $25.68 more than the cash price, and the receipt tells the customer exactly that. Across September that is the full $5,927.30 staying in the business instead of leaving it, and across a year on your own numbers it is somewhere between $53,000 and $71,000.</p>
 </div>
 <div class="section" style="break-after: avoid; page-break-after: avoid;">
 <div class="section-header">Next Steps</div>
-<p style="margin-bottom:18px;">Three steps, and the first one is the only thing I need from you:</p>
+<p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
 <div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Send me one recent statement.</strong> Any month, whichever is easiest to pull. Email it to me at matt@allpropay.com and that is your part done.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>I price your own card mix against the structure above.</strong> Line by line, your brands, your volume, your transaction counts, with the markup Provident keeps shown separately from the interchange nobody controls. You get it back in writing, not on a call.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>You decide from the numbers.</strong> If it is clearly better, the paperwork takes about ten minutes and we need your business address and tax ID. If it is not clearly better, I will say so and you stay where you are.</div></div>
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content"><strong>One 10-minute call.</strong> We go through your September statement together, you tell me which of the two routes you want, and we finish the application on the phone. You e-sign on the spot. I already have your numbers, so there is nothing to dig up.</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content"><strong>Switch on.</strong> Your terminal and payment links arrive already set up with both prices, so the first card sale after you switch costs you nothing. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+</div>
 </div>
 <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        You set the bar at under 2 percent, and the only honest way to tell you whether I clear it is to price your own statement. Send one month and you will have a real answer instead of a sales pitch.
+        "You asked for under 2%. The honest way to get there is zero, and one short call opens it."
       </p>
 <div class="cta-wrap" style="margin-top:28px;">
 <a class="cta-btn" href="tel:+19299303969">Text or Call Me: 929-930-3969</a>
@@ -356,13 +361,13 @@
 <img alt="AllProPay" src="https://proposals.allpropay.com/european-auto-service-0sk2x2/AllProPay_Logo.jpg" style="height:58px; width:auto; display:block; margin-bottom:4px;"/>
 <div class="sig-tagline">Accept payments anywhere.</div>
 </div></td></tr></table></div>
-<p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+<p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
 </div>
 <div class="doc-footer">
 <span>AllProPay &#160;&#183;&#160; 108 W 39th Street, Suite 1006, New York, NY 10018 &#160;&#183;&#160; 800-807-0356</span>
 </div>
 </td></tr></table></div>
-<script id="em-compose" type="application/json">{"subject": "European Auto Service - the numbers in writing", "body": "Hi Tammy,\n\nThanks for the couple of minutes yesterday. Here is what I promised, in writing:\n\nhttps://proposals.allpropay.com/european-auto-service-0sk2x2/\n\nThe short version. Interchange is the cost Visa and Mastercard set on each card, and it is the same whoever processes you. The only part a processor competes on is the markup on top. Mine is 0.25 percent plus 5 cents a transaction, on every brand, with no tiers.\n\nAt the $200,000 a month you mentioned, every tenth of a percent of markup is about $200.\n\nI deliberately did not put a blended rate on the page, because I have not seen your statement yet. Send me any one month and I will price your own card mix against it. If Provident is already at or under this, I will tell you to stay put.\n\nTekmetric does not move either way.\n\nMatt Butcher\nAllProPay\n929-930-3969\nmatt@allpropay.com\n"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "European Auto Service - your September statement, decoded", "body": "Hi Tammy,\n\nThanks for sending September. I took it apart line by line.\n\nFirst, something in your favour: Provident is not overcharging you. They kept about 0.24%. The other 88% of your $5,927.30 is what Visa, Mastercard, Discover and AMEX charge every processor, and before anyone adds a cent your cards cost 1.88%. That is why under 2% is hard on a rate alone.\n\nSo I built two options on your own numbers. One takes your card cost to $0 with no monthly fee. The other lowers what your processor keeps by about 27%.\n\nThe proposal, with your September side by side:\nhttps://proposals.allpropay.com/european-auto-service-0sk2x2/\n\nTekmetric does not move either way. Ten minutes on the phone and I can walk you through it.\n\nMatt Butcher\nAllProPay\n929-930-3969"}</script><script>
 (function () {
   var page = document.querySelector('.page');
   var status = document.getElementById('em-status');
