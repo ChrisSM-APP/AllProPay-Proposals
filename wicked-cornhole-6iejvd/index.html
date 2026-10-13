@@ -46,7 +46,7 @@
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
   /* Cells centre under their labels (Chris, 2026-08-12). */
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
-  /* <div class="prog-chart"><div class="pchart-title">What each $100 card sale costs you</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%; padding:5px 8px 5px 0;">Today, about</td><td style="width:48%; padding:5px 0;"><span class="pc-bar" style="display:inline-block; height:13px; width:86%; background:#64748B; border-radius:3px;"></span></td><td class="pc-num" style="width:18%; padding:5px 0 5px 10px; text-align:right;">$3</td></tr><tr><td class="pc-lab" style="width:34%; padding:5px 8px 5px 0;">On AllProPay Edge</td><td style="width:48%; padding:5px 0;"><span class="pc-bar" style="display:inline-block; height:13px; width:1%; background:#3B82F6; border-radius:3px;"></span></td><td class="pc-num" style="width:18%; padding:5px 0 5px 10px; text-align:right;">$0</td></tr></table><div class="pc-note">Today's figure is from what you shared on our call. A statement gives the exact number.</div></div> now renders INSIDE the navy band, under the three cells,
+  /*  now renders INSIDE the navy band, under the three cells,
      matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
      better for this section"). Spec-supplied chart markup must therefore use
      light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
@@ -197,7 +197,7 @@
         <span class="label">Prepared by</span>
         <span class="value">Chris Ste-Marie &nbsp;|&nbsp; AllProPay</span>
         <span class="label">Current setup</span>
-        <span class="value">ServFirst Solutions, one countertop reader, fees taken out of each deposit</span>
+        <span class="value">ServFirst Solutions, one countertop reader</span>
         <span class="label">Program</span>
         <span class="value">Edge dual pricing</span>
         <span class="label">Date</span>
@@ -209,10 +209,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>Right now you type every amount into a basic card reader, your items and invoices live separately in QuickBooks, and about $3 of every $100 card sale comes out of your deposit before you see it. The fix is one setup that does all of it in one place: simple inventory that connects to QuickBooks, invoices from the same place, and your choice on the card fees.</p>
+      <p>We take care of this for you. You keep more money in your pocket, we set your payments up better, and you do not have to do any extra work. That is our department, and I will prove it to you.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Simple inventory. Tap the item and the price fills in, no adding up from memory.</li><li>QuickBooks stays your home base. Your items and invoices connect to it.</li><li>Your choice on fees: pass them on, or keep paying them at a lower rate.</li><li>No contract. If we do not earn it, you leave.</li>
+        <li>More money in your pocket. Today about $3 of every $100 card sale comes out before it reaches you.</li><li>Payments set up better. Simple inventory that connects to QuickBooks, and your invoices in the same place.</li><li>No extra work for you. We set it all up.</li><li>No contract. If we do not earn it, you leave.</li>
       </ul>
     </div>
 
@@ -224,8 +224,8 @@
           <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and bank transfer customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Everything in one place</div>
-          <div class="p-body">Your terminal arrives pre-programmed with the items you already keep in QuickBooks, so you or your employee tap the item instead of typing in an amount. You send invoices and take invoice payments from the same place, and it all connects back to QuickBooks.</div>
+          <div class="p-title">No extra work for you</div>
+          <div class="p-body">We set up the terminal, load the items you already keep in QuickBooks, and connect your invoices. You and your employee tap the item and take the payment. Everything else is on us.</div>
         </div>
         <div class="pillar">
           <div class="p-title">Backed and flexible</div>
@@ -243,40 +243,37 @@
           <div>
             <div class="pc-label">Your cost on card sales</div>
             <div class="pc-value">$0</div>
-            <div class="pc-sub">Card buyers see the card price. Cash, check, and bank transfer pay the sticker price.</div>
+            <div class="pc-sub">If you pass the card fee on</div>
           </div>
           <div>
-            <div class="pc-label">Your equipment</div>
-            <div class="pc-value">Pre-programmed</div>
-            <div class="pc-sub">Arrives with your QuickBooks items loaded</div>
+            <div class="pc-label">Extra work for you</div>
+            <div class="pc-value">None</div>
+            <div class="pc-sub">We set it up and load your items</div>
           </div>
           <div>
-            <div class="pc-label">Sales, invoices, QuickBooks</div>
+            <div class="pc-label">Sales and invoices</div>
             <div class="pc-value">One place</div>
-            <div class="pc-sub">Ring up, invoice, and get paid from the same setup</div>
+            <div class="pc-sub">Connected to QuickBooks</div>
           </div>
         </div>
-        <div class="prog-chart"><div class="pchart-title">What each $100 card sale costs you</div><table style="width:100%; border-collapse:collapse;"><tr><td class="pc-lab" style="width:34%; padding:5px 8px 5px 0;">Today, about</td><td style="width:48%; padding:5px 0;"><span class="pc-bar" style="display:inline-block; height:13px; width:86%; background:#64748B; border-radius:3px;"></span></td><td class="pc-num" style="width:18%; padding:5px 0 5px 10px; text-align:right;">$3</td></tr><tr><td class="pc-lab" style="width:34%; padding:5px 8px 5px 0;">On AllProPay Edge</td><td style="width:48%; padding:5px 0;"><span class="pc-bar" style="display:inline-block; height:13px; width:1%; background:#3B82F6; border-radius:3px;"></span></td><td class="pc-num" style="width:18%; padding:5px 0 5px 10px; text-align:right;">$0</td></tr></table><div class="pc-note">Today's figure is from what you shared on our call. A statement gives the exact number.</div></div>
+        
       </div>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Countertop terminal</td><td>Included</td><td>Arrives pre-programmed with your QuickBooks items and both prices set.</td></tr>
-          <tr><td>Card price</td><td>Sticker price + 4%</td><td>Shown before the customer pays. Cash, check, and bank transfer pay the sticker price.</td></tr><tr><td>Bank payments (ACH) on invoices</td><td>0.75%, capped at $10</td><td>A $300 invoice paid by bank costs you $2.25</td></tr>
+          <tr><td>Countertop terminal</td><td>Included</td><td>We set it up with your QuickBooks items loaded.</td></tr>
+          <tr><td>Card price</td><td>Sticker price + 4%</td><td>Shown before the customer pays. Cash, check, and bank transfer pay the sticker price.</td></tr><tr><td>Bank payments on invoices</td><td>0.75%, capped at $10</td><td>A $300 invoice paid by bank costs you $2.25</td></tr>
           <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
-      <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">What you keep on every $100 card sale</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$100</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">Today about $97, by your own read</div></div>Today about $3 of every $100 card sale comes out of your deposit. <strong>On AllProPay Edge your cost on card sales is $0, so the full $100 lands in your account.</strong> If you want to see it against your own month, send me one ServFirst statement and I will put your numbers side by side with ours.
-      </div>
-    </div>
+          </div>
 
-    <div class="section"><h2>Your Choice on the Fees</h2><p>Same setup either way: simple inventory, invoices, and QuickBooks in one place. The only difference is who pays the card fee.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">Pass the fee on: AllProPay Edge</div><div class="opt-mech">Card buyers see the card price. Cash, check, and bank transfer pay the sticker price.</div><div class="opt-figure">$0</div><div class="opt-figure-sub">your cost on card sales. A $100 sale puts $100 in your account.</div><ul class="opt-list"><li>Every price is shown before the customer pays.</li><li>Customers who would rather not pay the card price can pay cash or by bank transfer.</li><li>Works at the counter and on your invoices.</li></ul></div><div class="opt opt-b"><div class="opt-tag">The alternative</div><div class="opt-name">Lower your rate: AllProPay Rate</div><div class="opt-mech">You keep paying the card fee, at a lower rate. Your customers see one price, same as now.</div><div class="opt-figure">Lower rate</div><div class="opt-figure-sub">the true card cost plus a flat 0.50% and $0.08 per sale</div><ul class="opt-list"><li>You pay what Visa and Mastercard charge, plus our flat markup. Nothing hidden.</li><li>Send me a statement and I will show you exactly how it compares.</li></ul></div></div><p class="opt-note">Both are real offers. Option B lowers what you pay. Option A removes it. You can switch between them later on the same account.</p></div>
+    <div class="section"><h2>Your Choice on the Card Fee</h2><p>Same setup either way. You pick who pays the card fee.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">Pass it on</div><div class="opt-mech">Card buyers see the card price. Cash, check, and bank transfer pay the sticker price.</div><div class="opt-figure">$0</div><div class="opt-figure-sub">your cost on card sales</div></div><div class="opt opt-b"><div class="opt-tag">The alternative</div><div class="opt-name">Lower your rate</div><div class="opt-mech">You keep paying the card fee, at a lower rate. Customers see one price.</div><div class="opt-figure">Cost + 0.50%</div><div class="opt-figure-sub">the true card cost plus $0.08 per sale</div></div></div></div>
 
     
     
@@ -286,7 +283,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-content"><strong>About 10 minutes with me to finish the application.</strong> You e-sign on the spot. If you would like an exact side by side first, send me one recent ServFirst statement and I will put your numbers next to ours.</div>
+          <div class="step-content"><strong>Let me prove it.</strong> Send me one recent ServFirst statement and I will put your numbers side by side with ours. Then about 10 minutes together to finish the application, and you e-sign on the spot.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -294,12 +291,12 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your terminal arrives pre-programmed with your QuickBooks items and both prices set, and your invoices go out from the same place. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
+          <div class="step-content"><strong>Switch on.</strong> We set up your terminal with your QuickBooks items and connect your invoices. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
         </div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "Inventory, invoices, and payments, all in one place. And you decide who pays the card fee."
+        "You run the shop. We take care of the payments."
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
