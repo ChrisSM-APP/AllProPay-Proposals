@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>September 2026 Statement Breakdown | Galson Auto &amp; Body</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --text: #1A1A2E; --muted: #64748B;
+    --red: #B91C1C; --amber: #B45309; --green: #15803D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10pt; color: var(--text); background: #fff; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: 820px; margin: 0 auto; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px 14px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 64px; width: auto; }
+  .doc-header .contact { font-size: 8pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 28px 40px 40px; }
+  .title-block { margin-bottom: 22px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 23pt; font-weight: 800; color: #000; line-height: 1.1; margin-bottom: 4px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 600; color: var(--blue); margin-bottom: 16px; }
+  .meta-grid { display: grid; grid-template-columns: 150px 1fr; gap: 4px 16px; font-size: 9pt; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .meta-grid .sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); vertical-align: middle; margin: 0 8px 2px; }
+  .section { margin-bottom: 26px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 700; color: var(--blue); padding-bottom: 6px; border-bottom: 2px solid var(--blue); margin-bottom: 14px; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat-cell { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .stat-label { font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 17pt; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .stat-value.danger { color: var(--red); }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  th.num, td.num { text-align: right; }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  /* --- Side-by-side "Today vs AllProPay" grid (added 2026-08-27) ------------
+     Column roles: .now = incumbent (slate), .new = the recommended AllProPay
+     program (brand blue, visually dominant), .alt = the optional second program
+     (light, deliberately subordinate - never co-equal with .new).
+     Colors follow the chart house rule: slate + brand blue, never red/green. */
+  table.sxs { font-size: 8.5pt; }
+  table.sxs th, table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  table.sxs th.band.b-lbl { background: var(--navy); }
+  table.sxs th.band.b-now { background: #64748B; }
+  table.sxs th.band.b-new { background: var(--blue); }
+  table.sxs th.band.b-alt { background: #2B5FD9; }
+  table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F1F5F9; color: #475569; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F1F5FE; color: #1E40AF; font-weight: 600; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #DBEAFE; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #DCE6FB; color: #1E3A8A; font-size: 10pt; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 8px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #60A5FA; white-space: nowrap; }
+  /* Subordinate variant for the second offer. Use when the rep asks for two
+     programs: Option A keeps the solid navy band, Option B gets this lighter
+     one so the two read as RANKED, not co-equal (2026-08-27). */
+  .sxs-save.alt { background: #EEF3FD; color: #1E3A8A; border: 1px solid #A9C1F2; border-left: 4px solid #2B5FD9; padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #2B5FD9; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #475C8F; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #1E3A8A; }
+  .flag { font-weight: 700; }
+  .flag.red { color: var(--red); }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .insight { background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 9.5pt; }
+  .insight strong { color: var(--amber); }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .hero-band { background: linear-gradient(135deg, #15803D 0%, #16A34A 55%, #22C55E 100%); border-radius: 10px; padding: 15px 22px; margin: 0 0 26px; color: #fff; box-shadow: 0 4px 14px rgba(21,128,61,0.22); text-align: center; }
+  .hero-band .sf-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; background: rgba(255,255,255,0.22); padding: 3px 13px; border-radius: 999px; margin-bottom: 7px; }
+  .hero-band .sf-figure { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 800; line-height: 1.02; }
+  .hero-band .sf-figure .sf-unit { font-size: 11pt; font-weight: 700; opacity: 0.9; }
+  .hero-band .sf-sub { font-size: 9.5pt; margin-top: 7px; font-weight: 600; }
+  .hero-band .sf-note { font-size: 7.5pt; margin-top: 5px; opacity: 0.9; }
+  .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .cta-block { text-align: center; margin-top: 24px; padding: 18px 22px; background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 10px; }
+  .cta-line { font-size: 10pt; color: var(--text); margin-bottom: 12px; font-weight: 500; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; padding: 12px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.2px; }
+  .cta-print { display: none; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed { margin-top: 18px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .sig { margin-top: 16px; font-size: 9pt; text-align: center; color: var(--muted); }
+  .sig .name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+  @media print { body { font-size: 9.5pt; } .doc-header, .content { padding-left: 28px; padding-right: 28px; } .cta-btn { display: none; } .cta-print { display: block !important; } .booking-embed { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <img class="logo-img" src="AllProPay_Logo.jpg" alt="AllProPay">
+    <div class="contact">
+      Matt Butcher &nbsp;&middot;&nbsp; 929-930-3969 &nbsp;&middot;&nbsp; matt@allpropay.com<br>
+      AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="title-block">
+      <h1>Your September Statement, <span class="accent">Decoded</span></h1>
+      <div class="subtitle">Galson Auto &amp; Body</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Natasha<span class="sep"></span>Galson Auto &amp; Body</span>
+        <span class="label">Statement reviewed</span>
+        <span class="value">Wells Fargo Merchant Services (two accounts: Galson Auto and Galson Body)<span class="sep"></span>September 1-30, 2026</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Matt Butcher<span class="sep"></span>AllProPay</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Month at a Glance</div>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$166,699</div><div class="stat-sub">Both shops. Auto $81,777 (144 sales), Body $84,922 (52 sales)</div></div>
+        <div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$3,282.88</div><div class="stat-sub">Auto $1,606.90, Body $1,675.98. About $37,000 a year across both</div></div>
+        <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">1.97%</div><div class="stat-sub">Every card, every fee, all in. August ran 1.86%.</div></div>
+      </div>
+      <div class="insight"><strong>94% of your fees never touch Wells Fargo.</strong> Of September&#39;s $3,282.88, $3,098.89 is interchange and card brand fees, set by Visa, Mastercard, Discover and AMEX and charged to every processor the same way. Wells Fargo kept $183.99 across both shops, about 0.11% of your sales, and $25 of that was one chargeback fee. That is a sharp price, and I would rather tell you that than pretend otherwise. The number that came up on our call was about 1.75%; all in, September came to 1.97%.</div>
+    </div>
+
+    <div class="hero-band">
+      <div class="sf-tag">Your card cost on Edge: $0</div>
+      <div class="sf-figure">$16,000 to $19,000<span class="sf-unit"> / year kept on the auto side (est.)</span></div>
+      <div class="sf-sub">Galson Auto paid $1,606.90 in September and got nothing back for it. On Edge that becomes $0. Card-paying customers see a 3% card price; cash, check and ACH pay your price. No monthly fee on either account.</div>
+      <div class="sf-note">Estimated. Low end: the auto shop&#39;s last 12 months of sales ($818,000) at its August and September rate. High end: September&#39;s pace for a full year. The body shop already passes the card fee to customers, so I have not counted it as savings.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Where Your Volume Came From</div>
+      <table>
+        <thead>
+          <tr><th>Card brand</th><th class="num">Galson Auto</th><th class="num">Galson Body</th><th class="num">Both shops</th><th class="num">Share</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Visa</td><td class="num">$47,577.87</td><td class="num">$24,197.47</td><td class="num">$71,775.34</td><td class="num">43.06%</td></tr><tr><td>Mastercard</td><td class="num">$17,380.09</td><td class="num">$28,312.60</td><td class="num">$45,692.69</td><td class="num">27.41%</td></tr><tr><td>Debit</td><td class="num">$14,084.40</td><td class="num">$27,548.46</td><td class="num">$41,632.86</td><td class="num">24.97%</td></tr><tr><td>American Express</td><td class="num">$1,075.93</td><td class="num">$4,863.22</td><td class="num">$5,939.15</td><td class="num">3.56%</td></tr><tr><td>Discover</td><td class="num">$1,658.75</td><td class="num">$0.00</td><td class="num">$1,658.75</td><td class="num">1.00%</td></tr><tr class="total-row"><td>Total</td><td class="num">$81,777.04</td><td class="num">$84,921.75</td><td class="num">$166,698.79</td><td class="num">100%</td></tr>
+        </tbody>
+      </table>
+      <div class="insight"><strong>About a third of the body shop&#39;s September ($28,562) was business cards</strong>, and those carry the most expensive interchange there is: 2.25% to 3.15% before anyone adds a cent. They made up nearly half of the body shop&#39;s fees. A lot of it was keyed in rather than tapped ($11,022 of Mastercard alone), which usually means insurance or fleet payments taken over the phone. On the auto side, debit and everyday cards keep the rate near 2%. Debit costs both shops 0.24% to 0.36%.</div>
+    </div>
+
+    <div class="section"><div class="section-header">Line by Line: Today vs AllProPay</div><table class="sxs"><thead><tr><th class="band b-lbl">Your statement</th><th class="band b-now" colspan="3">What Wells Fargo charged you</th><th class="band b-new">AllProPay Edge</th></tr><tr><th class="sub first">Card type</th><th class="sub">Volume</th><th class="sub">Your rate</th><th class="sub">You paid</th><th class="sub">You pay</th></tr></thead><tbody><tr class="group"><td colspan="5">Galson Auto (you pay the card fees today)</td></tr><tr><td class="brand">Visa</td><td class="now">$47,577.87</td><td class="now">2.18%</td><td class="now">$1,036.62</td><td class="new">$0.00</td></tr><tr><td class="brand">Mastercard</td><td class="now">$17,380.09</td><td class="now">2.54%</td><td class="now">$441.87</td><td class="new">$0.00</td></tr><tr><td class="brand">Debit</td><td class="now">$14,084.40</td><td class="now">0.36%</td><td class="now">$51.18</td><td class="new">$0.00</td></tr><tr><td class="brand">Discover</td><td class="now">$1,658.75</td><td class="now">2.11%</td><td class="now">$34.94</td><td class="new">$0.00</td></tr><tr><td class="brand">American Express</td><td class="now">$1,075.93</td><td class="now">2.23%</td><td class="now">$23.99</td><td class="new">$0.00</td></tr><tr><td class="brand">Account and network fees</td><td class="now"></td><td class="now"></td><td class="now">$18.30</td><td class="new">$0.00</td></tr><tr class="total-row"><td class="brand">Galson Auto, all in</td><td class="now">$81,777.04</td><td class="now">1.97%</td><td class="now">$1,606.90</td><td class="new">$0.00</td></tr><tr class="group"><td colspan="5">Galson Body (customers already cover the card fee)</td></tr><tr><td class="brand">Mastercard</td><td class="now">$28,312.60</td><td class="now">2.97%</td><td class="now">$841.09</td><td class="new">$0.00</td></tr><tr><td class="brand">Visa</td><td class="now">$24,197.47</td><td class="now">2.44%</td><td class="now">$589.97</td><td class="new">$0.00</td></tr><tr><td class="brand">Debit</td><td class="now">$27,548.46</td><td class="now">0.24%</td><td class="now">$65.68</td><td class="new">$0.00</td></tr><tr><td class="brand">American Express</td><td class="now">$4,863.22</td><td class="now">2.64%</td><td class="now">$128.25</td><td class="new">$0.00</td></tr><tr><td class="brand">Account, network and chargeback fees</td><td class="now"></td><td class="now"></td><td class="now">$50.99</td><td class="new">$0.00</td></tr><tr class="total-row"><td class="brand">Galson Body, all in</td><td class="now">$84,921.75</td><td class="now">1.97%</td><td class="now">$1,675.98</td><td class="new">$0.00</td></tr></tbody></table><div class="sxs-save"><div><div class="ss-label">What the auto shop keeps on Edge</div><div class="ss-sub">Your own September, re-run. Every card brand and every account fee goes to $0, and there is no monthly fee.</div></div><div class="ss-figure">$1,606.90</div></div><p class="note">Everything in the Wells Fargo columns is lifted straight off your two September statements and adds back to the $1,606.90 and $1,675.98 they printed. The Edge column is $0 on every card because the card price shown beside your cash price covers the card cost, so nothing comes out of your deposits. The body shop already asks customers to cover the card fee, so on that side Edge is not new money. It does the same thing automatically on every ticket, the same way at both counters.</p></div>
+
+    <div class="section"><div class="section-header">Every Fee, Itemized</div><p style="margin-bottom:12px">This is your September taken apart, both statements. I have grouped it by who actually keeps the money, rather than the way Wells Fargo prints it, so you can check each line against the pages you already have.</p><table class="sxs"><thead><tr><th class="band b-lbl" style="text-align:left">What it is</th><th class="band b-lbl" style="text-align:left">Who keeps it</th><th class="band b-now" style="text-align:right">Galson Auto</th><th class="band b-now" style="text-align:right">Galson Body</th></tr></thead><tbody><tr class="group"><td colspan="4">Set by the card brands, the same at every processor: $3,098.89 (1.86% of your sales)</td></tr><tr><td class="brand">Interchange, credit and debit</td><td class="now" style="text-align:left">The card-issuing banks</td><td class="now">$1,396.05</td><td class="now">$1,359.78</td></tr><tr><td class="brand">AMEX program fees</td><td class="now" style="text-align:left">American Express</td><td class="now">$23.99</td><td class="now">$128.25</td></tr><tr><td class="brand">Card brand assessments</td><td class="now" style="text-align:left">Visa, Mastercard, Discover</td><td class="now">$94.55</td><td class="now">$78.00</td></tr><tr><td class="brand">Card brand network and per-item fees</td><td class="now" style="text-align:left">Visa, Mastercard, Discover</td><td class="now">$8.19</td><td class="now">$10.08</td></tr><tr class="group"><td colspan="4">Kept by Wells Fargo: $183.99 (0.11% of your sales)</td></tr><tr><td class="brand">Sales discount, 0.10% on credit cards</td><td class="now" style="text-align:left">Wells Fargo</td><td class="now">$67.80</td><td class="now">$57.37</td></tr><tr><td class="brand">PCI compliance program fee</td><td class="now" style="text-align:left">Wells Fargo</td><td class="now">$10.00</td><td class="now">$10.00</td></tr><tr><td class="brand">Monthly service charge</td><td class="now" style="text-align:left">Wells Fargo</td><td class="now">$5.00</td><td class="now">$5.00</td></tr><tr><td class="brand">Debit item and debit denial fees, $0.04 each</td><td class="now" style="text-align:left">Wells Fargo</td><td class="now">$1.32</td><td class="now">$1.00</td></tr><tr><td class="brand">Chargeback fee and dispute image fee</td><td class="now" style="text-align:left">Wells Fargo</td><td class="now">$0.00</td><td class="now">$26.50</td></tr><tr class="total-row"><td class="brand">September total</td><td class="now"></td><td class="now">$1,606.90</td><td class="now">$1,675.98</td></tr></tbody></table><p class="note">Two things worth knowing. First, the body shop paid a $25 chargeback fee in September and another in August. Second, Wells Fargo also took a $20 Accel debit network fee as a separate adjustment on the auto account in September; it is an annual card network charge and is not in the totals above. On Edge, none of these lines are your cost.</p></div>
+
+    <div class="section">
+      <div class="section-header">What This Means</div>
+      <div class="takeaways">
+        <div class="takeaway"><span class="t-num">1</span><span class="t-title">Wells Fargo is not overcharging you.</span><div class="t-body">Across both shops in September, Wells Fargo kept $183.99, about 0.11% of your sales. The other $3,098.89 is what the card brands charge every processor. I am telling you that up front because it changes what the right answer is.</div></div>
+<div class="takeaway"><span class="t-num">2</span><span class="t-title">A lower rate cannot fix this, from anyone.</span><div class="t-body">Before any processor adds a cent, your September cards cost 1.86%. That is set by the card mix: business cards, high tickets and rewards cards. If someone shows you a much lower rate than you pay today, ask them to re-run these two statements the way I have here. The honest way to cut this cost is to stop paying it.</div></div>
+<div class="takeaway"><span class="t-num">3</span><span class="t-title">Edge takes the auto shop to $0 and puts the body shop on autopilot.</span><div class="t-body">Your price stays your price for cash, check and ACH. Card-paying customers see a 3% card price, and that covers the card cost, so your deposits come in whole. On the auto side that is about $16,000 to $19,000 a year kept. On the body side it does what you already do, automatically on every ticket. No monthly fee on either account, and deposits still land in your Wells Fargo bank account.</div></div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-line">Let&#39;s walk through it together. I will answer anything on it, line by line, and it is easy to forward to the owners.</div>
+      <a href="tel:+19299303969" class="cta-btn">Text or Call Me: 929-930-3969</a>
+      <div class="cta-print">Text or call me: 929-930-3969 &nbsp;&bull;&nbsp; matt@allpropay.com</div>
+    </div>
+
+    <div class="booking-embed">
+      <div class="be-title">Prefer to grab a time now? Book directly with me.</div>
+      <iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe>
+      <div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div>
+    </div>
+
+    <div class="sig">
+      <span class="name">Matt Butcher</span> &nbsp;&bull;&nbsp; AllProPay &nbsp;&bull;&nbsp; 929-930-3969 &nbsp;&bull;&nbsp; matt@allpropay.com
+    </div>
+
+    <div class="note">
+      Prepared from your two Wells Fargo Merchant Services statements (Galson Auto and Galson Body) for September 1-30, 2026, cross-checked against August. Every figure in the Wells Fargo columns comes straight off those statements. AllProPay Edge is a 3% card price with no monthly fee; cash, check and ACH pay your price. Savings are counted on the auto shop only, because the body shop already passes the card fee to customers. These are estimates based on the statements provided. Actual savings depend on final card mix, volume, and program selection. No contract, no setup fee, no cancellation fee.
+    </div>
+  </div>
+</div>
+</body>
+</html>
