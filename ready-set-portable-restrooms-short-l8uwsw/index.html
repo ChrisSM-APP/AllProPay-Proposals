@@ -154,7 +154,7 @@
   .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
   .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
 
-  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Card fees on a $100,000 month, about 400 jobs at $250</div><table><tr><td class="hc-lab">Your flat rate</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$3,020</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:69%"></span><span class="hc-val hc-val-new">~$2,430</span><span class="chip hc-chip">-20%</span></td></tr></table><div class="hc-note">Estimated from the volume and average job you gave me. About $600 to $1,000 a year back at today's volume.</div></div>).
+  /* Cost-comparison bars inside the dark hero (<div class="hero-chart"><div class="hc-title">Card fees on a $100,000 month</div><table><tr><td class="hc-lab">Your flat rate</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$3,020</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:69%"></span><span class="hc-val hc-val-new">~$2,430</span><span class="chip hc-chip">-20%</span></td></tr></table><div class="hc-note">Estimated. About $600 to $1,000 a year back at today's volume.</div></div>).
      Dark-background twin of  on the long template. Ported from
      proposal-template-edge-short.html on 2026-08-05 so IC+ gets the same hero
      chart Edge has had since 2026-08-04. Uses a <table> for the bar layout because
@@ -468,7 +468,7 @@
     .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
-<style id="fit-one-page">@media print { html { zoom: 0.92; } }</style>
+<style id="fit-one-page">@media print { html { zoom: 0.96; } }</style>
 </head>
 <body>
 <div class="page">
@@ -496,8 +496,8 @@
     <div class="hero">
       <div class="hero-eyebrow">Prepared for Matthew - Ready Set Portable Restrooms, Massapequa Park NY</div>
       <h2>Your app keeps working. Your card rate comes down.</h2>
-      <div class="price-row two"><div class="price-cell"><div class="pc-label"><span class="pill pill-today">Today</span> Your flat rate</div><div class="pc-value today">3.0%</div><div class="pc-sub">2.9% plus 30 cents on every online payment. At your $250 average job, about 3.0% all in.</div></div><div class="price-cell"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.4% <span class="chip">about 20% less</span></div><div class="pc-sub">All-in estimate on your card mix. Interchange plus a flat 0.20% and 10 cents, and that is the whole markup.</div></div></div>
-      <div class="hero-chart"><div class="hc-title">Card fees on a $100,000 month, about 400 jobs at $250</div><table><tr><td class="hc-lab">Your flat rate</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$3,020</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:69%"></span><span class="hc-val hc-val-new">~$2,430</span><span class="chip hc-chip">-20%</span></td></tr></table><div class="hc-note">Estimated from the volume and average job you gave me. About $600 to $1,000 a year back at today's volume.</div></div>
+      <div class="price-row two"><div class="price-cell"><div class="pc-label"><span class="pill pill-today">Today</span> Your flat rate</div><div class="pc-value today">3.0%</div><div class="pc-sub">2.9% plus 30 cents online. About 3.0% all in at your $250 job.</div></div><div class="price-cell"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">~2.4% <span class="chip">about 20% less</span></div><div class="pc-sub">All-in estimate. Interchange plus a flat 0.20% and 10 cents, and that is the whole markup.</div></div></div>
+      <div class="hero-chart"><div class="hc-title">Card fees on a $100,000 month</div><table><tr><td class="hc-lab">Your flat rate</td><td><span class="hc-bar hc-now" style="width:86%"></span><span class="hc-val hc-val-now">$3,020</span></td></tr><tr><td class="hc-lab">AllProPay</td><td><span class="hc-bar hc-new" style="width:69%"></span><span class="hc-val hc-val-new">~$2,430</span><span class="chip hc-chip">-20%</span></td></tr></table><div class="hc-note">Estimated. About $600 to $1,000 a year back at today's volume.</div></div>
     </div>
 
     <div class="sec-label">The Account</div>
@@ -505,7 +505,7 @@
       <tr><td>Next-day funding</td><td>Included</td></tr>
       <tr><td>AllProPay API integration</td><td>Included</td></tr>
       <tr><td>Monthly platform fee</td><td>$25</td></tr>
-      <tr><td>Visa, Mastercard, Discover, AMEX</td><td>Interchange + 0.20% + $0.10</td></tr><tr><td>Bank transfer (ACH)</td><td>0.75%, $10 cap</td></tr><tr><td>Chargeback</td><td>$15</td></tr>
+      <tr><td>Visa, Mastercard, Discover, AMEX</td><td>Interchange + 0.20% + $0.10</td></tr><tr><td>Bank transfer (ACH)</td><td>0.75%, $10 cap</td></tr>
       <tr><td>Setup fee</td><td>$0</td></tr>
       <tr><td>Contract / cancellation fee</td><td>None</td></tr>
     </table>
@@ -514,21 +514,21 @@
     <div class="why-bar">
       <div class="why-cell">
         <div class="wc-title">Your app stays the boss</div>
-        <div class="wc-body">Our API sits underneath the app you built. Documentation and a test environment go to your developer before you move one customer. Payment links, recurring billing, and keyed phone payments are all standard.</div>
+        <div class="wc-body">Our API sits underneath the app you built. Documentation and a test environment go to your developer first. Payment links, recurring billing, and keyed phone payments are standard.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">True-cost pricing</div>
-        <div class="wc-body">Interchange plus a flat 0.20% and 10 cents, against one flat 2.9% plus 30 cents on every card today. Debit and everyday cards cost a fraction, and you keep the difference.</div>
+        <div class="wc-body">Interchange plus a flat 0.20% and 10 cents, against one flat 2.9% on every card today. Debit costs a fraction of that, and you keep the difference.</div>
       </div>
       <div class="why-cell">
         <div class="wc-title">Bank transfer at $10 max</div>
-        <div class="wc-body">0.75% capped at $10, so a $1,500 job costs $10. A good fit for your monthly rentals. No contract and no cancellation fee on any of it.</div>
+        <div class="wc-body">0.75% capped at $10, so a $1,500 job costs $10. A good fit for your monthly rentals. No contract, no cancellation fee.</div>
       </div>
     </div>
 
     <div class="sec-label">How This Moves</div>
     <div class="steps-bar">
-      <div class="step-card"><div class="step-num">1</div><div class="step-title">API docs to your dev</div><div class="step-body">Going over with this. He reads the endpoints and tells you himself.</div></div><div class="step-card"><div class="step-num">2</div><div class="step-title">Written yes or no</div><div class="step-body">One-time first charge and estimates, from our integrations team this week.</div></div><div class="step-card"><div class="step-num">3</div><div class="step-title">Ten minutes with Brian</div><div class="step-body">Once the technical answer is in. Lower rate live before the new volume lands.</div></div>
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">API docs to your dev</div><div class="step-body">Going over with this. He reads the endpoints himself.</div></div><div class="step-card"><div class="step-num">2</div><div class="step-title">Written yes or no</div><div class="step-body">One-time first charge and estimates, from our integrations team this week.</div></div><div class="step-card"><div class="step-num">3</div><div class="step-title">Ten minutes with Brian</div><div class="step-body">Once the technical answer is in, before the new volume lands.</div></div>
     </div>
 
     
