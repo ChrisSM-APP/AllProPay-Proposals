@@ -43,49 +43,22 @@
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  /* Cells centre under their labels (Chris, 2026-08-12). */
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; text-align: center; }
-  /*  now renders INSIDE the navy band, under the three cells,
-     matching the one-pager's hero (Chris, 2026-08-12: "I like the one-pager
-     better for this section"). Spec-supplied chart markup must therefore use
-     light-on-dark colours: #CBD5E1 labels, #94A3B8 caption, slate #64748B for
-     the "today" bar, #3B82F6 for Edge, #22C55E for money coming back. */
-  .pricing-callout .prog-chart { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.18); text-align: left; }
-  .pricing-callout .prog-chart .pchart-title { font-size: 8pt; letter-spacing: 1.2px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 10px; }
-  .pricing-callout .prog-chart table { width: 100%; border-collapse: collapse; margin: 0; font-size: 9.5pt; }
-  .pricing-callout .prog-chart tbody tr:nth-child(even) { background: transparent; }
-  .pricing-callout .prog-chart td { border: none; padding: 0 0 8px 0; }
-  .pricing-callout .prog-chart tr:last-child td { padding-bottom: 0; }
-  .pricing-callout .prog-chart td.pc-lab { width: 168px; padding-right: 12px; font-size: 9pt; font-weight: 600; color: #CBD5E1; white-space: nowrap; }
-  .pricing-callout .prog-chart .pc-bar { display: inline-block; height: 20px; border-radius: 3px; vertical-align: middle; }
-  .pricing-callout .prog-chart .pc-num { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; margin-left: 11px; vertical-align: middle; white-space: nowrap; }
-  .pricing-callout .prog-chart .pc-note { font-size: 8pt; color: #94A3B8; margin-top: 9px; line-height: 1.5; }
-  /* --- Two-offer block (OPTIONS_SECTION token), added 2026-08-27 -----------
-     NOTE: braces are omitted from token names in CSS comments on purpose - the
-     builder substitutes {{...}} anywhere in the file, comments included.
-     Option A is OUR recommendation and must stay visually dominant: blue rule,
-     "What I recommend" badge, blue figure. Option B is the honest alternative
-     in slate. Ranked, never co-equal (see the lead-with-one-recommendation
-     house rule) - the ranking is what makes showing two offers safe. */
-  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
-  .opt { border: 1px solid var(--mid-gray); border-radius: 10px; padding: 16px 18px; background: #fff; }
-  .opt.opt-a { border-top: 4px solid var(--blue); box-shadow: 0 2px 10px rgba(0,82,255,0.10); }
-  .opt.opt-b { border-top: 4px solid #2B5FD9; }
-  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
-  .opt.opt-a .opt-tag { background: #DBEAFE; color: var(--blue); }
-  .opt.opt-b .opt-tag { background: #E3EBFC; color: #1E40AF; }
-  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 12.5pt; font-weight: 800; color: var(--navy); line-height: 1.15; }
-  .opt .opt-mech { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
-  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 800; line-height: 1.05; margin-top: 12px; }
-  .opt.opt-a .opt-figure { color: var(--blue); }
-  .opt.opt-b .opt-figure { color: #1E3A8A; }
-  .opt .opt-figure-sub { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
-  .opt .opt-list { list-style: none; padding: 0; margin: 12px 0 0; }
-  .opt .opt-list li { font-size: 9.5pt; padding: 4px 0 4px 16px; position: relative; line-height: 1.45; }
-  .opt .opt-list li:before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
-  .opt.opt-a .opt-list li:before { background: var(--blue); }
-  .opt.opt-b .opt-list li:before { background: #2B5FD9; }
-  .opt-note { font-size: 8.5pt; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
+  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
+     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
+     carries the percent drop. */
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
+  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
+  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
   /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
      which strips display:flex. Float + line-height centering survives the paste. */
   .steps { display: block; }
@@ -101,7 +74,6 @@
   .cta-wrap { text-align: center; margin-top: 20px; }
   .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
   .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 24px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -114,33 +86,6 @@
   .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
   .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
   .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
-    .pillars, .pricing-grid { display: block !important; }
-    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .pricing-callout { padding: 18px; }
-    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td { padding: 7px 8px; }
-  }
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
@@ -171,6 +116,87 @@
     .cta-btn { display: none; }
     .cta-print-text { display: block !important; }
     .booking-embed { display: none !important; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
 <style id="email-mode">
@@ -238,17 +264,15 @@
 
 
 
-
-
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Cody &#160;|&#160; First Class Floral Design &#160;|&#160; Jonesborough, Tennessee</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Tammy Millar &#160;|&#160; AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current setup</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Square (tablet terminal in the shop, plus a Square-hosted website)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Program</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Edge dual pricing</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">October 15, 2026</span></td></tr></table></div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Cody &#160;|&#160; First Class Floral Design &#160;|&#160; Jonesborough, Tennessee</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Tammy Millar &#160;|&#160; AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current processor</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Square (2.8% + $0.15 on a keyed phone order, about 3 percent all-in)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">October 15, 2026</span></td></tr></table></div>
 </div>
 <div class="blue-bar"></div>
 <div class="section">
 <div class="section-header">Where We Are</div>
-<p>You run First Class Floral on Square today: the tablet terminal at the counter on East Main, and a Square-hosted website that carries most of your orders. On the phone last week you were straight with us. You cover the card fees yourself, you claim them back at tax time, and Square has treated you fairly. So this is not a page telling you your processor is bad. It is two things: take the card fee off your counter, and give you one person to call by name when a holiday week gets loud.</p>
+<p>Thanks for pulling the reports up while we were on the phone, Cody. That saved us both a guess. Here is where this actually sits, written the way I said it to you. Your website is built on Square's own site builder, it is hosted by Square, and you are not charged a card fee on those orders. I cannot touch that and I would not want to. So this page is about one thing only: the card sales that run through the shop on East Main, the counter and the orders you key in by phone, which you put somewhere around $2,500 to $3,000 a month.</p>
 <p>You told us what mattered most. We built the setup around it:</p>
 <ul>
-<li>Nothing changes about how a customer pays at the counter. Tap, dip, or swipe, the same as the tablet does today.</li><li>Your website stays exactly where it is. It is built on Square, so it stays on Square, and I am not going to pretend otherwise.</li><li>No contract and no cancellation fee, so if we stop earning the account you walk.</li><li>One person on the account. My direct line, not a help center queue.</li>
+<li>Your website does not move. It is a Square-hosted site, your online orders carry no card fee, and nothing on this page changes that.</li><li>You keep paying the card fees yourself and building them into your pricing, exactly as you do now. I am not asking you to put a fee on your customers.</li><li>Only the in-shop book moves: the counter and the orders you key in over the phone.</li><li>You get one person on the account. My direct line and my text, plus 24/7 phone support behind me.</li><li>No contract and no cancellation fee, so if we stop earning it you leave.</li>
 </ul>
 </div>
 <div class="section">
@@ -258,85 +282,61 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Zero-cost card processing</div>
-<div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash and check customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+<div class="p-title">A real person, by name</div>
+<div class="p-body">You told me the one thing you would change about Square is that you can never get a human on the phone. That is the part I can fix today. You get me: my direct line and my cell for a text, and I call you back off a voicemail the minute I am free. Behind me there is an in-house customer service team and 24/7 phone support on the processing side. Not a help center and a ticket number.</div>
 </div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Same counter, same workflow</div>
-<div class="p-body">The terminal arrives programmed and ready to plug in. Your customers tap, dip, or swipe the way they do now, and both the card price and the cash price show on the screen before they pay. Taking an order over the counter does not change.</div>
+<div class="p-title">Each card priced at what that card costs</div>
+<div class="p-body">Square charges you one flat price on everything you key in, 2.8 percent and 15 cents, whether the customer hands you a plain debit card or an Amex. We bill interchange, the true cost set by Visa and Mastercard, plus a flat 0.50 percent and 10 cents a transaction. That is the entire markup. A debit card costs a fraction of what a rewards credit card costs, so under this structure a debit sale stops paying a credit card price.</div>
 </div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Backed and flexible</div>
-<div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+<div class="p-title">Your two big weeks, handled up front</div>
+<div class="p-body">Before February I tell our risk team what a Valentine's week looks like for a florist your size, so a jump in volume is expected rather than questioned. Same before Mother's Day. The terminal arrives programmed and ready to plug in, with a virtual terminal on your computer or phone for the orders that come in by phone.</div>
 </div></td></tr></table></div>
 </div>
 <div class="section">
-<div class="section-header">Your Program</div>
-<p>This is the program we set up for the First Class Floral Design account.</p>
+<div class="section-header">Your Pricing</div>
+<p>This is the locked pricing for the First Class Floral Design account.</p>
 <div class="pricing-callout">
-<div class="pricing-grid">
-
-
-
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:33%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
-<div class="pc-label">Your cost on card sales</div>
-<div class="pc-value">$0</div>
-<div class="pc-sub">The card fee moves to the card-paying customer</div>
-</div></td><td style="width:33%; padding:0 7px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
-<div class="pc-label">Cash and check customers</div>
-<div class="pc-value">List price</div>
-<div class="pc-sub">They pay exactly what is on the ticket</div>
-</div></td><td style="width:33%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="33%"><div style="display:block; width:auto">
-<div class="pc-label">Card-paying customers</div>
-<div class="pc-value">Small adjustment</div>
-<div class="pc-sub">Clearly disclosed before they pay</div>
-</div></td></tr></table></div>
+<div class="pricing-grid two"><table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto"><div class="pc-label"><span class="pill pill-today">Today</span> Square, keyed phone order</div><div class="pc-value today">About 3%</div><div class="pc-sub">Your own figure: 2.8 percent plus 15 cents, the same on every card. On a $75 order that is $2.25.</div></div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto"><div class="pc-label"><span class="pill pill-us">With AllProPay</span></div><div class="pc-value us">2.4% to 2.8% <span class="chip">about 10% less</span></div><div class="pc-sub">The range I gave you on the phone. All-in estimate on your in-shop book, not a guarantee. Interchange plus a flat 0.50 percent and 10 cents.</div></div></td></tr></table></div>
 </div>
+<table style="width:100%; border-collapse:collapse; margin:18px 0 4px; font-size:9.5pt;; width:100%" width="100%"><tr><td style="padding:7px 10px; border-bottom:2px solid #CBD5E1; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#475569;">Your in-shop book</td><td style="padding:7px 10px; border-bottom:2px solid #CBD5E1; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#64748B; width:30%;">Square today</td><td style="padding:7px 10px; border-bottom:2px solid #CBD5E1; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#0052FF; width:34%;">AllProPay Rate</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Order you key in by phone</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.8% + $0.15</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Interchange + 0.50% + $0.10</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Plain debit card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.8% + $0.15, same as any card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Priced at debit cost, often well under half</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Rewards card or Amex</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.8% + $0.15, same as any card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Priced at that card's real cost</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">All-in estimate</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">About 3%</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">2.4% to 2.8%</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">When you need somebody</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">Email and the help center</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">My direct line and text, plus 24/7 phone support</td></tr><tr><td style="padding:8px 10px;">Your website</td><td style="padding:8px 10px; color:#64748B;">Square-hosted, no card fee</td><td style="padding:8px 10px; color:#0052FF; font-weight:700;">Untouched, stays exactly as it is</td></tr></table><p class="note">Rate ranges are based on what was shared on the call, not a statement. A look at one month of your Square deposits will replace them with exact numbers.</p>
 <table style="width:100%" width="100%">
 <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-<tr><td>Countertop terminal</td><td>Included</td><td>Included with the account, arrives programmed for Edge</td></tr>
+<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+<tr><td>Gateway integration</td><td>Included</td><td>AllProPay</td></tr>
 <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+<tr><td>Countertop terminal</td><td>Included</td><td>Arrives programmed, plus a virtual terminal on your computer or phone for orders you take by phone</td></tr><tr><td>Setup, PCI, statement, batch, cancellation</td><td>None</td><td>No setup fee, no PCI fee, no statement fee, no batch fee, no cancellation fee, no contract</td></tr>
 <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
 <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
 </tbody>
 </table>
 <div class="insight">
-<div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Your cost on card sales at the counter</div><div style="font-family:'Montserrat',sans-serif; font-size:30pt; font-weight:800; color:#B45309; line-height:1.1;">$0</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">instead of covering the fee yourself on every card sale</div></div><p>You put your card fees at <strong>under $500 a month</strong> when we spoke. <strong>On Edge the in-shop piece of that goes to zero.</strong> Both prices show on the screen, the card-paying customer covers the processing, and anyone paying cash or check pays about 4% less than the card price.</p><p>I am deliberately not printing a yearly savings figure on this page. The split between your counter and your website is still rough, and I would rather give you a real number after we look at one month of your deposits together than a guess that flatters me.</p>
+<p><strong>I am not going to dress this up as a big savings number, because at $2,500 to $3,000 a month in the shop it is not one.</strong> The rate comes down from about 3 percent to somewhere in the 2.4 to 2.8 percent range, and on that volume the difference is real but modest. You said it yourself on the phone: the numbers are the numbers.</p><p>What changes more than the rate is everything around it. Each card gets priced at what that card actually costs instead of one flat price on all of them, your debit sales stop paying a credit card rate, and you get a person to call by name instead of an email queue. If you want me to put an exact figure on the money, pull one month of Square deposits and I will go through it line by line with you on Monday, and if it does not add up I will tell you to stay where you are.</p>
 </div>
 </div>
+
 <div class="section">
 <div class="section-header">The Flexibility You Asked For</div>
-<p>You said you would rather not be locked into anything, so the account is built to move with you.</p>
+<p>You have been on Square a long time and you have a good thing going online. Nothing here asks you to risk that. The account is built so the in-shop side can move on its own and stay flexible.</p>
 <ul class="why-list" style="margin-top:14px;">
-<li>Start on Edge with no card cost to the business. If you ever decide you would rather absorb the fee yourself again, we move you onto AllProPay Rate on the same account with no new application.</li><li>Run it by season if you want. Some shops keep the card price on all year, others switch it on for the two big holiday weeks and take it back off after.</li><li>If you ever rebuild the website off Square, we can carry the online side too. Until then it stays where it is.</li>
+<li>Only the shop moves. Your Square website, your online orders, and your no-fee arrangement on them all stay exactly as they are.</li><li>Run it by season if you like. Some shops keep the terminal busy all year, others lean on it hard for the two big holiday weeks. There is no minimum volume to meet and no penalty for a quiet month.</li><li>If you ever rebuild the website off Square and want the online side priced the same way, we can carry it then. Until that day it is not part of this.</li><li>No contract and no cancellation fee. If the service stops being worth it, you leave and you owe nothing.</li>
 </ul>
 </div>
 <div class="section">
 <div class="section-header">Why This Is the Right Move</div>
 <ul class="why-list">
-<li>Your card cost at the counter goes to $0. The card-paying customer covers the processing, and it is disclosed on the screen before they pay.</li><li>You get my direct line. The same person for pricing, equipment, deposits, and the odd Saturday problem, instead of a help center and a ticket number.</li><li>Your two big weeks get handled up front. Before February I tell our risk team what a Valentine's week looks like for a florist your size, so a jump in volume is expected rather than questioned.</li><li>Nothing changes at the counter. The terminal arrives programmed, and your customers tap, dip, or swipe exactly as they do now.</li><li>One thing worth checking before we talk: orders that come in through your website are charged a processing fee too, and the published online rate runs higher than the in-person one. Pull last month's deposits and I will go through that line with you, whether or not you move anything.</li><li>No contract, no setup fee, no cancellation fee, no PCI fee, and no statement fee. If we stop earning it, you leave.</li>
+<li class="why"><strong>You get a person, not a help center.</strong> You said the only complaint you have about Square is that you can never talk to anybody. My direct line, my text, and 24/7 phone support behind me.</li><li class="why"><strong>Each card is priced at what that card costs.</strong> Interchange plus a flat 0.50 percent and 10 cents a transaction, which is the whole markup. A plain debit sale stops paying the same price as an Amex.</li><li class="why"><strong>Blended, a shop book like yours lands around 2.4 to 2.8 percent all-in</strong>, against about 3 percent on a keyed Square order today. On a card you run in person the two are closer, and I would rather tell you that now than have you find it on a statement. Interchange pricing fixes what is genuinely overpriced and leaves the rest alone.</li><li class="why"><strong>Your holidays get flagged before they happen.</strong> Before February and before Mother's Day I tell our risk team what your week looks like, so a spike is expected rather than held up.</li><li class="why"><strong>No contract, no setup fee, no PCI fee, no statement fee, no cancellation fee.</strong> If we stop earning the account you walk.</li>
 </ul>
-<p style="margin-top:12px;">On a $75 arrangement paid by card, the processing comes off your side of the ticket entirely, and the customer who pays cash pays about $3 less than the card price. Put that against a Valentine's week and it stops being small.</p>
+<p style="margin-top:12px;">Here is the arithmetic on a single $75 phone order, which is the kind of sale this is really about. On Square you pay 2.8 percent plus 15 cents, so $2.25, and it is $2.25 whether the customer used a debit card or an Amex. Under interchange pricing that same order lands near $1.95 on a rewards credit card and closer to $1.00 on a plain debit card, because debit genuinely costs a fraction of credit. Across a $2,750 month the gap is modest, which is exactly why I am leading with the support and not with the savings. These are estimates based on what you told me on the call, not a guarantee. One month of your deposits makes them exact.</p>
 </div>
 <div class="section" style="break-after: avoid; page-break-after: avoid;">
 <div class="section-header">Next Steps</div>
-<p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+<p style="margin-bottom:18px;">You said Monday is your day, so let us use it:</p>
 <div class="steps">
-<div class="step">
-<div class="step-num">1</div>
-<div class="step-content"><strong>One 10-minute call.</strong> We finish the application together on the phone and you e-sign on the spot. You do not need to dig up a statement for this. Square's rates are published, so there is nothing to go hunting for.</div>
-</div>
-<div class="step">
-<div class="step-num">2</div>
-<div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
-</div>
-<div class="step">
-<div class="step-num">3</div>
-<div class="step-content"><strong>Switch on.</strong> Your terminal arrives programmed for Edge with the card price and the cash price already set. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
-</div>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Read this and mark up anything that looks off.</strong> No rush and no pressure. If something here does not match what you see on your own reports, I want to know about it.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>Monday, pull one month of Square deposits before I call.</strong> It takes two minutes in your Square dashboard. That one report turns every range on this page into an exact number, and it tells us how much of your shop volume is debit, which is where the real difference sits.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>Only if the numbers earn it, about 10 minutes to open the account.</strong> We finish the application together on the phone and you e-sign. The terminal arrives programmed. Your website never gets touched.</div></div>
 </div>
 <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You already know what you pay. What you do not have is one person who answers when it matters. That is the part I am asking you to try."
+        If one month of deposits says you are better off where you are, I will tell you so and you will have lost nothing but a Monday phone call.
       </p>
 <div class="cta-wrap" style="margin-top:28px;">
 <a class="cta-btn" href="tel:+19299303050">Text or Call Me: 929-930-3050</a>
@@ -358,13 +358,13 @@
 <img alt="AllProPay" src="https://proposals.allpropay.com/first-class-floral-design-hm94am/AllProPay_Logo.jpg" style="height:58px; width:auto; display:block; margin-bottom:4px;"/>
 <div class="sig-tagline">Accept payments anywhere.</div>
 </div></td></tr></table></div>
-<p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash and check customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+<p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
 </div>
 <div class="doc-footer">
 <span>AllProPay &#160;&#183;&#160; 108 W 39th Street, Suite 1006, New York, NY 10018 &#160;&#183;&#160; 800-807-0356</span>
 </div>
 </td></tr></table></div>
-<script id="em-compose" type="application/json">{"subject": "First Class Floral Design - your AllProPay setup", "body": "Hi Cody,\n\nGood speaking with you. Here is the setup in writing.\n\n- Your cost on card sales at the counter goes to $0. The card-paying customer covers the processing, and it shows on the screen before they pay.\n- Cash and check customers pay about 4% less than the card price.\n- Terminal included and pre-programmed. No contract, no cancellation fee.\n- Worth checking: orders through your website carry a processing fee too, and the online rate runs higher than in person. Pull last month's deposits and I will go through that line with you either way.\n\nYour website stays where it is. This one is about the counter, and about having someone to call by name.\n\nFull page here: https://proposals.allpropay.com/first-class-floral-design-hm94am/\n\nTen minutes finishes the application whenever you are ready.\n\nTammy Millar\nAllProPay\n929-930-3050"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "First Class Floral Design - the numbers for your shop", "body": "Hi Cody,\n\nGood talking with you. Here is what we went over, in writing.\n\n- Your website does not move. It is a Square-hosted site, your online orders carry no card fee, and nothing here touches that.\n- This is only the shop: the counter and the orders you key in by phone, the $2,500 to $3,000 a month you mentioned.\n- Square charges you 2.8% plus 15 cents on everything you key, debit card or Amex, which works out around 3% all in. With us it is interchange plus a flat 0.50% and 10 cents, so each card gets priced at what that card actually costs. Estimated 2.4% to 2.8% all in on your book.\n- Your debit sales are where the real difference is. They stop paying a credit card price.\n- And you get my direct line and my text, with 24/7 phone support behind me.\n\nI am not going to oversell the money. At your shop volume the rate difference is real but modest, and you said it yourself: the numbers are the numbers. Pull one month of Square deposits before Monday and I will go through it line by line with you. If it says you are better off staying put, I will tell you that.\n\nFull page here: https://proposals.allpropay.com/first-class-floral-design-hm94am/\n\nTalk Monday.\n\nTammy Millar\nAllProPay\n929-930-3050"}</script><script>
 (function () {
   var page = document.querySelector('.page');
   var status = document.getElementById('em-status');
