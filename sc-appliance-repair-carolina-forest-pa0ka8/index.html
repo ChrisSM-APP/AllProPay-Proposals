@@ -38,16 +38,35 @@
   thead tr { background: var(--navy); color: #fff; }
   thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
   tbody tr:nth-child(even) { background: var(--light-gray); }
+  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
   tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
   .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
   .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
   .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
   .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step { display: flex; gap: 16px; align-items: flex-start; }
-  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .step-content { padding-top: 6px; font-size: 10.5pt; }
+  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
+  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
+     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
+     carries the percent drop. */
+  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
+  .pricing-callout .pc-label { display: block; }
+  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pricing-callout .pc-value { display: block; }
+  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
+  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
+  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
+  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
+     which strips display:flex. Float + line-height centering survives the paste. */
+  .steps { display: block; }
+  .step { display: block; overflow: hidden; margin-bottom: 14px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
+  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
   .step-content strong { font-weight: 600; color: var(--text); }
   .why-list { list-style: none; margin: 0; padding: 0; }
   .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
@@ -56,7 +75,6 @@
   .cta-wrap { text-align: center; margin-top: 20px; }
   .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
   .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  /* Embedded Zoho Bookings scheduler. Screen only - hidden in print (see @media print). Empty when the rep has no booking URL. */
   .booking-embed { margin-top: 24px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
   .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
@@ -69,33 +87,6 @@
   .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
   .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
   .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media screen and (max-width: 640px) {
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-size: 11.5pt; line-height: 1.5; }
-    .page { max-width: 100%; width: 100%; }
-    img { max-width: 100%; height: auto; }
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact, .meta-grid .value { overflow-wrap: anywhere; word-break: break-word; }
-    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
-    .pillars, .pricing-grid { display: block !important; }
-    .pillar, .pricing-grid > div { display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px; }
-    .pricing-grid > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    .pricing-callout { padding: 18px; }
-    .pricing-callout .pc-value { font-size: 20pt; overflow-wrap: anywhere; }
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td { padding: 7px 8px; }
-  }
   @media print {
     body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
     .page { max-width: 100%; }
@@ -118,7 +109,7 @@
     tbody td { padding: 5px 10px; font-size: 9pt; }
     .pricing-callout { padding: 14px 18px; }
     .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
+    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
     .step-content { font-size: 9.5pt; padding-top: 4px; }
     .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
     .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
@@ -126,6 +117,87 @@
     .cta-btn { display: none; }
     .cta-print-text { display: block !important; }
     .booking-embed { display: none !important; }
+  }
+  /* === AllProPay mobile responsive v3 (auto-injected) ===
+     Screen-only. Does not affect print/PDF (those use @media print).
+     Unstacks every multi-column band to a single column on phones so pricing
+     numbers never clip and nothing renders stretched. Forcing the container to
+     display:block neutralizes all three layout modes (CSS grid, flexbox, and
+     display:table) uniformly -- the standard templates and every bespoke
+     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
+     and pillar grids, cta-footer) collapse the same way. */
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
+    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
+    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Header: stack logo above contact, left-align */
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; line-height: 1.6; }
+    .doc-header .logo-img, .doc-header img { height: 52px; }
+    .content { padding: 22px 18px 26px; }
+    /* Titles scaled so they never overflow */
+    .title-block h1 { font-size: 21pt; line-height: 1.12; }
+    .title-block .subtitle { font-size: 13pt; }
+    .title-block .merchant { font-size: 12pt; }
+    .title-block .eyebrow { font-size: 8.5pt; }
+    /* Meta: drop fixed label column, stack label over value (stays a grid) */
+    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
+    .meta-grid .label { margin-top: 9px; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
+    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
+    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
+    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
+      display: block !important;
+    }
+    /* full-width block children (resets table-cell / flex:1 columns) */
+    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
+    .flow-node, .step-card, .roadmap .step,
+    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
+    .compare-callout > div, .cta-footer > div {
+      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
+    }
+    .savings-callout > div:last-child, .pricing-grid > div:last-child,
+    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
+    /* generic safety net for any other real CSS-grid container */
+    [class*="grid"] { grid-template-columns: 1fr !important; }
+    /* Flow-diagram arrows: point down between stacked nodes */
+    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
+    .flow-arrow .arrow-label { display: none; }
+    /* Big callout numbers: full width, slightly smaller, never clipped */
+    .pricing-callout { padding: 18px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
+    .snapshot-callout .pc-value, .compare-callout .cc-value {
+      font-size: 20pt; overflow-wrap: anywhere;
+    }
+    /* Hide now-pointless vertical dividers in stacked callouts */
+    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
+    /* CTA strip (short template): stack text above the phone number */
+    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+    .cta-action { text-align: left; }
+    .cta-action .ca-phone { font-size: 21pt; }
+    /* CTA button: full-width tap target */
+    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
+    /* Signature + footer: stack and left-align */
+    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .sig-right { text-align: left; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
+    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
+    /* Tables: tighter; wide comparison tables scroll within their wrapper */
+    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
+    thead th, tbody td, .terms-table td { padding: 7px 8px; }
+    .terms-table td:first-child { width: 50%; }
+    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
+    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
   }
 </style>
 </head>
@@ -135,7 +207,7 @@
   <div class="doc-header">
     <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
     <div class="contact">
-      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
+      929-493-4037 &nbsp;&middot;&nbsp; carl@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
       108 W 39th Street, Suite 1006, New York, NY 10018
     </div>
   </div>
@@ -147,15 +219,13 @@
       <div class="subtitle">SC Appliance Repair</div>
       <div class="meta-grid">
         <span class="label">Prepared for</span>
-        <span class="value">Serge &nbsp;|&nbsp; SC Appliance Repair &nbsp;|&nbsp; Myrtle Beach, South Carolina</span>
+        <span class="value">Serg &nbsp;|&nbsp; SC Appliance Repair &nbsp;|&nbsp; Carolina Forest, SC</span>
         <span class="label">Prepared by</span>
-        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
-        <span class="label">Current setup</span>
-        <span class="value">Square via Housecall Pro (about 2.9% + $0.30 per card sale), iWallet for ACH and checks</span>
-        <span class="label">Program</span>
-        <span class="value">Edge dual pricing</span>
+        <span class="value">Carl Brown &nbsp;|&nbsp; AllProPay</span>
+        <span class="label">Current processor</span>
+        <span class="value">iWallet plus Housecall Pro (2.3% plus 30 cents a sale, your figure)</span>
         <span class="label">Date</span>
-        <span class="value">July 11, 2026</span>
+        <span class="value">October 16, 2026</span>
       </div>
     </div>
 
@@ -163,10 +233,10 @@
 
     <div class="section">
       <div class="section-header">Where We Are</div>
-      <p>You run SC Appliance Repair on Housecall Pro for scheduling and invoicing, take cards through Square at about 2.9 percent plus 30 cents, and lean on iWallet to move ACH and checks for free. The one thing you told me you wanted was simple: stop eating the credit card fees. This page keeps your Housecall Pro workflow exactly as it is and moves that fee off your books.</p>
+      <p>Serg, here is what I understand about how SC Appliance Repair takes money today, so you can check my homework before you read a single number. If any of it is off, tell me and I will fix it. The plan is the one we talked about: your teams keep tapping cards on their phones the way they do now, Housecall Pro stays exactly where it is, you keep covering the fee yourself instead of adding it to the customer's bill, and the cost of taking that money comes down.</p>
       <p>You told us what mattered most. We built the setup around it:</p>
       <ul>
-        <li>Keep running everything through Housecall Pro, scheduling and invoicing, exactly as it works today.</li><li>Stop absorbing the Square card fee. On Edge the card-paying customer carries it as a clearly disclosed adjustment.</li><li>Keep ACH and checks moving cheaply so you can retire the separate iWallet gateway and run one stack.</li><li>One flat monthly cost, no contract, so nothing locks you in.</li>
+        <li><strong>You run two systems on purpose, and only one of them is moving.</strong> Housecall Pro holds the scheduling, the job history, the photos and the videos, and it is not going anywhere. The tap on the phone in the field is the part I am replacing.</li><li><strong>You cover the fee and you want to keep covering it.</strong> You tried passing it on before and it cost you sales, so nothing on this page depends on changing that. Your customer sees the same price they see today.</li><li><strong>You pay 2.3 percent and 30 cents on every card.</strong> That is one price for a plain debit card and for a premium rewards card. On a book like yours, where a lot of customers hand over a debit card, that is the single most expensive habit in the setup, and it is the one this fixes.</li><li><strong>The numbers I have used here are roughly $25,000 to $30,000 a month on cards and about ten card payments a day</strong>, which is where we landed on the call. That puts a typical payment somewhere around $125, and that is the figure every example below is built on. Give me your real one and I will redo them.</li><li><strong>The checks from your property managers are an open question and I am answering it in writing.</strong> You deposit those through iWallet today and that matters to you, so I am not going to hand-wave it. What I can commit to right now is a bank transfer at 0.75 percent capped at $10 a payment, which lets a property manager pay straight from their account with nobody driving to a bank. I will come back to you in writing on the checks themselves before you decide anything.</li><li><strong>Your card on file charges in Housecall Pro have two possible routes and I am confirming which one in writing.</strong> Either your account processes behind Housecall Pro at the rate below, or you take the card on our side and mark the job paid in Housecall Pro. The second one is an honest extra step and I will not pretend otherwise. Either way Housecall Pro does not move.</li><li><strong>You get one person on the account.</strong> My direct line and my cell for a text, not a queue.</li>
       </ul>
     </div>
 
@@ -174,112 +244,205 @@
       <div class="section-header">What You Get</div>
       <div class="pillars">
         <div class="pillar">
-          <div class="p-title">Zero-cost card processing</div>
-          <div class="p-body">On the Edge program the card fee moves to the card-paying customer as a small, clearly labeled adjustment. Cash, check, and ACH customers pay your listed price. On a card sale, your business keeps effectively all of it.</div>
+          <div class="p-title">Your debit cards stop paying a credit card price</div>
+          <div class="p-body">This is where the money is, and it is worth being specific about why. A flat rate is an average. It bills one price no matter which card the customer hands your tech, which means every plain debit tap in your book is quietly paying for somebody else's rewards card. We bill interchange, which is the real cost Visa and Mastercard set for that individual card, plus a flat 0.50 percent and 10 cents. On a $125 job, a plain debit card tapped in the field lands near 1 percent instead of the 2.5 percent you pay today on that same tap. Nothing about the job changes. The card just stops being billed as something it is not.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Built into Housecall Pro</div>
-          <div class="p-body">The account connects to the Housecall Pro workflow your team already runs. A technician charges a card in the field, or you send an invoice from the office, and the disclosed adjustment applies automatically. No second system to learn, no double entry.</div>
+          <div class="p-title">Tap on phone for all four teams, at no cost</div>
+          <div class="p-body">Your techs take cards the same way tomorrow as they do today: tap on the phone, in the driveway, job done. The difference is that the tap costs you nothing to set up and nothing per tap beyond the rate in the table below. There is no reader to buy for four teams, no hardware lease and no per-device charge. Payment links come with the account too, so when somebody is on the fence about a repair you can still text them a link for the deposit and hold the job, exactly the way you do now.</div>
         </div>
         <div class="pillar">
-          <div class="p-title">Backed and flexible</div>
-          <div class="p-body">Direct underwriting, next-day funding, no contract and no cancellation fee. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account.</div>
+          <div class="p-title">Housecall Pro stays, and so does the person you call</div>
+          <div class="p-body">You told me Housecall Pro is not really about invoicing for you, it is where the jobs, the scheduling, the photos and the history live, so that a customer who calls back can be found by address or phone number. None of that moves and none of it is at risk here. On the money side, you get a person instead of an inbox. If something looks wrong on a deposit you call or text me. If a customer ever disputes a charge, a card tapped in the field is a card-present sale, which is the strongest kind of record to have, and we put the response together with you rather than handing you a form. A chargeback costs $15 if one ever happens.</div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-header">Your Program</div>
-      <p>This is the program we set up for the SC Appliance Repair account.</p>
+      <div class="section-header">Your Pricing</div>
+      <p>This is the pricing for the SC Appliance Repair account. The percentages are estimates until I see one month of your real numbers. The markup, the monthly fee and the $10 cap on bank transfers are not estimates.</p>
 
       <div class="pricing-callout">
-        <div class="pricing-grid">
-          <div>
-            <div class="pc-label">Your cost on card sales</div>
-            <div class="pc-value">$0</div>
-            <div class="pc-sub">The card fee moves to the card-paying customer</div>
-          </div>
-          <div>
-            <div class="pc-label">Cash, check, and ACH customers</div>
-            <div class="pc-value">List price</div>
-            <div class="pc-sub">They pay exactly what is on the ticket</div>
-          </div>
-          <div>
-            <div class="pc-label">Card-paying customers</div>
-            <div class="pc-value">Small adjustment</div>
-            <div class="pc-sub">Clearly disclosed before they pay</div>
-          </div>
-        </div>
+        <div class="pricing-grid"><div><div class="pc-label"><span class="pill pill-today">Today</span> One flat rate</div><div class="pc-value today">2.3% + 30c</div><div class="pc-sub">Your figure. The same price on every card, debit included. About $3.18 on a $125 job.</div></div><div><div class="pc-label"><span class="pill pill-us">Day one with AllProPay Rate</span></div><div class="pc-value us">2.0% to 2.4%</div><div class="pc-sub">Estimated all in across your card mix, monthly fee included. You pay what each card actually costs.</div></div><div><div class="pc-label"><span class="pill pill-us">Your debit cards</span></div><div class="pc-value us">about 1%</div><div class="pc-sub">Where most of the drop sits. A plain debit tap stops being billed like a rewards card.</div></div></div>
       </div>
+
+      <table style="width:100%; border-collapse:collapse; margin:18px 0 4px; font-size:9.5pt;"><tr><td style="padding:7px 10px; border-bottom:2px solid #CBD5E1; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#475569;">How the money comes in</td><td style="padding:7px 10px; border-bottom:2px solid #CBD5E1; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#64748B; width:30%;">Flat rate today</td><td style="padding:7px 10px; border-bottom:2px solid #CBD5E1; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color:#0052FF; width:34%;">AllProPay Rate</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Tapped on a phone, plain debit card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.3% + $0.30, same as any card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Priced at what debit costs, near 1%</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Tapped on a phone, everyday credit card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.3% + $0.30</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Interchange + 0.50% + $0.10</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Tapped on a phone, premium rewards or business card</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.3% + $0.30</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">That card's real cost, plus the same markup</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Card on file, charged after the job</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">More than the tap, in your own words</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Interchange + 0.50% + $0.10</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">A link you text to hold a job with a deposit</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.3% + $0.30</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Interchange + 0.50% + $0.10, link included</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">American Express</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">2.3% + $0.30</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">Same markup, no separate Amex bill</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">A property manager pays from their bank instead of posting a check</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">Not offered</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">0.75%, capped at $10 a payment</td></tr><tr><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0;">Tap on phone for all four teams</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#64748B;">Comes with the system you have</td><td style="padding:8px 10px; border-bottom:1px solid #E2E8F0; color:#0052FF; font-weight:700;">$0, no reader to buy and no fee for the tap</td></tr><tr><td style="padding:8px 10px;">All in estimate on cards</td><td style="padding:8px 10px; color:#64748B;">About 2.5% on a $125 job</td><td style="padding:8px 10px; color:#0052FF; font-weight:700;">2.0% to 2.4%</td></tr></table><p class="note">Every AllProPay figure above comes from what you shared on the call, not from a statement, and your current figures are the ones you gave me. One month of your deposits replaces every range with an exact number. One straight answer up front: if a lot of your card money arrives on premium rewards or business cards, those cards genuinely cost a lot and a flat 2.3 percent can beat true cost pricing on them. I would rather put that here than have you find it in month two. How much of your book is debit is what decides it, and that is the one number I will ask you for on the phone.</p>
 
       <table>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account, no fee to access your own cash</td></tr>
-          <tr><td>Mobile reader, Tap to Pay, and Housecall Pro invoicing</td><td>Included</td><td>Set up for dual pricing in the field and from the office</td></tr>
-          <tr><td>ACH and checks</td><td>Low flat cost, capped</td><td>Retire the separate iWallet gateway and run one stack</td></tr>
-          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
+          <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (tap on phone for all four teams, payment links you can text for a deposit, card on file, a virtual terminal, and bank transfers)</td></tr>
+          <tr><td>Platform fee</td><td>$15 per month</td><td>Account, statements, support, PCI</td></tr>
+          <tr><td>Visa, Mastercard, Discover</td><td>Interchange + 0.50% + $0.10</td><td>The true cost of that individual card plus one flat markup, every card type</td></tr><tr><td>American Express</td><td>Interchange + 0.50% + $0.10</td><td>The same markup, and no separate Amex bill</td></tr><tr><td>Bank transfer</td><td>0.75%, capped at $10</td><td>Per payment, for a property manager paying from their account</td></tr><tr><td>Chargeback</td><td>$15 each</td><td>Only if one happens, and we put the response together with you</td></tr><tr><td>Tap on phone, all four teams</td><td>Included</td><td>No reader to buy, no fee for the tap, plus payment links, card on file and a virtual terminal</td></tr><tr><td>PCI, statement, batch, annual</td><td>$0</td><td>Not charged. Keeping you PCI compliant is part of the service</td></tr>
           <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
           <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
         </tbody>
       </table>
 
       <div class="insight">
-        <div style="text-align:center; padding:6px 0 12px;"><div style="font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;">Estimated money kept in the business every year</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$10,000 to $15,000+</div><div style="font-size:8.5pt; color:#92400E; margin-top:4px;">versus the roughly $1,300 a month you absorb in Square fees today</div></div>Today Square takes about 2.9 percent plus 30 cents on every card, which runs you close to <strong>$1,300 in an average month</strong> and more in your summer peak. On Edge that card fee moves to the card-paying customer as a small, clearly disclosed adjustment, and your business cost on card sales drops to effectively $0 against a flat $25 a month. <strong>That is roughly $10,000 to $15,000 a year that stops leaving the business.</strong> These are estimates based on the volumes you shared, not a guarantee. One recent Square statement makes them exact.
+        <p><strong>Let me be straight with you about where the money is on this page, because it is not spread evenly.</strong> It is in two places. The first is debit. Every plain debit card your techs tap today is billed at 2.3 percent and 30 cents, the same as a premium rewards card, and on a $125 job that is about $3.18 against roughly $1.20 under true cost pricing. The second is the card on file side, where you told me yourself that charging through Housecall Pro costs you more than the tap does. Both of those lanes come down to the same markup.</p><p>Where it is not is the richest credit cards. A premium rewards or business card genuinely costs a lot to accept, and on those a flat 2.3 percent can land at or below what we would charge. I am not going to bury that. It means the honest size of this depends on how much of your book is debit, which is the one thing nobody asked you on the call. Pull one month of your deposits, or just tell me roughly, and I will put a real number on it. If it says you are better off where you are, I will tell you that.</p>
       </div>
     </div>
 
+    <div class="section apc-calc" style="display:none">
+      <div class="section-header">Estimate Your Own Savings</div>
+      <p>Every business runs a different volume, so put your own numbers in and see a live estimate against what you pay today. Nothing here is a bill or a commitment. It just turns the pricing above into real dollars for your shop.</p>
+
+      <style>
+        .apc-calc .apc-money { background:#0B1120; color:#fff; border-radius:8px; padding:20px 24px; margin:16px 0; text-align:center; }
+        .apc-calc .apc-money .apc-money-label { font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#94A3B8; font-weight:600; margin-bottom:6px; }
+        .apc-calc .apc-money .apc-money-value { font-family:'Montserrat',sans-serif; font-size:30pt; font-weight:800; color:#38BDF8; line-height:1.1; }
+        .apc-calc .apc-money .apc-money-sub { font-size:8.5pt; color:#94A3B8; margin-top:6px; }
+        .apc-calc .apc-inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:16px 0; }
+        .apc-calc .apc-field label { display:block; font-size:8.5pt; font-weight:600; color:#334155; margin-bottom:5px; }
+        .apc-calc .apc-field .apc-inwrap { position:relative; }
+        .apc-calc .apc-field input { width:100%; font-family:'Inter',Arial,sans-serif; font-size:12pt; font-weight:600; color:#1A1A2E; padding:11px 12px; border:1.5px solid #CBD5E1; border-radius:6px; background:#fff; }
+        .apc-calc .apc-field input:focus { outline:none; border-color:#0052FF; }
+        .apc-calc .apc-field .apc-pre { padding-left:26px; }
+        .apc-calc .apc-field .apc-sign { position:absolute; left:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-field .apc-suf { padding-right:26px; }
+        .apc-calc .apc-field .apc-pct { position:absolute; right:12px; top:11px; font-size:12pt; font-weight:600; color:#64748B; }
+        .apc-calc .apc-lines { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; background:#F5F7FA; border-radius:8px; padding:16px 20px; margin-top:6px; }
+        .apc-calc .apc-line { display:flex; justify-content:space-between; align-items:baseline; font-size:10pt; }
+        .apc-calc .apc-line .apc-k { color:#64748B; }
+        .apc-calc .apc-line .apc-v { font-weight:700; color:#1A1A2E; font-family:'Montserrat',sans-serif; }
+        .apc-calc .apc-hint { font-size:8.5pt; color:#64748B; font-style:italic; margin-top:12px; line-height:1.5; }
+        .apc-calc .apc-print { display:none; }
+        @media screen and (max-width:640px) { .apc-calc .apc-inputs { grid-template-columns:1fr; } .apc-calc .apc-lines { grid-template-columns:1fr; } }
+        @media print {
+          .apc-calc .apc-inputs, .apc-calc .apc-lines { display:none; }
+          .apc-calc .apc-money .apc-money-value { color:#0052FF; font-size:18pt; }
+          .apc-calc .apc-money { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+          .apc-calc .apc-print { display:block; font-size:9pt; color:#334155; margin-top:8px; font-style:italic; }
+        }
+      </style>
+
+      <div class="apc-money">
+        <div class="apc-money-label">Estimated money kept in the business every year</div>
+        <div class="apc-money-value" id="apcAnnual">Enter your numbers</div>
+        <div class="apc-money-sub" id="apcMonthlyLine">Type your volume below to see a live estimate</div>
+      </div>
+
+      <div class="apc-inputs">
+        <div class="apc-field">
+          <label for="apcVol">Card sales per month</label>
+          <div class="apc-inwrap"><span class="apc-sign">$</span><input id="apcVol" class="apc-pre" type="text" inputmode="numeric" placeholder="e.g. 45,000"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcTxn">Card transactions per month</label>
+          <div class="apc-inwrap"><input id="apcTxn" type="text" inputmode="numeric" placeholder="e.g. 350"></div>
+        </div>
+        <div class="apc-field">
+          <label for="apcRate">What you pay now</label>
+          <div class="apc-inwrap"><input id="apcRate" class="apc-suf" type="text" inputmode="decimal" value="3.5"><span class="apc-pct">%</span></div>
+        </div>
+      </div>
+
+      <div class="apc-lines">
+        <div class="apc-line"><span class="apc-k">You pay now, per month</span><span class="apc-v" id="apcNow">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated with AllProPay</span><span class="apc-v" id="apcAp">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per month</span><span class="apc-v" id="apcSaveM">-</span></div>
+        <div class="apc-line"><span class="apc-k">Estimated saved per year</span><span class="apc-v" id="apcSaveY">-</span></div>
+      </div>
+
+      <p class="apc-hint">Estimates only, not a bill or a guarantee. AllProPay cost assumes an interchange-plus blended rate of about 1.9 to 2.2 percent on card-present sales, plus 5 cents a transaction and a 25 dollar monthly platform fee. Your exact interchange depends on your card mix. One QuickBooks payout summary or one recent statement locks these numbers to the penny.</p>
+      <p class="apc-print">Enter your monthly card volume and rate on the online version of this proposal to see your live savings estimate.</p>
+
+      <script>
+        (function () {
+          var vol = document.getElementById('apcVol');
+          var txn = document.getElementById('apcTxn');
+          var rate = document.getElementById('apcRate');
+          if (!vol) return;
+          var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+          var APC_LOW = 0.019, APC_HIGH = 0.022, PER_TXN = 0.05, MONTHLY = 25;
+          function num(el) {
+            if (!el) return 0;
+            var v = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
+            return isNaN(v) ? 0 : v;
+          }
+          function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+          function range(a, b) { return fmt.format(Math.max(0, Math.round(a))) + ' to ' + fmt.format(Math.max(0, Math.round(b))); }
+          function calc() {
+            var v = num(vol), t = num(txn), r = num(rate);
+            if (v <= 0 || r <= 0) {
+              set('apcAnnual', 'Enter your numbers');
+              set('apcMonthlyLine', 'Type your volume below to see a live estimate');
+              set('apcNow', '-'); set('apcAp', '-'); set('apcSaveM', '-'); set('apcSaveY', '-');
+              return;
+            }
+            var now = v * (r / 100);
+            var apLow = v * APC_LOW + t * PER_TXN + MONTHLY;
+            var apHigh = v * APC_HIGH + t * PER_TXN + MONTHLY;
+            var saveHigh = now - apLow;
+            var saveLow = now - apHigh;
+            set('apcNow', fmt.format(Math.round(now)));
+            set('apcAp', range(apLow, apHigh));
+            if (saveHigh <= 0) {
+              set('apcAnnual', 'The win is the terminal');
+              set('apcMonthlyLine', 'At that rate the savings are small. The real win is a working terminal and no more hand-keying.');
+              set('apcSaveM', fmt.format(0));
+              set('apcSaveY', fmt.format(0));
+              return;
+            }
+            set('apcSaveM', range(saveLow, saveHigh));
+            set('apcSaveY', range(saveLow * 12, saveHigh * 12));
+            set('apcAnnual', range(saveLow * 12, saveHigh * 12));
+            set('apcMonthlyLine', 'About ' + range(saveLow, saveHigh) + ' a month, estimated, versus what you pay today');
+          }
+          vol.addEventListener('input', calc);
+          if (txn) txn.addEventListener('input', calc);
+          if (rate) rate.addEventListener('input', calc);
+          calc();
+        })();
+      </script>
+    </div>
+
+    
+
     <div class="section">
-      <div class="section-header">The Flexibility You Asked For</div>
-      <p>You asked to keep it simple and consolidate. The account is built to do both.</p>
+      <div class="section-header">How You Can Run It</div>
+      <p>You built your setup deliberately and I am not asking you to tear it up to try this. Here is how much room you have.</p>
       <ul class="why-list" style="margin-top:14px;">
-        <li>Start on Edge with your card cost at $0. If you ever want to absorb the fee yourself instead, we move you to flat interchange-plus on the same account, with no reapplication.</li><li>Run ACH and checks on the same account, so iWallet becomes one less login and one less bill.</li><li>Everything ties back to Housecall Pro, so your scheduling, invoicing, and payments live in one place.</li>
+        <li><strong>Start with one team or all four.</strong> The tap on phone works on any phone your techs already carry, so you can put it on one truck for a couple of weeks and watch the deposits before you move everybody.</li><li><strong>Run both side by side while you make up your mind.</strong> Nothing stops you keeping your current setup live during the trial. I would rather you compare two real weeks than take my word for it.</li><li><strong>Housecall Pro stays regardless of what you decide here.</strong> It is your job record and your history. No part of this proposal touches it.</li><li><strong>No contract and no cancellation fee.</strong> Month to month. If we stop earning it you leave and you owe nothing.</li>
       </ul>
     </div>
+
 
     <div class="section">
       <div class="section-header">Why This Is the Right Move</div>
       <ul class="why-list">
-        <li>The Square card fee moves off your books. On a card sale your cost is effectively $0.</li><li>Your Housecall Pro workflow does not change. Same scheduling, same invoicing, same field process.</li><li>ACH and checks run on the same account, so you can retire iWallet and consolidate your stack.</li><li>Flat $25 a month, no contract, no setup fee, no cancellation fee.</li><li>A named rep sets it up with you and handles any chargeback paperwork.</li>
+        <li class="why"><strong>Your debit cards drop from about 2.5 percent to near 1 percent.</strong> You pay interchange, the real cost of that individual card, plus a flat 0.50 percent and 10 cents a transaction. That flat markup is the entire markup, and it is the same on American Express. A plain debit tap stops being billed like a rewards card.</li><li class="why"><strong>Tap on phone for all four teams costs nothing.</strong> No reader to buy, no hardware lease, no per-device charge and no fee for the tap itself. Your techs take cards in the driveway exactly the way they do now.</li><li class="why"><strong>Blended, a book like yours lands around 2.0 to 2.4 percent all in</strong>, against 2.3 percent plus 30 cents today, which is near 2.5 percent on a $125 job. On the richest rewards and business cards the two get close, and I would rather tell you that now than have you find it later. True cost pricing fixes what is genuinely overpriced and leaves the rest alone.</li><li class="why"><strong>A property manager can pay from their bank for 0.75 percent, capped at $10.</strong> That is the replacement for a check that somebody has to collect and deposit, and the fee stops growing however big the invoice gets.</li><li class="why"><strong>No contract, no setup fee, no PCI fee, no statement fee, no cancellation fee.</strong> One monthly fee covers the account, the tap on phone, payment links, statements, PCI and support. You get my direct line and my cell, not a queue.</li>
       </ul>
-      <p style="margin-top:12px;">Take an average month around $45,000 in card volume. At Square's 2.9 percent plus 30 cents that is roughly $1,300 out of the business. On Edge that same month costs you a flat $25 and the card fee sits with the card-paying customer, so call it about $1,275 a month, on the order of $10,000 to $15,000 a year, that stays in the business. These are estimates from the numbers you shared, not a guarantee. One recent Square statement makes them exact.</p>
+      <p style="margin-top:12px;">Here is the arithmetic on one $125 job, which is roughly what $25,000 to $30,000 a month across about ten card payments a day works out to. Today that job costs you about $3.18 in fees, and it costs about $3.18 whether the customer handed your tech a plain debit card or a premium rewards card. Under true cost pricing the same job runs about $1.20 on a plain debit card, because debit genuinely costs a fraction of credit, roughly $2.90 on an everyday credit card, and close to what you pay today on the very richest rewards and business cards. If a property manager sends it from their bank instead, it is about 94 cents, and a $2,000 invoice sent the same way costs $10 because the cap does not move. That is the whole idea: you stop paying one price for every way the money arrives and start paying what each one actually costs. Tell me your real average and I will redo this with your number. These are estimates based on what you shared on the call, not a guarantee, and one month of your deposits makes them exact.</p>
     </div>
+
 
     <div class="section" style="break-after: avoid; page-break-after: avoid;">
       <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">You have done the hard part already. One short call and you are open:</p>
+      <p style="margin-bottom:18px;">Three steps, and the first one is mine to do, not yours:</p>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content"><strong>One quick call to confirm the Edge math.</strong> Fifteen minutes with me to walk the dual-pricing numbers on your Housecall Pro setup and answer anything still open. If you want the exact figures first, send one recent Square statement and we tighten every number on this page.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch on.</strong> Your reader and Housecall Pro invoicing arrive set for dual pricing. You take your next card sale with zero cost to you, and the first settled batch lands the next morning.</div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-content"><strong>I come back to you in writing on the two open questions.</strong> What we can do about the checks your property managers send, and which of the two routes your Housecall Pro card on file charges can take. You asked for my numbers and not a sales pitch, so you get the answers in writing before you are asked to decide anything.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>Ten minutes on the phone next week.</strong> One thing I need from you: roughly how much of your card money arrives on debit cards. That single answer turns every range on this page into a number. If you would rather have it exact, one month of your deposits does the same job and takes a couple of minutes to pull. My direct line is at the bottom and I pick it up.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>About ten minutes to open the account.</strong> We fill in the application together on the phone and you e-sign. The tap on phone is set up on your techs' own phones, so there is nothing to wait for in the mail. Your bank account does not move and Housecall Pro does not move.</div></div>
       </div>
 
       <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "Nothing about how you run changes. The fee just stops being yours."
+        You told me you are in business to make money and that you would move if it made sense. That is exactly how I would like you to read this. I would rather earn the next ten minutes than ask you to sign anything, and if your own numbers say you are better off where you are, I will be the one to tell you.
       </p>
 
       <div class="cta-wrap" style="margin-top:28px;">
-        <a href="tel:+19299303969" class="cta-btn">Text or Call Matt Butcher: 929-930-3969</a>
-        <div class="cta-print-text">Text or call Matt Butcher: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
+        <a href="tel:+19294934037" class="cta-btn">Text or Call Me: 929-493-4037</a>
+        <div class="cta-print-text">Text or call me: 929-493-4037 &nbsp;|&nbsp; carl@allpropay.com</div>
       </div>
-      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Matt Butcher.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
+      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000178006" title="Book a call with Carl Brown" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000178006">Open the booking page</a>.</div></div>
     </div>
 
     <div class="signature-block">
       <div>
-        <div class="sig-name">Matt Butcher</div>
+        <div class="sig-name">Carl Brown</div>
         <div class="sig-contact">
-          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
-          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
+          <a href="tel:+19294934037" style="color:inherit; text-decoration:none;">929-493-4037</a> (text friendly)<br>
+          <a href="mailto:carl@allpropay.com" style="color:inherit; text-decoration:none;">carl@allpropay.com</a><br>
           <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
         </div>
       </div>
@@ -289,7 +452,7 @@
       </div>
     </div>
 
-    <p class="note">Program and terms reflect what was discussed and agreed during prior calls. The Edge dual-pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, and ACH customers pay the listed price. Any dollar comparisons to a current processor are estimates based on the ticket sizes you shared and are not a guarantee. No contract, no setup fee, no cancellation fee.</p>
+    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
 
   </div>
 
