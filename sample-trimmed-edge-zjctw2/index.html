@@ -58,18 +58,18 @@
   /* the dark panel */
   .hero { position: relative; overflow: hidden; background: var(--grad-panel); border: 1px solid rgba(0,212,255,.25); border-radius: var(--radius); color: #fff; padding: 22px 28px; margin: 16px 0; }
   .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
-  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
-  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
+  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
+  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
   .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; z-index: 1; }
   .price-cell { padding: 4px 0; text-align: left; }
-  .price-cell .pc-label { font-size: 8.5pt; color: var(--slate); margin-bottom: 6px; letter-spacing: .4px; }
-  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .price-cell .pc-label { display: block; font-size: 8.5pt; color: var(--slate); margin-bottom: 8px; letter-spacing: .4px; line-height: 1.4; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; position: relative; top: -1px; }
   .price-cell .pc-value { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1.05; margin-bottom: 5px; }
   .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: var(--slate); text-shadow: none; }
   .price-cell .pc-value.us { font-size: 26pt; color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px rgba(255,255,255,.35); }
   .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
   .price-cell .pc-sub { font-size: 8.5pt; color: var(--slate); }
-  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 8px 2px; border-radius: 999px; line-height: 1.25; }
   .pill-today { background: rgba(159,176,201,.18); color: #9FB0C9; border: 1px solid rgba(159,176,201,.5); }
   .pill-us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
   .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: var(--cyan); color: var(--on-gradient); line-height: 13px; vertical-align: middle; letter-spacing: .3px; white-space: nowrap; text-shadow: none; }
@@ -85,7 +85,8 @@
   td.bc-track { width: 60%; }
   td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
   td.bc-track .bc-bar.us { background: var(--grad-cta); }
-  td.bc-value { width: 20%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--blue); }
+  td.bc-value { width: 20%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-label.us, td.bc-value.us { color: var(--blue); }
   .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
   /* older specs still send the navy-band .prog-chart; render it as the same light card */
   .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
@@ -140,7 +141,8 @@
   .cta-text .ct-sub { font-size: 9.5pt; opacity: .94; line-height: 1.5; }
   .cta-text .ct-sub strong { color: #fff; }
   .cta-action { text-align: right; flex-shrink: 0; }
-  .cta-action .ca-phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17pt; color: #fff; text-decoration: none; display: block; line-height: 1.1; }
+  .cta-action .apply { display: inline-block; background: var(--grad-cta); color: var(--on-gradient); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; padding: 12px 22px; border-radius: 999px; text-decoration: none; margin-bottom: 10px; box-shadow: 0 8px 30px rgba(0,102,255,.35); }
+  .cta-action .ca-phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; color: #fff; text-decoration: none; display: block; line-height: 1.1; }
   .cta-action .ca-name { font-size: 9pt; opacity: .9; margin-top: 2px; }
   .cta-btn { display: none; }
 
@@ -318,20 +320,29 @@
   /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
      email-ready copy (make_email_version.py) stays paper. */
   @media screen {
-    .chart-card, .prog-chart, td.counter-cell, ul.call-list li { background: linear-gradient(160deg, #121C30, #0E1628); border-color: rgba(255,255,255,.08); color: #F5F7FA; }
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: rgba(255,255,255,.08); color: #F5F7FA; }
     .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
-    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, .prog-chart .pc-lab { color: #9FB0C9; }
-    td.bc-value, .prog-chart .pc-num { color: #00D4FF; }
-    ul.call-list li { border-left-color: #00D4FF; }
-    .open-note, .open-note .on-sign { color: #F5F7FA; }
-    .insight, .promise { background: rgba(0,102,255,.12); border-left-color: #00D4FF; color: #F5F7FA; }
-    .insight strong, .promise strong { color: #00D4FF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    .open-note { background: #FFFFFF; color: #0B1120; border-radius: 16px; padding: 16px 20px; margin: 14px 0 18px; max-width: none; }
+    .open-note .on-sign { color: #0B1120; }
+    ul.call-list li { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .promise strong { color: #0052FF; }
+    .insight { background: rgba(0,102,255,.12); border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    @keyframes apBar { from { width: 0; } }
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
     .opt-note { color: #9FB0C9; }
     .terms-table td:first-child { color: #9FB0C9; }
     .terms-table td:nth-child(2) { color: #FFFFFF; }
     .terms-table td:nth-child(3) { color: #9FB0C9; }
     .cta-block { box-shadow: 0 20px 60px rgba(0,0,0,.35); }
   }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
 /* ---- end dark surface 2026-10-19 ---- */
 </style>
 </head>
@@ -361,38 +372,31 @@
     </div>
 
     <div class="hero">
-      <div class="hero-eyebrow">AllProPay Edge &middot; Dual pricing</div>
-      <h2>You stop paying the card fee. Your card customers see a small, disclosed adjustment, and your cash customers see nothing new.</h2>
+      <div class="hero-eyebrow">AllProPay Edge</div>
+      <h2>You stop paying the card fee.</h2>
       <div class="price-row two">
         <div class="price-cell">
           <div class="pc-label"><span class="pill pill-today">Today</span> </div>
           <div class="pc-value today">About $970 a month</div>
-          <div class="pc-sub">Square at its published 2.6% + 15 cents on about $35,000 and 400 sales a month (example figures)</div>
+          <div class="pc-sub">Square at its published rate on about $35,000 and 400 sales a month (example figures)</div>
         </div>
         <div class="price-cell">
           <div class="pc-label"><span class="pill pill-us">AllProPay Edge</span> </div>
           <div class="pc-value us">$0 <span class="chip">on card sales</span></div>
-          <div class="pc-sub">On every card sale. The account is $25 a month, all in, with Tap to Pay on the crew's phones.</div>
+          <div class="pc-sub">On every card sale. $25 a month covers the whole account, Tap to Pay included.</div>
         </div>
       </div>
       
     </div>
 
-    <div class="chart-card"><div class="cc-title">What the business pays each month on card sales (example figures)</div><table class="bar-chart"><tr><td class="bc-label">Square today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $970</td></tr><tr><td class="bc-label">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value">$25</td></tr></table><div class="cc-note">Square at its published 2.6% + 15 cents on $35,000 and 400 sales. Edge: $0 on card sales plus the $25 account. Estimate, not a bill.</div></div>
+    <div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart"><tr><td class="bc-label">Square today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $970</td></tr><tr><td class="bc-label us">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$25</td></tr></table><div class="cc-note">Square at its published 2.6% + 15 cents on $35,000 and 400 sales. Edge: $0 on card sales plus the $25 account. Estimate, not a bill.</div></div>
 
-    <div class="insight">At Square's published rate, <strong>about $970 a month</strong> leaves the business on $35,000 of card sales; on Edge that line is <strong>$0</strong> (example figures, estimate).</div>
+    <div class="insight"><strong>About $970 a month</strong> leaves the business in card fees today; on Edge that line is <strong>$0</strong> (example figures, estimate).</div>
 
     <div class="sec-label">From our call</div>
     <ul class="call-list">
       <li>"I'm not raising prices on my cash guys to cover the card people."</li><li>"The crew needs to take a card in the driveway, not back at the office."</li><li>"If I'm going to switch, it has to be done before spring."</li>
     </ul>
-
-    <div class="sec-label">What changes</div>
-    <table class="counter-row"><tr>
-      <td class="counter-cell"><div class="cs-num">1</div><div class="cs-title">Card sales cost you $0</div><div class="cs-body">The card price is built in and shown on the screen and the receipt before the customer pays. Nothing to add by hand.</div></td>
-      <td class="counter-cell"><div class="cs-num">2</div><div class="cs-title">Cash and check pay list price</div><div class="cs-body">Nothing changes for them. Cash and check customers pay exactly what is on the invoice.</div></td>
-      <td class="counter-cell"><div class="cs-num">3</div><div class="cs-title">Your money keeps moving</div><div class="cs-body">Next-day funding is standard, with no fee to access your own deposits. No contract, no cancellation fee.</div></td>
-    </tr></table>
 
     
 
@@ -401,20 +405,20 @@
     <div class="sec-label">The account</div>
     <table class="terms-table">
       <tr><td>Tap to Pay on iPhone for the crew</td><td>Included. Set up for dual pricing, works in the driveway.</td></tr>
-      <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
+      <tr><td>Platform fee</td><td>$25 per month</td></tr>
       
       <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
-      <tr><td>Setup fee, contract, cancellation</td><td>None</td></tr>
     </table>
 
     <p class="promise">No contract. No cancellation fee. And if it does not do what I said on our call, you leave, and I will not argue.</p>
 
     <div class="cta-block">
       <div class="cta-text">
-        <div class="ct-title">One 10-minute call and you are switched on</div>
-        <div class="ct-sub"><strong>One 10-minute call.</strong> I walk you through the setup and you e-sign. Underwriting takes 24 to 48 hours and you are switched on.</div>
+        <div class="ct-title">Like it? Start the application, or call me</div>
+        <div class="ct-sub"><strong>Five minutes on your phone.</strong> Fill in the application and I finish the rest with you. Underwriting takes 24 to 48 hours and you are switched on.</div>
       </div>
       <div class="cta-action">
+        <a class="apply" href="https://allpropay.com/get-started/">Start the application</a>
         <a href="tel:+19299303970" class="ca-phone">929-930-3970</a>
         <div class="ca-name">Chris Ste-Marie &middot; chris@allpropay.com</div>
       </div>
