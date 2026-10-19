@@ -40,6 +40,11 @@
   .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
   .content { padding: 22px 36px 28px; }
 
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in */
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0 0 18px; }
+  .open-note p { margin: 0 0 8px; }
+  .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
+
   /* title block */
   .title-block { margin-bottom: 14px; }
   .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 4px; }
@@ -318,6 +323,7 @@
     .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, .prog-chart .pc-lab { color: #9FB0C9; }
     td.bc-value, .prog-chart .pc-num { color: #00D4FF; }
     ul.call-list li { border-left-color: #00D4FF; }
+    .open-note, .open-note .on-sign { color: #F5F7FA; }
     .insight, .promise { background: rgba(0,102,255,.12); border-left-color: #00D4FF; color: #F5F7FA; }
     .insight strong, .promise strong { color: #00D4FF; }
     .opt-note { color: #9FB0C9; }
@@ -340,6 +346,8 @@
   </div>
 
   <div class="content">
+
+    <div class="open-note"><p>Dana, good talking with you. Everything from our call is on this one page: what you told me, your number, and the one thing I need from you to make it real.</p><p>Read it on your phone and text me back. I take it from there.</p><p class="on-sign">Chris Ste-Marie</p></div>
 
     <div class="title-block">
       <div class="eyebrow">Prepared for Dana &middot; October 19, 2026</div>
