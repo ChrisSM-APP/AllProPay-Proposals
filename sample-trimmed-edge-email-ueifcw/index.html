@@ -38,8 +38,11 @@
   .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
   .content { padding: 22px 36px 28px; }
 
-  /* the opening note: a few lines from the rep, so the page reads like the email it rides in */
-  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0 0 18px; }
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in.
+     It lives with the header in .top-paper, which stays WHITE on the dark screen (Chris: "the top
+     white as well, and once it shows Prepared for Dana, that's when it changes into the darker"). */
+  .top-paper { background: #fff; }
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0; padding: 18px 36px 20px; }
   .open-note p { margin: 0 0 8px; }
   .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
 
@@ -164,6 +167,7 @@
     .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
     .doc-header .contact { text-align: left; }
     .doc-header .logo-img { height: 48px; }
+    .open-note { padding: 16px 18px 18px; }
     .content { padding: 20px 18px 24px; }
     .title-block h1 { font-size: 20pt; line-height: 1.12; }
     .meta-row { flex-direction: column; gap: 7px; }
@@ -193,6 +197,7 @@
     .cta-block { box-shadow: none; }
     .doc-header { padding: 8px 22px 6px; }
     .doc-header .logo-img { height: 40px; }
+    .open-note { padding: 8px 22px 6px; font-size: 8.5pt; }
     .content { padding: 10px 22px 8px; }
     .title-block { margin-bottom: 6px; }
     .title-block h1 { font-size: 18pt; }
@@ -281,14 +286,16 @@
 </style></head>
 <body>
 <div id="em-toolbar"><span><b>Email version</b> &#183; Summit Ridge Landscaping &#183; Boise, Idaho</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="top-paper">
 <div class="doc-header">
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" class="logo-img" src="https://proposals.allpropay.com/sample-trimmed-edge-zjctw2/AllProPay_Logo.jpg"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
       929-930-3970 &#160;&#183;&#160; chris@allpropay.com &#160;&#183;&#160; allpropay.com
     </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/sample-trimmed-edge-zjctw2/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="content">
 <div class="open-note"><p>Dana, good talking with you. Everything from our call is on this one page: what you told me, your number, and the one thing I need from you to make it real.</p><p>Read it on your phone and text me back. I take it from there.</p><p class="on-sign">Chris Ste-Marie</p></div>
+</div>
+<div class="content">
 <div class="title-block">
 <div class="eyebrow">Prepared for Dana &#183; October 19, 2026</div>
 <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
@@ -332,10 +339,10 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:66%; padding:0 12px 0 0px; vertical-align:middle;" valign="middle" width="66%"><div class="cta-text">
-<div class="ct-title">Like it? Start the application, or call me</div>
-<div class="ct-sub"><strong>Five minutes on your phone.</strong> Fill in the application and I finish the rest with you. Underwriting takes 24 to 48 hours and you are switched on.</div>
+<div class="ct-title">Like it? Grab ten minutes with me</div>
+<div class="ct-sub"><strong>One 10-minute call.</strong> I walk you through the setup and you e-sign. Underwriting takes 24 to 48 hours and you are switched on.</div>
 </div></td><td style="width:34%; padding:0 0px 0 12px; vertical-align:middle;" valign="middle" width="34%"><div class="cta-action" style="text-align:right">
-<a class="apply" href="https://allpropay.com/get-started/" style="color:#fff; text-decoration:none; display:block; font-weight:800">Start the application</a>
+<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="color:#fff; text-decoration:none; display:block; font-weight:800">Book a call with me</a>
 <a class="ca-phone" href="tel:+19299303970" style="color:#fff; text-decoration:none; display:block; font-weight:800">929-930-3970</a>
 <div class="ca-name">Chris Ste-Marie &#183; chris@allpropay.com</div>
 </div></td></tr></table></div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
