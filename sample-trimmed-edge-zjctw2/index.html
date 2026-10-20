@@ -49,8 +49,9 @@
   .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
 
   /* title block */
-  .title-block { margin-bottom: 12px; }
-  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 4px; line-height: 1.5; }
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 6px; line-height: 1.5; }
+  .title-block h1.merchant-h { font-family: 'Montserrat', sans-serif; font-size: 24pt; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -0.4px; }
   .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
   .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
   .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
@@ -141,15 +142,17 @@
   .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
 
   /* the CTA block */
-  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 18px 26px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-  .cta-text .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13pt; margin-bottom: 4px; }
-  .cta-text .ct-sub { font-size: 9.5pt; opacity: .94; line-height: 1.5; }
-  .cta-text .ct-sub strong { color: #fff; }
-  .cta-action { text-align: right; flex-shrink: 0; }
-  /* the button: white pill with a blue ring (Chris: "a white button with a blue circle around it") */
-  .cta-action .apply { display: inline-block; background: #FFFFFF; color: var(--blue); border: 2.5px solid var(--blue); box-shadow: 0 0 0 3px #FFFFFF; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; padding: 11px 24px; border-radius: 999px; text-decoration: none; margin-bottom: 10px; }
-  .cta-action .ca-phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; color: #fff; text-decoration: none; display: block; line-height: 1.1; }
-  .cta-action .ca-name { font-size: 9pt; opacity: .9; margin-top: 2px; }
+  /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
+     the CTA"). Title, one line, the big white button with the blue ring, then the phone as the
+     fallback in small type. Block-level only, so it survives a Gmail paste unchanged. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 24px 26px 20px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
+  .cta-block .ct-sub strong { color: #fff; }
+  .cta-block a.apply { display: block; max-width: 420px; margin: 18px auto 14px; background: #FFFFFF; color: var(--blue); border: 3px solid var(--blue); box-shadow: 0 0 0 4px #FFFFFF, 0 10px 30px rgba(4,17,31,.35); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14pt; letter-spacing: .2px; padding: 15px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply:hover { background: #EEF3FF; }
+  .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
   .cta-btn { display: none; }
 
   .booking-embed { margin-top: 20px; }
@@ -190,9 +193,9 @@
     td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
     td.bc-label { font-size: 7.5pt; }
     td.bc-value { font-size: 10.5pt; }
-    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
-    .cta-action { text-align: left; }
-    .cta-action .ca-phone { font-size: 21pt; }
+    .cta-block { padding: 22px 18px 18px; }
+    .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    .title-block h1.merchant-h { font-size: 21pt; }
     .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
     .doc-footer .fine { max-width: 100%; text-align: left; }
   }
@@ -237,11 +240,12 @@
     .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
     .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
     .promise { padding: 8px 12px; font-size: 9pt; margin-top: 8px; }
-    .cta-block { padding: 9px 16px; margin-top: 7px; border-radius: 8px; }
-    .cta-text .ct-title { font-size: 10.5pt; }
-    .cta-text .ct-sub { font-size: 7.5pt; }
-    .cta-action .ca-phone { font-size: 13pt; }
-    .cta-action .ca-name { font-size: 7pt; }
+    .cta-block { padding: 10px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
+    .cta-block .ct-sub { font-size: 7.5pt; }
+    .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .ct-or { font-size: 7.5pt; }
+    .title-block h1.merchant-h { font-size: 17pt; }
     .booking-embed { display: none !important; }
     .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
     .doc-footer .sig img { height: 16px; }
@@ -340,10 +344,15 @@
        human part and must get read; white "really highlights" the guarantee and the call lines) */
     /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
        rule sits under the AllProPay header, not at the bottom of the band */
-    .top-paper { background: transparent; border-bottom: 3px solid #0052FF; position: relative; }
-    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; z-index: -1; }
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
     .top-paper > * { position: relative; z-index: 1; }
-    .top-paper .doc-header { border-bottom: 3px solid #0052FF; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
     .content { padding-top: 24px; }
     .content p.promise .g-line { color: #0B1120; }
     .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
@@ -384,7 +393,8 @@
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Dana &amp; Summit Ridge Landscaping &middot; October 19, 2026</div>
+      <div class="eyebrow">Prepared for Dana &middot; October 19, 2026</div>
+      <h1 class="merchant-h">Summit Ridge Landscaping</h1>
     </div>
 
     <div class="hero">
@@ -394,7 +404,7 @@
         <div class="price-cell">
           <div class="pc-label"><span class="pill pill-today">Today</span> </div>
           <div class="pc-value today">2.6% to 3.5% of every card sale</div>
-          <div class="pc-sub">Square's published rates: 2.6% + 15 cents tapped, 3.3% + 30 cents on invoices, 3.5% + 15 cents keyed. About $970 to $1,290 a month at $35,000 and 400 sales (example figures).</div>
+          <div class="pc-sub">Square's published rates: 2.6% + 15 cents tapped, 3.3% + 30 cents on invoices, 3.5% + 15 cents keyed. About $970 to $1,290 a month at $35,000 and 400 sales.</div>
         </div>
         <div class="price-cell">
           <div class="pc-label"><span class="pill pill-us">AllProPay Edge</span> </div>
@@ -405,9 +415,9 @@
       
     </div>
 
-    <div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$970 to $1,290</td></tr><tr><td class="bc-label us">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$25</td></tr></table><div class="cc-note">Square's published rates on $35,000 and 400 sales a month, from all tapped to all keyed. Edge: $0 on card sales plus the $25 account. Estimate, not a bill.</div></div>
+    <div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$970 to $1,290</td></tr><tr><td class="bc-label us">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$25</td></tr></table><div class="cc-note">Square's published rates on $35,000 and 400 sales a month, from all tapped to all keyed. Edge: $0 on card sales plus the $25 account.</div></div>
 
-    <div class="insight"><strong>About $970 to $1,290 a month</strong> leaves the business in card fees today; on Edge that line is <strong>$0</strong> (example figures, estimate).</div>
+    <div class="insight"><strong>About $970 to $1,290 a month</strong> leaves the business in card fees today. On Edge that line is <strong>$0</strong>.</div>
 
     <div class="sec-label">From our call</div>
     <ul class="call-list">
@@ -429,15 +439,10 @@
     <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 
     <div class="cta-block">
-      <div class="cta-text">
-        <div class="ct-title">Like it? Book ten minutes</div>
-        <div class="ct-sub"><strong>One 10-minute call.</strong> I walk you through the setup and you e-sign. Underwriting takes 24 to 48 hours and you are switched on.</div>
-      </div>
-      <div class="cta-action">
-        <a class="apply" href="https://book.allpropay.com/#/14701000000122127">Book a Call</a>
-        <a href="tel:+19299303970" class="ca-phone">929-930-3970</a>
-        <div class="ca-name">Chris Ste-Marie &middot; chris@allpropay.com</div>
-      </div>
+      <div class="ct-title">Ready when you are</div>
+      <div class="ct-sub">Ten minutes on the phone, you e-sign, and underwriting takes 24 to 48 hours.</div>
+      <a class="apply" href="https://book.allpropay.com/#/14701000000122127">Book a Call</a>
+      <div class="ct-or">Or call or text me at <a href="tel:+19299303970" class="ca-phone">929-930-3970</a> &middot; Chris Ste-Marie</div>
     </div>
 
     <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
