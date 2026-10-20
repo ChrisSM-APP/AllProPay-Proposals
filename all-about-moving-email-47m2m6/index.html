@@ -371,13 +371,13 @@
 <tr><td>Payment links</td><td>Never required. Your process stays the same.</td></tr><tr><td>Optional speed-up</td><td>Keep the card from the morning deposit on file and run the final amount in one click. Your call.</td></tr>
 <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
 </table>
-<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
+<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 <div class="cta-block">
 <div class="ct-title">Ten minutes Thursday and you are switched on</div>
 <div class="ct-sub">I call you Thursday afternoon, walk you through the setup, and you e-sign. Underwriting takes 24 to 48 hours.</div>
-<a class="apply" href="https://book.allpropay.com/#/14701000000122127">Book a Call</a>
+<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="display:block; max-width:420px; margin:18px auto 14px; background-color:#FFFFFF; color:#0052FF; border:3px solid #0052FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:14pt; padding:15px 24px; border-radius:999px; text-decoration:none; text-align:center;">Book a Call</a>
 <div class="ct-or">Or call or text me at <a class="ca-phone" href="tel:+19299303970">929-930-3970</a></div>
-</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
+</div>
 
 </div>
 <div class="doc-footer">
@@ -389,7 +389,7 @@
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Edge program posts the card price and gives cash and check customers a discount, disclosed before payment. Dollar figures are estimates at about $45,000 a month in card sales and a typical 2.5% to 3% for keyed-in cards; your statement sets the exact number. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
 
-<script id="em-compose" type="application/json">{"subject": "All About Moving: $0 a month, free machine", "body": "Hi Barb,\n\nThanks for the time today. Here is everything we talked about, in one place:\n\nhttps://proposals.allpropay.com/all-about-moving-p60v1e/\n\nShort version:\n\n- $0 monthly fee, and the card machine is free.\n- You keep keying cards in exactly like you do now. Deposit in the morning, final amount before the job wraps.\n- Your card fees go to $0. Cash and check customers get a discount off the posted price.\n\nIf you ever want it faster, we can keep the card from the morning deposit on file so the final charge is one click. Your call.\n\nI will call you Thursday afternoon. If a better time comes up, text me.\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "All About Moving - your AllProPay proposal", "body": "Hi Barb,\n\nGood talking with you. Here is everything from our call in writing.\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n", "draft_url": "https://mail.google.com/mail/u/0/#drafts?compose=1a15ade848a3c2b3"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
    a rep's and the proposal open beacon ignores it from now on. */
 try{localStorage.setItem("app_rep","1");}catch(e){}
@@ -423,13 +423,21 @@ try{localStorage.setItem("app_rep","1");}catch(e){}
     u += '&body=' + encodeURIComponent(compose.body || '');
     return u;
   }
+  // A real Gmail draft with the proposal already in the body (make_gmail_draft.py at build time,
+  // 2026-10-20). When the build made one, every button here just opens it: no copy, no paste.
+  var draftUrl = (compose && compose.draft_url) || '';
+  var note = document.querySelector('#em-toolbar .em-note');
   var draft = document.getElementById('em-draft');
   if (draft) {
-    var gu = gmailUrl();
+    var gu = draftUrl || gmailUrl();
     if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+    if (draftUrl) draft.textContent = 'Open the draft in Gmail';
   }
   var toLabel = document.getElementById('em-to');
-  if (toLabel) toLabel.textContent = to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.';
+  if (toLabel) toLabel.textContent = draftUrl
+    ? 'The draft is in your Gmail Drafts with the proposal in the body.'
+    : (to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.');
+  if (note && draftUrl) note.textContent = 'Email this proposal: opens your Gmail draft. The note and the full proposal are already in the body; check the address, read it top to bottom, send. Copy proposal only is the fallback if the draft was deleted.';
   var copyBtn = document.getElementById('em-copy');
   if (copyBtn) copyBtn.addEventListener('click', function () {
     var ok = copyPage();
@@ -440,6 +448,12 @@ try{localStorage.setItem("app_rep","1");}catch(e){}
   });
   var sendBtn = document.getElementById('em-send');
   if (sendBtn) sendBtn.addEventListener('click', function () {
+    if (draftUrl) {
+      window.open(draftUrl, '_blank', 'noopener');
+      status.textContent = 'Gmail draft opened in a new tab. The proposal is already in it: check the address, read, send.';
+      status.className = 'em-ok';
+      return;
+    }
     var ok = copyPage();
     var gu = gmailUrl();
     if (gu) window.open(gu, '_blank', 'noopener');
