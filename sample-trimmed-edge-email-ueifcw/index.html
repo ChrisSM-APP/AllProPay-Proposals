@@ -47,8 +47,8 @@
   .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
 
   /* title block */
-  .title-block { margin-bottom: 14px; }
-  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 4px; }
+  .title-block { margin-bottom: 12px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 4px; line-height: 1.5; }
   .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
   .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
   .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
@@ -82,11 +82,11 @@
   .chart-card .cc-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
   table.bar-chart { width: 100%; border-collapse: collapse; }
   table.bar-chart td { padding: 4px 0; vertical-align: middle; }
-  td.bc-label { width: 20%; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 10px; }
-  td.bc-track { width: 60%; }
+  td.bc-label { width: 1%; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 12px; }
+  td.bc-track { width: auto; }
   td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
   td.bc-track .bc-bar.us { background: var(--grad-cta); }
-  td.bc-value { width: 20%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
   td.bc-label.us, td.bc-value.us { color: var(--blue); }
   .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
   /* older specs still send the navy-band .prog-chart; render it as the same light card */
@@ -133,8 +133,10 @@
   .terms-table td:nth-child(3) { color: var(--muted); font-weight: 400; text-align: right; }
   .terms-table tr:last-child td { border-bottom: none; }
 
-  /* the promise line */
-  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.5; }
+  /* the promise: two bold lines, then the sentence (Chris's sketch, 2026-10-19 night) */
+  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.45; }
+  .promise .g-big { display: block; font-size: 14pt; font-weight: 800; letter-spacing: -.2px; }
+  .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
 
   /* the CTA block */
   .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 18px 26px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
@@ -142,7 +144,8 @@
   .cta-text .ct-sub { font-size: 9.5pt; opacity: .94; line-height: 1.5; }
   .cta-text .ct-sub strong { color: #fff; }
   .cta-action { text-align: right; flex-shrink: 0; }
-  .cta-action .apply { display: inline-block; background: var(--grad-cta); color: var(--on-gradient); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; padding: 12px 22px; border-radius: 999px; text-decoration: none; margin-bottom: 10px; box-shadow: 0 8px 30px rgba(0,102,255,.35); }
+  /* the button: white pill with a blue ring (Chris: "a white button with a blue circle around it") */
+  .cta-action .apply { display: inline-block; background: #FFFFFF; color: var(--blue); border: 2.5px solid var(--blue); box-shadow: 0 0 0 3px #FFFFFF; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; padding: 11px 24px; border-radius: 999px; text-decoration: none; margin-bottom: 10px; }
   .cta-action .ca-phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; color: #fff; text-decoration: none; display: block; line-height: 1.1; }
   .cta-action .ca-name { font-size: 9pt; opacity: .9; margin-top: 2px; }
   .cta-btn { display: none; }
@@ -289,7 +292,7 @@
   @media print { #em-toolbar { display: none; } }
 </style></head>
 <body>
-<div id="em-toolbar"><span><b>Email version</b> &#183; Summit Ridge Landscaping &#183; Boise, Idaho</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Summit Ridge Landscaping</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
 <div class="top-paper">
 <div class="doc-header">
 
@@ -301,14 +304,7 @@
 </div>
 <div class="content">
 <div class="title-block">
-<div class="eyebrow">Prepared for Dana &#183; October 19, 2026</div>
-<h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
-<div class="merchant">Summit Ridge Landscaping &#183; Boise, Idaho</div>
-<div class="meta-row">
-<div><span>Today:</span><strong>Square, 2.6% + 15 cents per tap (published rate)</strong></div>
-<div><span>Program:</span><strong>AllProPay Edge</strong></div>
-<div><span>Prepared by:</span><strong>Chris Ste-Marie</strong></div>
-</div>
+<div class="eyebrow">Prepared for Dana &amp; Summit Ridge Landscaping &#183; October 19, 2026</div>
 </div>
 <div class="hero">
 <div class="hero-eyebrow">AllProPay Edge</div>
@@ -318,16 +314,16 @@
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-today">Today</span> </div>
-<div class="pc-value today">About $970 a month</div>
-<div class="pc-sub">Square at its published rate on about $35,000 and 400 sales a month (example figures)</div>
+<div class="pc-value today">2.6% to 3.5% of every card sale</div>
+<div class="pc-sub">Square's published rates: 2.6% + 15 cents tapped, 3.3% + 30 cents on invoices, 3.5% + 15 cents keyed. About $970 to $1,290 a month at $35,000 and 400 sales (example figures).</div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-us">AllProPay Edge</span> </div>
 <div class="pc-value us">$0 <span class="chip">on card sales</span></div>
-<div class="pc-sub">On every card sale. $25 a month covers the whole account, Tap to Pay included.</div>
+<div class="pc-sub">On every card sale, tapped, invoiced or keyed. $25 a month covers the whole account, Tap to Pay included.</div>
 </div></td></tr></table></div>
 </div>
-<div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Square today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $970</td></tr><tr><td class="bc-label us">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$25</td></tr></table><div class="cc-note">Square at its published 2.6% + 15 cents on $35,000 and 400 sales. Edge: $0 on card sales plus the $25 account. Estimate, not a bill.</div></div>
-<div class="insight"><strong>About $970 a month</strong> leaves the business in card fees today; on Edge that line is <strong>$0</strong> (example figures, estimate).</div>
+<div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$970 to $1,290</td></tr><tr><td class="bc-label us">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$25</td></tr></table><div class="cc-note">Square's published rates on $35,000 and 400 sales a month, from all tapped to all keyed. Edge: $0 on card sales plus the $25 account. Estimate, not a bill.</div></div>
+<div class="insight"><strong>About $970 to $1,290 a month</strong> leaves the business in card fees today; on Edge that line is <strong>$0</strong> (example figures, estimate).</div>
 <div class="sec-label">From our call</div>
 <ul class="call-list">
 <li>"I'm not raising prices on my cash guys to cover the card people."</li><li>"The crew needs to take a card in the driveway, not back at the office."</li><li>"If I'm going to switch, it has to be done before spring."</li>
@@ -338,7 +334,7 @@
 <tr><td>Platform fee</td><td>$25 per month</td></tr>
 <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
 </table>
-<p class="promise">No contract. No cancellation fee. And if it does not do what I said on our call, you leave, and I will not argue.</p>
+<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 <div class="cta-block">
 
 
@@ -346,7 +342,7 @@
 <div class="ct-title">Like it? Book ten minutes</div>
 <div class="ct-sub"><strong>One 10-minute call.</strong> I walk you through the setup and you e-sign. Underwriting takes 24 to 48 hours and you are switched on.</div>
 </div></td><td style="width:34%; padding:0 0px 0 12px; vertical-align:middle;" valign="middle" width="34%"><div class="cta-action" style="text-align:right">
-<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="color:#fff; text-decoration:none; display:block; font-weight:800">Book a call</a>
+<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="color:#fff; text-decoration:none; display:block; font-weight:800">Book a Call</a>
 <a class="ca-phone" href="tel:+19299303970" style="color:#fff; text-decoration:none; display:block; font-weight:800">929-930-3970</a>
 <div class="ca-name">Chris Ste-Marie &#183; chris@allpropay.com</div>
 </div></td></tr></table></div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
