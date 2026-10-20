@@ -158,6 +158,10 @@
   .doc-footer .sig img { height: 24px; width: auto; }
   .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
 
+  /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+  @media screen { @keyframes apBar { from { width: 0; } } .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+
   @media screen and (max-width: 640px) {
     html { -webkit-text-size-adjust: 100%; }
     body { font-size: 11.5pt; line-height: 1.5; }
@@ -238,7 +242,6 @@
     .doc-footer .sig img { height: 16px; }
     .doc-footer .fine { font-size: 6pt; }
   }
-
 
 </style>
 <style id="email-mode">
@@ -339,10 +342,10 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:66%; padding:0 12px 0 0px; vertical-align:middle;" valign="middle" width="66%"><div class="cta-text">
-<div class="ct-title">Like it? Grab ten minutes with me</div>
+<div class="ct-title">Like it? Book ten minutes</div>
 <div class="ct-sub"><strong>One 10-minute call.</strong> I walk you through the setup and you e-sign. Underwriting takes 24 to 48 hours and you are switched on.</div>
 </div></td><td style="width:34%; padding:0 0px 0 12px; vertical-align:middle;" valign="middle" width="34%"><div class="cta-action" style="text-align:right">
-<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="color:#fff; text-decoration:none; display:block; font-weight:800">Book a call with me</a>
+<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="color:#fff; text-decoration:none; display:block; font-weight:800">Book a call</a>
 <a class="ca-phone" href="tel:+19299303970" style="color:#fff; text-decoration:none; display:block; font-weight:800">929-930-3970</a>
 <div class="ca-name">Chris Ste-Marie &#183; chris@allpropay.com</div>
 </div></td></tr></table></div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
