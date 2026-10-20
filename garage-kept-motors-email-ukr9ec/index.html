@@ -5,199 +5,259 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Email version - AllProPay Proposal | Garage Kept Motors</title>
 <style>
+  /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
+     the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
   :root {
-    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
-    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+    --blue: #0052FF;          /* AllProPay Blue: headings, links, the italic Pro, eyebrows on paper */
+    --accent: #0066FF;        /* Electric Blue: gradient start */
+    --cyan: #00D4FF;          /* Cyan Glow: eyebrows on dark, the big number in the panel */
+    --accent-deep: #0A37CC;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --tint: #E5EDFF;
+    --tint-soft: #EEF3FF;
+    --slate: #9FB0C9;         /* Muted Slate: captions on dark */
+    --slate-bar: #3A4A66;     /* the "today" bar */
+    --on-gradient: #04111F;
+    --black: #000000;
+    --text: #0B1120;
+    --muted: #5A6B85;         /* captions on paper */
+    --radius: 16px;
+    --grad-cta: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+    --grad-panel: linear-gradient(160deg, #0E1830 0%, #0B1424 100%);
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
-  .page { max-width: 820px; margin: 0 auto; padding: 0; }
-  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
-  .doc-header .logo-img { height: 72px; width: auto; }
-  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
-  .content { padding: 36px 40px 48px; }
-  .title-block { margin-bottom: 32px; }
-  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.5; }
+  .page { max-width: 820px; margin: 0 auto; }
+  a { color: var(--blue); }
+
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 36px 12px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+  .content { padding: 22px 36px 28px; }
+
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in.
+     It lives with the header in .top-paper, which stays WHITE on the dark screen (Chris: "the top
+     white as well, and once it shows Prepared for Dana, that's when it changes into the darker"). */
+  .top-paper { background: #fff; }
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0; padding: 18px 36px 20px; }
+  .open-note p { margin: 0 0 8px; }
+  .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
+
+  /* title block */
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 6px; line-height: 1.5; }
+  .title-block h1.merchant-h { font-family: 'Montserrat', sans-serif; font-size: 24pt; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -0.4px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
   .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
-  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
-  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
-  .meta-grid .label { color: var(--muted); font-weight: 500; }
-  .meta-grid .value { color: var(--text); font-weight: 500; }
-  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
-  .section { margin-bottom: 36px; }
-  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
-  p { margin-bottom: 10px; font-size: 10.5pt; }
-  ul { margin: 10px 0 10px 20px; }
-  ul li { margin-bottom: 6px; font-size: 10.5pt; }
-  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
-  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
-  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
-  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
-  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
-  thead tr { background: var(--navy); color: #fff; }
-  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
-  tbody tr:nth-child(even) { background: var(--light-gray); }
-  .pricing-callout table, .pricing-callout tbody tr, .pricing-callout td { background: transparent; border: none; }
-  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
-  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
-  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
-  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
-  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-  .pricing-grid.two { grid-template-columns: 1fr 1fr; }
-  /* Hero default 2026-09-11 (mirrors the short template): THEIR number grey and
-     smaller, OUR number cyan, larger, soft glow; pills tag the sides; the chip
-     carries the percent drop. */
-  /* Flex-free on purpose (2026-09-18): survives a paste into Gmail. */
-  .pricing-callout .pc-label { display: block; }
-  .pricing-callout .pc-label .pill { margin-right: 7px; vertical-align: middle; }
-  .pricing-callout .pc-value { display: block; }
-  .pricing-callout .pc-value .chip { margin-left: 9px; vertical-align: middle; }
-  .pricing-callout .pc-value.today { font-size: 14pt; font-weight: 700; color: #94A3B8; text-shadow: none; }
-  .pricing-callout .pc-value.us { font-size: 24pt; color: #38BDF8; text-shadow: 0 0 14px rgba(56,189,248,0.55), 0 0 2px rgba(255,255,255,0.35); }
-  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; line-height: 1.2; }
-  .pill-today { background: rgba(148,163,184,0.18); color: #CBD5E1; border: 1px solid rgba(148,163,184,0.5); }
-  .pill-us { background: rgba(56,189,248,0.16); color: #7DD3FC; border: 1px solid rgba(56,189,248,0.6); }
-  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: #38BDF8; color: #0B1120; line-height: 13px; vertical-align: middle; letter-spacing: 0.3px; white-space: nowrap; text-shadow: none; box-shadow: 0 0 10px rgba(56,189,248,0.45); }
-  /* Flex-free on purpose (2026-09-18): closers paste this page into Gmail,
-     which strips display:flex. Float + line-height centering survives the paste. */
-  .steps { display: block; }
-  .step { display: block; overflow: hidden; margin-bottom: 14px; }
-  .step:last-child { margin-bottom: 0; }
-  .step-num { float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; border-radius: 50%; display: block; }
-  .step-content { display: block; overflow: hidden; padding-top: 6px; font-size: 10.5pt; }
-  .step-content strong { font-weight: 600; color: var(--text); }
-  .why-list { list-style: none; margin: 0; padding: 0; }
-  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
-  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
-  .insight strong { color: #B45309; }
-  .cta-wrap { text-align: center; margin-top: 20px; }
-  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
-  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  .booking-embed { margin-top: 24px; }
+  .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+  .meta-row { display: flex; gap: 24px; border-top: 1px solid var(--mid-gray); border-bottom: 1px solid var(--mid-gray); padding: 8px 0; font-size: 9pt; }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  /* the dark panel */
+  .hero { position: relative; overflow: hidden; background: var(--grad-panel); border: 1px solid rgba(0,212,255,.25); border-radius: var(--radius); color: #fff; padding: 22px 28px; margin: 16px 0; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
+  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
+  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: left; }
+  .price-cell .pc-label { display: block; font-size: 8.5pt; color: var(--slate); margin-bottom: 8px; letter-spacing: .4px; line-height: 1.4; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; position: relative; top: -1px; }
+  .price-cell .pc-value { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1.05; margin-bottom: 5px; }
+  .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: var(--slate); text-shadow: none; }
+  .price-cell .pc-value.us { font-size: 26pt; color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px rgba(255,255,255,.35); }
+  .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .price-cell .pc-sub { font-size: 8.5pt; color: var(--slate); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 8px 2px; border-radius: 999px; line-height: 1.25; }
+  .pill-today { background: rgba(159,176,201,.18); color: #9FB0C9; border: 1px solid rgba(159,176,201,.5); }
+  .pill-us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: var(--cyan); color: var(--on-gradient); line-height: 13px; vertical-align: middle; letter-spacing: .3px; white-space: nowrap; text-shadow: none; }
+  .hero-extra { position: relative; z-index: 1; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.12); font-size: 9pt; color: var(--slate); }
+  .hero-extra strong { color: #fff; }
+
+  /* light comparison box (PROGRAM_CHART) */
+  .chart-card { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; }
+  .chart-card .cc-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label { width: 1%; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 12px; }
+  td.bc-track { width: auto; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
+  td.bc-track .bc-bar.us { background: var(--grad-cta); }
+  td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-label.us, td.bc-value.us { color: var(--blue); }
+  table.bar-chart td.bc-label { padding-right: 14px; }
+  table.bar-chart td.bc-value { padding-left: 14px; }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+  /* older specs still send the navy-band .prog-chart; render it as the same light card */
+  .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
+  .prog-chart .pchart-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .prog-chart .pc-lab { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 10px; width: 20%; }
+  .prog-chart .pc-num { text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; color: var(--blue); width: 20%; }
+  .prog-chart .pc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* the one sentence */
+  .insight { background: var(--tint-soft); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 12px 0 0; font-size: 10pt; line-height: 1.55; }
+  .insight strong { color: var(--blue); }
+
+  .sec-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; }
+
+  /* from our call: three short lines in their words */
+  ul.call-list { list-style: none; margin: 0; padding: 0; }
+  ul.call-list li { padding: 7px 14px; border-left: 3px solid var(--blue); background: var(--light-gray); margin-bottom: 6px; border-radius: 0 8px 8px 0; font-size: 10pt; }
+
+  /* what changes: three numbered cards */
+  table.counter-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.counter-cell { width: 33.3%; background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: 12px; padding: 11px 14px; vertical-align: top; }
+  .counter-cell .cs-num { font-family: 'Montserrat', sans-serif; display: inline-block; width: 20px; height: 20px; line-height: 20px; background: var(--grad-cta); color: var(--on-gradient); border-radius: 50%; font-size: 9pt; font-weight: 800; text-align: center; margin-bottom: 6px; }
+  .counter-cell .cs-title { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .counter-cell .cs-body { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+  /* two-offer block (OPTIONS_SECTION), when the deal has one */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 0; }
+  .opt { background: var(--grad-panel); border: 1.5px solid rgba(0,212,255,.25); border-radius: 12px; padding: 14px 16px; color: #fff; }
+  .opt.opt-a { border-color: var(--blue); }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .opt.opt-b .opt-tag { background: rgba(43,95,217,.35); }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .opt .opt-mech, .opt .opt-figure-sub, .opt .opt-note { font-size: 8.5pt; color: var(--slate); }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .opt .opt-list { margin: 8px 0 0 16px; font-size: 8.5pt; color: #E2E8F0; }
+  .opt-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* the account: plain key/value list */
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .terms-table td:first-child { color: var(--muted); width: 42%; font-weight: 500; }
+  .terms-table td:nth-child(2) { color: var(--text); font-weight: 600; }
+  .terms-table td:nth-child(3) { color: var(--muted); font-weight: 400; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  /* the promise: two bold lines, then the sentence (Chris's sketch, 2026-10-19 night) */
+  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.45; }
+  .promise .g-big { display: block; font-size: 14pt; font-weight: 800; letter-spacing: -.2px; }
+  .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
+
+  /* the CTA block */
+  /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
+     the CTA"). Title, one line, the big white button with the blue ring, then the phone as the
+     fallback in small type. Block-level only, so it survives a Gmail paste unchanged. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 24px 26px 20px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
+  .cta-block .ct-sub strong { color: #fff; }
+  .cta-block a.apply { display: block; max-width: 420px; margin: 18px auto 14px; background: #FFFFFF; color: var(--blue); border: 3px solid var(--blue); box-shadow: 0 0 0 4px #FFFFFF, 0 10px 30px rgba(4,17,31,.35); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14pt; letter-spacing: .2px; padding: 15px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply:hover { background: #EEF3FF; }
+  .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
+  .cta-btn { display: none; }
+
+  .booking-embed { margin-top: 20px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
-  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid var(--mid-gray); border-radius: 8px; background: #fff; display: block; }
   .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
   .booking-embed .be-fallback a { color: var(--blue); }
-  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
-  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
-  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
-  .sig-right { text-align: right; }
-  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
-  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
-  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media print {
-    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
-    .page { max-width: 100%; }
-    .pillars, .pricing-grid { display: block; }
-    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
-    .pricing-grid > div { margin-bottom: 10px; }
-    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
-    .doc-header { padding: 12px 32px 10px; }
-    .content { padding: 20px 32px 28px; }
-    .title-block { margin-bottom: 18px; }
-    .title-block h1 { font-size: 22pt; }
-    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
-    .blue-bar { margin: 14px 0; }
-    .section { margin-bottom: 18px; }
-    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
-    p { margin-bottom: 6px; font-size: 9.5pt; }
-    ul li { font-size: 9.5pt; margin-bottom: 3px; }
-    thead th { padding: 6px 10px; font-size: 8pt; }
-    tbody td { padding: 5px 10px; font-size: 9pt; }
-    .pricing-callout { padding: 14px 18px; }
-    .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { width: 28px; height: 28px; line-height: 28px; font-size: 10pt; margin-right: 12px; }
-    .step-content { font-size: 9.5pt; padding-top: 4px; }
-    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
-    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
-    .sig-name { font-size: 11pt; }
-    .cta-btn { display: none; }
-    .cta-print-text { display: block !important; }
-    .booking-embed { display: none !important; }
-  }
-  /* === AllProPay mobile responsive v3 (auto-injected) ===
-     Screen-only. Does not affect print/PDF (those use @media print).
-     Unstacks every multi-column band to a single column on phones so pricing
-     numbers never clip and nothing renders stretched. Forcing the container to
-     display:block neutralizes all three layout modes (CSS grid, flexbox, and
-     display:table) uniformly -- the standard templates and every bespoke
-     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
-     and pillar grids, cta-footer) collapse the same way. */
+
+  .doc-footer { border-top: 1px solid var(--mid-gray); padding: 12px 36px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--muted); }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+  @media screen { @keyframes apBar { from { width: 0; } } .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+
   @media screen and (max-width: 640px) {
     html { -webkit-text-size-adjust: 100%; }
     body { font-size: 11.5pt; line-height: 1.5; }
     .page { max-width: 100%; width: 100%; }
     img { max-width: 100%; height: auto; }
-    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
-    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
-      overflow-wrap: anywhere; word-break: break-word;
-    }
-    /* Header: stack logo above contact, left-align */
+    p, li, td, th, .pc-sub, .cs-body, .cc-note, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
     .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    /* Titles scaled so they never overflow */
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .title-block .merchant { font-size: 12pt; }
-    .title-block .eyebrow { font-size: 8.5pt; }
-    /* Meta: drop fixed label column, stack label over value (stays a grid) */
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .open-note { padding: 16px 18px 18px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
     .meta-row { flex-direction: column; gap: 7px; }
-    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
-    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
-    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
-    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
-      display: block !important;
-    }
-    /* full-width block children (resets table-cell / flex:1 columns) */
-    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
-    .flow-node, .step-card, .roadmap .step,
-    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
-    .compare-callout > div, .cta-footer > div {
-      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
-    }
-    .savings-callout > div:last-child, .pricing-grid > div:last-child,
-    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    /* generic safety net for any other real CSS-grid container */
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    /* Flow-diagram arrows: point down between stacked nodes */
-    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
-    .flow-arrow .arrow-label { display: none; }
-    /* Big callout numbers: full width, slightly smaller, never clipped */
-    .pricing-callout { padding: 18px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
     .hero { padding: 20px; }
     .hero::before { display: none; }
-    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
-    .snapshot-callout .pc-value, .compare-callout .cc-value {
-      font-size: 20pt; overflow-wrap: anywhere;
-    }
-    /* Hide now-pointless vertical dividers in stacked callouts */
-    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
-    /* CTA strip (short template): stack text above the phone number */
-    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
-    .cta-action { text-align: left; }
-    .cta-action .ca-phone { font-size: 21pt; }
-    /* CTA button: full-width tap target */
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    /* Signature + footer: stack and left-align */
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
-    /* Tables: tighter; wide comparison tables scroll within their wrapper */
-    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td, .terms-table td { padding: 7px 8px; }
-    .terms-table td:first-child { width: 50%; }
-    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
-    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+    .options { display: block; }
+    .opt { margin-bottom: 10px; }
+    table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
+    td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
+    /* phone: label + value on one line, the bar full width under them */
+    table.bar-chart, table.bar-chart tbody { display: block; }
+    table.bar-chart tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 8px; }
+    table.bar-chart td.bc-label { grid-row: 1; grid-column: 1; font-size: 8pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
+    td.bc-track .bc-bar { height: 14px; }
+    .cta-block { padding: 22px 18px 18px; }
+    .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    .title-block h1.merchant-h { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
   }
+
+  @media print {
+    @page { size: letter; margin: 0.28in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.35; color: var(--text); }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .chart-card, .prog-chart, td.counter-cell, .bc-bar, .cs-num, .pill, .chip, .insight, .promise, .opt, .opt-tag, ul.call-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero, .chart-card, .prog-chart, .cta-block, .terms-table, .promise, .insight, table.counter-row, .options { break-inside: avoid; page-break-inside: avoid; }
+    .cta-block { box-shadow: none; }
+    .doc-header { padding: 8px 22px 6px; }
+    .doc-header .logo-img { height: 40px; }
+    .open-note { padding: 8px 22px 6px; font-size: 8.5pt; }
+    .content { padding: 10px 22px 8px; }
+    .title-block { margin-bottom: 6px; }
+    .title-block h1 { font-size: 18pt; }
+    .title-block .merchant { font-size: 10pt; margin-bottom: 6px; }
+    .title-block .eyebrow { font-size: 7.5pt; margin-bottom: 2px; }
+    .meta-row { padding: 5px 0; font-size: 7.5pt; gap: 16px; }
+    .hero { padding: 11px 18px; margin: 8px 0; border-radius: 9px; }
+    .hero h2 { font-size: 11.5pt; margin-bottom: 8px; }
+    .hero .hero-eyebrow { font-size: 7pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell .pc-value.us { font-size: 20pt; }
+    .price-cell .pc-value.today { font-size: 12pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7pt; }
+    .sec-label { font-size: 7.5pt; margin: 8px 0 4px; }
+    .chart-card, .prog-chart { padding: 8px 12px 7px; margin-top: 7px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 7pt; margin-bottom: 4px; }
+    table.bar-chart td { padding: 2.5px 0; }
+    td.bc-track .bc-bar { height: 13px; }
+    td.bc-label { font-size: 7pt; }
+    td.bc-value { font-size: 9.5pt; }
+    .chart-card .cc-note { font-size: 6pt; margin-top: 3px; }
+    .insight { padding: 8px 12px; font-size: 8.5pt; margin-top: 8px; }
+    ul.call-list li { padding: 4px 10px; font-size: 8.5pt; margin-bottom: 4px; }
+    table.counter-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.counter-cell { padding: 6px 10px; border-radius: 7px; }
+    .counter-cell .cs-num { width: 15px; height: 15px; line-height: 15px; font-size: 7.5pt; margin-bottom: 3px; }
+    .counter-cell .cs-title { font-size: 7.5pt; margin-bottom: 1px; }
+    .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
+    .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
+    .promise { padding: 8px 12px; font-size: 9pt; margin-top: 8px; }
+    .cta-block { padding: 10px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
+    .cta-block .ct-sub { font-size: 7.5pt; }
+    .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .ct-or { font-size: 7.5pt; }
+    .title-block h1.merchant-h { font-size: 17pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
+    .doc-footer .sig img { height: 16px; }
+    .doc-footer .fine { font-size: 6pt; }
+  }
+
+
 </style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
@@ -243,120 +303,73 @@
   @media print { #em-toolbar { display: none; } }
 </style></head>
 <body>
-<div id="em-toolbar"><span><b>Email version</b> &#183; Garage Kept Motors</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Garage Kept Motors</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
+<div class="top-paper">
 <div class="doc-header">
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" src="https://proposals.allpropay.com/garage-kept-motors-oypywq/AllProPay_Logo.jpg" style="height:72px; width:auto;"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
-      929-930-3970 &#160;&#183;&#160; chris@allpropay.com &#160;&#183;&#160; allpropay.com<br/>
-      108 W 39th Street, Suite 1006, New York, NY 10018
-    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/garage-kept-motors-oypywq/" style="color:#0052FF; font-weight:700;">Open the full proposal in your browser</a>.</div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" class="logo-img" src="https://proposals.allpropay.com/garage-kept-motors-oypywq/AllProPay_Logo.jpg"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
+      929-930-3970 &#160;&#183;&#160; chris@allpropay.com &#160;&#183;&#160; allpropay.com
+    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/garage-kept-motors-oypywq/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="open-note"><p>AJ, good talking with you. You asked what each of Square's tiers really costs you on a keyed deposit, so that is right at the top, ready for you and Jeremy on Tuesday.</p><p>Read it on your phone and text me back with any questions.</p><p class="on-sign">Chris Ste-Marie</p></div>
+</div>
 <div class="content">
 <div class="title-block">
-<h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
-<div class="subtitle">Garage Kept Motors</div>
-<div class="meta-grid">
-
-
-
-
-
-
-
-
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared for</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">AJ &#160;|&#160; Garage Kept Motors &#160;|&#160; Michigan</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Prepared by</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Chris Ste-Marie &#160;|&#160; AllProPay</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Current processor</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">Square (about $30,000 in card fees so far this year, mostly keyed at 3.5% + 15 cents)</span></td></tr><tr><td style="width:160px; padding:3px 16px 3px 0; color:#64748B; font-weight:500; vertical-align:top;" width="160"><span class="label">Date</span></td><td style="padding:3px 0; vertical-align:top;"><span class="value">October 8, 2026</span></td></tr></table></div>
+<div class="eyebrow">Prepared for AJ &#183; October 8, 2026</div>
+<h1 class="merchant-h">Garage Kept Motors</h1>
 </div>
-<div class="blue-bar"></div>
-<div class="section">
-<div class="section-header">Where We Are</div>
-<p>Here is what you told Kurt and me, so you and Jeremy can check I was listening. The plan is simple: keep running deals the way you do, take the deposit the second the buyer says yes, and stop paying Square's top tier every time a card gets typed in.</p>
-<p>You told us what mattered most. We built the setup around it:</p>
-<ul>
-<li>About 95% of your deals happen remotely. The buyer puts a deposit down by card, the balance comes by wire, and you ship the car.</li><li>Deposits are $500 on cars under $50,000 and $1,000 over. Most of them get keyed in over the phone so you can mark the car sale pending right away. Time kills deals.</li><li>Consignors pay in person when they drop a car off, and cars past 90 days carry a $150 monthly storage charge, all through Square today.</li><li>You have paid Square about <strong>$30,000 in card fees so far this year</strong> and absorbed all of it as a cost of doing business.</li><li>You keep card deposits at $1,000 because of past chargebacks, even when a buyer wants to put more down.</li>
-</ul>
-</div>
-<div class="section">
-<div class="section-header">What You Get</div>
-<div class="pillars">
+<div class="hero">
+<div class="hero-eyebrow">AllProPay Cost+ Rate</div>
+<h2>Stop paying Square's top rate on every deposit.</h2>
+<div class="price-row two">
 
 
-
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">One price, however the card comes in</div>
-<div class="p-body">Square charges you three different rates: 2.6% plus 15 cents in person, 3.3% plus 30 cents on an invoice, and 3.5% plus 15 cents when you key the card in. With me every one of them is interchange, the true cost set by Visa and Mastercard, plus a flat 0.5% and 8 cents. Keying a card in over the phone does not cost you extra. A card terminal for the counter is included free.</div>
-</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Deposits in minutes, not checks in the mail</div>
-<div class="p-body">Text the buyer a payment link while you are still on the phone. They pay by card or straight from their bank account, you get a message the second it clears, and you mark the car sale pending. A bank payment costs you 0.75%, capped at $10, so the buyer who would have mailed a check has a faster option that costs you almost nothing.</div>
-</div></td><td style="width:12px; padding:0;" width="12"> </td><td style="width:32%; vertical-align:top; background:#F5F7FA !important; border-top:3px solid #0052FF !important; border-radius:0 0 6px 6px; padding:16px 18px;" valign="top" width="32%"><div class="pillar" style="display:block; background:transparent; border:0; padding:0; margin:0">
-<div class="p-title">Deposits that hold up</div>
-<div class="p-body">Your non-refundable deposit terms go out with the payment link, so the buyer agrees to them before they pay. If someone tries to reverse a deposit, you call me, not a chat queue, and I work the paperwork with you. No contract and no cancellation fee.</div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label"><span class="pill pill-today">Today</span> </div>
+<div class="pc-value today">$30,000</div>
+<div class="pc-sub">Card fees to Square so far this year, your number. On pace for about $40,000.</div>
+</div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label"><span class="pill pill-us">AllProPay Cost+ Rate</span> </div>
+<div class="pc-value us">~$21,000 <span class="chip">about 30% less</span></div>
+<div class="pc-sub">Those same months at Interchange + 0.50% + $0.08. Bank links take it lower.</div>
 </div></td></tr></table></div>
 </div>
-<div class="section">
-<div class="section-header">Your Pricing</div>
-<p>This is the locked pricing for the Garage Kept Motors account.</p>
-<div class="pricing-callout">
-<div class="pricing-grid two"><table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div style="display:block; width:auto"><div class="pc-label"><span class="pill pill-today">Today</span> Square</div><div class="pc-value today">$30,000</div><div class="pc-sub">Card fees so far this year, your number. On pace for about $40,000.</div></div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div style="display:block; width:auto"><div class="pc-label"><span class="pill pill-us">AllProPay Rate</span></div><div class="pc-value us">~$21,000 <span class="chip">about 30% less</span></div><div class="pc-sub">Estimated for those months on the lower rate alone. Edge or bank links take it lower.</div></div></td></tr></table></div><div style="margin-top:18px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.18);"><div style="font-size:8pt; letter-spacing:1.2px; text-transform:uppercase; color:#94A3B8; font-weight:700; margin-bottom:10px;">What one $500 deposit costs you</div><table role="presentation" style="width:100%; border-collapse:collapse; margin:0;"><tr><td style="border:none; padding:0 12px 8px 0; width:160px; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Square, keyed</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:12px; width:62.4%; border-radius:3px; background:#64748B; opacity:0.85; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:700; margin-left:11px; vertical-align:middle; color:#94A3B8; white-space:nowrap;">$17.65</span></td></tr><tr><td style="border:none; padding:0 12px 8px 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay Rate, credit</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:16px; width:46.0%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">$12 to $14</span></td></tr><tr><td style="border:none; padding:0 12px 8px 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">Bank transfer by link</td><td style="border:none; padding:0 0 8px 0; background:transparent;"><span style="display:inline-block; height:16px; width:13.3%; border-radius:3px; background:#3B82F6; box-shadow:0 0 0 1px rgba(96,165,250,0.35), 0 0 10px rgba(59,130,246,0.35); vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">$3.75</span></td></tr><tr><td style="border:none; padding:0 12px 0 0; font-size:9pt; font-weight:600; color:#CBD5E1; white-space:nowrap; background:transparent;">AllProPay Edge, credit</td><td style="border:none; padding:0; background:transparent;"><span style="display:inline-block; height:16px; width:1.6%; border-radius:3px; background:#3B82F6; vertical-align:middle;"></span><span style="font-family:Montserrat, sans-serif; font-size:12pt; font-weight:800; margin-left:11px; vertical-align:middle; color:#7DD3FC; white-space:nowrap;">$0</span><span style="font-size:9pt; color:#94A3B8; margin-left:8px; vertical-align:middle;">buyer pays $517.50</span></td></tr></table><div style="font-size:8pt; color:#94A3B8; margin-top:8px;">Estimates. Card cost depends on the card the buyer reads you. Square's posted keyed rate is 3.5% + 15 cents.</div></div>
-</div>
-<table style="width:100%" width="100%">
-<thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
-<tbody>
-<tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
-<tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (keyed payments, text-to-pay links by card or bank, invoicing, and a free card terminal for the counter)</td></tr>
-<tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
-<tr><td>Card terminal</td><td>Free</td><td>For consignors and anyone paying at the counter</td></tr><tr><td>Keyed, invoice, or payment link</td><td>Interchange + 0.5% + $0.08</td><td>The same rate as in person. No extra tier.</td></tr><tr><td>American Express</td><td>Interchange + 0.5% + $0.08</td><td>Same flat markup on every card brand</td></tr>
-<tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
-<tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
-</tbody>
-</table>
-<div class="insight">
-<strong>You asked what each of Square's tiers costs you. Here it is side by side.</strong><table style="width:100%; border-collapse:collapse; margin:10px 0 8px;; width:100%" width="100%"><tr><th style="text-align:left; padding:6px 8px; border-bottom:1px solid #CBD5E1;">How the card comes in</th><th style="text-align:left; padding:6px 8px; border-bottom:1px solid #CBD5E1; color:#64748B;">Square, posted rate</th><th style="text-align:left; padding:6px 8px; border-bottom:1px solid #CBD5E1; color:#0052FF;">AllProPay Rate</th></tr><tr><td style="padding:6px 8px;">In person</td><td style="padding:6px 8px; color:#64748B;">2.6% + 15 cents</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">Interchange + 0.5% + 8 cents</td></tr><tr><td style="padding:6px 8px;">Invoice or payment link</td><td style="padding:6px 8px; color:#64748B;">3.3% + 30 cents</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">Interchange + 0.5% + 8 cents</td></tr><tr><td style="padding:6px 8px;">Keyed in over the phone</td><td style="padding:6px 8px; color:#64748B;">3.5% + 15 cents</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">Interchange + 0.5% + 8 cents</td></tr><tr><td style="padding:6px 8px;">Bank transfer by link</td><td style="padding:6px 8px; color:#64748B;">Not offered on a keyed sale</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">0.75%, capped at $10</td></tr></table>Visa and Mastercard do charge a little more for a card that is not present, about 0.2%. That is their cost and it passes through at cost. We do not add a tier on top of it. On a $500 deposit keyed in, Square takes $17.65. With me a typical credit card costs about $12 to $14, and a debit card less than that. These are estimates, not a guarantee.
-      </div>
-</div>
-
-<div class="section">
-<div class="section-header">Want It Lower Still? Your Other Options</div>
-<p>You told me you would rather keep absorbing the card fee for now, so the plan starts with the lower rate above and nothing your buyers see. Two more options sit on the same account, and you can switch either one on whenever you and Jeremy want. <strong>AllProPay Edge:</strong> buyers who pay with a credit card cover the card cost at 3.5%, so a $500 deposit becomes $517.50 and your cost on that sale is $0. Debit cards are never charged extra and cost you 0.50% plus 10 cents. <strong>Bank transfer by link:</strong> the buyer pays from their bank account and it costs you 0.75%, capped at $10. Here is one $500 deposit four ways:</p><table style="width:100%; border-collapse:collapse; margin:12px 0 6px;; width:100%" width="100%"><tr><th style="text-align:left; padding:6px 8px; border-bottom:1px solid #CBD5E1;">$500 deposit</th><th style="text-align:left; padding:6px 8px; border-bottom:1px solid #CBD5E1;">Buyer pays</th><th style="text-align:left; padding:6px 8px; border-bottom:1px solid #CBD5E1;">Costs you</th></tr><tr><td style="padding:6px 8px; color:#64748B;">Square today, keyed</td><td style="padding:6px 8px; color:#64748B;">$500.00</td><td style="padding:6px 8px; color:#64748B;">$17.65</td></tr><tr><td style="padding:6px 8px;">AllProPay Rate, credit card</td><td style="padding:6px 8px;">$500.00</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">about $12 to $14</td></tr><tr><td style="padding:6px 8px;">Bank transfer by link</td><td style="padding:6px 8px;">$500.00</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">$3.75</td></tr><tr><td style="padding:6px 8px;">AllProPay Edge, credit card</td><td style="padding:6px 8px;">$517.50</td><td style="padding:6px 8px; color:#0052FF; font-weight:700;">$0.00</td></tr></table>On Edge, most of the roughly $40,000 a year you are on pace to pay Square stays in the business. No new application and no new equipment to switch.
-      <ul class="why-list" style="margin-top:14px;">
-<li><strong>Start here:</strong> AllProPay Rate. About 30% less than Square on the cards you take today.</li><li><strong>Anytime:</strong> bank-transfer links. A $500 deposit costs you $3.75 instead of $17.65.</li><li><strong>When you are ready:</strong> AllProPay Edge. Credit card buyers pay 3.5%, your cost on those sales is $0, and debit is never charged extra.</li><li><strong>If you want to take bigger amounts on a card:</strong> our deposit protection program. Card payments by link go through a cardholder verification step, and when the buyer passes it, the liability for a fraud dispute ("I didn't make this charge") moves off you and onto the card issuer. Paired with your signed non-refundable terms for change-of-mind disputes, it lets you take more than $1,000 with confidence. About $15 a month plus 10 cents a transaction, and we approve the account for the higher amounts first.</li>
+<div class="chart-card"><div class="cc-title">One $500 deposit, keyed in</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$17.65</td></tr><tr><td class="bc-label us">AllProPay Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:79%"></div></td><td class="bc-value us">$12 to $14</td></tr><tr><td class="bc-label us">Bank link</td><td class="bc-track"><div class="bc-bar us" style="width:21%"></div></td><td class="bc-value us">$3.75</td></tr></table><div class="cc-note">Square's posted keyed rate is 3.5% + $0.15. Our card cost depends on the card the buyer reads you; a bank transfer is 0.75%, capped at $10.</div></div>
+<div class="insight">Keying a card in costs you the same as in person: <strong>Interchange + 0.50% + $0.08</strong>, with no extra tier.</div>
+<div class="sec-label">From our call</div>
+<ul class="call-list">
+<li>"Time kills all deals, we generally do that over the phone."</li><li>"Year to date I got like $30,000 worth of fees that we're paying to Square."</li><li>"A thousand dollars. That's kind of the limit" on a card deposit, after past chargebacks.</li>
 </ul>
-</div>
-<div class="section" style="break-after: avoid; page-break-after: avoid;">
-<div class="section-header">Next Steps</div>
-<p style="margin-bottom:18px;">Three short steps, on your time:</p>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-content"><strong>A quick chat Tuesday with you and Jeremy.</strong> Fifteen minutes to make sure I have everything right and for you two to pick your program: the lower rate, Edge, or either one with bank-transfer links.</div></div><div class="step"><div class="step-num">2</div><div class="step-content"><strong>I set it up.</strong> I fill in the application with you, your free terminal ships, and your payment links and deposit terms are ready before your first sale.</div></div><div class="step"><div class="step-num">3</div><div class="step-content"><strong>You go live before you close Square.</strong> You are never without a way to take a deposit. Once you are processing with me, I walk you through shutting Square off.</div></div>
-</div>
-<p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        You have built a business where a $1,000 deposit holds a $100,000 car. You should not be paying the top rate every time you take one.
-      </p>
-<div class="cta-wrap" style="margin-top:28px;">
-<a class="cta-btn" href="tel:+19299303970">Text or Call Me: 929-930-3970</a>
-<div class="cta-print-text">Text or call me: 929-930-3970 &#160;|&#160; chris@allpropay.com</div>
+<div class="sec-label">The account</div>
+<table class="terms-table" style="width:100%" width="100%">
+<tr><td>Your account</td><td>Keyed payments, text-to-pay links by card or bank, invoicing, and a free card terminal for the counter</td></tr>
+<tr><td>Platform fee</td><td>$25 per month</td></tr>
+<tr><td>Every card brand, keyed, invoiced or in person</td><td>Interchange + 0.50% + $0.08</td></tr><tr><td>Bank transfer by link</td><td>0.75%, capped at $10</td></tr>
+<tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
+</table>
+<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
+<div class="cta-block">
+<div class="ct-title">Fifteen minutes Tuesday</div>
+<div class="ct-sub">You, Jeremy and I confirm the details, you pick how you want to take deposits, and I set it all up.</div>
+<a class="apply" href="https://book.allpropay.com/#/14701000000122127">Book a Call</a>
+<div class="ct-or">Or call or text me at <a class="ca-phone" href="tel:+19299303970">929-930-3970</a></div>
 </div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
 
 </div>
-<div class="signature-block">
-
-
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:60%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="60%"><div>
-<div class="sig-name">Chris Ste-Marie</div>
-<div class="sig-contact">
-<a href="tel:+19299303970" style="color:inherit; text-decoration:none;">929-930-3970</a> (text friendly)<br/>
-<a href="mailto:chris@allpropay.com" style="color:inherit; text-decoration:none;">chris@allpropay.com</a><br/>
-<a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
-</div>
-</div></td><td style="width:40%; padding:0 0px 0 0px; vertical-align:bottom;" valign="bottom" width="40%"><div class="sig-right">
-<img alt="AllProPay" src="https://proposals.allpropay.com/garage-kept-motors-oypywq/AllProPay_Logo.jpg" style="height:58px; width:auto; display:block; margin-bottom:4px;"/>
-<div class="sig-tagline">Accept payments anywhere.</div>
-</div></td></tr></table></div>
-<p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
-</div>
 <div class="doc-footer">
-<span>AllProPay &#160;&#183;&#160; 108 W 39th Street, Suite 1006, New York, NY 10018 &#160;&#183;&#160; 800-807-0356</span>
-</div>
+
+
+<div class="sig" style="display:block; white-space:nowrap">
+<img alt="AllProPay" src="https://proposals.allpropay.com/garage-kept-motors-oypywq/AllProPay_Logo.jpg"/>
+<span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
+</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">Blended-cost estimates are based on the volume and card mix you shared and are not a guarantee; actual cost depends on card mix and ticket size. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
+
 <script id="em-compose" type="application/json">{"subject": "Garage Kept Motors - what Square's three tiers cost you, and your options", "body": "Hi AJ,\n\nGood talking with you today. Copying Jeremy so you two have it for Tuesday.\n\nYou asked what each of Square's tiers costs you. With me it is one rate on all of them:\n\n- In person: 2.6% + 15 cents on Square. Interchange + 0.5% + 8 cents with me.\n- Invoice: 3.3% + 30 cents on Square. Interchange + 0.5% + 8 cents with me.\n- Keyed over the phone: 3.5% + 15 cents on Square. Interchange + 0.5% + 8 cents with me.\n\nOn a $500 deposit keyed in, Square takes $17.65. With me:\n\n- Credit card: about $12 to $14\n- Bank transfer by text link: $3.75\n- Edge, where credit card buyers pay 3.5% ($517.50): $0 to you\n\nOn the lower rate alone that is an estimated 30% less than the $30,000 you have paid Square this year. A card terminal for the counter is included free.\n\nThe full breakdown is below, including the deposit protection program if you ever want to take bigger amounts on a card. Talk Tuesday.\n\nChris"}</script><script>
+/* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
+   a rep's and the proposal open beacon ignores it from now on. */
+try{localStorage.setItem("app_rep","1");}catch(e){}
+
 (function () {
   var page = document.querySelector('.page');
   var status = document.getElementById('em-status');
