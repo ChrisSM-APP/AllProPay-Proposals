@@ -221,6 +221,7 @@
     td.bc-track .bc-bar { height: 14px; }
     .cta-block { padding: 22px 18px 18px; }
     .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
     .title-block h1.merchant-h { font-size: 21pt; }
     .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
     .doc-footer .fine { max-width: 100%; text-align: left; }
@@ -504,13 +505,15 @@
 if(q.get("rep")){localStorage.setItem("app_rep","1");}
 if(!b||location.protocol!=="https:"||localStorage.getItem("app_rep")==="1")return;
 var m=location.pathname.match(/^\/([a-z0-9][a-z0-9-]+)\/?/);if(!m)return;
-/* the application / booking button goes through the worker's /a route, which pings the closer
-   ("if they click Start the application, that's when we should automatically ping the closer")
-   and then sends the merchant on to the real page. */
+/* the application / booking button pings the worker's /a route on click ("if they click Start
+   the application, that's when we should automatically ping the closer"). The button KEEPS its
+   real href and the ping is fire-and-forget: 2026-10-20 the href was being rewritten to the
+   worker URL, beacon.allpropay.com did not resolve, and every Book a Call pill was dead. A
+   beacon that is down must never cost a click. */
+function ping(u){if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{mode:"no-cors",keepalive:true}).catch(function(){});}}
 var a=document.querySelector("a.apply");
-if(a&&/^https?:/.test(a.href)){a.href=b.replace(/\/v$/,"/a")+"?p="+encodeURIComponent(m[1])+"&to="+encodeURIComponent(a.href);}
-var u=b+"?p="+encodeURIComponent(m[1]);
-if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{mode:"no-cors",keepalive:true}).catch(function(){});}
+if(a&&/^https?:/.test(a.href)){a.addEventListener("click",function(){try{ping(b.replace(/\/v$/,"/a")+"?p="+encodeURIComponent(m[1])+"&to="+encodeURIComponent(a.href));}catch(e){}});}
+ping(b+"?p="+encodeURIComponent(m[1]));
 }catch(e){}})();
 </script>
 </body>

@@ -219,6 +219,7 @@
     td.bc-track .bc-bar { height: 14px; }
     .cta-block { padding: 22px 18px 18px; }
     .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
     .title-block h1.merchant-h { font-size: 21pt; }
     .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
     .doc-footer .fine { max-width: 100%; text-align: left; }
@@ -294,6 +295,9 @@
   .cta-btn { display: inline-block !important; }
   .cta-print-text { display: none !important; }
   .apc-calc, .booking-embed, script { display: none !important; }
+  /* Gmail ignores media queries, so the promise lines get one phone-safe size: 11pt keeps
+     "No surprises on your statement." on one line on a 360px phone (Chris 2026-10-20). */
+  .promise .g-big { font-size: 11pt !important; }
   .page, .page * { box-shadow: none !important; text-shadow: none !important; }
   /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
   .steps { display: block !important; }
@@ -389,7 +393,7 @@
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Edge program posts the card price and gives cash and check customers a discount, disclosed before payment. Dollar figures are estimates at about $45,000 a month in card sales and a typical 2.5% to 3% for keyed-in cards; your statement sets the exact number. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
 
-<script id="em-compose" type="application/json">{"subject": "All About Moving - your AllProPay proposal", "body": "Hi Barb,\n\nGood talking with you. Here is everything from our call in writing.\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n", "draft_url": "https://mail.google.com/mail/u/0/#drafts?compose=1a15ade848a3c2b3"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "All About Moving - your AllProPay proposal", "body": "Hi Barb,\n\nGood talking with you. Here is everything from our call in writing.\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n", "draft_url": "https://mail.google.com/mail/u/0/#drafts?compose=1a15af6754d3e419"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
    a rep's and the proposal open beacon ignores it from now on. */
 try{localStorage.setItem("app_rep","1");}catch(e){}
