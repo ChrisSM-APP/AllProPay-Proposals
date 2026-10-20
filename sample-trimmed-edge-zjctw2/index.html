@@ -91,6 +91,8 @@
   td.bc-track .bc-bar.us { background: var(--grad-cta); }
   td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
   td.bc-label.us, td.bc-value.us { color: var(--blue); }
+  table.bar-chart td.bc-label { padding-right: 14px; }
+  table.bar-chart td.bc-value { padding-left: 14px; }
   .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
   /* older specs still send the navy-band .prog-chart; render it as the same light card */
   .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
@@ -191,8 +193,13 @@
     .opt { margin-bottom: 10px; }
     table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
     td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
-    td.bc-label { font-size: 7.5pt; }
-    td.bc-value { font-size: 10.5pt; }
+    /* phone: label + value on one line, the bar full width under them */
+    table.bar-chart, table.bar-chart tbody { display: block; }
+    table.bar-chart tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 8px; }
+    table.bar-chart td.bc-label { grid-column: 1; font-size: 8pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-value { grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-track { grid-column: 1 / -1; padding: 4px 0 0; }
+    td.bc-track .bc-bar { height: 14px; }
     .cta-block { padding: 22px 18px 18px; }
     .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
     .title-block h1.merchant-h { font-size: 21pt; }
@@ -355,6 +362,8 @@
     .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
     .content { padding-top: 24px; }
     .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
     .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
     .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
     .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
