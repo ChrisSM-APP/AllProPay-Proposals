@@ -335,8 +335,12 @@
     td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
     /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
        human part and must get read; white "really highlights" the guarantee and the call lines) */
-    .top-paper { background: #FFFFFF; border-bottom: 3px solid #0052FF; }
-    .top-paper .doc-header { border-bottom: 1px solid #E2E8F0; }
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 3px solid #0052FF; }
     .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
     .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
     .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
