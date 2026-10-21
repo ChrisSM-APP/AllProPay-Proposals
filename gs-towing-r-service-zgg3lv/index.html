@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | G&S Towing R Service</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
+     the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
+  :root {
+    --blue: #0052FF;          /* AllProPay Blue: headings, links, the italic Pro, eyebrows on paper */
+    --accent: #0066FF;        /* Electric Blue: gradient start */
+    --cyan: #00D4FF;          /* Cyan Glow: eyebrows on dark, the big number in the panel */
+    --accent-deep: #0A37CC;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --tint: #E5EDFF;
+    --tint-soft: #EEF3FF;
+    --slate: #9FB0C9;         /* Muted Slate: captions on dark */
+    --slate-bar: #3A4A66;     /* the "today" bar */
+    --on-gradient: #04111F;
+    --black: #000000;
+    --text: #0B1120;
+    --muted: #5A6B85;         /* captions on paper */
+    --radius: 16px;
+    --grad-cta: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+    --grad-panel: linear-gradient(160deg, #0E1830 0%, #0B1424 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.5; }
+  .page { max-width: 820px; margin: 0 auto; }
+  a { color: var(--blue); }
+
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 36px 12px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+  .content { padding: 22px 36px 28px; }
+
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in.
+     It lives with the header in .top-paper, which stays WHITE on the dark screen (Chris: "the top
+     white as well, and once it shows Prepared for Dana, that's when it changes into the darker"). */
+  .top-paper { background: #fff; }
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0; padding: 18px 36px 20px; }
+  .open-note p { margin: 0 0 8px; }
+  .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
+
+  /* title block */
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 6px; line-height: 1.5; }
+  .title-block h1.merchant-h { font-family: 'Montserrat', sans-serif; font-size: 24pt; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -0.4px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+  .meta-row { display: flex; gap: 24px; border-top: 1px solid var(--mid-gray); border-bottom: 1px solid var(--mid-gray); padding: 8px 0; font-size: 9pt; }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  /* the dark panel */
+  .hero { position: relative; overflow: hidden; background: var(--grad-panel); border: 1px solid rgba(0,212,255,.25); border-radius: var(--radius); color: #fff; padding: 22px 28px; margin: 16px 0; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
+  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
+  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: left; }
+  .price-cell .pc-label { display: block; font-size: 8.5pt; color: var(--slate); margin-bottom: 8px; letter-spacing: .4px; line-height: 1.4; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; position: relative; top: -1px; }
+  .price-cell .pc-value { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1.05; margin-bottom: 5px; }
+  .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: var(--slate); text-shadow: none; }
+  .price-cell .pc-value.us { font-size: 26pt; color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px rgba(255,255,255,.35); }
+  .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .price-cell .pc-sub { font-size: 8.5pt; color: var(--slate); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 8px 2px; border-radius: 999px; line-height: 1.25; }
+  .pill-today { background: rgba(159,176,201,.18); color: #9FB0C9; border: 1px solid rgba(159,176,201,.5); }
+  .pill-us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: var(--cyan); color: var(--on-gradient); line-height: 13px; vertical-align: middle; letter-spacing: .3px; white-space: nowrap; text-shadow: none; }
+  .hero-extra { position: relative; z-index: 1; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.12); font-size: 9pt; color: var(--slate); }
+  .hero-extra strong { color: #fff; }
+
+  /* light comparison box (PROGRAM_CHART) */
+  .chart-card { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; }
+  .chart-card .cc-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label { width: 1%; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 12px; }
+  td.bc-track { width: auto; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
+  td.bc-track .bc-bar.us { background: var(--grad-cta); }
+  td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-label.us, td.bc-value.us { color: var(--blue); }
+  table.bar-chart td.bc-label { padding-right: 14px; }
+  table.bar-chart td.bc-value { padding-left: 14px; }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+  /* older specs still send the navy-band .prog-chart; render it as the same light card */
+  .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
+  .prog-chart .pchart-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .prog-chart .pc-lab { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 10px; width: 20%; }
+  .prog-chart .pc-num { text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; color: var(--blue); width: 20%; }
+  .prog-chart .pc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* Edge Plus tier cards (TIERS_SECTION, rendered by build_proposal.py from spec "tiers"):
+     dark cards side by side, a pill tag, the tier name in caps, one big dollar figure, a short
+     fact table; the recommended card has the blue border. Same look as the hand-built pages. */
+  .tiers-sub { font-size: 9pt; color: var(--muted); margin: -2px 0 10px; }
+  table.tier-row { width: calc(100% + 20px); border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.tier-cell { background: var(--grad-panel); border: 1.5px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 16px 12px; vertical-align: top; color: #fff; }
+  td.tier-cell.rec { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+  .tier-cell .t-pop { font-family: 'Montserrat', sans-serif; display: inline-block; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .tier-cell .t-pop.quiet { background: rgba(159,176,201,.18); color: #9FB0C9; }
+  .tier-cell .t-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .tier-cell .t-cash { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .tier-cell .t-cashsub { font-size: 8pt; color: var(--slate); margin-bottom: 8px; }
+  table.t-facts { width: 100%; border-collapse: collapse; }
+  table.t-facts td { padding: 3.5px 0; font-size: 8.5pt; border-top: 1px solid rgba(255,255,255,.14); background: transparent; }
+  table.t-facts td.k { color: var(--slate); padding-right: 8px; }
+  table.t-facts td.v { text-align: right; font-weight: 700; color: #E2E8F0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* the one sentence */
+  .insight { background: var(--tint-soft); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 12px 0 0; font-size: 10pt; line-height: 1.55; }
+  .insight strong { color: var(--blue); }
+
+  .sec-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; }
+
+  /* from our call: three short lines in their words */
+  ul.call-list { list-style: none; margin: 0; padding: 0; }
+  ul.call-list li { padding: 7px 14px; border-left: 3px solid var(--blue); background: var(--light-gray); margin-bottom: 6px; border-radius: 0 8px 8px 0; font-size: 10pt; }
+
+  /* what changes: three numbered cards */
+  table.counter-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.counter-cell { width: 33.3%; background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: 12px; padding: 11px 14px; vertical-align: top; }
+  .counter-cell .cs-num { font-family: 'Montserrat', sans-serif; display: inline-block; width: 20px; height: 20px; line-height: 20px; background: var(--grad-cta); color: var(--on-gradient); border-radius: 50%; font-size: 9pt; font-weight: 800; text-align: center; margin-bottom: 6px; }
+  .counter-cell .cs-title { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .counter-cell .cs-body { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+  /* two-offer block (OPTIONS_SECTION), when the deal has one */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 0; }
+  .opt { background: var(--grad-panel); border: 1.5px solid rgba(0,212,255,.25); border-radius: 12px; padding: 14px 16px; color: #fff; }
+  .opt.opt-a { border-color: var(--blue); }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .opt.opt-b .opt-tag { background: rgba(43,95,217,.35); }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .opt .opt-mech, .opt .opt-figure-sub, .opt .opt-note { font-size: 8.5pt; color: var(--slate); }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .opt .opt-list { margin: 8px 0 0 16px; font-size: 8.5pt; color: #E2E8F0; }
+  .opt-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* the account: plain key/value list */
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .terms-table td:first-child { color: var(--muted); width: 42%; font-weight: 500; }
+  .terms-table td:nth-child(2) { color: var(--text); font-weight: 600; }
+  .terms-table td:nth-child(3) { color: var(--muted); font-weight: 400; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  /* the promise: two bold lines, then the sentence (Chris's sketch, 2026-10-19 night) */
+  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.45; }
+  .promise .g-big { display: block; font-size: 14pt; font-weight: 800; letter-spacing: -.2px; }
+  .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
+
+  /* the CTA block */
+  /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
+     the CTA"). Title, one line, the big white button with the blue ring, then the phone as the
+     fallback in small type. Block-level only, so it survives a Gmail paste unchanged. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 24px 26px 20px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
+  .cta-block .ct-sub strong { color: #fff; }
+  .cta-block a.apply { display: block; max-width: 420px; margin: 18px auto 14px; background: #FFFFFF; color: var(--blue); border: 3px solid var(--blue); box-shadow: 0 0 0 4px #FFFFFF, 0 10px 30px rgba(4,17,31,.35); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14pt; letter-spacing: .2px; padding: 15px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply:hover { background: #EEF3FF; }
+  .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
+  .cta-btn { display: none; }
+
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid var(--mid-gray); border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+
+  .doc-footer { border-top: 1px solid var(--mid-gray); padding: 12px 36px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--muted); }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+  @media screen { @keyframes apBar { from { width: 0; } } .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .cs-body, .cc-note, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .open-note { padding: 16px 18px 18px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .options { display: block; }
+    .opt { margin-bottom: 10px; }
+    table.tier-row, table.tier-row > tbody, table.tier-row > tbody > tr { display: block; margin: 0; }
+    td.tier-cell { display: block; width: 100% !important; margin-bottom: 10px; }
+    table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
+    td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
+    /* phone: label + value on one line, the bar full width under them */
+    table.bar-chart, table.bar-chart tbody { display: block; }
+    table.bar-chart tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 8px; }
+    table.bar-chart td.bc-label { grid-row: 1; grid-column: 1; font-size: 8pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
+    td.bc-track .bc-bar { height: 14px; }
+    .cta-block { padding: 22px 18px 18px; }
+    .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    /* each promise line stays ONE line on a phone (Chris 2026-10-20: "statement" wrapped under) */
+    .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
+    .title-block h1.merchant-h { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.28in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.35; color: var(--text); }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .chart-card, .prog-chart, td.counter-cell, .bc-bar, .cs-num, .pill, .chip, .insight, .promise, .opt, .opt-tag, ul.call-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero, .chart-card, .prog-chart, .cta-block, .terms-table, .promise, .insight, table.counter-row, .options { break-inside: avoid; page-break-inside: avoid; }
+    .cta-block { box-shadow: none; }
+    .doc-header { padding: 8px 22px 6px; }
+    .doc-header .logo-img { height: 40px; }
+    .open-note { padding: 8px 22px 6px; font-size: 8.5pt; }
+    .content { padding: 10px 22px 8px; }
+    .title-block { margin-bottom: 6px; }
+    .title-block h1 { font-size: 18pt; }
+    .title-block .merchant { font-size: 10pt; margin-bottom: 6px; }
+    .title-block .eyebrow { font-size: 7.5pt; margin-bottom: 2px; }
+    .meta-row { padding: 5px 0; font-size: 7.5pt; gap: 16px; }
+    .hero { padding: 11px 18px; margin: 8px 0; border-radius: 9px; }
+    .hero h2 { font-size: 11.5pt; margin-bottom: 8px; }
+    .hero .hero-eyebrow { font-size: 7pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell .pc-value.us { font-size: 20pt; }
+    .price-cell .pc-value.today { font-size: 12pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7pt; }
+    .sec-label { font-size: 7.5pt; margin: 8px 0 4px; }
+    .chart-card, .prog-chart { padding: 8px 12px 7px; margin-top: 7px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 7pt; margin-bottom: 4px; }
+    table.bar-chart td { padding: 2.5px 0; }
+    td.bc-track .bc-bar { height: 13px; }
+    td.bc-label { font-size: 7pt; }
+    td.bc-value { font-size: 9.5pt; }
+    .chart-card .cc-note { font-size: 6pt; margin-top: 3px; }
+    .insight { padding: 8px 12px; font-size: 8.5pt; margin-top: 8px; }
+    td.tier-cell { padding: 7px 11px 6px; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-pop { font-size: 5.5pt; padding: 1.5px 7px; margin-bottom: 3px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-cash { font-size: 14pt; }
+    table.t-facts td { padding: 2px 0; font-size: 6.5pt; }
+    table.tier-row { break-inside: avoid; page-break-inside: avoid; }
+    ul.call-list li { padding: 4px 10px; font-size: 8.5pt; margin-bottom: 4px; }
+    table.counter-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.counter-cell { padding: 6px 10px; border-radius: 7px; }
+    .counter-cell .cs-num { width: 15px; height: 15px; line-height: 15px; font-size: 7.5pt; margin-bottom: 3px; }
+    .counter-cell .cs-title { font-size: 7.5pt; margin-bottom: 1px; }
+    .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
+    .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
+    .promise { padding: 8px 12px; font-size: 9pt; margin-top: 8px; }
+    .cta-block { padding: 10px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
+    .cta-block .ct-sub { font-size: 7.5pt; }
+    .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .ct-or { font-size: 7.5pt; }
+    .title-block h1.merchant-h { font-size: 17pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
+    .doc-footer .sig img { height: 16px; }
+    .doc-footer .fine { font-size: 6pt; }
+  }
+
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  @media screen {
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, rgba(0,102,255,0.26) 0%, rgba(0,212,255,0.07) 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
+
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .doc-header .logo-img, .doc-header img, .doc-footer .sig img { content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTM4OSAyOTkiPg0KPCEtLSBBbGxQcm9QYXkgbG9ja3VwLWZ1bGwtZGFyaw0KICAgICBDYW5vbmljYWwuIEdlbmVyYXRlZCBmcm9tIHZlcmlmaWVkIHNvdXJjZXMsIHNlZSAwMi1icmFuZC9sb2dvL1JFQURNRS5tZA0KICAgICBDaGV2cm9uIG91dGxpbmUgcmVtb3ZlZCwgZ3JhZGllbnQgc2hhcGVzIG9ubHkuDQogICAgIERvIE5PVCBleWVkcm9wcGVyIGNvbG91cnMgb3V0IG9mICJBbGxQcm9QYXkgTG9nby8iLCB0aG9zZSBtYXN0ZXJzIGNhcnJ5DQogICAgIHRoZSB3cm9uZyBibHVlICgjMDAwMEZGKSBhbmQgYSBzdXBlcnNlZGVkIGdyYWRpZW50LiAtLT4NCjxkZWZzPg0KICAgIDxzdHlsZT4NCiAgICAgIC5hcGwtZmQtc3QwIHsgZmlsbDogdXJsKCNhcGwtZmQtbGluZWFyLWdyYWRpZW50Mik7IH0NCiAgICAgIC5hcGwtZmQtc3QyIHsgZmlsbDogdXJsKCNhcGwtZmQtbGluZWFyLWdyYWRpZW50MSk7IH0NCiAgICAgIC5hcGwtZmQtc3QzIHsgZmlsbDogdXJsKCNhcGwtZmQtcmFkaWFsLWdyYWRpZW50KTsgfQ0KICAgICAgLmFwbC1mZC1zdDQgeyBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQzKTsgfQ0KICAgICAgLmFwbC1mZC1zdDUgeyBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQpOyB9DQogICAgPC9zdHlsZT4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFwbC1mZC1saW5lYXItZ3JhZGllbnQiIHgxPSIxMjIuMTUiIHkxPSI2NS4xMiIgeDI9IjI4MS45OCIgeTI9IjIzOC45NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBkNGZmIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwYTM3Y2MiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYXBsLWZkLXJhZGlhbC1ncmFkaWVudCIgY3g9IjI5Mi44IiBjeT0iMjUwLjUxIiBmeD0iMjkyLjgiIGZ5PSIyNTAuNTEiIHI9IjI3MC4xNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBkNGZmIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwYTM3Y2MiLz4NCiAgICA8L3JhZGlhbEdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDEiIHgxPSIzOTAuMzciIHkxPSIxMzEuNDIiIHgyPSIzNDAuODYiIHkyPSI0OC4zMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMGEzN2NjIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii45OCIgc3RvcC1jb2xvcj0iIzAwZDRmZiIvPg0KICAgIDwvbGluZWFyR3JhZGllbnQ+DQogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhcGwtZmQtbGluZWFyLWdyYWRpZW50MiIgeDE9IjI3OC4zNyIgeTE9IjQzMi43NiIgeDI9IjIzOC44OCIgeTI9IjM2Mi42MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMGEzN2NjIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMGQ0ZmYiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDMiIHgxPSI4NS4yOSIgeTE9IjI2OC45NCIgeDI9IjIxMy4zOCIgeTI9IjI2OC45NCIgeGxpbms6aHJlZj0iI2FwbC1mZC1saW5lYXItZ3JhZGllbnQyIi8+DQogIDwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2LjAwLDI1LjAwKSBzY2FsZSgwLjUwMDApIj48Zz4NCiAgICA8cGF0aCBjbGFzcz0iYXBsLWZkLXN0NSIgZD0iTTIyMC44MSwyODIuMDJjNS44NS0xNi45OC0uMDMtMzcuMzItMTcuNjYtNDcuNWwtMTE2LjA1LTY2Ljk5di02Ny4yM2MwLTMwLjU5LDMzLjEyLTQ5LjcxLDU5LjYxLTM0LjQxbDIyNC41OSwxMjkuNjctMTUwLjQ4LDg2LjQ3WiIvPg0KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QzIiBkPSJNNDE2LjIzLDI5MC4zMWwtMTI3LjA5LDczLjM4LTM2LjM4LTIwLjk5Yy00LTIuMzEtOC41My0zLjU0LTEzLjExLTMuNTQtMTQuNDcsMC0yNi4yNSwxMS43OC0yNi4yNSwyNi4yNXY0MmwtNjYuNjksMzguNTFjLTI2LjQ5LDE1LjMtNTkuNjEtMy44Mi01OS42MS0zNC40MXYtNDEuMTZsMTE2LjA1LTY3LjAxYzguODctNS4xMiwxNC43NS0xMi43OSwxNy42Ni0yMS4zM2wxNTAuNDgtODYuNDcsNDQuOTMsMjUuOTNjMjYuNDksMTUuMywyNi40OSw1My41MywwLDY4LjgzWiIvPg0KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QyIiBkPSJNNDMxLjM4LDEwNi43OGwtODMuMTQsNDhjLTcuMzgsNC4yNi0xNi42MS0xLjA3LTE2LjYxLTkuNTlWNDkuMmMwLTguNTIsOS4yMy0xMy44NSwxNi42MS05LjU5bDgzLjEzLDQ4YzcuMzgsNC4yNiw3LjM4LDE0LjkyLDAsMTkuMThaIi8+DQogICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDAiIGQ9Ik0zMDkuMzYsNDEwLjY5bC02NS4zNywzNy43NGMtNS44LDMuMzUtMTMuMDYtLjg0LTEzLjA2LTcuNTR2LTc1LjQ4YzAtNi43LDcuMjYtMTAuODksMTMuMDYtNy41NGw2NS4zNywzNy43NGM1LjgsMy4zNSw1LjgsMTEuNzMsMCwxNS4wOFoiLz4NCiAgICA8cGF0aCBjbGFzcz0iYXBsLWZkLXN0NCIgZD0iTTIyMC44MSwyODIuMDJjLTIuOTEsOC41My04LjgsMTYuMjEtMTcuNjYsMjEuMzNsLTExNi4wNSw2Ny4wMXYtMjAyLjgybDExNi4wNSw2Ni45OWMxNy42MywxMC4xOCwyMy41MiwzMC41MiwxNy42Niw0Ny41WiIvPg0KICA8L2c+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5MC4wMCw3NS4wMCkgc2NhbGUoMC4yMDIyKSI+PHBhdGggZmlsbD0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCw3NDIpIHNjYWxlKDEsLTEpIiBkPSJNLTE0IDAgMjk1IDcwMEg0OTBMODAwIDBINTk0TDUzOSAxMzZIMjQzTDE4OCAwWk0zMDEgMjgySDQ4MUwzOTEgNTA2WiIvPjxwYXRoIGZpbGw9IiNGRkZGRkYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc4Niw3NDIpIHNjYWxlKDEsLTEpIiBkPSJNNjEgMFY3NDJIMjUxVjBaIi8+PHBhdGggZmlsbD0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA5OSw3NDIpIHNjYWxlKDEsLTEpIiBkPSJNNjEgMFY3NDJIMjUxVjBaIi8+PHBhdGggZmlsbD0iIzJGOEJGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQzMiw3NDIpIHNjYWxlKDEsLTEpIiBkPSJNMTYgMCAxNTYgNzAwSDQ1MlE1ODggNzAwIDY2Mi4wIDY0MC41UTczNiA1ODEgNzM2IDQ3NVE3MzYgMzg3IDY5My41IDMyMS4wUTY1MSAyNTUgNTczLjAgMjE5LjBRNDk1IDE4MyAzOTAgMTgzSDI1MUwyMTQgMFpNMjgyIDMzOUgzOTlRNDY0IDMzOSA1MDAuMCAzNjkuNVE1MzYgNDAwIDUzNiA0NThRNTM2IDUwMiA1MDcuMCA1MjMuMFE0NzggNTQ0IDQyNiA1NDRIMzIzWiIvPjxwYXRoIGZpbGw9IiMyRjhCRkYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNjksNzQyKSBzY2FsZSgxLC0xKSIgZD0iTTcgMCAxMTUgNTQySDI5NUwyODMgNDgyUTMxOCA1MTkgMzY4LjAgNTM1LjBRNDE4IDU1MSA0NzkgNTUxTDQ0NiAzODBRNDIzIDM4MyA0MDMgMzgzUTM0MSAzODMgMzAxLjUgMzUzLjBRMjYyIDMyMyAyNDkgMjU2TDE5NyAwWiIvPjxwYXRoIGZpbGw9IiMyRjhCRkYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2MTIsNzQyKSBzY2FsZSgxLC0xKSIgZD0iTTMwOCAtOVEyMjIgLTkgMTU4LjAgMjEuNVE5NCA1MiA1OS4wIDEwNy41UTI0IDE2MyAyNCAyMzhRMjQgMzI4IDY3LjAgMzk4LjVRMTEwIDQ2OSAxODUuMCA1MTAuMFEyNjAgNTUxIDM1NyA1NTFRNDQzIDU1MSA1MDcuMCA1MjAuNVE1NzEgNDkwIDYwNi4wIDQzNC41UTY0MSAzNzkgNjQxIDMwNVE2NDEgMjE1IDU5OC4wIDE0NC4wUTU1NSA3MyA0ODAuMCAzMi4wUTQwNSAtOSAzMDggLTlaTTMxOSAxNDJRMzc2IDE0MiA0MTIuMCAxODQuNVE0NDggMjI3IDQ0OCAyOTVRNDQ4IDM0MCA0MjEuNSAzNzAuMFEzOTUgNDAwIDM0NiA0MDBRMjg5IDQwMCAyNTMuMCAzNTguMFEyMTcgMzE2IDIxNyAyNDdRMjE3IDE5OSAyNDMuNSAxNzAuNVEyNzAgMTQyIDMxOSAxNDJaIi8+PHBhdGggZmlsbD0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzMzMiw3NDIpIHNjYWxlKDEsLTEpIiBkPSJNNzAgMFY3MDBIMzkwUTQ4NSA3MDAgNTU1LjAgNjY4LjVRNjI1IDYzNyA2NjMuMCA1NzkuMFE3MDEgNTIxIDcwMSA0NDFRNzAxIDM2MiA2NjMuMCAzMDQuMFE2MjUgMjQ2IDU1NS4wIDIxNC41UTQ4NSAxODMgMzkwIDE4M0gyNjhWMFpNMjY4IDMzOUgzNzhRNDQwIDMzOSA0NzAuNSAzNjYuMFE1MDEgMzkzIDUwMSA0NDFRNTAxIDQ5MCA0NzAuNSA1MTcuMFE0NDAgNTQ0IDM3OCA1NDRIMjY4WiIvPjxwYXRoIGZpbGw9IiNGRkZGRkYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwNjksNzQyKSBzY2FsZSgxLC0xKSIgZD0iTTM5MiAwVjY5UTM1MCAtOSAyMzIgLTlRMTM1IC05IDgyLjUgMzkuMFEzMCA4NyAzMCAxNThRMzAgMjMzIDg3LjUgMjc2LjVRMTQ1IDMyMCAyNzEgMzIwSDM3OVEzNzYgMzYxIDM0OC41IDM4My41UTMyMSA0MDYgMjY0IDQwNlEyMjUgNDA2IDE4NS4wIDM5My41UTE0NSAzODEgMTE3IDM1OUw1MyA0ODhROTkgNTE4IDE2My41IDUzNC41UTIyOCA1NTEgMjkyIDU1MVE0MjQgNTUxIDQ5Ni41IDQ5MC41UTU2OSA0MzAgNTY5IDMwMVYwWk0zNzkgMTc0VjIyMUgyOTdRMjUxIDIyMSAyMzIuNSAyMDYuMFEyMTQgMTkxIDIxNCAxNjZRMjE0IDE0MiAyMzMuMCAxMjYuNVEyNTIgMTExIDI4NSAxMTFRMzE2IDExMSAzNDEuNSAxMjYuNVEzNjcgMTQyIDM3OSAxNzRaIi8+PHBhdGggZmlsbD0iI0ZGRkZGRiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDY5Nyw3NDIpIHNjYWxlKDEsLTEpIiBkPSJNMTU0IC0yMDNRMTExIC0yMDMgNjcuNSAtMTkwLjBRMjQgLTE3NyAtMyAtMTU0TDYzIC0yMVE4MCAtMzYgMTAyLjUgLTQ0LjVRMTI1IC01MyAxNDcgLTUzUTE3NSAtNTMgMTkyLjAgLTQyLjBRMjA5IC0zMSAyMjEgLTdMLTExIDU0MkgxODRMMzE3IDIxMUw0NTEgNTQySDYzMkwzOTggLTIyUTM3MCAtOTIgMzMzLjUgLTEzMS41UTI5NyAtMTcxIDI1Mi41IC0xODcuMFEyMDggLTIwMyAxNTQgLTIwM1oiLz48L2c+PHBhdGggZmlsbD0iIzlmYjBjOSIgZD0iTTI5My44MyAyODMuMCAzMDQuNTQgMjU5LjJIMzA4Ljg5MkwzMTkuNjM2IDI4My4wSDMxNS4wMTJMMzA1Ljc5OCAyNjEuNTQ2SDMwNy41NjZMMjk4LjM4NiAyODMuMFpNMjk4Ljc2IDI3Ny40OTIgMjk5Ljk1IDI3NC4wMjRIMzEyLjgwMkwzMTMuOTkyIDI3Ny40OTJaIE0zNDAuNjc4IDI4My4zNFEzMzcuOTU4IDI4My4zNCAzMzUuNjI5IDI4Mi40Mzg5OTk5OTk5OTk5NlEzMzMuMyAyODEuNTM4IDMzMS41ODI5OTk5OTk5OTk5NyAyNzkuODg5UTMyOS44NjYgMjc4LjI0IDMyOC45MTQgMjc1Ljk5NlEzMjcuOTYyIDI3My43NTIgMzI3Ljk2MiAyNzEuMVEzMjcuOTYyIDI2OC40NDggMzI4LjkxNCAyNjYuMjAzOTk5OTk5OTk5OTVRMzI5Ljg2NiAyNjMuOTYgMzMxLjYgMjYyLjMxMVEzMzMuMzM0IDI2MC42NjIgMzM1LjY0NiAyNTkuNzYwOTk5OTk5OTk5OTdRMzM3Ljk1OCAyNTguODYgMzQwLjcxMiAyNTguODZRMzQzLjYzNiAyNTguODYgMzQ2LjA1IDI1OS44NjNRMzQ4LjQ2NCAyNjAuODY2IDM1MC4xMyAyNjIuODM4TDM0Ny4yNzQgMjY1LjUyNFEzNDUuOTgyIDI2NC4xMyAzNDQuMzg0IDI2My40MzNRMzQyLjc4NiAyNjIuNzM2IDM0MC45MTYgMjYyLjczNlEzMzkuMDQ2IDI2Mi43MzYgMzM3LjQ5OSAyNjMuMzQ3OTk5OTk5OTk5OTZRMzM1Ljk1MiAyNjMuOTYgMzM0LjgxMyAyNjUuMDgyUTMzMy42NzQwMDAwMDAwMDAwNCAyNjYuMjA0IDMzMy4wNDUgMjY3LjczNDAwMDAwMDAwMDA0UTMzMi40MTYgMjY5LjI2NCAzMzIuNDE2IDI3MS4xUTMzMi40MTYgMjcyLjkzNiAzMzMuMDQ1IDI3NC40NjZRMzMzLjY3NDAwMDAwMDAwMDA0IDI3NS45OTYgMzM0LjgxMyAyNzcuMTE4UTMzNS45NTIgMjc4LjI0IDMzNy40OTkgMjc4Ljg1MlEzMzkuMDQ2IDI3OS40NjQgMzQwLjkxNiAyNzkuNDY0UTM0Mi43ODYgMjc5LjQ2NCAzNDQuMzg0IDI3OC43NjdRMzQ1Ljk4MiAyNzguMDcgMzQ3LjI3NCAyNzYuNjQyTDM1MC4xMyAyNzkuMzYyUTM0OC40NjQgMjgxLjMgMzQ2LjA1IDI4Mi4zMlEzNDMuNjM2IDI4My4zNCAzNDAuNjc4IDI4My4zNFogTTM3Mi4wOSAyODMuMzRRMzY5LjM3IDI4My4zNCAzNjcuMDQxIDI4Mi40Mzg5OTk5OTk5OTk5NlEzNjQuNzEyIDI4MS41MzggMzYyLjk5NSAyNzkuODg5UTM2MS4yNzc5OTk5OTk5OTk5NiAyNzguMjQgMzYwLjMyNTk5OTk5OTk5OTk2IDI3NS45OTZRMzU5LjM3Mzk5OTk5OTk5OTk3IDI3My43NTIgMzU5LjM3Mzk5OTk5OTk5OTk3IDI3MS4xUTM1OS4zNzM5OTk5OTk5OTk5NyAyNjguNDQ4IDM2MC4zMjU5OTk5OTk5OTk5NiAyNjYuMjAzOTk5OTk5OTk5OTVRMzYxLjI3Nzk5OTk5OTk5OTk2IDI2My45NiAzNjMuMDExOTk5OTk5OTk5OTQgMjYyLjMxMVEzNjQuNzQ2IDI2MC42NjIgMzY3LjA1OCAyNTkuNzYwOTk5OTk5OTk5OTdRMzY5LjM3IDI1OC44NiAzNzIuMTIzOTk5OTk5OTk5OTcgMjU4Ljg2UTM3NS4wNDggMjU4Ljg2IDM3Ny40NjIgMjU5Ljg2M1EzNzkuODc2IDI2MC44NjYgMzgxLjU0MiAyNjIuODM4TDM3OC42ODYgMjY1LjUyNFEzNzcuMzk0IDI2NC4xMyAzNzUuNzk2IDI2My40MzNRMzc0LjE5OCAyNjIuNzM2IDM3Mi4zMjggMjYyLjczNlEzNzAuNDU3OTk5OTk5OTk5OTcgMjYyLjczNiAzNjguOTEwOTk5OTk5OTk5OTQgMjYzLjM0Nzk5OTk5OTk5OTk2UTM2Ny4zNjQgMjYzLjk2IDM2Ni4yMjUgMjY1LjA4MlEzNjUuMDg2IDI2Ni4yMDQgMzY0LjQ1NyAyNjcuNzM0MDAwMDAwMDAwMDRRMzYzLjgyOCAyNjkuMjY0IDM2My44MjggMjcxLjFRMzYzLjgyOCAyNzIuOTM2IDM2NC40NTcgMjc0LjQ2NlEzNjUuMDg2IDI3NS45OTYgMzY2LjIyNSAyNzcuMTE4UTM2Ny4zNjQgMjc4LjI0IDM2OC45MTA5OTk5OTk5OTk5NCAyNzguODUyUTM3MC40NTc5OTk5OTk5OTk5NyAyNzkuNDY0IDM3Mi4zMjggMjc5LjQ2NFEzNzQuMTk4IDI3OS40NjQgMzc1Ljc5NiAyNzguNzY3UTM3Ny4zOTQgMjc4LjA3IDM3OC42ODYgMjc2LjY0MkwzODEuNTQyIDI3OS4zNjJRMzc5Ljg3NiAyODEuMyAzNzcuNDYyIDI4Mi4zMlEzNzUuMDQ4IDI4My4zNCAzNzIuMDkgMjgzLjM0WiBNMzkyLjQ4NiAyODMuMFYyNTkuMkg0MDkuODU5OTk5OTk5OTk5OTZWMjYyLjkwNkgzOTYuOTA1OTk5OTk5OTk5OTVWMjc5LjI5NEg0MTAuMzM1OTk5OTk5OTk5OTZWMjgzLjBaTTM5Ni41NjYgMjcyLjczMTk5OTk5OTk5OTk3VjI2OS4wOTRINDA4LjM5Nzk5OTk5OTk5OTk3VjI3Mi43MzE5OTk5OTk5OTk5N1ogTTQyMi4yNjU5OTk5OTk5OTk5NiAyODMuMFYyNTkuMkg0MzIuMDU3OTk5OTk5OTk5OTRRNDM1LjIxOTk5OTk5OTk5OTkgMjU5LjIgNDM3LjQ4MDk5OTk5OTk5OTk0IDI2MC4yMlE0MzkuNzQxOTk5OTk5OTk5OTYgMjYxLjI0IDQ0MC45NjU5OTk5OTk5OTk5NSAyNjMuMTQ0UTQ0Mi4xODk5OTk5OTk5OTk5NCAyNjUuMDQ4IDQ0Mi4xODk5OTk5OTk5OTk5NCAyNjcuNjY2UTQ0Mi4xODk5OTk5OTk5OTk5NCAyNzAuMjg0IDQ0MC45NjU5OTk5OTk5OTk5NSAyNzIuMTg4UTQzOS43NDE5OTk5OTk5OTk5NiAyNzQuMDkyIDQzNy40ODA5OTk5OTk5OTk5NCAyNzUuMTExOTk5OTk5OTk5OTdRNDM1LjIxOTk5OTk5OTk5OTkgMjc2LjEzMiA0MzIuMDU3OTk5OTk5OTk5OTQgMjc2LjEzMkg0MjQuNzEzOTk5OTk5OTk5OTRMNDI2LjY4NTk5OTk5OTk5OTkgMjc0LjA1OFYyODMuMFpNNDI2LjY4NTk5OTk5OTk5OTkgMjc0LjUzNCA0MjQuNzEzOTk5OTk5OTk5OTQgMjcyLjM5Mkg0MzEuODUzOTk5OTk5OTk5OVE0MzQuNzc3OTk5OTk5OTk5OTYgMjcyLjM5MiA0MzYuMjU2OTk5OTk5OTk5OTUgMjcxLjE1MVE0MzcuNzM1OTk5OTk5OTk5OTMgMjY5LjkxIDQzNy43MzU5OTk5OTk5OTk5MyAyNjcuNjY2UTQzNy43MzU5OTk5OTk5OTk5MyAyNjUuMzg4IDQzNi4yNTY5OTk5OTk5OTk5NSAyNjQuMTY0UTQzNC43Nzc5OTk5OTk5OTk5NiAyNjIuOTQgNDMxLjg1Mzk5OTk5OTk5OTkgMjYyLjk0SDQyNC43MTM5OTk5OTk5OTk5NEw0MjYuNjg1OTk5OTk5OTk5OSAyNjAuNzY0WiBNNDU4Ljc3Nzk5OTk5OTk5OTk2IDI4My4wVjI2Mi45NEg0NTAuODlWMjU5LjJINDcxLjA4NTk5OTk5OTk5OTk2VjI2Mi45NEg0NjMuMTk4VjI4My4wWiBNNDk3LjgwMiAyODMuMFYyNTkuMkg1MDcuNTk0UTUxMC43NTYgMjU5LjIgNTEzLjAxNyAyNjAuMjJRNTE1LjI3OCAyNjEuMjQgNTE2LjUwMiAyNjMuMTQ0UTUxNy43MjYgMjY1LjA0OCA1MTcuNzI2IDI2Ny42NjZRNTE3LjcyNiAyNzAuMjg0IDUxNi41MDIgMjcyLjE4OFE1MTUuMjc4IDI3NC4wOTIgNTEzLjAxNyAyNzUuMTExOTk5OTk5OTk5OTdRNTEwLjc1NiAyNzYuMTMyIDUwNy41OTQgMjc2LjEzMkg1MDAuMjVMNTAyLjIyMiAyNzQuMDU4VjI4My4wWk01MDIuMjIyIDI3NC41MzQgNTAwLjI1IDI3Mi4zOTJINTA3LjM5UTUxMC4zMTQgMjcyLjM5MiA1MTEuNzkzIDI3MS4xNTFRNTEzLjI3MiAyNjkuOTEgNTEzLjI3MiAyNjcuNjY2UTUxMy4yNzIgMjY1LjM4OCA1MTEuNzkzIDI2NC4xNjRRNTEwLjMxNCAyNjIuOTQgNTA3LjM5IDI2Mi45NEg1MDAuMjVMNTAyLjIyMiAyNjAuNzY0WiBNNTI2LjEyIDI4My4wIDUzNi44Mjk5OTk5OTk5OTk5IDI1OS4ySDU0MS4xODJMNTUxLjkyNTk5OTk5OTk5OTkgMjgzLjBINTQ3LjMwMTk5OTk5OTk5OTlMNTM4LjA4OCAyNjEuNTQ2SDUzOS44NTZMNTMwLjY3NTk5OTk5OTk5OTkgMjgzLjBaTTUzMS4wNSAyNzcuNDkyIDUzMi4yNCAyNzQuMDI0SDU0NS4wOTJMNTQ2LjI4MTk5OTk5OTk5OTkgMjc3LjQ5MlogTTU2Ny44IDI4My4wVjI3My41ODJMNTY4Ljc4NiAyNzYuMzAyTDU1OC40NDk5OTk5OTk5OTk5IDI1OS4ySDU2My4xNzU5OTk5OTk5OTk5TDU3MS40NzIgMjcyLjk3SDU2OC44MTk5OTk5OTk5OTk5TDU3Ny4xODQgMjU5LjJINTgxLjUzNkw1NzEuMTk5OTk5OTk5OTk5OSAyNzYuMzAyTDU3Mi4yMiAyNzMuNTgyVjI4My4wWiBNNTkxLjQyNiAyODMuMFYyNTkuMkg1OTUuMDY0TDYwNS40NjgwMDAwMDAwMDAxIDI3Ni41NzRINjAzLjU2NEw2MTMuNzk4IDI1OS4ySDYxNy40MzZMNjE3LjQ3IDI4My4wSDYxMy4yODhMNjEzLjI1NCAyNjUuNzYySDYxNC4xMzhMNjA1LjQzNCAyODAuMjhINjAzLjQ2Mkw1OTQuNjIyMDAwMDAwMDAwMSAyNjUuNzYySDU5NS42NDJWMjgzLjBaIE02MzAuODk2MDAwMDAwMDAwMSAyODMuMFYyNTkuMkg2NDguMjcwMDAwMDAwMDAwMVYyNjIuOTA2SDYzNS4zMTZWMjc5LjI5NEg2NDguNzQ2MDAwMDAwMDAwMVYyODMuMFpNNjM0Ljk3NiAyNzIuNzMxOTk5OTk5OTk5OTdWMjY5LjA5NEg2NDYuODA4VjI3Mi43MzE5OTk5OTk5OTk5N1ogTTY2MC42NzYgMjgzLjBWMjU5LjJINjY0LjMxNEw2NzkuMjQgMjc3LjUyNkg2NzcuNDM4VjI1OS4ySDY4MS44MjQwMDAwMDAwMDAxVjI4My4wSDY3OC4xODZMNjYzLjI2IDI2NC42NzRINjY1LjA2MlYyODMuMFogTTcwMC4wNDQgMjgzLjBWMjYyLjk0SDY5Mi4xNTZWMjU5LjJINzEyLjM1MlYyNjIuOTRINzA0LjQ2Mzk5OTk5OTk5OTlWMjgzLjBaIE03MzAuMDYxOTk5OTk5OTk5OSAyODMuMzRRNzI3LjI3Mzk5OTk5OTk5OTkgMjgzLjM0IDcyNC43MjM5OTk5OTk5OTk5IDI4Mi41NDFRNzIyLjE3NCAyODEuNzQyIDcyMC42NzggMjgwLjQ4NEw3MjIuMjA4IDI3Ny4wNVE3MjMuNjM2IDI3OC4xNzIgNzI1Ljc0Mzk5OTk5OTk5OTkgMjc4LjkyUTcyNy44NTIgMjc5LjY2OCA3MzAuMDYxOTk5OTk5OTk5OSAyNzkuNjY4UTczMS45MzE5OTk5OTk5OTk5IDI3OS42NjggNzMzLjA4OCAyNzkuMjZRNzM0LjI0Mzk5OTk5OTk5OTkgMjc4Ljg1MiA3MzQuNzg4IDI3OC4xNTVRNzM1LjMzMiAyNzcuNDU4IDczNS4zMzIgMjc2LjU3NFE3MzUuMzMyIDI3NS40ODYgNzM0LjU1IDI3NC44MjNRNzMzLjc2Nzk5OTk5OTk5OTkgMjc0LjE2IDczMi41MjY5OTk5OTk5OTk5IDI3My43NjlRNzMxLjI4NiAyNzMuMzc4IDcyOS43NzI5OTk5OTk5OTk5IDI3My4wMzhRNzI4LjI2IDI3Mi42OTggNzI2Ljc0NyAyNzIuMjM5UTcyNS4yMzM5OTk5OTk5OTk5IDI3MS43OCA3MjMuOTkyOTk5OTk5OTk5OSAyNzEuMDQ5UTcyMi43NTIgMjcwLjMxOCA3MjEuOTcgMjY5LjA5NFE3MjEuMTg4IDI2Ny44NyA3MjEuMTg4IDI2NS45NjZRNzIxLjE4OCAyNjQuMDI4IDcyMi4yMjQ5OTk5OTk5OTk5IDI2Mi40MTNRNzIzLjI2MiAyNjAuNzk4IDcyNS4zODcgMjU5LjgyOVE3MjcuNTEyIDI1OC44NiA3MzAuNzc2IDI1OC44NlE3MzIuOTE3OTk5OTk5OTk5OSAyNTguODYgNzM1LjAyNTk5OTk5OTk5OTggMjU5LjQwNFE3MzcuMTMzOTk5OTk5OTk5OSAyNTkuOTQ4IDczOC42OTggMjYwLjk2OEw3MzcuMzA0IDI2NC40MDJRNzM1LjcwNTk5OTk5OTk5OTkgMjYzLjQ1IDczNC4wMDU5OTk5OTk5OTk5IDI2Mi45OTFRNzMyLjMwNTk5OTk5OTk5OTkgMjYyLjUzMiA3MzAuNzQyIDI2Mi41MzJRNzI4LjkwNiAyNjIuNTMyIDcyNy43NjY5OTk5OTk5OTk5IDI2Mi45NzRRNzI2LjYyNzk5OTk5OTk5OTkgMjYzLjQxNiA3MjYuMTAwOTk5OTk5OTk5OSAyNjQuMTNRNzI1LjU3NCAyNjQuODQ0IDcyNS41NzQgMjY1Ljc2MlE3MjUuNTc0IDI2Ni44NSA3MjYuMzM4OTk5OTk5OTk5OSAyNjcuNTEzMDAwMDAwMDAwMDNRNzI3LjEwMzk5OTk5OTk5OTkgMjY4LjE3NiA3MjguMzQ0OTk5OTk5OTk5OSAyNjguNTQ5OTk5OTk5OTk5OTVRNzI5LjU4NTk5OTk5OTk5OTkgMjY4LjkyNCA3MzEuMTE2IDI2OS4yODA5OTk5OTk5OTk5NVE3MzIuNjQ2IDI2OS42MzggNzM0LjE1ODk5OTk5OTk5OTkgMjcwLjA4UTczNS42NzE5OTk5OTk5OTk5IDI3MC41MjIgNzM2LjkxMyAyNzEuMjM2UTczOC4xNTQgMjcxLjk1IDczOC45MTkgMjczLjE3NFE3MzkuNjg0IDI3NC4zOTggNzM5LjY4NCAyNzYuMjY4UTczOS42ODQgMjc4LjE3MiA3MzguNjQ2OTk5OTk5OTk5OSAyNzkuNzg3MDAwMDAwMDAwMDNRNzM3LjYwOTk5OTk5OTk5OTkgMjgxLjQwMiA3MzUuNDY3OTk5OTk5OTk5OCAyODIuMzcxUTczMy4zMjU5OTk5OTk5OTk5IDI4My4zNCA3MzAuMDYxOTk5OTk5OTk5OSAyODMuMzRaIE03NjQuMDg4IDI4My4wIDc3NC43OTc5OTk5OTk5OTk5IDI1OS4ySDc3OS4xNUw3ODkuODkzOTk5OTk5OTk5OSAyODMuMEg3ODUuMjdMNzc2LjA1NTk5OTk5OTk5OTkgMjYxLjU0Nkg3NzcuODI0TDc2OC42NDM5OTk5OTk5OTk5IDI4My4wWk03NjkuMDE3OTk5OTk5OTk5OSAyNzcuNDkyIDc3MC4yMDggMjc0LjAyNEg3ODMuMDZMNzg0LjI0OTk5OTk5OTk5OTkgMjc3LjQ5MlogTTc5OS45MiAyODMuMFYyNTkuMkg4MDMuNTU3OTk5OTk5OTk5OUw4MTguNDgzOTk5OTk5OTk5OSAyNzcuNTI2SDgxNi42ODE5OTk5OTk5OTk5VjI1OS4ySDgyMS4wNjhWMjgzLjBIODE3LjQzTDgwMi41MDM5OTk5OTk5OTk5IDI2NC42NzRIODA0LjMwNTk5OTk5OTk5OTlWMjgzLjBaIE04NDAuMzA3OTk5OTk5OTk5OSAyODMuMFYyNzMuNTgyTDg0MS4yOTM5OTk5OTk5OTk5IDI3Ni4zMDJMODMwLjk1Nzk5OTk5OTk5OTkgMjU5LjJIODM1LjY4Mzk5OTk5OTk5OTlMODQzLjk3OTk5OTk5OTk5OTkgMjcyLjk3SDg0MS4zMjc5OTk5OTk5OTk5TDg0OS42OTE5OTk5OTk5OTk5IDI1OS4ySDg1NC4wNDM5OTk5OTk5OTk5TDg0My43MDc5OTk5OTk5OTk5IDI3Ni4zMDJMODQ0LjcyOCAyNzMuNTgyVjI4My4wWiBNODY5LjU0NCAyODMuMCA4NjEuNjU2IDI1OS4ySDg2Ni4yNDZMODczLjI4NCAyODAuNzIySDg3MS4wMDZMODc4LjMxNTk5OTk5OTk5OTkgMjU5LjJIODgyLjM5Nkw4ODkuNTAyIDI4MC43MjJIODg3LjI5MTk5OTk5OTk5OTlMODk0LjUgMjU5LjJIODk4LjcxNTk5OTk5OTk5OTlMODkwLjgyOCAyODMuMEg4ODYuMTM2TDg3OS42NDE5OTk5OTk5OTk5IDI2My41ODZIODgwLjg2Nkw4NzQuMjcgMjgzLjBaIE05MjYuNTU3OTk5OTk5OTk5OSAyODMuMFYyNTkuMkg5MzAuOTc4VjI4My4wWk05MDkuODI5OTk5OTk5OTk5OSAyODMuMFYyNTkuMkg5MTQuMjQ5OTk5OTk5OTk5OVYyODMuMFpNOTEzLjg3NTk5OTk5OTk5OTkgMjcyLjhWMjY5LjAyNkg5MjYuODk3OTk5OTk5OTk5OVYyNzIuOFogTTk0NC4zNjk5OTk5OTk5OTk5IDI4My4wVjI1OS4ySDk2MS43NDM5OTk5OTk5OTk5VjI2Mi45MDZIOTQ4Ljc4OTk5OTk5OTk5OThWMjc5LjI5NEg5NjIuMjE5OTk5OTk5OTk5OVYyODMuMFpNOTQ4LjQ0OTk5OTk5OTk5OTggMjcyLjczMTk5OTk5OTk5OTk3VjI2OS4wOTRIOTYwLjI4MTk5OTk5OTk5OThWMjcyLjczMTk5OTk5OTk5OTk3WiBNOTc0LjE0OTk5OTk5OTk5OTkgMjgzLjBWMjU5LjJIOTgzLjkwNzk5OTk5OTk5OThROTg4LjY2Nzk5OTk5OTk5OTkgMjU5LjIgOTkxLjM3MDk5OTk5OTk5OTkgMjYxLjQ0Mzk5OTk5OTk5OTk2UTk5NC4wNzM5OTk5OTk5OTk4IDI2My42ODggOTk0LjA3Mzk5OTk5OTk5OTggMjY3LjY2NlE5OTQuMDczOTk5OTk5OTk5OCAyNzAuMjg0IDk5Mi44NDk5OTk5OTk5OTk5IDI3Mi4xNzFROTkxLjYyNTk5OTk5OTk5OTkgMjc0LjA1OCA5ODkuMzY0OTk5OTk5OTk5OCAyNzUuMDYxMDAwMDAwMDAwMDRROTg3LjEwMzk5OTk5OTk5OTggMjc2LjA2NCA5ODMuOTQxOTk5OTk5OTk5OSAyNzYuMDY0SDk3Ni41OTc5OTk5OTk5OTk4TDk3OC41Njk5OTk5OTk5OTk4IDI3NC4wNThWMjgzLjBaTTk4OS43MjE5OTk5OTk5OTk5IDI4My4wIDk4My43MDM5OTk5OTk5OTk4IDI3NC4zNjRIOTg4LjQyOTk5OTk5OTk5OThMOTk0LjQ4MTk5OTk5OTk5OTkgMjgzLjBaTTk3OC41Njk5OTk5OTk5OTk4IDI3NC41MzQgOTc2LjU5Nzk5OTk5OTk5OTggMjcyLjQyNkg5ODMuNzM3OTk5OTk5OTk5OFE5ODYuNjYxOTk5OTk5OTk5OCAyNzIuNDI2IDk4OC4xNDA5OTk5OTk5OTk4IDI3MS4xNjhROTg5LjYxOTk5OTk5OTk5OTkgMjY5LjkxIDk4OS42MTk5OTk5OTk5OTk5IDI2Ny42NjZROTg5LjYxOTk5OTk5OTk5OTkgMjY1LjM4OCA5ODguMTQwOTk5OTk5OTk5OCAyNjQuMTY0UTk4Ni42NjE5OTk5OTk5OTk4IDI2Mi45NCA5ODMuNzM3OTk5OTk5OTk5OCAyNjIuOTRIOTc2LjU5Nzk5OTk5OTk5OThMOTc4LjU2OTk5OTk5OTk5OTggMjYwLjc2NFogTTEwMDYuMDAzOTk5OTk5OTk5OSAyODMuMFYyNTkuMkgxMDIzLjM3Nzk5OTk5OTk5OTlWMjYyLjkwNkgxMDEwLjQyMzk5OTk5OTk5OTlWMjc5LjI5NEgxMDIzLjg1Mzk5OTk5OTk5OTlWMjgzLjBaTTEwMTAuMDgzOTk5OTk5OTk5OCAyNzIuNzMxOTk5OTk5OTk5OTdWMjY5LjA5NEgxMDIxLjkxNTk5OTk5OTk5OThWMjcyLjczMTk5OTk5OTk5OTk3WiIvPjwhLS0gdGFnbGluZSBvdXRsaW5lZCBmcm9tIE1vbnRzZXJyYXQgU2VtaUJvbGQgNjAwLCB3YXMgbGl2ZSB0ZXh0IGF0IHg9Mjk0LjAgeT0yODMuMCBzaXplPTM0LjAgbHM9Ny4wIC0tPjwvc3ZnPg=="); }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid rgba(255,255,255,0.08); color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: rgba(255,255,255,0.10); }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: rgba(0,212,255,0.35); }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+
+    /* callouts + tiles */
+    .insight { background: rgba(0,102,255,0.12); border-left-color: #00D4FF; border-color: rgba(0,212,255,0.25); color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: rgba(255,255,255,0.04); border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid rgba(255,255,255,0.08); color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: rgba(0,102,255,0.18); color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: rgba(43,95,217,0.25); color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; border-bottom: 1px solid rgba(0,212,255,0.25); }
+    tbody td, .terms-table td { border-color: rgba(255,255,255,0.08); color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: rgba(255,255,255,0.035); }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: rgba(43,95,217,0.16); color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    .sxs-save.alt { background: rgba(43,95,217,0.16); color: #C9D3E3; border-color: rgba(143,176,255,0.4); }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: rgba(255,255,255,0.88); }
+  }
+  
+
+  /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
+     email-ready copy (make_email_version.py) stays paper. */
+  @media screen {
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: rgba(255,255,255,.08); color: #F5F7FA; }
+    .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
+    .content { padding-top: 24px; }
+    .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
+    .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
+    .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
+    .content { padding-top: 26px; }
+    .content ul.call-list li, .content ul.call-list li strong { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise strong { color: #0052FF; }
+    .insight { background: rgba(0,102,255,.12); border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    @keyframes apBar { from { width: 0; } }
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+    .opt-note { color: #9FB0C9; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:nth-child(2) { color: #FFFFFF; }
+    .terms-table td:nth-child(3) { color: #9FB0C9; }
+    .cta-block { box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+    .tiers-sub { color: #9FB0C9; }
+    td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
+    .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+/* ---- end dark surface 2026-10-19 ---- */
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-paper">
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      929-930-3970 &nbsp;&middot;&nbsp; chris@allpropay.com &nbsp;&middot;&nbsp; allpropay.com
+    </div>
+  </div>
+  <div class="open-note"><p>Darvin, good talking with you this morning. Here is everything I said on the phone, on one page, so you have it in writing.</p><p>You have been paying the card fee yourself for two years. On Edge that fee moves to the card-paying customer, you keep using your Apple phone, and there is no contract and nothing to set up.</p><p>I will call you around 3 today. If anything here is not clear, that is the call to ask.</p><p class="on-sign">Chris Ste-Marie</p></div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <div class="eyebrow">Prepared for Darvin &middot; October 21, 2026</div>
+      <h1 class="merchant-h">G&S Towing R Service</h1>
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">AllProPay Edge</div>
+      <h2>You stop paying the card fee.</h2>
+      <div class="price-row two">
+        <div class="price-cell">
+          <div class="pc-label"><span class="pill pill-today">Today</span> </div>
+          <div class="pc-value today">About $200</div>
+          <div class="pc-sub">A month in card fees on Square, out of your own deposits.</div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label"><span class="pill pill-us">AllProPay Edge</span> </div>
+          <div class="pc-value us">$0 <span class="chip">every card</span></div>
+          <div class="pc-sub">The card price is built into what you charge. Cash and check customers pay the listed price.</div>
+        </div>
+      </div>
+      <div class="hero-extra">Same phone, same way you take a card today. Your money still lands in your account the next business day.</div>
+    </div>
+
+    
+
+    <div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:86%"></div></td><td class="bc-value">About $200</td></tr><tr><td class="bc-label us">AllProPay Edge</td><td class="bc-track"><div class="bc-bar us" style="width:1%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">Worked from about $7,000 a month in card sales at the published in-person card price of 2.60% plus $0.15 a sale, which is what you pay now.<br>On Edge the card price sits inside the price you post, so your side of it is $0 on every card, debit and credit.</div></div>
+
+    <div class="insight">Two years of covering that fee yourself comes to roughly <strong>$2,400 a year</strong>, and on Edge your side of it is <strong>$0</strong>.</div>
+
+    <div class="sec-label">From our call</div>
+    <ul class="call-list">
+      <li>"Around two years" on Square, your first and only provider, and the fees come out of your end: "yeah, we do."</li><li>"Just by the phone." An Apple phone, no machine.</li><li>About $7,000 a month in card sales, and on passing the fee to the card-paying customer: "that's good."</li>
+    </ul>
+
+    
+
+    
+
+    <div class="sec-label">The account</div>
+    <table class="terms-table">
+      <tr><td>An app on your phone</td><td>Included. You download it on your Apple phone and take cards the same way you do now. Nothing to buy and no machine to learn.</td></tr>
+      <tr><td>Monthly</td><td>$14.95, and the first month is on me so you can see it working before you pay anything.</td></tr>
+      <tr><td>What your card customers see</td><td>The card price, 4%, shown on the screen and the receipt before they pay. Cash and check pay the listed price.</td></tr>
+      <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
+    </table>
+
+    <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
+
+    <div class="cta-block">
+      <div class="ct-title">Ten minutes and you are switched on</div>
+      <div class="ct-sub">Pick a time below, or just take my call at 3. We fill in the application together on the phone, you e-sign on the spot, and you download the app the same day.</div>
+      <a class="apply" href="https://book.allpropay.com/#/14701000000122127">Book a Call</a>
+      <div class="ct-or">Or call or text me at <a href="tel:+19299303970" class="ca-phone">929-930-3970</a></div>
+    </div>
+
+    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000122127" title="Book a call with Chris Ste-Marie" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122127">Open the booking page</a>.</div></div>
+
+  </div>
+
+  <div class="doc-footer">
+    <div class="sig">
+      <img src="AllProPay_Logo.jpg" alt="AllProPay">
+      <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
+    </div>
+    <div class="fine">The Edge program builds the card price into the price you post, and the customer sees it on the screen and the receipt before they pay. Cash and check customers pay the listed price. The figures on this page are worked from about $7,000 a month in card sales and the published in-person card price you pay today, so they are close estimates and not a bill; one statement sets the exact numbers. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div>
+  </div>
+
+</div>
+<script>
+/* Open beacon (2026-10-19): tells the closer the merchant opened the page. Sends nothing from
+   the rep's own browser (any ?rep=1 link or email-ready page marks it), from a local file, or
+   from a non-https page. BEACON_URL is filled by build_proposal.py; empty disables it. */
+(function(){try{var b="https://beacon.allpropay.com/v";var q=new URLSearchParams(location.search);
+if(q.get("rep")){localStorage.setItem("app_rep","1");}
+if(!b||location.protocol!=="https:"||localStorage.getItem("app_rep")==="1")return;
+var m=location.pathname.match(/^\/([a-z0-9][a-z0-9-]+)\/?/);if(!m)return;
+/* the application / booking button pings the worker's /a route on click ("if they click Start
+   the application, that's when we should automatically ping the closer"). The button KEEPS its
+   real href and the ping is fire-and-forget: 2026-10-20 the href was being rewritten to the
+   worker URL, beacon.allpropay.com did not resolve, and every Book a Call pill was dead. A
+   beacon that is down must never cost a click. */
+function ping(u){if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{mode:"no-cors",keepalive:true}).catch(function(){});}}
+var a=document.querySelector("a.apply");
+if(a&&/^https?:/.test(a.href)){a.addEventListener("click",function(){try{ping(b.replace(/\/v$/,"/a")+"?p="+encodeURIComponent(m[1])+"&to="+encodeURIComponent(a.href));}catch(e){}});}
+ping(b+"?p="+encodeURIComponent(m[1]));
+}catch(e){}})();
+</script>
+</body>
+</html>
