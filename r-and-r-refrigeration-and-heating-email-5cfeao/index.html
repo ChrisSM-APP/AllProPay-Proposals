@@ -283,7 +283,133 @@
     .doc-footer .fine { font-size: 6pt; }
   }
 
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, #08275A 0%, #0A1F30 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
 
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid #1F2432; }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid #1F2432; color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: #232936; }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: #232936; }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: #07556E; }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: #232936; }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px #070B15; }
+
+    /* callouts + tiles */
+    .insight { background: #0A1B3B; border-left-color: #00D4FF; border-color: #084258; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: #151B29; border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid #1F2432; color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: #092048; color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: #13244E; color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: #1A1F2D; color: #FFFFFF; border-bottom: 1px solid #084258; }
+    tbody td, .terms-table td { border-color: #1F2432; color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: #141928; }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: #091D3F; color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: #151B29; color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: #091F44; color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: #101D3E; color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: #151B29; color: #9FB0C9; }
+    .sxs-save.alt { background: #101D3E; color: #C9D3E3; border-color: #405179; }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid #1F2432; border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: #E2E2E4; }
+  
+  
+
+  /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
+     email-ready copy (make_email_version.py) stays paper. */
+  
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: #1F2432; color: #F5F7FA; }
+    .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
+    .content { padding-top: 24px; }
+    .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
+    .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
+    .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
+    .content { padding-top: 26px; }
+    .content ul.call-list li, .content ul.call-list li strong { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise strong { color: #0052FF; }
+    .insight { background: #0A1B3B; border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+    .opt-note { color: #9FB0C9; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:nth-child(2) { color: #FFFFFF; }
+    .terms-table td:nth-child(3) { color: #9FB0C9; }
+    .cta-block { box-shadow: 0 20px 60px #070B15; }
+    .tiers-sub { color: #9FB0C9; }
+    td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
+    .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
+  
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+/* ---- end dark surface 2026-10-19 ---- */
 </style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
@@ -332,9 +458,9 @@
   @media print { #em-toolbar { display: none; } }
 </style></head>
 <body>
-<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | R &amp; R Refrigeration and Heating</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
-<div class="top-paper">
-<div class="doc-header">
+<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | R &amp; R Refrigeration and Heating</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
+<div class="top-paper" style="; background:#FFFFFF; border-bottom:3px solid #0052FF;">
+<div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" class="logo-img" src="https://proposals.allpropay.com/r-and-r-refrigeration-and-heating-njmykt/AllProPay_Logo.jpg"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
@@ -365,7 +491,7 @@
 </div>
 <div class="sec-label">Two ways to run it</div><div class="tiers-sub">Each option sets the card price your customers see. Cash and check buyers pay your listed price. Figures at about $10,000 a month in card sales.</div><table class="tier-row" style="width:100%" width="100%"><tr><td class="tier-cell" style="width:50.0%;"><div class="t-pop quiet">Closest to today</div><div class="t-name">Standard &#183; 3.99%</div><div class="t-cash">$400</div><div class="t-cashsub">back to you in year one</div><table class="t-facts" style="width:100%" width="100%"><tr><td class="k">Card price your customers see</td><td class="v">3.99%</td></tr><tr><td class="k">Cash back on a $10,000 month</td><td class="v">$25</td></tr><tr><td class="k">Cash back, 12 months</td><td class="v">$300</td></tr><tr><td class="k">Loyalty bonus</td><td class="v">$100</td></tr><tr><td class="k">Your cost on cards</td><td class="v">$0</td></tr></table></td><td class="tier-cell rec" style="width:50.0%;"><div class="t-pop">Most back to you</div><div class="t-name">Max &#183; 4.99%</div><div class="t-cash">$970</div><div class="t-cashsub">back to you in year one</div><table class="t-facts" style="width:100%" width="100%"><tr><td class="k">Card price your customers see</td><td class="v">4.99%</td></tr><tr><td class="k">Cash back on a $10,000 month</td><td class="v">$60</td></tr><tr><td class="k">Cash back, 12 months</td><td class="v">$720</td></tr><tr><td class="k">Loyalty bonus</td><td class="v">$250</td></tr><tr><td class="k">Your cost on cards</td><td class="v">$0</td></tr></table></td></tr></table>
 <div class="chart-card"><div class="cc-title">Back to you in year one</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">3.99%</td><td class="bc-track"><div class="bc-bar" style="width:41%; background:#4D7FFF;"></div></td><td class="bc-value us">$400</td></tr><tr><td class="bc-label us">4.99%</td><td class="bc-track"><div class="bc-bar" style="width:100%; background:#0052FF;"></div></td><td class="bc-value us">$970</td></tr></table><div class="cc-note">At about $10,000 a month in card sales. Cash back pays on any month at $10,000 or more, and more volume pays more. The loyalty bonus pays half after month 3 and half after month 6, once your card sales with me reach $30,000 and then $60,000.</div></div>
-<div class="insight">Every month you run $10,000 in card sales, Max pays you back about <strong>$60</strong>, and year one comes to about <strong>$970</strong> with the loyalty bonus.</div>
+<div class="insight">Every month you run $10,000 in card sales, <strong>Max</strong> pays you back about <strong>$60</strong>, and year one comes to about <strong>$970</strong> with the loyalty bonus.</div>
 <div class="sec-label">From our call</div>
 <ul class="call-list">
 <li>"I am not sure what my volume runs." No problem, this pays on any month you clear $10,000 in card sales.</li><li>Busy months and slow months both work. A big month pays you more, and a slow month costs you nothing.</li>
@@ -389,7 +515,7 @@
 
 
 <div class="sig" style="display:block; white-space:nowrap">
-<img alt="AllProPay" src="https://proposals.allpropay.com/r-and-r-refrigeration-and-heating-njmykt/AllProPay_Logo.jpg"/>
+<img alt="AllProPay" src="https://proposals.allpropay.com/r-and-r-refrigeration-and-heating-njmykt/AllProPay_Logo.jpg" style="; height:22px; width:auto;"/>
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">AllPro Rebate passes the card processing cost to the card-paying customer as a clearly disclosed card price; cash and check customers pay the listed price. Cash back and bonus figures are estimates at about $10,000 a month in card sales, not a quote. Cash back is paid per the AllPro Rebate Agreement on months with at least $10,000 in eligible card volume, and is built on the posted card price of the option you pick. The loyalty bonus pays in two halves, after month 3 once cumulative eligible volume reaches $30,000 and after month 6 once it reaches $60,000. A $35 monthly account minimum applies: where the card price collected totals under $35 in a month, the difference may be billed. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
