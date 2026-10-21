@@ -166,7 +166,10 @@
   .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
   .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
   .cta-block .ct-sub strong { color: #fff; }
-  .cta-block a.apply { display: block; max-width: 420px; margin: 18px auto 14px; background: #FFFFFF; color: var(--blue); border: 3px solid var(--blue); box-shadow: 0 0 0 4px #FFFFFF, 0 10px 30px rgba(4,17,31,.35); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14pt; letter-spacing: .2px; padding: 15px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  /* CTA pill (Chris 2026-10-21, "make our CTA a 10/10"): a blue ring on the blue block vanished,
+     so the ring is cyan, the pill is bigger, and an arrow says "tap me". */
+  .cta-block a.apply { display: block; max-width: 440px; margin: 20px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16pt; letter-spacing: .2px; padding: 17px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply::after { content: "\00a0\2192"; }
   .cta-block a.apply:hover { background: #EEF3FF; }
   .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
   .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
@@ -283,7 +286,133 @@
     .doc-footer .fine { font-size: 6pt; }
   }
 
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, #08275A 0%, #0A1F30 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
 
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid #1F2432; }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid #1F2432; color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: #232936; }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: #232936; }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: #07556E; }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: #232936; }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px #070B15; }
+
+    /* callouts + tiles */
+    .insight { background: #0A1B3B; border-left-color: #00D4FF; border-color: #084258; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: #151B29; border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid #1F2432; color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: #092048; color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: #13244E; color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: #1A1F2D; color: #FFFFFF; border-bottom: 1px solid #084258; }
+    tbody td, .terms-table td { border-color: #1F2432; color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: #141928; }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: #091D3F; color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: #151B29; color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: #091F44; color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: #101D3E; color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: #151B29; color: #9FB0C9; }
+    .sxs-save.alt { background: #101D3E; color: #C9D3E3; border-color: #405179; }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid #1F2432; border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: #E2E2E4; }
+  
+  
+
+  /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
+     email-ready copy (make_email_version.py) stays paper. */
+  
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: #1F2432; color: #F5F7FA; }
+    .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
+    .content { padding-top: 24px; }
+    .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
+    .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
+    .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
+    .content { padding-top: 26px; }
+    .content ul.call-list li, .content ul.call-list li strong { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise strong { color: #0052FF; }
+    .insight { background: #0A1B3B; border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+    .opt-note { color: #9FB0C9; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:nth-child(2) { color: #FFFFFF; }
+    .terms-table td:nth-child(3) { color: #9FB0C9; }
+    .cta-block { box-shadow: 0 20px 60px #070B15; }
+    .tiers-sub { color: #9FB0C9; }
+    td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
+    .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
+  
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+/* ---- end dark surface 2026-10-19 ---- */
 </style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
@@ -332,14 +461,12 @@
   @media print { #em-toolbar { display: none; } }
 </style></head>
 <body>
-<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Musser Septic Systems</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top;">
-<div class="top-paper">
-<div class="doc-header">
+<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Musser Septic Systems</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
+<div class="top-paper" style="; background:#FFFFFF; border-bottom:3px solid #0052FF;">
+<div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:40%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="40%"><img alt="AllProPay" class="logo-img" src="https://proposals.allpropay.com/musser-septic-systems-b3st8v/AllProPay_Logo.jpg"/></td><td style="width:60%; padding:0 0px 0 0px; vertical-align:middle;" valign="middle" width="60%"><div class="contact" style="text-align:right">
-      929-930-3969 &#160;&#183;&#160; matt@allpropay.com &#160;&#183;&#160; allpropay.com
-    </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/musser-septic-systems-b3st8v/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="padding:0; text-align:left;"><img alt="AllProPay" class="logo-img" height="47" src="https://proposals.allpropay.com/musser-septic-systems-b3st8v/AllProPay_Logo.jpg" style="display:block; width:220px; max-width:100%; height:auto; border:0;" width="220"/></td></tr><tr><td style="padding:0; text-align:left;"><div class="contact" style="text-align:left; padding-top:8px"><span style="white-space:nowrap;">929-930-3969</span> &#183; <span style="white-space:nowrap;">matt@allpropay.com</span> &#183; <span style="white-space:nowrap;">allpropay.com</span></div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/musser-septic-systems-b3st8v/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
 <div class="open-note"><p>Brian, you asked for it in writing with no more phone calls. Here it is, one page.</p><p>You already build the card fee into your prices. Both options below leave your invoicing inside QuickBooks. Option A is the one I would pick for you.</p><p>Read it when you get a minute. If it makes sense, reply to my email or call me.</p><p class="on-sign">Matt Butcher</p></div>
 </div>
 <div class="content">
@@ -355,11 +482,11 @@
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-today">Today</span> </div>
-<div class="pc-value today">About 3%</div>
-<div class="pc-sub">QuickBooks, on every card payment. About $750 to $900 a month.</div>
+<div class="pc-value today">$750 to $900</div>
+<div class="pc-sub">A month to QuickBooks, about 3% on $25,000 to $30,000 in card payments.</div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-us">AllProPay Dual Pricing</span> </div>
-<div class="pc-value us">$0on card sales</div>
+<div class="pc-value us">$0</div>
 <div class="pc-sub">Your invoice price stays exactly where it is. It becomes the card price.</div>
 </div></td></tr></table></div>
 <div class="hero-extra"><strong>About $9,000 to $10,800 a year</strong> stays in the business.</div>
@@ -382,7 +509,7 @@
 <div class="cta-block">
 <div class="ct-title">Tell me which one, that is it</div>
 <div class="ct-sub">No call needed to decide. Reply to my email or call me with A or B and we finish the application in about 10 minutes. If you would rather pick a time, the link below does it.</div>
-<a class="apply" href="https://book.allpropay.com/#/14701000000123129" style="display:block; max-width:420px; margin:18px auto 14px; background-color:#FFFFFF; color:#0052FF; border:3px solid #0052FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:14pt; padding:15px 24px; border-radius:999px; text-decoration:none; text-align:center;">Book a Call</a>
+<a class="apply" href="https://book.allpropay.com/#/14701000000123129" style="display:block; max-width:440px; margin:20px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:16pt; padding:17px 24px; border-radius:999px; text-decoration:none; text-align:center;">Book a Call&#160;&#8594;</a>
 <div class="ct-or">Or call or text me at <a class="ca-phone" href="tel:+19299303969">929-930-3969</a></div>
 </div>
 
@@ -391,7 +518,7 @@
 
 
 <div class="sig" style="display:block; white-space:nowrap">
-<img alt="AllProPay" src="https://proposals.allpropay.com/musser-septic-systems-b3st8v/AllProPay_Logo.jpg"/>
+<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark.png" style="; height:26px; width:auto;"/>
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">Your invoice price stays as it is and becomes the card price. Customers who pay by bank transfer or check pay a lower price, and you set how much lower when the account is set up. Figures on this page are worked from what you shared on our call, about $25,000 to $30,000 a month in card payments at about 3%, and they move with your real volume and card mix. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
