@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The card fee you add by hand | AllProPay</title>
-<meta name="description" content="What the card brands require of a card fee, what it costs when they find one added by hand, and the way to do it right.">
+<meta name="description" content="Nine headlines on card-fee fines and lawsuits, what the card brands require, what it costs when they find a fee added by hand, and the way to do it right with nothing to lose.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   --navy:#0B1120; --card:#121C30; --ink:#F5F7FA; --muted:#9FB0C9; --line:rgba(255,255,255,0.08);
   --accent:#0066FF; --accent-2:#00D4FF; --accent-deep:#0052FF; --on-gradient:#04111F;
   --light:#F5F7FA; --light-ink:#0B1120; --light-muted:#5A6B85; --light-line:#E2E8F0; --tint-soft:#EEF3FF;
-  --flag-dark:#FFB4B4;
+  --flag-dark:#FFB4B4; --flag-bg:rgba(255,120,120,.10);
   --grad-cta:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);
   --grad-panel:linear-gradient(160deg,#0E1830 0%,#0B1424 100%);
   --panel-line:1px solid rgba(0,212,255,0.25);
@@ -26,42 +26,87 @@ html,body{margin:0;padding:0}
 body{background:var(--navy);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:var(--accent-2)}
 .top{background:#fff;color:var(--light-ink);border-bottom:3px solid var(--accent-deep)}
-.top .in{max-width:760px;margin:0 auto;padding:18px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top .in{max-width:800px;margin:0 auto;padding:18px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .top img{height:34px}
 .top .co{font-size:.9rem;color:var(--light-muted)}
-.wrap{max-width:760px;margin:0 auto;padding:36px 16px 56px}
+.wrap{max-width:800px;margin:0 auto;padding:36px 16px 56px}
 .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4.6vw,2.4rem);line-height:1.12;margin:10px 0 12px}
-h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;color:#fff}
+h2{font-family:var(--display);font-weight:700;font-size:1.3rem;margin:0 0 8px;color:#fff;line-height:1.2}
 .lead{font-size:1.08rem;color:var(--muted);margin:0 0 28px}
-.sec{margin:34px 0 0}
+.sub{margin:0 0 14px;color:var(--muted)}
+.sec{margin:40px 0 0}
 .panel{position:relative;overflow:hidden;background:var(--grad-panel);border:var(--panel-line);border-radius:var(--radius);box-shadow:var(--shadow-panel);padding:22px 20px}
 .panel::before{content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;border-radius:50%;background:var(--glow);pointer-events:none}
+.stat-row{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.stat{flex:1 1 calc(50% - 10px);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center}
+@media(min-width:620px){.stat{flex:1 1 0}}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--accent-2);line-height:1.1}
+.stat span{font-size:.8rem;color:var(--muted)}
+.collage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:620px){.collage{grid-template-columns:1fr 1fr}.tile.wide{grid-column:1/-1}}
+.tile{display:block;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line);text-decoration:none;color:inherit;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .15s}
+.tile:hover{transform:translateY(-2px)}
+.tile img{display:block;width:100%;height:auto;background:#fff}
+.tile .cap{padding:10px 12px 12px;background:var(--card);font-size:.9rem;color:var(--muted);line-height:1.45}
+.tile .cap b{display:block;color:#fff;font-size:.78rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:4px}
+.tile .cap em{font-style:normal;color:var(--accent-2);font-weight:700}
+.tile .more{display:block;margin-top:6px;font-size:.78rem;color:var(--accent-2)}
 .rules{width:100%;border-collapse:collapse;margin-top:6px}
 .rules th{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 0 10px;font-weight:700}
 .rules td{padding:11px 0;border-top:1px solid var(--line);vertical-align:top;font-size:.97rem}
 .rules td.x{color:var(--flag-dark);font-weight:700;white-space:nowrap;padding-left:12px;text-align:right}
-.rules td.ok{color:var(--accent-2);font-weight:700;white-space:nowrap;padding-left:12px;text-align:right}
 .ladder{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .ladder td{padding:12px 14px;border-top:1px solid var(--line);font-size:.95rem}
 .ladder tr:first-child td{border-top:0}
 .ladder td.amt{font-family:var(--display);font-weight:800;color:var(--accent-2);white-space:nowrap;text-align:right;font-size:1.05rem}
 .ladder tr.first td.amt{font-size:1.5rem}
 .note{font-size:.84rem;color:var(--muted);margin:10px 0 0}
-.cards{display:grid;grid-template-columns:1fr;gap:12px;margin-top:8px}
-@media(min-width:620px){.cards{grid-template-columns:1fr 1fr}}
-.case{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px}
-.case .who{font-family:var(--display);font-weight:700;color:#fff;font-size:1rem;margin:0 0 4px}
-.case .amt{font-family:var(--display);font-weight:800;color:var(--accent-2);font-size:1.35rem;line-height:1.1;margin:2px 0 8px}
-.case p{margin:0;font-size:.93rem;color:var(--muted)}
-.case .src{display:block;margin-top:10px;font-size:.8rem}
 .shot{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);margin-top:12px;background:#fff}
 .quote{border-left:3px solid var(--accent-2);padding:4px 0 4px 14px;color:var(--ink);margin:14px 0 0;font-size:1rem}
 .quote small{display:block;color:var(--muted);margin-top:6px;font-size:.82rem}
+.vs{margin-top:12px}
+.vs-head,.vs-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs-head{margin-bottom:6px}
+.vs-head div{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:10px}
+.vs-head .bad{background:var(--flag-bg);color:var(--flag-dark)}
+.vs-head .good{background:rgba(0,212,255,.10);color:var(--accent-2)}
+.vs-row{padding:10px 0;border-top:1px solid var(--line)}
+.vs-k{grid-column:1/-1;font-weight:700;color:#fff;font-size:.9rem;margin-bottom:2px}
+.vs-row .bad,.vs-row .good{font-size:.9rem;padding:0 12px}
+.vs-row .bad{color:var(--flag-dark)}
+.vs-row .good{color:var(--ink)}
+@media(min-width:620px){
+  .vs-head,.vs-row{grid-template-columns:1.1fr 1fr 1fr}
+  .vs-head::before{content:""}
+  .vs-k{grid-column:auto;margin:0;padding-right:8px}
+}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.chip{background:var(--card);border:1px solid rgba(0,212,255,.35);border-radius:var(--radius-pill);padding:7px 14px;font-size:.9rem;font-weight:600;color:#fff}
+.chip::before{content:"\2713";color:var(--accent-2);font-weight:800;margin-right:7px}
+.calc{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px}
+.calc label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.calc .inrow{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.calc .inrow span{font-family:var(--display);font-weight:800;font-size:1.3rem;color:#fff}
+.calc input[type=number]{flex:1;max-width:220px;font-family:var(--display);font-weight:800;font-size:1.3rem;color:#fff;background:#0B1120;border:1px solid rgba(0,212,255,.35);border-radius:10px;padding:8px 12px;outline:none}
+.calc input[type=range]{width:100%;accent-color:var(--accent-2);margin:0 0 16px}
+.tiers{display:flex;gap:8px;margin-bottom:16px}
+.tiers button{flex:1;background:#0B1120;border:1px solid var(--line);border-radius:10px;color:var(--muted);padding:8px 6px;font-family:var(--body);font-size:.85rem;cursor:pointer;line-height:1.3}
+.tiers button b{display:block;font-family:var(--display);font-weight:800;font-size:1.05rem;color:#fff}
+.tiers button.on{border-color:var(--accent-2);background:rgba(0,212,255,.10);color:#fff;box-shadow:0 0 0 2px rgba(0,212,255,.25)}
+.tiers button small{display:block;font-size:.7rem;color:var(--accent-2);text-transform:uppercase;letter-spacing:.05em}
+.out{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:620px){.out{grid-template-columns:1fr 1fr}}
+.o{background:#0B1120;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.o .k{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.o .v{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.1;margin:4px 0 2px;color:#fff}
+.o .v.good{color:var(--accent-2)}
+.o .v.bad{color:var(--flag-dark)}
+.o .d{font-size:.84rem;color:var(--muted)}
 .fix{margin-top:14px}
 .fix li{margin:8px 0}
-.cta{margin-top:36px;background:linear-gradient(135deg,#0A37CC 0%,#0066FF 100%);border-radius:var(--radius);padding:26px 20px;text-align:center;color:#fff}
-.cta h2{color:#fff;font-size:1.35rem}
+.cta{margin-top:40px;background:linear-gradient(135deg,#0A37CC 0%,#0066FF 100%);border-radius:var(--radius);padding:26px 20px;text-align:center;color:#fff}
+.cta h2{color:#fff;font-size:1.45rem}
 .cta p{margin:6px 0 16px;color:rgba(255,255,255,.88)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1rem;padding:15px 26px;border-radius:var(--radius-pill);background:#fff;color:var(--accent-deep);text-decoration:none;box-shadow:0 0 0 3px rgba(0,212,255,.55);width:100%;max-width:420px}
 .cta .or{margin:14px 0 0;font-size:.95rem}
@@ -78,30 +123,41 @@ h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;
 <div class="wrap">
   <span class="eyebrow">Card fees, done right</span>
   <h1>The card fee you add by hand can cost more than it earns.</h1>
-  <p class="lead">If you write a card fee on the invoice or key it in yourself, this page is for you. Three minutes. You do not have to take our word for any of it: every line links to where it comes from.</p>
+  <p class="lead">If you write a card fee on the invoice or key it in yourself, this page is for you. You do not have to take our word for any of it. Every headline below opens the real article.</p>
 
-  <div class="sec">
-    <h2>It is already happening. In their words, not ours.</h2>
-    <p style="margin:0 0 8px;color:var(--muted)">Screenshots of the actual pages, taken October 2026. Tap any one to open the source.</p>
-    <a href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/"><img class="shot" src="njoag-header.png" alt="New Jersey Attorney General press release, February 7, 2023: violations at businesses charging a credit card surcharge without required notice"></a>
-    <a href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/"><img class="shot" src="njoag-quote.png" alt="Notices of Violation for not disclosing card surcharges were issued to Ronnie's Hot Bagels in Hillsdale and Seymour's Cafe in Clifton. Each includes a $500 civil penalty."></a>
-    <p class="note">A bagel shop and a cafe. $500 each, because the card fee only showed up on the receipt. Same release: a coffee shop settled for $2,000.</p>
-    <a href="https://www.nbcchicago.com/news/local/restaurant-group-faces-lawsuit-regarding-deceptive-charges-added-onto-bills/2933308/"><img class="shot" src="nbc-headline.png" alt="NBC Chicago, September 7, 2022: Restaurant group faces lawsuit regarding deceptive charges added onto bills"></a>
-    <p class="note">One customer, one receipt with a 3% fee he was not told about, one lawsuit.</p>
-    <a href="https://www.paymentsdive.com/news/visa-merchant-surcharge-rule-enforcement-card-fines/735765/"><img class="shot" src="pdive-headline.png" alt="Payments Dive, December 17, 2024: Merchants maneuver as Visa enforces surcharge program"></a>
-    <p class="note">Visa going to merchants directly: mystery shoppers, warning notices, fines. One processor in the story absorbs about one surcharge fine a month for its merchants.</p>
+  <div class="sec" id="headlines">
+    <h2>It is already happening. Here are the headlines.</h2>
+    <p class="sub">Nine stories, five states, 2022 to 2025. Tap any one to read it.</p>
+    <div class="stat-row">
+      <div class="stat"><b>$25,000</b><span>Visa fine, one Wisconsin restaurant</span></div>
+      <div class="stat"><b>30+</b><span>businesses cited in one New Jersey sweep</span></div>
+      <div class="stat"><b>60+</b><span>letters from one state Attorney General</span></div>
+      <div class="stat"><b>1</b><span>customer and a receipt, to get sued</span></div>
+    </div>
+    <div class="collage">
+      <a class="tile wide" href="https://www.wirestaurant.org/news/wisconsin-restaurant-just-hit-with-25000-fine-from-visa" target="_blank" rel="noopener"><img src="wra-tile.png" alt="Wisconsin Restaurant Association, May 7, 2024: Wisconsin Restaurant Just Hit with $25,000 Fine from Visa"><div class="cap"><b>Wisconsin Restaurant Association &middot; May 7, 2024</b>One restaurant. One <em>$25,000</em> fine from Visa for breaking the surcharge rules. Its own trade association wrote this up to warn the rest.<span class="more">Read the post &rarr;</span></div></a>
+      <a class="tile wide" href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/" target="_blank" rel="noopener"><img src="njoag-header.png" alt="New Jersey Attorney General press release, February 7, 2023: violations at businesses charging a credit card surcharge without required notice"><img src="njoag-quote.png" alt="Notices of Violation for not disclosing card surcharges were issued to Ronnie's Hot Bagels in Hillsdale and Seymour's Cafe in Clifton. Each includes a $500 civil penalty."><div class="cap"><b>New Jersey Attorney General &middot; February 7, 2023</b>A bagel shop and a cafe, <em>$500 each</em>, because the card fee only showed up on the receipt. A coffee shop in the same sweep settled for <em>$2,000</em>. The state says each undisclosed fee can be a separate violation, up to $10,000 for a first one.<span class="more">Read the release &rarr;</span></div></a>
+      <a class="tile wide" href="https://www.nbcchicago.com/news/local/restaurant-group-faces-lawsuit-regarding-deceptive-charges-added-onto-bills/2933308/" target="_blank" rel="noopener"><img src="nbc-headline.png" alt="NBC Chicago, September 7, 2022: Restaurant group faces lawsuit regarding deceptive charges added onto bills"><div class="cap"><b>NBC Chicago &middot; September 7, 2022</b>One customer noticed a <em>3% fee</em> on his receipt after he paid, and sued the restaurant group behind a donut shop.<span class="more">Read the story &rarr;</span></div></a>
+      <a class="tile" href="https://www.hobokengirl.com/new-jersey-restaurants-businesses-credit-card-fees-2024/" target="_blank" rel="noopener"><img src="hoboken-tile.png" alt="Hoboken Girl, February 15, 2024: NJ Businesses Are Being Fined For Undisclosed Credit Card Fees"><div class="cap"><b>Hoboken Girl &middot; February 15, 2024</b><em>30 businesses</em> cited in one state: bars, restaurants, coffee shops, delis, hair salons, a clothing store.<span class="more">Read the article &rarr;</span></div></a>
+      <a class="tile" href="https://www.paymentsdive.com/news/visa-merchant-surcharge-rule-enforcement-card-fines/735765/" target="_blank" rel="noopener"><img src="pdive-headline.png" alt="Payments Dive, December 17, 2024: Merchants maneuver as Visa enforces surcharge program"><div class="cap"><b>Payments Dive &middot; December 17, 2024</b>Visa now goes to merchants directly: <em>mystery shoppers</em>, warning notices, fines. One processor absorbs about one fine a month.<span class="more">Read the story &rarr;</span></div></a>
+      <a class="tile" href="https://www.startribune.com/for-minnesota-restaurants-price-transparency-law-adds-unwanted-layer-of-regulation/601436431" target="_blank" rel="noopener"><img src="startrib-tile.png" alt="Minnesota Star Tribune, July 23, 2025: For Minnesota restaurants, price transparency law adds unwanted layer of regulation"><div class="cap"><b>Minnesota Star Tribune &middot; July 23, 2025</b><em>More than 60 businesses</em> got letters from the state Attorney General over fee complaints in the law's first months.<span class="more">Read the story &rarr;</span></div></a>
+      <a class="tile" href="https://www.pymnts.com/credit-cards/2024/new-york-imposes-new-limits-on-credit-card-surcharges/" target="_blank" rel="noopener"><img src="pymnts-tile.png" alt="PYMNTS, February 11, 2024: New York Imposes New Limits on Credit Card Surcharges"><div class="cap"><b>PYMNTS &middot; February 11, 2024</b>New York: the card price must be posted <em>before checkout</em>, and the fee cannot be more than the card company charges you.<span class="more">Read the story &rarr;</span></div></a>
+      <a class="tile" href="https://www.digitaltransactions.net/will-visa-follow-through-on-lowering-its-credit-card-surcharge-cap-in-april/" target="_blank" rel="noopener"><img src="digitrans-tile.png" alt="Digital Transactions, March 3, 2023: Will Visa Follow Through on Lowering Its Credit Card Surcharge Cap in April?"><div class="cap"><b>Digital Transactions &middot; March 3, 2023</b>Visa's cap went from 4% to <em>3%</em> in April 2023. A 4% or 5% fee has been over the line ever since.<span class="more">Read the story &rarr;</span></div></a>
+      <a class="tile" href="https://www.afslaw.com/perspectives/alerts/visa-reduces-its-merchant-surcharge-cap-3-effective-april-15-2023-merchants" target="_blank" rel="noopener"><img src="afslaw-tile.png" alt="ArentFox Schiff, July 24, 2023: Visa Reduces Its Merchant Surcharge Cap to 3%. Merchants Should Ensure They Are in Compliance to Avoid Fines, Fees and Litigation"><div class="cap"><b>ArentFox Schiff (law firm) &middot; July 24, 2023</b>"Fines, fees and litigation." Their summary of Visa's <em>fine schedule</em> is further down this page.<span class="more">Read the alert &rarr;</span></div></a>
+    </div>
+    <p class="note">Screenshots taken October 2026 from the pages linked. None of these owners thought it would be them.</p>
   </div>
 
   <div class="sec panel">
-    <h2>What the card brands require, and what a hand-added fee does</h2>
+    <h2>Why a hand-added fee is always on the wrong side of the rules</h2>
     <table class="rules">
       <tr><th>Visa and Mastercard say a card fee must be</th><th></th></tr>
-      <tr><td>Registered with your processor 30 days before you start</td><td class="x">Not done</td></tr>
+      <tr><td>Registered with your processor 30 days before you start</td><td class="x">Never done</td></tr>
       <tr><td>Shown to the customer before they pay, and itemized on the receipt</td><td class="x">Receipt only</td></tr>
       <tr><td>On credit cards only. Never on a debit or prepaid card</td><td class="x">Every card</td></tr>
       <tr><td>Capped. Visa set the ceiling at 3% in April 2023</td><td class="x">Usually over</td></tr>
     </table>
-    <p class="note">A fee you add yourself fails every line, no matter how long you have done it or how fair the number feels.</p>
+    <p class="note">You cannot tell a debit card from a credit card by hand, and the app you key it into never registered the fee. So a fee you add yourself breaks at least two of these every single time, and usually three. It does not matter how long you have done it or how fair the number feels.</p>
   </div>
 
   <div class="sec">
@@ -115,24 +171,59 @@ h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;
       <tr><td>90 days</td><td class="amt">$100,000</td></tr>
       <tr><td>Past 180 days, every month until fixed</td><td class="amt">+$25,000</td></tr>
     </table>
-    <p class="note">Visa bills the processor. The processor's agreement passes it to you, and the account can be closed. Fine schedule as summarized by the law firm ArentFox Schiff, July 2023 (source 1). Visa's own merchant Q&amp;A confirms the immediate $1,000 (source 2).</p>
+    <p class="note">Visa bills the processor. The processor's agreement passes it to you, and the account can be closed. Fine schedule as summarized by the law firm ArentFox Schiff, July 2023 (source 1). Visa's own merchant Q&amp;A confirms the immediate $1,000 (source 2). The Wisconsin restaurant above went straight to the $25,000 tier.</p>
     <img class="shot" src="visa-fine-table.png" alt="Visa non-compliance penalty table as summarized by ArentFox Schiff">
     <div class="quote">"Visa is going straight to the merchants, using mystery shoppers, warning notices and fines." One processor said it absorbs about one surcharge fine a month on behalf of its merchants.<small>Payments Dive, December 17, 2024 (source 3)</small></div>
   </div>
 
-  <div class="sec">
-    <h2>It is already happening to small shops</h2>
-    <div class="cards">
-      <div class="case"><div class="who">Ronnie's Hot Bagels, Hillsdale NJ</div><div class="amt">$500 penalty</div><p>Card fee disclosed on the receipt, after the customer had paid. Notice of violation from the state Attorney General, February 2023. Same for Seymour's Cafe in Clifton.</p><a class="src" href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/">NJ Attorney General release</a></div>
-      <div class="case"><div class="who">Hidden Grounds Coffee, NJ</div><div class="amt">$2,000 settlement</div><p>Same sweep. The Attorney General's office said each undisclosed card fee can be a separate violation, with penalties up to $10,000 for a first one.</p><a class="src" href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/">NJ Attorney General release</a></div>
-      <div class="case"><div class="who">Do-Rite Donuts, Tinley Park IL</div><div class="amt">Sued</div><p>A customer noticed a 3% surcharge on his receipt after paying and filed suit against the restaurant group behind it, September 2022.</p><a class="src" href="https://www.nbcchicago.com/news/local/restaurant-group-faces-lawsuit-regarding-deceptive-charges-added-onto-bills/2933308/">NBC Chicago</a></div>
-      <div class="case"><div class="who">How they find you</div><div class="amt">Complaints</div><p>State offices act on customer complaints. Visa uses mystery shoppers. One annoyed customer with a receipt is all it takes.</p><a class="src" href="https://www.paymentsdive.com/news/visa-merchant-surcharge-rule-enforcement-card-fines/735765/">Payments Dive</a></div>
+  <div class="sec panel" id="risk">
+    <h2>The risk you do not need to take</h2>
+    <p class="sub" style="margin-bottom:4px">Same fee. Same phones. The only thing that changes is who carries the exposure.</p>
+    <div class="vs">
+      <div class="vs-head"><div class="bad">Fee added by hand</div><div class="good">Done right with AllProPay</div></div>
+      <div class="vs-row"><div class="vs-k">Registered with the processor</div><div class="bad">Never. The app does not know the fee exists.</div><div class="good">Yes. We file the program before day one.</div></div>
+      <div class="vs-row"><div class="vs-k">Shown before the customer pays</div><div class="bad">Written on the invoice, after the price was agreed.</div><div class="good">On the screen and on the receipt, every time. Nothing to explain.</div></div>
+      <div class="vs-row"><div class="vs-k">Debit cards</div><div class="bad">Charged the fee, against the rules.</div><div class="good">The app handles every card type the way the rules allow.</div></div>
+      <div class="vs-row"><div class="vs-k">When Visa or the state asks</div><div class="bad">It lands on you.</div><div class="good">It is a registered, documented program with your processor.</div></div>
+      <div class="vs-row"><div class="vs-k">Your card cost</div><div class="bad">2.6% to 3.5% of every sale goes to the app, out of the fee you collected.</div><div class="good">$0. On AllPro Rebate, part of the fee comes back to you every month.</div></div>
+      <div class="vs-row"><div class="vs-k">A disputed payment</div><div class="bad">You find out when the money leaves.</div><div class="good">You call a person who knows your account, the same day it flags.</div></div>
+    </div>
+    <div class="chips">
+      <span class="chip">No contract</span>
+      <span class="chip">No cancellation fee</span>
+      <span class="chip">No setup fee</span>
+      <span class="chip">Works on the phones you use now</span>
+      <span class="chip">Ten minutes on the phone to apply</span>
+    </div>
+    <p class="note">We set it up to your state's rules and the card-brand rules. If it is not better for you, you leave. No contract, no cancellation fee, nothing owed.</p>
+  </div>
+
+  <div class="sec" id="math">
+    <h2>Do the math on your own numbers</h2>
+    <p class="sub">Move the slider to your monthly card sales. This is the whole comparison, nothing hidden.</p>
+    <div class="calc">
+      <label for="vol">Card sales a month</label>
+      <div class="inrow"><span>$</span><input id="vol" type="number" min="1000" max="500000" step="500" value="10000" inputmode="numeric"></div>
+      <input id="volr" type="range" min="2000" max="100000" step="500" value="10000" aria-label="Card sales a month">
+      <label>AllPro Rebate tier (your customers see this card price)</label>
+      <div class="tiers" id="tiers">
+        <button type="button" data-t="standard"><b>3.99%</b>Standard<small>0.25% back</small></button>
+        <button type="button" data-t="max" class="on"><b>4.99%</b>Max<small>0.60% back</small></button>
+        <button type="button" data-t="plus"><b>4.49%</b>Plus<small>0.40% back</small></button>
+      </div>
+      <div class="out">
+        <div class="o"><div class="k">Your card cost with us</div><div class="v good">$0</div><div class="d">Dual pricing: the card price covers it. Nothing comes out of your sales.</div></div>
+        <div class="o"><div class="k">What a flat-rate app keeps today</div><div class="v bad" id="o-app">$260 to $350</div><div class="d">a month at a typical 2.6% to 3.5%, before the cents per swipe. Out of the fee you collected by hand.</div></div>
+        <div class="o"><div class="k">Back to you on AllPro Rebate</div><div class="v good" id="o-reb">$60 a month</div><div class="d" id="o-rebd">about $720 a year, plus a $250 loyalty bonus</div></div>
+        <div class="o"><div class="k">The other side of the ledger</div><div class="v bad">$1,000</div><div class="d">Visa's first notice. $25,000 if the deadline is missed. $500 to $2,000 in the New Jersey cases above.</div></div>
+      </div>
+      <p class="note" id="o-note">Rebate on eligible card volume processed through us at $10,000 a month and up, while you keep your posted card price. Loyalty bonus paid in two halves after months 3 and 6 as cumulative volume reaches $30,000 and $60,000. App estimates use published flat-rate pricing and are not a quote for your account.</p>
     </div>
   </div>
 
   <div class="sec">
     <h2>Even Square says so</h2>
-    <p style="margin:0;color:var(--muted)">Square now has its own surcharge switch. Read what it allows: 3% maximum, credit cards only, in person only. Debit stays on you. A hand-written 5% on every card is outside even Square's own tool.</p>
+    <p class="sub">Square now has its own surcharge switch. Read what it allows: 3% maximum, credit cards only, in person only. Debit stays on you. A hand-written 5% on every card is outside even Square's own tool.</p>
     <img class="shot" src="square-rules.png" alt="Square help page: surcharges only apply to credit card transactions, capped at 3%">
     <p class="note"><a href="https://squareup.com/help/us/en/article/8596-set-up-and-manage-card-surcharges">Square Support, "Set up and manage credit card surcharges"</a> (source 4)</p>
   </div>
@@ -149,8 +240,8 @@ h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;
   </div>
 
   <div class="cta">
-    <h2>Ten minutes and it is done right</h2>
-    <p id="cta-sub">Pick a time below, or reply to the email that brought you here.</p>
+    <h2>Ten minutes. We make it simple.</h2>
+    <p id="cta-sub">We fill in the application together on the phone, you e-sign, and the app is on your phone the same day. Nothing to buy, nothing to lose.</p>
     <a class="btn" id="cta-btn" href="https://allpropay.com/get-started/">Book a Call &rarr;</a>
     <p class="or">Or call or text <a id="rep-phone" href="tel:+18008070356">800-807-0356</a></p>
   </div>
@@ -165,8 +256,13 @@ h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;
       <li>Mastercard, "Merchant surcharge rules": <a href="https://www.mastercard.com/us/en/business/support/merchant-surcharge-rules.html">mastercard.com</a></li>
       <li>New Jersey Attorney General, February 7, 2023: <a href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/">njoag.gov</a></li>
       <li>NBC Chicago, September 7, 2022: <a href="https://www.nbcchicago.com/news/local/restaurant-group-faces-lawsuit-regarding-deceptive-charges-added-onto-bills/2933308/">nbcchicago.com</a></li>
+      <li>Wisconsin Restaurant Association, "Wisconsin Restaurant Just Hit with $25,000 Fine from Visa", May 7, 2024: <a href="https://www.wirestaurant.org/news/wisconsin-restaurant-just-hit-with-25000-fine-from-visa">wirestaurant.org</a></li>
+      <li>Hoboken Girl, "NJ Businesses Are Being Fined For Undisclosed Credit Card Fees", February 15, 2024: <a href="https://www.hobokengirl.com/new-jersey-restaurants-businesses-credit-card-fees-2024/">hobokengirl.com</a></li>
+      <li>Minnesota Star Tribune, "For Minnesota restaurants, price transparency law adds unwanted layer of regulation", July 23, 2025: <a href="https://www.startribune.com/for-minnesota-restaurants-price-transparency-law-adds-unwanted-layer-of-regulation/601436431">startribune.com</a></li>
+      <li>PYMNTS, "New York Imposes New Limits on Credit Card Surcharges", February 11, 2024: <a href="https://www.pymnts.com/credit-cards/2024/new-york-imposes-new-limits-on-credit-card-surcharges/">pymnts.com</a></li>
+      <li>Digital Transactions, "Will Visa Follow Through on Lowering Its Credit Card Surcharge Cap in April?", March 3, 2023: <a href="https://www.digitaltransactions.net/will-visa-follow-through-on-lowering-its-credit-card-surcharge-cap-in-april/">digitaltransactions.net</a></li>
     </ol>
-    <p class="foot">This page summarizes published card-brand rules, a law firm's summary of them, and public news and enforcement releases as of October 2026. It is general information, not legal advice. Rules and state laws change; your processor agreement governs what is passed to you. AllProPay &middot; 800-807-0356 &middot; allpropay.com</p>
+    <p class="foot">This page summarizes published card-brand rules, a law firm's summary of them, and public news and enforcement releases as of October 2026. It is general information, not legal advice. Rules and state laws change; your processor agreement governs what is passed to you. Dollar figures in the calculator are estimates from the number you enter, not a quote. AllProPay &middot; 800-807-0356 &middot; allpropay.com</p>
   </div>
 </div>
 
@@ -179,11 +275,38 @@ h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;
     carl:{n:"Carl Brown",p:"929-493-4037",r:"+19294934037",b:"https://book.allpropay.com/#/14701000000178006"}
   };
   var q=new URLSearchParams(location.search).get("rep"); var r=q&&reps[q.toLowerCase()];
-  if(!r) return;
-  document.getElementById("rep-top").textContent=r.n+" · "+r.p;
-  var ph=document.getElementById("rep-phone"); ph.textContent=r.p; ph.href="tel:"+r.r;
-  document.getElementById("cta-btn").href=r.b;
-  document.getElementById("cta-sub").textContent="Pick a time with "+r.n.split(" ")[0]+" below, or reply to the email that brought you here.";
+  if(r){
+    document.getElementById("rep-top").textContent=r.n+" · "+r.p;
+    var ph=document.getElementById("rep-phone"); ph.textContent=r.p; ph.href="tel:"+r.r;
+    document.getElementById("cta-btn").href=r.b;
+    document.getElementById("cta-sub").textContent="Pick a time with "+r.n.split(" ")[0]+" below. We fill in the application together on the phone, you e-sign, and the app is on your phone the same day. Nothing to buy, nothing to lose.";
+  }
+
+  var TIERS={standard:{rate:.0025,bonus:100,posted:"3.99%"},max:{rate:.006,bonus:250,posted:"4.99%"},plus:{rate:.004,bonus:150,posted:"4.49%"}};
+  var tier="max", vol=document.getElementById("vol"), volr=document.getElementById("volr");
+  function money(n){return "$"+Math.round(n).toLocaleString("en-US");}
+  function calc(){
+    var v=Math.max(0,Number(vol.value)||0), t=TIERS[tier];
+    document.getElementById("o-app").textContent=money(v*.026)+" to "+money(v*.035);
+    var reb=document.getElementById("o-reb"), rebd=document.getElementById("o-rebd");
+    if(v>=10000){
+      reb.textContent=money(v*t.rate)+" a month";
+      rebd.textContent="about "+money(v*t.rate*12)+" a year at "+t.posted+" posted, plus a "+money(t.bonus)+" loyalty bonus";
+    }else{
+      reb.textContent="Dual Pricing";
+      rebd.textContent="card cost $0 at this volume; the rebate starts at $10,000 a month";
+    }
+  }
+  vol.addEventListener("input",function(){ volr.value=Math.min(100000,Math.max(2000,vol.value||0)); calc(); });
+  volr.addEventListener("input",function(){ vol.value=volr.value; calc(); });
+  Array.prototype.forEach.call(document.querySelectorAll("#tiers button"),function(b){
+    b.addEventListener("click",function(){
+      tier=b.getAttribute("data-t");
+      Array.prototype.forEach.call(document.querySelectorAll("#tiers button"),function(x){x.classList.toggle("on",x===b);});
+      calc();
+    });
+  });
+  calc();
 })();
 </script>
 </body>
