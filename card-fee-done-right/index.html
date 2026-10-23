@@ -143,7 +143,7 @@ h2{font-family:var(--display);font-weight:700;font-size:1.3rem;margin:0 0 8px;co
       <a class="tile" href="https://www.startribune.com/for-minnesota-restaurants-price-transparency-law-adds-unwanted-layer-of-regulation/601436431" target="_blank" rel="noopener"><img src="startrib-tile.png" alt="Minnesota Star Tribune, July 23, 2025: For Minnesota restaurants, price transparency law adds unwanted layer of regulation"><div class="cap"><b>Minnesota Star Tribune &middot; July 23, 2025</b><em>More than 60 businesses</em> got letters from the state Attorney General over fee complaints in the law's first months.<span class="more">Read the story &rarr;</span></div></a>
       <a class="tile" href="https://www.pymnts.com/credit-cards/2024/new-york-imposes-new-limits-on-credit-card-surcharges/" target="_blank" rel="noopener"><img src="pymnts-tile.png" alt="PYMNTS, February 11, 2024: New York Imposes New Limits on Credit Card Surcharges"><div class="cap"><b>PYMNTS &middot; February 11, 2024</b>New York: the card price must be posted <em>before checkout</em>, and the fee cannot be more than the card company charges you.<span class="more">Read the story &rarr;</span></div></a>
       <a class="tile" href="https://www.digitaltransactions.net/will-visa-follow-through-on-lowering-its-credit-card-surcharge-cap-in-april/" target="_blank" rel="noopener"><img src="digitrans-tile.png" alt="Digital Transactions, March 3, 2023: Will Visa Follow Through on Lowering Its Credit Card Surcharge Cap in April?"><div class="cap"><b>Digital Transactions &middot; March 3, 2023</b>Visa's cap went from 4% to <em>3%</em> in April 2023. A 4% or 5% fee has been over the line ever since.<span class="more">Read the story &rarr;</span></div></a>
-      <a class="tile" href="https://www.afslaw.com/perspectives/alerts/visa-reduces-its-merchant-surcharge-cap-3-effective-april-15-2023-merchants" target="_blank" rel="noopener"><img src="afslaw-tile.png" alt="ArentFox Schiff, July 24, 2023: Visa Reduces Its Merchant Surcharge Cap to 3%. Merchants Should Ensure They Are in Compliance to Avoid Fines, Fees and Litigation"><div class="cap"><b>ArentFox Schiff (law firm) &middot; July 24, 2023</b>"Fines, fees and litigation." Their summary of Visa's <em>fine schedule</em> is further down this page.<span class="more">Read the alert &rarr;</span></div></a>
+      <a class="tile" href="https://www.afslaw.com/perspectives/alerts/visa-reduces-its-merchant-surcharge-cap-3-effective-april-15-2023-merchants" target="_blank" rel="noopener"><img src="afslaw-tile.png" alt="ArentFox Schiff, July 24, 2023: Visa Reduces Its Merchant Surcharge Cap to 3%. Merchants Should Ensure They Are in Compliance to Avoid Fines, Fees and Litigation"><div class="cap"><b>ArentFox Schiff (law firm) &middot; July 24, 2023</b>"Fines, fees and litigation." Their alert carries Visa's <em>fine schedule</em>, summarized further down this page.<span class="more">Read the alert &rarr;</span></div></a>
     </div>
     <p class="note">Screenshots taken October 2026 from the pages linked. None of these owners thought it would be them.</p>
   </div>
@@ -171,8 +171,7 @@ h2{font-family:var(--display);font-weight:700;font-size:1.3rem;margin:0 0 8px;co
       <tr><td>90 days</td><td class="amt">$100,000</td></tr>
       <tr><td>Past 180 days, every month until fixed</td><td class="amt">+$25,000</td></tr>
     </table>
-    <p class="note">Visa bills the processor. The processor's agreement passes it to you, and the account can be closed. Fine schedule as summarized by the law firm ArentFox Schiff, July 2023 (source 1). Visa's own merchant Q&amp;A confirms the immediate $1,000 (source 2). The Wisconsin restaurant above went straight to the $25,000 tier.</p>
-    <img class="shot" src="visa-fine-table.png" alt="Visa non-compliance penalty table as summarized by ArentFox Schiff">
+    <p class="note">Visa bills the processor. The processor's agreement passes it to you, and the account can be closed. Fine schedule as summarized by the law firm ArentFox Schiff, July 2023 (source 1, linked above). Visa's own merchant Q&amp;A confirms the immediate $1,000 (source 2). The Wisconsin restaurant above went straight to the $25,000 tier.</p>
     <div class="quote">"Visa is going straight to the merchants, using mystery shoppers, warning notices and fines." One processor said it absorbs about one surcharge fine a month on behalf of its merchants.<small>Payments Dive, December 17, 2024 (source 3)</small></div>
   </div>
 
@@ -205,19 +204,18 @@ h2{font-family:var(--display);font-weight:700;font-size:1.3rem;margin:0 0 8px;co
       <label for="vol">Card sales a month</label>
       <div class="inrow"><span>$</span><input id="vol" type="number" min="1000" max="500000" step="500" value="10000" inputmode="numeric"></div>
       <input id="volr" type="range" min="2000" max="100000" step="500" value="10000" aria-label="Card sales a month">
-      <label>AllPro Rebate tier (your customers see this card price)</label>
+      <label>Pick the card price your customers see</label>
       <div class="tiers" id="tiers">
-        <button type="button" data-t="standard"><b>3.99%</b>Standard<small>0.25% back</small></button>
-        <button type="button" data-t="max" class="on"><b>4.99%</b>Max<small>0.60% back</small></button>
-        <button type="button" data-t="plus"><b>4.49%</b>Plus<small>0.40% back</small></button>
+        <button type="button" data-t="dp"><b>3.99%</b>Dual Pricing<small>You pay nothing</small></button>
+        <button type="button" data-t="reb" class="on"><b>4.99%</b>AllPro Rebate<small>We pay you back</small></button>
       </div>
       <div class="out">
-        <div class="o"><div class="k">Your card cost with us</div><div class="v good">$0</div><div class="d">Dual pricing: the card price covers it. Nothing comes out of your sales.</div></div>
+        <div class="o"><div class="k">Your card cost with us</div><div class="v good">$0</div><div class="d" id="o-costd">The card price covers it. Nothing comes out of your sales, at either price.</div></div>
         <div class="o"><div class="k">What a flat-rate app keeps today</div><div class="v bad" id="o-app">$260 to $350</div><div class="d">a month at a typical 2.6% to 3.5%, before the cents per swipe. Out of the fee you collected by hand.</div></div>
-        <div class="o"><div class="k">Back to you on AllPro Rebate</div><div class="v good" id="o-reb">$60 a month</div><div class="d" id="o-rebd">about $720 a year, plus a $250 loyalty bonus</div></div>
+        <div class="o"><div class="k" id="o-rebk">Back to you on AllPro Rebate</div><div class="v good" id="o-reb">$60 a month</div><div class="d" id="o-rebd">about $720 a year, plus a $250 loyalty bonus</div></div>
         <div class="o"><div class="k">The other side of the ledger</div><div class="v bad">$1,000</div><div class="d">Visa's first notice. $25,000 if the deadline is missed. $500 to $2,000 in the New Jersey cases above.</div></div>
       </div>
-      <p class="note" id="o-note">Rebate on eligible card volume processed through us at $10,000 a month and up, while you keep your posted card price. Loyalty bonus paid in two halves after months 3 and 6 as cumulative volume reaches $30,000 and $60,000. App estimates use published flat-rate pricing and are not a quote for your account.</p>
+      <p class="note" id="o-note">AllPro Rebate is paid monthly on eligible card volume processed through us at $10,000 a month and up, while you keep your posted card price. Loyalty bonus paid in two halves after months 3 and 6 as cumulative volume reaches $30,000 and $60,000. App estimates use published flat-rate pricing and are not a quote for your account.</p>
     </div>
   </div>
 
@@ -282,19 +280,30 @@ h2{font-family:var(--display);font-weight:700;font-size:1.3rem;margin:0 0 8px;co
     document.getElementById("cta-sub").textContent="Pick a time with "+r.n.split(" ")[0]+" below. We fill in the application together on the phone, you e-sign, and the app is on your phone the same day. Nothing to buy, nothing to lose.";
   }
 
-  var TIERS={standard:{rate:.0025,bonus:100,posted:"3.99%"},max:{rate:.006,bonus:250,posted:"4.99%"},plus:{rate:.004,bonus:150,posted:"4.49%"}};
-  var tier="max", vol=document.getElementById("vol"), volr=document.getElementById("volr");
+  /* Program numbers live here only. Change them here and the whole calculator follows.
+     The merchant never sees the rebate as a percentage, only as dollars (Chris 2026-10-23). */
+  var CONFIG={rebateRate:0.006, rebateBonus:250, rebateFloor:10000, appLow:0.026, appHigh:0.035};
+  var tier="reb", vol=document.getElementById("vol"), volr=document.getElementById("volr");
   function money(n){return "$"+Math.round(n).toLocaleString("en-US");}
   function calc(){
-    var v=Math.max(0,Number(vol.value)||0), t=TIERS[tier];
-    document.getElementById("o-app").textContent=money(v*.026)+" to "+money(v*.035);
-    var reb=document.getElementById("o-reb"), rebd=document.getElementById("o-rebd");
-    if(v>=10000){
-      reb.textContent=money(v*t.rate)+" a month";
-      rebd.textContent="about "+money(v*t.rate*12)+" a year at "+t.posted+" posted, plus a "+money(t.bonus)+" loyalty bonus";
+    var v=Math.max(0,Number(vol.value)||0);
+    document.getElementById("o-app").textContent=money(v*CONFIG.appLow)+" to "+money(v*CONFIG.appHigh);
+    var rebk=document.getElementById("o-rebk"), reb=document.getElementById("o-reb"), rebd=document.getElementById("o-rebd"), costd=document.getElementById("o-costd");
+    if(tier==="dp"){
+      costd.textContent="Your customers see 3.99%. The card price covers your cost. Nothing comes out of your sales.";
+      rebk.textContent="Back to you";
+      reb.textContent="Nothing to pay";
+      rebd.textContent="At 3.99% you keep every dollar of every sale. Switch to 4.99% to see what comes back.";
     }else{
-      reb.textContent="Dual Pricing";
-      rebd.textContent="card cost $0 at this volume; the rebate starts at $10,000 a month";
+      costd.textContent="Your customers see 4.99%. The card price covers your cost. Nothing comes out of your sales.";
+      rebk.textContent="Back to you on AllPro Rebate";
+      if(v>=CONFIG.rebateFloor){
+        reb.textContent=money(v*CONFIG.rebateRate)+" a month";
+        rebd.textContent="about "+money(v*CONFIG.rebateRate*12)+" a year, plus a "+money(CONFIG.rebateBonus)+" loyalty bonus";
+      }else{
+        reb.textContent="Starts at $10,000";
+        rebd.textContent="the rebate starts at "+money(CONFIG.rebateFloor)+" a month in card sales; under that, 3.99% Dual Pricing is the fit";
+      }
     }
   }
   vol.addEventListener("input",function(){ volr.value=Math.min(100000,Math.max(2000,vol.value||0)); calc(); });
