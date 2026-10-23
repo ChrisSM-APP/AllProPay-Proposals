@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The card fee you add by hand | AllProPay</title>
+<meta name="description" content="What the card brands require of a card fee, what it costs when they find one added by hand, and the way to do it right.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1120; --card:#121C30; --ink:#F5F7FA; --muted:#9FB0C9; --line:rgba(255,255,255,0.08);
+  --accent:#0066FF; --accent-2:#00D4FF; --accent-deep:#0052FF; --on-gradient:#04111F;
+  --light:#F5F7FA; --light-ink:#0B1120; --light-muted:#5A6B85; --light-line:#E2E8F0; --tint-soft:#EEF3FF;
+  --flag-dark:#FFB4B4;
+  --grad-cta:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);
+  --grad-panel:linear-gradient(160deg,#0E1830 0%,#0B1424 100%);
+  --panel-line:1px solid rgba(0,212,255,0.25);
+  --glow:radial-gradient(circle,rgba(0,102,255,0.22) 0%,rgba(0,212,255,0.08) 35%,transparent 65%);
+  --shadow-cta:0 8px 30px rgba(0,102,255,0.35); --shadow-panel:0 20px 60px rgba(0,0,0,0.35);
+  --radius:16px; --radius-pill:999px; --display:'Montserrat',sans-serif; --body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-2)}
+.top{background:#fff;color:var(--light-ink);border-bottom:3px solid var(--accent-deep)}
+.top .in{max-width:760px;margin:0 auto;padding:18px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top img{height:34px}
+.top .co{font-size:.9rem;color:var(--light-muted)}
+.wrap{max-width:760px;margin:0 auto;padding:36px 16px 56px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4.6vw,2.4rem);line-height:1.12;margin:10px 0 12px}
+h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:0 0 10px;color:#fff}
+.lead{font-size:1.08rem;color:var(--muted);margin:0 0 28px}
+.sec{margin:34px 0 0}
+.panel{position:relative;overflow:hidden;background:var(--grad-panel);border:var(--panel-line);border-radius:var(--radius);box-shadow:var(--shadow-panel);padding:22px 20px}
+.panel::before{content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;border-radius:50%;background:var(--glow);pointer-events:none}
+.rules{width:100%;border-collapse:collapse;margin-top:6px}
+.rules th{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 0 10px;font-weight:700}
+.rules td{padding:11px 0;border-top:1px solid var(--line);vertical-align:top;font-size:.97rem}
+.rules td.x{color:var(--flag-dark);font-weight:700;white-space:nowrap;padding-left:12px;text-align:right}
+.rules td.ok{color:var(--accent-2);font-weight:700;white-space:nowrap;padding-left:12px;text-align:right}
+.ladder{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.ladder td{padding:12px 14px;border-top:1px solid var(--line);font-size:.95rem}
+.ladder tr:first-child td{border-top:0}
+.ladder td.amt{font-family:var(--display);font-weight:800;color:var(--accent-2);white-space:nowrap;text-align:right;font-size:1.05rem}
+.ladder tr.first td.amt{font-size:1.5rem}
+.note{font-size:.84rem;color:var(--muted);margin:10px 0 0}
+.cards{display:grid;grid-template-columns:1fr;gap:12px;margin-top:8px}
+@media(min-width:620px){.cards{grid-template-columns:1fr 1fr}}
+.case{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px}
+.case .who{font-family:var(--display);font-weight:700;color:#fff;font-size:1rem;margin:0 0 4px}
+.case .amt{font-family:var(--display);font-weight:800;color:var(--accent-2);font-size:1.35rem;line-height:1.1;margin:2px 0 8px}
+.case p{margin:0;font-size:.93rem;color:var(--muted)}
+.case .src{display:block;margin-top:10px;font-size:.8rem}
+.shot{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);margin-top:12px;background:#fff}
+.quote{border-left:3px solid var(--accent-2);padding:4px 0 4px 14px;color:var(--ink);margin:14px 0 0;font-size:1rem}
+.quote small{display:block;color:var(--muted);margin-top:6px;font-size:.82rem}
+.fix{margin-top:14px}
+.fix li{margin:8px 0}
+.cta{margin-top:36px;background:linear-gradient(135deg,#0A37CC 0%,#0066FF 100%);border-radius:var(--radius);padding:26px 20px;text-align:center;color:#fff}
+.cta h2{color:#fff;font-size:1.35rem}
+.cta p{margin:6px 0 16px;color:rgba(255,255,255,.88)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1rem;padding:15px 26px;border-radius:var(--radius-pill);background:#fff;color:var(--accent-deep);text-decoration:none;box-shadow:0 0 0 3px rgba(0,212,255,.55);width:100%;max-width:420px}
+.cta .or{margin:14px 0 0;font-size:.95rem}
+.cta .or a{color:#fff;font-weight:700}
+.sources{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;font-size:.84rem;color:var(--muted)}
+.sources ol{padding-left:18px;margin:8px 0 0}
+.sources li{margin:4px 0;word-break:break-word}
+.foot{margin-top:18px;font-size:.78rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="top"><div class="in"><img src="AllProPay_Logo.jpg" alt="AllProPay"><span class="co"><span id="rep-top">800-807-0356</span> &middot; allpropay.com</span></div></div>
+
+<div class="wrap">
+  <span class="eyebrow">Card fees, done right</span>
+  <h1>The card fee you add by hand can cost more than it earns.</h1>
+  <p class="lead">If you write a card fee on the invoice or key it in yourself, this page is for you. Three minutes, and every claim on it links to where it comes from.</p>
+
+  <div class="sec panel">
+    <h2>What the card brands require, and what a hand-added fee does</h2>
+    <table class="rules">
+      <tr><th>Visa and Mastercard say a card fee must be</th><th></th></tr>
+      <tr><td>Registered with your processor 30 days before you start</td><td class="x">Not done</td></tr>
+      <tr><td>Shown to the customer before they pay, and itemized on the receipt</td><td class="x">Receipt only</td></tr>
+      <tr><td>On credit cards only. Never on a debit or prepaid card</td><td class="x">Every card</td></tr>
+      <tr><td>Capped. Visa set the ceiling at 3% in April 2023</td><td class="x">Usually over</td></tr>
+    </table>
+    <p class="note">A fee you add yourself fails every line, no matter how long you have done it or how fair the number feels.</p>
+  </div>
+
+  <div class="sec">
+    <h2>What it costs when Visa finds one</h2>
+    <table class="ladder">
+      <tr class="first"><td>First notice</td><td class="amt">$1,000</td></tr>
+      <tr><td>Plus a written plan to fix it, on a deadline</td><td class="amt">required</td></tr>
+      <tr><td>Deadline missed</td><td class="amt">$25,000</td></tr>
+      <tr><td>30 days after that</td><td class="amt">$50,000</td></tr>
+      <tr><td>60 days</td><td class="amt">$75,000</td></tr>
+      <tr><td>90 days</td><td class="amt">$100,000</td></tr>
+      <tr><td>Past 180 days, every month until fixed</td><td class="amt">+$25,000</td></tr>
+    </table>
+    <p class="note">Visa bills the processor. The processor's agreement passes it to you, and the account can be closed. Fine schedule as summarized by the law firm ArentFox Schiff, July 2023 (source 1). Visa's own merchant Q&amp;A confirms the immediate $1,000 (source 2).</p>
+    <img class="shot" src="visa-fine-table.png" alt="Visa non-compliance penalty table as summarized by ArentFox Schiff">
+    <div class="quote">"Visa is going straight to the merchants, using mystery shoppers, warning notices and fines." One processor said it absorbs about one surcharge fine a month on behalf of its merchants.<small>Payments Dive, December 17, 2024 (source 3)</small></div>
+  </div>
+
+  <div class="sec">
+    <h2>It is already happening to small shops</h2>
+    <div class="cards">
+      <div class="case"><div class="who">Ronnie's Hot Bagels, Hillsdale NJ</div><div class="amt">$500 penalty</div><p>Card fee disclosed on the receipt, after the customer had paid. Notice of violation from the state Attorney General, February 2023. Same for Seymour's Cafe in Clifton.</p><a class="src" href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/">NJ Attorney General release</a></div>
+      <div class="case"><div class="who">Hidden Grounds Coffee, NJ</div><div class="amt">$2,000 settlement</div><p>Same sweep. The Attorney General's office said each undisclosed card fee can be a separate violation, with penalties up to $10,000 for a first one.</p><a class="src" href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/">NJ Attorney General release</a></div>
+      <div class="case"><div class="who">Do-Rite Donuts, Tinley Park IL</div><div class="amt">Sued</div><p>A customer noticed a 3% surcharge on his receipt after paying and filed suit against the restaurant group behind it, September 2022.</p><a class="src" href="https://www.nbcchicago.com/news/local/restaurant-group-faces-lawsuit-regarding-deceptive-charges-added-onto-bills/2933308/">NBC Chicago</a></div>
+      <div class="case"><div class="who">How they find you</div><div class="amt">Complaints</div><p>State offices act on customer complaints. Visa uses mystery shoppers. One annoyed customer with a receipt is all it takes.</p><a class="src" href="https://www.paymentsdive.com/news/visa-merchant-surcharge-rule-enforcement-card-fines/735765/">Payments Dive</a></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Even Square says so</h2>
+    <p style="margin:0;color:var(--muted)">Square now has its own surcharge switch. Read what it allows: 3% maximum, credit cards only, in person only. Debit stays on you. A hand-written 5% on every card is outside even Square's own tool.</p>
+    <img class="shot" src="square-rules.png" alt="Square help page: surcharges only apply to credit card transactions, capped at 3%">
+    <p class="note"><a href="https://squareup.com/help/us/en/article/8596-set-up-and-manage-card-surcharges">Square Support, "Set up and manage credit card surcharges"</a> (source 4)</p>
+  </div>
+
+  <div class="sec panel">
+    <h2>The way to do it right</h2>
+    <p style="margin:0 0 6px">Same idea, built the other way around. Your price is the card price, and cash pays less.</p>
+    <ul class="fix" style="margin:0;padding-left:20px">
+      <li><strong>Both prices are shown before anyone pays.</strong> On the screen and on the receipt. Nothing to write in, nothing to explain.</li>
+      <li><strong>The app or terminal does the math.</strong> Every card, including debit, with no line you have to add.</li>
+      <li><strong>Your cost on card sales is $0.</strong> On AllPro Rebate, part of it comes back to you every month.</li>
+      <li><strong>If a payment is ever disputed, you call a person who knows your account.</strong> Not an 800 number.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <h2>Ten minutes and it is done right</h2>
+    <p id="cta-sub">Pick a time below, or reply to the email that brought you here.</p>
+    <a class="btn" id="cta-btn" href="https://allpropay.com/get-started/">Book a Call &rarr;</a>
+    <p class="or">Or call or text <a id="rep-phone" href="tel:+18008070356">800-807-0356</a></p>
+  </div>
+
+  <div class="sources">
+    <strong>Where this comes from</strong>
+    <ol>
+      <li>ArentFox Schiff, "Visa Reduces Its Merchant Surcharge Cap to 3%", July 24, 2023: <a href="https://www.afslaw.com/perspectives/alerts/visa-reduces-its-merchant-surcharge-cap-3-effective-april-15-2023-merchants">afslaw.com</a></li>
+      <li>Visa, "U.S. Merchant Surcharge Q&amp;A": <a href="https://usa.visa.com/dam/VCOM/global/support-legal/documents/merchant-surcharging-qa-for-web.pdf">usa.visa.com</a></li>
+      <li>Payments Dive, "Merchants maneuver as Visa enforces surcharge program", December 17, 2024: <a href="https://www.paymentsdive.com/news/visa-merchant-surcharge-rule-enforcement-card-fines/735765/">paymentsdive.com</a></li>
+      <li>Square Support, "Set up and manage credit card surcharges": <a href="https://squareup.com/help/us/en/article/8596-set-up-and-manage-card-surcharges">squareup.com</a></li>
+      <li>Mastercard, "Merchant surcharge rules": <a href="https://www.mastercard.com/us/en/business/support/merchant-surcharge-rules.html">mastercard.com</a></li>
+      <li>New Jersey Attorney General, February 7, 2023: <a href="https://www.njoag.gov/ag-platkin-announces-several-violations-at-businesses-for-not-accepting-cash-and-charging-a-credit-card-surcharge-without-required-notice/">njoag.gov</a></li>
+      <li>NBC Chicago, September 7, 2022: <a href="https://www.nbcchicago.com/news/local/restaurant-group-faces-lawsuit-regarding-deceptive-charges-added-onto-bills/2933308/">nbcchicago.com</a></li>
+    </ol>
+    <p class="foot">This page summarizes published card-brand rules, a law firm's summary of them, and public news and enforcement releases as of October 2026. It is general information, not legal advice. Rules and state laws change; your processor agreement governs what is passed to you. AllProPay &middot; 800-807-0356 &middot; allpropay.com</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reps={
+    chris:{n:"Chris Ste-Marie",p:"929-930-3970",r:"+19299303970",b:"https://book.allpropay.com/#/14701000000122127"},
+    tammy:{n:"Tammy Millar",p:"929-930-3050",r:"+19299303050",b:"https://book.allpropay.com/#/14701000000122106"},
+    matt:{n:"Matt Butcher",p:"929-930-3969",r:"+19299303969",b:"https://book.allpropay.com/#/14701000000123129"},
+    carl:{n:"Carl Brown",p:"929-493-4037",r:"+19294934037",b:"https://book.allpropay.com/#/14701000000178006"}
+  };
+  var q=new URLSearchParams(location.search).get("rep"); var r=q&&reps[q.toLowerCase()];
+  if(!r) return;
+  document.getElementById("rep-top").textContent=r.n+" · "+r.p;
+  var ph=document.getElementById("rep-phone"); ph.textContent=r.p; ph.href="tel:"+r.r;
+  document.getElementById("cta-btn").href=r.b;
+  document.getElementById("cta-sub").textContent="Pick a time with "+r.n.split(" ")[0]+" below, or reply to the email that brought you here.";
+})();
+</script>
+</body>
+</html>
