@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email version - AllProPay Proposal | Westshore Marine Service and Repair</title>
+<style>
+  /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
+     the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
+  :root {
+    --blue: #0052FF;          /* AllProPay Blue: headings, links, the italic Pro, eyebrows on paper */
+    --accent: #0066FF;        /* Electric Blue: gradient start */
+    --cyan: #00D4FF;          /* Cyan Glow: eyebrows on dark, the big number in the panel */
+    --accent-deep: #0A37CC;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --tint: #E5EDFF;
+    --tint-soft: #EEF3FF;
+    --slate: #9FB0C9;         /* Muted Slate: captions on dark */
+    --slate-bar: #3A4A66;     /* the "today" bar */
+    --on-gradient: #04111F;
+    --black: #000000;
+    --text: #0B1120;
+    --muted: #5A6B85;         /* captions on paper */
+    --radius: 16px;
+    --grad-cta: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+    --grad-panel: linear-gradient(160deg, #0E1830 0%, #0B1424 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.5; }
+  .page { max-width: 820px; margin: 0 auto; }
+  a { color: var(--blue); }
+
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 36px 12px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+  .content { padding: 22px 36px 28px; }
+
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in.
+     It lives with the header in .top-paper, which stays WHITE on the dark screen (Chris: "the top
+     white as well, and once it shows Prepared for Dana, that's when it changes into the darker"). */
+  .top-paper { background: #fff; }
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0; padding: 18px 36px 20px; }
+  .open-note p { margin: 0 0 8px; }
+  .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
+
+  /* title block */
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 6px; line-height: 1.5; }
+  .title-block h1.merchant-h { font-family: 'Montserrat', sans-serif; font-size: 24pt; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -0.4px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+  .meta-row { display: flex; gap: 24px; border-top: 1px solid var(--mid-gray); border-bottom: 1px solid var(--mid-gray); padding: 8px 0; font-size: 9pt; }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  /* the dark panel */
+  .hero { position: relative; overflow: hidden; background: var(--grad-panel); border: 1px solid rgba(0,212,255,.25); border-radius: var(--radius); color: #fff; padding: 22px 28px; margin: 16px 0; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
+  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
+  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: left; }
+  .price-cell .pc-label { display: block; font-size: 8.5pt; color: var(--slate); margin-bottom: 8px; letter-spacing: .4px; line-height: 1.4; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; position: relative; top: -1px; }
+  .price-cell .pc-value { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1.05; margin-bottom: 5px; }
+  .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: var(--slate); text-shadow: none; }
+  .price-cell .pc-value.us { font-size: 26pt; color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px rgba(255,255,255,.35); }
+  .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .price-cell .pc-sub { font-size: 8.5pt; color: var(--slate); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 8px 2px; border-radius: 999px; line-height: 1.25; }
+  .pill-today { background: rgba(159,176,201,.18); color: #9FB0C9; border: 1px solid rgba(159,176,201,.5); }
+  .pill-us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: var(--cyan); color: var(--on-gradient); line-height: 13px; vertical-align: middle; letter-spacing: .3px; white-space: nowrap; text-shadow: none; }
+  .hero-extra { position: relative; z-index: 1; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.12); font-size: 9pt; color: var(--slate); }
+  .hero-extra strong { color: #fff; }
+
+  /* light comparison box (PROGRAM_CHART) */
+  .chart-card { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; }
+  .chart-card .cc-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label { width: 1%; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 12px; }
+  td.bc-track { width: auto; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
+  td.bc-track .bc-bar.us { background: var(--grad-cta); }
+  td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-label.us, td.bc-value.us { color: var(--blue); }
+  table.bar-chart td.bc-label { padding-right: 14px; }
+  table.bar-chart td.bc-value { padding-left: 14px; }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+  /* older specs still send the navy-band .prog-chart; render it as the same light card */
+  .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
+  .prog-chart .pchart-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .prog-chart .pc-lab { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 10px; width: 20%; }
+  .prog-chart .pc-num { text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; color: var(--blue); width: 20%; }
+  .prog-chart .pc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* AllPro Rebate tier cards (TIERS_SECTION, rendered by build_proposal.py from spec "tiers"):
+     dark cards side by side, a pill tag, the tier name in caps, one big dollar figure, a short
+     fact table; the recommended card has the blue border. Same look as the hand-built pages. */
+  .tiers-sub { font-size: 9pt; color: var(--muted); margin: -2px 0 10px; }
+  table.tier-row { width: calc(100% + 20px); border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.tier-cell { background: var(--grad-panel); border: 1.5px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 16px 12px; vertical-align: top; color: #fff; }
+  td.tier-cell.rec { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+  .tier-cell .t-pop { font-family: 'Montserrat', sans-serif; display: inline-block; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .tier-cell .t-pop.quiet { background: rgba(159,176,201,.18); color: #9FB0C9; }
+  .tier-cell .t-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .tier-cell .t-cash { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .tier-cell .t-cashsub { font-size: 8pt; color: var(--slate); margin-bottom: 8px; }
+  table.t-facts { width: 100%; border-collapse: collapse; }
+  table.t-facts td { padding: 3.5px 0; font-size: 8.5pt; border-top: 1px solid rgba(255,255,255,.14); background: transparent; }
+  table.t-facts td.k { color: var(--slate); padding-right: 8px; }
+  table.t-facts td.v { text-align: right; font-weight: 700; color: #E2E8F0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* the one sentence */
+  .insight { background: var(--tint-soft); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 12px 0 0; font-size: 10pt; line-height: 1.55; }
+  .insight strong { color: var(--blue); }
+
+  .sec-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; }
+
+  /* from our call: three short lines in their words */
+  ul.call-list { list-style: none; margin: 0; padding: 0; }
+  ul.call-list li { padding: 7px 14px; border-left: 3px solid var(--blue); background: var(--light-gray); margin-bottom: 6px; border-radius: 0 8px 8px 0; font-size: 10pt; }
+
+  /* what changes: three numbered cards */
+  table.counter-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.counter-cell { width: 33.3%; background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: 12px; padding: 11px 14px; vertical-align: top; }
+  .counter-cell .cs-num { font-family: 'Montserrat', sans-serif; display: inline-block; width: 20px; height: 20px; line-height: 20px; background: var(--grad-cta); color: var(--on-gradient); border-radius: 50%; font-size: 9pt; font-weight: 800; text-align: center; margin-bottom: 6px; }
+  .counter-cell .cs-title { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .counter-cell .cs-body { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+  /* two-offer block (OPTIONS_SECTION), when the deal has one */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 0; }
+  .opt { background: var(--grad-panel); border: 1.5px solid rgba(0,212,255,.25); border-radius: 12px; padding: 14px 16px; color: #fff; }
+  .opt.opt-a { border-color: var(--blue); }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .opt.opt-b .opt-tag { background: rgba(43,95,217,.35); }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .opt .opt-mech, .opt .opt-figure-sub, .opt .opt-note { font-size: 8.5pt; color: var(--slate); }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .opt .opt-list { margin: 8px 0 0 16px; font-size: 8.5pt; color: #E2E8F0; }
+  .opt-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* the account: plain key/value list */
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .terms-table td:first-child { color: var(--muted); width: 42%; font-weight: 500; }
+  .terms-table td:nth-child(2) { color: var(--text); font-weight: 600; }
+  .terms-table td:nth-child(3) { color: var(--muted); font-weight: 400; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  /* the promise: two bold lines, then the sentence (Chris's sketch, 2026-10-19 night) */
+  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.45; }
+  .promise .g-big { display: block; font-size: 14pt; font-weight: 800; letter-spacing: -.2px; }
+  .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
+
+  /* the CTA block */
+  /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
+     the CTA"). Title, one line, the big white button with the blue ring, then the phone as the
+     fallback in small type. Block-level only, so it survives a Gmail paste unchanged. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 24px 26px 20px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
+  .cta-block .ct-sub strong { color: #fff; }
+  /* CTA pill (Chris 2026-10-21, "make our CTA a 10/10"): a blue ring on the blue block vanished,
+     so the ring is cyan, the pill is bigger, and an arrow says "tap me". */
+  .cta-block a.apply { display: block; max-width: 440px; margin: 20px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16pt; letter-spacing: .2px; padding: 17px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply::after { content: "\00a0\2192"; }
+  .cta-block a.apply:hover { background: #EEF3FF; }
+  .cta-block .apply-next { font-size: 9.5pt; color: #fff; opacity: .92; line-height: 1.5; max-width: 520px; margin: 0 auto 12px; }
+  .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
+  .cta-btn { display: none; }
+
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid var(--mid-gray); border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+
+  .doc-footer { border-top: 1px solid var(--mid-gray); padding: 12px 36px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--muted); }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+  @media screen { @keyframes apBar { from { width: 0; } } .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .cs-body, .cc-note, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .open-note { padding: 16px 18px 18px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .options { display: block; }
+    .opt { margin-bottom: 10px; }
+    table.tier-row, table.tier-row > tbody, table.tier-row > tbody > tr { display: block; margin: 0; }
+    td.tier-cell { display: block; width: 100% !important; margin-bottom: 10px; }
+    table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
+    td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
+    /* phone: label + value on one line, the bar full width under them */
+    table.bar-chart, table.bar-chart tbody { display: block; }
+    table.bar-chart tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 8px; }
+    table.bar-chart td.bc-label { grid-row: 1; grid-column: 1; font-size: 8pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
+    td.bc-track .bc-bar { height: 14px; }
+    .cta-block { padding: 22px 18px 18px; }
+    .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    /* each promise line stays ONE line on a phone (Chris 2026-10-20: "statement" wrapped under) */
+    .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
+    .title-block h1.merchant-h { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.28in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.35; color: var(--text); }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .chart-card, .prog-chart, td.counter-cell, .bc-bar, .cs-num, .pill, .chip, .insight, .promise, .opt, .opt-tag, ul.call-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero, .chart-card, .prog-chart, .cta-block, .terms-table, .promise, .insight, table.counter-row, .options { break-inside: avoid; page-break-inside: avoid; }
+    .cta-block { box-shadow: none; }
+    .doc-header { padding: 8px 22px 6px; }
+    .doc-header .logo-img { height: 40px; }
+    .open-note { padding: 8px 22px 6px; font-size: 8.5pt; }
+    .content { padding: 10px 22px 8px; }
+    .title-block { margin-bottom: 6px; }
+    .title-block h1 { font-size: 18pt; }
+    .title-block .merchant { font-size: 10pt; margin-bottom: 6px; }
+    .title-block .eyebrow { font-size: 7.5pt; margin-bottom: 2px; }
+    .meta-row { padding: 5px 0; font-size: 7.5pt; gap: 16px; }
+    .hero { padding: 11px 18px; margin: 8px 0; border-radius: 9px; }
+    .hero h2 { font-size: 11.5pt; margin-bottom: 8px; }
+    .hero .hero-eyebrow { font-size: 7pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell .pc-value.us { font-size: 20pt; }
+    .price-cell .pc-value.today { font-size: 12pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7pt; }
+    .sec-label { font-size: 7.5pt; margin: 8px 0 4px; }
+    .chart-card, .prog-chart { padding: 8px 12px 7px; margin-top: 7px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 7pt; margin-bottom: 4px; }
+    table.bar-chart td { padding: 2.5px 0; }
+    td.bc-track .bc-bar { height: 13px; }
+    td.bc-label { font-size: 7pt; }
+    td.bc-value { font-size: 9.5pt; }
+    .chart-card .cc-note { font-size: 6pt; margin-top: 3px; }
+    .insight { padding: 8px 12px; font-size: 8.5pt; margin-top: 8px; }
+    td.tier-cell { padding: 7px 11px 6px; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-pop { font-size: 5.5pt; padding: 1.5px 7px; margin-bottom: 3px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-cash { font-size: 14pt; }
+    table.t-facts td { padding: 2px 0; font-size: 6.5pt; }
+    table.tier-row { break-inside: avoid; page-break-inside: avoid; }
+    ul.call-list li { padding: 4px 10px; font-size: 8.5pt; margin-bottom: 4px; }
+    table.counter-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.counter-cell { padding: 6px 10px; border-radius: 7px; }
+    .counter-cell .cs-num { width: 15px; height: 15px; line-height: 15px; font-size: 7.5pt; margin-bottom: 3px; }
+    .counter-cell .cs-title { font-size: 7.5pt; margin-bottom: 1px; }
+    .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
+    .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
+    .promise { padding: 8px 12px; font-size: 9pt; margin-top: 8px; }
+    .cta-block { padding: 10px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
+    .cta-block .ct-sub { font-size: 7.5pt; }
+    .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .apply-next { font-size: 7.5pt; margin-bottom: 4px; }
+    .cta-block .ct-or { font-size: 7.5pt; }
+    .title-block h1.merchant-h { font-size: 17pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
+    .doc-footer .sig img { height: 16px; }
+    .doc-footer .fine { font-size: 6pt; }
+  }
+
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, #08275A 0%, #0A1F30 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
+
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid #1F2432; }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid #1F2432; color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: #232936; }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: #232936; }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: #07556E; }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: #232936; }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px #070B15; }
+
+    /* callouts + tiles */
+    .insight { background: #0A1B3B; border-left-color: #00D4FF; border-color: #084258; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: #151B29; border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid #1F2432; color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: #092048; color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: #13244E; color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: #1A1F2D; color: #FFFFFF; border-bottom: 1px solid #084258; }
+    tbody td, .terms-table td { border-color: #1F2432; color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: #141928; }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: #091D3F; color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: #151B29; color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: #091F44; color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: #101D3E; color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: #151B29; color: #9FB0C9; }
+    .sxs-save.alt { background: #101D3E; color: #C9D3E3; border-color: #405179; }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid #1F2432; border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: #E2E2E4; }
+  
+  
+
+  /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
+     email-ready copy (make_email_version.py) stays paper. */
+  
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: #1F2432; color: #F5F7FA; }
+    .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
+    .content { padding-top: 24px; }
+    .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
+    .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
+    .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
+    .content { padding-top: 26px; }
+    .content ul.call-list li, .content ul.call-list li strong { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise strong { color: #0052FF; }
+    .insight { background: #0A1B3B; border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+    .opt-note { color: #9FB0C9; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:nth-child(2) { color: #FFFFFF; }
+    .terms-table td:nth-child(3) { color: #9FB0C9; }
+    .cta-block { box-shadow: 0 20px 60px #070B15; }
+    .tiers-sub { color: #9FB0C9; }
+    td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
+    .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
+  
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+/* ---- end dark surface 2026-10-19 ---- */
+</style>
+<style id="email-mode">
+  /* email-mode overrides (make_email_version.py) */
+  .page { max-width: 680px !important; margin: 0 auto !important; }
+  .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
+  .steps-bar, .cta-block { display: block !important; }
+  .doc-header { padding: 18px 28px 14px !important; }
+  .content { padding-left: 28px !important; padding-right: 28px !important; }
+  .doc-footer { text-align: center !important; padding: 14px 28px !important; }
+  .cta-btn { display: inline-block !important; }
+  .cta-print-text { display: none !important; }
+  .apc-calc, .booking-embed, script { display: none !important; }
+  /* Gmail ignores media queries, so the promise lines get one phone-safe size: 11pt keeps
+     "No surprises on your statement." on one line on a 360px phone (Chris 2026-10-20). */
+  .promise .g-big { font-size: 11pt !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  /* flex-free step bubbles + hero chip, for proposals built before the 2026-09-18 template fix */
+  .steps { display: block !important; }
+  .step { display: block !important; overflow: hidden; margin-bottom: 14px; }
+  .step-num { display: block !important; float: left; width: 36px; height: 36px; line-height: 36px; text-align: center; margin-right: 16px; }
+  .step-content { display: block !important; overflow: hidden; }
+  .pricing-callout .pc-label, .pricing-callout .pc-value, .price-cell .pc-label, .price-cell .pc-value { display: block !important; }
+  .pc-label .pill { margin-right: 7px; vertical-align: middle; }
+  .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .chip { line-height: 13px !important; vertical-align: middle; }
+  /* short one-pager blocks (flex/grid on the page) */
+  .meta-row, .why-bar, .price-row, .steps-bar, .cta-block, .doc-footer, .doc-footer .sig { display: block !important; }
+  .meta-row > div { display: block; padding: 2px 0; }
+  .doc-footer .sig img { vertical-align: middle; margin-right: 8px; }
+  .doc-footer .fine { max-width: 100% !important; text-align: left !important; margin-top: 6px; }
+  .why-cell { display: block !important; }
+  /* neutralise the page's data-table styling on our layout tables */
+  table.em-cols { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 !important; font-size: inherit !important; }
+  table.em-cols tr, table.em-cols td { background: transparent !important; border: 0 !important; }
+</style><style id="email-toolbar-css">
+  #em-toolbar { position: sticky; top: 0; z-index: 50; background: #0B1120; color: #E2E8F0;
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; padding: 12px 20px;
+    border-bottom: 3px solid #0052FF; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  #em-toolbar b { color: #fff; }
+  #em-toolbar .em-btn { background: #0052FF; color: #fff; border: 0; border-radius: 6px;
+    font-weight: 700; font-size: 13px; padding: 9px 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+  #em-toolbar .em-btn.alt { background: transparent; border: 1.5px solid #64748B; color: #E2E8F0; }
+  #em-toolbar .em-note { color: #94A3B8; flex-basis: 100%; }
+  #em-toolbar .em-ok { color: #7DD3FC; font-weight: 700; }
+  #em-toolbar .em-to { color: #94A3B8; }
+  @media print { #em-toolbar { display: none; } }
+</style></head>
+<body>
+<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Westshore Marine Service and Repair</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
+<div class="top-paper" style="; background:#FFFFFF; border-bottom:3px solid #0052FF;">
+<div class="doc-header" style="; border-bottom:3px solid #0052FF;">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="padding:0; text-align:left;"><img alt="AllProPay" class="logo-img" height="47" src="https://proposals.allpropay.com/westshore-marine-service-and-repair-r51ma1/AllProPay_Logo.jpg" style="display:block; width:220px; max-width:100%; height:auto; border:0;" width="220"/></td></tr><tr><td style="padding:0; text-align:left;"><div class="contact" style="text-align:left; padding-top:8px"><span style="white-space:nowrap;">929-930-3970</span> &#183; <span style="white-space:nowrap;">chris@allpropay.com</span> &#183; <span style="white-space:nowrap;">allpropay.com</span></div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/westshore-marine-service-and-repair-r51ma1/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="open-note">Minotti, thanks for taking the time this morning.<br/>Here is what we talked about, on one page: the same card fee you charge today, set up the way the card rules want it, and nothing monthly to you.<br/>Chris</div>
+</div>
+<div class="content">
+<div class="title-block">
+<div class="eyebrow">Prepared for Minotti &#183; October 26, 2026</div>
+<h1 class="merchant-h">Westshore Marine Service and Repair</h1>
+</div>
+<div class="hero">
+<div class="hero-eyebrow">AllProPay Dual Pricing</div>
+<h2>Same card fee, done the right way.</h2>
+<div class="price-row two">
+
+
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label"><span class="pill pill-today">Today</span> </div>
+<div class="pc-value today">3% to 3.25%</div>
+<div class="pc-sub">Added by hand to Wave invoices, no cash price shown</div>
+</div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
+<div class="pc-label"><span class="pill pill-us">AllProPay Dual Pricing</span> </div>
+<div class="pc-value us">$0</div>
+<div class="pc-sub">Card payers see 3.5% next to the cash price. Nothing monthly to you.</div>
+</div></td></tr></table></div>
+</div>
+<div class="insight">On a <strong>$1,500</strong> repair bill your customer sees the cash price and the card price side by side, and you keep the full <strong>$1,500</strong> either way.</div>
+<div class="sec-label">From our call</div>
+<ul class="call-list">
+<li>"I just tell people I accept everything payment wise... I gotta charge them, unfortunately, 3%."</li><li>"95% of people... just pay me either cash, check, Zelle, Venmo."</li><li>"Wave is pretty good right now besides, obviously, the credit card fee."</li>
+</ul>
+<div class="sec-label">The account</div>
+<table class="terms-table" style="width:100%" width="100%">
+<tr><td>Tap to pay on your phone</td><td>Included. Plus invoices and payment links by text or email</td></tr>
+<tr><td>Platform fee</td><td>$0 a month</td></tr>
+<tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
+</table>
+<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
+<div class="cta-block">
+<div class="ct-title">Like what you see? Start your application</div>
+<div class="ct-sub">Start the application below. Five short steps and you are on your way. Prefer to talk it through first? Pick a time further down.</div>
+<a class="apply" href="https://allpropay.com/start-application.html?d=53057000013464410&amp;x=20261225&amp;s=9df68e734faa0a6e2b11952beba2ef99" style="display:block; max-width:440px; margin:20px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:16pt; padding:17px 24px; border-radius:999px; text-decoration:none; text-align:center;">Start my application&#160;&#8594;</a><div class="apply-next" style="display:block; font-family:Inter, Arial, sans-serif; font-size:9.5pt; color:#FFFFFF; text-align:center; line-height:1.5; max-width:520px; margin:0 auto 12px;">About five minutes. We prepare your application, usually the same business day, and email it to you to e-sign.</div>
+<div class="ct-or">Or call or text me at <a class="ca-phone" href="tel:+19299303970">929-930-3970</a></div>
+</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
+
+</div>
+<div class="doc-footer">
+
+
+<div class="sig" style="display:block; white-space:nowrap">
+<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark.png" style="; height:26px; width:auto;"/>
+<span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
+</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program shows the cash price and the card price on every invoice and passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; cash, check, Zelle and Venmo customers pay the listed price. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
+</td></tr></table></div>
+
+<script id="em-compose" type="application/json">{"subject": "Westshore Marine - your card setup, on one page", "body": "Hi Minotti,\n\nThanks for taking my call this morning. As promised, here is everything on one page: https://proposals.allpropay.com/westshore-marine-service-and-repair-r51ma1/\n\nShort version:\n- You keep passing the card fee to the customers who pay by card, like you do now.\n- Every invoice shows the cash price and the card price side by side, which is how the card rules want it done.\n- Nothing monthly to you. Take payments by tap on your phone, by text link, or by invoice.\n\nThe application only takes a few minutes and the button is on the page. If you would rather do it together, call or text me.\n\nNo chasing from me. Whenever you are ready, I am here.\n\nChris\nAllProPay\n929-930-3970", "draft_url": "https://mail.google.com/mail/u/0/#drafts?compose=1a178e79c09c92d3"}</script><script>
+/* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
+   a rep's and the proposal open beacon ignores it from now on. */
+try{localStorage.setItem("app_rep","1");}catch(e){}
+
+(function () {
+  var page = document.querySelector('.page');
+  var status = document.getElementById('em-status');
+  function copyPage() {
+    var range = document.createRange();
+    range.selectNodeContents(page);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    window.scrollTo(0, 0);
+    return ok;
+  }
+  // Compose data: subject + note are embedded at build time; the recipient is NOT
+  // (this page is published). It arrives as ?to= on the link stored in the CRM.
+  var compose = null;
+  try { compose = JSON.parse(document.getElementById('em-compose').textContent); } catch (e) { compose = null; }
+  var qs = new URLSearchParams(window.location.search);
+  var to = (qs.get('to') || (compose && compose.to) || '').trim();
+  function gmailUrl() {
+    if (!compose) return null;
+    var u = 'https://mail.google.com/mail/?view=cm&fs=1';
+    if (to) u += '&to=' + encodeURIComponent(to);
+    u += '&su=' + encodeURIComponent(compose.subject || '');
+    u += '&body=' + encodeURIComponent(compose.body || '');
+    return u;
+  }
+  // A real Gmail draft with the proposal already in the body (make_gmail_draft.py at build time,
+  // 2026-10-20). When the build made one, every button here just opens it: no copy, no paste.
+  var draftUrl = (compose && compose.draft_url) || '';
+  var note = document.querySelector('#em-toolbar .em-note');
+  var draft = document.getElementById('em-draft');
+  if (draft) {
+    var gu = draftUrl || gmailUrl();
+    if (gu) { draft.href = gu; } else { draft.style.display = 'none'; }
+    if (draftUrl) draft.textContent = 'Open the draft in Gmail';
+  }
+  var toLabel = document.getElementById('em-to');
+  if (toLabel) toLabel.textContent = draftUrl
+    ? 'The draft is in your Gmail Drafts with the proposal in the body.'
+    : (to ? ('To: ' + to) : 'No recipient on this link - type the address in Gmail.');
+  if (note && draftUrl) note.textContent = 'Email this proposal: opens your Gmail draft. The note and the full proposal are already in the body; check the address, read it top to bottom, send. Copy proposal only is the fallback if the draft was deleted.';
+  var copyBtn = document.getElementById('em-copy');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var ok = copyPage();
+    status.textContent = ok
+      ? 'Copied. Open your Gmail draft and press Ctrl+V in the body.'
+      : 'Copy was blocked. Click inside the page, press Ctrl+A then Ctrl+C.';
+    status.className = ok ? 'em-ok' : '';
+  });
+  var sendBtn = document.getElementById('em-send');
+  if (sendBtn) sendBtn.addEventListener('click', function () {
+    if (draftUrl) {
+      window.open(draftUrl, '_blank', 'noopener');
+      status.textContent = 'Gmail draft opened in a new tab. The proposal is already in it: check the address, read, send.';
+      status.className = 'em-ok';
+      return;
+    }
+    var ok = copyPage();
+    var gu = gmailUrl();
+    if (gu) window.open(gu, '_blank', 'noopener');
+    status.textContent = ok
+      ? 'Proposal copied. In the Gmail tab that just opened, click under the note and press Ctrl+V. Read it, adjust, send.'
+      : 'Gmail opened, but the copy was blocked. Click inside this page, Ctrl+A, Ctrl+C, then paste in Gmail.';
+    status.className = ok ? 'em-ok' : '';
+  });
+})();
+</script></body>
+</html>
