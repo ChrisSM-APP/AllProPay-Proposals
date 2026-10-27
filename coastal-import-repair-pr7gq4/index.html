@@ -162,19 +162,24 @@
 
   /* the CTA block */
   /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
-     the CTA"). Title, one line, the big white button with the blue ring, then the phone as the
-     fallback in small type. Block-level only, so it survives a Gmail paste unchanged. */
-  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 24px 26px 20px; margin-top: 18px; text-align: center; }
-  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
-  .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
+     the CTA"; 2026-10-26: "make this CTA pop, look super nice, like it's asking you to click it").
+     Title, one line, the big white pill with the cyan ring, three "what happens next" chips, then
+     the phone. Block-level only, so it survives a Gmail paste unchanged: the bloom, the breathing
+     ring and the hover lift live in the screen-only block below, so the email copy stays flat. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 30px 26px 24px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 19pt; line-height: 1.15; letter-spacing: -.2px; margin: 0 auto 8px; max-width: 560px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10.5pt; opacity: .94; line-height: 1.5; max-width: 500px; margin: 0 auto; color: #fff; }
   .cta-block .ct-sub strong { color: #fff; }
   /* CTA pill (Chris 2026-10-21, "make our CTA a 10/10"): a blue ring on the blue block vanished,
      so the ring is cyan, the pill is bigger, and an arrow says "tap me". */
-  .cta-block a.apply { display: block; max-width: 440px; margin: 20px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16pt; letter-spacing: .2px; padding: 17px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply { display: block; max-width: 460px; margin: 22px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17pt; letter-spacing: .2px; padding: 19px 28px; border-radius: 999px; text-decoration: none; text-align: center; }
   .cta-block a.apply::after { content: "\00a0\2192"; }
   .cta-block a.apply:hover { background: #EEF3FF; }
-  .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
-  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
+  .cta-block .apply-next { font-size: 9.5pt; color: #fff; opacity: .92; line-height: 1.5; max-width: 560px; margin: 0 auto 14px; }
+  /* the three chips under the pill (APPLY_SUB default): only what the application page itself promises */
+  .cta-block .apply-next .an-chip { display: inline-block; padding: 5px 12px; margin: 3px 2px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 9pt; font-weight: 600; white-space: nowrap; }
+  .cta-block .ct-or { font-size: 10pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; border-bottom: 2px solid rgba(0,212,255,.9); }
   .cta-btn { display: none; }
 
   .booking-embed { margin-top: 20px; }
@@ -222,8 +227,10 @@
     table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
     table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
     td.bc-track .bc-bar { height: 14px; }
-    .cta-block { padding: 22px 18px 18px; }
-    .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    .cta-block { padding: 26px 18px 20px; }
+    .cta-block .ct-title { font-size: 16pt; }
+    .cta-block a.apply { max-width: none; font-size: 15pt; padding: 17px 18px; }
+    .cta-block .apply-next .an-chip { font-size: 8.5pt; padding: 4px 10px; }
     /* each promise line stays ONE line on a phone (Chris 2026-10-20: "statement" wrapped under) */
     .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
     .title-block h1.merchant-h { font-size: 21pt; }
@@ -280,6 +287,8 @@
     .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
     .cta-block .ct-sub { font-size: 7.5pt; }
     .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .apply-next { font-size: 7.5pt; margin-bottom: 4px; }
+    .cta-block .apply-next .an-chip { font-size: 7pt; padding: 2px 8px; margin: 1px; background: transparent; border-color: rgba(255,255,255,.55); }
     .cta-block .ct-or { font-size: 7.5pt; }
     .title-block h1.merchant-h { font-size: 17pt; }
     .booking-embed { display: none !important; }
@@ -409,13 +418,41 @@
     .terms-table td:first-child { color: #9FB0C9; }
     .terms-table td:nth-child(2) { color: #FFFFFF; }
     .terms-table td:nth-child(3) { color: #9FB0C9; }
-    .cta-block { box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+    /* The CTA that asks to be clicked (Chris 2026-10-26): a lit gradient with a cyan bloom behind
+       the pill, a slow breathing ring on the pill, and a lift plus arrow nudge on hover. Screen
+       only, so print and the email copy keep the flat block above. */
+    .cta-block { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(160deg, #1F6BFF 0%, #0052FF 48%, #0036B3 100%); border: 1px solid rgba(120,180,255,.35); box-shadow: 0 24px 60px rgba(0,82,255,.38), inset 0 1px 0 rgba(255,255,255,.14); }
+    .cta-block::before { content: ""; position: absolute; left: 50%; top: 44%; width: 620px; height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(0,212,255,.42), rgba(0,212,255,0)); z-index: -1; pointer-events: none; }
+    .cta-block::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%); z-index: -1; pointer-events: none; }
+    .cta-block .ct-title { text-shadow: 0 2px 14px rgba(0,20,80,.35); }
+    .cta-block a.apply { position: relative; background: linear-gradient(180deg, #FFFFFF 0%, #F2F6FF 100%); box-shadow: 0 0 0 7px rgba(0,212,255,.22), 0 0 44px rgba(0,212,255,.45), 0 18px 40px rgba(2,10,40,.5); transition: transform .18s ease, box-shadow .18s ease, background .18s ease; animation: apPulse 2.6s ease-in-out 1.2s infinite; }
+    .cta-block a.apply::after { display: inline-block; transition: transform .18s ease; }
+    .cta-block a.apply:hover { transform: translateY(-3px) scale(1.02); background: #FFFFFF; box-shadow: 0 0 0 8px rgba(0,212,255,.3), 0 0 60px rgba(0,212,255,.6), 0 24px 50px rgba(2,10,40,.55); animation: none; }
+    .cta-block a.apply:hover::after { transform: translateX(5px); }
+    .cta-block a.apply:active { transform: translateY(-1px) scale(.995); }
+    @keyframes apPulse { 0%, 100% { box-shadow: 0 0 0 7px rgba(0,212,255,.22), 0 0 44px rgba(0,212,255,.45), 0 18px 40px rgba(2,10,40,.5); } 50% { box-shadow: 0 0 0 12px rgba(0,212,255,.10), 0 0 64px rgba(0,212,255,.65), 0 22px 46px rgba(2,10,40,.55); } }
+    .cta-block .ct-or .ca-phone:hover { border-bottom-color: #FFFFFF; }
     .tiers-sub { color: #9FB0C9; }
     td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
     .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
   }
-  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
 /* ---- end dark surface 2026-10-19 ---- */
+</style>
+<style id="rate-compare">
+  .price-row { grid-template-columns: .8fr 1.5fr; }
+  .rc-col { display: block; min-width: 0; }
+  .rc-num { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.05; }
+  .rc-them .rc-num { color: #E2E8F0; text-shadow: none; }
+  .rc-lbl { display: block; font-family: 'Inter', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9FB0C9; text-shadow: none; margin-top: 3px; }
+  .rc-money { display: block; font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: none; margin-top: 3px; }
+  .rc-money.rc-pink { color: #FFB4B4; }
+  .rc-duo { display: flex; gap: 16px; align-items: stretch; }
+  .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
+  .opt .rc-duo { margin-top: 10px; }
+  .opt .rc-col .pill { margin-bottom: 7px; }
+  .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
+  @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
 </style>
 </head>
 <body>
@@ -428,48 +465,50 @@
       929-930-3969 &nbsp;&middot;&nbsp; matt@allpropay.com &nbsp;&middot;&nbsp; allpropay.com
     </div>
   </div>
-  <div class="open-note"><p>Adam, thanks for the time with Kurt and me yesterday. You do about $150,000 a month on cards and absorb around $3,500 in fees.</p><p>Here is what that month looks like with me. Same way you take cards, on a newer terminal, at a smaller bill.</p><p>Send me one photo of last month's statement, the page that lists the fees, and I will put your exact number on this page.</p><p class="on-sign">Matt Butcher</p></div>
+  <div class="open-note"><p>Adam, thanks for getting me September's statement. I took it apart line by line.</p><p>You paid $4,319.06 on $175,990 in cards. CardPointe kept $983.90 of that, and almost half of it is their 1.50% on AMEX.</p><p>Here is the same month with me. Same cards, same counter, a smaller bill.</p><p class="on-sign">Matt Butcher</p></div>
   </div>
 
   <div class="content">
 
     <div class="title-block">
-      <div class="eyebrow">Prepared for Adam &middot; October 22, 2026</div>
+      <div class="eyebrow">Prepared for Adam &middot; October 27, 2026</div>
       <h1 class="merchant-h">Coastal Import Repair</h1>
     </div>
 
     <div class="hero">
       <div class="hero-eyebrow">AllProPay Cost+ Rate</div>
-      <h2>Same way you take cards, a smaller bill.</h2>
+      <h2>Same month, about $505 less in fees.</h2>
       <div class="price-row two">
         <div class="price-cell">
-          <div class="pc-label"><span class="pill pill-today">Today</span> </div>
-          <div class="pc-value today">$3,500</div>
-          <div class="pc-sub">A month in fees on about $150,000, about 2.3%.</div>
+          <div class="pc-label"><span class="pill pill-today">CardPointe</span> </div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.45%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">about $4,319/mo</span></span></div>
+          <div class="pc-sub"></div>
         </div>
         <div class="price-cell">
           <div class="pc-label"><span class="pill pill-us">AllProPay Cost+ Rate</span> </div>
-          <div class="pc-value us">$2,900 to $3,250<span class="chip">7% to 17% less</span></div>
-          <div class="pc-sub">Cost plus a flat 0.25% and $0.05 a sale.</div>
+          <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.25%</span><span class="rc-lbl">Cost+ rate</span><span class="rc-money">about $3,814/mo, all in</span></span></div>
+          <div class="pc-sub"></div>
         </div>
       </div>
-      <div class="hero-extra">On every card you pay what Visa and Mastercard charge, at cost, plus a flat <strong>0.25%</strong>. Nothing sits on top of that.</div>
+      <div class="hero-extra">On every card you pay what Visa, Mastercard, Discover and AMEX charge, at cost, plus a flat <strong>0.25%</strong> and $0.05 a sale. Nothing sits on top of that.</div>
     </div>
 
     
 
-    <div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:86%"></div></td><td class="bc-value">$3,500</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:76%"></div></td><td class="bc-value us">$2,900 to $3,250</td></tr></table><div class="cc-note">Today is the $3,500 a month you told me, on about $150,000 in card sales. Cost means what Visa and Mastercard charge on each card, set by them, not by me. Where you land in the range depends on your card mix, and one month of your statement turns it into one number.</div></div>
+    <div class="chart-card"><div class="cc-title">Your September, card fees</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:86%"></div></td><td class="bc-value">$4,319</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:76%"></div></td><td class="bc-value us">$3,814</td></tr></table><div class="cc-note">Both bars are your own September: $175,990 in card sales. $3,335 of each is what the card brands charge every processor.<br>The gap is CardPointe's share: $983.90 today, $478.56 with me.</div></div>
 
-    <div class="insight">At your volume that is about <strong>$3,000 to $7,200 a year</strong> kept in the shop.</div>
+    <div class="insight">At your volume that is about <strong>$4,800 to $6,000 a year</strong> kept in the shop.</div>
 
     <div class="sec-label">From our call</div>
     <ul class="call-list">
-      <li>"We'd probably average about thirty five hundred" in fees, on "right around a hundred and fifty thousand" a month.</li><li>"We absorb them." All of it at the terminal, in person.</li><li>"I'm always open to saving money." As long as the number makes sense.</li>
+      <li>"We'd probably average about thirty five hundred" in fees. September came to $4,319.06, and August to $4,340.76.</li><li>"We absorb them." All of it at the terminal, in person.</li><li>"I'm always open to saving money." As long as the number makes sense.</li>
     </ul>
 
     
 
     
+
+    <div class="section"><a href="https://proposals.allpropay.com/coastal-import-repair-breakdown-wd0wj2/" style="display:block; text-decoration:none; border:1px solid #BFD0F5; border-left:4px solid #0052FF; background:#F3F7FF; border-radius:8px; padding:12px 16px; color:#0B1120;"><span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10.5pt; color:#0052FF;">See your September statement, decoded &rarr;</span><br><span style="font-size:9pt; color:#334155;">Every line of your own statement, re-run side by side. Check my numbers against the document you already have.</span><br><span style="font-size:8pt; color:#5A6B85;">https://proposals.allpropay.com/coastal-import-repair-breakdown-wd0wj2/</span></a></div>
 
     <div class="sec-label">The account</div>
     <table class="terms-table">
@@ -482,13 +521,13 @@
     <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 
     <div class="cta-block">
-      <div class="ct-title">One photo and your real number goes on this page</div>
-      <div class="ct-sub">Text or email me the page of last month's statement that lists the fees. I will fill in your exact number and walk you through it on our call.</div>
-      <a class="apply" href="https://book.allpropay.com/#/14701000000123129">Book a Call</a>
-      <div class="ct-or">Or call or text me at <a href="tel:+19299303969" class="ca-phone">929-930-3969</a></div>
+      <div class="ct-title">Your real number is already here</div>
+      <div class="ct-sub">Nothing to send me. Your statement is decoded and your number is on this page. Start the application below and I take it from there, or pick a time and I walk you through it first.</div>
+      <a class="apply" href="https://allpropay.com/start-application.html?d=53057000013059642&x=20261226&s=6917f8e7a2203338698278ff9174fa75">Start my application</a><div class="apply-next"><span class="an-chip">About 5 minutes</span><span class="an-chip">Usually ready the same business day</span><span class="an-chip">E-sign from your email</span></div>
+      <div class="ct-or">Questions first? Text or call me at <a href="tel:+19299303969" class="ca-phone">929-930-3969</a></div>
     </div>
 
-    <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with me.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
+    <div class="booking-embed"><div class="be-title">Prefer to talk it through first? Pick a time.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
 
   </div>
 
