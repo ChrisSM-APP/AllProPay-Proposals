@@ -435,6 +435,44 @@
   
   @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
 /* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #5A6B85; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #5A6B85; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 8.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
 </style>
 <style id="rate-compare">
   .price-row { grid-template-columns: .8fr 1.5fr; }
@@ -504,8 +542,13 @@
 <div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="padding:0; text-align:left;"><img alt="AllProPay" class="logo-img" height="47" src="https://proposals.allpropay.com/n-amp-n-landscaping-llc-qz4elh/AllProPay_Logo.jpg" style="display:block; width:220px; max-width:100%; height:auto; border:0;" width="220"/></td></tr><tr><td style="padding:0; text-align:left;"><div class="contact" style="text-align:left; padding-top:8px"><span style="white-space:nowrap;">929-930-3050</span> &#183; <span style="white-space:nowrap;">tammy@allpropay.com</span> &#183; <span style="white-space:nowrap;">allpropay.com</span></div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/n-amp-n-landscaping-llc-qz4elh/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="open-note"><p>Robert, good talking with you today. Here it is in writing, like you asked.</p><p>You are covering about 3% yourself on every invoice QuickBooks collects. On Dual Pricing that part goes to $0, and your invoicing stays exactly where it is.</p><p>Look it over with your office people. I will call you mid December.</p><p class="on-sign">Tammy Millar</p></div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="width:52%; padding:0; vertical-align:middle; text-align:left;" width="52%"><img alt="AllProPay" class="logo-img" height="53" src="https://proposals.allpropay.com/n-amp-n-landscaping-llc-qz4elh/AllProPay_Logo.jpg" style="display:block; width:100%; max-width:210px; height:auto; border:0;" width="210"/></td><td style="padding:0 0 0 10px; vertical-align:middle; text-align:right;"><div class="contact" style="text-align:right; line-height:1.35;">
+<span class="ct-lbl" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:9px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#64748B; white-space:nowrap;">Call or text</span>
+<a class="ct-phone" href="tel:+19299303050" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:19px; line-height:1.2; font-weight:800; color:#0052FF; text-decoration:none; white-space:nowrap;">929-930-3050</a>
+<a class="ct-mail" href="mailto:tammy@allpropay.com" style="font-family:Arial, Helvetica, sans-serif; display:block; font-size:13px; color:#0B1120; text-decoration:none; white-space:nowrap;">tammy@allpropay.com</a>
+
+</div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/n-amp-n-landscaping-llc-qz4elh/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="open-note"><p>Robert, good talking with you today. Here it is in writing, like you asked.</p><p>You are covering about 3% yourself on every invoice QuickBooks collects. On Dual Pricing that part goes to $0, and your invoicing stays exactly where it is.</p><p>Look it over with your office people. I will call you mid December.</p><p class="on-sign">Tammy Millar</p><p class="on-phone"><a href="tel:+19299303050">929-930-3050</a></p></div>
 </div>
 <div class="content">
 <div class="title-block">
@@ -554,7 +597,7 @@
 
 
 <div class="sig" style="display:block; white-space:nowrap">
-<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark.png" style="; height:26px; width:auto;"/>
+<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark_2026-11.png" style="; height:32px; width:auto;"/>
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Bank transfer and check customers pay the listed price. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
