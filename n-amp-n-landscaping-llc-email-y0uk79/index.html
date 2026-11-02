@@ -450,6 +450,9 @@
   .open-note .on-sign { margin-bottom: 0; }
   .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; margin: 0; }
   .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  /* the page already shows the number in the header and the CTA, so the line under the name is
+     email-only (Chris 11-02); make_email_version.py turns it back on */
+  .open-note .on-phone { display: none; }
   @media screen and (max-width: 640px) {
     .doc-header .contact { align-items: flex-start; text-align: left; }
     .doc-header .contact a.ct-phone { font-size: 17pt; }
@@ -495,6 +498,8 @@
   .page { max-width: 680px !important; margin: 0 auto !important; }
   .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
   .steps-bar, .cta-block { display: block !important; }
+  /* the page hides the number under the closer's name (it is in the header + CTA); the email shows it */
+  .open-note .on-phone { display: block !important; }
   .doc-header { padding: 18px 28px 14px !important; }
   .content { padding-left: 28px !important; padding-right: 28px !important; }
   .doc-footer { text-align: center !important; padding: 14px 28px !important; }
