@@ -451,11 +451,10 @@
   .doc-header .contact .ct-addr { font-size: 8pt; }
   .doc-header .contact a.ct-web { text-decoration: none; }
   .open-note .on-sign { margin-bottom: 0; }
-  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; margin: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
   .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
-  /* the page already shows the number in the header and the CTA, so the line under the name is
-     email-only (Chris 11-02); make_email_version.py turns it back on */
-  .open-note .on-phone { display: none; }
   @media screen and (max-width: 640px) {
     .doc-header .contact { align-items: flex-start; text-align: left; }
     .doc-header .contact a.ct-phone { font-size: 17pt; }
@@ -464,7 +463,7 @@
     .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
     .doc-header .contact .ct-lbl { font-size: 6.5pt; }
     .doc-header .contact a.ct-phone { font-size: 13pt; }
-    .open-note .on-phone { font-size: 8.5pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
   }
   @media screen {
     /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
