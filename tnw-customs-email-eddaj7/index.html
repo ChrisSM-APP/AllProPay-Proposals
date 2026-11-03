@@ -477,6 +477,22 @@
   }
   /* ---- end header option B 2026-11-02 ---- */
 </style>
+<style id="rate-compare">
+  .price-row { grid-template-columns: .8fr 1.5fr; }
+  .rc-col { display: block; min-width: 0; }
+  .rc-num { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.05; }
+  .rc-them .rc-num { color: #E2E8F0; text-shadow: none; }
+  .rc-lbl { display: block; font-family: 'Inter', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9FB0C9; text-shadow: none; margin-top: 3px; }
+  .rc-money { display: block; font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: none; margin-top: 3px; }
+  .rc-money.rc-pink { color: #FFB4B4; }
+  .rc-money.rc-cyan { color: #00D4FF; }
+  .rc-duo { display: flex; gap: 16px; align-items: stretch; }
+  .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
+  .opt .rc-duo { margin-top: 10px; }
+  .opt .rc-col .pill { margin-bottom: 7px; }
+  .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
+  @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
+</style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
   .page { max-width: 680px !important; margin: 0 auto !important; }
@@ -551,13 +567,13 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="pc-label"><span class="pill pill-today">Today</span> </div>
-<div class="pc-value today">$0 back</div>
-<div class="pc-sub">You already add the card fee at the counter. None of it comes back to you.</div>
+<div class="pc-label"><span class="pill pill-today">Clover</span> </div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">$0 back</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">You already add the card fee at the counter. None of it comes back to you.</span></span></div>
+<div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-us">AllPro Rebate</span> </div>
-<div class="pc-value us">~$1,330 <span class="chip">paid to you</span></div>
-<div class="pc-sub">Year one on Max at about $15,000 a month in card sales. Your card cost stays $0.</div>
+<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-cyan">about $90/mo back to you</span></span></div>
+<div class="pc-sub"></div>
 </div></td></tr></table></div>
 <div class="hero-extra"><strong>No monthly fee</strong> and the terminal is included.</div>
 </div>
