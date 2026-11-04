@@ -160,19 +160,24 @@
 
   /* the CTA block */
   /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
-     the CTA"). Title, one line, the big white button with the blue ring, then the phone as the
-     fallback in small type. Block-level only, so it survives a Gmail paste unchanged. */
-  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 24px 26px 20px; margin-top: 18px; text-align: center; }
-  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; margin-bottom: 6px; color: #fff; }
-  .cta-block .ct-sub { font-size: 10pt; opacity: .94; line-height: 1.5; max-width: 520px; margin: 0 auto; color: #fff; }
+     the CTA"; 2026-10-26: "make this CTA pop, look super nice, like it's asking you to click it").
+     Title, one line, the big white pill with the cyan ring, three "what happens next" chips, then
+     the phone. Block-level only, so it survives a Gmail paste unchanged: the bloom, the breathing
+     ring and the hover lift live in the screen-only block below, so the email copy stays flat. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 30px 26px 24px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 19pt; line-height: 1.15; letter-spacing: -.2px; margin: 0 auto 8px; max-width: 560px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10.5pt; opacity: .94; line-height: 1.5; max-width: 500px; margin: 0 auto; color: #fff; }
   .cta-block .ct-sub strong { color: #fff; }
   /* CTA pill (Chris 2026-10-21, "make our CTA a 10/10"): a blue ring on the blue block vanished,
      so the ring is cyan, the pill is bigger, and an arrow says "tap me". */
-  .cta-block a.apply { display: block; max-width: 440px; margin: 20px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16pt; letter-spacing: .2px; padding: 17px 24px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply { display: block; max-width: 460px; margin: 22px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17pt; letter-spacing: .2px; padding: 19px 28px; border-radius: 999px; text-decoration: none; text-align: center; }
   .cta-block a.apply::after { content: "\00a0\2192"; }
   .cta-block a.apply:hover { background: #EEF3FF; }
-  .cta-block .ct-or { font-size: 9.5pt; color: #fff; opacity: .92; }
-  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; }
+  .cta-block .apply-next { font-size: 9.5pt; color: #fff; opacity: .92; line-height: 1.5; max-width: 560px; margin: 0 auto 14px; }
+  /* the three chips under the pill (APPLY_SUB default): only what the application page itself promises */
+  .cta-block .apply-next .an-chip { display: inline-block; padding: 5px 12px; margin: 3px 2px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 9pt; font-weight: 600; white-space: nowrap; }
+  .cta-block .ct-or { font-size: 10pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; border-bottom: 2px solid rgba(0,212,255,.9); }
   .cta-btn { display: none; }
 
   .booking-embed { margin-top: 20px; }
@@ -220,8 +225,10 @@
     table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
     table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
     td.bc-track .bc-bar { height: 14px; }
-    .cta-block { padding: 22px 18px 18px; }
-    .cta-block a.apply { max-width: none; font-size: 14pt; padding: 16px 18px; }
+    .cta-block { padding: 26px 18px 20px; }
+    .cta-block .ct-title { font-size: 16pt; }
+    .cta-block a.apply { max-width: none; font-size: 15pt; padding: 17px 18px; }
+    .cta-block .apply-next .an-chip { font-size: 8.5pt; padding: 4px 10px; }
     /* each promise line stays ONE line on a phone (Chris 2026-10-20: "statement" wrapped under) */
     .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
     .title-block h1.merchant-h { font-size: 21pt; }
@@ -278,6 +285,8 @@
     .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
     .cta-block .ct-sub { font-size: 7.5pt; }
     .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .apply-next { font-size: 7.5pt; margin-bottom: 4px; }
+    .cta-block .apply-next .an-chip { font-size: 7pt; padding: 2px 8px; margin: 1px; background: transparent; border-color: rgba(255,255,255,.55); }
     .cta-block .ct-or { font-size: 7.5pt; }
     .title-block h1.merchant-h { font-size: 17pt; }
     .booking-embed { display: none !important; }
@@ -406,19 +415,90 @@
     .terms-table td:first-child { color: #9FB0C9; }
     .terms-table td:nth-child(2) { color: #FFFFFF; }
     .terms-table td:nth-child(3) { color: #9FB0C9; }
-    .cta-block { box-shadow: 0 20px 60px #070B15; }
+    /* The CTA that asks to be clicked (Chris 2026-10-26): a lit gradient with a cyan bloom behind
+       the pill, a slow breathing ring on the pill, and a lift plus arrow nudge on hover. Screen
+       only, so print and the email copy keep the flat block above. */
+    .cta-block { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(160deg, #1F6BFF 0%, #0052FF 48%, #0036B3 100%); border: 1px solid #314A6E; box-shadow: 0 24px 60px #072A75, inset 0 1px 0 #2D323F; }
+    .cta-block::before { content: ""; position: absolute; left: 50%; top: 44%; width: 620px; height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, #06637E, #0B1120); z-index: -1; pointer-events: none; }
+    .cta-block::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 0%, #2D323F, #0B1120 60%); z-index: -1; pointer-events: none; }
+    .cta-block .ct-title { text-shadow: 0 2px 14px #071231; }
+    .cta-block a.apply { position: relative; background: linear-gradient(180deg, #FFFFFF 0%, #F2F6FF 100%); box-shadow: 0 0 0 7px #093C51, 0 0 44px #066984, 0 18px 40px #060E24; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; animation: apPulse 2.6s ease-in-out 1.2s infinite; }
+    .cta-block a.apply::after { display: inline-block; transition: transform .18s ease; }
+    .cta-block a.apply:hover { transform: translateY(-3px) scale(1.02); background: #FFFFFF; box-shadow: 0 0 0 8px #084C63, 0 0 60px #0486A6, 0 24px 50px #060D24; animation: none; }
+    .cta-block a.apply:hover::after { transform: translateX(5px); }
+    .cta-block a.apply:active { transform: translateY(-1px) scale(.995); }
+    @keyframes apPulse { 0%, 100% { box-shadow: 0 0 0 7px #093C51, 0 0 44px #066984, 0 18px 40px #060E24; } 50% { box-shadow: 0 0 0 12px #0A2436, 0 0 64px #0490B1, 0 22px 46px #060D24; } }
+    .cta-block .ct-or .ca-phone:hover { border-bottom-color: #FFFFFF; }
     .tiers-sub { color: #9FB0C9; }
     td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
     .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
   
-  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
 /* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #5A6B85; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #5A6B85; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
+</style>
+<style id="rate-compare">
+  .price-row { grid-template-columns: .8fr 1.5fr; }
+  .rc-col { display: block; min-width: 0; }
+  .rc-num { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.05; }
+  .rc-them .rc-num { color: #E2E8F0; text-shadow: none; }
+  .rc-lbl { display: block; font-family: 'Inter', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9FB0C9; text-shadow: none; margin-top: 3px; }
+  .rc-money { display: block; font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: none; margin-top: 3px; }
+  .rc-money.rc-pink { color: #FFB4B4; }
+  .rc-money.rc-cyan { color: #00D4FF; }
+  .rc-duo { display: flex; gap: 16px; align-items: stretch; }
+  .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
+  .opt .rc-duo { margin-top: 10px; }
+  .opt .rc-col .pill { margin-bottom: 7px; }
+  .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
+  @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
 </style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
   .page { max-width: 680px !important; margin: 0 auto !important; }
   .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
   .steps-bar, .cta-block { display: block !important; }
+  /* the number under the closer's name shows on the page and in the email (Chris 11-03); kept as a guard */
+  .open-note .on-phone { display: block !important; }
   .doc-header { padding: 18px 28px 14px !important; }
   .content { padding-left: 28px !important; padding-right: 28px !important; }
   .doc-footer { text-align: center !important; padding: 14px 28px !important; }
@@ -466,12 +546,17 @@
 <div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="padding:0; text-align:left;"><img alt="AllProPay" class="logo-img" height="47" src="https://proposals.allpropay.com/wess-towing-d401xd/AllProPay_Logo.jpg" style="display:block; width:220px; max-width:100%; height:auto; border:0;" width="220"/></td></tr><tr><td style="padding:0; text-align:left;"><div class="contact" style="text-align:left; padding-top:8px"><span style="white-space:nowrap;">929-930-3970</span> &#183; <span style="white-space:nowrap;">chris@allpropay.com</span> &#183; <span style="white-space:nowrap;">allpropay.com</span></div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/wess-towing-d401xd/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="open-note"><p>Jessica, good talking with you yesterday. You had two minutes, so this is the short version I promised.</p><p>You already charge 5%. This keeps that, done the right way on your phone, and pays you back on it. It also puts someone on your side the day a dispute shows up, impounds included.</p><p>I will call Wednesday between 10 and 4 your time. Text me before that if anything is unclear.</p><p class="on-sign">Chris Ste-Marie</p></div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="width:52%; padding:0; vertical-align:middle; text-align:left;" width="52%"><img alt="AllProPay" class="logo-img" height="53" src="https://proposals.allpropay.com/wess-towing-d401xd/AllProPay_Logo.jpg" style="display:block; width:100%; max-width:210px; height:auto; border:0;" width="210"/></td><td style="padding:0 0 0 10px; vertical-align:middle; text-align:right;"><div class="contact" style="display:block; text-align:right; line-height:1.35;">
+<span class="ct-lbl" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:9px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#64748B; white-space:nowrap;">Call or text</span>
+<a class="ct-phone" href="tel:+19299303970" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:19px; line-height:1.2; font-weight:800; color:#0052FF; text-decoration:none; white-space:nowrap;">929-930-3970</a>
+<a class="ct-mail" href="mailto:chris@allpropay.com" style="font-family:Arial, Helvetica, sans-serif; display:block; font-size:13px; color:#0B1120; text-decoration:none; white-space:nowrap;">chris@allpropay.com</a>
+
+</div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/wess-towing-d401xd/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="open-note"><p>Jessica, thanks for picking up while you were on the road. Here is the short version again, so you do not have to dig for it.</p><p>You already charge 5%. This keeps that, done the right way on your phone, and pays you back on it. It also puts someone on your side the day a dispute shows up, impounds included.</p><p>I will call tomorrow morning your time. Text me before then if anything is unclear.</p><p class="on-sign">Chris Ste-Marie</p><p class="on-phone"><a href="tel:+19299303970">929-930-3970</a></p></div>
 </div>
 <div class="content">
 <div class="title-block">
-<div class="eyebrow">Prepared for Jessica &#183; October 23, 2026</div>
+<div class="eyebrow">Prepared for Jessica &#183; November 4, 2026</div>
 <h1 class="merchant-h">Wes's Towing</h1>
 </div>
 <div class="hero">
@@ -481,13 +566,13 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="pc-label"><span class="pill pill-today">Today</span> </div>
-<div class="pc-value today">5% by hand</div>
-<div class="pc-sub">Written on the invoice and keyed into Square. The pushback, and any dispute, lands on you.</div>
+<div class="pc-label"><span class="pill pill-today">Square</span> </div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">5%</span><span class="rc-lbl">Written by hand on the invoice</span><span class="rc-money rc-pink">pushback and any dispute land on you</span></span></div>
+<div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-us">AllPro Rebate</span> </div>
-<div class="pc-value us">~$970 <span class="chip">paid to you</span></div>
-<div class="pc-sub">Year one on Max at about $10,000 a month in card sales. Your customers see 4.99% and your card cost is $0.</div>
+<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-cyan">about $60/mo back to you</span></span></div>
+<div class="pc-sub"></div>
 </div></td></tr></table></div>
 <div class="hero-extra">Same phones, same way you take a card today. The app does the math and shows the customer before they pay.</div>
 </div>
@@ -498,7 +583,6 @@
 <ul class="call-list">
 <li>"We just add it into our invoice. We just do 5% to our customers." Pushback? "Sometimes."</li><li>"We just went to a tow show, and they were talking about disputes. I don't even know if I would know if there was a dispute."</li><li>"If somebody's coming to get something out of impound, we don't really offer card."</li>
 </ul>
-<div class="sec-label">What can happen with a fee added by hand</div><table style="width:100%;border-collapse:separate;border-spacing:0 8px;; width:100%" width="100%"><tr><td style="background:#0E1830;border:1.5px solid rgba(0,212,255,.25);border-radius:12px;padding:12px 14px;color:#fff;width:50%;vertical-align:top;"><div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:8pt;letter-spacing:1px;text-transform:uppercase;color:#00D4FF;">New Jersey, 2023</div><div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:16pt;line-height:1.1;margin:2px 0 4px;">$500 each</div><div style="font-size:8.5pt;color:#9FB0C9;">A bagel shop and a cafe, fined by the state because the card fee only showed on the receipt. A coffee shop settled for $2,000.</div></td><td style="width:10px;"></td><td style="background:#0E1830;border:1.5px solid rgba(0,212,255,.25);border-radius:12px;padding:12px 14px;color:#fff;width:50%;vertical-align:top;"><div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:8pt;letter-spacing:1px;text-transform:uppercase;color:#00D4FF;">When Visa finds one</div><div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:16pt;line-height:1.1;margin:2px 0 4px;">$1,000, then $25,000</div><div style="font-size:8.5pt;color:#9FB0C9;">First notice plus a written plan to fix it. Missed deadline, $25,000, and it keeps climbing.</div></td></tr></table><p style="font-size:8.5pt;color:#5A6B85;margin:4px 0 0;">The rules, the fine schedule and every source: <a href="https://proposals.allpropay.com/card-fee-done-right/?rep=chris">proposals.allpropay.com/card-fee-done-right</a></p>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
 <tr><td>An app on your phones</td><td>Included. Tap to pay and key-in on the phones you use now. It works out the card price and shows it to the customer before they pay, so it is no longer a line you write in. No terminal unless you want one.</td></tr>
@@ -507,23 +591,23 @@
 </table>
 <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 <div class="cta-block">
-<div class="ct-title">Ten minutes, Wednesday or sooner</div>
-<div class="ct-sub">Take my call Wednesday, or pick a time below. We fill in the application together on the phone, you e-sign, and you download the app the same day. Nothing to buy.</div>
-<a class="apply" href="https://book.allpropay.com/#/14701000000122127" style="display:block; max-width:440px; margin:20px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:16pt; padding:17px 24px; border-radius:999px; text-decoration:none; text-align:center;">Book a Call&#160;&#8594;</a>
-<div class="ct-or">Or call or text me at <a class="ca-phone" href="tel:+19299303970">929-930-3970</a></div>
-</div>
+<div class="ct-title">Ten minutes, tomorrow morning or any time you pick</div>
+<div class="ct-sub">Take my call tomorrow morning, or pick a time below. We fill in the application together on the phone, you e-sign, and you download the app the same day. Nothing to buy.</div>
+<a class="apply" href="https://allpropay.com/start-application.html?d=53057000013321138&amp;x=20270103&amp;s=68935eb81a42aefe87d4c74c1e361429" style="display:block; max-width:460px; margin:22px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:17pt; padding:19px 28px; border-radius:999px; text-decoration:none; text-align:center;">Start my application&#160;&#8594;</a><div class="apply-next" style="display:block; font-family:Inter, Arial, sans-serif; font-size:9.5pt; color:#FFFFFF; text-align:center; line-height:1.5; max-width:560px; margin:0 auto 14px;"><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">About 5 minutes</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">Usually ready the same business day</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">E-sign from your email</span></div>
+<div class="ct-or">Questions first? Text or call me at <a class="ca-phone" href="tel:+19299303970">929-930-3970</a></div>
+</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122127" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
 
 </div>
 <div class="doc-footer">
 
 
 <div class="sig" style="display:block; white-space:nowrap">
-<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark.png" style="; height:26px; width:auto;"/>
+<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark_2026-11.png" style="; height:32px; width:auto;"/>
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">AllPro Rebate passes the card processing cost to the card-paying customer as a clearly disclosed card price; cash and check customers pay the listed price. Cash back and bonus figures are estimates at about $10,000 a month in card sales, not a quote. Cash back is paid per the AllPro Rebate Agreement on months with at least $10,000 in eligible card volume, and is built on the posted card price of the option you pick. The loyalty bonus pays in two halves, after month 3 once cumulative eligible volume reaches $30,000 and after month 6 once it reaches $60,000. A $35 monthly account minimum applies: where the card price collected totals under $35 in a month, the difference may be billed. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
 
-<script id="em-compose" type="application/json">{"subject": "Wes's Towing - the short version I promised", "body": "Hi Jessica,\n\nGood talking with you yesterday. Here is the short version, on one page: https://proposals.allpropay.com/wess-towing-d401xd/\n\nYou already charge 5%. On our AllPro Rebate program your customers see 4.99%, the app on your phone does the math and shows it before they pay, your card cost is $0, and about $60 a month comes back to you, plus a $250 loyalty bonus in year one.\n\nThe part that matters most for you: if a payment is ever disputed, you call me, not an 800 number, and we are on it the same day. Set up right, you can take cards at the impound lot too.\n\nI will call Wednesday between 10 and 4 your time. Reply here if anything is unclear before then.\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "Wes's Towing - the short version, again", "body": "Hi Jessica,\n\nGood catching you on the road today. Here is the short version again, on one page: https://proposals.allpropay.com/wess-towing-d401xd/\n\nYou already charge 5%. On our AllPro Rebate program your customers see 4.99%, the app on your phone does the math and shows it before they pay, your card cost is $0, and about $60 a month comes back to you.\n\nIf a payment is ever disputed, you call me, not an 800 number, and we are on it the same day.\n\nNothing to send me. If it looks right, start the application from the page and I take it from there. I will call tomorrow morning your time.\n\nHow we stack up against what you have now: https://allpropay.com/compare-allpropay-vs-square.html\n\nChris Ste-Marie\nAllProPay\n929-930-3970\n", "draft_url": "https://mail.google.com/mail/?authuser=chris@allpropay.com#drafts?compose=1a1a888a82dbc76c"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
    a rep's and the proposal open beacon ignores it from now on. */
 try{localStorage.setItem("app_rep","1");}catch(e){}
