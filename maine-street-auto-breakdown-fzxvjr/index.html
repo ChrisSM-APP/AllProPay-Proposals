@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>October 2026 Statement Breakdown | Maine Street Auto</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  :root {
+    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0; --text: #1A1A2E; --muted: #64748B;
+    --red: #B91C1C; --amber: #B45309; --green: #15803D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10pt; color: var(--text); background: #fff; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: 820px; margin: 0 auto; }
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px 14px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 64px; width: auto; }
+  .doc-header .contact { font-size: 8pt; color: var(--muted); text-align: right; line-height: 1.7; }
+  .content { padding: 28px 40px 40px; }
+  .title-block { margin-bottom: 22px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 23pt; font-weight: 800; color: #000; line-height: 1.1; margin-bottom: 4px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; }
+  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 600; color: var(--blue); margin-bottom: 16px; }
+  .meta-grid { display: grid; grid-template-columns: 150px 1fr; gap: 4px 16px; font-size: 9pt; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .meta-grid .label { color: var(--muted); font-weight: 500; }
+  .meta-grid .value { color: var(--text); font-weight: 500; }
+  .meta-grid .sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); vertical-align: middle; margin: 0 8px 2px; }
+  .section { margin-bottom: 26px; }
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 700; color: var(--blue); padding-bottom: 6px; border-bottom: 2px solid var(--blue); margin-bottom: 14px; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat-cell { background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .stat-label { font-size: 7.5pt; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 17pt; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .stat-value.danger { color: var(--red); }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  th.num, td.num { text-align: right; }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  /* --- Side-by-side "Today vs AllProPay" grid (added 2026-08-27) ------------
+     Column roles: .now = incumbent (slate), .new = the recommended AllProPay
+     program (brand blue, visually dominant), .alt = the optional second program
+     (light, deliberately subordinate - never co-equal with .new).
+     Colors follow the chart house rule: slate + brand blue, never red/green. */
+  table.sxs { font-size: 8.5pt; }
+  table.sxs th, table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  table.sxs th.band.b-lbl { background: var(--navy); }
+  table.sxs th.band.b-now { background: #64748B; }
+  table.sxs th.band.b-new { background: var(--blue); }
+  table.sxs th.band.b-alt { background: #2B5FD9; }
+  table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F5F7FA; color: #5A6B85; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F1F5FE; color: #1E3A8A; font-weight: 600; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #E5EDFF; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #DCE6FB; color: #1E3A8A; font-size: 10pt; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 8px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #00D4FF; white-space: nowrap; }
+  /* Subordinate variant for the second offer. Use when the rep asks for two
+     programs: Option A keeps the solid navy band, Option B gets this lighter
+     one so the two read as RANKED, not co-equal (2026-08-27). */
+  .sxs-save.alt { background: #EEF3FD; color: #1E3A8A; border: 1px solid #A9C1F2; border-left: 4px solid #2B5FD9; padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #2B5FD9; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #475C8F; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #1E3A8A; }
+  .flag { font-weight: 700; }
+  .flag.red { color: var(--red); }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .insight { background: #EEF3FF; border: 1px solid #D6E2FF; border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 9.5pt; }
+  .insight strong { color: var(--amber); }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 8px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .hero-band { background: linear-gradient(135deg, #15803D 0%, #16A34A 55%, #00D4FF 100%); border-radius: 10px; padding: 15px 22px; margin: 0 0 26px; color: #fff; box-shadow: 0 4px 14px rgba(21,128,61,0.22); text-align: center; }
+  .hero-band .sf-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; background: rgba(255,255,255,0.22); padding: 3px 13px; border-radius: 999px; margin-bottom: 7px; }
+  .hero-band .sf-figure { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 800; line-height: 1.02; }
+  .hero-band .sf-figure .sf-unit { font-size: 11pt; font-weight: 700; opacity: 0.9; }
+  .hero-band .sf-sub { font-size: 9.5pt; margin-top: 7px; font-weight: 600; }
+  .hero-band .sf-note { font-size: 7.5pt; margin-top: 5px; opacity: 0.9; }
+  .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .cta-block { text-align: center; margin-top: 24px; padding: 18px 22px; background: var(--light-gray); border: 1px solid var(--mid-gray); border-radius: 10px; }
+  .cta-line { font-size: 10pt; color: var(--text); margin-bottom: 12px; font-weight: 500; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; padding: 12px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.2px; }
+  .cta-print { display: none; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed { margin-top: 18px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+  .sig { margin-top: 16px; font-size: 9pt; text-align: center; color: var(--muted); }
+  .sig .name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--navy); }
+
+  /* ---- website brand system 2026-10-19 ----
+     Tokens and component shapes from the staged allpropay.com build, canonical
+     copy in AllProPay Market/02-brand/brand-tokens.css. The page stays white
+     (paper surface) because proposals get printed and attached; the dark hero,
+     bars, buttons and callouts take the site's exact treatment. Keep this block
+     AFTER the component rules and BEFORE @media print. */
+  :root { --cyan: #00D4FF; --accent: #0066FF; --accent-deep: #0A37CC; --tint: #E5EDFF; --tint-soft: #EEF3FF; --slate: #9FB0C9; --on-gradient: #04111F; --radius: 16px; }
+  .hero, .pricing-callout { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); border: 1px solid rgba(0,212,255,0.25); border-radius: var(--radius); }
+  .hero::before, .pricing-callout::before { background: radial-gradient(circle, rgba(0,102,255,0.30) 0%, rgba(0,212,255,0.08) 45%, transparent 70%); }
+  .hero .hero-eyebrow, .pricing-callout .pc-eyebrow { color: var(--cyan); letter-spacing: 0.14em; }
+  .price-cell .pc-value, .pricing-callout .pc-value { color: var(--cyan); }
+  .price-cell .pc-label, .price-cell .pc-sub, .hero-chart .hc-title, .hero-chart .hc-note, .pricing-callout .pc-sub { color: var(--slate); }
+  .hero-chart .hc-now { background: #3A4A66; }
+  .hero-chart .hc-new { background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%); box-shadow: none; }
+  .hero-chart .hc-val-new { color: var(--cyan); }
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); border-radius: var(--radius); }
+  .cta-btn, .btn-primary, .cta-button { background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%); color: var(--on-gradient); border-radius: 999px; box-shadow: 0 8px 30px rgba(0,102,255,0.35); font-weight: 700; border: 0; }
+  .cta-btn:hover, .btn-primary:hover, .cta-button:hover { background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%); color: var(--on-gradient); box-shadow: 0 12px 40px rgba(0,212,255,0.45); }
+  .insight { background: var(--tint-soft); border-color: #D6E2FF; border-left: 4px solid #0052FF; border-radius: 0 10px 10px 0; }
+  .insight strong { color: #0052FF; }
+  .why-cell { border-radius: 0 10px 10px 0; }
+  .step-card, .opt-mini, .opt, .callout { border-radius: 12px; }
+  .step-card .step-num { background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%); color: var(--on-gradient); }
+  .pill-us { background: rgba(0,212,255,0.14); color: var(--cyan); border: 1px solid rgba(0,212,255,0.45); }
+  .chip { background: var(--cyan); color: var(--on-gradient); }
+
+  @media print { body { font-size: 9.5pt; } .doc-header, .content { padding-left: 28px; padding-right: 28px; } .cta-btn { display: none; } .cta-print { display: block !important; } .booking-embed { display: none !important; } }
+
+  /* website brand system 2026-10-19: print addendum. The gradient fills must survive "print backgrounds off";
+     the button glow must not. */
+  @media print {
+    .hero, .pricing-callout, .cta-block, .cta-btn, .btn-primary, .cta-button, .insight, .step-card .step-num, .hero-chart .hc-new, .hero-chart .hc-now, .pill-us, .chip, .hero-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cta-btn, .btn-primary, .cta-button { box-shadow: none; }
+  }
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  @media screen {
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, rgba(0,102,255,0.26) 0%, rgba(0,212,255,0.07) 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
+
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .doc-header .logo-img, .doc-header img, .doc-footer .sig img { content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYXBsLWZkLXJvb3QiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMTUgMjUgOTcxIDI0NSI+CiAgPCEtLSBBbGxQcm9QYXkgZnVsbCBsb2NrdXAsIGRhcmsgc3VyZmFjZXMuIENhbm9uaWNhbC4gR2VuZXJhdGVkIGJ5IDAyLWJyYW5kL2xvZ28vYnVpbGRfbG9nby5weSBmcm9tIHRoZSBGaXZlcnIgdmVuZG9yIHZlY3RvciAoQWxsUHJvUGF5IExvZ28vKS4gRG8gbm90IGhhbmQtZWRpdDsgcmVydW4gdGhlIHNjcmlwdC4gRGVjaXNpb25zOiAwMi1icmFuZC9sb2dvLXNwZWMubWQgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5hcGwtZmQtc3QwIHsKICAgICAgICBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQyKTsKICAgICAgfQogICAgICAuYXBsLWZkLXN0MSB7CiAgICAgICAgZmlsbDogdXJsKCNhcGwtZmQtbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDIgewogICAgICAgIGZpbGw6ICMyRjhCRkY7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDMgewogICAgICAgIGZpbGw6IHVybCgjYXBsLWZkLXJhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDQgewogICAgICAgIGZpbGw6IHVybCgjYXBsLWZkLWxpbmVhci1ncmFkaWVudDMpOwogICAgICB9CiAgICAgIC5hcGwtZmQtc3Q1IHsKICAgICAgICBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhcGwtZmQtbGluZWFyLWdyYWRpZW50IiB4MT0iMzUuOTkiIHkxPSI0MS43OCIgeDI9IjEzMC4wNSIgeTI9IjE0NC4wOCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyOWFlZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDkxN2NjIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJhcGwtZmQtcmFkaWFsLWdyYWRpZW50IiBjeD0iMTM2LjQyIiBjeT0iMTUwLjg5IiBmeD0iMTM2LjQyIiBmeT0iMTUwLjg5IiByPSIxNTguOTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjlhZWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA5MTdjYyIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDEiIHgxPSIxOTMuODQiIHkxPSI4MC44IiB4Mj0iMTY0LjciIHkyPSIzMS45IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzA5MTdjYyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii45OCIgc3RvcC1jb2xvcj0iIzI5YWVmZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDIiIHgxPSIxMjcuOTMiIHkxPSIyNTguMTQiIHgyPSIxMDQuNjkiIHkyPSIyMTYuODYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDkxN2NjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI5YWVmZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDMiIHgxPSIxNC4zIiB5MT0iMTYxLjczIiB4Mj0iODkuNjgiIHkyPSIxNjEuNzMiIHhsaW5rOmhyZWY9IiNhcGwtZmQtbGluZWFyLWdyYWRpZW50MiIvPgogIDwvZGVmcz4KICA8Zz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3Q1IiBkPSJNOTQuMDYsMTY5LjQzYzMuNDQtOS45OS0uMDItMjEuOTYtMTAuMzktMjcuOTZMMTUuMzYsMTAyLjA1di0zOS41N2MwLTE4LDE5LjQ5LTI5LjI2LDM1LjA4LTIwLjI1bDEzMi4xNyw3Ni4zMS04OC41Niw1MC44OVoiLz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QzIiBkPSJNMjA5LjA2LDE3NC4zMWwtNzQuNzksNDMuMTktMjEuNDEtMTIuMzVjLTIuMzUtMS4zNi01LjAyLTIuMDgtNy43MS0yLjA4LTguNTIsMC0xNS40NSw2LjkzLTE1LjQ1LDE1LjQ1djI0LjcybC0zOS4yNSwyMi42N2MtMTUuNTksOS0zNS4wOC0yLjI1LTM1LjA4LTIwLjI1di0yNC4yMmw2OC4zLTM5LjQzYzUuMjItMy4wMSw4LjY4LTcuNTMsMTAuMzktMTIuNTVsODguNTYtNTAuODksMjYuNDQsMTUuMjZjMTUuNTksOSwxNS41OSwzMS41LDAsNDAuNTFaIi8+CiAgICA8cGF0aCBjbGFzcz0iYXBsLWZkLXN0MSIgZD0iTTIxNy45Nyw2Ni4zbC00OC45MiwyOC4yNWMtNC4zNCwyLjUxLTkuNzctLjYzLTkuNzctNS42NHYtNTYuNDljMC01LjAyLDUuNDMtOC4xNSw5Ljc3LTUuNjRsNDguOTIsMjguMjVjNC4zNCwyLjUxLDQuMzQsOC43OCwwLDExLjI5WiIvPgogICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDAiIGQ9Ik0xNDYuMTYsMjQ1LjE1bC0zOC40NywyMi4yMWMtMy40MiwxLjk3LTcuNjktLjQ5LTcuNjktNC40NHYtNDQuNDJjMC0zLjk0LDQuMjctNi40MSw3LjY5LTQuNDRsMzguNDcsMjIuMjFjMy40MiwxLjk3LDMuNDIsNi45LDAsOC44N1oiLz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3Q0IiBkPSJNOTQuMDYsMTY5LjQzYy0xLjcxLDUuMDItNS4xOCw5LjU0LTEwLjM5LDEyLjU1TDE1LjM2LDIyMS40MnYtMTE5LjM2bDY4LjMsMzkuNDJjMTAuMzcsNS45OSwxMy44NCwxNy45NiwxMC4zOSwyNy45NloiLz4KICA8L2c+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMzMzLjQ4LDE4Mi4xN2gtNDEuNzNsLTYuNjksMTkuOTVoLTI4LjUxbDQwLjQ1LTExMi45M2gzMS41M2w0MC40NSwxMTIuOTNoLTI4LjgzbC02LjY5LTE5Ljk1Wk0zMjYuNDgsMTYwLjk0bC0xMy44NS00MS4zNC0xMy43LDQxLjM0aDI3LjU1WiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQwMi4xMiw4OS4xOXYxMTIuOTNoLTI3LjIzdi0xMTIuOTNoMjcuMjNaIi8+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNDM5LjU1LDg5LjE5djExMi45M2gtMjcuMjN2LTExMi45M2gyNy4yM1oiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik03ODAuMzUsMTQzLjQ4Yy0yLjk3LDUuNDItNy41NCw5Ljc5LTEzLjcsMTMuMTEtNi4xNiwzLjMzLTEzLjgsNC45OS0yMi45Myw0Ljk5aC0xNi44OHY0MC41NGgtMjcuMjN2LTExMi45M2g0NC4xMWM4LjkyLDAsMTYuNDUsMS41NiwyMi42MSw0LjY3LDYuMTYsMy4xMSwxMC43Nyw3LjQsMTMuODUsMTIuODcsMy4wOCw1LjQ3LDQuNjIsMTEuNzQsNC42MiwxOC44MiwwLDYuNTQtMS40OSwxMi41Mi00LjQ2LDE3Ljk0Wk03NTMuMjgsMTM2YzIuNTUtMi40NywzLjgyLTUuOTUsMy44Mi0xMC40NnMtMS4yNy03Ljk5LTMuODItMTAuNDZjLTIuNTUtMi40Ny02LjQyLTMuNy0xMS42My0zLjdoLTE0LjgxdjI4LjMxaDE0LjgxYzUuMiwwLDkuMDgtMS4yMywxMS42My0zLjdaIi8+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNzkyLjM3LDEzMi43OWMzLjQ1LTYuOTcsOC4xNS0xMi4zMywxNC4wOS0xNi4wOSw1Ljk1LTMuNzUsMTIuNTgtNS42MywxOS45MS01LjYzLDYuMjYsMCwxMS43NiwxLjI5LDE2LjQ4LDMuODYsNC43MiwyLjU3LDguMzYsNS45NSwxMC45MSwxMC4xM3YtMTIuNzFoMjcuMjN2ODkuNzZoLTI3LjIzdi0xMi43MWMtMi42Niw0LjE4LTYuMzUsNy41Ni0xMS4wNywxMC4xMy00LjczLDIuNTctMTAuMjIsMy44Ni0xNi40OCwzLjg2LTcuMjIsMC0xMy44LTEuOS0xOS43NS01LjcxLTUuOTUtMy44MS0xMC42NS05LjIyLTE0LjA5LTE2LjI1LTMuNDUtNy4wMi01LjE4LTE1LjE1LTUuMTgtMjQuMzdzMS43Mi0xNy4zMiw1LjE4LTI0LjI5Wk04NDguMTEsMTQwLjk5Yy0zLjc3LTMuOTctOC4zNi01Ljk1LTEzLjc4LTUuOTVzLTEwLjAxLDEuOTYtMTMuNzgsNS44N2MtMy43NywzLjkyLTUuNjUsOS4zMS01LjY1LDE2LjE3czEuODgsMTIuMzEsNS42NSwxNi4zM2MzLjc3LDQuMDIsOC4zNiw2LjAzLDEzLjc4LDYuMDNzMTAuMDEtMS45OCwxMy43OC01Ljk1YzMuNzctMy45Nyw1LjY1LTkuMzgsNS42NS0xNi4yNXMtMS44OS0xMi4yOC01LjY1LTE2LjI1WiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTk4NS4xNSwxMTIuMzVsLTU1Ljc0LDEzMi4zOWgtMjkuM2wyMC4zOC00NS42OS0zNi4xNS04Ni43MWgzMC40MmwyMC41NCw1Ni4xNCwyMC4zOC01Ni4xNGgyOS40NloiLz4KICA8Zz4KICAgICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDIiIGQ9Ik01MzUuOSwxNDMuNDhjLTMuOTMsNS40Mi05LjI2LDkuNzktMTYuMDEsMTMuMTEtNi43NCwzLjMzLTE0LjY4LDQuOTktMjMuODEsNC45OWgtMTYuODhsLTcuMTcsNDAuNTRoLTI3LjIzbDE5Ljc1LTExMi45M2g0NC4xMWMxMS42OCwwLDIwLjQ5LDIuNiwyNi40NCw3LjgsNS45NCw1LjIsOC45MiwxMi4yNSw4LjkyLDIxLjE1LDAsMi42OC0uMjIsNS4xNS0uNjQsNy40LTEuMDYsNi41NC0zLjU2LDEyLjUyLTcuNDgsMTcuOTRaTTUxNS42NywxMjUuNTVjLjIxLTEuNzEuMzItMi45NS4zMi0zLjcsMC0zLjQzLTEuMDktNi4wOS0zLjI2LTcuOTYtMi4xOC0xLjg4LTUuNDktMi44Mi05Ljk1LTIuODJoLTE0LjgxbC00Ljk0LDI4Ljk2aDE0LjY1YzEwLjE5LDAsMTYuMTktNC44MywxOC0xNC40OFoiLz4KICAgICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDIiIGQ9Ik01ODguMDQsMTE1Ljk3YzUuMzYtMy4wNiwxMC45Ni00LjU4LDE2LjgtNC41OGwtNS4xLDI5LjEyaC03LjQ5Yy02LjgsMC0xMi4xNiwxLjQ4LTE2LjA4LDQuNDItMy45MywyLjk1LTYuNTMsOC4xMi03LjgsMTUuNTJsLTcuMzMsNDEuNjdoLTI3LjIzbDE1LjYxLTg5Ljc2aDI3LjIzbC0yLjg3LDE2LjI1YzQuMTQtNS4zNiw4Ljg5LTkuNTcsMTQuMjUtMTIuNjNaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QyIiBkPSJNNjE2LjY0LDE5OC43NGMtNS45NS0zLjExLTEwLjU0LTcuNTEtMTMuNzgtMTMuMTktMy4yNC01LjY4LTQuODYtMTIuMjgtNC44Ni0xOS43OSwwLTEwLjE5LDIuMzktMTkuNDcsNy4xNy0yNy44Myw0Ljc4LTguMzYsMTEuMzYtMTQuOTMsMTkuNzUtMTkuNzEsOC4zOS00Ljc3LDE3LjczLTcuMTYsMjguMDMtNy4xNiw3LjY0LDAsMTQuNDcsMS41OCwyMC40Niw0Ljc1LDYsMy4xNiwxMC42NCw3LjU5LDEzLjkzLDEzLjI3LDMuMjksNS42OSw0Ljk0LDEyLjI4LDQuOTQsMTkuNzksMCwxMC4yOS0yLjQyLDE5LjYtNy4yNSwyNy45MS00LjgzLDguMzEtMTEuNDcsMTQuODMtMTkuOTEsMTkuNTUtOC40NCw0LjcyLTE3LjgxLDcuMDgtMjguMTEsNy4wOC03LjY0LDAtMTQuNDQtMS41NS0yMC4zOC00LjY3Wk02NTIuODcsMTc1LjY2YzMuNTYtMi43NCw2LjMyLTYuMjcsOC4yOC0xMC42MiwxLjk2LTQuMzQsMi45NS04Ljg3LDIuOTUtMTMuNTksMC01LjM2LTEuNDMtOS40OS00LjMtMTIuMzktMi44Ny0yLjktNi40OC00LjM0LTEwLjgzLTQuMzQtNC41NywwLTguNTcsMS4zNy0xMi4wMiw0LjEtMy40NSwyLjc0LTYuMTMsNi4zLTguMDQsMTAuNy0xLjkxLDQuNC0yLjg3LDkuMDEtMi44NywxMy44MywwLDUuMjYsMS4zOCw5LjMxLDQuMTQsMTIuMTQsMi43NiwyLjg0LDYuMzIsNC4yNiwxMC42Nyw0LjI2czguNDctMS4zNywxMi4wMi00LjFaIi8+CiAgICA8L2c+PGc+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0yNTYuNTYsMjQ0LjQzbDEyLjE0LTI3LjY2aDMuNzlsMTIuMTcsMjcuNjZoLTQuMDJsLTEwLjgzLTI1LjQ1aDEuNTNsLTEwLjgzLDI1LjQ1aC0zLjk0Wk0yNjEuNzMsMjM3LjUybDEuMDMtMy4xNmgxNS4wOGwxLjExLDMuMTZoLTE3LjIzWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNMzAwLjI0LDI0NC43NWMtMi4wNCwwLTMuOTItLjM1LTUuNjUtMS4wNXMtMy4yMi0xLjY5LTQuNDgtMi45Ni0yLjI1LTIuNzctMi45Ny00LjQ4Yy0uNzItMS43MS0xLjA3LTMuNi0xLjA3LTUuNjVzLjM2LTMuOTQsMS4wNy01LjY1Yy43MS0xLjcxLDEuNzEtMy4yMSwyLjk5LTQuNDgsMS4yOC0xLjI4LDIuNzgtMi4yNiw0LjUtMi45NiwxLjcyLS43LDMuNi0xLjA1LDUuNjUtMS4wNXMzLjk4LjM2LDUuNzIsMS4wOWMxLjc1LjcyLDMuMjMsMS44LDQuNDYsMy4yMmwtMi40OSwyLjQ5Yy0xLjAyLTEuMTEtMi4xNy0xLjkzLTMuNDUtMi40Ny0xLjI4LS41NC0yLjY0LS44MS00LjEtLjgxcy0yLjkuMjYtNC4xOS43OWMtMS4yOS41My0yLjQxLDEuMjYtMy4zNSwyLjIxLS45NC45NS0xLjY4LDIuMDctMi4yLDMuMzgtLjUyLDEuMy0uNzksMi43Mi0uNzksNC4yNXMuMjYsMi45NC43OSw0LjI1Yy41MiwxLjMsMS4yNiwyLjQzLDIuMiwzLjM4Ljk0Ljk1LDIuMDYsMS42OSwzLjM1LDIuMjEsMS4yOS41MywyLjY5Ljc5LDQuMTkuNzlzMi44Mi0uMjcsNC4xLS44MWMxLjI4LS41NCwyLjQyLTEuMzgsMy40NS0yLjUxbDIuNDksMi40OWMtMS4yMywxLjQyLTIuNzEsMi41LTQuNDYsMy4yNC0xLjc1Ljc0LTMuNjcsMS4xMS01Ljc2LDEuMTFaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0zMjYuMiwyNDQuNzVjLTIuMDQsMC0zLjkyLS4zNS01LjY1LTEuMDVzLTMuMjItMS42OS00LjQ4LTIuOTYtMi4yNS0yLjc3LTIuOTctNC40OGMtLjcyLTEuNzEtMS4wNy0zLjYtMS4wNy01LjY1cy4zNi0zLjk0LDEuMDctNS42NWMuNzEtMS43MSwxLjcxLTMuMjEsMi45OS00LjQ4LDEuMjgtMS4yOCwyLjc4LTIuMjYsNC41LTIuOTYsMS43Mi0uNywzLjYtMS4wNSw1LjY1LTEuMDVzMy45OC4zNiw1LjcyLDEuMDljMS43NS43MiwzLjIzLDEuOCw0LjQ2LDMuMjJsLTIuNDksMi40OWMtMS4wMi0xLjExLTIuMTctMS45My0zLjQ1LTIuNDctMS4yOC0uNTQtMi42NC0uODEtNC4xLS44MXMtMi45LjI2LTQuMTkuNzljLTEuMjkuNTMtMi40MSwxLjI2LTMuMzUsMi4yMS0uOTQuOTUtMS42OCwyLjA3LTIuMiwzLjM4LS41MiwxLjMtLjc5LDIuNzItLjc5LDQuMjVzLjI2LDIuOTQuNzksNC4yNWMuNTIsMS4zLDEuMjYsMi40MywyLjIsMy4zOC45NC45NSwyLjA2LDEuNjksMy4zNSwyLjIxLDEuMjkuNTMsMi42OS43OSw0LjE5Ljc5czIuODItLjI3LDQuMS0uODFjMS4yOC0uNTQsMi40Mi0xLjM4LDMuNDUtMi41MWwyLjQ5LDIuNDljLTEuMjMsMS40Mi0yLjcxLDIuNS00LjQ2LDMuMjQtMS43NS43NC0zLjY3LDEuMTEtNS43NiwxLjExWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNMzQxLjUxLDI0NC40M3YtMjcuNjZoMTguOTF2My40NGgtMTUuMDh2MjAuNzhoMTUuNjJ2My40NGgtMTkuNDVaTTM0NC45OSwyMzIuMDd2LTMuMzZoMTMuNzh2My4zNmgtMTMuNzhaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0zNjcuMTYsMjQ0LjQzdi0yNy42NmgxMC40NWMyLjM1LDAsNC4zNS4zOCw2LjAxLDEuMTUsMS42Ni43NiwyLjkzLDEuODcsMy44MywzLjMyLjg5LDEuNDUsMS4zNCwzLjE3LDEuMzQsNS4xOHMtLjQ1LDMuNzItMS4zNCw1LjE2Yy0uODksMS40NC0yLjE3LDIuNTQtMy44MywzLjMyLTEuNjYuNzgtMy42NiwxLjE3LTYuMDEsMS4xN2gtOC4zNWwxLjcyLTEuODZ2MTAuMjNoLTMuODNaTTM3MC45OCwyMzQuNmwtMS43Mi0xLjk4aDguMjNjMi40NSwwLDQuMzEtLjU0LDUuNTctMS42MiwxLjI2LTEuMDgsMS44OS0yLjYxLDEuODktNC41OHMtLjYzLTMuNS0xLjg5LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNloiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTM5OC41OCwyNDQuNDN2LTI0LjIyaC05LjE5di0zLjQ0aDIyLjE2djMuNDRoLTkuMTl2MjQuMjJoLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik00MjYuMDMsMjQ0LjQzdi0yNy42NmgxMC40NWMyLjM1LDAsNC4zNS4zOCw2LjAxLDEuMTUsMS42Ni43NiwyLjkzLDEuODcsMy44MywzLjMyLjg5LDEuNDUsMS4zNCwzLjE3LDEuMzQsNS4xOHMtLjQ1LDMuNzItMS4zNCw1LjE2Yy0uODksMS40NC0yLjE3LDIuNTQtMy44MywzLjMyLTEuNjYuNzgtMy42NiwxLjE3LTYuMDEsMS4xN2gtOC4zNWwxLjcyLTEuODZ2MTAuMjNoLTMuODNaTTQyOS44NiwyMzQuNmwtMS43Mi0xLjk4aDguMjNjMi40NSwwLDQuMzEtLjU0LDUuNTctMS42MiwxLjI2LTEuMDgsMS44OS0yLjYxLDEuODktNC41OHMtLjYzLTMuNS0xLjg5LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNloiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTQ0Ny44OSwyNDQuNDNsMTIuMTQtMjcuNjZoMy43OWwxMi4xNywyNy42NmgtNC4wMmwtMTAuODMtMjUuNDVoMS41M2wtMTAuODMsMjUuNDVoLTMuOTRaTTQ1My4wNiwyMzcuNTJsMS4wMy0zLjE2aDE1LjA4bDEuMTEsMy4xNmgtMTcuMjNaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik00ODQuNTMsMjQ0LjQzdi0xMC41OWwuODgsMi40NS0xMS41Mi0xOS41Mmg0LjFsOS42OSwxNi40OGgtMi4yMmw5LjcyLTE2LjQ4aDMuNzlsLTExLjQ4LDE5LjUyLjg0LTIuNDV2MTAuNTloLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik01MDIuMjUsMjQ0LjQzdi0yNy42NmgzLjE0bDEyLjAyLDIwLjloLTEuNjhsMTEuODctMjAuOWgzLjE0bC4wNCwyNy42NmgtMy42N2wtLjA0LTIxLjY5aC44OGwtMTAuNTYsMTguMzNoLTEuNzZsLTEwLjY0LTE4LjMzaC45NnYyMS42OWgtMy42N1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTUzOC44MSwyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk01NDIuMjksMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNTY0LjQ2LDI0NC40M3YtMjcuNjZoMy4xNGwxNy43MiwyMi43MmgtMS42NXYtMjIuNzJoMy44M3YyNy42NmgtMy4xNGwtMTcuNzItMjIuNzJoMS42NXYyMi43MmgtMy44M1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTYwMC44NiwyNDQuNDN2LTI0LjIyaC05LjE5di0zLjQ0aDIyLjE2djMuNDRoLTkuMTl2MjQuMjJoLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik02MjUuNDgsMjQ0Ljc1Yy0yLjA0LDAtMy45OS0uMzItNS44Ni0uOTctMS44Ni0uNjUtMy4zMy0xLjQ4LTQuNC0yLjUxbDEuNDItMy4wOGMxLjAyLjkyLDIuMzIsMS42OSwzLjksMi4yOSwxLjU4LjYxLDMuMjMuOTEsNC45NC45MSwxLjU2LDAsMi44Mi0uMTgsMy43OS0uNTUuOTctLjM3LDEuNjgtLjg4LDIuMTQtMS41Mi40Ni0uNjUuNjktMS4zOC42OS0yLjE5LDAtLjk1LS4zLTEuNzEtLjktMi4yOS0uNi0uNTgtMS4zOC0xLjA1LTIuMzMtMS40LS45Ni0uMzYtMi4wMS0uNjYtMy4xNi0uOTMtMS4xNS0uMjYtMi4zLS41Ny0zLjQ2LS45M3MtMi4yMi0uODEtMy4xOC0xLjM2Yy0uOTYtLjU1LTEuNzMtMS4zLTIuMzItMi4yMy0uNTktLjkzLS44OC0yLjE0LS44OC0zLjYycy4zNi0yLjczLDEuMDktMy45M2MuNzMtMS4yLDEuODUtMi4xNiwzLjM3LTIuODgsMS41Mi0uNzIsMy40NS0xLjA5LDUuOC0xLjA5LDEuNTYsMCwzLjEuMjEsNC42My42MywxLjUzLjQyLDIuODYsMS4wMywzLjk4LDEuODJsLTEuMjYsMy4xNmMtMS4xNS0uNzktMi4zNi0xLjM2LTMuNjQtMS43Mi0xLjI4LS4zNi0yLjUxLS41My0zLjcxLS41My0xLjUxLDAtMi43NC4yLTMuNzEuNTktLjk3LjQtMS42OC45Mi0yLjEyLDEuNTgtLjQ1LjY2LS42NywxLjQtLjY3LDIuMjEsMCwuOTcuMywxLjc1LjksMi4zMy42LjU4LDEuMzgsMS4wNCwyLjMzLDEuMzguOTYuMzQsMi4wMS42NSwzLjE2LjkzLDEuMTUuMjgsMi4zLjU5LDMuNDYuOTMsMS4xNi4zNCwyLjIyLjc5LDMuMTgsMS4zNC45Ni41NSwxLjczLDEuMjksMi4zMiwyLjIxLjU5LjkyLjg4LDIuMTEuODgsMy41NnMtLjM3LDIuNjktMS4xMSwzLjg5Yy0uNzQsMS4yLTEuODgsMi4xNi0zLjQzLDIuODgtMS41NC43Mi0zLjQ5LDEuMDktNS44NCwxLjA5WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNjQ3LjY4LDI0NC40M2wxMi4xNC0yNy42NmgzLjc5bDEyLjE3LDI3LjY2aC00LjAybC0xMC44My0yNS40NWgxLjUzbC0xMC44MywyNS40NWgtMy45NFpNNjUyLjg1LDIzNy41MmwxLjAzLTMuMTZoMTUuMDhsMS4xMSwzLjE2aC0xNy4yM1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTY3OS43NiwyNDQuNDN2LTI3LjY2aDMuMTRsMTcuNzIsMjIuNzJoLTEuNjV2LTIyLjcyaDMuODN2MjcuNjZoLTMuMTRsLTE3LjcyLTIyLjcyaDEuNjV2MjIuNzJoLTMuODNaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik03MTYuNzQsMjQ0LjQzdi0xMC41OWwuODgsMi40NS0xMS41Mi0xOS41Mmg0LjFsOS42OSwxNi40OGgtMi4yMmw5LjcyLTE2LjQ4aDMuNzlsLTExLjQ4LDE5LjUyLjg0LTIuNDV2MTAuNTloLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik03NDAuNjIsMjQ0LjQzbC04Ljk2LTI3LjY2aDMuOTRsOC4yMywyNS41MmgtMS45OWw4LjU0LTI1LjUyaDMuNTJsOC4zNCwyNS41MmgtMS45MWw4LjM1LTI1LjUyaDMuNjRsLTguOTYsMjcuNjZoLTQuMDJsLTcuODEtMjMuNjdoMS4wM2wtNy44NSwyMy42N2gtNC4xWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNzc2Ljk5LDI0NC40M3YtMjcuNjZoMy44M3YyNy42NmgtMy44M1pNNzgwLjQ0LDIzMi4xMXYtMy40NGgxNi4xMnYzLjQ0aC0xNi4xMlpNNzk2LjIxLDI0NC40M3YtMjcuNjZoMy44M3YyNy42NmgtMy44M1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTgwOC4wNywyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk04MTEuNTYsMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNODMzLjcyLDI0NC40M3YtMjcuNjZoMTAuNDVjMy40NywwLDYuMi44NSw4LjE5LDIuNTUsMS45OSwxLjcsMi45OSw0LjA2LDIuOTksNy4wOSwwLDItLjQ1LDMuNzItMS4zNCw1LjE2LS44OSwxLjQ0LTIuMTcsMi41NC0zLjgzLDMuMy0xLjY2Ljc2LTMuNjYsMS4xNS02LjAxLDEuMTVoLTguMzRsMS43Mi0xLjgydjEwLjIzaC0zLjgzWk04MzcuNTUsMjM0LjZsLTEuNzItMS45NGg4LjIzYzIuNDUsMCw0LjMxLS41NSw1LjU3LTEuNjQsMS4yNi0xLjA5LDEuOS0yLjYzLDEuOS00LjZzLS42My0zLjUtMS45LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNlpNODUxLjY0LDI0NC40M2wtNi44MS0xMC4wNGg0LjFsNi44OSwxMC4wNGgtNC4xN1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTg2MS41NSwyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk04NjUuMDQsMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgPC9nPjwvZz4KPC9zdmc+Cg=="); }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid rgba(255,255,255,0.08); color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: rgba(255,255,255,0.10); }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: rgba(0,212,255,0.35); }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+
+    /* callouts + tiles */
+    .insight { background: rgba(0,102,255,0.12); border-left-color: #00D4FF; border-color: rgba(0,212,255,0.25); color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: rgba(255,255,255,0.04); border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid rgba(255,255,255,0.08); color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: rgba(0,102,255,0.18); color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: rgba(43,95,217,0.25); color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; border-bottom: 1px solid rgba(0,212,255,0.25); }
+    tbody td, .terms-table td { border-color: rgba(255,255,255,0.08); color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: rgba(255,255,255,0.035); }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: rgba(43,95,217,0.16); color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    .sxs-save.alt { background: rgba(43,95,217,0.16); color: #C9D3E3; border-color: rgba(143,176,255,0.4); }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* breakdown's own classes (the block above was lifted from the proposal: .sc-* not .stat-*).
+       Without these the brand column, stat values, meta grid and takeaways render navy on navy. 2026-10-27 */
+    .meta-grid { border-color: rgba(255,255,255,0.10); }
+    .meta-grid .label { color: #9FB0C9; }
+    .meta-grid .value { color: #F5F7FA; }
+    .stat-label, .stat-sub { color: #9FB0C9; }
+    .stat-value { color: #00D4FF; }
+    .stat-value.danger { color: #FFB4B4; }
+    table.sxs td.brand { color: #FFFFFF; }
+    .takeaway { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .takeaway .t-title { color: #FFFFFF; }
+    .takeaway .t-body { color: #C9D3E3; }
+    .cta-line { color: #FFFFFF; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: rgba(255,255,255,0.88); }
+  }
+  /* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #64748B; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #64748B; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <img class="logo-img" src="AllProPay_Logo.jpg" alt="AllProPay">
+    <div class="contact">
+      <span class="ct-lbl">Tammy Millar &middot; call or text</span>
+      <a class="ct-phone" href="tel:+19299303050">929-930-3050</a>
+      <a class="ct-mail" href="mailto:tammy@allpropay.com">tammy@allpropay.com</a>
+      <a class="ct-web" href="https://allpropay.com">allpropay.com</a>
+      <span class="ct-addr">108 W 39th Street, Suite 1006, New York, NY 10018</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="title-block">
+      <h1>Your October Statement, <span class="accent">Decoded</span></h1>
+      <div class="subtitle">Maine Street Auto</div>
+      <div class="meta-grid">
+        <span class="label">Prepared for</span>
+        <span class="value">Matt<span class="sep"></span>Maine Street Auto</span>
+        <span class="label">Statement reviewed</span>
+        <span class="value">SpotOn<span class="sep"></span>October 2026</span>
+        <span class="label">Prepared by</span>
+        <span class="value">Tammy Millar<span class="sep"></span>AllProPay</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">The Month at a Glance</div>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$71,932</div><div class="stat-sub">216 sales, $333 average ticket. Up 10.7% on September, per your statement.</div></div>
+        <div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$2,125.72</div><div class="stat-sub">About $25,500 a year at this pace</div></div>
+        <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">2.96%</div><div class="stat-sub">Every card, every fee, all in. Not the 2.55% on the rate line.</div></div>
+      </div>
+      <div class="insight"><strong>Your rate line says 2.55%. October cost you 2.96%.</strong> Three charges sit on top of that rate: card brand fees ($117.94), an 8 cent fee on every sale ($17.28), and a software fee of 0.20% of your sales ($143.87). That is $279.09 in October that the 2.55% does not show, before AMEX, which SpotOn bills at 2.75%.</div>
+    </div>
+
+    <div class="hero-band">
+      <div class="sf-tag">Savings Found</div>
+      <div class="sf-figure">$3,000 to $6,600<span class="sf-unit"> / year (est.)</span></div>
+      <div class="sf-sub">Your October re-run on my Cost+ Rate comes to about $1,700 instead of $2,125.72. That is about $426 less for the month, and about 44% less kept by your processor.</div>
+      <div class="sf-note">Estimated. Low end: about $60,000 a month in card sales with card costs at the top of their range. High end: October&#39;s pace with card costs at the bottom of their range.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">Where Your Volume Came From</div>
+      <table>
+        <thead>
+          <tr><th>Card type</th><th class="num">Volume</th><th class="num">Sales</th><th class="num">Average ticket</th><th class="num">Share</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Visa credit</td><td class="num">$21,409.94</td><td class="num">70</td><td class="num">$305.86</td><td class="num">29.76%</td></tr><tr><td>Visa debit</td><td class="num">$14,228.49</td><td class="num">46</td><td class="num">$309.32</td><td class="num">19.78%</td></tr><tr><td>Mastercard</td><td class="num">$26,943.79</td><td class="num">76</td><td class="num">$354.52</td><td class="num">37.46%</td></tr><tr><td>American Express</td><td class="num">$6,185.04</td><td class="num">18</td><td class="num">$343.61</td><td class="num">8.60%</td></tr><tr><td>Discover</td><td class="num">$3,164.30</td><td class="num">6</td><td class="num">$527.38</td><td class="num">4.40%</td></tr><tr class="total-row"><td>Total</td><td class="num">$71,931.56</td><td class="num">216</td><td class="num">$333.02</td><td class="num">100%</td></tr>
+        </tbody>
+      </table>
+      <div class="insight"><strong>About 40% of your Visa volume ($14,228) was debit.</strong> Most debit cards from the big banks cost the networks about 0.05% plus 22 cents, under 40 cents on your $309 average debit sale. SpotOn&#39;s 2.55% charged about $7.88 on that same sale, exactly what it charges on a rewards card. Your statement does not split Mastercard into debit and credit, so that part of the picture is hidden.</div>
+    </div>
+
+    <div class="section"><div class="section-header">Line by Line: Today vs AllProPay</div><table class="sxs"><thead><tr><th class="band b-lbl">Your statement</th><th class="band b-now" colspan="3">What SpotOn charged you</th><th class="band b-new">AllProPay Cost+ Rate</th></tr><tr><th class="sub first">Card type</th><th class="sub">Volume</th><th class="sub">Your rate</th><th class="sub">You paid</th><th class="sub">You pay (est.)</th></tr></thead><tbody><tr><td class="brand">Visa</td><td class="now">$35,638.43</td><td class="now">2.55%</td><td class="now">$908.78</td><td class="new">$727.42</td></tr><tr><td class="brand">Mastercard</td><td class="now">$26,943.79</td><td class="now">2.55%</td><td class="now">$687.07</td><td class="new">$548.33</td></tr><tr><td class="brand">Discover</td><td class="now">$3,164.30</td><td class="now">2.55%</td><td class="now">$80.69</td><td class="new">$82.87</td></tr><tr><td class="brand">American Express</td><td class="now">$6,185.04</td><td class="now">2.75%</td><td class="now">$170.09</td><td class="new">$187.36</td></tr><tr><td class="brand">Per-sale fee (216 sales)</td><td class="now"></td><td class="now">$0.08</td><td class="now">$17.28</td><td class="new">$10.80</td></tr><tr><td class="brand">Software fee</td><td class="now"></td><td class="now">0.20%</td><td class="now">$143.87</td><td class="new">$0.00</td></tr><tr><td class="brand">Card brand fees</td><td class="now"></td><td class="now"></td><td class="now">$117.94</td><td class="new">$117.94</td></tr><tr><td class="brand">Monthly platform fee</td><td class="now"></td><td class="now"></td><td class="now">$0.00</td><td class="new">$25.00</td></tr><tr class="total-row"><td class="brand">October, all in</td><td class="now">$71,931.56</td><td class="now">2.96%</td><td class="now">$2,125.72</td><td class="new">$1,699.72</td></tr></tbody></table><div class="sxs-save"><div><div class="ss-label">What you keep on AllProPay Cost+ Rate</div><div class="ss-sub">Your own October, re-run. About $5,100 a year at October&#39;s pace.</div></div><div class="ss-figure">$426.00</div></div><p class="note">Everything in the SpotOn columns comes straight off your October statement and adds back to the $2,125.72 it printed. Two rows go the other way: AMEX and Discover come out $19.45 higher on my pricing between them, because SpotOn&#39;s price on those two was already close to what they cost. I left them in so you see the whole month, not just the lines where I win. Visa and Mastercard are where the 2.55% hides the most, and that is where most of your money is.</p></div>
+
+    <div class="section"><div class="section-header">Every Fee, Itemized</div><p style="margin-bottom:12px">This is your October statement, page 3, line by line, so you can check each row against the page you already have.</p><table class="sxs"><thead><tr><th class="band b-lbl" style="text-align:left">Line on your statement</th><th class="band b-lbl" style="text-align:left">What it is</th><th class="band b-now" style="text-align:right">SpotOn</th><th class="band b-alt" style="text-align:right">AllProPay Cost+ Rate</th></tr></thead><tbody><tr class="group"><td colspan="4">The rate lines: $1,846.63</td></tr><tr><td class="brand">VS/MC/DS flat discount rate, 2.55% on $65,746.52</td><td class="now" style="text-align:left">The card cost plus SpotOn&#39;s margin, bundled</td><td class="now">$1,676.54</td><td class="alt">$1,358.62</td></tr><tr><td class="brand">AMEX discount rate, 2.75% on $6,185.04</td><td class="now" style="text-align:left">The same, for AMEX</td><td class="now">$170.09</td><td class="alt">$187.36</td></tr><tr class="group"><td colspan="4">Charged on top of the rate: $279.09</td></tr><tr><td class="brand">Transaction fees, 216 at $0.08</td><td class="now" style="text-align:left">A fee on every sale</td><td class="now">$17.28</td><td class="alt">$10.80</td></tr><tr><td class="brand">SOPF-Software</td><td class="now" style="text-align:left">A software fee, 0.20% of every dollar you ran</td><td class="now">$143.87</td><td class="alt">$0.00</td></tr><tr><td class="brand">Card brand fees, 23 lines</td><td class="now" style="text-align:left">Set by Visa, Mastercard, Discover and AMEX, the same at every processor</td><td class="now">$117.94</td><td class="alt">$117.94</td></tr><tr><td class="brand">Monthly platform fee</td><td class="now" style="text-align:left">The account itself</td><td class="now">$0.00</td><td class="alt">$25.00</td></tr><tr class="total-row"><td class="brand">Total</td><td class="now"></td><td class="now">$2,125.72</td><td class="alt">$1,699.72</td></tr></tbody></table><p class="note">The 2.55% line hides the most. Inside it is what Visa, Mastercard and Discover actually charge for each card, which I estimate at about $898 for October, so roughly $778 of that $1,676.54 was SpotOn&#39;s margin. On my pricing that margin is 0.70%, $460. The software line is the other one worth a second look: it grows every time your sales do.</p></div>
+
+    <div class="section">
+      <div class="section-header">What This Means</div>
+      <div class="takeaways">
+        <div class="takeaway"><span class="t-num">1</span><span class="t-title">Your rate is not the number you pay.</span><div class="t-body">When we spoke in October you put it at 2.25% plus 10 or 15 cents, about 2.58% all in. Your statement&#39;s rate line says 2.55%, and with the fees stacked on top October landed at 2.96%. That gap is $279.09 in a single month.</div></div>
+<div class="takeaway"><span class="t-num">2</span><span class="t-title">You pay a software fee on every dollar you run.</span><div class="t-body">SpotOn charged 0.20% of your sales as a software fee, $143.87 in October and about $1,700 a year at that pace. You told me the machine is just for taking payments. On my account there is no software fee on your sales.</div></div>
+<div class="takeaway"><span class="t-num">3</span><span class="t-title">You still know what $10,000 costs you.</span><div class="t-body">On October&#39;s cards, $10,000 cost you about $296 with SpotOn. The same $10,000 is about $236 with me. The card cost moves a little with the cards your customers hand you, the same as it already does inside SpotOn&#39;s rate. My part never moves, and you get a statement every month to check it against this one.</div></div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-line">Let&#39;s walk through it together. I will answer anything on it, line by line.</div>
+      <a href="tel:+19299303050" class="cta-btn">Text or Call Me: 929-930-3050</a>
+      <div class="cta-print">Text or call me: 929-930-3050 &nbsp;&bull;&nbsp; tammy@allpropay.com</div>
+    </div>
+
+    <div class="booking-embed">
+      <div class="be-title">Prefer to grab a time now? Book directly with me.</div>
+      <iframe src="https://book.allpropay.com/portal-embed#/14701000000122106" title="Book a call with Tammy Millar" loading="lazy"></iframe>
+      <div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000122106">Open the booking page</a>.</div>
+    </div>
+
+    <div class="sig">
+      <span class="name">Tammy Millar</span> &nbsp;&bull;&nbsp; AllProPay &nbsp;&bull;&nbsp; 929-930-3050 &nbsp;&bull;&nbsp; tammy@allpropay.com
+    </div>
+
+    <div class="note">
+      Prepared from your SpotOn statement for October 2026. Every figure in the SpotOn columns comes straight off that statement and adds back to the $2,125.72 it printed. The AllProPay Cost+ Rate column is an estimate: SpotOn&#39;s statement does not print the card cost inside its rate, so I estimated it for each card brand at the middle of the published range for your card mix, assumed your Mastercard splits between debit and credit the way your Visa does, kept your card brand fees exactly as printed, and added my pricing: 0.70% and $0.05 a sale on every card brand, and $25 a month. These are estimates based on the statement provided. Actual savings depend on final card mix, volume, and program selection. No contract, no setup fee, no cancellation fee.
+    </div>
+  </div>
+</div>
+</body>
+</html>
