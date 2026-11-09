@@ -479,6 +479,22 @@
   }
   /* ---- end header option B 2026-11-02 ---- */
 </style>
+<style id="rate-compare">
+  .price-row { grid-template-columns: .8fr 1.5fr; }
+  .rc-col { display: block; min-width: 0; }
+  .rc-num { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.05; }
+  .rc-them .rc-num { color: #E2E8F0; text-shadow: none; }
+  .rc-lbl { display: block; font-family: 'Inter', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9FB0C9; text-shadow: none; margin-top: 3px; }
+  .rc-money { display: block; font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: none; margin-top: 3px; }
+  .rc-money.rc-pink { color: #FFB4B4; }
+  .rc-money.rc-cyan { color: #00D4FF; }
+  .rc-duo { display: flex; gap: 16px; align-items: stretch; }
+  .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
+  .opt .rc-duo { margin-top: 10px; }
+  .opt .rc-col .pill { margin-bottom: 7px; }
+  .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
+  @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
+</style>
 </head>
 <body>
 <div class="page">
@@ -505,17 +521,17 @@
 
     <div class="hero">
       <div class="hero-eyebrow">AllProPay Cost+ Rate</div>
-      <h2>Skip Evo's new $755 yearly fee and the batch fee.</h2>
+      <h2>Skip Evo's new $755 yearly fee and batch fee.</h2>
       <div class="price-row two">
         <div class="price-cell">
-          <div class="pc-label"><span class="pill pill-today">Today</span> New Evo fees</div>
-          <div class="pc-value today">$755 a year</div>
-          <div class="pc-sub">plus $0.35 every batch, about $880 a year if you batch daily</div>
+          <div class="pc-label"><span class="pill pill-today">Evo</span> </div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">$755 a year</span><span class="rc-lbl">New yearly fee</span><span class="rc-money rc-pink">plus $0.35 every batch, on top of your rate</span></span></div>
+          <div class="pc-sub"></div>
         </div>
         <div class="price-cell">
-          <div class="pc-label"><span class="pill pill-us">AllProPay Cost+ Rate</span> yearly and batch fees</div>
-          <div class="pc-value us">$0</div>
-          <div class="pc-sub">Your rate: each card's real cost plus 0.40% and $0.05 a sale.</div>
+          <div class="pc-label"><span class="pill pill-us">AllProPay Cost+ Rate</span> </div>
+          <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.40% + $0.05</span><span class="rc-lbl">Cost+ rate</span><span class="rc-money">no yearly fee, no batch fee</span></span></div>
+          <div class="pc-sub"></div>
         </div>
       </div>
       
