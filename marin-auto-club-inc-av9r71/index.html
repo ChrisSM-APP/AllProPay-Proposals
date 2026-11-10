@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllProPay Proposal | Marin Auto Club Inc</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
+     the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
+  :root {
+    --blue: #0052FF;          /* AllProPay Blue: headings, links, the italic Pro, eyebrows on paper */
+    --accent: #0066FF;        /* Electric Blue: gradient start */
+    --cyan: #00D4FF;          /* Cyan Glow: eyebrows on dark, the big number in the panel */
+    --accent-deep: #0A37CC;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --tint: #E5EDFF;
+    --tint-soft: #EEF3FF;
+    --slate: #9FB0C9;         /* Muted Slate: captions on dark */
+    --slate-bar: #3A4A66;     /* the "today" bar */
+    --on-gradient: #04111F;
+    --black: #000000;
+    --text: #0B1120;
+    --muted: #5A6B85;         /* captions on paper */
+    --radius: 16px;
+    --grad-cta: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+    --grad-panel: linear-gradient(160deg, #0E1830 0%, #0B1424 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.5; }
+  .page { max-width: 820px; margin: 0 auto; }
+  a { color: var(--blue); }
+
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 36px 12px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+  .content { padding: 22px 36px 28px; }
+
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in.
+     It lives with the header in .top-paper, which stays WHITE on the dark screen (Chris: "the top
+     white as well, and once it shows Prepared for Dana, that's when it changes into the darker"). */
+  .top-paper { background: #fff; }
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0; padding: 18px 36px 20px; }
+  .open-note p { margin: 0 0 8px; }
+  .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
+
+  /* title block */
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 6px; line-height: 1.5; }
+  .title-block h1.merchant-h { font-family: 'Montserrat', sans-serif; font-size: 24pt; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -0.4px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
+  .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
+  .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+  .meta-row { display: flex; gap: 24px; border-top: 1px solid var(--mid-gray); border-bottom: 1px solid var(--mid-gray); padding: 8px 0; font-size: 9pt; }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  /* the dark panel */
+  .hero { position: relative; overflow: hidden; background: var(--grad-panel); border: 1px solid rgba(0,212,255,.25); border-radius: var(--radius); color: #fff; padding: 22px 28px; margin: 16px 0; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
+  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
+  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: left; }
+  .price-cell .pc-label { display: block; font-size: 8.5pt; color: var(--slate); margin-bottom: 8px; letter-spacing: .4px; line-height: 1.4; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; position: relative; top: -1px; }
+  .price-cell .pc-value { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1.05; margin-bottom: 5px; }
+  .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: var(--slate); text-shadow: none; }
+  .price-cell .pc-value.us { font-size: 26pt; color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px rgba(255,255,255,.35); }
+  .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .price-cell .pc-sub { font-size: 8.5pt; color: var(--slate); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 8px 2px; border-radius: 999px; line-height: 1.25; }
+  .pill-today { background: rgba(159,176,201,.18); color: #9FB0C9; border: 1px solid rgba(159,176,201,.5); }
+  .pill-us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: var(--cyan); color: var(--on-gradient); line-height: 13px; vertical-align: middle; letter-spacing: .3px; white-space: nowrap; text-shadow: none; }
+  .hero-extra { position: relative; z-index: 1; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.12); font-size: 9pt; color: var(--slate); }
+  .hero-extra strong { color: #fff; }
+
+  /* light comparison box (PROGRAM_CHART) */
+  .chart-card { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; }
+  .chart-card .cc-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label { width: 1%; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 12px; }
+  td.bc-track { width: auto; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
+  td.bc-track .bc-bar.us { background: var(--grad-cta); }
+  td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-label.us, td.bc-value.us { color: var(--blue); }
+  table.bar-chart td.bc-label { padding-right: 14px; }
+  table.bar-chart td.bc-value { padding-left: 14px; }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+  /* older specs still send the navy-band .prog-chart; render it as the same light card */
+  .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
+  .prog-chart .pchart-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .prog-chart .pc-lab { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 10px; width: 20%; }
+  .prog-chart .pc-num { text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; color: var(--blue); width: 20%; }
+  .prog-chart .pc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* AllPro Rebate tier cards (TIERS_SECTION, rendered by build_proposal.py from spec "tiers"):
+     dark cards side by side, a pill tag, the tier name in caps, one big dollar figure, a short
+     fact table; the recommended card has the blue border. Same look as the hand-built pages. */
+  .tiers-sub { font-size: 9pt; color: var(--muted); margin: -2px 0 10px; }
+  table.tier-row { width: calc(100% + 20px); border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.tier-cell { background: var(--grad-panel); border: 1.5px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 16px 12px; vertical-align: top; color: #fff; }
+  td.tier-cell.rec { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+  .tier-cell .t-pop { font-family: 'Montserrat', sans-serif; display: inline-block; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .tier-cell .t-pop.quiet { background: rgba(159,176,201,.18); color: #9FB0C9; }
+  .tier-cell .t-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .tier-cell .t-cash { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .tier-cell .t-cashsub { font-size: 8pt; color: var(--slate); margin-bottom: 8px; }
+  table.t-facts { width: 100%; border-collapse: collapse; }
+  table.t-facts td { padding: 3.5px 0; font-size: 8.5pt; border-top: 1px solid rgba(255,255,255,.14); background: transparent; }
+  table.t-facts td.k { color: var(--slate); padding-right: 8px; }
+  table.t-facts td.v { text-align: right; font-weight: 700; color: #E2E8F0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* the one sentence */
+  .insight { background: var(--tint-soft); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 12px 0 0; font-size: 10pt; line-height: 1.55; }
+  .insight strong { color: var(--blue); }
+
+  .sec-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; }
+
+  /* from our call: three short lines in their words */
+  ul.call-list { list-style: none; margin: 0; padding: 0; }
+  ul.call-list li { padding: 7px 14px; border-left: 3px solid var(--blue); background: var(--light-gray); margin-bottom: 6px; border-radius: 0 8px 8px 0; font-size: 10pt; }
+
+  /* what changes: three numbered cards */
+  table.counter-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.counter-cell { width: 33.3%; background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: 12px; padding: 11px 14px; vertical-align: top; }
+  .counter-cell .cs-num { font-family: 'Montserrat', sans-serif; display: inline-block; width: 20px; height: 20px; line-height: 20px; background: var(--grad-cta); color: var(--on-gradient); border-radius: 50%; font-size: 9pt; font-weight: 800; text-align: center; margin-bottom: 6px; }
+  .counter-cell .cs-title { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .counter-cell .cs-body { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+  /* two-offer block (OPTIONS_SECTION), when the deal has one */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 0; }
+  .opt { background: var(--grad-panel); border: 1.5px solid rgba(0,212,255,.25); border-radius: 12px; padding: 14px 16px; color: #fff; }
+  .opt.opt-a { border-color: var(--blue); }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .opt.opt-b .opt-tag { background: rgba(43,95,217,.35); }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .opt .opt-mech, .opt .opt-figure-sub, .opt .opt-note { font-size: 8.5pt; color: var(--slate); }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .opt .opt-list { margin: 8px 0 0 16px; font-size: 8.5pt; color: #E2E8F0; }
+  .opt-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* the account: plain key/value list */
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .terms-table td:first-child { color: var(--muted); width: 42%; font-weight: 500; }
+  .terms-table td:nth-child(2) { color: var(--text); font-weight: 600; }
+  .terms-table td:nth-child(3) { color: var(--muted); font-weight: 400; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  /* the promise: two bold lines, then the sentence (Chris's sketch, 2026-10-19 night) */
+  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.45; }
+  .promise .g-big { display: block; font-size: 14pt; font-weight: 800; letter-spacing: -.2px; }
+  .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
+
+  /* the CTA block */
+  /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
+     the CTA"; 2026-10-26: "make this CTA pop, look super nice, like it's asking you to click it").
+     Title, one line, the big white pill with the cyan ring, three "what happens next" chips, then
+     the phone. Block-level only, so it survives a Gmail paste unchanged: the bloom, the breathing
+     ring and the hover lift live in the screen-only block below, so the email copy stays flat. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 30px 26px 24px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 19pt; line-height: 1.15; letter-spacing: -.2px; margin: 0 auto 8px; max-width: 560px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10.5pt; opacity: .94; line-height: 1.5; max-width: 500px; margin: 0 auto; color: #fff; }
+  .cta-block .ct-sub strong { color: #fff; }
+  /* CTA pill (Chris 2026-10-21, "make our CTA a 10/10"): a blue ring on the blue block vanished,
+     so the ring is cyan, the pill is bigger, and an arrow says "tap me". */
+  .cta-block a.apply { display: block; max-width: 460px; margin: 22px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17pt; letter-spacing: .2px; padding: 19px 28px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply::after { content: "\00a0\2192"; }
+  .cta-block a.apply:hover { background: #EEF3FF; }
+  .cta-block .apply-next { font-size: 9.5pt; color: #fff; opacity: .92; line-height: 1.5; max-width: 560px; margin: 0 auto 14px; }
+  /* the three chips under the pill (APPLY_SUB default): only what the application page itself promises */
+  .cta-block .apply-next .an-chip { display: inline-block; padding: 5px 12px; margin: 3px 2px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 9pt; font-weight: 600; white-space: nowrap; }
+  .cta-block .ct-or { font-size: 10pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; border-bottom: 2px solid rgba(0,212,255,.9); }
+  .cta-btn { display: none; }
+
+  .booking-embed { margin-top: 20px; }
+  .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid var(--mid-gray); border-radius: 8px; background: #fff; display: block; }
+  .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
+  .booking-embed .be-fallback a { color: var(--blue); }
+
+  .doc-footer { border-top: 1px solid var(--mid-gray); padding: 12px 36px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--muted); }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+  @media screen { @keyframes apBar { from { width: 0; } } .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+
+  @media screen and (max-width: 640px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-size: 11.5pt; line-height: 1.5; }
+    .page { max-width: 100%; width: 100%; }
+    img { max-width: 100%; height: auto; }
+    p, li, td, th, .pc-sub, .cs-body, .cc-note, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .open-note { padding: 16px 18px 18px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
+    .meta-row { flex-direction: column; gap: 7px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
+    .hero { padding: 20px; }
+    .hero::before { display: none; }
+    .options { display: block; }
+    .opt { margin-bottom: 10px; }
+    table.tier-row, table.tier-row > tbody, table.tier-row > tbody > tr { display: block; margin: 0; }
+    td.tier-cell { display: block; width: 100% !important; margin-bottom: 10px; }
+    table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
+    td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
+    /* phone: label + value on one line, the bar full width under them */
+    table.bar-chart, table.bar-chart tbody { display: block; }
+    table.bar-chart tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 8px; }
+    table.bar-chart td.bc-label { grid-row: 1; grid-column: 1; font-size: 8pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
+    td.bc-track .bc-bar { height: 14px; }
+    .cta-block { padding: 26px 18px 20px; }
+    .cta-block .ct-title { font-size: 16pt; }
+    .cta-block a.apply { max-width: none; font-size: 15pt; padding: 17px 18px; }
+    .cta-block .apply-next .an-chip { font-size: 8.5pt; padding: 4px 10px; }
+    /* each promise line stays ONE line on a phone (Chris 2026-10-20: "statement" wrapped under) */
+    .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
+    .title-block h1.merchant-h { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.28in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.35; color: var(--text); }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .chart-card, .prog-chart, td.counter-cell, .bc-bar, .cs-num, .pill, .chip, .insight, .promise, .opt, .opt-tag, ul.call-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero, .chart-card, .prog-chart, .cta-block, .terms-table, .promise, .insight, table.counter-row, .options { break-inside: avoid; page-break-inside: avoid; }
+    .cta-block { box-shadow: none; }
+    .doc-header { padding: 8px 22px 6px; }
+    .doc-header .logo-img { height: 40px; }
+    .open-note { padding: 8px 22px 6px; font-size: 8.5pt; }
+    .content { padding: 10px 22px 8px; }
+    .title-block { margin-bottom: 6px; }
+    .title-block h1 { font-size: 18pt; }
+    .title-block .merchant { font-size: 10pt; margin-bottom: 6px; }
+    .title-block .eyebrow { font-size: 7.5pt; margin-bottom: 2px; }
+    .meta-row { padding: 5px 0; font-size: 7.5pt; gap: 16px; }
+    .hero { padding: 11px 18px; margin: 8px 0; border-radius: 9px; }
+    .hero h2 { font-size: 11.5pt; margin-bottom: 8px; }
+    .hero .hero-eyebrow { font-size: 7pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell .pc-value.us { font-size: 20pt; }
+    .price-cell .pc-value.today { font-size: 12pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7pt; }
+    .sec-label { font-size: 7.5pt; margin: 8px 0 4px; }
+    .chart-card, .prog-chart { padding: 8px 12px 7px; margin-top: 7px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 7pt; margin-bottom: 4px; }
+    table.bar-chart td { padding: 2.5px 0; }
+    td.bc-track .bc-bar { height: 13px; }
+    td.bc-label { font-size: 7pt; }
+    td.bc-value { font-size: 9.5pt; }
+    .chart-card .cc-note { font-size: 6pt; margin-top: 3px; }
+    .insight { padding: 8px 12px; font-size: 8.5pt; margin-top: 8px; }
+    td.tier-cell { padding: 7px 11px 6px; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-pop { font-size: 5.5pt; padding: 1.5px 7px; margin-bottom: 3px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-cash { font-size: 14pt; }
+    table.t-facts td { padding: 2px 0; font-size: 6.5pt; }
+    table.tier-row { break-inside: avoid; page-break-inside: avoid; }
+    ul.call-list li { padding: 4px 10px; font-size: 8.5pt; margin-bottom: 4px; }
+    table.counter-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.counter-cell { padding: 6px 10px; border-radius: 7px; }
+    .counter-cell .cs-num { width: 15px; height: 15px; line-height: 15px; font-size: 7.5pt; margin-bottom: 3px; }
+    .counter-cell .cs-title { font-size: 7.5pt; margin-bottom: 1px; }
+    .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
+    .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
+    .promise { padding: 8px 12px; font-size: 9pt; margin-top: 8px; }
+    .cta-block { padding: 10px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
+    .cta-block .ct-sub { font-size: 7.5pt; }
+    .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .apply-next { font-size: 7.5pt; margin-bottom: 4px; }
+    .cta-block .apply-next .an-chip { font-size: 7pt; padding: 2px 8px; margin: 1px; background: transparent; border-color: rgba(255,255,255,.55); }
+    .cta-block .ct-or { font-size: 7.5pt; }
+    .title-block h1.merchant-h { font-size: 17pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
+    .doc-footer .sig img { height: 16px; }
+    .doc-footer .fine { font-size: 6pt; }
+  }
+
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  @media screen {
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, rgba(0,102,255,0.26) 0%, rgba(0,212,255,0.07) 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
+
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .doc-header .logo-img, .doc-header img, .doc-footer .sig img { content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYXBsLWZkLXJvb3QiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMTUgMjUgOTcxIDI0NSI+CiAgPCEtLSBBbGxQcm9QYXkgZnVsbCBsb2NrdXAsIGRhcmsgc3VyZmFjZXMuIENhbm9uaWNhbC4gR2VuZXJhdGVkIGJ5IDAyLWJyYW5kL2xvZ28vYnVpbGRfbG9nby5weSBmcm9tIHRoZSBGaXZlcnIgdmVuZG9yIHZlY3RvciAoQWxsUHJvUGF5IExvZ28vKS4gRG8gbm90IGhhbmQtZWRpdDsgcmVydW4gdGhlIHNjcmlwdC4gRGVjaXNpb25zOiAwMi1icmFuZC9sb2dvLXNwZWMubWQgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5hcGwtZmQtc3QwIHsKICAgICAgICBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQyKTsKICAgICAgfQogICAgICAuYXBsLWZkLXN0MSB7CiAgICAgICAgZmlsbDogdXJsKCNhcGwtZmQtbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDIgewogICAgICAgIGZpbGw6ICMyRjhCRkY7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDMgewogICAgICAgIGZpbGw6IHVybCgjYXBsLWZkLXJhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDQgewogICAgICAgIGZpbGw6IHVybCgjYXBsLWZkLWxpbmVhci1ncmFkaWVudDMpOwogICAgICB9CiAgICAgIC5hcGwtZmQtc3Q1IHsKICAgICAgICBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhcGwtZmQtbGluZWFyLWdyYWRpZW50IiB4MT0iMzUuOTkiIHkxPSI0MS43OCIgeDI9IjEzMC4wNSIgeTI9IjE0NC4wOCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyOWFlZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDkxN2NjIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJhcGwtZmQtcmFkaWFsLWdyYWRpZW50IiBjeD0iMTM2LjQyIiBjeT0iMTUwLjg5IiBmeD0iMTM2LjQyIiBmeT0iMTUwLjg5IiByPSIxNTguOTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjlhZWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA5MTdjYyIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDEiIHgxPSIxOTMuODQiIHkxPSI4MC44IiB4Mj0iMTY0LjciIHkyPSIzMS45IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzA5MTdjYyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii45OCIgc3RvcC1jb2xvcj0iIzI5YWVmZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDIiIHgxPSIxMjcuOTMiIHkxPSIyNTguMTQiIHgyPSIxMDQuNjkiIHkyPSIyMTYuODYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDkxN2NjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI5YWVmZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDMiIHgxPSIxNC4zIiB5MT0iMTYxLjczIiB4Mj0iODkuNjgiIHkyPSIxNjEuNzMiIHhsaW5rOmhyZWY9IiNhcGwtZmQtbGluZWFyLWdyYWRpZW50MiIvPgogIDwvZGVmcz4KICA8Zz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3Q1IiBkPSJNOTQuMDYsMTY5LjQzYzMuNDQtOS45OS0uMDItMjEuOTYtMTAuMzktMjcuOTZMMTUuMzYsMTAyLjA1di0zOS41N2MwLTE4LDE5LjQ5LTI5LjI2LDM1LjA4LTIwLjI1bDEzMi4xNyw3Ni4zMS04OC41Niw1MC44OVoiLz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QzIiBkPSJNMjA5LjA2LDE3NC4zMWwtNzQuNzksNDMuMTktMjEuNDEtMTIuMzVjLTIuMzUtMS4zNi01LjAyLTIuMDgtNy43MS0yLjA4LTguNTIsMC0xNS40NSw2LjkzLTE1LjQ1LDE1LjQ1djI0LjcybC0zOS4yNSwyMi42N2MtMTUuNTksOS0zNS4wOC0yLjI1LTM1LjA4LTIwLjI1di0yNC4yMmw2OC4zLTM5LjQzYzUuMjItMy4wMSw4LjY4LTcuNTMsMTAuMzktMTIuNTVsODguNTYtNTAuODksMjYuNDQsMTUuMjZjMTUuNTksOSwxNS41OSwzMS41LDAsNDAuNTFaIi8+CiAgICA8cGF0aCBjbGFzcz0iYXBsLWZkLXN0MSIgZD0iTTIxNy45Nyw2Ni4zbC00OC45MiwyOC4yNWMtNC4zNCwyLjUxLTkuNzctLjYzLTkuNzctNS42NHYtNTYuNDljMC01LjAyLDUuNDMtOC4xNSw5Ljc3LTUuNjRsNDguOTIsMjguMjVjNC4zNCwyLjUxLDQuMzQsOC43OCwwLDExLjI5WiIvPgogICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDAiIGQ9Ik0xNDYuMTYsMjQ1LjE1bC0zOC40NywyMi4yMWMtMy40MiwxLjk3LTcuNjktLjQ5LTcuNjktNC40NHYtNDQuNDJjMC0zLjk0LDQuMjctNi40MSw3LjY5LTQuNDRsMzguNDcsMjIuMjFjMy40MiwxLjk3LDMuNDIsNi45LDAsOC44N1oiLz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3Q0IiBkPSJNOTQuMDYsMTY5LjQzYy0xLjcxLDUuMDItNS4xOCw5LjU0LTEwLjM5LDEyLjU1TDE1LjM2LDIyMS40MnYtMTE5LjM2bDY4LjMsMzkuNDJjMTAuMzcsNS45OSwxMy44NCwxNy45NiwxMC4zOSwyNy45NloiLz4KICA8L2c+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMzMzLjQ4LDE4Mi4xN2gtNDEuNzNsLTYuNjksMTkuOTVoLTI4LjUxbDQwLjQ1LTExMi45M2gzMS41M2w0MC40NSwxMTIuOTNoLTI4LjgzbC02LjY5LTE5Ljk1Wk0zMjYuNDgsMTYwLjk0bC0xMy44NS00MS4zNC0xMy43LDQxLjM0aDI3LjU1WiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQwMi4xMiw4OS4xOXYxMTIuOTNoLTI3LjIzdi0xMTIuOTNoMjcuMjNaIi8+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNDM5LjU1LDg5LjE5djExMi45M2gtMjcuMjN2LTExMi45M2gyNy4yM1oiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik03ODAuMzUsMTQzLjQ4Yy0yLjk3LDUuNDItNy41NCw5Ljc5LTEzLjcsMTMuMTEtNi4xNiwzLjMzLTEzLjgsNC45OS0yMi45Myw0Ljk5aC0xNi44OHY0MC41NGgtMjcuMjN2LTExMi45M2g0NC4xMWM4LjkyLDAsMTYuNDUsMS41NiwyMi42MSw0LjY3LDYuMTYsMy4xMSwxMC43Nyw3LjQsMTMuODUsMTIuODcsMy4wOCw1LjQ3LDQuNjIsMTEuNzQsNC42MiwxOC44MiwwLDYuNTQtMS40OSwxMi41Mi00LjQ2LDE3Ljk0Wk03NTMuMjgsMTM2YzIuNTUtMi40NywzLjgyLTUuOTUsMy44Mi0xMC40NnMtMS4yNy03Ljk5LTMuODItMTAuNDZjLTIuNTUtMi40Ny02LjQyLTMuNy0xMS42My0zLjdoLTE0LjgxdjI4LjMxaDE0LjgxYzUuMiwwLDkuMDgtMS4yMywxMS42My0zLjdaIi8+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNzkyLjM3LDEzMi43OWMzLjQ1LTYuOTcsOC4xNS0xMi4zMywxNC4wOS0xNi4wOSw1Ljk1LTMuNzUsMTIuNTgtNS42MywxOS45MS01LjYzLDYuMjYsMCwxMS43NiwxLjI5LDE2LjQ4LDMuODYsNC43MiwyLjU3LDguMzYsNS45NSwxMC45MSwxMC4xM3YtMTIuNzFoMjcuMjN2ODkuNzZoLTI3LjIzdi0xMi43MWMtMi42Niw0LjE4LTYuMzUsNy41Ni0xMS4wNywxMC4xMy00LjczLDIuNTctMTAuMjIsMy44Ni0xNi40OCwzLjg2LTcuMjIsMC0xMy44LTEuOS0xOS43NS01LjcxLTUuOTUtMy44MS0xMC42NS05LjIyLTE0LjA5LTE2LjI1LTMuNDUtNy4wMi01LjE4LTE1LjE1LTUuMTgtMjQuMzdzMS43Mi0xNy4zMiw1LjE4LTI0LjI5Wk04NDguMTEsMTQwLjk5Yy0zLjc3LTMuOTctOC4zNi01Ljk1LTEzLjc4LTUuOTVzLTEwLjAxLDEuOTYtMTMuNzgsNS44N2MtMy43NywzLjkyLTUuNjUsOS4zMS01LjY1LDE2LjE3czEuODgsMTIuMzEsNS42NSwxNi4zM2MzLjc3LDQuMDIsOC4zNiw2LjAzLDEzLjc4LDYuMDNzMTAuMDEtMS45OCwxMy43OC01Ljk1YzMuNzctMy45Nyw1LjY1LTkuMzgsNS42NS0xNi4yNXMtMS44OS0xMi4yOC01LjY1LTE2LjI1WiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTk4NS4xNSwxMTIuMzVsLTU1Ljc0LDEzMi4zOWgtMjkuM2wyMC4zOC00NS42OS0zNi4xNS04Ni43MWgzMC40MmwyMC41NCw1Ni4xNCwyMC4zOC01Ni4xNGgyOS40NloiLz4KICA8Zz4KICAgICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDIiIGQ9Ik01MzUuOSwxNDMuNDhjLTMuOTMsNS40Mi05LjI2LDkuNzktMTYuMDEsMTMuMTEtNi43NCwzLjMzLTE0LjY4LDQuOTktMjMuODEsNC45OWgtMTYuODhsLTcuMTcsNDAuNTRoLTI3LjIzbDE5Ljc1LTExMi45M2g0NC4xMWMxMS42OCwwLDIwLjQ5LDIuNiwyNi40NCw3LjgsNS45NCw1LjIsOC45MiwxMi4yNSw4LjkyLDIxLjE1LDAsMi42OC0uMjIsNS4xNS0uNjQsNy40LTEuMDYsNi41NC0zLjU2LDEyLjUyLTcuNDgsMTcuOTRaTTUxNS42NywxMjUuNTVjLjIxLTEuNzEuMzItMi45NS4zMi0zLjcsMC0zLjQzLTEuMDktNi4wOS0zLjI2LTcuOTYtMi4xOC0xLjg4LTUuNDktMi44Mi05Ljk1LTIuODJoLTE0LjgxbC00Ljk0LDI4Ljk2aDE0LjY1YzEwLjE5LDAsMTYuMTktNC44MywxOC0xNC40OFoiLz4KICAgICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDIiIGQ9Ik01ODguMDQsMTE1Ljk3YzUuMzYtMy4wNiwxMC45Ni00LjU4LDE2LjgtNC41OGwtNS4xLDI5LjEyaC03LjQ5Yy02LjgsMC0xMi4xNiwxLjQ4LTE2LjA4LDQuNDItMy45MywyLjk1LTYuNTMsOC4xMi03LjgsMTUuNTJsLTcuMzMsNDEuNjdoLTI3LjIzbDE1LjYxLTg5Ljc2aDI3LjIzbC0yLjg3LDE2LjI1YzQuMTQtNS4zNiw4Ljg5LTkuNTcsMTQuMjUtMTIuNjNaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QyIiBkPSJNNjE2LjY0LDE5OC43NGMtNS45NS0zLjExLTEwLjU0LTcuNTEtMTMuNzgtMTMuMTktMy4yNC01LjY4LTQuODYtMTIuMjgtNC44Ni0xOS43OSwwLTEwLjE5LDIuMzktMTkuNDcsNy4xNy0yNy44Myw0Ljc4LTguMzYsMTEuMzYtMTQuOTMsMTkuNzUtMTkuNzEsOC4zOS00Ljc3LDE3LjczLTcuMTYsMjguMDMtNy4xNiw3LjY0LDAsMTQuNDcsMS41OCwyMC40Niw0Ljc1LDYsMy4xNiwxMC42NCw3LjU5LDEzLjkzLDEzLjI3LDMuMjksNS42OSw0Ljk0LDEyLjI4LDQuOTQsMTkuNzksMCwxMC4yOS0yLjQyLDE5LjYtNy4yNSwyNy45MS00LjgzLDguMzEtMTEuNDcsMTQuODMtMTkuOTEsMTkuNTUtOC40NCw0LjcyLTE3LjgxLDcuMDgtMjguMTEsNy4wOC03LjY0LDAtMTQuNDQtMS41NS0yMC4zOC00LjY3Wk02NTIuODcsMTc1LjY2YzMuNTYtMi43NCw2LjMyLTYuMjcsOC4yOC0xMC42MiwxLjk2LTQuMzQsMi45NS04Ljg3LDIuOTUtMTMuNTksMC01LjM2LTEuNDMtOS40OS00LjMtMTIuMzktMi44Ny0yLjktNi40OC00LjM0LTEwLjgzLTQuMzQtNC41NywwLTguNTcsMS4zNy0xMi4wMiw0LjEtMy40NSwyLjc0LTYuMTMsNi4zLTguMDQsMTAuNy0xLjkxLDQuNC0yLjg3LDkuMDEtMi44NywxMy44MywwLDUuMjYsMS4zOCw5LjMxLDQuMTQsMTIuMTQsMi43NiwyLjg0LDYuMzIsNC4yNiwxMC42Nyw0LjI2czguNDctMS4zNywxMi4wMi00LjFaIi8+CiAgICA8L2c+PGc+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0yNTYuNTYsMjQ0LjQzbDEyLjE0LTI3LjY2aDMuNzlsMTIuMTcsMjcuNjZoLTQuMDJsLTEwLjgzLTI1LjQ1aDEuNTNsLTEwLjgzLDI1LjQ1aC0zLjk0Wk0yNjEuNzMsMjM3LjUybDEuMDMtMy4xNmgxNS4wOGwxLjExLDMuMTZoLTE3LjIzWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNMzAwLjI0LDI0NC43NWMtMi4wNCwwLTMuOTItLjM1LTUuNjUtMS4wNXMtMy4yMi0xLjY5LTQuNDgtMi45Ni0yLjI1LTIuNzctMi45Ny00LjQ4Yy0uNzItMS43MS0xLjA3LTMuNi0xLjA3LTUuNjVzLjM2LTMuOTQsMS4wNy01LjY1Yy43MS0xLjcxLDEuNzEtMy4yMSwyLjk5LTQuNDgsMS4yOC0xLjI4LDIuNzgtMi4yNiw0LjUtMi45NiwxLjcyLS43LDMuNi0xLjA1LDUuNjUtMS4wNXMzLjk4LjM2LDUuNzIsMS4wOWMxLjc1LjcyLDMuMjMsMS44LDQuNDYsMy4yMmwtMi40OSwyLjQ5Yy0xLjAyLTEuMTEtMi4xNy0xLjkzLTMuNDUtMi40Ny0xLjI4LS41NC0yLjY0LS44MS00LjEtLjgxcy0yLjkuMjYtNC4xOS43OWMtMS4yOS41My0yLjQxLDEuMjYtMy4zNSwyLjIxLS45NC45NS0xLjY4LDIuMDctMi4yLDMuMzgtLjUyLDEuMy0uNzksMi43Mi0uNzksNC4yNXMuMjYsMi45NC43OSw0LjI1Yy41MiwxLjMsMS4yNiwyLjQzLDIuMiwzLjM4Ljk0Ljk1LDIuMDYsMS42OSwzLjM1LDIuMjEsMS4yOS41MywyLjY5Ljc5LDQuMTkuNzlzMi44Mi0uMjcsNC4xLS44MWMxLjI4LS41NCwyLjQyLTEuMzgsMy40NS0yLjUxbDIuNDksMi40OWMtMS4yMywxLjQyLTIuNzEsMi41LTQuNDYsMy4yNC0xLjc1Ljc0LTMuNjcsMS4xMS01Ljc2LDEuMTFaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0zMjYuMiwyNDQuNzVjLTIuMDQsMC0zLjkyLS4zNS01LjY1LTEuMDVzLTMuMjItMS42OS00LjQ4LTIuOTYtMi4yNS0yLjc3LTIuOTctNC40OGMtLjcyLTEuNzEtMS4wNy0zLjYtMS4wNy01LjY1cy4zNi0zLjk0LDEuMDctNS42NWMuNzEtMS43MSwxLjcxLTMuMjEsMi45OS00LjQ4LDEuMjgtMS4yOCwyLjc4LTIuMjYsNC41LTIuOTYsMS43Mi0uNywzLjYtMS4wNSw1LjY1LTEuMDVzMy45OC4zNiw1LjcyLDEuMDljMS43NS43MiwzLjIzLDEuOCw0LjQ2LDMuMjJsLTIuNDksMi40OWMtMS4wMi0xLjExLTIuMTctMS45My0zLjQ1LTIuNDctMS4yOC0uNTQtMi42NC0uODEtNC4xLS44MXMtMi45LjI2LTQuMTkuNzljLTEuMjkuNTMtMi40MSwxLjI2LTMuMzUsMi4yMS0uOTQuOTUtMS42OCwyLjA3LTIuMiwzLjM4LS41MiwxLjMtLjc5LDIuNzItLjc5LDQuMjVzLjI2LDIuOTQuNzksNC4yNWMuNTIsMS4zLDEuMjYsMi40MywyLjIsMy4zOC45NC45NSwyLjA2LDEuNjksMy4zNSwyLjIxLDEuMjkuNTMsMi42OS43OSw0LjE5Ljc5czIuODItLjI3LDQuMS0uODFjMS4yOC0uNTQsMi40Mi0xLjM4LDMuNDUtMi41MWwyLjQ5LDIuNDljLTEuMjMsMS40Mi0yLjcxLDIuNS00LjQ2LDMuMjQtMS43NS43NC0zLjY3LDEuMTEtNS43NiwxLjExWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNMzQxLjUxLDI0NC40M3YtMjcuNjZoMTguOTF2My40NGgtMTUuMDh2MjAuNzhoMTUuNjJ2My40NGgtMTkuNDVaTTM0NC45OSwyMzIuMDd2LTMuMzZoMTMuNzh2My4zNmgtMTMuNzhaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0zNjcuMTYsMjQ0LjQzdi0yNy42NmgxMC40NWMyLjM1LDAsNC4zNS4zOCw2LjAxLDEuMTUsMS42Ni43NiwyLjkzLDEuODcsMy44MywzLjMyLjg5LDEuNDUsMS4zNCwzLjE3LDEuMzQsNS4xOHMtLjQ1LDMuNzItMS4zNCw1LjE2Yy0uODksMS40NC0yLjE3LDIuNTQtMy44MywzLjMyLTEuNjYuNzgtMy42NiwxLjE3LTYuMDEsMS4xN2gtOC4zNWwxLjcyLTEuODZ2MTAuMjNoLTMuODNaTTM3MC45OCwyMzQuNmwtMS43Mi0xLjk4aDguMjNjMi40NSwwLDQuMzEtLjU0LDUuNTctMS42MiwxLjI2LTEuMDgsMS44OS0yLjYxLDEuODktNC41OHMtLjYzLTMuNS0xLjg5LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNloiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTM5OC41OCwyNDQuNDN2LTI0LjIyaC05LjE5di0zLjQ0aDIyLjE2djMuNDRoLTkuMTl2MjQuMjJoLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik00MjYuMDMsMjQ0LjQzdi0yNy42NmgxMC40NWMyLjM1LDAsNC4zNS4zOCw2LjAxLDEuMTUsMS42Ni43NiwyLjkzLDEuODcsMy44MywzLjMyLjg5LDEuNDUsMS4zNCwzLjE3LDEuMzQsNS4xOHMtLjQ1LDMuNzItMS4zNCw1LjE2Yy0uODksMS40NC0yLjE3LDIuNTQtMy44MywzLjMyLTEuNjYuNzgtMy42NiwxLjE3LTYuMDEsMS4xN2gtOC4zNWwxLjcyLTEuODZ2MTAuMjNoLTMuODNaTTQyOS44NiwyMzQuNmwtMS43Mi0xLjk4aDguMjNjMi40NSwwLDQuMzEtLjU0LDUuNTctMS42MiwxLjI2LTEuMDgsMS44OS0yLjYxLDEuODktNC41OHMtLjYzLTMuNS0xLjg5LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNloiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTQ0Ny44OSwyNDQuNDNsMTIuMTQtMjcuNjZoMy43OWwxMi4xNywyNy42NmgtNC4wMmwtMTAuODMtMjUuNDVoMS41M2wtMTAuODMsMjUuNDVoLTMuOTRaTTQ1My4wNiwyMzcuNTJsMS4wMy0zLjE2aDE1LjA4bDEuMTEsMy4xNmgtMTcuMjNaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik00ODQuNTMsMjQ0LjQzdi0xMC41OWwuODgsMi40NS0xMS41Mi0xOS41Mmg0LjFsOS42OSwxNi40OGgtMi4yMmw5LjcyLTE2LjQ4aDMuNzlsLTExLjQ4LDE5LjUyLjg0LTIuNDV2MTAuNTloLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik01MDIuMjUsMjQ0LjQzdi0yNy42NmgzLjE0bDEyLjAyLDIwLjloLTEuNjhsMTEuODctMjAuOWgzLjE0bC4wNCwyNy42NmgtMy42N2wtLjA0LTIxLjY5aC44OGwtMTAuNTYsMTguMzNoLTEuNzZsLTEwLjY0LTE4LjMzaC45NnYyMS42OWgtMy42N1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTUzOC44MSwyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk01NDIuMjksMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNTY0LjQ2LDI0NC40M3YtMjcuNjZoMy4xNGwxNy43MiwyMi43MmgtMS42NXYtMjIuNzJoMy44M3YyNy42NmgtMy4xNGwtMTcuNzItMjIuNzJoMS42NXYyMi43MmgtMy44M1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTYwMC44NiwyNDQuNDN2LTI0LjIyaC05LjE5di0zLjQ0aDIyLjE2djMuNDRoLTkuMTl2MjQuMjJoLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik02MjUuNDgsMjQ0Ljc1Yy0yLjA0LDAtMy45OS0uMzItNS44Ni0uOTctMS44Ni0uNjUtMy4zMy0xLjQ4LTQuNC0yLjUxbDEuNDItMy4wOGMxLjAyLjkyLDIuMzIsMS42OSwzLjksMi4yOSwxLjU4LjYxLDMuMjMuOTEsNC45NC45MSwxLjU2LDAsMi44Mi0uMTgsMy43OS0uNTUuOTctLjM3LDEuNjgtLjg4LDIuMTQtMS41Mi40Ni0uNjUuNjktMS4zOC42OS0yLjE5LDAtLjk1LS4zLTEuNzEtLjktMi4yOS0uNi0uNTgtMS4zOC0xLjA1LTIuMzMtMS40LS45Ni0uMzYtMi4wMS0uNjYtMy4xNi0uOTMtMS4xNS0uMjYtMi4zLS41Ny0zLjQ2LS45M3MtMi4yMi0uODEtMy4xOC0xLjM2Yy0uOTYtLjU1LTEuNzMtMS4zLTIuMzItMi4yMy0uNTktLjkzLS44OC0yLjE0LS44OC0zLjYycy4zNi0yLjczLDEuMDktMy45M2MuNzMtMS4yLDEuODUtMi4xNiwzLjM3LTIuODgsMS41Mi0uNzIsMy40NS0xLjA5LDUuOC0xLjA5LDEuNTYsMCwzLjEuMjEsNC42My42MywxLjUzLjQyLDIuODYsMS4wMywzLjk4LDEuODJsLTEuMjYsMy4xNmMtMS4xNS0uNzktMi4zNi0xLjM2LTMuNjQtMS43Mi0xLjI4LS4zNi0yLjUxLS41My0zLjcxLS41My0xLjUxLDAtMi43NC4yLTMuNzEuNTktLjk3LjQtMS42OC45Mi0yLjEyLDEuNTgtLjQ1LjY2LS42NywxLjQtLjY3LDIuMjEsMCwuOTcuMywxLjc1LjksMi4zMy42LjU4LDEuMzgsMS4wNCwyLjMzLDEuMzguOTYuMzQsMi4wMS42NSwzLjE2LjkzLDEuMTUuMjgsMi4zLjU5LDMuNDYuOTMsMS4xNi4zNCwyLjIyLjc5LDMuMTgsMS4zNC45Ni41NSwxLjczLDEuMjksMi4zMiwyLjIxLjU5LjkyLjg4LDIuMTEuODgsMy41NnMtLjM3LDIuNjktMS4xMSwzLjg5Yy0uNzQsMS4yLTEuODgsMi4xNi0zLjQzLDIuODgtMS41NC43Mi0zLjQ5LDEuMDktNS44NCwxLjA5WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNjQ3LjY4LDI0NC40M2wxMi4xNC0yNy42NmgzLjc5bDEyLjE3LDI3LjY2aC00LjAybC0xMC44My0yNS40NWgxLjUzbC0xMC44MywyNS40NWgtMy45NFpNNjUyLjg1LDIzNy41MmwxLjAzLTMuMTZoMTUuMDhsMS4xMSwzLjE2aC0xNy4yM1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTY3OS43NiwyNDQuNDN2LTI3LjY2aDMuMTRsMTcuNzIsMjIuNzJoLTEuNjV2LTIyLjcyaDMuODN2MjcuNjZoLTMuMTRsLTE3LjcyLTIyLjcyaDEuNjV2MjIuNzJoLTMuODNaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik03MTYuNzQsMjQ0LjQzdi0xMC41OWwuODgsMi40NS0xMS41Mi0xOS41Mmg0LjFsOS42OSwxNi40OGgtMi4yMmw5LjcyLTE2LjQ4aDMuNzlsLTExLjQ4LDE5LjUyLjg0LTIuNDV2MTAuNTloLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik03NDAuNjIsMjQ0LjQzbC04Ljk2LTI3LjY2aDMuOTRsOC4yMywyNS41MmgtMS45OWw4LjU0LTI1LjUyaDMuNTJsOC4zNCwyNS41MmgtMS45MWw4LjM1LTI1LjUyaDMuNjRsLTguOTYsMjcuNjZoLTQuMDJsLTcuODEtMjMuNjdoMS4wM2wtNy44NSwyMy42N2gtNC4xWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNzc2Ljk5LDI0NC40M3YtMjcuNjZoMy44M3YyNy42NmgtMy44M1pNNzgwLjQ0LDIzMi4xMXYtMy40NGgxNi4xMnYzLjQ0aC0xNi4xMlpNNzk2LjIxLDI0NC40M3YtMjcuNjZoMy44M3YyNy42NmgtMy44M1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTgwOC4wNywyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk04MTEuNTYsMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNODMzLjcyLDI0NC40M3YtMjcuNjZoMTAuNDVjMy40NywwLDYuMi44NSw4LjE5LDIuNTUsMS45OSwxLjcsMi45OSw0LjA2LDIuOTksNy4wOSwwLDItLjQ1LDMuNzItMS4zNCw1LjE2LS44OSwxLjQ0LTIuMTcsMi41NC0zLjgzLDMuMy0xLjY2Ljc2LTMuNjYsMS4xNS02LjAxLDEuMTVoLTguMzRsMS43Mi0xLjgydjEwLjIzaC0zLjgzWk04MzcuNTUsMjM0LjZsLTEuNzItMS45NGg4LjIzYzIuNDUsMCw0LjMxLS41NSw1LjU3LTEuNjQsMS4yNi0xLjA5LDEuOS0yLjYzLDEuOS00LjZzLS42My0zLjUtMS45LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNlpNODUxLjY0LDI0NC40M2wtNi44MS0xMC4wNGg0LjFsNi44OSwxMC4wNGgtNC4xN1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTg2MS41NSwyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk04NjUuMDQsMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgPC9nPjwvZz4KPC9zdmc+Cg=="); }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid rgba(255,255,255,0.08); color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: rgba(255,255,255,0.10); }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: rgba(0,212,255,0.35); }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+
+    /* callouts + tiles */
+    .insight { background: rgba(0,102,255,0.12); border-left-color: #00D4FF; border-color: rgba(0,212,255,0.25); color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: rgba(255,255,255,0.04); border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid rgba(255,255,255,0.08); color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: rgba(0,102,255,0.18); color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: rgba(43,95,217,0.25); color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; border-bottom: 1px solid rgba(0,212,255,0.25); }
+    tbody td, .terms-table td { border-color: rgba(255,255,255,0.08); color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: rgba(255,255,255,0.035); }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: rgba(43,95,217,0.16); color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    .sxs-save.alt { background: rgba(43,95,217,0.16); color: #C9D3E3; border-color: rgba(143,176,255,0.4); }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: rgba(255,255,255,0.88); }
+  }
+  
+
+  /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
+     email-ready copy (make_email_version.py) stays paper. */
+  @media screen {
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: rgba(255,255,255,.08); color: #F5F7FA; }
+    .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
+    .content { padding-top: 24px; }
+    .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
+    .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
+    .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
+    .content { padding-top: 26px; }
+    .content ul.call-list li, .content ul.call-list li strong { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise strong { color: #0052FF; }
+    .insight { background: rgba(0,102,255,.12); border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    @keyframes apBar { from { width: 0; } }
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+    .opt-note { color: #9FB0C9; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:nth-child(2) { color: #FFFFFF; }
+    .terms-table td:nth-child(3) { color: #9FB0C9; }
+    /* The CTA that asks to be clicked (Chris 2026-10-26): a lit gradient with a cyan bloom behind
+       the pill, a slow breathing ring on the pill, and a lift plus arrow nudge on hover. Screen
+       only, so print and the email copy keep the flat block above. */
+    .cta-block { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(160deg, #1F6BFF 0%, #0052FF 48%, #0036B3 100%); border: 1px solid rgba(120,180,255,.35); box-shadow: 0 24px 60px rgba(0,82,255,.38), inset 0 1px 0 rgba(255,255,255,.14); }
+    .cta-block::before { content: ""; position: absolute; left: 50%; top: 44%; width: 620px; height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(0,212,255,.42), rgba(0,212,255,0)); z-index: -1; pointer-events: none; }
+    .cta-block::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%); z-index: -1; pointer-events: none; }
+    .cta-block .ct-title { text-shadow: 0 2px 14px rgba(0,20,80,.35); }
+    .cta-block a.apply { position: relative; background: linear-gradient(180deg, #FFFFFF 0%, #F2F6FF 100%); box-shadow: 0 0 0 7px rgba(0,212,255,.22), 0 0 44px rgba(0,212,255,.45), 0 18px 40px rgba(2,10,40,.5); transition: transform .18s ease, box-shadow .18s ease, background .18s ease; animation: apPulse 2.6s ease-in-out 1.2s infinite; }
+    .cta-block a.apply::after { display: inline-block; transition: transform .18s ease; }
+    .cta-block a.apply:hover { transform: translateY(-3px) scale(1.02); background: #FFFFFF; box-shadow: 0 0 0 8px rgba(0,212,255,.3), 0 0 60px rgba(0,212,255,.6), 0 24px 50px rgba(2,10,40,.55); animation: none; }
+    .cta-block a.apply:hover::after { transform: translateX(5px); }
+    .cta-block a.apply:active { transform: translateY(-1px) scale(.995); }
+    @keyframes apPulse { 0%, 100% { box-shadow: 0 0 0 7px rgba(0,212,255,.22), 0 0 44px rgba(0,212,255,.45), 0 18px 40px rgba(2,10,40,.5); } 50% { box-shadow: 0 0 0 12px rgba(0,212,255,.10), 0 0 64px rgba(0,212,255,.65), 0 22px 46px rgba(2,10,40,.55); } }
+    .cta-block .ct-or .ca-phone:hover { border-bottom-color: #FFFFFF; }
+    .tiers-sub { color: #9FB0C9; }
+    td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
+    .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
+/* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #5A6B85; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #5A6B85; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
+</style>
+<style id="rate-compare">
+  .price-row { grid-template-columns: .8fr 1.5fr; }
+  .rc-col { display: block; min-width: 0; }
+  .rc-num { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.05; }
+  .rc-them .rc-num { color: #E2E8F0; text-shadow: none; }
+  .rc-lbl { display: block; font-family: 'Inter', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9FB0C9; text-shadow: none; margin-top: 3px; }
+  .rc-money { display: block; font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: none; margin-top: 3px; }
+  .rc-money.rc-pink { color: #FFB4B4; }
+  .rc-money.rc-cyan { color: #00D4FF; }
+  .rc-duo { display: flex; gap: 16px; align-items: stretch; }
+  .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
+  .opt .rc-duo { margin-top: 10px; }
+  .opt .rc-col .pill { margin-bottom: 7px; }
+  .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
+  @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-paper">
+  <div class="doc-header">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
+    <div class="contact">
+      <span class="ct-lbl">Call or text</span>
+      <a class="ct-phone" href="tel:+19294934037">929-493-4037</a>
+      <a class="ct-mail" href="mailto:carl@allpropay.com">carl@allpropay.com</a>
+      <a class="ct-web" href="https://allpropay.com">allpropay.com</a>
+    </div>
+  </div>
+  <div class="open-note"><p>Anthony, thanks for the time today. Here is the interchange pricing I promised, side by side with the offer you have in front of you.</p><p>You told me 0.25% over cost and $49.95 a month. Mine is 0.10% over cost and $10 a month, with the terminal included and no contract.</p><p>Have a look before you sign anything, and text me with any question.</p><p class="on-sign">Carl Brown</p><p class="on-phone"><a href="tel:+19294934037">929-493-4037</a></p></div>
+  </div>
+
+  <div class="content">
+
+    <div class="title-block">
+      <div class="eyebrow">Prepared for Anthony &middot; November 10, 2026</div>
+      <h1 class="merchant-h">Marin Auto Club Inc</h1>
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">AllProPay Cost+ Rate</div>
+      <h2>About 65% less markup than your new offer.</h2>
+      <div class="price-row two">
+        <div class="price-cell">
+          <div class="pc-label"><span class="pill pill-today">Your new offer</span> </div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">Cost + 0.25%</span><span class="rc-lbl">Your new offer</span><span class="rc-money rc-pink">plus $49.95 a month, about $200 a month</span></span></div>
+          <div class="pc-sub"></div>
+        </div>
+        <div class="price-cell">
+          <div class="pc-label"><span class="pill pill-us">AllProPay Cost+ Rate</span> </div>
+          <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.10%</span><span class="rc-lbl">Cost+ rate</span><span class="rc-money">plus $10 a month, about $70 a month</span></span></div>
+          <div class="pc-sub"></div>
+        </div>
+      </div>
+      <div class="hero-extra">Markup and monthly fee on about <strong>$60,000 a month</strong> in card sales. The card networks' own cost is the same on both sides.</div>
+    </div>
+
+    
+
+    <div class="chart-card"><div class="cc-title">Markup plus monthly fee</div><table class="bar-chart"><tr><td class="bc-label">New offer</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $200</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:35%"></div></td><td class="bc-value us">about $70</td></tr></table><div class="cc-note">A month at about $60,000 in card sales. Network cost is the same on both sides.<br>That is about $1,560 a year that stays with you.</div></div>
+
+    <div class="insight">On about $60,000 a month, the markup alone drops from about $150 to <strong>about $60</strong>.</div>
+
+    <div class="sec-label">From our call</div>
+    <ul class="call-list">
+      <li>"I went from a flat rate to an interchange, which was way cheaper"</li><li>"All my transactions are debit"</li><li>Just the terminal, kept at the dealership, not on your phone</li>
+    </ul>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="sec-label">The account</div>
+    <table class="terms-table">
+      <tr><td>Your account</td><td>A countertop terminal for the dealership, included at no charge.</td></tr>
+      <tr><td>Platform fee</td><td>$10</td></tr>
+      <tr><td>Your rate</td><td>Each card's real network cost, plus a flat 0.10%.</td></tr><tr><td>Term</td><td>Month to month.</td></tr>
+      <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
+    </table>
+
+    <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
+
+    <div class="cta-block">
+      <div class="ct-title">Like mine better? Start the application</div>
+      <div class="ct-sub">Nothing to send me. Start the application from this page and I take it from there, or text me and we go through it together before you sign anything else.</div>
+      <a class="apply" href="https://allpropay.com/start-application.html?d=53057000015429079&x=20270109&s=2d8e267c095bc043db222fcac9dd76e6">Start my application</a><div class="apply-next"><span class="an-chip">About 5 minutes</span><span class="an-chip">Usually ready the same business day</span><span class="an-chip">E-sign from your email</span></div>
+      <div class="ct-or">Questions first? Text or call me at <a href="tel:+19294934037" class="ca-phone">929-493-4037</a></div>
+    </div>
+
+    <div class="booking-embed"><div class="be-title">Prefer to talk it through first? Pick a time.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000178006" title="Book a call with Carl Brown" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000178006">Open the booking page</a>.</div></div>
+
+  </div>
+
+  <div class="doc-footer">
+    <div class="sig">
+      <img src="AllProPay_Logo.jpg" alt="AllProPay">
+      <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
+    </div>
+    <div class="fine">Blended-cost estimates are based on the volume and card mix you shared and are not a guarantee; actual cost depends on card mix and ticket size. No setup fee, no contract, no cancellation fee.</div>
+  </div>
+
+</div>
+<script>
+/* Open beacon (2026-10-19): tells the closer the merchant opened the page. Sends nothing from
+   the rep's own browser (any ?rep=1 link or email-ready page marks it), from a local file, or
+   from a non-https page. BEACON_URL is filled by build_proposal.py; empty disables it. */
+(function(){try{var b="https://beacon.allpropay.com/v";var q=new URLSearchParams(location.search);
+if(q.get("rep")){localStorage.setItem("app_rep","1");}
+if(localStorage.getItem("app_rep")==="1"){[].forEach.call(document.querySelectorAll('a[href*="start-application"]'),function(a){if(a.href.indexOf("rep=1")<0)a.href+=(a.href.indexOf("?")<0?"?":"&")+"rep=1";});return;}
+/* 2026-11-04: in a rep's browser the app button carries rep=1, so the closer's own click never DMs "opened their application link". */
+if(!b||location.protocol!=="https:")return;
+var m=location.pathname.match(/^\/([a-z0-9][a-z0-9-]+)\/?/);if(!m)return;
+/* the application / booking button pings the worker's /a route on click ("if they click Start
+   the application, that's when we should automatically ping the closer"). The button KEEPS its
+   real href and the ping is fire-and-forget: 2026-10-20 the href was being rewritten to the
+   worker URL, beacon.allpropay.com did not resolve, and every Book a Call pill was dead. A
+   beacon that is down must never cost a click. */
+function ping(u){if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{mode:"no-cors",keepalive:true}).catch(function(){});}}
+var a=document.querySelector("a.apply");
+if(a&&/^https?:/.test(a.href)){a.addEventListener("click",function(){try{ping(b.replace(/\/v$/,"/a")+"?p="+encodeURIComponent(m[1])+"&to="+encodeURIComponent(a.href));}catch(e){}});}
+ping(b+"?p="+encodeURIComponent(m[1]));
+}catch(e){}})();
+</script>
+</body>
+</html>
