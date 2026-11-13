@@ -435,6 +435,46 @@
   
   @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
 /* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #5A6B85; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #5A6B85; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
 </style>
 <style id="rate-compare">
   .price-row { grid-template-columns: .8fr 1.5fr; }
@@ -457,6 +497,8 @@
   .page { max-width: 680px !important; margin: 0 auto !important; }
   .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
   .steps-bar, .cta-block { display: block !important; }
+  /* the number under the closer's name shows on the page and in the email (Chris 11-03); kept as a guard */
+  .open-note .on-phone { display: block !important; }
   .doc-header { padding: 18px 28px 14px !important; }
   .content { padding-left: 28px !important; padding-right: 28px !important; }
   .doc-footer { text-align: center !important; padding: 14px 28px !important; }
@@ -504,49 +546,55 @@
 <div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="padding:0; text-align:left;"><img alt="AllProPay" class="logo-img" height="47" src="https://proposals.allpropay.com/mid-ohio-powersports-iqndww/AllProPay_Logo.jpg" style="display:block; width:220px; max-width:100%; height:auto; border:0;" width="220"/></td></tr><tr><td style="padding:0; text-align:left;"><div class="contact" style="text-align:left; padding-top:8px"><span style="white-space:nowrap;">929-493-4037</span> &#183; <span style="white-space:nowrap;">carl@allpropay.com</span> &#183; <span style="white-space:nowrap;">allpropay.com</span></div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/mid-ohio-powersports-iqndww/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="open-note"><p>Peggy, thanks for the straight answer on the phone.</p><p>You told me you are at about 1.7% all in, and I said I would not waste your time unless I could put something sharper in writing. This is it, and you did not have to dig out a statement for it.</p><p>Everything here is built off the numbers you gave me. Have a look and tell me if it is close.</p><p class="on-sign">Carl Brown</p></div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="width:52%; padding:0; vertical-align:middle; text-align:left;" width="52%"><img alt="AllProPay" class="logo-img" height="53" src="https://beacon.allpropay.com/l?p=mid-ohio-powersports-iqndww" style="display:block; width:100%; max-width:210px; height:auto; border:0;" width="210"/></td><td style="padding:0 0 0 10px; vertical-align:middle; text-align:right;"><div class="contact" style="display:block; text-align:right; line-height:1.35;">
+<span class="ct-lbl" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:9px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#64748B; white-space:nowrap;">Call or text</span>
+<a class="ct-phone" href="tel:+19294934037" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:19px; line-height:1.2; font-weight:800; color:#0052FF; text-decoration:none; white-space:nowrap;">929-493-4037</a>
+<a class="ct-mail" href="mailto:carl@allpropay.com" style="font-family:Arial, Helvetica, sans-serif; display:block; font-size:13px; color:#0B1120; text-decoration:none; white-space:nowrap;">carl@allpropay.com</a>
+
+</div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/mid-ohio-powersports-iqndww/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="open-note"><p>Peggy, thank you for sending the statement. Here is your October, taken apart line by line like I promised.</p><p>Electronic Payments has you on a sharp price, and I will say that up front. Most of what you pay goes to Visa, Mastercard and the other card brands, and on Dual Pricing that part goes to $0.</p><p>Read it on your phone and we will go over it together Monday.</p><p class="on-sign">Carl Brown</p><p class="on-phone"><a href="tel:+19294934037">929-493-4037</a></p></div>
 </div>
 <div class="content">
 <div class="title-block">
-<div class="eyebrow">Prepared for Peggy &#183; October 29, 2026</div>
+<div class="eyebrow">Prepared for Peggy &#183; November 13, 2026</div>
 <h1 class="merchant-h">Mid-Ohio Powersports, Inc.</h1>
 </div>
 <div class="hero">
-<div class="hero-eyebrow">AllProPay Cost+ Rate</div>
-<h2>You stop paying a markup you cannot see.</h2>
+<div class="hero-eyebrow">AllProPay Dual Pricing</div>
+<h2>$2,311 a month in card fees goes to $0.</h2>
 <div class="price-row two">
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-today">Electronic Payments</span> </div>
-<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">1.7%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">about $765/mo</span></span></div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.20%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">about $2,311/mo</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="pc-label"><span class="pill pill-us">AllProPay Cost+ Rate</span> </div>
-<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.20%</span><span class="rc-lbl">Cost+ rate</span><span class="rc-money">about $690/mo, all in</span></span></div>
+<div class="pc-label"><span class="pill pill-us">AllProPay Dual Pricing</span> </div>
+<div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Option A</span><span class="rc-money">you pay $0</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="rc-num">0.09% + $0.09</span><span class="rc-lbl">Option B</span><span class="rc-money">about $2,242/mo, all in</span></span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
-<div class="hero-extra">Plus <strong>$0.05</strong> a sale. That is the entire markup, and it is the same on Visa, Mastercard, Discover and American Express.</div>
 </div>
-<div class="chart-card"><div class="cc-title">Card fees per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:86%"></div></td><td class="bc-value">$765</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:78%"></div></td><td class="bc-value us">about $690</td></tr></table><div class="cc-note">At $45,000 a month in card sales, the middle of the $40,000 to $50,000 you gave me. Today is your own 1.7% figure.<br/>My side is the card networks' cost plus 0.20% and $0.05 a sale, with the $20 monthly already in it. It moves with your real card mix, which is the one thing a statement would settle.</div></div>
-<div class="insight">The only part of this page anyone keeps from you is <strong>0.20% and $0.05 a sale</strong>, because everything under it is the card networks' own cost and it is identical for every business in the country.</div>
+<div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$2,311</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:97%"></div></td><td class="bc-value us">$2,242</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:1%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">From your October 2026 statement: $104,971 in card sales and $2,311.50 in fees, 2.20% all in. Cost+ Rate is worked at the same card mix.<br/>On Dual Pricing the card price your customers see covers the cost, so your side is $0.</div></div>
+<div class="insight">The <strong>$2,311</strong> you paid in card fees in October stays in the business, about <strong>$27,700</strong> a year at that pace.</div>
 <div class="sec-label">From our call</div>
 <ul class="call-list">
-<li>You are at about 1.7% all in, and you moved over earlier this year, so you have already been shopped recently.</li><li>Card sales run $40,000 to $50,000 in a month, and a bit more than that in a good one.</li><li>You would rather not go hunting for a statement, so I built this off your own numbers instead.</li>
+<li>You told me about 1.7%. Your October statement prints 2.20% all in, $2,311.50 on $104,971 in card sales.</li><li>You put card sales at $40,000 to $50,000 a month. October ran $105,000, and $1.27 million so far this year.</li><li>You moved to Electronic Payments this year and you pay every card fee yourself today.</li>
 </ul>
+<div class="section"><div class="section-header">Two Ways To Do This</div><p>Here is your own October statement, re-run both ways. One removes the cost. The other lowers what your processor keeps.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">AllProPay Dual Pricing</div><div class="opt-mech">Two prices. Cash and check pay your listed price; card-paying customers see a 3% card price, and that covers the card cost.</div><div class="opt-figure">$2,311 to $0</div><div class="opt-figure-sub">Your card cost in October, and every month after</div><ul class="opt-list"><li>October's $2,311.50 in card fees becomes $0.00. About $27,700 a year at that pace.</li><li>No monthly fee. No contract, no cancellation fees.</li><li>Customers see both prices on the screen and the receipt before they pay.</li><li>Your terminals are set up for both prices before they ship.</li></ul></div><div class="opt opt-b"><div class="opt-tag">If you would rather keep paying it yourself</div><div class="opt-name">AllProPay Cost+ Rate</div><div class="opt-mech">You keep paying the card fees yourself, at interchange (the fee the card networks set) plus a smaller markup than you pay today.</div><span class="rc-duo"><span class="rc-col rc-them"><span class="pill pill-today">Electronic Payments</span><span class="rc-num">2.20%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">about $2,311/mo</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">AllProPay Cost+ Rate</span><span class="rc-num">0.09% + $0.09</span><span class="rc-lbl">Option B</span><span class="rc-money">about $2,242/mo, all in</span></span></span><ul class="opt-list"><li>Markup from 0.15% to 0.09%. Per-payment fee from $0.13 to $0.09.</li><li>About $70 less a month on October's numbers, 38% less kept by your processor.</li><li>No monthly fee, same as today. No contract, no cancellation fees.</li><li>American Express at its own rate plus 0.20%, in writing with the application.</li></ul></div></div><p class="opt-note">The gap between the two is not me pricing the second one badly. About three quarters of what you pay goes to the card brands, so a lower rate can only trim the part your processor keeps. Dual Pricing removes the cost itself.</p></div>
+<div class="section"><a href="https://proposals.allpropay.com/mid-ohio-powersports-breakdown-yagkdq/" style="display:block; text-decoration:none; border:1px solid #BFD0F5; border-left:4px solid #0052FF; background:#F3F7FF; border-radius:8px; padding:12px 16px; color:#0B1120;"><span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10.5pt; color:#0052FF;">See your October statement, decoded &#8594;</span><br/><span style="font-size:9pt; color:#334155;">Every line of your own statement, re-run side by side. Check my numbers against the document you already have.</span><br/><span style="font-size:8pt; color:#5A6B85;">https://proposals.allpropay.com/mid-ohio-powersports-breakdown-yagkdq/</span></a></div>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
-<tr><td>Your account</td><td>A terminal for the counter, programmed before it ships. Nothing about how you take a payment changes</td></tr>
-<tr><td>Platform fee</td><td>$20 per month</td></tr>
-<tr><td>Your rate</td><td>Interchange, the cost the card networks set for everyone, plus 0.20% and $0.05 a sale. Same markup on every card brand, printed on every statement.</td></tr><tr><td>What I do not charge</td><td>$0 PCI. $0 statement fee. $0 batch fee. $0 regulatory product fee. $0 setup. $0 cancellation.</td></tr>
+<tr><td>Your terminals</td><td>Set up for both prices before they ship. You take a card the same way you do today.</td></tr>
+<tr><td>Platform fee</td><td>No monthly fee</td></tr>
+<tr><td>What your card customers see</td><td>The card price, 3%, shown on the screen and the receipt before they pay. Cash and check pay the listed price.</td></tr>
 <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
 </table>
 <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 <div class="cta-block">
-<div class="ct-title">Like the number? Lock it in.</div>
-<div class="ct-sub">About five short steps and I take it from there. If you would rather check my math first, text me one photo of last month's statement, the page that shows the fees, and I will put your exact number on this page before we talk.</div>
-<a class="apply" href="https://allpropay.com/start-application.html?d=53057000013945017&amp;x=20261228&amp;s=1eb64db8891c2bc04f5af3b92f72518f" style="display:block; max-width:460px; margin:22px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:17pt; padding:19px 28px; border-radius:999px; text-decoration:none; text-align:center;">Start my application&#160;&#8594;</a><div class="apply-next" style="display:block; font-family:Inter, Arial, sans-serif; font-size:9.5pt; color:#FFFFFF; text-align:center; line-height:1.5; max-width:560px; margin:0 auto 14px;"><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">About 5 minutes</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">Usually ready the same business day</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">E-sign from your email</span></div>
+<div class="ct-title">Like what you see? Start your application</div>
+<div class="ct-sub">Start the application below. Five short steps and you are on your way. Prefer to talk it through first? Pick a time further down.</div>
+<a class="apply" href="https://allpropay.com/start-application.html?d=53057000013945017&amp;x=20270112&amp;s=35736c6445ea58020c8c54d716d12d3c" style="display:block; max-width:460px; margin:22px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:17pt; padding:19px 28px; border-radius:999px; text-decoration:none; text-align:center;">Start my application&#160;&#8594;</a><div class="apply-next" style="display:block; font-family:Inter, Arial, sans-serif; font-size:9.5pt; color:#FFFFFF; text-align:center; line-height:1.5; max-width:560px; margin:0 auto 14px;"><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">About 5 minutes</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">Usually ready the same business day</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">E-sign from your email</span></div>
 <div class="ct-or">Questions first? Text or call me at <a class="ca-phone" href="tel:+19294934037">929-493-4037</a></div>
 </div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000178006" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
 
@@ -555,12 +603,12 @@
 
 
 <div class="sig" style="display:block; white-space:nowrap">
-<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark.png" style="; height:26px; width:auto;"/>
+<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark_2026-11.png" style="; height:32px; width:auto;"/>
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
-</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">Blended-cost estimates are based on the volume and card mix you shared and are not a guarantee; actual cost depends on card mix and ticket size. No setup fee, no contract, no cancellation fee.</div></div>
+</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program builds the card price into the price you post, and the customer sees it on the screen and the receipt before they pay. Cash and check customers pay the listed price. The figures on this page are worked from your October 2026 statement. No contract, no setup fee, no cancellation fee. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
 
-<script id="em-compose" type="application/json">{"subject": "Mid-Ohio Powersports - the numbers I promised you", "body": "Hi Peggy,\n\nThanks for the straight answer on the phone. I said I would put something in writing without making you dig out a statement, so here it is.\n\nYour page is here: https://proposals.allpropay.com/mid-ohio-powersports-iqndww/\n\nIt is built off your own numbers, about 1.7% all in on $40,000 to $50,000 a month in card sales. If it looks close, the application is right on the page and takes about five minutes.\n\nIf you would rather I check my math first, text me one photo of last month's statement, the page that shows the fees, and I will put your exact number on the page before we talk.\n\nCarl"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "Mid-Ohio Powersports - your October statement, decoded", "body": "Hi Peggy,\n\nThank you for sending the statement. I took your October apart line by line.\n\nYour statement prints 2.20% all in, $2,311.50 for the month. On Dual Pricing that part goes to $0, with no monthly fee.\n\nYour page is here: https://proposals.allpropay.com/mid-ohio-powersports-iqndww/\nThe line by line is here: https://proposals.allpropay.com/mid-ohio-powersports-breakdown-yagkdq/\n\nI will call you Monday at 10 to go over it.\n\nCarl"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
    a rep's and the proposal open beacon ignores it from now on. */
 try{localStorage.setItem("app_rep","1");}catch(e){}
