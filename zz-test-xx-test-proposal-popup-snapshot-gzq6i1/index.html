@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ZZ_TEST XX_Test - Proposal Popup: your Pricing Snapshot | AllProPay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Redesign 2026-11-12 (Chris: "do not look great"): the proposal look. White paper top with the rep,
+     then the dark surface. Tokens from AllProPay Market/02-brand/brand-tokens.css. */
+  :root {
+    --navy: #0B1120; --panel: linear-gradient(160deg, #0E1830, #0B1424); --hair: rgba(0,212,255,.25);
+    --electric: #0066FF; --cyan: #00D4FF; --blue: #0052FF; --off: #F5F7FA; --slate: #9FB0C9;
+    --ink: #04111F; --text: #1A1A2E; --muted: #5A6B85; --grad: linear-gradient(135deg, #0066FF, #00D4FF);
+    --today: #3A4A66;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--navy); color: var(--off); font: 400 16px/1.55 'Inter', Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+  p { margin: 0; overflow-wrap: anywhere; }
+  .wrap { max-width: 560px; margin: 0 auto; }
+
+  /* paper top: logo, the rep, a two-line note */
+  .paper { background: #fff; color: var(--text); border-bottom: 3px solid var(--blue); }
+  .paper .in { max-width: 560px; margin: 0 auto; padding: 16px 18px 18px; }
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .logo { height: 40px; width: auto; display: block; }
+  .rep-line { font-size: 13px; color: var(--muted); line-height: 1.35; text-align: right; }
+  .rep-line a { color: var(--blue); font: 800 15px/1.2 'Montserrat', sans-serif; text-decoration: none; white-space: nowrap; }
+  .note { margin-top: 14px; font-size: 15.5px; line-height: 1.55; }
+  .note .sign { display: block; margin-top: 6px; font: 700 14px/1.3 'Montserrat', sans-serif; }
+
+  /* dark surface */
+  .dark { padding: 22px 18px 30px; }
+  .eyebrow { font: 700 11px/1.4 'Montserrat', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); margin-bottom: 8px; }
+  h1 { font: 800 28px/1.12 'Montserrat', sans-serif; letter-spacing: -.4px; color: #fff; margin: 0 0 6px; }
+  h1 .hl { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .for { font: 600 14px/1.35 'Montserrat', sans-serif; color: var(--slate); margin-bottom: 18px; overflow-wrap: anywhere; }
+
+  .panel { position: relative; overflow: hidden; background: var(--panel); border: 1px solid var(--hair); border-radius: 16px; padding: 20px; margin-bottom: 14px; }
+  .panel::before { content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
+  .panel > * { position: relative; z-index: 1; }
+  .pill { display: inline-block; font: 800 10px/1.25 'Montserrat', sans-serif; letter-spacing: 1.2px; text-transform: uppercase; padding: 4px 9px 3px; border-radius: 999px; }
+  .pill.today { background: rgba(159,176,201,.18); color: var(--slate); border: 1px solid rgba(159,176,201,.5); }
+  .pill.us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
+  .vs { display: flex; flex-direction: column; gap: 14px; }
+  .vs .row .big { font: 800 40px/1 'Montserrat', sans-serif; letter-spacing: -1px; margin-top: 8px; }
+  .vs .row.today .big { color: var(--slate); font-size: 22px; letter-spacing: -.2px; line-height: 1.2; }
+  .vs .row.us .big { color: var(--cyan); }
+  .vs .sub { font: 700 11px/1.4 'Montserrat', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--slate); margin-top: 4px; }
+  .vs .rule { height: 1px; background: rgba(255,255,255,.12); }
+  .panel .how { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.12); font-size: 14.5px; color: var(--off); }
+
+  .sec { font: 700 12px/1.4 'Montserrat', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); margin: 26px 0 10px; }
+  .prog { background: var(--panel); border: 1px solid rgba(159,176,201,.22); border-radius: 16px; padding: 16px 18px; margin-bottom: 10px; }
+  .prog.rec { border: 2px solid var(--electric); }
+  .prog .flag { margin-bottom: 8px; }
+  .prog h3 { font: 800 19px/1.2 'Montserrat', sans-serif; color: #fff; margin: 0 0 6px; }
+  .prog .num { font: 800 24px/1.15 'Montserrat', sans-serif; color: var(--cyan); margin: 2px 0 6px; }
+  .prog p { font-size: 14.5px; color: var(--off); }
+  .prog .fit { display: block; margin-top: 6px; font-size: 13px; color: var(--slate); }
+  .icplus { font-size: 14px; color: var(--slate); margin: 4px 2px 0; }
+  .icplus b { color: var(--off); }
+  .icplus a, .fine a { color: var(--cyan); }
+
+  /* the ask */
+  .ask { background: linear-gradient(135deg, #0052FF 0%, #0A37CC 100%); border-radius: 16px; padding: 24px 18px 20px; margin-top: 26px; text-align: center; color: #fff; }
+  .ask h2 { font: 800 23px/1.15 'Montserrat', sans-serif; letter-spacing: -.2px; margin: 0 0 8px; color: #fff; }
+  .ask p { font-size: 15px; line-height: 1.5; color: #fff; opacity: .95; }
+  .btn { display: block; text-decoration: none; text-align: center; font: 800 16px/1.2 'Montserrat', sans-serif; border-radius: 999px; padding: 15px 14px; }
+  .btn.main { margin: 18px auto 12px; max-width: 420px; background: #fff; color: var(--blue); border: 4px solid var(--cyan); box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 12px 28px rgba(4,17,31,.4); }
+  .btn.main::after { content: "\00a0\2192"; }
+  .ask .or { font-size: 14px; color: #fff; opacity: .95; }
+  .ask .or a { color: #fff; font-weight: 800; text-decoration: none; border-bottom: 2px solid rgba(0,212,255,.9); white-space: nowrap; }
+
+  .link-card { display: block; text-decoration: none; background: var(--panel); border: 1px solid rgba(159,176,201,.22); border-left: 4px solid var(--cyan); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; }
+  .link-card .t { display: block; font: 700 15px/1.3 'Montserrat', sans-serif; color: var(--cyan); }
+  .link-card .d { display: block; font-size: 13.5px; color: var(--slate); margin-top: 3px; }
+
+  .promise { margin-top: 26px; border-left: 4px solid var(--cyan); padding: 4px 0 4px 16px; }
+  .promise .g { display: block; font: 800 21px/1.25 'Montserrat', sans-serif; color: #fff; letter-spacing: -.2px; }
+  .promise .s { display: block; margin-top: 8px; font-size: 14.5px; color: var(--slate); }
+  .fine { font-size: 12px; color: var(--slate); margin-top: 22px; line-height: 1.5; }
+  .accent { color: #2F8BFF; font-style: italic; margin: 0 .06em 0 .01em; }
+</style>
+</head>
+<body>
+<header class="paper"><div class="in">
+  <div class="head">
+    <img class="logo" src="AllProPay_Logo.jpg" alt="AllProPay">
+    <div class="rep-line">Kurt at AllProPay<br><a href="tel:+19299303653">929-930-3653</a></div>
+  </div>
+  <p class="note">Hi there, I have tried you by phone a few times, so here it is in writing. One minute to read.<span class="sign">Kurt</span></p>
+</div></header>
+
+<main class="wrap dark">
+  <div class="eyebrow">Updated for you &middot; November 2026</div>
+  <h1>You pay a fee on every card sale. <span class="hl">It can be $0.</span></h1>
+  <p class="for">ZZ_TEST XX_Test - Proposal Popup</p>
+
+  <section class="panel">
+    <div class="vs">
+      <div class="row today"><span class="pill today">Today</span><div class="big">A fee on every card sale</div><div class="sub">Your cost, every month</div></div>
+      <div class="rule"></div>
+      <div class="row us"><span class="pill us">Dual Pricing</span><div class="big">$0</div><div class="sub">Card processing fees</div></div>
+    </div>
+    <p class="how">Your prices stay the same. Customers who pay by card cover the card fee. We set it up to the card-brand rules for your state.</p>
+  </section>
+
+  <div class="sec">Two ways to run it</div>
+  <section class="prog rec">
+    <div class="flag"><span class="pill us">Most start here</span></div>
+    <h3>Dual Pricing</h3>
+    <div class="num">$0 card fees</div>
+    <p>Same prices for you. Card customers cover the card fee.</p>
+  </section>
+  <section class="prog">
+    <div class="flag"><span class="pill today">One price for everyone</span></div>
+    <h3>Wholesale Rate</h3>
+    <div class="num">Card-brand cost + one markup</div>
+    <p>You pay what the card brands charge, passed straight through, plus one clear markup. Both shown on your statement, so you can check every number.<span class="fit">Also called interchange-plus.</span></p>
+  </section>
+  <p class="icplus">Not sure which fits? <a href="https://allpropay.com/pricing.html" target="_blank" rel="noopener">See how each one works</a></p>
+
+  <section class="ask">
+    <h2>What are you paying now?</h2>
+    <p>Most statements carry fees nobody ever explained. Send a photo of one and we will mark every fee on it. If you are already on a good deal, we will tell you.</p>
+    <a class="btn main" href="mailto:sdr@allpropay.com?subject=Statement%20for%20ZZ_TEST%20XX_Test%20-%20Proposal%20Popup&amp;body=Photo%20of%20one%20recent%20statement%20attached.">Email a photo of my statement</a>
+    <p class="or">Or <a href="https://book.allpropay.com" target="_blank" rel="noopener">book 10 minutes</a> &middot; call Kurt at <a href="tel:+19299303653">929-930-3653</a></p>
+  </section>
+
+  <div class="sec">How we compare</div><a class="link-card" href="https://allpropay.com/compare-allpropay-vs-square.html" target="_blank" rel="noopener"><span class="t">What you use today, next to AllProPay&nbsp;&#8599;</span><span class="d">Published rates on both sides, side by side.</span></a>
+  <div class="sec">Worth a read</div><a class="link-card" href="https://allpropay.com/how-it-works.html" target="_blank" rel="noopener"><span class="t">How processing pricing actually works&nbsp;&#8599;</span><span class="d">Where the money goes on every card sale, in plain words.</span></a><a class="link-card" href="https://allpropay.com/guide-read-your-statement.html" target="_blank" rel="noopener"><span class="t">How to read your processing statement&nbsp;&#8599;</span><span class="d">Five minutes, and you will know which lines to look at.</span></a>
+
+  <p class="promise"><span class="g">No contract.<br>No cancellation fees.<br>No surprises on your statement.</span><span class="s">What you sign for is what you pay.</span></p>
+
+  <p class="fine">Program terms as published on <a href="https://allpropay.com/pricing.html" target="_blank" rel="noopener">allpropay.com/pricing</a>, November 2026. Not a quote: we go over your setup with you before anything changes. All<span class="accent">Pro</span>Pay, 108 W 39th Street, Suite 1006, New York, NY 10018.</p>
+</main>
+</body>
+</html>
