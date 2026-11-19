@@ -435,6 +435,46 @@
   
   @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
 /* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #5A6B85; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #5A6B85; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
 </style>
 <style id="rate-compare">
   .price-row { grid-template-columns: .8fr 1.5fr; }
@@ -457,6 +497,8 @@
   .page { max-width: 680px !important; margin: 0 auto !important; }
   .doc-header, .signature-block, .doc-footer, .pillars, .pricing-grid, .meta-grid,
   .steps-bar, .cta-block { display: block !important; }
+  /* the number under the closer's name shows on the page and in the email (Chris 11-03); kept as a guard */
+  .open-note .on-phone { display: block !important; }
   .doc-header { padding: 18px 28px 14px !important; }
   .content { padding-left: 28px !important; padding-right: 28px !important; }
   .doc-footer { text-align: center !important; padding: 14px 28px !important; }
@@ -504,12 +546,17 @@
 <div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
 
-<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="padding:0; text-align:left;"><img alt="AllProPay" class="logo-img" height="47" src="https://proposals.allpropay.com/jams-moving-specialists-ndekj3/AllProPay_Logo.jpg" style="display:block; width:220px; max-width:100%; height:auto; border:0;" width="220"/></td></tr><tr><td style="padding:0; text-align:left;"><div class="contact" style="text-align:left; padding-top:8px"><span style="white-space:nowrap;">929-493-4037</span> &#183; <span style="white-space:nowrap;">carl@allpropay.com</span> &#183; <span style="white-space:nowrap;">allpropay.com</span></div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/jams-moving-specialists-ndekj3/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="open-note"><p>Jayden, good talking with you today. You said it yourself: a card fee is just another percentage taken out of your profit, and you're right that it shouldn't be.</p><p>So here is the setup we talked about, in writing, no obligation to use it. Take a look when you have a minute.</p><p class="on-sign">Carl Brown</p></div>
+<table cellpadding="0" cellspacing="0" class="em-cols" role="presentation" style="width:100%;" width="100%"><tr><td style="width:52%; padding:0; vertical-align:middle; text-align:left;" width="52%"><img alt="AllProPay" class="logo-img" height="53" src="https://beacon.allpropay.com/l?p=jams-moving-specialists-ndekj3" style="display:block; width:100%; max-width:210px; height:auto; border:0;" width="210"/></td><td style="padding:0 0 0 10px; vertical-align:middle; text-align:right;"><div class="contact" style="display:block; text-align:right; line-height:1.35;">
+<span class="ct-lbl" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:9px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#64748B; white-space:nowrap;">Call or text</span>
+<a class="ct-phone" href="tel:+19299303050" style="font-family:Montserrat, Arial, Helvetica, sans-serif; display:block; font-size:19px; line-height:1.2; font-weight:800; color:#0052FF; text-decoration:none; white-space:nowrap;">929-930-3050</a>
+<a class="ct-mail" href="mailto:tammy@allpropay.com" style="font-family:Arial, Helvetica, sans-serif; display:block; font-size:13px; color:#0B1120; text-decoration:none; white-space:nowrap;">tammy@allpropay.com</a>
+
+</div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/jams-moving-specialists-ndekj3/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
+<div class="open-note"><p>Jayden, thanks for taking a few minutes today. Here is the info I promised, so you have it when your January plans come together.</p><p>When you start taking cards, the fee is never yours. Take a look when you have a minute.</p><p class="on-sign">Tammy Millar</p><p class="on-phone"><a href="tel:+19299303050">929-930-3050</a></p></div>
 </div>
 <div class="content">
 <div class="title-block">
-<div class="eyebrow">Prepared for Jayden &#183; October 29, 2026</div>
+<div class="eyebrow">Prepared for Jayden &#183; November 19, 2026</div>
 <h1 class="merchant-h">Jams Moving Specialists</h1>
 </div>
 <div class="hero">
@@ -519,7 +566,7 @@
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="pc-label"><span class="pill pill-today">Cash, check, Venmo, PayPal and Zelle</span> </div>
+<div class="pc-label"><span class="pill pill-today">Cash, check and Venmo</span> </div>
 <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">No cards today</span><span class="rc-lbl">What you take now</span><span class="rc-money rc-pink">a card fee would come straight out of your profit</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
@@ -527,39 +574,40 @@
 <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Every card sale</span><span class="rc-money">you pay $0</span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
-<div class="hero-extra">Customers who choose to pay by card see <strong>4%</strong> added at checkout. <strong>No monthly fee</strong>, as long as one card payment runs that month.</div>
+<div class="hero-extra">Customers who choose to pay by card see the card price at checkout. Nothing changes for anyone paying cash, check or Venmo.</div>
 </div>
-<div class="insight">On Dual Pricing your cost on card sales is <strong>$0</strong>, so the only thing you pay is <strong>$0 a month</strong>, as long as one card payment runs.</div>
+<div class="insight">On Dual Pricing your cost on card sales is <strong>$0</strong>: the customer who chooses to pay by card sees the card price before they pay, and everyone else pays your listed price.</div>
 <div class="sec-label">From our call</div>
 <ul class="call-list">
-<li>"I've had maybe five in the past six months that have asked for credit cards. Most people are good with checks, cash, Venmo, PayPal."</li><li>"A credit card is just another percentage taken from our profit." That's exactly the piece that moves to the card-paying customer on Dual Pricing.</li><li>Month to month, no obligation. Close it if it goes quiet, turn it back on the day someone asks to pay by card.</li>
+<li>How you get paid today: "Cash, check, Venmo."</li><li>How you want to take cards: "Something right from my phone."</li><li>Timing: "Probably in the next few months ... come in January."</li>
 </ul>
+<div class="sec-label">Your two options</div><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">AllProPay Dual Pricing</div><div class="opt-mech">The card price shows before the customer pays, and the customer paying by card covers the fee.</div><div class="opt-figure">$0</div><div class="opt-figure-sub">your cost on a card payment</div><ul class="opt-list"><li>Customers paying by card see 4% added at checkout.</li><li>Cash, check and Venmo customers pay your listed price, same as today.</li><li>Take the payment right from your phone at the job.</li></ul></div><div class="opt opt-b"><div class="opt-tag">When you pass $10,000 a month</div><div class="opt-name">AllPro Rebate</div><div class="opt-mech">Same setup. The card price goes to 4.99%, and we pay you back part of your card sales.</div><div class="opt-figure">$60 back</div><div class="opt-figure-sub">for every $10,000 in card sales, paid to you</div><ul class="opt-list"><li>The $25 monthly fee goes away.</li><li>It pays in any month your card sales reach $10,000.</li><li>Your card customer pays more than on Dual Pricing, and that is where the money back comes from.</li><li>Start on Dual Pricing and move over on the same account.</li></ul></div></div><div class="opt-note">No contract on either one, and the setup on your phone is the same.</div>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
-<tr><td>Right from your phone</td><td>Included. No terminal to buy. Pull up the app at the job, add the card price, and the customer paying by card covers it. Nothing changes on jobs paid by check, cash, Venmo, PayPal or Zelle.</td></tr>
-<tr><td>Platform fee</td><td>$0 a month, as long as you run at least one card payment that month</td></tr>
-<tr><td>Commitment</td><td>Month to month. Go a few months with no card requests and we close the account at no cost; reactivate the same day someone asks to pay by card.</td></tr>
+<tr><td>Right from your phone</td><td>Included. No terminal to buy. Tap the customer's card on your phone at the job, add the card price, and the customer paying by card covers it.</td></tr>
+<tr><td>Platform fee</td><td>$25 per month</td></tr>
+<tr><td>Commitment</td><td>Month to month. Go a few months with no card requests and we close the account at no cost; reactivate the same day someone asks to pay by card.</td></tr><tr><td>QuickBooks</td><td>Once your QuickBooks is set up, tell me which version you picked and we look at connecting your card payments to it, so you do not enter them twice.</td></tr>
 <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
 </table>
 <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
 <div class="cta-block">
 <div class="ct-title">Like what you see? Start your application</div>
 <div class="ct-sub">Start the application below. Five short steps and you are on your way. Prefer to talk it through first? Pick a time further down.</div>
-<a class="apply" href="https://allpropay.com/start-application.html?d=53057000013982668&amp;x=20261228&amp;s=4e4f44d18ad11afd4bcbd40803cba1dd" style="display:block; max-width:460px; margin:22px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:17pt; padding:19px 28px; border-radius:999px; text-decoration:none; text-align:center;">Start my application&#160;&#8594;</a><div class="apply-next" style="display:block; font-family:Inter, Arial, sans-serif; font-size:9.5pt; color:#FFFFFF; text-align:center; line-height:1.5; max-width:560px; margin:0 auto 14px;"><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">About 5 minutes</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">Usually ready the same business day</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">E-sign from your email</span></div>
-<div class="ct-or">Questions first? Text or call me at <a class="ca-phone" href="tel:+19294934037">929-493-4037</a></div>
-</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000178006" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
+<a class="apply" href="https://allpropay.com/start-application.html?d=53057000016599120&amp;x=20270118&amp;s=6664535d22b6f406214e5403d33ea115" style="display:block; max-width:460px; margin:22px auto 14px; background-color:#FFFFFF; color:#0052FF; border:4px solid #00D4FF; box-shadow:none; text-shadow:none; font-family:Montserrat, Arial, sans-serif; font-weight:800; font-size:17pt; padding:19px 28px; border-radius:999px; text-decoration:none; text-align:center;">Start my application&#160;&#8594;</a><div class="apply-next" style="display:block; font-family:Inter, Arial, sans-serif; font-size:9.5pt; color:#FFFFFF; text-align:center; line-height:1.5; max-width:560px; margin:0 auto 14px;"><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">About 5 minutes</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">Usually ready the same business day</span><span class="an-chip" style="display:inline-block; padding:4px 11px; margin:3px 2px; border-radius:999px; background-color:#2E6BFF; border:1px solid #7FA8FF; color:#FFFFFF; font-family:Inter, Arial, sans-serif; font-size:9pt; font-weight:600; white-space:nowrap;">E-sign from your email</span></div>
+<div class="ct-or">Questions first? Text or call me at <a class="ca-phone" href="tel:+19299303050">929-930-3050</a></div>
+</div><div style="text-align:center; margin-top:14px;"><a href="https://book.allpropay.com/#/14701000000122106" style="display:inline-block; background:#fff; color:#0052FF; border:2px solid #0052FF; font-family:Montserrat, Arial, sans-serif; font-weight:700; font-size:11pt; padding:11px 28px; border-radius:6px; text-decoration:none;">Or book a time on my calendar</a></div>
 
 </div>
 <div class="doc-footer">
 
 
 <div class="sig" style="display:block; white-space:nowrap">
-<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark.png" style="; height:26px; width:auto;"/>
+<img alt="AllProPay" src="https://proposals.allpropay.com/assets/AllProPay_Logo_Dark_2026-11.png" style="; height:32px; width:auto;"/>
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
-</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check, Venmo, PayPal and Zelle customers pay the listed price. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
+</div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Cash, check and Venmo customers pay the listed price. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
 
-<script id="em-compose" type="application/json">{"subject": "Jams Moving Specialists - the info I promised", "body": "Hi Jayden,\n\nThanks for taking my call earlier. Here is the info in writing, like you asked.\n\nYou're not taking cards today, and that stays your call either way. If you ever do, the card fee is never yours: the customer paying by card covers it, and there is no monthly fee as long as one card payment runs that month.\n\nYour page is here: https://proposals.allpropay.com/jams-moving-specialists-ndekj3/\n\nNo rush. Start the application whenever you're ready, or text or call me first with any questions.\n\nCarl"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "Jams Moving Specialists - the info I promised", "body": "Hi Jayden,\n\nThanks for taking my call today. Here is the info in writing, like I said.\n\nYou are not taking cards today, and that stays your call. When you do, the card fee is never yours: the customer paying by card covers it, right from your phone. Once you pass $10,000 a month in card sales, we can move you to the rebate, the monthly fee goes away and money comes back to you.\n\nYour page is here: https://proposals.allpropay.com/jams-moving-specialists-ndekj3/\n\nNo rush. I will check in before Thanksgiving to make sure this came through. Pick a 10-minute slot from the page any time, or call or text me with any question.\n\nTammy"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
    a rep's and the proposal open beacon ignores it from now on. */
 try{localStorage.setItem("app_rep","1");}catch(e){}
