@@ -615,7 +615,7 @@
   /* figures never break mid-number on a phone; the table scrolls sideways instead (2026-11-24) */
   .content .section td.num, .content .section th.num, table.sxs td.now, table.sxs td.new, table.sxs td.alt, table.sxs th.sub { white-space: nowrap; }
   /* 2026-11-24 (Chris): no column lines except ONE white line where each group starts: their
-     processor, our Cost+ Rate, our Dual Pricing. The build marks those cells .sepl, puts Dual Pricing
+     processor, our Cost+, our Dual Pricing. The build marks those cells .sepl, puts Dual Pricing
      last so Cost+ sits beside their pricing, and colours each compared figure: .c-bad = the side
      that costs more, .c-good = the side that costs less, .c-vol = their volume (plain white).
      Replaces the 2026-11-13 all-white column lines. */
@@ -631,6 +631,22 @@
     table.sxs td.c-ours { color: #00D4FF !important; }
   }
   table.sxs td.c-ours { font-weight: 800; }
+  /* every group header sits on one line (Chris 2026-11-24); phones scroll the grid sideways anyway */
+  .content table.sxs th.band { white-space: nowrap; font-size: 8.5pt; letter-spacing: 0; }
+  .content table.sxs th.band.b-lbl { white-space: normal; }
+  .content table.sxs th, .content table.sxs td { padding-left: 6px; padding-right: 6px; }
+  .content table.sxs th.sub { letter-spacing: 0; }
+  /* a grid with one header row (the itemized table) centres its figures */
+  table.sxs td.c-ctr { text-align: center !important; }
+  @media screen {
+    .sxs-save:not(.alt) .ss-figure { color: #86E3B4; }
+    /* totals get the glow the AllProPay boards use on their numbers (Chris 2026-11-24: "a bit of pop/shine") */
+    .sxs-save .ss-figure { text-shadow: 0 0 18px rgba(0,212,255,.60), 0 0 2px rgba(0,212,255,.35); }
+    .sxs-save:not(.alt) .ss-figure { text-shadow: 0 0 18px rgba(134,227,180,.55), 0 0 2px rgba(134,227,180,.35); }
+    table.sxs tr.total-row td.c-ours { text-shadow: 0 0 14px rgba(0,212,255,.60); }
+    table.sxs tr.total-row td.c-good { text-shadow: 0 0 14px rgba(134,227,180,.55); }
+    table.sxs tr.total-row td.c-bad { text-shadow: 0 0 14px rgba(255,180,180,.40); }
+  }
   .ss-prog { color: var(--blue); }
   @media screen {
     .content table.sxs th.sub { color: #FFFFFF; }
@@ -640,7 +656,8 @@
 
   /* one-page statement layout (2026-11-24) */
   .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.6; }
-  .chart-card + .insight strong { text-decoration: underline; text-decoration-color: #FFFFFF; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .chart-card + .insight strong:last-of-type { text-decoration: none; padding-bottom: 6px;
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,.28) 100%) no-repeat 0 100% / 100% 3px; }
   details.stmt { margin: 12px 0 28px; border-radius: 16px; border: 1px solid #0052FF; overflow: hidden; }
   details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
     gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
@@ -651,7 +668,7 @@
     font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
   details.stmt .st-btn .st-close, details.stmt[open] .st-btn .st-open { display: none; }
   details.stmt[open] .st-btn .st-close { display: inline; }
-  details.stmt > .stmt-in { padding: 10px 18px 12px; }
+  details.stmt > .stmt-in { padding: 10px 10px 12px; }
   /* hero money lines (Chris 2026-11-24): "about" in white, our monthly figure in a soft green against their pink */
   .rc-abt { color: #FFFFFF; }
   .rc-good { color: #86E3B4; }
@@ -749,7 +766,7 @@
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 </div>
-<div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$2,311</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:94%"></div></td><td class="bc-value us">$2,179</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:1%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">From your October 2026 statement: $104,971 in card sales and $2,311.50 in fees, 2.20% all in. Cost+ Rate is worked at the same card mix.<br/>On Dual Pricing the card price your customers see covers the cost, so your side is $0.</div></div>
+<div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$2,311</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:94%"></div></td><td class="bc-value us">$2,179</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:1%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">From your October 2026 statement: $104,971 in card sales and $2,311.50 in fees, 2.20% all in. Cost+ is worked at the same card mix.<br/>On Dual Pricing the card price your customers see covers the cost, so your side is $0.</div></div>
 <div class="insight">The <strong>$2,311</strong> you paid in card fees in October stays in the business, about <strong>$27,700</strong> a year at that pace.</div>
 <div class="section">
 <div class="section-header">Your October statement, decoded</div>
