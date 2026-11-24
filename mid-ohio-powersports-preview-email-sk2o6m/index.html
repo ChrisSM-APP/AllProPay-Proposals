@@ -492,6 +492,146 @@
   .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
   @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
 </style>
+<style id="stmt-css">
+/* BD_CSS_START */
+  /* ==== statement breakdown components (match pass 2026-11-23) ==== */
+  .top-paper.bd-top { padding-bottom: 0; }
+  .bd-meta { font-size: 9pt; color: var(--muted); margin-top: 6px; }
+  .section { margin-bottom: 26px; }
+  .section > p { font-size: 9.5pt; }
+  /* section headings read like the proposal's .sec-label */
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue);
+    letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; padding: 0; border: 0; }
+  .hero-note { font-size: 8pt; color: var(--muted); margin: 8px 2px 0; line-height: 1.5; }
+  /* month at a glance: one strip, three figures (was three tiles + a green band) */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--mid-gray); border-radius: 12px; overflow: hidden; }
+  .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { background: transparent; border: 0; border-left: 1px solid var(--mid-gray); border-radius: 0; padding: 12px 16px; }
+  .stat-row .stat-cell:first-child { border-left: 0; }
+  .stat-label { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 16pt; font-weight: 800; color: var(--navy); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat-value.danger { color: #B4234A; }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  .content .section table, .content table.sxs { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .content .section table th, .content table.sxs th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  .content .section table th.num, .content .section table td.num, .content table.sxs th.num, .content table.sxs td.num { text-align: right; }
+  .content .section table td, .content table.sxs td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* side-by-side "Today vs AllProPay" grid (2026-08-27; colours Chris-approved 2026-11-13) */
+  .content table.sxs { font-size: 8.5pt; }
+  .content table.sxs th, .content table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  .content table.sxs th.band.b-lbl { background: var(--navy); }
+  .content table.sxs th.band.b-now { background: #64748B; }
+  .content table.sxs th.band.b-new { background: var(--blue); }
+  .content table.sxs th.band.b-alt { background: #2B5FD9; }
+  .content table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  .content table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F5F7FA; color: #5A6B85; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F1F5FE; color: #1E3A8A; font-weight: 600; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #E5EDFF; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #DCE6FB; color: #1E3A8A; font-size: 10pt; }
+  table.sxs td.alt.less { color: var(--blue); font-weight: 800; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 12px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #00D4FF; white-space: nowrap; }
+  .sxs-save.alt { background: #EEF3FD; color: #1E3A8A; border: 1px solid #A9C1F2; border-left: 4px solid #2B5FD9; padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #2B5FD9; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #475C8F; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #1E3A8A; }
+  .flag { font-weight: 700; }
+  .flag.red { color: #B4234A; }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 12px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%); color: #04111F; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .content .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .bd-booking { margin-top: 18px; }
+  .bd-booking .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .bd-booking iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 16px; background: #fff; display: block; }
+  .bd-booking .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  @media print {
+    .bd-booking { display: none !important; }
+    .sxs-save, table.sxs td, table.sxs th, .takeaway .t-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media screen and (max-width: 640px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-row .stat-cell:first-child { border-top: 0; }
+    .sxs-save { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+  /* phones: the wide grid scrolls inside its own section instead of crushing the figures */
+  @supports selector(:has(*)) {
+    @media screen and (max-width: 640px) {
+      .section:has(> table.sxs) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .section:has(> table.sxs) > table.sxs { min-width: 600px; }
+    }
+  }
+  @media screen {
+    .bd-meta, .hero-note { color: #9FB0C9; }
+    .content .section-header { color: #00D4FF; border: 0; }
+    .stat-row { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { background: transparent; border-color: rgba(255,255,255,0.08); }
+    .stat-label, .stat-sub { color: #9FB0C9; }
+    .stat-value { color: #FFFFFF; }
+    .stat-value.danger { color: #FFB4B4; }
+    .flag.red { color: #FFB4B4; }
+    .content .section table th, .content table.sxs th.band.b-lbl { background: rgba(255,255,255,0.06); color: #FFFFFF; }
+    .content .section table td, .content table.sxs td { border-color: rgba(255,255,255,0.08); }
+    tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; border-top-color: rgba(0,212,255,0.35); }
+    /* column lines stay white top to bottom (Chris 2026-11-13: "keep them all white") */
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #FFFFFF; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #FFFFFF; }
+    /* one blue family (Chris 2026-11-24: "the different blues still seem a little odd"): both of our
+       columns share the brand blue header and one cell tint; the white column lines tell them apart. */
+    .content table.sxs th.band.b-new, .content table.sxs th.band.b-alt { background: #0052FF; }
+    table.sxs td.alt { background: rgba(0,102,255,0.16); color: #FFFFFF; font-weight: 700; border-left-color: #FFFFFF; }
+    table.sxs tr.total-row td.new, table.sxs tr.total-row td.alt { background: rgba(0,102,255,0.30); border-left-color: #FFFFFF; }
+    table.sxs tr.total-row td.alt { color: #FFFFFF; }
+    table.sxs td.alt.less, table.sxs tr.total-row td.alt.less { color: #00D4FF; font-weight: 800; }
+    .content table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    table.sxs td.brand { color: #FFFFFF; }
+    .sxs-save { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); border: 1px solid rgba(0,212,255,0.25); }
+    .sxs-save.alt { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); color: #FFFFFF; border: 1px solid rgba(0,212,255,0.25); padding: 12px 20px; }
+    .sxs-save.alt .ss-label { color: #FFFFFF; }
+    .sxs-save.alt .ss-figure { color: #00D4FF; font-size: 19pt; }
+    .sxs-save.alt .ss-sub { color: #DCE6FB; }
+    .takeaway { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .takeaway .t-title { color: #FFFFFF; }
+    .takeaway .t-body { color: #C9D3E3; }
+    .bd-booking .be-title { color: #F5F7FA; }
+    .bd-booking iframe { border: 1px solid rgba(255,255,255,0.08); }
+    .bd-booking .be-fallback { color: #9FB0C9; }
+    .bd-booking .be-fallback a { color: #00D4FF; }
+  }
+  /* figures never break mid-number on a phone; the table scrolls sideways instead (2026-11-24) */
+  .content .section td.num, .content .section th.num, table.sxs td.now, table.sxs td.new, table.sxs td.alt, table.sxs th.sub { white-space: nowrap; }
+  /* ==== end statement breakdown components ==== */
+
+  /* one-page statement layout (2026-11-24) */
+  .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.45; }
+  details.stmt { margin: 10px 0 28px; border-radius: 14px; border: 1px solid #0052FF; overflow: hidden; }
+  details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; padding: 16px 20px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
+  details.stmt > summary::-webkit-details-marker { display: none; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 12pt; line-height: 1.25; }
+  details.stmt .st-s { display: block; font-size: 9pt; opacity: .9; margin-top: 3px; }
+  details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 9.5pt; border-radius: 999px; padding: 8px 16px; white-space: nowrap; }
+  details.stmt .st-btn .st-close, details.stmt[open] .st-btn .st-open { display: none; }
+  details.stmt[open] .st-btn .st-close { display: inline; }
+  details.stmt > .stmt-in { padding: 6px 18px 12px; }
+  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 4px 10px 10px; } }
+  @media print { details.stmt { border: 0; } details.stmt > summary { display: none; } details.stmt > .stmt-in { padding: 0; } }
+</style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
   .page { max-width: 680px !important; margin: 0 auto !important; }
@@ -554,7 +694,6 @@
 </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/mid-ohio-powersports-preview-hm3r1q/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
 <div class="open-note"><p>Peggy, thank you for sending the statement. Here is your October, taken apart line by line like I promised.</p><p>Electronic Payments has you on a sharp price, and I will say that up front. Most of what you pay goes to Visa, Mastercard and the other card brands, and on Dual Pricing that part goes to $0.</p><p>Read it on your phone and we will go over it together Monday.</p><p class="on-sign">Carl Brown</p><p class="on-phone"><a href="tel:+19294934037">929-493-4037</a></p></div>
 </div>
-
 <div class="content">
 <div class="title-block">
 <div class="eyebrow">Prepared for Peggy &#183; November 13, 2026</div>
@@ -582,8 +721,16 @@
 <ul class="call-list">
 <li>You told me about 1.7%. Your October statement prints 2.20% all in, $2,311.50 on $104,971 in card sales.</li><li>You put card sales at $40,000 to $50,000 a month. October ran $105,000, and $1.27 million so far this year.</li><li>You moved to Electronic Payments this year and you pay every card fee yourself today.</li>
 </ul>
-<div class="section"><div class="section-header">Two Ways To Do This</div><p>Here is your own October statement, re-run both ways. One removes the cost. The other lowers what your processor keeps.</p><div class="options"><div class="opt opt-a"><div class="opt-tag">What I recommend</div><div class="opt-name">AllProPay Dual Pricing</div><div class="opt-mech">Two prices. Cash and check pay your listed price; card-paying customers see a 3% card price, and that covers the card cost.</div><div class="opt-figure">$2,311 to $0</div><div class="opt-figure-sub">Your card cost in October, and every month after</div><ul class="opt-list"><li>October's $2,311.50 in card fees would have been $0.00. About $27,700 a year at that pace.</li><li>No monthly fee. No contract, no cancellation fees.</li><li>Customers see both prices on the screen and the receipt before they pay.</li><li>Your terminals are set up for both prices before they ship.</li></ul></div><div class="opt opt-b"><div class="opt-tag">If you would rather keep paying it yourself</div><div class="opt-name">AllProPay Cost+ Rate</div><div class="opt-mech">You keep paying the card fees yourself, at interchange (the fee the card networks set) plus a smaller markup than you pay today.</div><span class="rc-duo"><span class="rc-col rc-them"><span class="pill pill-today">Electronic Payments</span><span class="rc-num">2.20%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">about $2,311/mo</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">AllProPay Cost+ Rate</span><span class="rc-num">0.09% + $0.09</span><span class="rc-lbl">Option B</span><span class="rc-money">about $2,179/mo, all in</span></span></span><ul class="opt-list"><li>Markup from 0.15% to 0.09%. Per-payment fee from $0.13 to $0.09.</li><li>American Express from a bundled 3.09% to about 2.61%.</li><li>About $133 less a month on October's numbers, 49% less kept by your processor.</li><li>No monthly fee, same as today. No contract, no cancellation fees.</li></ul></div></div><p class="opt-note">The gap between the two is not me pricing the second one badly. About three quarters of what you pay goes to the card brands, so a lower rate can only trim the part your processor keeps. Dual Pricing removes the cost itself.</p></div>
-<div class="section"><a href="https://proposals.allpropay.com/mid-ohio-powersports-preview-breakdown-inilu8/" style="display:block; text-decoration:none; border:1px solid #BFD0F5; border-left:4px solid #0052FF; background:#F3F7FF; border-radius:8px; padding:12px 16px; color:#0B1120;"><span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10.5pt; color:#0052FF;">See your October statement, decoded &#8594;</span><br/><span style="font-size:9pt; color:#334155;">Every line of your own statement, re-run side by side. Check my numbers against the document you already have.</span><br/><span style="font-size:8pt; color:#5A6B85;">https://proposals.allpropay.com/mid-ohio-powersports-preview-breakdown-inilu8/</span></a></div>
+<div class="section">
+<div class="section-header">Your October statement, decoded</div>
+<div class="stat-row">
+<div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$104,971</div><div class="stat-sub">282 card payments, about $374 each</div></div>
+<div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$2,311.50</div><div class="stat-sub">About $27,700 a year at October's pace</div></div>
+<div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">2.20%</div><div class="stat-sub">Every card, every fee, all in. Off page 1 of your statement.</div></div>
+</div>
+<div class="insight"><strong>About 75% of your fees never touch Electronic Payments.</strong> Of October's $2,311.50, $1,736.08 is interchange and card brand fees, set by Visa, Mastercard and Discover and charged to every processor the same way. Electronic Payments kept $184.59 on those cards, 0.15% plus $0.13 a payment. That is a sharp price, and I would rather tell you that than pretend otherwise. The other $390.83 is American Express, billed at one bundled rate. You told me about 1.7%; the statement prints 2.20%, because American Express and rewards and business cards cost more than the everyday debit card.</div>
+</div>
+<div style="margin:14px 0 24px; text-align:center;"><a href="https://proposals.allpropay.com/mid-ohio-powersports-preview-hm3r1q/#statement" style="display:inline-block; background:#0052FF; color:#FFFFFF; font-family:Montserrat,Arial,sans-serif; font-weight:800; font-size:15px; text-decoration:none; border-radius:999px; padding:13px 26px;">See every line of your October statement &#8594;</a></div>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
 <tr><td>Your terminals</td><td>Set up for both prices before they ship. You take a card the same way you do today.</td></tr>
@@ -608,6 +755,7 @@
 <span>AllProPay &#183; 800-807-0356 &#183; allpropay.com</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program builds the card price into the price you post, and the customer sees it on the screen and the receipt before they pay. Cash and check customers pay the listed price. The figures on this page are worked from your October 2026 statement. No contract, no setup fee, no cancellation fee. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
+
 
 <script id="em-compose" type="application/json">{"subject": "Mid-Ohio Powersports, Inc. - your AllProPay proposal", "body": "Hi Peggy,\n\nGood talking with you. Here is everything from our call in writing:\n\nhttps://proposals.allpropay.com/mid-ohio-powersports-preview-hm3r1q/\n\nThe full proposal is below. Read it through and text or call me with anything.\n\nCarl Brown\nAllProPay\n929-493-4037\n"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
