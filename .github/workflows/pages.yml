@@ -40,6 +40,22 @@ jobs:
         with:
           path: '.'
 
+      # 2026-11-24: the deploy step asked for the artifact 0.4s after the upload finished and
+      # GitHub's listing answered "0 artifacts" (7 failed runs in a row, status page green, the
+      # artifact was there seconds later). Wait until the run's own listing shows it, up to 90s.
+      - name: Wait for the uploaded site to be listed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          for i in $(seq 1 30); do
+            n=$(gh api "repos/$REPO/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '[.artifacts[] | select(.name == "github-pages")] | length' 2>/dev/null || echo 0)
+            if [ "${n:-0}" -ge 1 ]; then echo "Artifact listed after about $((i * 3))s."; exit 0; fi
+            sleep 3
+          done
+          echo "::warning::Artifact not listed after 90s; trying the deploy anyway."
+
       # A healthy deploy takes well under a minute. 3 minutes means "stuck".
       - name: Deploy to Pages
         id: deployment
