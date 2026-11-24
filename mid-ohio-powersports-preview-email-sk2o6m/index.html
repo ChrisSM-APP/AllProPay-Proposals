@@ -614,23 +614,44 @@
   }
   /* figures never break mid-number on a phone; the table scrolls sideways instead (2026-11-24) */
   .content .section td.num, .content .section th.num, table.sxs td.now, table.sxs td.new, table.sxs td.alt, table.sxs th.sub { white-space: nowrap; }
+  /* 2026-11-24 (Chris: "the white bars are odd ... just have one separator between us and the other
+     processor"): no column lines, ONE white line where their side ends and ours starts. Replaces the
+     2026-11-13 all-white column lines. The build marks the sub-header cell with .sep. */
+  table.sxs th.band, .content table.sxs th.sub, table.sxs td.now, table.sxs td.new, table.sxs td.alt { border-left: 0 !important; }
+  table.sxs th.b-now + th.b-new, table.sxs th.b-now + th.b-alt, .content table.sxs th.sub.sep,
+  table.sxs td.now + td.new, table.sxs td.now + td.alt { border-left: 2px solid #FFFFFF !important; }
+  .ss-prog { color: var(--blue); }
+  @media screen {
+    .content table.sxs th.sub { color: #FFFFFF; }
+    .ss-prog { color: #00D4FF; }
+  }
   /* ==== end statement breakdown components ==== */
 
   /* one-page statement layout (2026-11-24) */
   .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.45; }
-  details.stmt { margin: 10px 0 28px; border-radius: 14px; border: 1px solid #0052FF; overflow: hidden; }
-  details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
-    gap: 14px; padding: 16px 20px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
+  details.stmt { margin: 12px 0 28px; border-radius: 16px; border: 1px solid #0052FF; overflow: hidden; }
+  details.stmt > summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 12px; padding: 22px 20px 24px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
   details.stmt > summary::-webkit-details-marker { display: none; }
-  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 12pt; line-height: 1.25; }
-  details.stmt .st-s { display: block; font-size: 9pt; opacity: .9; margin-top: 3px; }
-  details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
-    font-size: 9.5pt; border-radius: 999px; padding: 8px 16px; white-space: nowrap; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; line-height: 1.2; }
+  details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
+  details.stmt .st-btn { background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 13pt; border-radius: 999px; padding: 13px 34px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
   details.stmt .st-btn .st-close, details.stmt[open] .st-btn .st-open { display: none; }
   details.stmt[open] .st-btn .st-close { display: inline; }
-  details.stmt > .stmt-in { padding: 6px 18px 12px; }
-  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 4px 10px 10px; } }
-  @media print { details.stmt { border: 0; } details.stmt > summary { display: none; } details.stmt > .stmt-in { padding: 0; } }
+  details.stmt > .stmt-in { padding: 10px 18px 12px; }
+  /* hero money lines (Chris 2026-11-24): "about" in white, our monthly figure in a soft green against their pink */
+  .rc-abt { color: #FFFFFF; }
+  .rc-good { color: #86E3B4; }
+  /* the booking calendar is tall and pushed the page past the application button; it opens on request */
+  details.book-fold { margin-top: 16px; text-align: center; }
+  details.book-fold > summary { cursor: pointer; list-style: none; display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 10.5pt; color: #FFFFFF; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: 11px 24px; }
+  details.book-fold > summary::-webkit-details-marker { display: none; }
+  details.book-fold[open] > summary { margin-bottom: 12px; }
+  details.book-fold .be-title { display: none; }
+  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; } }
+  @media print { details.stmt { border: 0; } details.stmt > summary, details.book-fold { display: none; } details.stmt > .stmt-in { padding: 0; } }
 </style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
@@ -707,20 +728,16 @@
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-today">Electronic Payments</span> </div>
-<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.20%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">about $2,311/mo</span></span></div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.20%</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink"><span class="rc-abt">about</span> $2,311/mo</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-us">AllProPay Dual Pricing</span> </div>
-<div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Option A</span><span class="rc-money">you pay $0</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="rc-num">0.09% + $0.09</span><span class="rc-lbl">Option B</span><span class="rc-money">about $2,179/mo, all in</span></span></span></div>
+<div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Option A</span><span class="rc-money">you pay $0</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="rc-num">0.09% + $0.09</span><span class="rc-lbl">Option B</span><span class="rc-money">about <span class="rc-good">$2,179/mo</span>, all in</span></span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 </div>
 <div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$2,311</td></tr><tr><td class="bc-label us">Cost+ Rate</td><td class="bc-track"><div class="bc-bar us" style="width:94%"></div></td><td class="bc-value us">$2,179</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:1%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">From your October 2026 statement: $104,971 in card sales and $2,311.50 in fees, 2.20% all in. Cost+ Rate is worked at the same card mix.<br/>On Dual Pricing the card price your customers see covers the cost, so your side is $0.</div></div>
 <div class="insight">The <strong>$2,311</strong> you paid in card fees in October stays in the business, about <strong>$27,700</strong> a year at that pace.</div>
-<div class="sec-label">From our call</div>
-<ul class="call-list">
-<li>You told me about 1.7%. Your October statement prints 2.20% all in, $2,311.50 on $104,971 in card sales.</li><li>You put card sales at $40,000 to $50,000 a month. October ran $105,000, and $1.27 million so far this year.</li><li>You moved to Electronic Payments this year and you pay every card fee yourself today.</li>
-</ul>
 <div class="section">
 <div class="section-header">Your October statement, decoded</div>
 <div class="stat-row">
@@ -728,7 +745,6 @@
 <div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$2,311.50</div><div class="stat-sub">About $27,700 a year at October's pace</div></div>
 <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">2.20%</div><div class="stat-sub">Every card, every fee, all in. Off page 1 of your statement.</div></div>
 </div>
-<div class="insight"><strong>About 75% of your fees never touch Electronic Payments.</strong> Of October's $2,311.50, $1,736.08 is interchange and card brand fees, set by Visa, Mastercard and Discover and charged to every processor the same way. Electronic Payments kept $184.59 on those cards, 0.15% plus $0.13 a payment. That is a sharp price, and I would rather tell you that than pretend otherwise. The other $390.83 is American Express, billed at one bundled rate. You told me about 1.7%; the statement prints 2.20%, because American Express and rewards and business cards cost more than the everyday debit card.</div>
 </div>
 <div style="margin:14px 0 24px; text-align:center;"><a href="https://proposals.allpropay.com/mid-ohio-powersports-preview-hm3r1q/#statement" style="display:inline-block; background:#0052FF; color:#FFFFFF; font-family:Montserrat,Arial,sans-serif; font-weight:800; font-size:15px; text-decoration:none; border-radius:999px; padding:13px 26px;">See every line of your October statement &#8594;</a></div>
 <div class="sec-label">The account</div>
