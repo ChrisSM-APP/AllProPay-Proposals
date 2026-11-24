@@ -614,12 +614,20 @@
   }
   /* figures never break mid-number on a phone; the table scrolls sideways instead (2026-11-24) */
   .content .section td.num, .content .section th.num, table.sxs td.now, table.sxs td.new, table.sxs td.alt, table.sxs th.sub { white-space: nowrap; }
-  /* 2026-11-24 (Chris: "the white bars are odd ... just have one separator between us and the other
-     processor"): no column lines, ONE white line where their side ends and ours starts. Replaces the
-     2026-11-13 all-white column lines. The build marks the sub-header cell with .sep. */
+  /* 2026-11-24 (Chris): no column lines except ONE white line where each group starts: their
+     processor, our Cost+ Rate, our Dual Pricing. The build marks those cells .sepl, puts Dual Pricing
+     last so Cost+ sits beside their pricing, and colours each compared figure: .c-bad = the side
+     that costs more, .c-good = the side that costs less, .c-vol = their volume (plain white).
+     Replaces the 2026-11-13 all-white column lines. */
   table.sxs th.band, .content table.sxs th.sub, table.sxs td.now, table.sxs td.new, table.sxs td.alt { border-left: 0 !important; }
-  table.sxs th.b-now + th.b-new, table.sxs th.b-now + th.b-alt, .content table.sxs th.sub.sep,
-  table.sxs td.now + td.new, table.sxs td.now + td.alt { border-left: 2px solid #FFFFFF !important; }
+  .content table.sxs th.sepl, .content table.sxs td.sepl { border-left: 2px solid #FFFFFF !important; }
+  table.sxs td.c-bad { color: #B4234A !important; }
+  table.sxs td.c-good { color: #0F7B4F !important; }
+  @media screen {
+    table.sxs td.c-vol { color: #FFFFFF !important; }
+    table.sxs td.c-bad { color: #FFB4B4 !important; }
+    table.sxs td.c-good { color: #86E3B4 !important; }
+  }
   .ss-prog { color: var(--blue); }
   @media screen {
     .content table.sxs th.sub { color: #FFFFFF; }
@@ -630,13 +638,13 @@
   /* one-page statement layout (2026-11-24) */
   .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.45; }
   details.stmt { margin: 12px 0 28px; border-radius: 16px; border: 1px solid #0052FF; overflow: hidden; }
-  details.stmt > summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; align-items: center; text-align: center;
-    gap: 12px; padding: 22px 20px 24px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
+  details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
   details.stmt > summary::-webkit-details-marker { display: none; }
   details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; line-height: 1.2; }
   details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
-  details.stmt .st-btn { background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
-    font-size: 13pt; border-radius: 999px; padding: 13px 34px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
   details.stmt .st-btn .st-close, details.stmt[open] .st-btn .st-open { display: none; }
   details.stmt[open] .st-btn .st-close { display: inline; }
   details.stmt > .stmt-in { padding: 10px 18px 12px; }
@@ -650,7 +658,8 @@
   details.book-fold > summary::-webkit-details-marker { display: none; }
   details.book-fold[open] > summary { margin-bottom: 12px; }
   details.book-fold .be-title { display: none; }
-  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; } }
+  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; }
+    details.stmt > summary { flex-direction: column; align-items: flex-start; padding: 18px; } details.stmt .st-btn { align-self: stretch; text-align: center; } }
   @media print { details.stmt { border: 0; } details.stmt > summary, details.book-fold { display: none; } details.stmt > .stmt-in { padding: 0; } }
 </style>
 <style id="email-mode">
