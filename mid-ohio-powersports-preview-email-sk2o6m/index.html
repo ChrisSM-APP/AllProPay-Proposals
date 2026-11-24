@@ -652,6 +652,25 @@
     .content table.sxs th.sub { color: #FFFFFF; }
     .ss-prog { color: #00D4FF; }
   }
+  .content table.sxs tr.ph-only { display: none; }   /* the phone's own group-header row */
+  /* Phones (Chris 2026-11-24: "I only see Electronic Payments, I don't see AllPro"): no sideways
+     scroll. The build marks volume, the rate columns and "% less" .ph-hide, so a phone shows the
+     card, what they charged, what Cost+ costs and Dual Pricing. The full grid shows from 641px up
+     (a phone held sideways, a tablet, a desktop). */
+  @media screen and (max-width: 640px) {
+    .section:has(> table.sxs) { overflow-x: visible !important; }
+    .section:has(> table.sxs) > table.sxs, .content table.sxs { min-width: 0 !important; }
+    .content table.sxs .ph-hide, .content table.sxs tr.ph-off { display: none !important; }
+    .content table.sxs tr.ph-only { display: table-row !important; }
+    .content table.sxs th.sepl-ph, .content table.sxs td.sepl-ph { border-left: 2px solid #FFFFFF !important; }
+    .content table.sxs th.band { white-space: normal; font-size: 7.5pt; line-height: 1.25; }
+    .content table.sxs th, .content table.sxs td { padding-left: 5px; padding-right: 5px; font-size: 8pt; }
+    .content table.sxs th.sub { font-size: 6.5pt; }
+    table.sxs tr.total-row td.now, table.sxs tr.total-row td.new, table.sxs tr.total-row td.alt { font-size: 8.5pt !important; }
+    .content table.sxs td.now, .content table.sxs td.new, .content table.sxs td.alt { text-align: center !important; }
+    .content table.sxs th.sub { text-align: center !important; }
+    .content table.sxs th.sub.first { text-align: left !important; }
+  }
   /* ==== end statement breakdown components ==== */
 
   /* one-page statement layout (2026-11-24) */
