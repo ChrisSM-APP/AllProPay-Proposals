@@ -490,6 +490,17 @@
   .opt .rc-duo { margin-top: 10px; }
   .rc-col .pill { display: block; width: fit-content; white-space: nowrap; margin-bottom: 9px; text-shadow: none; }
   .rc-duo > .rc-col:first-child { flex: 0 0 auto; }
+  /* sharper top card (Chris 2026-11-24): bigger solid pills that read at a glance, group labels */
+  .price-row .pill { font-size: 8pt; letter-spacing: 1px; padding: 5px 12px 4px; text-shadow: none; }
+  .price-row .pill-today { background: #3B4A66; color: #FFFFFF; border-color: #3B4A66; }
+  .price-row .pill-us { background: #00D4FF; color: #04111F; border-color: #00D4FF; }
+  .price-row .pc-label { margin-bottom: 9px; line-height: 1; }
+  .price-row .pc-label .pill { top: 0; }
+  .rc-grp { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 800;
+    letter-spacing: .16em; text-transform: uppercase; color: #9FB0C9; margin-bottom: 11px; text-shadow: none; }
+  .rc-grp::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.16); }
+  .rc-grp-us { color: #00D4FF; }
+  .rc-grp-us::after { background: rgba(0,212,255,.40); }
   @media screen and (max-width: 640px) { .rc-duo { gap: 10px; } .rc-duo .rc-num { font-size: 18pt; white-space: nowrap; } }
   .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
   @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
@@ -577,17 +588,16 @@
 <h1 class="merchant-h">Atkins Towing</h1>
 </div>
 <div class="hero">
-<div class="hero-eyebrow">AllProPay</div>
 <h2>Keep every dollar, or pass on less.</h2>
 <div class="price-row two">
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="pc-label"><span class="pill pill-today">Square</span> </div>
+<div class="rc-grp">Today</div><div class="pc-label"><span class="pill pill-today">Square</span> </div>
 <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.6% + $0.15</span><span class="rc-lbl">Added at checkout in Square</span><span class="rc-money rc-pink"><span class="rc-abt">taken</span> on the whole sale, your add-on included</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="pill pill-us">Dual Pricing</span><span class="rc-num">$0</span><span class="rc-money">you pay $0</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">Cost+</span><span class="rc-num">2.2% + $0.07</span><span class="rc-money">about <span class="rc-good">$2.27</span> on a $100 sale, against $2.75</span></span></span></div>
+<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="pill pill-us">Dual Pricing</span><span class="rc-num">$0</span><span class="rc-money">you pay $0</span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">Cost+</span><span class="rc-num">2.2% + $0.07</span><span class="rc-money">about <span class="rc-good">$2.27</span> on a $100 sale, against $2.75</span></span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 </div>
