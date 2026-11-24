@@ -627,7 +627,10 @@
     table.sxs td.c-vol { color: #FFFFFF !important; }
     table.sxs td.c-bad { color: #FFB4B4 !important; }
     table.sxs td.c-good { color: #86E3B4 !important; }
+    /* ours and lower, shown in our own cyan: "% less", Dual Pricing, and our totals (Chris 2026-11-24) */
+    table.sxs td.c-ours { color: #00D4FF !important; }
   }
+  table.sxs td.c-ours { font-weight: 800; }
   .ss-prog { color: var(--blue); }
   @media screen {
     .content table.sxs th.sub { color: #FFFFFF; }
@@ -636,12 +639,13 @@
   /* ==== end statement breakdown components ==== */
 
   /* one-page statement layout (2026-11-24) */
-  .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.45; }
+  .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.6; }
+  .chart-card + .insight strong { text-decoration: underline; text-decoration-color: #FFFFFF; text-decoration-thickness: 2px; text-underline-offset: 5px; }
   details.stmt { margin: 12px 0 28px; border-radius: 16px; border: 1px solid #0052FF; overflow: hidden; }
   details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
     gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
   details.stmt > summary::-webkit-details-marker { display: none; }
-  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15pt; line-height: 1.2; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: nowrap; }
   details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
   details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
     font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
@@ -658,7 +662,7 @@
   details.book-fold > summary::-webkit-details-marker { display: none; }
   details.book-fold[open] > summary { margin-bottom: 12px; }
   details.book-fold .be-title { display: none; }
-  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; }
+  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; white-space: normal; }
     details.stmt > summary { flex-direction: column; align-items: flex-start; padding: 18px; } details.stmt .st-btn { align-self: stretch; text-align: center; } }
   @media print { details.stmt { border: 0; } details.stmt > summary, details.book-fold { display: none; } details.stmt > .stmt-in { padding: 0; } }
 </style>
