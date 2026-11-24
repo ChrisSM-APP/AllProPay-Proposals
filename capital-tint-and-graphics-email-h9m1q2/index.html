@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Email version - AllProPay Proposal | Capital Tint and Graphics</title>
+<title>Email version - Capital Tint and Graphics | Your May statement, line by line</title>
 <style>
   /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
      the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
@@ -671,6 +671,29 @@
     .content table.sxs th.sub { text-align: center !important; }
     .content table.sxs th.sub.first { text-align: left !important; }
   }
+  /* 2026-11-24 (Chris: "Fix all three"). The proposal CSS lets every td break between letters
+     (overflow-wrap: anywhere). Beside nowrap figures that crushed the first column of a four- or
+     five-column table to one letter per line on a phone. Names break at words only. */
+  .content .section table td:first-child, .content .section table th:first-child,
+  .content table.sxs td.brand, .content table.sxs th.b-lbl { overflow-wrap: normal; word-break: normal; }
+  @media screen and (max-width: 640px) {
+    /* card-mix table: small enough that five columns fit without a sideways scroll */
+    .content .section .tbl-scroll table th, .content .section .tbl-scroll table td { padding: 6px 4px; font-size: 7.5pt; }
+    .content .section .tbl-scroll table th { font-size: 6.5pt; white-space: normal !important; overflow-wrap: normal; word-break: normal; vertical-align: bottom; }
+  }
+  @supports selector(:has(*)) {
+    @media screen and (max-width: 640px) {
+      /* itemized table with a "What it is" column: a phone shows the line, their figure and ours */
+      .content table.sxs:has(th.b-lbl + th.b-lbl) tr > :nth-child(2):not(:last-child) { display: none !important; }
+      .content table.sxs:has(th.b-lbl + th.b-lbl) tr > :nth-child(3) { border-left: 2px solid #FFFFFF !important; }
+    }
+  }
+  @media print {
+    /* a heading never sits alone at the foot of a page, and a table or a row never splits */
+    .section-header, .section-header + p, .sec-label, tr.group { break-after: avoid; page-break-after: avoid; }
+    .content .section table, .content table.sxs, .tbl-scroll, .sxs-save, .takeaway, .stat-row { break-inside: avoid; page-break-inside: avoid; }
+    .content .section table tr { break-inside: avoid; page-break-inside: avoid; }    .section-header + p { break-inside: avoid; page-break-inside: avoid; orphans: 4; widows: 4; }
+  }
   /* ==== end statement breakdown components ==== */
 
   /* one-page statement layout (2026-11-24) */
@@ -751,7 +774,7 @@
   @media print { #em-toolbar { display: none; } }
 </style></head>
 <body>
-<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Capital Tint and Graphics</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
+<div id="em-toolbar"><span><b>Email version</b> &#183; Capital Tint and Graphics | Your May statement, line by line</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
 <div class="top-paper" style="; background:#FFFFFF; border-bottom:3px solid #0052FF;">
 <div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
@@ -781,7 +804,7 @@
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="pc-label"><span class="pill pill-us">AllProPay Cost+</span> </div>
-<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.07% + $0.07</span><span class="rc-lbl">Cost+ rate</span><span class="rc-money">about <span class="rc-good">$2,891/mo</span>, all in</span></span></div>
+<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.07% + $0.07</span><span class="rc-lbl">Your rate</span><span class="rc-money">about <span class="rc-good">$2,891/mo</span>, all in</span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 <div class="hero-extra">On every card you pay what Visa, Mastercard and Discover charge, at cost, plus a flat 0.07% and $0.07 a sale. American Express is its own rate plus 0.30%. Nothing else sits on top.</div>
