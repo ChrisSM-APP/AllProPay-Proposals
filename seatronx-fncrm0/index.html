@@ -536,7 +536,9 @@
   @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
     .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
   .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
-  .hero .pc-sub:empty { display: none; }
+  .hero .pc-sub:empty, .hero .rc-money:empty { display: none; }
+  .hero .rc-money.rc-pink { color: #FFFFFF; }
+  .hero .rc-money.rc-pink .rc-bad { color: #FFB4B4; }
   .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
   .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
 </style>
@@ -583,7 +585,7 @@
       <div class="price-row two">
         <div class="price-cell">
           <div class="rc-grp">QuickBooks</div>
-          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.9%</span><span class="rc-lbl">Every card payment</span><span class="rc-money rc-pink"><span class="rc-abt">about</span> $8,700 on $300,000 in monthly sales</span></span></div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.9%</span><span class="rc-lbl">Every card payment</span><span class="rc-money rc-pink"><span class="rc-abt">about</span> <span class="rc-bad">$8,700</span> on <span class="rc-bad">$300,000</span> in monthly sales</span></span></div>
           <div class="pc-sub"></div>
         </div>
         <div class="price-cell">
@@ -596,7 +598,7 @@
 
     
 
-    <div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $8,700</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$0</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:84%"></div></td><td class="bc-value us">about $7,300</td></tr></table><div class="cc-note">At about $300,000 a month in card payments, the ballpark Keith gave us, at the QuickBooks rate of about 2.9%.<br>On Dual Pricing the card-paying customer covers the card cost. On Cost+ you keep paying it, at a lower rate.</div></div>
+    <div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $8,700</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:84%"></div></td><td class="bc-value us">about $7,300</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">At about $300,000 a month in card payments, the ballpark Keith gave us, at the QuickBooks rate of about 2.9%.<br>On Dual Pricing the card-paying customer covers the card cost. On Cost+ you keep paying it, at a lower rate.</div></div>
 
     <div class="insight">The about <strong>$8,700</strong> a month you pay QuickBooks today stays in the business, about <strong>$104,000</strong> a year.</div>
 
