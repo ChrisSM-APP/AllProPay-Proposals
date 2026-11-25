@@ -536,7 +536,9 @@
   @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
     .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
   .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
-  .hero .pc-sub:empty { display: none; }
+  .hero .pc-sub:empty, .hero .rc-money:empty { display: none; }
+  .hero .rc-money.rc-pink { color: #FFFFFF; }
+  .hero .rc-money.rc-pink .rc-bad { color: #FFB4B4; }
   .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
   .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
 </style>
@@ -804,7 +806,7 @@
       <div class="price-row two">
         <div class="price-cell">
           <div class="rc-grp">Elavon</div><div class="pc-label"><span class="pill pill-today">Cost+</span> </div>
-          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">1.22%</span><span class="rc-lbl">All fees, all in</span><span class="rc-money rc-pink">$904.95 on $73,916 in October sales</span></span></div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">1.22%</span><span class="rc-lbl">All fees, all in</span><span class="rc-money rc-pink"><span class="rc-bad">$904.95</span> on <span class="rc-bad">$73,916</span> in October sales</span></span></div>
           <div class="pc-sub"></div>
         </div>
         <div class="price-cell">
