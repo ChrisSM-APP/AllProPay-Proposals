@@ -525,6 +525,17 @@
     .hero .price-row:has(.rc-duo-them) .rc-num { font-size: 17pt; white-space: nowrap; }
   }
   @media screen and (max-width: 640px) { .hero .rc-duo-them .rc-num { font-size: 14pt; } }
+  /* sweep fixes, Chris 2026-11-25. D1/D2: our two programs side by side keep the whole Cost+ rate on one
+     line at phone and computer width. D11: no single word alone on the last line. D12: no empty rows. */
+  .hero .rc-duo .rc-num { white-space: nowrap; }
+  @media screen and (min-width: 641px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 19pt; }
+    .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 16pt; } }
+  @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
+    .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
+  .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
+  .hero .pc-sub:empty { display: none; }
+  .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
+  .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
 </style>
 <style id="stmt-css">
 /* BD_CSS_START */
