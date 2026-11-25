@@ -738,7 +738,9 @@
   details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
     gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
   details.stmt > summary::-webkit-details-marker { display: none; }
-  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: nowrap; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: normal; }
+  details.stmt > summary > :first-child { min-width: 0; }
+  details.stmt .st-btn { white-space: nowrap; }
   details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
   details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
     font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
@@ -827,7 +829,7 @@
 <h1 class="merchant-h">Xtreme FX</h1>
 </div>
 <div class="hero">
-<h2>About $1,222 less per year in fees.</h2>
+<h2>About <span style="color:#4DFFA6;text-shadow:0 0 10px rgba(77,255,166,.45)">$1,222</span> less per year in fees.</h2>
 <div class="price-row two">
 
 
@@ -843,7 +845,7 @@
 <div class="hero-extra">On every card you pay what Visa, Mastercard and Amex charge, at cost, plus a flat 0.20% and $0.05 a sale. Interac debit is $0.07 a sale, flat.</div>
 </div>
 <div class="chart-card"><div class="cc-title">Your October, card fees</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$905</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:89%"></div></td><td class="bc-value us">$803</td></tr></table><div class="cc-note">Both bars are your own October: $73,916 in card sales, HST included. $646.51 of each is what the card networks charge every processor. The gap is Elavon's share.</div></div>
-<div class="insight">Elavon kept $258.44 of your October. With me that share is $156.63, <strong>39% less</strong>. At the same volume that is about $1,222 less per year.</div>
+<div class="insight">Elavon kept $258.44 of your October. With me that share is $156.63, <strong>39% less</strong>. At the same volume that is about <span style="color:#4DFFA6;text-shadow:0 0 10px rgba(77,255,166,.45)">$1,222</span> less per year.</div>
 <div class="section">
 <div class="section-header">Your October statement, decoded</div>
 <div class="stat-row">
@@ -852,7 +854,7 @@
 <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">1.22%</div><div class="stat-sub">Every card, every fee, all in.</div></div>
 </div>
 </div>
-<div style="margin:14px 0 24px; text-align:center;"><a href="https://proposals.allpropay.com/xtreme-fx-m0y94f/#statement" style="display:inline-block; background:#0052FF; color:#FFFFFF; font-family:Montserrat,Arial,sans-serif; font-weight:800; font-size:15px; text-decoration:none; border-radius:999px; padding:13px 26px;">Your October statement, compared line by line &#8594;</a></div>
+<div style="margin:14px 0 24px; text-align:center;"><a href="https://proposals.allpropay.com/xtreme-fx-m0y94f/#statement" style="display:inline-block; background:#0052FF; color:#FFFFFF; font-family:Montserrat,Arial,sans-serif; font-weight:800; font-size:15px; text-decoration:none; border-radius:999px; padding:13px 26px;">Your October statement, line by line &#8594;</a></div>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
 <tr><td>Your account</td><td>Every card at cost plus one flat markup, Interac at one flat fee, and one plain statement in Canadian dollars.</td></tr>
