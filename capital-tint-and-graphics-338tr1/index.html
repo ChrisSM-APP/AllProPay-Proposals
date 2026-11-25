@@ -491,9 +491,54 @@
   .rc-duo { display: flex; gap: 16px; align-items: stretch; }
   .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
   .opt .rc-duo { margin-top: 10px; }
-  .opt .rc-col .pill { margin-bottom: 7px; }
+  .rc-col .pill { display: block; width: fit-content; white-space: nowrap; margin-bottom: 9px; text-shadow: none; }
+  .rc-duo > .rc-col:first-child { flex: 0 0 auto; }
+  /* sharper top card (Chris 2026-11-24): bigger solid pills that read at a glance, group labels */
+  .price-row .pill { font-size: 8pt; letter-spacing: 1px; padding: 5px 12px 4px; text-shadow: none; }
+  .price-row .pill-today { background: #3B4A66; color: #FFFFFF; border-color: #3B4A66; }
+  .price-row .pill-us { background: #00D4FF; color: #04111F; border-color: #00D4FF; }
+  .price-row .pc-label { margin-bottom: 9px; line-height: 1; }
+  .price-row .pc-label .pill { top: 0; }
+  .rc-grp { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 800;
+    letter-spacing: .16em; text-transform: uppercase; color: #9FB0C9; margin-bottom: 11px; text-shadow: none; }
+  .rc-grp::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.16); }
+  .rc-grp-us { color: #00D4FF; }
+  .rc-grp-us::after { background: rgba(0,212,255,.40); }
+  @media screen and (max-width: 640px) { .rc-duo { gap: 10px; } .rc-duo .rc-num { font-size: 18pt; white-space: nowrap; } }
   .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
   @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
+</style>
+<style id="top-card-v2">
+  .hero .price-cell { text-align: center; }
+  .hero .rc-grp { justify-content: center; }
+  .hero .rc-grp::before { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.16); }
+  .hero .rc-grp-us::before { background: rgba(0,212,255,.40); }
+  .hero .rc-col { display: block; }
+  .hero .rc-col .pill, .hero .pc-label .pill { margin-left: auto; margin-right: auto; }
+  .hero .pc-label .pill { display: block; width: fit-content; }
+  .hero .rc-duo { justify-content: center; }
+  .hero .rc-duo > .rc-col, .hero .rc-duo > .rc-col:first-child { flex: 1 1 0; }
+  .hero .rc-lane { display: block; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700;
+    color: #FFB4B4; margin-top: 4px; letter-spacing: 0; text-shadow: none; }
+  .hero .rc-lane:first-of-type { margin-top: 7px; }
+  .hero .rc-zero { color: #4DFFA6; text-shadow: 0 0 10px rgba(77,255,166,.5); }
+  .hero .rc-duo-them .rc-num { white-space: nowrap; }
+  @media screen and (min-width: 641px) {
+    .hero .price-row:has(.rc-duo-them) { grid-template-columns: 1fr 1fr; }
+    .hero .price-row:has(.rc-duo-them) .rc-num { font-size: 17pt; white-space: nowrap; }
+  }
+  @media screen and (max-width: 640px) { .hero .rc-duo-them .rc-num { font-size: 14pt; } }
+  /* sweep fixes, Chris 2026-11-25. D1/D2: our two programs side by side keep the whole Cost+ rate on one
+     line at phone and computer width. D11: no single word alone on the last line. D12: no empty rows. */
+  .hero .rc-duo .rc-num { white-space: nowrap; }
+  @media screen and (min-width: 641px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 19pt; }
+    .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 16pt; } }
+  @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
+    .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
+  .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
+  .hero .pc-sub:empty { display: none; }
+  .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
+  .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
 </style>
 <style id="stmt-css">
 /* BD_CSS_START */
@@ -707,7 +752,9 @@
   details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
     gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
   details.stmt > summary::-webkit-details-marker { display: none; }
-  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: nowrap; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: normal; }
+  details.stmt > summary > :first-child { min-width: 0; }
+  details.stmt .st-btn { white-space: nowrap; }
   details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
   details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
     font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
@@ -753,17 +800,16 @@
     </div>
 
     <div class="hero">
-      <div class="hero-eyebrow">AllProPay Cost+</div>
       <h2>You asked for under 2.4%. May re-runs at 2.21%.</h2>
       <div class="price-row two">
         <div class="price-cell">
-          <div class="pc-label"><span class="pill pill-today">SDPay</span> </div>
-          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.28%</span><span class="rc-lbl">All in, May</span><span class="rc-money rc-pink"><span class="rc-abt">about</span> $2,981/mo</span></span></div>
+          <div class="rc-grp">SDPay</div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.28%</span><span class="rc-lbl">All in, May</span><span class="rc-money rc-pink">$2,981.43 on $130,946 in May sales</span></span></div>
           <div class="pc-sub"></div>
         </div>
         <div class="price-cell">
-          <div class="pc-label"><span class="pill pill-us">AllProPay Cost+</span> </div>
-          <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.07% + $0.07</span><span class="rc-lbl">Your rate</span><span class="rc-money">about <span class="rc-good">$2,891/mo</span>, all in</span></span></div>
+          <div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-label"><span class="pill pill-us">Cost+</span> </div>
+          <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.07% + $0.07</span><span class="rc-lbl">Your rate</span><span class="rc-money"><span class="rc-good">$2,890.72</span> for the same May, all in</span></span></div>
           <div class="pc-sub"></div>
         </div>
       </div>
@@ -785,7 +831,7 @@
       </div>
       </div>
 
-    <details class="stmt" id="statement"><summary><span><span class="st-t">See every line of your May statement</span><span class="st-s">Card mix, every fee, and my pricing next to yours</span></span><span class="st-btn"><span class="st-open">Open my statement &#9662;</span><span class="st-close">Close &#9652;</span></span></summary><div class="stmt-in"><div class="section"><div class="insight"><strong>About 92% of your fees never stay with SDPay.</strong> Of May's $2,981.43, $2,734.96 is interchange and card brand fees, set by Visa, Mastercard, Discover and American Express and charged the same way at every processor. SDPay added $246.47 on top: 0.10% and $0.10 an authorization, an American Express network fee, and four monthly lines. That is the only part a processor controls, and I cut it by about 37%. At the rates in SDPay's June 1 notice, that part reads $316.38 on the same sales, and my cut is about 51%.</div>
+    <details class="stmt" id="statement"><summary><span><span class="st-t">Your May statement, line by line</span><span class="st-s">Card mix, every fee, and my pricing next to yours</span></span><span class="st-btn"><span class="st-open">See the comparison &#9662;</span><span class="st-close">Close &#9652;</span></span></summary><div class="stmt-in"><div class="section"><div class="insight"><strong>About 92% of your fees never stay with SDPay.</strong> Of May's $2,981.43, $2,734.96 is interchange and card brand fees, set by Visa, Mastercard, Discover and American Express and charged the same way at every processor. SDPay added $246.47 on top: 0.10% and $0.10 an authorization, an American Express network fee, and four monthly lines. That is the only part a processor controls, and I cut it by about 37%. At the rates in SDPay's June 1 notice, that part reads $316.38 on the same sales, and my cut is about 51%.</div>
     </div>
 <div class="section">
       <div class="section-header">Where your volume came from</div>
@@ -802,7 +848,7 @@
       <div class="insight"><strong>About 29% of your May card sales were on business and corporate cards.</strong> The card brands price those at 1.7% to 3%, against 0.05% to 1.65% on debit cards. Your 11 American Express payments averaged $1,136 each and cost 2.89% all in, the highest on the statement. Your average payment across every card was $879.</div>
     </div>
 
-    <div class="section"><div class="section-header">Line by Line: Today vs AllProPay</div><table class="sxs"><thead><tr class="ph-off"><th class="band b-lbl">Your statement</th><th class="sepl band b-now" colspan="3">SDPay</th><th class="sepl band b-alt" colspan="3">AllProPay Cost+</th></tr><tr class="ph-only"><th class="band b-lbl">Your statement</th><th class="sepl band b-now">SDPay</th><th colspan="2" class="sepl band b-alt">AllProPay Cost+</th></tr><tr><th class="sub first">Card type</th><th class="sepl ph-hide sub">Volume</th><th class="ph-hide sub">Your rate</th><th class="sepl-ph sub">You paid</th><th class="sepl ph-hide sub">Your rate</th><th class="sepl-ph sub">You pay</th><th class="sub">Markup, % less</th></tr></thead><tbody><tr><td class="brand">Visa</td><td class="sepl ph-hide c-vol now">$72,398.73</td><td class="ph-hide c-vol now">2.06%</td><td class="sepl-ph c-bad now">$1,490.94</td><td class="sepl ph-hide c-vol alt">2.03%</td><td class="sepl-ph c-good alt">$1,467.56</td><td class="c-ours alt less">30% less</td></tr><tr><td class="brand">Mastercard</td><td class="sepl ph-hide c-vol now">$41,907.03</td><td class="ph-hide c-vol now">2.40%</td><td class="sepl-ph c-bad now">$1,003.97</td><td class="sepl ph-hide c-vol alt">2.36%</td><td class="sepl-ph c-good alt">$989.08</td><td class="c-ours alt less">30% less</td></tr><tr><td class="brand">Discover</td><td class="sepl ph-hide c-vol now">$4,142.17</td><td class="ph-hide c-vol now">1.99%</td><td class="sepl-ph c-bad now">$82.34</td><td class="sepl ph-hide c-vol alt">1.95%</td><td class="sepl-ph c-good alt">$80.92</td><td class="c-ours alt less">30% less</td></tr><tr><td class="brand">American Express</td><td class="sepl ph-hide c-vol now">$12,497.65</td><td class="ph-hide c-vol now">2.89%</td><td class="sepl-ph c-bad now">$361.63</td><td class="sepl ph-hide c-vol alt">2.63%</td><td class="sepl-ph c-good alt">$328.16</td><td class="c-ours alt less">47% less</td></tr><tr><td class="brand">Monthly account fees</td><td class="sepl ph-hide now"></td><td class="ph-hide now"></td><td class="sepl-ph c-bad now">$42.55</td><td class="sepl ph-hide alt"></td><td class="sepl-ph c-good alt">$25.00</td><td class="c-ours alt less">41% less</td></tr><tr class="total-row"><td class="brand">May, all in</td><td class="sepl ph-hide c-vol now">$130,945.58</td><td class="ph-hide c-bad now">2.28%</td><td class="sepl-ph c-bad now">$2,981.43</td><td class="sepl ph-hide c-ours alt">2.21%</td><td class="sepl-ph c-good alt">$2,890.72</td><td class="c-ours alt less">37% less</td></tr></tbody></table><div class="sxs-save alt"><div><div class="ss-label">On top of card cost, with <span class="ss-prog">Cost+</span></div><div class="ss-sub">Same month. $246.47 today, $155.76 with me. Visa, Mastercard and Discover go from 0.10% to 0.07%, a 30% lower rate, and from $0.10 to $0.07 an authorization. American Express drops its 0.465% network fee. Four monthly lines become one. That is about $90.71 a month back, about $1,089 a year. At the rates in SDPay's June 1 notice, the same month reads '$316.38 on their side, and mine is about 51% less.</div></div><div class="ss-figure">37% less</div></div><p class="note">Everything in the SDPay column is lifted straight off your May statement and adds back to the $2,981.43 it printed. The Cost+ column keeps your interchange and card brand fees exactly as printed and replaces only what SDPay adds on top with mine. "Markup, % less" compares that added part on each card, today and with me, not the whole bill. American Express is billed at its own rate plus 0.30% and $0.07, with no network fee line. Monthly account fees today are the $29.95 service charge, $5.95 equipment, 24 batch fees and 13 address-check fees; with me it is one $25 platform fee.</p></div>
+    <div class="section"><div class="section-header">Line by Line: Today vs AllProPay</div><table class="sxs"><thead><tr class="ph-off"><th class="band b-lbl">Your statement</th><th class="sepl band b-now" colspan="3">SDPay</th><th class="sepl band b-alt" colspan="3">AllProPay Cost+</th></tr><tr class="ph-only"><th class="band b-lbl">Your statement</th><th class="sepl band b-now">SDPay</th><th colspan="2" class="sepl band b-alt">AllProPay Cost+</th></tr><tr><th class="sub first">Card type</th><th class="sepl ph-hide sub">Volume</th><th class="ph-hide sub">Your rate</th><th class="sepl-ph sub">You paid</th><th class="sepl ph-hide sub">Your rate</th><th class="sepl-ph sub">You pay</th><th class="sub">Markup, % less</th></tr></thead><tbody><tr><td class="brand">Visa</td><td class="sepl ph-hide c-vol now">$72,398.73</td><td class="ph-hide c-vol now">2.06%</td><td class="sepl-ph c-bad now">$1,490.94</td><td class="sepl ph-hide c-vol alt">2.03%</td><td class="sepl-ph c-good alt">$1,467.56</td><td class="c-ours alt less">30% less</td></tr><tr><td class="brand">Mastercard</td><td class="sepl ph-hide c-vol now">$41,907.03</td><td class="ph-hide c-vol now">2.40%</td><td class="sepl-ph c-bad now">$1,003.97</td><td class="sepl ph-hide c-vol alt">2.36%</td><td class="sepl-ph c-good alt">$989.08</td><td class="c-ours alt less">30% less</td></tr><tr><td class="brand">Discover</td><td class="sepl ph-hide c-vol now">$4,142.17</td><td class="ph-hide c-vol now">1.99%</td><td class="sepl-ph c-bad now">$82.34</td><td class="sepl ph-hide c-vol alt">1.95%</td><td class="sepl-ph c-good alt">$80.92</td><td class="c-ours alt less">30% less</td></tr><tr><td class="brand">American Express</td><td class="sepl ph-hide c-vol now">$12,497.65</td><td class="ph-hide c-vol now">2.89%</td><td class="sepl-ph c-bad now">$361.63</td><td class="sepl ph-hide c-vol alt">2.63%</td><td class="sepl-ph c-good alt">$328.16</td><td class="c-ours alt less">47% less</td></tr><tr><td class="brand">Monthly account fees</td><td class="sepl ph-hide now"></td><td class="ph-hide now"></td><td class="sepl-ph c-bad now">$42.55</td><td class="sepl ph-hide alt"></td><td class="sepl-ph c-good alt">$25.00</td><td class="c-ours alt less">41% less</td></tr><tr class="total-row"><td class="brand">May, all in</td><td class="sepl ph-hide c-vol now">$130,945.58</td><td class="ph-hide c-bad now">2.28%</td><td class="sepl-ph c-bad now">$2,981.43</td><td class="sepl ph-hide c-ours alt">2.21%</td><td class="sepl-ph c-good alt">$2,890.72</td><td class="c-ours alt less">37% less</td></tr></tbody></table><div class="sxs-save alt"><div><div class="ss-label">On top of card cost, with <span class="ss-prog">Cost+</span></div><div class="ss-sub">Same month. $246.47 today, $155.76 with me. Visa, Mastercard and Discover go from 0.10% to 0.07%, a 30% lower rate, and from $0.10 to $0.07 an authorization. American Express drops its 0.465% network fee. Four monthly lines become one. That is $90.71 a month back, about $1,089 a year. At the rates in SDPay's June 1 notice, the same month reads $316.38 on their side, and mine is about 51% less.</div></div><div class="ss-figure">37% less</div></div><p class="note">Everything in the SDPay column is lifted straight off your May statement and adds back to the $2,981.43 it printed. The Cost+ column keeps your interchange and card brand fees exactly as printed and replaces only what SDPay adds on top with mine. "Markup, % less" compares that added part on each card, today and with me, not the whole bill. American Express is billed at its own rate plus 0.30% and $0.07, with no network fee line. Monthly account fees today are the $29.95 service charge, $5.95 equipment, 24 batch fees and 13 address-check fees; with me it is one $25 platform fee.</p></div>
 
     <div class="section"><div class="section-header">Every Fee, Itemized</div><p style="margin-bottom:12px">This is your May taken apart. I have grouped it by who sets the price, so you can check each line against the pages you already have.</p><table class="sxs"><thead><tr><th class="band b-lbl" style="text-align:left">What it is</th><th class="sepl band b-now" style="text-align:center;">SDPay</th><th class="sepl band b-alt" style="text-align:center;">AllProPay Cost+</th></tr></thead><tbody><tr class="group"><td colspan="3">Set by the card brands, the same at every processor: $2,734.96 (2.09% of your sales)</td></tr><tr><td class="brand">Interchange, printed as Program Charges (card-issuing banks, and American Express's own rate)</td><td class="sepl c-ctr c-vol now">$2,547.30</td><td class="sepl c-ctr c-vol alt">$2,547.30</td></tr><tr><td class="brand">Card brand assessments and network fees</td><td class="sepl c-ctr c-vol now">$187.66</td><td class="sepl c-ctr c-vol alt">$187.66</td></tr><tr class="group"><td colspan="3">Added on top by the processor: $246.47 today, $155.76 with me (37% less)</td></tr><tr><td class="brand">Discount rate on Visa, Mastercard and Discover: 0.10% today, 0.07% with me</td><td class="sepl c-ctr c-bad now">$118.52</td><td class="sepl c-ctr c-good alt">$82.91</td></tr><tr><td class="brand">Authorization fee, 148 authorizations: $0.10 today, $0.07 with me</td><td class="sepl c-ctr c-bad now">$14.80</td><td class="sepl c-ctr c-good alt">$10.36</td></tr><tr><td class="brand">American Express: 0.10% discount plus a 0.465% network fee today, 0.30% with me</td><td class="sepl c-ctr c-bad now">$70.60</td><td class="sepl c-ctr c-good alt">$37.49</td></tr><tr><td class="brand">Monthly service charge</td><td class="sepl c-ctr c-bad now">$29.95</td><td class="sepl c-ctr c-good alt">$25.00</td></tr><tr><td class="brand">Equipment and supplies</td><td class="sepl c-ctr c-bad now">$5.95</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr><td class="brand">Batch capture, 24 batches at $0.25</td><td class="sepl c-ctr c-bad now">$6.00</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr><td class="brand">Address check on keyed-in cards, 13 at $0.05</td><td class="sepl c-ctr c-bad now">$0.65</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr class="group"><td colspan="3">Notice on page 1: from June 1 the rate may go up 0.05% and the authorization fee $0.03. On May's sales that is $69.91 more a month. It is not in the totals below.</td></tr><tr class="total-row"><td class="brand">May total</td><td class="sepl c-ctr c-bad now">$2,981.43</td><td class="sepl c-ctr c-good alt">$2,890.72</td></tr></tbody></table><p class="note">Why the rate is what it is: about 29% of your May card sales were on business and corporate cards. The card brands price those at 1.7% to 3% before any processor adds a cent. That part is the same with anyone.</p></div>
 
@@ -833,7 +879,7 @@
     <div class="cta-block">
       <div class="ct-title">Your real number is already here</div>
       <div class="ct-sub">Your May statement is decoded and your number is on this page. Start the application below and I take it from there. Have a newer statement? Email it to me and I re-run it the same way.</div>
-      <a class="apply" href="https://allpropay.com/start-application.html?d=53057000017006949&x=20270123&s=9bdb1b5ce0f90c49e9285602dc5eea9d">Start my application</a><div class="apply-next"><span class="an-chip">About 5 minutes</span><span class="an-chip">Usually ready the same business day</span><span class="an-chip">E-sign from your email</span></div>
+      <a class="apply" href="https://allpropay.com/start-application.html?d=53057000017006949&x=20270124&s=ccb9148f629963d6e273056a445fe470">Start my application</a><div class="apply-next"><span class="an-chip">About 5 minutes</span><span class="an-chip">Usually ready the same business day</span><span class="an-chip">E-sign from your email</span></div>
       <div class="ct-or">Questions first? Text or call me at <a href="tel:+19299303969" class="ca-phone">929-930-3969</a></div>
     </div>
 
