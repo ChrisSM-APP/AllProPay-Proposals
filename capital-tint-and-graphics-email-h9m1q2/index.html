@@ -533,7 +533,9 @@
   @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
     .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
   .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
-  .hero .pc-sub:empty { display: none; }
+  .hero .pc-sub:empty, .hero .rc-money:empty { display: none; }
+  .hero .rc-money.rc-pink { color: #FFFFFF; }
+  .hero .rc-money.rc-pink .rc-bad { color: #FFB4B4; }
   .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
   .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
 </style>
@@ -846,7 +848,7 @@
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="rc-grp">SDPay</div>
-<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.28%</span><span class="rc-lbl">All in, May</span><span class="rc-money rc-pink">$2,981.43 on $130,946 in May sales</span></span></div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.28%</span><span class="rc-lbl">All in, May</span><span class="rc-money rc-pink"><span class="rc-bad">$2,981.43</span> on <span class="rc-bad">$130,946</span> in May sales</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-label"><span class="pill pill-us">Cost+</span> </div>
