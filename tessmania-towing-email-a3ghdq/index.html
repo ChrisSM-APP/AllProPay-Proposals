@@ -533,7 +533,9 @@
   @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
     .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
   .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
-  .hero .pc-sub:empty { display: none; }
+  .hero .pc-sub:empty, .hero .rc-money:empty { display: none; }
+  .hero .rc-money.rc-pink { color: #FFFFFF; }
+  .hero .rc-money.rc-pink .rc-bad { color: #FFB4B4; }
   .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
   .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
 </style>
@@ -628,7 +630,7 @@
 <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">Paid by you</span><span class="rc-lbl">Every card sale</span><span class="rc-money rc-pink">billed to you every month</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="pill pill-us">Dual Pricing</span><span class="rc-num">$0</span><span class="rc-money">you pay <span class="rc-good rc-zero">$0</span></span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">Cost+</span><span class="rc-num">0.50% + $0.10</span><span class="rc-money">on top of each card's real cost</span></span></span></div>
+<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="pill pill-us">Dual Pricing</span><span class="rc-num">$0</span><span class="rc-money">you pay <span class="rc-good rc-zero">$0</span></span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">Cost+</span><span class="rc-num">0.50% + $0.10</span><span class="rc-money"></span></span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 </div>
