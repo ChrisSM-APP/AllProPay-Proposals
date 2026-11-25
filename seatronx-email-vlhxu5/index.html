@@ -505,6 +505,27 @@
   .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
   @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
 </style>
+<style id="top-card-v2">
+  .hero .price-cell { text-align: center; }
+  .hero .rc-grp { justify-content: center; }
+  .hero .rc-grp::before { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.16); }
+  .hero .rc-grp-us::before { background: rgba(0,212,255,.40); }
+  .hero .rc-col { display: block; }
+  .hero .rc-col .pill, .hero .pc-label .pill { margin-left: auto; margin-right: auto; }
+  .hero .pc-label .pill { display: block; width: fit-content; }
+  .hero .rc-duo { justify-content: center; }
+  .hero .rc-duo > .rc-col, .hero .rc-duo > .rc-col:first-child { flex: 1 1 0; }
+  .hero .rc-lane { display: block; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700;
+    color: #FFB4B4; margin-top: 4px; letter-spacing: 0; text-shadow: none; }
+  .hero .rc-lane:first-of-type { margin-top: 7px; }
+  .hero .rc-zero { color: #4DFFA6; text-shadow: 0 0 10px rgba(77,255,166,.5); }
+  .hero .rc-duo-them .rc-num { white-space: nowrap; }
+  @media screen and (min-width: 641px) {
+    .hero .price-row:has(.rc-duo-them) { grid-template-columns: 1fr 1fr; }
+    .hero .price-row:has(.rc-duo-them) .rc-num { font-size: 17pt; white-space: nowrap; }
+  }
+  @media screen and (max-width: 640px) { .hero .rc-duo-them .rc-num { font-size: 14pt; } }
+</style>
 <style id="lean-css">
   /* regular proposal, staple trims (2026-11-24 preview) */
   .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.6; }
@@ -580,7 +601,7 @@
 <a class="ct-mail" href="mailto:chris@allpropay.com" style="font-family:Arial, Helvetica, sans-serif; display:block; font-size:13px; color:#0B1120; text-decoration:none; white-space:nowrap;">chris@allpropay.com</a>
 
 </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/seatronx-fncrm0/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="open-note"><p>Sue Ellen, Keith spoke with Torin on my team today and asked that this come to you for review.</p><p>He told us two things. It has to link directly with QuickBooks, and the savings have to be big. This page covers both.</p><p>Two quick questions for you are in my email. Reply there or text me.</p><p class="on-sign">Chris Ste-Marie</p><p class="on-phone"><a href="tel:+19299303970">929-930-3970</a></p></div>
+<div class="open-note"><p>Sue Ellen, Keith spoke with Torin on my team today and asked that this come to you for review.</p><p>He told us two things. It has to link directly with QuickBooks, and the savings have to be big. This page covers both, two ways: card fees at $0, or a lower rate than you pay today.</p><p>Two quick questions for you are in my email. Reply there or text me.</p><p class="on-sign">Chris Ste-Marie</p><p class="on-phone"><a href="tel:+19299303970">929-930-3970</a></p></div>
 </div>
 <div class="content">
 <div class="title-block">
@@ -588,28 +609,26 @@
 <h1 class="merchant-h">Seatronx</h1>
 </div>
 <div class="hero">
-<h2>Your card fees go to $0. QuickBooks stays.</h2>
 <div class="price-row two">
 
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="rc-grp">Today</div><div class="pc-label"><span class="pill pill-today">QuickBooks</span> </div>
-<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.9%</span><span class="rc-lbl">Every card payment</span><span class="rc-money rc-pink"><span class="rc-abt">about</span> $8,700/mo</span></span></div>
+<div class="rc-grp">QuickBooks</div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">2.9%</span><span class="rc-lbl">Every card payment</span><span class="rc-money rc-pink"><span class="rc-abt">about</span> $8,700 on $300,000 in monthly sales</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-label"><span class="pill pill-us">Dual Pricing</span> </div>
-<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">$0</span><span class="rc-lbl">Every card sale</span><span class="rc-money">you pay $0</span></span></div>
+<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-value us"><span class="rc-duo"><span class="rc-col rc-us"><span class="pill pill-us">Dual Pricing</span><span class="rc-num">$0</span><span class="rc-money">you pay <span class="rc-good rc-zero">$0</span></span></span><span class="rc-sep"></span><span class="rc-col rc-us"><span class="pill pill-us">Cost+</span><span class="rc-num">2.4% + $0.10</span><span class="rc-money">about <span class="rc-good">$7,300/mo</span>, all in</span></span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 </div>
-<div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $8,700</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$0</td></tr></table><div class="cc-note">At about $300,000 a month in card payments, the ballpark Keith gave us, at the QuickBooks rate of about 2.9%.<br/>I will update this page with your exact figure once you confirm the card volume.</div></div>
+<div class="chart-card"><div class="cc-title">Card cost per month</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">about $8,700</td></tr><tr><td class="bc-label us">Dual Pricing</td><td class="bc-track"><div class="bc-bar us" style="width:3%"></div></td><td class="bc-value us">$0</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:84%"></div></td><td class="bc-value us">about $7,300</td></tr></table><div class="cc-note">At about $300,000 a month in card payments, the ballpark Keith gave us, at the QuickBooks rate of about 2.9%.<br/>On Dual Pricing the card-paying customer covers the card cost. On Cost+ you keep paying it, at a lower rate.</div></div>
 <div class="insight">The about <strong>$8,700</strong> a month you pay QuickBooks today stays in the business, about <strong>$104,000</strong> a year.</div>
 <div class="read-more"><div class="sec-label">Worth a read</div><a href="https://allpropay.com/compare-allpropay-vs-quickbooks.html" rel="noopener" style="display:block; text-decoration:none; border:1px solid #BFD0F5; border-left:4px solid #0052FF; background:#F3F7FF; border-radius:8px; padding:11px 16px; margin-bottom:8px; color:#0B1120;" target="_blank"><span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10pt; color:#0052FF;">QuickBooks and AllProPay, side by side &#8599;</span><br/><span style="font-size:9pt; color:#334155;">Published rates, no spin: when QuickBooks is the right call and where we fit better.</span><br/><span style="font-size:8pt; color:#5A6B85;">allpropay.com/compare-allpropay-vs-quickbooks.html &#183; opens in a new tab, your proposal stays here</span></a></div>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
 <tr><td>How you take payments</td><td>Included. Your invoices stay in QuickBooks. Customers pay from a link on the invoice, and each payment posts back to your books.</td></tr>
-<tr><td>Platform fee</td><td>$89 per month, QuickBooks sync included</td></tr>
-<tr><td>Bank payments (ACH)</td><td>0.75%, capped at $10. A $5,000 invoice paid by bank costs you $10.</td></tr><tr><td>Customers who pay by bank or check</td><td>They pay the invoice price. Only card payments carry the card price.</td></tr><tr><td>Rather keep paying the card fee yourself?</td><td>The same account runs on our Cost+ rate: each card's real cost plus a small flat markup. I size it with you from your card mix.</td></tr>
+<tr><td>Platform fee</td><td>$89 per month on Dual Pricing, $39 on Cost+. QuickBooks sync included</td></tr>
+<tr><td>Bank payments (ACH)</td><td>0.75%, capped at $10. Customers who pay by bank or check pay the invoice price.</td></tr><tr><td>Cost+ rate, if you keep paying the card fee</td><td>Each card's real cost plus a flat 0.30% and $0.10 a sale. About 2.4% all in on a book like yours.</td></tr>
 <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
 </table>
 <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span></p>
@@ -630,7 +649,7 @@
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">The Dual Pricing program passes the card processing cost to the card-paying customer as a clearly disclosed adjustment before payment; Bank transfer and check customers pay the listed price. Any dollar comparison to a current processor is an estimate from the figures you shared, not a quote. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
 
-<script id="em-compose" type="application/json">{"subject": "Seatronx card fees - for your review, per Keith", "body": "Hi Sue Ellen,\n\nKeith spoke with Torin on my team today and asked me to send this to you for review, with him copied.\n\nHe said two things matter: it has to link directly with QuickBooks, and the savings have to be big. The page below covers both.\n\nhttps://proposals.allpropay.com/seatronx-fncrm0/\n\nTwo quick questions so the numbers are exact:\n1. Are you on QuickBooks Online or QuickBooks Desktop?\n2. Is about $300,000 a month in card payments right, and are most of them paid from an invoice?\n\nReply here, or pick a 15-minute slot from the page and I walk you and Keith through it.\n\nChris", "draft_url": "https://mail.google.com/mail/?authuser=chris@allpropay.com#drafts?compose=1a21404b2d5ef4de"}</script><script>
+<script id="em-compose" type="application/json">{"subject": "Seatronx card fees - for your review, per Keith", "body": "Hi Sue Ellen,\n\nKeith spoke with Torin on my team today and asked me to send this to you for review, with him copied.\n\nHe said two things matter: it has to link directly with QuickBooks, and the savings have to be big. The page below covers both.\n\nhttps://proposals.allpropay.com/seatronx-fncrm0/\n\nTwo quick questions so the numbers are exact:\n1. Are you on QuickBooks Online or QuickBooks Desktop?\n2. Is about $300,000 a month in card payments right, and are most of them paid from an invoice?\n\nReply here, or pick a 15-minute slot from the page and I walk you and Keith through it.\n\nChris", "draft_url": "https://mail.google.com/mail/?authuser=chris@allpropay.com#drafts?compose=1a2147514dfe39df"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
    a rep's and the proposal open beacon ignores it from now on. */
 try{localStorage.setItem("app_rep","1");}catch(e){}
