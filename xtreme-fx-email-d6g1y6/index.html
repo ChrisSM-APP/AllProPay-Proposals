@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Email version - AllProPay Proposal | Xtreme FX</title>
+<title>Email version - Xtreme FX | Your October statement, line by line</title>
 <style>
   /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
      the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
@@ -526,6 +526,239 @@
   }
   @media screen and (max-width: 640px) { .hero .rc-duo-them .rc-num { font-size: 14pt; } }
 </style>
+<style id="stmt-css">
+/* BD_CSS_START */
+  /* ==== statement breakdown components (match pass 2026-11-23) ==== */
+  .top-paper.bd-top { padding-bottom: 0; }
+  .bd-meta { font-size: 9pt; color: var(--muted); margin-top: 6px; }
+  .section { margin-bottom: 26px; }
+  .section > p { font-size: 9.5pt; }
+  /* section headings read like the proposal's .sec-label */
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue);
+    letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; padding: 0; border: 0; }
+  .hero-note { font-size: 8pt; color: var(--muted); margin: 8px 2px 0; line-height: 1.5; }
+  /* month at a glance: one strip, three figures (was three tiles + a green band) */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--mid-gray); border-radius: 12px; overflow: hidden; }
+  .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { background: transparent; border: 0; border-left: 1px solid var(--mid-gray); border-radius: 0; padding: 12px 16px; }
+  .stat-row .stat-cell:first-child { border-left: 0; }
+  .stat-label { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 16pt; font-weight: 800; color: var(--navy); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat-value.danger { color: #B4234A; }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  .content .section table, .content table.sxs { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .content .section table th, .content table.sxs th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  .content .section table th.num, .content .section table td.num, .content table.sxs th.num, .content table.sxs td.num { text-align: right; }
+  .content .section table td, .content table.sxs td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* side-by-side "Today vs AllProPay" grid (2026-08-27; colours Chris-approved 2026-11-13) */
+  .content table.sxs { font-size: 8.5pt; }
+  .content table.sxs th, .content table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  .content table.sxs th.band.b-lbl { background: var(--navy); }
+  .content table.sxs th.band.b-now { background: #64748B; }
+  .content table.sxs th.band.b-new { background: var(--blue); }
+  .content table.sxs th.band.b-alt { background: #2B5FD9; }
+  .content table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  .content table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F5F7FA; color: #5A6B85; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F1F5FE; color: #1E3A8A; font-weight: 600; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #E5EDFF; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #DCE6FB; color: #1E3A8A; font-size: 10pt; }
+  table.sxs td.alt.less { color: var(--blue); font-weight: 800; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 12px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #00D4FF; white-space: nowrap; }
+  .sxs-save.alt { background: #EEF3FD; color: #1E3A8A; border: 1px solid #A9C1F2; border-left: 4px solid #2B5FD9; padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #2B5FD9; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #475C8F; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #1E3A8A; }
+  .flag { font-weight: 700; }
+  .flag.red { color: #B4234A; }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 12px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%); color: #04111F; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .content .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .bd-booking { margin-top: 18px; }
+  .bd-booking .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .bd-booking iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 16px; background: #fff; display: block; }
+  .bd-booking .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  @media print {
+    .bd-booking { display: none !important; }
+    .sxs-save, table.sxs td, table.sxs th, .takeaway .t-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media screen and (max-width: 640px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-row .stat-cell:first-child { border-top: 0; }
+    .sxs-save { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+  /* phones: the wide grid scrolls inside its own section instead of crushing the figures */
+  @supports selector(:has(*)) {
+    @media screen and (max-width: 640px) {
+      .section:has(> table.sxs) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .section:has(> table.sxs) > table.sxs { min-width: 600px; }
+    }
+  }
+  @media screen {
+    .bd-meta, .hero-note { color: #9FB0C9; }
+    .content .section-header { color: #00D4FF; border: 0; }
+    .stat-row { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { background: transparent; border-color: rgba(255,255,255,0.08); }
+    .stat-label, .stat-sub { color: #9FB0C9; }
+    .stat-value { color: #FFFFFF; }
+    .stat-value.danger { color: #FFB4B4; }
+    .flag.red { color: #FFB4B4; }
+    .content .section table th, .content table.sxs th.band.b-lbl { background: rgba(255,255,255,0.06); color: #FFFFFF; }
+    .content .section table td, .content table.sxs td { border-color: rgba(255,255,255,0.08); }
+    tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; border-top-color: rgba(0,212,255,0.35); }
+    /* column lines stay white top to bottom (Chris 2026-11-13: "keep them all white") */
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #FFFFFF; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #FFFFFF; }
+    /* one blue family (Chris 2026-11-24: "the different blues still seem a little odd"): both of our
+       columns share the brand blue header and one cell tint; the white column lines tell them apart. */
+    .content table.sxs th.band.b-new, .content table.sxs th.band.b-alt { background: #0052FF; }
+    table.sxs td.alt { background: rgba(0,102,255,0.16); color: #FFFFFF; font-weight: 700; border-left-color: #FFFFFF; }
+    table.sxs tr.total-row td.new, table.sxs tr.total-row td.alt { background: rgba(0,102,255,0.30); border-left-color: #FFFFFF; }
+    table.sxs tr.total-row td.alt { color: #FFFFFF; }
+    table.sxs td.alt.less, table.sxs tr.total-row td.alt.less { color: #00D4FF; font-weight: 800; }
+    .content table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    table.sxs td.brand { color: #FFFFFF; }
+    .sxs-save { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); border: 1px solid rgba(0,212,255,0.25); }
+    .sxs-save.alt { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); color: #FFFFFF; border: 1px solid rgba(0,212,255,0.25); padding: 12px 20px; }
+    .sxs-save.alt .ss-label { color: #FFFFFF; }
+    .sxs-save.alt .ss-figure { color: #00D4FF; font-size: 19pt; }
+    .sxs-save.alt .ss-sub { color: #DCE6FB; }
+    .takeaway { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .takeaway .t-title { color: #FFFFFF; }
+    .takeaway .t-body { color: #C9D3E3; }
+    .bd-booking .be-title { color: #F5F7FA; }
+    .bd-booking iframe { border: 1px solid rgba(255,255,255,0.08); }
+    .bd-booking .be-fallback { color: #9FB0C9; }
+    .bd-booking .be-fallback a { color: #00D4FF; }
+  }
+  /* figures never break mid-number on a phone; the table scrolls sideways instead (2026-11-24) */
+  .content .section td.num, .content .section th.num, table.sxs td.now, table.sxs td.new, table.sxs td.alt, table.sxs th.sub { white-space: nowrap; }
+  /* 2026-11-24 (Chris): no column lines except ONE white line where each group starts: their
+     processor, our Cost+, our Dual Pricing. The build marks those cells .sepl, puts Dual Pricing
+     last so Cost+ sits beside their pricing, and colours each compared figure: .c-bad = the side
+     that costs more, .c-good = the side that costs less, .c-vol = their volume (plain white).
+     Replaces the 2026-11-13 all-white column lines. */
+  table.sxs th.band, .content table.sxs th.sub, table.sxs td.now, table.sxs td.new, table.sxs td.alt { border-left: 0 !important; }
+  .content table.sxs th.sepl, .content table.sxs td.sepl { border-left: 2px solid #FFFFFF !important; }
+  table.sxs td.c-bad { color: #B4234A !important; }
+  table.sxs td.c-good { color: #0F7B4F !important; }
+  @media screen {
+    table.sxs td.c-vol { color: #FFFFFF !important; }
+    table.sxs td.c-bad { color: #FFB4B4 !important; }
+    table.sxs td.c-good { color: #86E3B4 !important; }
+    /* ours and lower, shown in our own cyan: "% less", Dual Pricing, and our totals (Chris 2026-11-24) */
+    table.sxs td.c-ours { color: #00D4FF !important; }
+  }
+  table.sxs td.c-ours { font-weight: 800; }
+  /* every group header sits on one line (Chris 2026-11-24); phones scroll the grid sideways anyway */
+  .content table.sxs th.band { white-space: nowrap; font-size: 8.5pt; letter-spacing: 0; }
+  .content table.sxs th.band.b-lbl { white-space: normal; }
+  .content table.sxs th, .content table.sxs td { padding-left: 6px; padding-right: 6px; }
+  .content table.sxs th.sub { letter-spacing: 0; }
+  /* a grid with one header row (the itemized table) centres its figures */
+  table.sxs td.c-ctr, .content table.sxs th.c-ctr { text-align: center !important; }
+  @media screen {
+    .sxs-save:not(.alt) .ss-figure { color: #86E3B4; }
+    /* totals get the glow the AllProPay boards use on their numbers (Chris 2026-11-24: "a bit of pop/shine") */
+    .sxs-save .ss-figure { text-shadow: 0 0 18px rgba(0,212,255,.60), 0 0 2px rgba(0,212,255,.35); }
+    .sxs-save:not(.alt) .ss-figure { text-shadow: 0 0 18px rgba(134,227,180,.55), 0 0 2px rgba(134,227,180,.35); }
+    table.sxs tr.total-row td.c-ours { text-shadow: 0 0 14px rgba(0,212,255,.60); }
+    table.sxs tr.total-row td.c-good { text-shadow: 0 0 14px rgba(134,227,180,.55); }
+    table.sxs tr.total-row td.c-bad { text-shadow: 0 0 14px rgba(255,180,180,.40); }
+  }
+  .ss-prog { color: var(--blue); }
+  @media screen {
+    .content table.sxs th.sub { color: #FFFFFF; }
+    .ss-prog { color: #00D4FF; }
+  }
+  .content table.sxs tr.ph-only { display: none; }   /* the phone's own group-header row */
+  /* Phones (Chris 2026-11-24: "I only see Electronic Payments, I don't see AllPro"): no sideways
+     scroll. The build marks volume, the rate columns and "% less" .ph-hide, so a phone shows the
+     card, what they charged, what Cost+ costs and Dual Pricing. The full grid shows from 641px up
+     (a phone held sideways, a tablet, a desktop). */
+  @media screen and (max-width: 640px) {
+    .section:has(> table.sxs) { overflow-x: visible !important; }
+    .section:has(> table.sxs) > table.sxs, .content table.sxs { min-width: 0 !important; }
+    .content table.sxs .ph-hide, .content table.sxs tr.ph-off { display: none !important; }
+    .content table.sxs tr.ph-only { display: table-row !important; }
+    .content table.sxs th.sepl-ph, .content table.sxs td.sepl-ph { border-left: 2px solid #FFFFFF !important; }
+    .content table.sxs th.band { white-space: normal; font-size: 7.5pt; line-height: 1.25; }
+    .content table.sxs th, .content table.sxs td { padding-left: 5px; padding-right: 5px; font-size: 8pt; }
+    .content table.sxs th.sub { font-size: 6.5pt; }
+    table.sxs tr.total-row td.now, table.sxs tr.total-row td.new, table.sxs tr.total-row td.alt { font-size: 8.5pt !important; }
+    .content table.sxs td.now, .content table.sxs td.new, .content table.sxs td.alt { text-align: center !important; }
+    .content table.sxs th.sub { text-align: center !important; }
+    .content table.sxs th.sub.first { text-align: left !important; }
+  }
+  /* 2026-11-24 (Chris: "Fix all three"). The proposal CSS lets every td break between letters
+     (overflow-wrap: anywhere). Beside nowrap figures that crushed the first column of a four- or
+     five-column table to one letter per line on a phone. Names break at words only. */
+  .content .section table td:first-child, .content .section table th:first-child,
+  .content table.sxs td.brand, .content table.sxs th.b-lbl { overflow-wrap: normal; word-break: normal; }
+  @media screen and (max-width: 640px) {
+    /* card-mix table: small enough that five columns fit without a sideways scroll */
+    .content .section .tbl-scroll table th, .content .section .tbl-scroll table td { padding: 6px 4px; font-size: 7.5pt; }
+    .content .section .tbl-scroll table th { font-size: 6.5pt; white-space: normal !important; overflow-wrap: normal; word-break: normal; vertical-align: bottom; }
+  }
+  @supports selector(:has(*)) {
+    @media screen and (max-width: 640px) {
+      /* itemized table with a "What it is" column: a phone shows the line, their figure and ours */
+      .content table.sxs:has(th.b-lbl + th.b-lbl) tr > :nth-child(2):not(:last-child) { display: none !important; }
+      .content table.sxs:has(th.b-lbl + th.b-lbl) tr > :nth-child(3) { border-left: 2px solid #FFFFFF !important; }
+    }
+  }
+  @media print {
+    /* a heading never sits alone at the foot of a page, and a table or a row never splits */
+    .section-header, .section-header + p, .sec-label, tr.group { break-after: avoid; page-break-after: avoid; }
+    .content .section table, .content table.sxs, .tbl-scroll, .sxs-save, .takeaway, .stat-row { break-inside: avoid; page-break-inside: avoid; }
+    .content .section table tr { break-inside: avoid; page-break-inside: avoid; }    .section-header + p { break-inside: avoid; page-break-inside: avoid; orphans: 4; widows: 4; }
+  }
+  /* ==== end statement breakdown components ==== */
+
+  /* one-page statement layout (2026-11-24) */
+  .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.6; }
+  .chart-card + .insight strong:last-of-type { text-decoration: none; padding-bottom: 6px;
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,.28) 100%) no-repeat 0 100% / 100% 3px; }
+  details.stmt { margin: 12px 0 28px; border-radius: 16px; border: 1px solid #0052FF; overflow: hidden; }
+  details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
+  details.stmt > summary::-webkit-details-marker { display: none; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: nowrap; }
+  details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
+  details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  details.stmt .st-btn .st-close, details.stmt[open] .st-btn .st-open { display: none; }
+  details.stmt[open] .st-btn .st-close { display: inline; }
+  details.stmt > .stmt-in { padding: 10px 10px 12px; }
+  /* hero money lines (Chris 2026-11-24): "about" in white, our monthly figure in a soft green against their pink */
+  .rc-abt { color: #FFFFFF; }
+  .rc-good { color: #86E3B4; }
+  /* the booking calendar is tall and pushed the page past the application button; it opens on request */
+  details.book-fold { margin-top: 16px; text-align: center; }
+  details.book-fold > summary { cursor: pointer; list-style: none; display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 10.5pt; color: #FFFFFF; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: 11px 24px; }
+  details.book-fold > summary::-webkit-details-marker { display: none; }
+  details.book-fold[open] > summary { margin-bottom: 12px; }
+  details.book-fold .be-title { display: none; }
+  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; white-space: normal; }
+    details.stmt > summary { flex-direction: column; align-items: flex-start; padding: 18px; } details.stmt .st-btn { align-self: stretch; text-align: center; } }
+  @media print { details.stmt { border: 0; } details.stmt > summary, details.book-fold { display: none; } details.stmt > .stmt-in { padding: 0; } }
+</style>
 <style id="email-mode">
   /* email-mode overrides (make_email_version.py) */
   .page { max-width: 680px !important; margin: 0 auto !important; }
@@ -575,7 +808,7 @@
   @media print { #em-toolbar { display: none; } }
 </style></head>
 <body>
-<div id="em-toolbar"><span><b>Email version</b> &#183; AllProPay Proposal | Xtreme FX</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
+<div id="em-toolbar"><span><b>Email version</b> &#183; Xtreme FX | Your October statement, line by line</span><button class="em-btn" id="em-send" type="button">Email this proposal</button><button class="em-btn alt" id="em-copy" type="button">Copy proposal only</button><a class="em-btn alt" href="#" id="em-draft" rel="noopener" target="_blank">Open Gmail draft only</a><span class="em-to" id="em-to"></span><span id="em-status"></span><span class="em-note">Email this proposal: copies the page and opens a Gmail draft with your note. Click under the note, Ctrl+V, read it top to bottom, adjust anything, send. This bar is never copied.</span></div><div class="page"><table align="left" cellpadding="0" cellspacing="0" class="em-cols em-wrap" role="presentation" style="width:100%; max-width:680px; border-collapse:collapse; margin:0;" width="100%"><tr><td style="padding:0; vertical-align:top; background:#0B1120 !important; color:#F5F7FA;">
 <div class="top-paper" style="; background:#FFFFFF; border-bottom:3px solid #0052FF;">
 <div class="doc-header" style="; border-bottom:3px solid #0052FF;">
 
@@ -586,9 +819,8 @@
 <a class="ct-mail" href="mailto:tammy@allpropay.com" style="font-family:Arial, Helvetica, sans-serif; display:block; font-size:13px; color:#0B1120; text-decoration:none; white-space:nowrap;">tammy@allpropay.com</a>
 
 </div></td></tr></table></div><div style="text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9pt; color:#64748B; padding:8px 28px 0;">Reading this in email? <a href="https://proposals.allpropay.com/xtreme-fx-m0y94f/" style="color:#0052FF; font-weight:700;">Open this proposal in your browser</a>.</div>
-<div class="open-note"><p>Brad, thanks for sending over October's statement. I went through it line by line. You paid $905 on $73,916 in card sales, and about $258 of that was Elavon's share.</p><p>Here is the same month with me. Same cards, same counter, about $100 less.</p><p class="on-sign">Tammy Millar</p><p class="on-phone"><a href="tel:+19299303050">929-930-3050</a></p></div>
+<div class="open-note"><p>Brad, thanks for sending over October's statement. I went through it line by line. You paid $904.95 on $73,916 in card sales, and $258.44 of that was Elavon's share.</p><p>Here is the same month with me. Same cards, same counter, about $100 less.</p><p class="on-sign">Tammy Millar</p><p class="on-phone"><a href="tel:+19299303050">929-930-3050</a></p></div>
 </div>
-
 <div class="content">
 <div class="title-block">
 <div class="eyebrow">Prepared for Brad &#183; November 25, 2026</div>
@@ -601,26 +833,34 @@
 
 <table cellpadding="0" cellspacing="0" class="em-cols" role="presentation"><tr><td style="width:50%; padding:0 7px 0 0px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
 <div class="rc-grp">Elavon</div><div class="pc-label"><span class="pill pill-today">Cost+</span> </div>
-<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">1.22%</span><span class="rc-lbl">All fees, all in</span><span class="rc-money rc-pink">about $905 on $73,916 in monthly sales</span></span></div>
+<div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">1.22%</span><span class="rc-lbl">All fees, all in</span><span class="rc-money rc-pink">$904.95 on $73,916 in October sales</span></span></div>
 <div class="pc-sub"></div>
 </div></td><td style="width:50%; padding:0 0px 0 7px; vertical-align:top;" valign="top" width="50%"><div class="price-cell" style="display:block; width:auto">
-<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-label"><span class="pill pill-us">Cost+ Rate</span> </div>
-<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.20% + $0.05</span><span class="rc-lbl">Your rate</span><span class="rc-money">about $803/mo, all in</span></span></div>
+<div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-label"><span class="pill pill-us">Cost+</span> </div>
+<div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">0.20% + $0.05</span><span class="rc-lbl">Your rate</span><span class="rc-money">about <span class="rc-good">$803/mo</span>, all in</span></span></div>
 <div class="pc-sub"></div>
 </div></td></tr></table></div>
 <div class="hero-extra">On every card you pay what Visa, Mastercard and Amex charge, at cost, plus a flat 0.20% and $0.05 a sale. Interac debit is $0.07 a sale, flat.</div>
 </div>
-<div class="chart-card"><div class="cc-title">Your October, card fees</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$905</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:89%"></div></td><td class="bc-value us">about $803</td></tr></table><div class="cc-note">Both bars are your own October: $73,916 in card sales, HST included. About $647 of each is what the card networks charge every processor. The gap is Elavon's share.</div></div>
-<div class="insight">Elavon kept about $258 of your October. With me that share drops to about $157, <strong>about 39% less</strong>, or roughly $1,200 a year kept in the shop.</div>
-<div class="section"><a href="https://proposals.allpropay.com/xtreme-fx-breakdown-ufehkf/" style="display:block; text-decoration:none; border:1px solid #BFD0F5; border-left:4px solid #0052FF; background:#F3F7FF; border-radius:8px; padding:12px 16px; color:#0B1120;"><span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:10.5pt; color:#0052FF;">See your October statement, decoded &#8594;</span><br/><span style="font-size:9pt; color:#334155;">Every line of your own statement, re-run side by side. Check my numbers against the document you already have.</span><br/><span style="font-size:8pt; color:#5A6B85;">https://proposals.allpropay.com/xtreme-fx-breakdown-ufehkf/</span></a></div>
+<div class="chart-card"><div class="cc-title">Your October, card fees</div><table class="bar-chart" style="width:100%" width="100%"><tr><td class="bc-label">Today</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$905</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:89%"></div></td><td class="bc-value us">about $803</td></tr></table><div class="cc-note">Both bars are your own October: $73,916 in card sales, HST included. $646.51 of each is what the card networks charge every processor. The gap is Elavon's share.</div></div>
+<div class="insight">Elavon kept $258.44 of your October. With me that share drops to about $157, <strong>about 39% less</strong>, or roughly $1,200 a year kept in the shop.</div>
+<div class="section">
+<div class="section-header">Your October statement, decoded</div>
+<div class="stat-row">
+<div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$73,916</div><div class="stat-sub">251 card sales, about $295 each</div></div>
+<div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$904.95</div><div class="stat-sub">Total Charges and Fees on page 1, HST included</div></div>
+<div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">1.22%</div><div class="stat-sub">Every card, every fee, all in.</div></div>
+</div>
+</div>
+<div style="margin:14px 0 24px; text-align:center;"><a href="https://proposals.allpropay.com/xtreme-fx-m0y94f/#statement" style="display:inline-block; background:#0052FF; color:#FFFFFF; font-family:Montserrat,Arial,sans-serif; font-weight:800; font-size:15px; text-decoration:none; border-radius:999px; padding:13px 26px;">See every line of your October statement &#8594;</a></div>
 <div class="sec-label">The account</div>
 <table class="terms-table" style="width:100%" width="100%">
 <tr><td>Your account</td><td>Every card at cost plus one flat markup, Interac at one flat fee, and one plain statement in Canadian dollars.</td></tr>
 <tr><td>Platform fee</td><td>$10</td></tr>
-<tr><td>Interac debit</td><td>$0.07 a sale, flat. Today you pay 0.10% of every debit sale plus a per-item fee, about $0.42 on an inserted card.</td></tr><tr><td>Terminal</td><td>A newer wireless terminal: tap, chip and swipe. $35 a month, care included. It replaces today's $35 rental plus $10 terminal care fee.</td></tr><tr><td>Other fees</td><td>Card network fees at cost: today Visa and Mastercard are billed about 0.30% as "assessments", and the networks charge about 0.10%. No PCI fee: today $20 a month.</td></tr>
+<tr><td>Interac debit</td><td>$0.07 a sale, flat. Today you pay 0.10% of every debit sale plus a per-item fee: $0.42 on an inserted card.</td></tr><tr><td>Terminal</td><td>A newer wireless terminal: tap, chip and swipe. $35 a month, care included. It replaces today's $35 rental plus $10 terminal care fee.</td></tr><tr><td>Other fees</td><td>Card network fees at cost: today Visa and Mastercard are billed 0.3017% as "assessments", and the networks charge about 0.10%. No PCI fee: today $20 a month.</td></tr>
 <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
 </table>
-<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span><span class="g-line">If it is not what I told you on our call, you walk away. No fee, no argument.</span></p>
+<p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span></p>
 <div class="cta-block">
 <div class="ct-title">Your real number is already here</div>
 <div class="ct-sub">Nothing to send me. Your statement is decoded and your number is on this page. Start the application below and I take it from there, or pick a time and I walk you through it first.</div>
@@ -637,6 +877,7 @@
 <span>AllProPay &#183; 438-801-4440 &#183; allpropay.com/ca/</span>
 </div><div class="fine" style="display:block; max-width:100%; text-align:left; margin-top:8px">Blended-cost estimates are based on the volume and card mix you shared and are not a guarantee; actual cost depends on card mix and ticket size. No setup fee, no contract, no cancellation fee.</div></div>
 </td></tr></table></div>
+
 
 <script id="em-compose" type="application/json">{"subject": "Xtreme FX - your October statement, decoded", "body": "Hi Brad,\n\nThanks for getting me October's statement. I took it apart line by line and put your real numbers on your page:\n\nhttps://proposals.allpropay.com/xtreme-fx-m0y94f/\n\nMost of the difference is in the add-ons: network fees billed at about three times their cost, Interac charged as a percentage, and the terminal rental. I will call you to walk through it.\n\nTammy"}</script><script>
 /* Rep-browser flag (2026-10-19): only closers open the email-ready page, so mark this browser as
