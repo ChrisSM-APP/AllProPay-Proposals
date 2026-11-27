@@ -3,353 +3,927 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllProPay Proposal | Andy Thornal Co</title>
+<title>Andy Thornal Co | Your October statement, line by line</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  /* Brand tokens (AllProPay Market/02-brand/brand-tokens.css, 2026-10-19). Paper surface on
+     the page itself; the dark-surface block at the end of this stylesheet flips the screen. */
   :root {
-    --blue: #0052FF; --navy: #0B1120; --light-gray: #F5F7FA;
-    --mid-gray: #E2E8F0; --black: #000000; --text: #1A1A2E; --muted: #64748B;
+    --blue: #0052FF;          /* AllProPay Blue: headings, links, the italic Pro, eyebrows on paper */
+    --accent: #0066FF;        /* Electric Blue: gradient start */
+    --cyan: #00D4FF;          /* Cyan Glow: eyebrows on dark, the big number in the panel */
+    --accent-deep: #0A37CC;
+    --navy: #0B1120;
+    --light-gray: #F5F7FA;
+    --mid-gray: #E2E8F0;
+    --tint: #E5EDFF;
+    --tint-soft: #EEF3FF;
+    --slate: #9FB0C9;         /* Muted Slate: captions on dark */
+    --slate-bar: #3A4A66;     /* the "today" bar */
+    --on-gradient: #04111F;
+    --black: #000000;
+    --text: #0B1120;
+    --muted: #5A6B85;         /* captions on paper */
+    --radius: 16px;
+    --grad-cta: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+    --grad-panel: linear-gradient(160deg, #0E1830 0%, #0B1424 100%);
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.55; }
-  .page { max-width: 820px; margin: 0 auto; padding: 0; }
-  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px 16px; border-bottom: 3px solid var(--blue); }
-  .doc-header .logo-img { height: 72px; width: auto; }
-  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.7; }
-  .content { padding: 36px 40px 48px; }
-  .title-block { margin-bottom: 32px; }
-  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 28pt; font-weight: 800; color: var(--black); line-height: 1.1; margin-bottom: 6px; }
+  body { font-family: 'Inter', Arial, sans-serif; font-size: 10.5pt; color: var(--text); background: #fff; line-height: 1.5; }
+  .page { max-width: 820px; margin: 0 auto; }
+  a { color: var(--blue); }
+
+  .doc-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 36px 12px; border-bottom: 3px solid var(--blue); }
+  .doc-header .logo-img { height: 56px; width: auto; }
+  .doc-header .contact { font-size: 8.5pt; color: var(--muted); text-align: right; line-height: 1.6; }
+  .content { padding: 22px 36px 28px; }
+
+  /* the opening note: a few lines from the rep, so the page reads like the email it rides in.
+     It lives with the header in .top-paper, which stays WHITE on the dark screen (Chris: "the top
+     white as well, and once it shows Prepared for Dana, that's when it changes into the darker"). */
+  .top-paper { background: #fff; }
+  .open-note { font-size: 10.5pt; line-height: 1.6; color: var(--text); max-width: 620px; margin: 0; padding: 18px 36px 20px; }
+  .open-note p { margin: 0 0 8px; }
+  .open-note .on-sign { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); }
+
+  /* title block */
+  .title-block { margin-bottom: 14px; }
+  .title-block .eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin-bottom: 6px; line-height: 1.5; }
+  .title-block h1.merchant-h { font-family: 'Montserrat', sans-serif; font-size: 24pt; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -0.4px; }
+  .title-block h1 { font-family: 'Montserrat', sans-serif; font-size: 26pt; font-weight: 900; color: var(--black); line-height: 1; letter-spacing: -0.5px; margin-bottom: 5px; }
   .title-block h1 .accent { color: var(--blue); font-style: italic; margin: 0 0.06em 0 0.01em; }
-  .title-block .subtitle { font-family: 'Montserrat', sans-serif; font-size: 15pt; font-weight: 600; color: var(--blue); margin-bottom: 24px; }
-  .meta-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 16px; font-size: 9.5pt; border-top: 1px solid var(--mid-gray); padding-top: 16px; }
-  .meta-grid .label { color: var(--muted); font-weight: 500; }
-  .meta-grid .value { color: var(--text); font-weight: 500; }
-  .blue-bar { height: 4px; background: var(--blue); margin: 28px 0; border-radius: 2px; }
-  .section { margin-bottom: 36px; }
-  .section-header { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--blue); margin-bottom: 16px; }
-  p { margin-bottom: 10px; font-size: 10.5pt; }
-  ul { margin: 10px 0 10px 20px; }
-  ul li { margin-bottom: 6px; font-size: 10.5pt; }
-  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 8px; }
-  .pillar { background: var(--light-gray); border-top: 3px solid var(--blue); padding: 16px 18px; border-radius: 0 0 6px 6px; }
-  .pillar .p-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5pt; color: var(--text); margin-bottom: 6px; }
-  .pillar .p-body { font-size: 9.5pt; color: var(--text); line-height: 1.5; }
-  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 12px; }
-  thead tr { background: var(--navy); color: #fff; }
-  thead th { padding: 9px 12px; text-align: left; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; }
-  tbody tr:nth-child(even) { background: var(--light-gray); }
-  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--mid-gray); }
-  .pricing-callout { background: var(--navy); color: #fff; border-radius: 8px; padding: 22px 26px; margin: 16px 0; }
-  .pricing-callout .pc-label { font-size: 9pt; color: #94A3B8; margin-bottom: 4px; }
-  .pricing-callout .pc-value { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #38BDF8; }
-  .pricing-callout .pc-sub { font-size: 8.5pt; color: #94A3B8; margin-top: 4px; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-  .steps { display: flex; flex-direction: column; gap: 14px; }
-  .step { display: flex; gap: 16px; align-items: flex-start; }
-  .step-num { background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12pt; min-width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .step-content { padding-top: 6px; font-size: 10.5pt; }
-  .step-content strong { font-weight: 600; color: var(--text); }
-  .why-list { list-style: none; margin: 0; padding: 0; }
-  .why-list li { padding: 9px 14px; border-left: 3px solid var(--blue); margin-bottom: 8px; background: var(--light-gray); font-size: 10.5pt; border-radius: 0 4px 4px 0; }
-  .insight { background: #FFFBEB; border-left: 4px solid #F59E0B; border-radius: 0 6px 6px 0; padding: 13px 18px; margin: 14px 0; font-size: 10pt; color: var(--text); line-height: 1.55; }
-  .insight strong { color: #B45309; }
-  .cta-wrap { text-align: center; margin-top: 20px; }
-  .cta-btn { display: inline-block; background: var(--blue); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11.5pt; padding: 14px 36px; border-radius: 6px; text-decoration: none; letter-spacing: 0.3px; }
-  .cta-print-text { display: none; font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 8px; }
-  .booking-embed { margin-top: 24px; }
+  .title-block .merchant { font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+  .meta-row { display: flex; gap: 24px; border-top: 1px solid var(--mid-gray); border-bottom: 1px solid var(--mid-gray); padding: 8px 0; font-size: 9pt; }
+  .meta-row span { color: var(--muted); }
+  .meta-row strong { color: var(--text); font-weight: 600; margin-left: 6px; }
+
+  /* the dark panel */
+  .hero { position: relative; overflow: hidden; background: var(--grad-panel); border: 1px solid rgba(0,212,255,.25); border-radius: var(--radius); color: #fff; padding: 22px 28px; margin: 16px 0; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.30) 0%, rgba(0,212,255,.08) 45%, transparent 70%); pointer-events: none; }
+  .hero .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .14em; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; font-weight: 700; position: relative; z-index: 1; }
+  .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 14pt; font-weight: 700; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; line-height: 1.3; }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; position: relative; z-index: 1; }
+  .price-cell { padding: 4px 0; text-align: left; }
+  .price-cell .pc-label { display: block; font-size: 8.5pt; color: var(--slate); margin-bottom: 8px; letter-spacing: .4px; line-height: 1.4; }
+  .price-cell .pc-label .pill { margin-right: 7px; vertical-align: middle; position: relative; top: -1px; }
+  .price-cell .pc-value { font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1.05; margin-bottom: 5px; }
+  .price-cell .pc-value.today { font-size: 15pt; font-weight: 700; color: var(--slate); text-shadow: none; }
+  .price-cell .pc-value.us { font-size: 26pt; color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px rgba(255,255,255,.35); }
+  .price-cell .pc-value .chip { margin-left: 9px; vertical-align: middle; }
+  .price-cell .pc-sub { font-size: 8.5pt; color: var(--slate); }
+  .pill { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 8px 2px; border-radius: 999px; line-height: 1.25; }
+  .pill-today { background: rgba(159,176,201,.18); color: #9FB0C9; border: 1px solid rgba(159,176,201,.5); }
+  .pill-us { background: rgba(0,212,255,.16); color: var(--cyan); border: 1px solid rgba(0,212,255,.6); }
+  .chip { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 800; padding: 3px 7px; border-radius: 5px; background: var(--cyan); color: var(--on-gradient); line-height: 13px; vertical-align: middle; letter-spacing: .3px; white-space: nowrap; text-shadow: none; }
+  .hero-extra { position: relative; z-index: 1; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.12); font-size: 9pt; color: var(--slate); }
+  .hero-extra strong { color: #fff; }
+
+  /* light comparison box (PROGRAM_CHART) */
+  .chart-card { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; }
+  .chart-card .cc-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+  table.bar-chart { width: 100%; border-collapse: collapse; }
+  table.bar-chart td { padding: 4px 0; vertical-align: middle; }
+  td.bc-label { width: 1%; white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 12px; }
+  td.bc-track { width: auto; }
+  td.bc-track .bc-bar { height: 20px; border-radius: 4px; background: var(--slate-bar); }
+  td.bc-track .bc-bar.us { background: var(--grad-cta); }
+  td.bc-value { width: 1%; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; color: var(--muted); }
+  td.bc-label.us, td.bc-value.us { color: var(--blue); }
+  table.bar-chart td.bc-label { padding-right: 14px; }
+  table.bar-chart td.bc-value { padding-left: 14px; }
+  .chart-card .cc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+  /* older specs still send the navy-band .prog-chart; render it as the same light card */
+  .prog-chart { background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: var(--radius); padding: 14px 18px 12px; margin-top: 12px; color: var(--text); }
+  .prog-chart .pchart-title { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+  .prog-chart .pc-lab { font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; padding-right: 10px; width: 20%; }
+  .prog-chart .pc-num { text-align: right; font-family: 'Montserrat', sans-serif; font-size: 12pt; font-weight: 800; white-space: nowrap; color: var(--blue); width: 20%; }
+  .prog-chart .pc-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* AllPro Rebate tier cards (TIERS_SECTION, rendered by build_proposal.py from spec "tiers"):
+     dark cards side by side, a pill tag, the tier name in caps, one big dollar figure, a short
+     fact table; the recommended card has the blue border. Same look as the hand-built pages. */
+  .tiers-sub { font-size: 9pt; color: var(--muted); margin: -2px 0 10px; }
+  table.tier-row { width: calc(100% + 20px); border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.tier-cell { background: var(--grad-panel); border: 1.5px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 16px 12px; vertical-align: top; color: #fff; }
+  td.tier-cell.rec { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+  .tier-cell .t-pop { font-family: 'Montserrat', sans-serif; display: inline-block; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .tier-cell .t-pop.quiet { background: rgba(159,176,201,.18); color: #9FB0C9; }
+  .tier-cell .t-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .tier-cell .t-cash { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .tier-cell .t-cashsub { font-size: 8pt; color: var(--slate); margin-bottom: 8px; }
+  table.t-facts { width: 100%; border-collapse: collapse; }
+  table.t-facts td { padding: 3.5px 0; font-size: 8.5pt; border-top: 1px solid rgba(255,255,255,.14); background: transparent; }
+  table.t-facts td.k { color: var(--slate); padding-right: 8px; }
+  table.t-facts td.v { text-align: right; font-weight: 700; color: #E2E8F0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* the one sentence */
+  .insight { background: var(--tint-soft); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 12px 0 0; font-size: 10pt; line-height: 1.55; }
+  .insight strong { color: var(--blue); }
+
+  .sec-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; }
+
+  /* from our call: three short lines in their words */
+  ul.call-list { list-style: none; margin: 0; padding: 0; }
+  ul.call-list li { padding: 7px 14px; border-left: 3px solid var(--blue); background: var(--light-gray); margin-bottom: 6px; border-radius: 0 8px 8px 0; font-size: 10pt; }
+
+  /* what changes: three numbered cards */
+  table.counter-row { width: 100%; border-collapse: separate; border-spacing: 10px 0; margin: 0 -10px; }
+  td.counter-cell { width: 33.3%; background: var(--light-gray); border: 1.5px solid var(--mid-gray); border-radius: 12px; padding: 11px 14px; vertical-align: top; }
+  .counter-cell .cs-num { font-family: 'Montserrat', sans-serif; display: inline-block; width: 20px; height: 20px; line-height: 20px; background: var(--grad-cta); color: var(--on-gradient); border-radius: 50%; font-size: 9pt; font-weight: 800; text-align: center; margin-bottom: 6px; }
+  .counter-cell .cs-title { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .counter-cell .cs-body { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+  /* two-offer block (OPTIONS_SECTION), when the deal has one */
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 0; }
+  .opt { background: var(--grad-panel); border: 1.5px solid rgba(0,212,255,.25); border-radius: 12px; padding: 14px 16px; color: #fff; }
+  .opt.opt-a { border-color: var(--blue); }
+  .opt .opt-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; background: var(--blue); color: #fff; border-radius: 999px; padding: 2px 9px; margin-bottom: 6px; }
+  .opt.opt-b .opt-tag { background: rgba(43,95,217,.35); }
+  .opt .opt-name { font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 2px; }
+  .opt .opt-mech, .opt .opt-figure-sub, .opt .opt-note { font-size: 8.5pt; color: var(--slate); }
+  .opt .opt-figure { font-family: 'Montserrat', sans-serif; font-size: 20pt; font-weight: 800; color: #fff; line-height: 1.1; }
+  .opt .opt-list { margin: 8px 0 0 16px; font-size: 8.5pt; color: #E2E8F0; }
+  .opt-note { font-size: 8pt; color: var(--muted); margin-top: 6px; }
+
+  /* the account: plain key/value list */
+  .terms-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 4px; }
+  .terms-table td { padding: 7px 14px; border-bottom: 1px solid var(--mid-gray); vertical-align: top; }
+  .terms-table td:first-child { color: var(--muted); width: 42%; font-weight: 500; }
+  .terms-table td:nth-child(2) { color: var(--text); font-weight: 600; }
+  .terms-table td:nth-child(3) { color: var(--muted); font-weight: 400; text-align: right; }
+  .terms-table tr:last-child td { border-bottom: none; }
+
+  /* the promise: two bold lines, then the sentence (Chris's sketch, 2026-10-19 night) */
+  .promise { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11pt; color: var(--text); border-left: 4px solid var(--blue); background: var(--tint-soft); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0 0; line-height: 1.45; }
+  .promise .g-big { display: block; font-size: 14pt; font-weight: 800; letter-spacing: -.2px; }
+  .promise .g-line { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 10.5pt; margin-top: 8px; color: var(--text); }
+
+  /* the CTA block */
+  /* One centered stack, the button is the hero (Chris: "I want it to be very evident that that is
+     the CTA"; 2026-10-26: "make this CTA pop, look super nice, like it's asking you to click it").
+     Title, one line, the big white pill with the cyan ring, three "what happens next" chips, then
+     the phone. Block-level only, so it survives a Gmail paste unchanged: the bloom, the breathing
+     ring and the hover lift live in the screen-only block below, so the email copy stays flat. */
+  .cta-block { background: linear-gradient(135deg, #0052FF 0%, var(--accent-deep) 100%); color: #fff; border-radius: var(--radius); padding: 30px 26px 24px; margin-top: 18px; text-align: center; }
+  .cta-block .ct-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 19pt; line-height: 1.15; letter-spacing: -.2px; margin: 0 auto 8px; max-width: 560px; color: #fff; }
+  .cta-block .ct-sub { font-size: 10.5pt; opacity: .94; line-height: 1.5; max-width: 500px; margin: 0 auto; color: #fff; }
+  .cta-block .ct-sub strong { color: #fff; }
+  /* CTA pill (Chris 2026-10-21, "make our CTA a 10/10"): a blue ring on the blue block vanished,
+     so the ring is cyan, the pill is bigger, and an arrow says "tap me". */
+  .cta-block a.apply { display: block; max-width: 460px; margin: 22px auto 14px; background: #FFFFFF; color: #0052FF; border: 4px solid #00D4FF; box-shadow: 0 0 0 6px rgba(0,212,255,.22), 0 14px 34px rgba(4,17,31,.45); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17pt; letter-spacing: .2px; padding: 19px 28px; border-radius: 999px; text-decoration: none; text-align: center; }
+  .cta-block a.apply::after { content: "\00a0\2192"; }
+  .cta-block a.apply:hover { background: #EEF3FF; }
+  .cta-block .apply-next { font-size: 9.5pt; color: #fff; opacity: .92; line-height: 1.5; max-width: 560px; margin: 0 auto 14px; }
+  /* the three chips under the pill (APPLY_SUB default): only what the application page itself promises */
+  .cta-block .apply-next .an-chip { display: inline-block; padding: 5px 12px; margin: 3px 2px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 9pt; font-weight: 600; white-space: nowrap; }
+  .cta-block .ct-or { font-size: 10pt; color: #fff; opacity: .92; }
+  .cta-block .ct-or .ca-phone { color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap; border-bottom: 2px solid rgba(0,212,255,.9); }
+  .cta-btn { display: none; }
+
+  .booking-embed { margin-top: 20px; }
   .booking-embed .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10.5pt; color: #334155; margin-bottom: 10px; }
-  .booking-embed iframe { width: 100%; height: 640px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; display: block; }
+  .booking-embed iframe { width: 100%; height: 620px; border: 1px solid var(--mid-gray); border-radius: 8px; background: #fff; display: block; }
   .booking-embed .be-fallback { text-align: center; font-size: 8.5pt; color: var(--muted); margin-top: 8px; }
   .booking-embed .be-fallback a { color: var(--blue); }
-  .signature-block { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--mid-gray); }
-  .sig-name { font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 700; color: var(--text); }
-  .sig-contact { font-size: 9pt; color: var(--blue); margin-top: 8px; line-height: 1.8; }
-  .sig-right { text-align: right; }
-  .sig-tagline { font-size: 8.5pt; color: var(--muted); margin-top: 4px; font-style: italic; }
-  .note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-top: 10px; }
-  .doc-footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-top: 1px solid var(--mid-gray); font-size: 8pt; color: var(--muted); }
-  @media print {
-    body { background: #fff; font-size: 9.5pt; line-height: 1.45; }
-    .page { max-width: 100%; }
-    .pillars, .pricing-grid { display: block; }
-    .pillar { margin-bottom: 8px; page-break-inside: avoid; }
-    .pricing-grid > div { margin-bottom: 10px; }
-    .pricing-callout, .insight, thead tr, .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .pricing-callout, .step, table, .section { break-inside: avoid; page-break-inside: avoid; }
-    .doc-header { padding: 12px 32px 10px; }
-    .content { padding: 20px 32px 28px; }
-    .title-block { margin-bottom: 18px; }
-    .title-block h1 { font-size: 22pt; }
-    .title-block .subtitle { font-size: 13pt; margin-bottom: 16px; }
-    .blue-bar { margin: 14px 0; }
-    .section { margin-bottom: 18px; }
-    .section-header { padding-bottom: 5px; margin-bottom: 10px; font-size: 11.5pt; }
-    p { margin-bottom: 6px; font-size: 9.5pt; }
-    ul li { font-size: 9.5pt; margin-bottom: 3px; }
-    thead th { padding: 6px 10px; font-size: 8pt; }
-    tbody td { padding: 5px 10px; font-size: 9pt; }
-    .pricing-callout { padding: 14px 18px; }
-    .pricing-callout .pc-value { font-size: 16pt; }
-    .step-num { min-width: 28px; height: 28px; font-size: 10pt; }
-    .step-content { font-size: 9.5pt; padding-top: 4px; }
-    .why-list li { padding: 6px 12px; font-size: 9.5pt; margin-bottom: 4px; }
-    .signature-block { margin-top: 14px; padding-top: 10px; break-inside: avoid; }
-    .sig-name { font-size: 11pt; }
-    .cta-btn { display: none; }
-    .cta-print-text { display: block !important; }
-    .booking-embed { display: none !important; }
-  }
-  /* === AllProPay mobile responsive v3 (auto-injected) ===
-     Screen-only. Does not affect print/PDF (those use @media print).
-     Unstacks every multi-column band to a single column on phones so pricing
-     numbers never clip and nothing renders stretched. Forcing the container to
-     display:block neutralizes all three layout modes (CSS grid, flexbox, and
-     display:table) uniformly -- the standard templates and every bespoke
-     proposal layout (flow diagrams, compare/snapshot/roadmap, css-table stat
-     and pillar grids, cta-footer) collapse the same way. */
+
+  .doc-footer { border-top: 1px solid var(--mid-gray); padding: 12px 36px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--muted); }
+  .doc-footer .sig { display: flex; align-items: center; gap: 10px; }
+  .doc-footer .sig img { height: 24px; width: auto; }
+  .doc-footer .fine { font-size: 7pt; color: var(--muted); font-style: italic; max-width: 62%; text-align: right; line-height: 1.4; }
+
+  /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+  @media screen { @keyframes apBar { from { width: 0; } } .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; } }
+  @media (prefers-reduced-motion: reduce) { .bc-bar { animation: none !important; } }
+
   @media screen and (max-width: 640px) {
     html { -webkit-text-size-adjust: 100%; }
     body { font-size: 11.5pt; line-height: 1.5; }
     .page { max-width: 100%; width: 100%; }
     img { max-width: 100%; height: auto; }
-    /* Stop long strings (email, gateway name, URL) forcing sideways scroll */
-    p, li, td, th, .step-content, .why-list li, .pc-sub, .sig-contact,
-    .meta-grid .value, .wc-body, .step-body, .ct-sub, .sc-sub, .cc-value, .cc-sub {
-      overflow-wrap: anywhere; word-break: break-word;
-    }
-    /* Header: stack logo above contact, left-align */
+    p, li, td, th, .pc-sub, .cs-body, .cc-note, .ct-sub { overflow-wrap: anywhere; word-break: break-word; }
     .doc-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 18px 12px; }
-    .doc-header .contact { text-align: left; line-height: 1.6; }
-    .doc-header .logo-img, .doc-header img { height: 52px; }
-    .content { padding: 22px 18px 26px; }
-    /* Titles scaled so they never overflow */
-    .title-block h1 { font-size: 21pt; line-height: 1.12; }
-    .title-block .subtitle { font-size: 13pt; }
-    .title-block .merchant { font-size: 12pt; }
-    .title-block .eyebrow { font-size: 8.5pt; }
-    /* Meta: drop fixed label column, stack label over value (stays a grid) */
-    .meta-grid { grid-template-columns: 1fr !important; gap: 1px 0; }
-    .meta-grid .label { margin-top: 9px; }
+    .doc-header .contact { text-align: left; }
+    .doc-header .logo-img { height: 48px; }
+    .open-note { padding: 16px 18px 18px; }
+    .content { padding: 20px 18px 24px; }
+    .title-block h1 { font-size: 20pt; line-height: 1.12; }
     .meta-row { flex-direction: column; gap: 7px; }
-    /* CORE FIX: unstack every column band (grid / flex / css-table) to one column */
-    .pillars, .why-bar, .price-row, .pricing-grid, .compare-grid, .callout-grid,
-    .snapshot-grid, .stats-grid, .stats-row, .flow-row, .roadmap, .steps-bar,
-    .savings-callout, .compare-callout, .snapshot-callout, .cta-footer {
-      display: block !important;
-    }
-    /* full-width block children (resets table-cell / flex:1 columns) */
-    .pillar, .why-cell, .price-cell, .compare-card, .callout-item, .stat-cell,
-    .flow-node, .step-card, .roadmap .step,
-    .pricing-grid > div, .snapshot-grid > div, .savings-callout > div,
-    .compare-callout > div, .cta-footer > div {
-      display: block !important; width: auto !important; margin-bottom: 12px; border-radius: 6px;
-    }
-    .savings-callout > div:last-child, .pricing-grid > div:last-child,
-    .compare-callout > div:last-child, .pillar:last-child { margin-bottom: 0; }
-    /* generic safety net for any other real CSS-grid container */
-    [class*="grid"] { grid-template-columns: 1fr !important; }
-    /* Flow-diagram arrows: point down between stacked nodes */
-    .flow-arrow { display: block !important; text-align: center; transform: rotate(90deg); margin: 2px 0; }
-    .flow-arrow .arrow-label { display: none; }
-    /* Big callout numbers: full width, slightly smaller, never clipped */
-    .pricing-callout { padding: 18px; }
+    .price-row { display: block !important; }
+    .price-cell { display: block !important; margin-bottom: 12px; }
     .hero { padding: 20px; }
     .hero::before { display: none; }
-    .pricing-callout .pc-value, .price-cell .pc-value, .savings-callout .sc-value,
-    .snapshot-callout .pc-value, .compare-callout .cc-value {
-      font-size: 20pt; overflow-wrap: anywhere;
-    }
-    /* Hide now-pointless vertical dividers in stacked callouts */
-    .savings-callout .divider, .compare-callout .divider, .snapshot-callout .divider { display: none; }
-    /* CTA strip (short template): stack text above the phone number */
-    .cta-block { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
-    .cta-action { text-align: left; }
-    .cta-action .ca-phone { font-size: 21pt; }
-    /* CTA button: full-width tap target */
-    .cta-btn { display: block; width: 100%; padding: 15px 18px; font-size: 12pt; }
-    /* Signature + footer: stack and left-align */
-    .signature-block { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .sig-right { text-align: left; }
-    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; text-align: left; }
-    .doc-footer .fine, .doc-footer .sig { max-width: 100%; text-align: left; }
-    /* Tables: tighter; wide comparison tables scroll within their wrapper */
-    table, .terms-table { font-size: 9.5pt; max-width: 100%; }
-    thead th, tbody td, .terms-table td { padding: 7px 8px; }
-    .terms-table td:first-child { width: 50%; }
-    [class*="tbl-wrap"], .table-wrap, .tbl-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-    .tbl-wrap table, [class*="tbl-wrap"] table { font-size: 8.5pt; }
-    .tbl-wrap td, .tbl-wrap th { padding: 6px 7px; }
+    .options { display: block; }
+    .opt { margin-bottom: 10px; }
+    table.tier-row, table.tier-row > tbody, table.tier-row > tbody > tr { display: block; margin: 0; }
+    td.tier-cell { display: block; width: 100% !important; margin-bottom: 10px; }
+    table.counter-row, table.counter-row tbody, table.counter-row tr { display: block; margin: 0; }
+    td.counter-cell { display: block; width: 100%; margin-bottom: 8px; }
+    /* phone: label + value on one line, the bar full width under them */
+    table.bar-chart, table.bar-chart tbody { display: block; }
+    table.bar-chart tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 8px; }
+    table.bar-chart td.bc-label { grid-row: 1; grid-column: 1; font-size: 8pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-value { grid-row: 1; grid-column: 2; font-size: 11pt; padding: 0; width: auto; }
+    table.bar-chart td.bc-track { grid-row: 2; grid-column: 1 / -1; padding: 4px 0 0; }
+    td.bc-track .bc-bar { height: 14px; }
+    .cta-block { padding: 26px 18px 20px; }
+    .cta-block .ct-title { font-size: 16pt; }
+    .cta-block a.apply { max-width: none; font-size: 15pt; padding: 17px 18px; }
+    .cta-block .apply-next .an-chip { font-size: 8.5pt; padding: 4px 10px; }
+    /* each promise line stays ONE line on a phone (Chris 2026-10-20: "statement" wrapped under) */
+    .promise .g-big { font-size: clamp(10pt, 3.8vw, 14pt); white-space: nowrap; }
+    .title-block h1.merchant-h { font-size: 21pt; }
+    .doc-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 18px; }
+    .doc-footer .fine { max-width: 100%; text-align: left; }
   }
+
+  @media print {
+    @page { size: letter; margin: 0.28in; }
+    body { background: #fff; font-size: 9pt; line-height: 1.35; color: var(--text); }
+    .page { max-width: 100%; }
+    .hero, .cta-block, .doc-header, .sec-label, .chart-card, .prog-chart, td.counter-cell, .bc-bar, .cs-num, .pill, .chip, .insight, .promise, .opt, .opt-tag, ul.call-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero, .chart-card, .prog-chart, .cta-block, .terms-table, .promise, .insight, table.counter-row, .options { break-inside: avoid; page-break-inside: avoid; }
+    .cta-block { box-shadow: none; }
+    .doc-header { padding: 8px 22px 6px; }
+    .doc-header .logo-img { height: 40px; }
+    .open-note { padding: 8px 22px 6px; font-size: 8.5pt; }
+    .content { padding: 10px 22px 8px; }
+    .title-block { margin-bottom: 6px; }
+    .title-block h1 { font-size: 18pt; }
+    .title-block .merchant { font-size: 10pt; margin-bottom: 6px; }
+    .title-block .eyebrow { font-size: 7.5pt; margin-bottom: 2px; }
+    .meta-row { padding: 5px 0; font-size: 7.5pt; gap: 16px; }
+    .hero { padding: 11px 18px; margin: 8px 0; border-radius: 9px; }
+    .hero h2 { font-size: 11.5pt; margin-bottom: 8px; }
+    .hero .hero-eyebrow { font-size: 7pt; margin-bottom: 3px; }
+    .price-row { gap: 12px; }
+    .price-cell .pc-value.us { font-size: 20pt; }
+    .price-cell .pc-value.today { font-size: 12pt; }
+    .price-cell .pc-label, .price-cell .pc-sub { font-size: 7pt; }
+    .sec-label { font-size: 7.5pt; margin: 8px 0 4px; }
+    .chart-card, .prog-chart { padding: 8px 12px 7px; margin-top: 7px; border-radius: 8px; }
+    .chart-card .cc-title { font-size: 7pt; margin-bottom: 4px; }
+    table.bar-chart td { padding: 2.5px 0; }
+    td.bc-track .bc-bar { height: 13px; }
+    td.bc-label { font-size: 7pt; }
+    td.bc-value { font-size: 9.5pt; }
+    .chart-card .cc-note { font-size: 6pt; margin-top: 3px; }
+    .insight { padding: 8px 12px; font-size: 8.5pt; margin-top: 8px; }
+    td.tier-cell { padding: 7px 11px 6px; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-pop { font-size: 5.5pt; padding: 1.5px 7px; margin-bottom: 3px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tier-cell .t-cash { font-size: 14pt; }
+    table.t-facts td { padding: 2px 0; font-size: 6.5pt; }
+    table.tier-row { break-inside: avoid; page-break-inside: avoid; }
+    ul.call-list li { padding: 4px 10px; font-size: 8.5pt; margin-bottom: 4px; }
+    table.counter-row { border-spacing: 7px 0; margin: 0 -7px; }
+    td.counter-cell { padding: 6px 10px; border-radius: 7px; }
+    .counter-cell .cs-num { width: 15px; height: 15px; line-height: 15px; font-size: 7.5pt; margin-bottom: 3px; }
+    .counter-cell .cs-title { font-size: 7.5pt; margin-bottom: 1px; }
+    .counter-cell .cs-body { font-size: 6.5pt; line-height: 1.35; }
+    .terms-table td { padding: 3.5px 10px; font-size: 7.5pt; }
+    .promise { padding: 8px 12px; font-size: 9pt; margin-top: 8px; }
+    .cta-block { padding: 10px 16px; margin-top: 7px; border-radius: 8px; }
+    .cta-block .ct-title { font-size: 11pt; margin-bottom: 2px; }
+    .cta-block .ct-sub { font-size: 7.5pt; }
+    .cta-block a.apply { font-size: 10pt; padding: 7px 16px; margin: 8px auto 6px; max-width: 300px; box-shadow: 0 0 0 3px #FFFFFF; }
+    .cta-block .apply-next { font-size: 7.5pt; margin-bottom: 4px; }
+    .cta-block .apply-next .an-chip { font-size: 7pt; padding: 2px 8px; margin: 1px; background: transparent; border-color: rgba(255,255,255,.55); }
+    .cta-block .ct-or { font-size: 7.5pt; }
+    .title-block h1.merchant-h { font-size: 17pt; }
+    .booking-embed { display: none !important; }
+    .doc-footer { padding: 6px 22px; font-size: 6.5pt; }
+    .doc-footer .sig img { height: 16px; }
+    .doc-footer .fine { font-size: 6pt; }
+  }
+
+/* ---- dark surface 2026-10-19 (screen only; print stays paper) ---- */
+  @media screen {
+    html { background: #0B1120; }
+    body { background: #0B1120; color: #F5F7FA; position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% -12%, rgba(0,102,255,0.26) 0%, rgba(0,212,255,0.07) 32%, transparent 62%); }
+    .page { position: relative; z-index: 1; background: transparent; }
+    a { color: #2F8BFF; }
+
+    /* header + footer */
+    .doc-header { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .doc-header .logo-img, .doc-header img, .doc-footer .sig img { content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYXBsLWZkLXJvb3QiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMTUgMjUgOTcxIDI0NSI+CiAgPCEtLSBBbGxQcm9QYXkgZnVsbCBsb2NrdXAsIGRhcmsgc3VyZmFjZXMuIENhbm9uaWNhbC4gR2VuZXJhdGVkIGJ5IDAyLWJyYW5kL2xvZ28vYnVpbGRfbG9nby5weSBmcm9tIHRoZSBGaXZlcnIgdmVuZG9yIHZlY3RvciAoQWxsUHJvUGF5IExvZ28vKS4gRG8gbm90IGhhbmQtZWRpdDsgcmVydW4gdGhlIHNjcmlwdC4gRGVjaXNpb25zOiAwMi1icmFuZC9sb2dvLXNwZWMubWQgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5hcGwtZmQtc3QwIHsKICAgICAgICBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQyKTsKICAgICAgfQogICAgICAuYXBsLWZkLXN0MSB7CiAgICAgICAgZmlsbDogdXJsKCNhcGwtZmQtbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDIgewogICAgICAgIGZpbGw6ICMyRjhCRkY7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDMgewogICAgICAgIGZpbGw6IHVybCgjYXBsLWZkLXJhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgICAgLmFwbC1mZC1zdDQgewogICAgICAgIGZpbGw6IHVybCgjYXBsLWZkLWxpbmVhci1ncmFkaWVudDMpOwogICAgICB9CiAgICAgIC5hcGwtZmQtc3Q1IHsKICAgICAgICBmaWxsOiB1cmwoI2FwbC1mZC1saW5lYXItZ3JhZGllbnQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhcGwtZmQtbGluZWFyLWdyYWRpZW50IiB4MT0iMzUuOTkiIHkxPSI0MS43OCIgeDI9IjEzMC4wNSIgeTI9IjE0NC4wOCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyOWFlZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDkxN2NjIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJhcGwtZmQtcmFkaWFsLWdyYWRpZW50IiBjeD0iMTM2LjQyIiBjeT0iMTUwLjg5IiBmeD0iMTM2LjQyIiBmeT0iMTUwLjg5IiByPSIxNTguOTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjlhZWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA5MTdjYyIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDEiIHgxPSIxOTMuODQiIHkxPSI4MC44IiB4Mj0iMTY0LjciIHkyPSIzMS45IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzA5MTdjYyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii45OCIgc3RvcC1jb2xvcj0iIzI5YWVmZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDIiIHgxPSIxMjcuOTMiIHkxPSIyNTguMTQiIHgyPSIxMDQuNjkiIHkyPSIyMTYuODYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDkxN2NjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI5YWVmZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXBsLWZkLWxpbmVhci1ncmFkaWVudDMiIHgxPSIxNC4zIiB5MT0iMTYxLjczIiB4Mj0iODkuNjgiIHkyPSIxNjEuNzMiIHhsaW5rOmhyZWY9IiNhcGwtZmQtbGluZWFyLWdyYWRpZW50MiIvPgogIDwvZGVmcz4KICA8Zz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3Q1IiBkPSJNOTQuMDYsMTY5LjQzYzMuNDQtOS45OS0uMDItMjEuOTYtMTAuMzktMjcuOTZMMTUuMzYsMTAyLjA1di0zOS41N2MwLTE4LDE5LjQ5LTI5LjI2LDM1LjA4LTIwLjI1bDEzMi4xNyw3Ni4zMS04OC41Niw1MC44OVoiLz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QzIiBkPSJNMjA5LjA2LDE3NC4zMWwtNzQuNzksNDMuMTktMjEuNDEtMTIuMzVjLTIuMzUtMS4zNi01LjAyLTIuMDgtNy43MS0yLjA4LTguNTIsMC0xNS40NSw2LjkzLTE1LjQ1LDE1LjQ1djI0LjcybC0zOS4yNSwyMi42N2MtMTUuNTksOS0zNS4wOC0yLjI1LTM1LjA4LTIwLjI1di0yNC4yMmw2OC4zLTM5LjQzYzUuMjItMy4wMSw4LjY4LTcuNTMsMTAuMzktMTIuNTVsODguNTYtNTAuODksMjYuNDQsMTUuMjZjMTUuNTksOSwxNS41OSwzMS41LDAsNDAuNTFaIi8+CiAgICA8cGF0aCBjbGFzcz0iYXBsLWZkLXN0MSIgZD0iTTIxNy45Nyw2Ni4zbC00OC45MiwyOC4yNWMtNC4zNCwyLjUxLTkuNzctLjYzLTkuNzctNS42NHYtNTYuNDljMC01LjAyLDUuNDMtOC4xNSw5Ljc3LTUuNjRsNDguOTIsMjguMjVjNC4zNCwyLjUxLDQuMzQsOC43OCwwLDExLjI5WiIvPgogICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDAiIGQ9Ik0xNDYuMTYsMjQ1LjE1bC0zOC40NywyMi4yMWMtMy40MiwxLjk3LTcuNjktLjQ5LTcuNjktNC40NHYtNDQuNDJjMC0zLjk0LDQuMjctNi40MSw3LjY5LTQuNDRsMzguNDcsMjIuMjFjMy40MiwxLjk3LDMuNDIsNi45LDAsOC44N1oiLz4KICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3Q0IiBkPSJNOTQuMDYsMTY5LjQzYy0xLjcxLDUuMDItNS4xOCw5LjU0LTEwLjM5LDEyLjU1TDE1LjM2LDIyMS40MnYtMTE5LjM2bDY4LjMsMzkuNDJjMTAuMzcsNS45OSwxMy44NCwxNy45NiwxMC4zOSwyNy45NloiLz4KICA8L2c+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMzMzLjQ4LDE4Mi4xN2gtNDEuNzNsLTYuNjksMTkuOTVoLTI4LjUxbDQwLjQ1LTExMi45M2gzMS41M2w0MC40NSwxMTIuOTNoLTI4LjgzbC02LjY5LTE5Ljk1Wk0zMjYuNDgsMTYwLjk0bC0xMy44NS00MS4zNC0xMy43LDQxLjM0aDI3LjU1WiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQwMi4xMiw4OS4xOXYxMTIuOTNoLTI3LjIzdi0xMTIuOTNoMjcuMjNaIi8+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNDM5LjU1LDg5LjE5djExMi45M2gtMjcuMjN2LTExMi45M2gyNy4yM1oiLz4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik03ODAuMzUsMTQzLjQ4Yy0yLjk3LDUuNDItNy41NCw5Ljc5LTEzLjcsMTMuMTEtNi4xNiwzLjMzLTEzLjgsNC45OS0yMi45Myw0Ljk5aC0xNi44OHY0MC41NGgtMjcuMjN2LTExMi45M2g0NC4xMWM4LjkyLDAsMTYuNDUsMS41NiwyMi42MSw0LjY3LDYuMTYsMy4xMSwxMC43Nyw3LjQsMTMuODUsMTIuODcsMy4wOCw1LjQ3LDQuNjIsMTEuNzQsNC42MiwxOC44MiwwLDYuNTQtMS40OSwxMi41Mi00LjQ2LDE3Ljk0Wk03NTMuMjgsMTM2YzIuNTUtMi40NywzLjgyLTUuOTUsMy44Mi0xMC40NnMtMS4yNy03Ljk5LTMuODItMTAuNDZjLTIuNTUtMi40Ny02LjQyLTMuNy0xMS42My0zLjdoLTE0LjgxdjI4LjMxaDE0LjgxYzUuMiwwLDkuMDgtMS4yMywxMS42My0zLjdaIi8+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNzkyLjM3LDEzMi43OWMzLjQ1LTYuOTcsOC4xNS0xMi4zMywxNC4wOS0xNi4wOSw1Ljk1LTMuNzUsMTIuNTgtNS42MywxOS45MS01LjYzLDYuMjYsMCwxMS43NiwxLjI5LDE2LjQ4LDMuODYsNC43MiwyLjU3LDguMzYsNS45NSwxMC45MSwxMC4xM3YtMTIuNzFoMjcuMjN2ODkuNzZoLTI3LjIzdi0xMi43MWMtMi42Niw0LjE4LTYuMzUsNy41Ni0xMS4wNywxMC4xMy00LjczLDIuNTctMTAuMjIsMy44Ni0xNi40OCwzLjg2LTcuMjIsMC0xMy44LTEuOS0xOS43NS01LjcxLTUuOTUtMy44MS0xMC42NS05LjIyLTE0LjA5LTE2LjI1LTMuNDUtNy4wMi01LjE4LTE1LjE1LTUuMTgtMjQuMzdzMS43Mi0xNy4zMiw1LjE4LTI0LjI5Wk04NDguMTEsMTQwLjk5Yy0zLjc3LTMuOTctOC4zNi01Ljk1LTEzLjc4LTUuOTVzLTEwLjAxLDEuOTYtMTMuNzgsNS44N2MtMy43NywzLjkyLTUuNjUsOS4zMS01LjY1LDE2LjE3czEuODgsMTIuMzEsNS42NSwxNi4zM2MzLjc3LDQuMDIsOC4zNiw2LjAzLDEzLjc4LDYuMDNzMTAuMDEtMS45OCwxMy43OC01Ljk1YzMuNzctMy45Nyw1LjY1LTkuMzgsNS42NS0xNi4yNXMtMS44OS0xMi4yOC01LjY1LTE2LjI1WiIvPgogICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTk4NS4xNSwxMTIuMzVsLTU1Ljc0LDEzMi4zOWgtMjkuM2wyMC4zOC00NS42OS0zNi4xNS04Ni43MWgzMC40MmwyMC41NCw1Ni4xNCwyMC4zOC01Ni4xNGgyOS40NloiLz4KICA8Zz4KICAgICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDIiIGQ9Ik01MzUuOSwxNDMuNDhjLTMuOTMsNS40Mi05LjI2LDkuNzktMTYuMDEsMTMuMTEtNi43NCwzLjMzLTE0LjY4LDQuOTktMjMuODEsNC45OWgtMTYuODhsLTcuMTcsNDAuNTRoLTI3LjIzbDE5Ljc1LTExMi45M2g0NC4xMWMxMS42OCwwLDIwLjQ5LDIuNiwyNi40NCw3LjgsNS45NCw1LjIsOC45MiwxMi4yNSw4LjkyLDIxLjE1LDAsMi42OC0uMjIsNS4xNS0uNjQsNy40LTEuMDYsNi41NC0zLjU2LDEyLjUyLTcuNDgsMTcuOTRaTTUxNS42NywxMjUuNTVjLjIxLTEuNzEuMzItMi45NS4zMi0zLjcsMC0zLjQzLTEuMDktNi4wOS0zLjI2LTcuOTYtMi4xOC0xLjg4LTUuNDktMi44Mi05Ljk1LTIuODJoLTE0LjgxbC00Ljk0LDI4Ljk2aDE0LjY1YzEwLjE5LDAsMTYuMTktNC44MywxOC0xNC40OFoiLz4KICAgICAgPHBhdGggY2xhc3M9ImFwbC1mZC1zdDIiIGQ9Ik01ODguMDQsMTE1Ljk3YzUuMzYtMy4wNiwxMC45Ni00LjU4LDE2LjgtNC41OGwtNS4xLDI5LjEyaC03LjQ5Yy02LjgsMC0xMi4xNiwxLjQ4LTE2LjA4LDQuNDItMy45MywyLjk1LTYuNTMsOC4xMi03LjgsMTUuNTJsLTcuMzMsNDEuNjdoLTI3LjIzbDE1LjYxLTg5Ljc2aDI3LjIzbC0yLjg3LDE2LjI1YzQuMTQtNS4zNiw4Ljg5LTkuNTcsMTQuMjUtMTIuNjNaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJhcGwtZmQtc3QyIiBkPSJNNjE2LjY0LDE5OC43NGMtNS45NS0zLjExLTEwLjU0LTcuNTEtMTMuNzgtMTMuMTktMy4yNC01LjY4LTQuODYtMTIuMjgtNC44Ni0xOS43OSwwLTEwLjE5LDIuMzktMTkuNDcsNy4xNy0yNy44Myw0Ljc4LTguMzYsMTEuMzYtMTQuOTMsMTkuNzUtMTkuNzEsOC4zOS00Ljc3LDE3LjczLTcuMTYsMjguMDMtNy4xNiw3LjY0LDAsMTQuNDcsMS41OCwyMC40Niw0Ljc1LDYsMy4xNiwxMC42NCw3LjU5LDEzLjkzLDEzLjI3LDMuMjksNS42OSw0Ljk0LDEyLjI4LDQuOTQsMTkuNzksMCwxMC4yOS0yLjQyLDE5LjYtNy4yNSwyNy45MS00LjgzLDguMzEtMTEuNDcsMTQuODMtMTkuOTEsMTkuNTUtOC40NCw0LjcyLTE3LjgxLDcuMDgtMjguMTEsNy4wOC03LjY0LDAtMTQuNDQtMS41NS0yMC4zOC00LjY3Wk02NTIuODcsMTc1LjY2YzMuNTYtMi43NCw2LjMyLTYuMjcsOC4yOC0xMC42MiwxLjk2LTQuMzQsMi45NS04Ljg3LDIuOTUtMTMuNTksMC01LjM2LTEuNDMtOS40OS00LjMtMTIuMzktMi44Ny0yLjktNi40OC00LjM0LTEwLjgzLTQuMzQtNC41NywwLTguNTcsMS4zNy0xMi4wMiw0LjEtMy40NSwyLjc0LTYuMTMsNi4zLTguMDQsMTAuNy0xLjkxLDQuNC0yLjg3LDkuMDEtMi44NywxMy44MywwLDUuMjYsMS4zOCw5LjMxLDQuMTQsMTIuMTQsMi43NiwyLjg0LDYuMzIsNC4yNiwxMC42Nyw0LjI2czguNDctMS4zNywxMi4wMi00LjFaIi8+CiAgICA8L2c+PGc+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0yNTYuNTYsMjQ0LjQzbDEyLjE0LTI3LjY2aDMuNzlsMTIuMTcsMjcuNjZoLTQuMDJsLTEwLjgzLTI1LjQ1aDEuNTNsLTEwLjgzLDI1LjQ1aC0zLjk0Wk0yNjEuNzMsMjM3LjUybDEuMDMtMy4xNmgxNS4wOGwxLjExLDMuMTZoLTE3LjIzWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNMzAwLjI0LDI0NC43NWMtMi4wNCwwLTMuOTItLjM1LTUuNjUtMS4wNXMtMy4yMi0xLjY5LTQuNDgtMi45Ni0yLjI1LTIuNzctMi45Ny00LjQ4Yy0uNzItMS43MS0xLjA3LTMuNi0xLjA3LTUuNjVzLjM2LTMuOTQsMS4wNy01LjY1Yy43MS0xLjcxLDEuNzEtMy4yMSwyLjk5LTQuNDgsMS4yOC0xLjI4LDIuNzgtMi4yNiw0LjUtMi45NiwxLjcyLS43LDMuNi0xLjA1LDUuNjUtMS4wNXMzLjk4LjM2LDUuNzIsMS4wOWMxLjc1LjcyLDMuMjMsMS44LDQuNDYsMy4yMmwtMi40OSwyLjQ5Yy0xLjAyLTEuMTEtMi4xNy0xLjkzLTMuNDUtMi40Ny0xLjI4LS41NC0yLjY0LS44MS00LjEtLjgxcy0yLjkuMjYtNC4xOS43OWMtMS4yOS41My0yLjQxLDEuMjYtMy4zNSwyLjIxLS45NC45NS0xLjY4LDIuMDctMi4yLDMuMzgtLjUyLDEuMy0uNzksMi43Mi0uNzksNC4yNXMuMjYsMi45NC43OSw0LjI1Yy41MiwxLjMsMS4yNiwyLjQzLDIuMiwzLjM4Ljk0Ljk1LDIuMDYsMS42OSwzLjM1LDIuMjEsMS4yOS41MywyLjY5Ljc5LDQuMTkuNzlzMi44Mi0uMjcsNC4xLS44MWMxLjI4LS41NCwyLjQyLTEuMzgsMy40NS0yLjUxbDIuNDksMi40OWMtMS4yMywxLjQyLTIuNzEsMi41LTQuNDYsMy4yNC0xLjc1Ljc0LTMuNjcsMS4xMS01Ljc2LDEuMTFaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0zMjYuMiwyNDQuNzVjLTIuMDQsMC0zLjkyLS4zNS01LjY1LTEuMDVzLTMuMjItMS42OS00LjQ4LTIuOTYtMi4yNS0yLjc3LTIuOTctNC40OGMtLjcyLTEuNzEtMS4wNy0zLjYtMS4wNy01LjY1cy4zNi0zLjk0LDEuMDctNS42NWMuNzEtMS43MSwxLjcxLTMuMjEsMi45OS00LjQ4LDEuMjgtMS4yOCwyLjc4LTIuMjYsNC41LTIuOTYsMS43Mi0uNywzLjYtMS4wNSw1LjY1LTEuMDVzMy45OC4zNiw1LjcyLDEuMDljMS43NS43MiwzLjIzLDEuOCw0LjQ2LDMuMjJsLTIuNDksMi40OWMtMS4wMi0xLjExLTIuMTctMS45My0zLjQ1LTIuNDctMS4yOC0uNTQtMi42NC0uODEtNC4xLS44MXMtMi45LjI2LTQuMTkuNzljLTEuMjkuNTMtMi40MSwxLjI2LTMuMzUsMi4yMS0uOTQuOTUtMS42OCwyLjA3LTIuMiwzLjM4LS41MiwxLjMtLjc5LDIuNzItLjc5LDQuMjVzLjI2LDIuOTQuNzksNC4yNWMuNTIsMS4zLDEuMjYsMi40MywyLjIsMy4zOC45NC45NSwyLjA2LDEuNjksMy4zNSwyLjIxLDEuMjkuNTMsMi42OS43OSw0LjE5Ljc5czIuODItLjI3LDQuMS0uODFjMS4yOC0uNTQsMi40Mi0xLjM4LDMuNDUtMi41MWwyLjQ5LDIuNDljLTEuMjMsMS40Mi0yLjcxLDIuNS00LjQ2LDMuMjQtMS43NS43NC0zLjY3LDEuMTEtNS43NiwxLjExWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNMzQxLjUxLDI0NC40M3YtMjcuNjZoMTguOTF2My40NGgtMTUuMDh2MjAuNzhoMTUuNjJ2My40NGgtMTkuNDVaTTM0NC45OSwyMzIuMDd2LTMuMzZoMTMuNzh2My4zNmgtMTMuNzhaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik0zNjcuMTYsMjQ0LjQzdi0yNy42NmgxMC40NWMyLjM1LDAsNC4zNS4zOCw2LjAxLDEuMTUsMS42Ni43NiwyLjkzLDEuODcsMy44MywzLjMyLjg5LDEuNDUsMS4zNCwzLjE3LDEuMzQsNS4xOHMtLjQ1LDMuNzItMS4zNCw1LjE2Yy0uODksMS40NC0yLjE3LDIuNTQtMy44MywzLjMyLTEuNjYuNzgtMy42NiwxLjE3LTYuMDEsMS4xN2gtOC4zNWwxLjcyLTEuODZ2MTAuMjNoLTMuODNaTTM3MC45OCwyMzQuNmwtMS43Mi0xLjk4aDguMjNjMi40NSwwLDQuMzEtLjU0LDUuNTctMS42MiwxLjI2LTEuMDgsMS44OS0yLjYxLDEuODktNC41OHMtLjYzLTMuNS0xLjg5LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNloiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTM5OC41OCwyNDQuNDN2LTI0LjIyaC05LjE5di0zLjQ0aDIyLjE2djMuNDRoLTkuMTl2MjQuMjJoLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik00MjYuMDMsMjQ0LjQzdi0yNy42NmgxMC40NWMyLjM1LDAsNC4zNS4zOCw2LjAxLDEuMTUsMS42Ni43NiwyLjkzLDEuODcsMy44MywzLjMyLjg5LDEuNDUsMS4zNCwzLjE3LDEuMzQsNS4xOHMtLjQ1LDMuNzItMS4zNCw1LjE2Yy0uODksMS40NC0yLjE3LDIuNTQtMy44MywzLjMyLTEuNjYuNzgtMy42NiwxLjE3LTYuMDEsMS4xN2gtOC4zNWwxLjcyLTEuODZ2MTAuMjNoLTMuODNaTTQyOS44NiwyMzQuNmwtMS43Mi0xLjk4aDguMjNjMi40NSwwLDQuMzEtLjU0LDUuNTctMS42MiwxLjI2LTEuMDgsMS44OS0yLjYxLDEuODktNC41OHMtLjYzLTMuNS0xLjg5LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNloiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTQ0Ny44OSwyNDQuNDNsMTIuMTQtMjcuNjZoMy43OWwxMi4xNywyNy42NmgtNC4wMmwtMTAuODMtMjUuNDVoMS41M2wtMTAuODMsMjUuNDVoLTMuOTRaTTQ1My4wNiwyMzcuNTJsMS4wMy0zLjE2aDE1LjA4bDEuMTEsMy4xNmgtMTcuMjNaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik00ODQuNTMsMjQ0LjQzdi0xMC41OWwuODgsMi40NS0xMS41Mi0xOS41Mmg0LjFsOS42OSwxNi40OGgtMi4yMmw5LjcyLTE2LjQ4aDMuNzlsLTExLjQ4LDE5LjUyLjg0LTIuNDV2MTAuNTloLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik01MDIuMjUsMjQ0LjQzdi0yNy42NmgzLjE0bDEyLjAyLDIwLjloLTEuNjhsMTEuODctMjAuOWgzLjE0bC4wNCwyNy42NmgtMy42N2wtLjA0LTIxLjY5aC44OGwtMTAuNTYsMTguMzNoLTEuNzZsLTEwLjY0LTE4LjMzaC45NnYyMS42OWgtMy42N1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTUzOC44MSwyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk01NDIuMjksMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNTY0LjQ2LDI0NC40M3YtMjcuNjZoMy4xNGwxNy43MiwyMi43MmgtMS42NXYtMjIuNzJoMy44M3YyNy42NmgtMy4xNGwtMTcuNzItMjIuNzJoMS42NXYyMi43MmgtMy44M1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTYwMC44NiwyNDQuNDN2LTI0LjIyaC05LjE5di0zLjQ0aDIyLjE2djMuNDRoLTkuMTl2MjQuMjJoLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik02MjUuNDgsMjQ0Ljc1Yy0yLjA0LDAtMy45OS0uMzItNS44Ni0uOTctMS44Ni0uNjUtMy4zMy0xLjQ4LTQuNC0yLjUxbDEuNDItMy4wOGMxLjAyLjkyLDIuMzIsMS42OSwzLjksMi4yOSwxLjU4LjYxLDMuMjMuOTEsNC45NC45MSwxLjU2LDAsMi44Mi0uMTgsMy43OS0uNTUuOTctLjM3LDEuNjgtLjg4LDIuMTQtMS41Mi40Ni0uNjUuNjktMS4zOC42OS0yLjE5LDAtLjk1LS4zLTEuNzEtLjktMi4yOS0uNi0uNTgtMS4zOC0xLjA1LTIuMzMtMS40LS45Ni0uMzYtMi4wMS0uNjYtMy4xNi0uOTMtMS4xNS0uMjYtMi4zLS41Ny0zLjQ2LS45M3MtMi4yMi0uODEtMy4xOC0xLjM2Yy0uOTYtLjU1LTEuNzMtMS4zLTIuMzItMi4yMy0uNTktLjkzLS44OC0yLjE0LS44OC0zLjYycy4zNi0yLjczLDEuMDktMy45M2MuNzMtMS4yLDEuODUtMi4xNiwzLjM3LTIuODgsMS41Mi0uNzIsMy40NS0xLjA5LDUuOC0xLjA5LDEuNTYsMCwzLjEuMjEsNC42My42MywxLjUzLjQyLDIuODYsMS4wMywzLjk4LDEuODJsLTEuMjYsMy4xNmMtMS4xNS0uNzktMi4zNi0xLjM2LTMuNjQtMS43Mi0xLjI4LS4zNi0yLjUxLS41My0zLjcxLS41My0xLjUxLDAtMi43NC4yLTMuNzEuNTktLjk3LjQtMS42OC45Mi0yLjEyLDEuNTgtLjQ1LjY2LS42NywxLjQtLjY3LDIuMjEsMCwuOTcuMywxLjc1LjksMi4zMy42LjU4LDEuMzgsMS4wNCwyLjMzLDEuMzguOTYuMzQsMi4wMS42NSwzLjE2LjkzLDEuMTUuMjgsMi4zLjU5LDMuNDYuOTMsMS4xNi4zNCwyLjIyLjc5LDMuMTgsMS4zNC45Ni41NSwxLjczLDEuMjksMi4zMiwyLjIxLjU5LjkyLjg4LDIuMTEuODgsMy41NnMtLjM3LDIuNjktMS4xMSwzLjg5Yy0uNzQsMS4yLTEuODgsMi4xNi0zLjQzLDIuODgtMS41NC43Mi0zLjQ5LDEuMDktNS44NCwxLjA5WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNjQ3LjY4LDI0NC40M2wxMi4xNC0yNy42NmgzLjc5bDEyLjE3LDI3LjY2aC00LjAybC0xMC44My0yNS40NWgxLjUzbC0xMC44MywyNS40NWgtMy45NFpNNjUyLjg1LDIzNy41MmwxLjAzLTMuMTZoMTUuMDhsMS4xMSwzLjE2aC0xNy4yM1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTY3OS43NiwyNDQuNDN2LTI3LjY2aDMuMTRsMTcuNzIsMjIuNzJoLTEuNjV2LTIyLjcyaDMuODN2MjcuNjZoLTMuMTRsLTE3LjcyLTIyLjcyaDEuNjV2MjIuNzJoLTMuODNaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik03MTYuNzQsMjQ0LjQzdi0xMC41OWwuODgsMi40NS0xMS41Mi0xOS41Mmg0LjFsOS42OSwxNi40OGgtMi4yMmw5LjcyLTE2LjQ4aDMuNzlsLTExLjQ4LDE5LjUyLjg0LTIuNDV2MTAuNTloLTMuNzlaIi8+CiAgICAgIDxwYXRoIGZpbGw9IiM5RkIwQzkiIGQ9Ik03NDAuNjIsMjQ0LjQzbC04Ljk2LTI3LjY2aDMuOTRsOC4yMywyNS41MmgtMS45OWw4LjU0LTI1LjUyaDMuNTJsOC4zNCwyNS41MmgtMS45MWw4LjM1LTI1LjUyaDMuNjRsLTguOTYsMjcuNjZoLTQuMDJsLTcuODEtMjMuNjdoMS4wM2wtNy44NSwyMy42N2gtNC4xWiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNNzc2Ljk5LDI0NC40M3YtMjcuNjZoMy44M3YyNy42NmgtMy44M1pNNzgwLjQ0LDIzMi4xMXYtMy40NGgxNi4xMnYzLjQ0aC0xNi4xMlpNNzk2LjIxLDI0NC40M3YtMjcuNjZoMy44M3YyNy42NmgtMy44M1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTgwOC4wNywyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk04MTEuNTYsMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgICA8cGF0aCBmaWxsPSIjOUZCMEM5IiBkPSJNODMzLjcyLDI0NC40M3YtMjcuNjZoMTAuNDVjMy40NywwLDYuMi44NSw4LjE5LDIuNTUsMS45OSwxLjcsMi45OSw0LjA2LDIuOTksNy4wOSwwLDItLjQ1LDMuNzItMS4zNCw1LjE2LS44OSwxLjQ0LTIuMTcsMi41NC0zLjgzLDMuMy0xLjY2Ljc2LTMuNjYsMS4xNS02LjAxLDEuMTVoLTguMzRsMS43Mi0xLjgydjEwLjIzaC0zLjgzWk04MzcuNTUsMjM0LjZsLTEuNzItMS45NGg4LjIzYzIuNDUsMCw0LjMxLS41NSw1LjU3LTEuNjQsMS4yNi0xLjA5LDEuOS0yLjYzLDEuOS00LjZzLS42My0zLjUtMS45LTQuNThjLTEuMjYtMS4wOC0zLjEyLTEuNjItNS41Ny0xLjYyaC04LjIzbDEuNzItMS45OHYxNi4zNlpNODUxLjY0LDI0NC40M2wtNi44MS0xMC4wNGg0LjFsNi44OSwxMC4wNGgtNC4xN1oiLz4KICAgICAgPHBhdGggZmlsbD0iIzlGQjBDOSIgZD0iTTg2MS41NSwyNDQuNDN2LTI3LjY2aDE4LjkxdjMuNDRoLTE1LjA4djIwLjc4aDE1LjYydjMuNDRoLTE5LjQ1Wk04NjUuMDQsMjMyLjA3di0zLjM2aDEzLjc4djMuMzZoLTEzLjc4WiIvPgogICAgPC9nPjwvZz4KPC9zdmc+Cg=="); }
+    .doc-header .contact, .doc-header .contact a { color: #9FB0C9; }
+    .doc-footer { border-top: 1px solid rgba(255,255,255,0.08); color: #9FB0C9; }
+    .doc-footer .fine, .doc-footer .sig, .doc-footer .sig span { color: #9FB0C9; }
+
+    /* title block */
+    .title-block .eyebrow { color: #00D4FF; }
+    .title-block h1 { color: #FFFFFF; }
+    .title-block h1 .accent { color: #2F8BFF; }
+    .title-block .merchant { color: #9FB0C9; }
+    .meta-row { border-color: rgba(255,255,255,0.10); }
+    .meta-row span { color: #9FB0C9; }
+    .meta-row strong { color: #F5F7FA; }
+    .title-block .subtitle { color: #2F8BFF; }
+    .meta-line { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .meta-line .meta-today { color: #F5F7FA; }
+
+    /* text + headings */
+    .content, .content p, .content li, .content td { color: #F5F7FA; }
+    .content h2, .content h3, .content h4, .section-title, .section-header, .section h2, .section h3 { color: #FFFFFF; border-color: rgba(0,212,255,0.35); }
+    .sec-label { color: #00D4FF; }
+    .content .note, .content .muted, .content small { color: #9FB0C9; border-color: rgba(255,255,255,0.10); }
+    .content strong { color: #FFFFFF; }
+
+    /* panels already dark: add the site's depth */
+    .hero, .pricing-callout { box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+
+    /* callouts + tiles */
+    .insight { background: rgba(0,102,255,0.12); border-left-color: #00D4FF; border-color: rgba(0,212,255,0.25); color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    .promise, .callout, .quote { background: rgba(255,255,255,0.04); border-left-color: #00D4FF; color: #FFFFFF; }
+    .pillar, .why-cell, .why-list li, .stat-cell, .stat-cell:nth-child(odd), .step-card, .opt, .opt-mini { background: linear-gradient(160deg, #121C30, #0E1628); border: 1px solid rgba(255,255,255,0.08); color: #F5F7FA; }
+    .pillar { border-top: 3px solid #0066FF; }
+    .why-cell { border-left: 3px solid #00D4FF; }
+    .opt-mini.a { border-top: 3px solid #0066FF; }
+    .opt-mini.b { border-top: 3px solid #2B5FD9; }
+    .why-cell .wc-title, .step-card .step-title, .pillar h3, .pillar h4, .opt .opt-name, .opt-mini .om-name, .stat-cell .sc-label { color: #FFFFFF; }
+    .why-cell .wc-body, .step-card .step-body, .pillar p, .opt .opt-sub, .opt-mini .om-sub, .stat-cell .sc-sub { color: #9FB0C9; }
+    .opt-mini.a .om-fig, .opt .opt-fig, .stat-cell .sc-value { color: #00D4FF; }
+    .opt-mini.b .om-fig { color: #8FB0FF; }
+    .opt-mini.b .om-tag { color: #8FB0FF; }
+    .opt.opt-a .opt-tag { background: rgba(0,102,255,0.18); color: #2F8BFF; }
+    .opt.opt-b .opt-tag { background: rgba(43,95,217,0.25); color: #8FB0FF; }
+
+    /* tables */
+    .content table, .terms-table { color: #F5F7FA; }
+    thead th, thead tr, tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; border-bottom: 1px solid rgba(0,212,255,0.25); }
+    tbody td, .terms-table td { border-color: rgba(255,255,255,0.08); color: #F5F7FA; }
+    tbody tr:nth-child(odd), tbody tr:nth-child(even), tbody tr:nth-child(odd) td, tbody tr:nth-child(even) td { background: transparent; }
+    .content tbody tr:nth-child(even) { background: rgba(255,255,255,0.035); }
+    .hero tr, .hero td, .hero-chart tr, .hero-chart td, .pricing-callout tr, .pricing-callout td, .prog-chart tr, .prog-chart td { background: transparent; border: 0; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:last-child { color: #FFFFFF; }
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #0B1120; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #0B1120; }
+    table.sxs td.alt, table.sxs tr.total-row td.alt { background: rgba(43,95,217,0.16); color: #8FB0FF; border-left-color: #0B1120; }
+    table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    .sxs-save.alt { background: rgba(43,95,217,0.16); color: #C9D3E3; border-color: rgba(143,176,255,0.4); }
+    .sxs-save.alt .ss-sub { color: #9FB0C9; }
+
+    /* booking embed: Zoho's page is white, frame it like a card */
+    .booking-embed .be-title { color: #F5F7FA; }
+    .booking-embed iframe { border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+    .booking-embed .be-fallback { color: #9FB0C9; }
+    .booking-embed .be-fallback a { color: #00D4FF; }
+    .cta-note, .cta-sub, .cta-text .ct-sub { color: rgba(255,255,255,0.88); }
+  }
+  
+
+  /* liked-look components (2026-10-19 night): screen only, inside the stripped block so the
+     email-ready copy (make_email_version.py) stays paper. */
+  @media screen {
+    .chart-card, .prog-chart, td.counter-cell { background: linear-gradient(160deg, #121C30, #0E1628); border-color: rgba(255,255,255,.08); color: #F5F7FA; }
+    .chart-card .cc-title, .prog-chart .pchart-title, .counter-cell .cs-title { color: #FFFFFF; }
+    .chart-card .cc-note, .prog-chart .pc-note, .counter-cell .cs-body, td.bc-label, td.bc-value, .prog-chart .pc-lab { color: #9FB0C9; }
+    td.bc-label.us, td.bc-value.us, .prog-chart .pc-num { color: #00D4FF; }
+    /* the human parts stay WHITE on the dark page (Chris 2026-10-19 night: the note is the most
+       human part and must get read; white "really highlights" the guarantee and the call lines) */
+    /* the white band runs edge to edge (Chris's sketch: "white" on both margins), and the blue
+       rule sits under the AllProPay header, not at the bottom of the band */
+    /* both blue rules run the full width of the browser, not just the 820px page (Chris: "it kind
+       of just stops for me"). 100vw pieces are centred on the page; overflow-x hidden stops the
+       scrollbar-width overhang from creating a sideways scroll on desktop. */
+    html, body { overflow-x: hidden; }
+    .top-paper { background: transparent; border-bottom: 0; position: relative; }
+    .top-paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; border-bottom: 3px solid #0052FF; box-sizing: border-box; z-index: -1; }
+    .top-paper > * { position: relative; z-index: 1; }
+    .top-paper .doc-header { border-bottom: 0; position: relative; }
+    .top-paper .doc-header::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 3px; transform: translateX(-50%); background: #0052FF; }
+    .content { padding-top: 24px; }
+    .content p.promise .g-line { color: #0B1120; }
+    .title-block h1.merchant-h { color: #FFFFFF; }
+    .chart-card tr, .chart-card td, .content .chart-card tbody tr:nth-child(even) { background: transparent; }
+    .top-paper .doc-header .logo-img, .top-paper .doc-header img { content: normal; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact a { color: #5A6B85; }
+    .top-paper .open-note, .top-paper .open-note p, .top-paper .open-note strong, .top-paper .open-note .on-sign { color: #0B1120; }
+    .content { padding-top: 26px; }
+    .content ul.call-list li, .content ul.call-list li strong { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise { background: #FFFFFF; color: #0B1120; border-left-color: #0052FF; }
+    .content p.promise strong { color: #0052FF; }
+    .insight { background: rgba(0,102,255,.12); border-left-color: #00D4FF; color: #F5F7FA; }
+    .insight strong { color: #00D4FF; }
+    /* a hair of motion, once, on load: the bars grow. Nothing loops. */
+    @keyframes apBar { from { width: 0; } }
+    .bc-bar { animation: apBar .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+    .opt-note { color: #9FB0C9; }
+    .terms-table td:first-child { color: #9FB0C9; }
+    .terms-table td:nth-child(2) { color: #FFFFFF; }
+    .terms-table td:nth-child(3) { color: #9FB0C9; }
+    /* The CTA that asks to be clicked (Chris 2026-10-26): a lit gradient with a cyan bloom behind
+       the pill, a slow breathing ring on the pill, and a lift plus arrow nudge on hover. Screen
+       only, so print and the email copy keep the flat block above. */
+    .cta-block { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(160deg, #1F6BFF 0%, #0052FF 48%, #0036B3 100%); border: 1px solid rgba(120,180,255,.35); box-shadow: 0 24px 60px rgba(0,82,255,.38), inset 0 1px 0 rgba(255,255,255,.14); }
+    .cta-block::before { content: ""; position: absolute; left: 50%; top: 44%; width: 620px; height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(0,212,255,.42), rgba(0,212,255,0)); z-index: -1; pointer-events: none; }
+    .cta-block::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%); z-index: -1; pointer-events: none; }
+    .cta-block .ct-title { text-shadow: 0 2px 14px rgba(0,20,80,.35); }
+    .cta-block a.apply { position: relative; background: linear-gradient(180deg, #FFFFFF 0%, #F2F6FF 100%); box-shadow: 0 0 0 7px rgba(0,212,255,.22), 0 0 44px rgba(0,212,255,.45), 0 18px 40px rgba(2,10,40,.5); transition: transform .18s ease, box-shadow .18s ease, background .18s ease; animation: apPulse 2.6s ease-in-out 1.2s infinite; }
+    .cta-block a.apply::after { display: inline-block; transition: transform .18s ease; }
+    .cta-block a.apply:hover { transform: translateY(-3px) scale(1.02); background: #FFFFFF; box-shadow: 0 0 0 8px rgba(0,212,255,.3), 0 0 60px rgba(0,212,255,.6), 0 24px 50px rgba(2,10,40,.55); animation: none; }
+    .cta-block a.apply:hover::after { transform: translateX(5px); }
+    .cta-block a.apply:active { transform: translateY(-1px) scale(.995); }
+    @keyframes apPulse { 0%, 100% { box-shadow: 0 0 0 7px rgba(0,212,255,.22), 0 0 44px rgba(0,212,255,.45), 0 18px 40px rgba(2,10,40,.5); } 50% { box-shadow: 0 0 0 12px rgba(0,212,255,.10), 0 0 64px rgba(0,212,255,.65), 0 22px 46px rgba(2,10,40,.55); } }
+    .cta-block .ct-or .ca-phone:hover { border-bottom-color: #FFFFFF; }
+    .tiers-sub { color: #9FB0C9; }
+    td.tier-cell.rec { border-color: #2F8BFF; box-shadow: 0 0 0 1px #2F8BFF; }
+    .content table.tier-row tr, .content table.t-facts tr { background: transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bc-bar, .cta-block a.apply { animation: none !important; } .cta-block a.apply { transition: none !important; } }
+/* ---- end dark surface 2026-10-19 ---- */
+
+  /* ---- header option B 2026-11-02 (Tammy: bigger contact info; Chris picked B) ---- */
+  .doc-header .contact { display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+    font-size: 10.5pt; line-height: 1.35; color: #0B1120; }
+  .doc-header .contact .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: #5A6B85; }
+  .doc-header .contact a.ct-phone { font-family: 'Montserrat', sans-serif; font-size: 18pt; font-weight: 800;
+    line-height: 1.15; letter-spacing: -.01em; color: #0052FF; text-decoration: none; white-space: nowrap; }
+  .doc-header .contact a.ct-mail { color: #0B1120; text-decoration: none; }
+  .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #5A6B85; }
+  .doc-header .contact .ct-addr { font-size: 8pt; }
+  .doc-header .contact a.ct-web { text-decoration: none; }
+  .open-note .on-sign { margin-bottom: 0; }
+  /* the closer's number sits small and blue under their name, page and email (Chris 11-03,
+     replaces the 11-02 email-only rule) */
+  .open-note .on-phone { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 9pt; margin: 0; }
+  .open-note .on-phone a { color: #0052FF; text-decoration: none; white-space: nowrap; }
+  @media screen and (max-width: 640px) {
+    .doc-header .contact { align-items: flex-start; text-align: left; }
+    .doc-header .contact a.ct-phone { font-size: 17pt; }
+  }
+  @media print {
+    .doc-header .contact { font-size: 8.5pt; line-height: 1.25; }
+    .doc-header .contact .ct-lbl { font-size: 6.5pt; }
+    .doc-header .contact a.ct-phone { font-size: 13pt; }
+    .open-note .on-phone { font-size: 7.5pt; }
+  }
+  @media screen {
+    /* the white top band keeps the light colours; a header on the dark ground (breakdown) lifts them */
+    .doc-header .contact, .doc-header .contact .ct-lbl, .doc-header .contact .ct-web, .doc-header .contact .ct-addr { color: #9FB0C9; }
+    .doc-header .contact a.ct-phone { color: #2F8BFF; }
+    .doc-header .contact a.ct-mail { color: #F5F7FA; }
+    .top-paper .doc-header .contact, .top-paper .doc-header .contact .ct-lbl,
+    .top-paper .doc-header .contact .ct-web { color: #5A6B85; }
+    .top-paper .doc-header .contact a.ct-phone { color: #0052FF; }
+    .top-paper .doc-header .contact a.ct-mail { color: #0B1120; }
+    .top-paper .open-note .on-phone a { color: #0052FF; }
+    .doc-footer .sig img { height: 30px; }
+  }
+  /* ---- end header option B 2026-11-02 ---- */
+</style>
+<style id="rate-compare">
+  .price-row { grid-template-columns: .8fr 1.5fr; }
+  .rc-col { display: block; min-width: 0; }
+  .rc-num { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.05; }
+  .rc-them .rc-num { color: #E2E8F0; text-shadow: none; }
+  .rc-lbl { display: block; font-family: 'Inter', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9FB0C9; text-shadow: none; margin-top: 3px; }
+  .rc-money { display: block; font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: none; margin-top: 3px; }
+  .rc-money.rc-pink { color: #FFB4B4; }
+  .rc-money.rc-cyan { color: #00D4FF; }
+  .rc-duo { display: flex; gap: 16px; align-items: stretch; }
+  .rc-sep { display: block; width: 1px; background: rgba(255,255,255,.14); }
+  .opt .rc-duo { margin-top: 10px; }
+  .rc-col .pill { display: block; width: fit-content; white-space: nowrap; margin-bottom: 9px; text-shadow: none; }
+  .rc-duo > .rc-col:first-child { flex: 0 0 auto; }
+  /* sharper top card (Chris 2026-11-24): bigger solid pills that read at a glance, group labels */
+  .price-row .pill { font-size: 8pt; letter-spacing: 1px; padding: 5px 12px 4px; text-shadow: none; }
+  .price-row .pill-today { background: #3B4A66; color: #FFFFFF; border-color: #3B4A66; }
+  .price-row .pill-us { background: #00D4FF; color: #04111F; border-color: #00D4FF; }
+  .price-row .pc-label { margin-bottom: 9px; line-height: 1; }
+  .price-row .pc-label .pill { top: 0; }
+  .rc-grp { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 7.5pt; font-weight: 800;
+    letter-spacing: .16em; text-transform: uppercase; color: #9FB0C9; margin-bottom: 11px; text-shadow: none; }
+  .rc-grp::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.16); }
+  .rc-grp-us { color: #00D4FF; }
+  .rc-grp-us::after { background: rgba(0,212,255,.40); }
+  @media screen and (max-width: 640px) { .rc-duo { gap: 10px; } .rc-duo .rc-num { font-size: 18pt; white-space: nowrap; } }
+  .opt .rc-us .rc-num { color: var(--cyan); text-shadow: 0 0 14px rgba(0,212,255,.45); }
+  @media print { .rc-num { font-size: 17pt; } .rc-money { font-size: 8pt; } }
+</style>
+<style id="top-card-v2">
+  .hero .price-cell { text-align: center; }
+  .hero .rc-grp { justify-content: center; }
+  .hero .rc-grp::before { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.16); }
+  .hero .rc-grp-us::before { background: rgba(0,212,255,.40); }
+  .hero .rc-col { display: block; }
+  .hero .rc-col .pill, .hero .pc-label .pill { margin-left: auto; margin-right: auto; }
+  .hero .pc-label .pill { display: block; width: fit-content; }
+  .hero .rc-duo { justify-content: center; }
+  .hero .rc-duo > .rc-col, .hero .rc-duo > .rc-col:first-child { flex: 1 1 0; }
+  .hero .rc-lane { display: block; font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700;
+    color: #FFB4B4; margin-top: 4px; letter-spacing: 0; text-shadow: none; }
+  .hero .rc-lane:first-of-type { margin-top: 7px; }
+  .hero .rc-zero { color: #4DFFA6; text-shadow: 0 0 10px rgba(77,255,166,.5); }
+  .hero .rc-duo-them .rc-num { white-space: nowrap; }
+  @media screen and (min-width: 641px) {
+    .hero .price-row:has(.rc-duo-them) { grid-template-columns: 1fr 1fr; }
+    .hero .price-row:has(.rc-duo-them) .rc-num { font-size: 17pt; white-space: nowrap; }
+  }
+  @media screen and (max-width: 640px) { .hero .rc-duo-them .rc-num { font-size: 14pt; } }
+  /* sweep fixes, Chris 2026-11-25. D1/D2: our two programs side by side keep the whole Cost+ rate on one
+     line at phone and computer width. D11: no single word alone on the last line. D12: no empty rows. */
+  .hero .rc-duo .rc-num { white-space: nowrap; }
+  @media screen and (min-width: 641px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 19pt; }
+    .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 16pt; } }
+  @media screen and (max-width: 640px) { .hero .rc-duo:not(.rc-duo-them) .rc-num { font-size: 14pt; }
+    .hero .rc-duo:not(.rc-duo-them) .rc-num.rc-long { font-size: 12pt; } }
+  .hero .rc-money, .hero .rc-grp { text-wrap: balance; }
+  .hero .pc-sub:empty, .hero .rc-money:empty { display: none; }
+  .hero .rc-money.rc-pink { color: #FFFFFF; }
+  .hero .rc-money.rc-pink .rc-bad { color: #FFB4B4; }
+  .hero .price-row:last-child .price-cell:last-child { margin-bottom: 0; padding-bottom: 0; }
+  .hero .price-row:last-child .price-cell:last-child .pc-value { margin-bottom: 0; }
+</style>
+<style id="stmt-css">
+/* BD_CSS_START */
+  /* ==== statement breakdown components (match pass 2026-11-23) ==== */
+  .top-paper.bd-top { padding-bottom: 0; }
+  .bd-meta { font-size: 9pt; color: var(--muted); margin-top: 6px; }
+  .section { margin-bottom: 26px; }
+  .section > p { font-size: 9.5pt; }
+  /* section headings read like the proposal's .sec-label */
+  .section-header { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue);
+    letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; padding: 0; border: 0; }
+  .hero-note { font-size: 8pt; color: var(--muted); margin: 8px 2px 0; line-height: 1.5; }
+  /* month at a glance: one strip, three figures (was three tiles + a green band) */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--mid-gray); border-radius: 12px; overflow: hidden; }
+  .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { background: transparent; border: 0; border-left: 1px solid var(--mid-gray); border-radius: 0; padding: 12px 16px; }
+  .stat-row .stat-cell:first-child { border-left: 0; }
+  .stat-label { font-family: 'Montserrat', sans-serif; font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-size: 16pt; font-weight: 800; color: var(--navy); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat-value.danger { color: #B4234A; }
+  .stat-sub { font-size: 8pt; color: var(--muted); margin-top: 3px; }
+  .content .section table, .content table.sxs { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .content .section table th, .content table.sxs th { background: var(--navy); color: #fff; text-align: left; padding: 7px 10px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 8.5pt; }
+  .content .section table th.num, .content .section table td.num, .content table.sxs th.num, .content table.sxs td.num { text-align: right; }
+  .content .section table td, .content table.sxs td { padding: 6px 10px; border-bottom: 1px solid var(--mid-gray); }
+  tr.total-row td { font-weight: 700; background: var(--light-gray); border-top: 2px solid var(--navy); }
+  tr.group td { background: #EEF2FF; font-weight: 700; color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; }
+  .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* side-by-side "Today vs AllProPay" grid (2026-08-27; colours Chris-approved 2026-11-13) */
+  .content table.sxs { font-size: 8.5pt; }
+  .content table.sxs th, .content table.sxs td { padding: 5px 8px; }
+  table.sxs th.band { text-align: center; font-size: 9pt; letter-spacing: 0.3px; border-left: 2px solid #fff; }
+  .content table.sxs th.band.b-lbl { background: var(--navy); }
+  .content table.sxs th.band.b-now { background: #64748B; }
+  .content table.sxs th.band.b-new { background: var(--blue); }
+  .content table.sxs th.band.b-alt { background: #2B5FD9; }
+  .content table.sxs th.sub { background: #E2E8F0; color: #334155; font-size: 7.5pt; letter-spacing: 0.4px; text-transform: uppercase; text-align: right; border-left: 2px solid #fff; }
+  .content table.sxs th.sub.first { text-align: left; }
+  table.sxs td.now { background: #F5F7FA; color: #5A6B85; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.new { background: #EFF6FF; color: var(--blue); font-weight: 700; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.alt { background: #F1F5FE; color: #1E3A8A; font-weight: 600; text-align: right; border-left: 2px solid #fff; }
+  table.sxs td.brand { font-weight: 600; color: var(--navy); }
+  table.sxs tr.total-row td.now { background: #E2E8F0; color: #334155; font-size: 10pt; }
+  table.sxs tr.total-row td.new { background: #E5EDFF; color: var(--blue); font-size: 10pt; }
+  table.sxs tr.total-row td.alt { background: #DCE6FB; color: #1E3A8A; font-size: 10pt; }
+  table.sxs td.alt.less { color: var(--blue); font-weight: 800; }
+  .sxs-save { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--navy); color: #fff; border-radius: 12px; padding: 12px 20px; margin-top: 12px; }
+  .sxs-save .ss-label { font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.85; }
+  .sxs-save .ss-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .sxs-save .ss-figure { font-family: 'Montserrat', sans-serif; font-size: 19pt; font-weight: 800; line-height: 1; color: #00D4FF; white-space: nowrap; }
+  .sxs-save.alt { background: #EEF3FD; color: #1E3A8A; border: 1px solid #A9C1F2; border-left: 4px solid #2B5FD9; padding: 10px 20px; margin-top: 8px; }
+  .sxs-save.alt .ss-label { opacity: 1; color: #2B5FD9; }
+  .sxs-save.alt .ss-sub { opacity: 1; color: #475C8F; }
+  .sxs-save.alt .ss-figure { font-size: 14pt; color: #1E3A8A; }
+  .flag { font-weight: 700; }
+  .flag.red { color: #B4234A; }
+  .flag.ok { color: var(--muted); font-weight: 500; }
+  .takeaways { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .takeaway { border: 1px solid var(--mid-gray); border-radius: 12px; padding: 12px 14px; }
+  .takeaway .t-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%); color: #04111F; font-weight: 700; text-align: center; line-height: 22px; font-size: 9pt; margin-right: 8px; }
+  .takeaway .t-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; color: var(--navy); }
+  .takeaway .t-body { font-size: 9pt; color: var(--text); margin-top: 6px; }
+  .content .note { font-size: 8pt; color: var(--muted); margin-top: 16px; line-height: 1.6; border-top: 1px solid var(--mid-gray); padding-top: 12px; }
+  .bd-booking { margin-top: 18px; }
+  .bd-booking .be-title { text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 10pt; color: #334155; margin-bottom: 8px; }
+  .bd-booking iframe { width: 100%; height: 620px; border: 1px solid #e2e8f0; border-radius: 16px; background: #fff; display: block; }
+  .bd-booking .be-fallback { text-align: center; font-size: 8pt; color: var(--muted); margin-top: 8px; }
+  @media print {
+    .bd-booking { display: none !important; }
+    .sxs-save, table.sxs td, table.sxs th, .takeaway .t-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media screen and (max-width: 640px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-row .stat-cell:first-child { border-top: 0; }
+    .sxs-save { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+  /* phones: the wide grid scrolls inside its own section instead of crushing the figures */
+  @supports selector(:has(*)) {
+    @media screen and (max-width: 640px) {
+      .section:has(> table.sxs) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .section:has(> table.sxs) > table.sxs { min-width: 600px; }
+    }
+  }
+  @media screen {
+    .bd-meta, .hero-note { color: #9FB0C9; }
+    .content .section-header { color: #00D4FF; border: 0; }
+    .stat-row { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .stat-row .stat-cell, .stat-row .stat-cell:nth-child(odd) { background: transparent; border-color: rgba(255,255,255,0.08); }
+    .stat-label, .stat-sub { color: #9FB0C9; }
+    .stat-value { color: #FFFFFF; }
+    .stat-value.danger { color: #FFB4B4; }
+    .flag.red { color: #FFB4B4; }
+    .content .section table th, .content table.sxs th.band.b-lbl { background: rgba(255,255,255,0.06); color: #FFFFFF; }
+    .content .section table td, .content table.sxs td { border-color: rgba(255,255,255,0.08); }
+    tr.group td { background: rgba(255,255,255,0.06); color: #FFFFFF; }
+    tr.total-row td { background: rgba(0,102,255,0.14); color: #FFFFFF; border-top-color: rgba(0,212,255,0.35); }
+    /* column lines stay white top to bottom (Chris 2026-11-13: "keep them all white") */
+    table.sxs td.now, table.sxs tr.total-row td.now { background: rgba(255,255,255,0.04); color: #9FB0C9; border-left-color: #FFFFFF; }
+    table.sxs td.new, table.sxs tr.total-row td.new { background: rgba(0,102,255,0.16); color: #00D4FF; border-left-color: #FFFFFF; }
+    /* one blue family (Chris 2026-11-24: "the different blues still seem a little odd"): both of our
+       columns share the brand blue header and one cell tint; the white column lines tell them apart. */
+    .content table.sxs th.band.b-new, .content table.sxs th.band.b-alt { background: #0052FF; }
+    table.sxs td.alt { background: rgba(0,102,255,0.16); color: #FFFFFF; font-weight: 700; border-left-color: #FFFFFF; }
+    table.sxs tr.total-row td.new, table.sxs tr.total-row td.alt { background: rgba(0,102,255,0.30); border-left-color: #FFFFFF; }
+    table.sxs tr.total-row td.alt { color: #FFFFFF; }
+    table.sxs td.alt.less, table.sxs tr.total-row td.alt.less { color: #00D4FF; font-weight: 800; }
+    .content table.sxs th.sub { background: rgba(255,255,255,0.04); color: #9FB0C9; }
+    table.sxs td.brand { color: #FFFFFF; }
+    .sxs-save { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); border: 1px solid rgba(0,212,255,0.25); }
+    .sxs-save.alt { background: linear-gradient(160deg, #0E1830 0%, #0B1424 100%); color: #FFFFFF; border: 1px solid rgba(0,212,255,0.25); padding: 12px 20px; }
+    .sxs-save.alt .ss-label { color: #FFFFFF; }
+    .sxs-save.alt .ss-figure { color: #00D4FF; font-size: 19pt; }
+    .sxs-save.alt .ss-sub { color: #DCE6FB; }
+    .takeaway { border-color: rgba(255,255,255,0.10); background: linear-gradient(160deg, #121C30, #0E1628); }
+    .takeaway .t-title { color: #FFFFFF; }
+    .takeaway .t-body { color: #C9D3E3; }
+    .bd-booking .be-title { color: #F5F7FA; }
+    .bd-booking iframe { border: 1px solid rgba(255,255,255,0.08); }
+    .bd-booking .be-fallback { color: #9FB0C9; }
+    .bd-booking .be-fallback a { color: #00D4FF; }
+  }
+  /* figures never break mid-number on a phone; the table scrolls sideways instead (2026-11-24) */
+  .content .section td.num, .content .section th.num, table.sxs td.now, table.sxs td.new, table.sxs td.alt, table.sxs th.sub { white-space: nowrap; }
+  /* 2026-11-24 (Chris): no column lines except ONE white line where each group starts: their
+     processor, our Cost+, our Dual Pricing. The build marks those cells .sepl, puts Dual Pricing
+     last so Cost+ sits beside their pricing, and colours each compared figure: .c-bad = the side
+     that costs more, .c-good = the side that costs less, .c-vol = their volume (plain white).
+     Replaces the 2026-11-13 all-white column lines. */
+  table.sxs th.band, .content table.sxs th.sub, table.sxs td.now, table.sxs td.new, table.sxs td.alt { border-left: 0 !important; }
+  .content table.sxs th.sepl, .content table.sxs td.sepl { border-left: 2px solid #FFFFFF !important; }
+  table.sxs td.c-bad { color: #B4234A !important; }
+  table.sxs td.c-good { color: #0F7B4F !important; }
+  @media screen {
+    table.sxs td.c-vol { color: #FFFFFF !important; }
+    table.sxs td.c-bad { color: #FFB4B4 !important; }
+    table.sxs td.c-good { color: #86E3B4 !important; }
+    /* ours and lower, shown in our own cyan: "% less", Dual Pricing, and our totals (Chris 2026-11-24) */
+    table.sxs td.c-ours { color: #00D4FF !important; }
+  }
+  table.sxs td.c-ours { font-weight: 800; }
+  /* every group header sits on one line (Chris 2026-11-24); phones scroll the grid sideways anyway */
+  .content table.sxs th.band { white-space: nowrap; font-size: 8.5pt; letter-spacing: 0; }
+  .content table.sxs th.band.b-lbl { white-space: normal; }
+  .content table.sxs th, .content table.sxs td { padding-left: 6px; padding-right: 6px; }
+  .content table.sxs th.sub { letter-spacing: 0; }
+  /* a grid with one header row (the itemized table) centres its figures */
+  table.sxs td.c-ctr, .content table.sxs th.c-ctr { text-align: center !important; }
+  @media screen {
+    .sxs-save:not(.alt) .ss-figure { color: #86E3B4; }
+    /* totals get the glow the AllProPay boards use on their numbers (Chris 2026-11-24: "a bit of pop/shine") */
+    .sxs-save .ss-figure { text-shadow: 0 0 18px rgba(0,212,255,.60), 0 0 2px rgba(0,212,255,.35); }
+    .sxs-save:not(.alt) .ss-figure { text-shadow: 0 0 18px rgba(134,227,180,.55), 0 0 2px rgba(134,227,180,.35); }
+    table.sxs tr.total-row td.c-ours { text-shadow: 0 0 14px rgba(0,212,255,.60); }
+    table.sxs tr.total-row td.c-good { text-shadow: 0 0 14px rgba(134,227,180,.55); }
+    table.sxs tr.total-row td.c-bad { text-shadow: 0 0 14px rgba(255,180,180,.40); }
+  }
+  .ss-prog { color: var(--blue); }
+  @media screen {
+    .content table.sxs th.sub { color: #FFFFFF; }
+    .ss-prog { color: #00D4FF; }
+  }
+  .content table.sxs tr.ph-only { display: none; }   /* the phone's own group-header row */
+  /* Phones (Chris 2026-11-24: "I only see Electronic Payments, I don't see AllPro"): no sideways
+     scroll. The build marks volume, the rate columns and "% less" .ph-hide, so a phone shows the
+     card, what they charged, what Cost+ costs and Dual Pricing. The full grid shows from 641px up
+     (a phone held sideways, a tablet, a desktop). */
+  @media screen and (max-width: 640px) {
+    .section:has(> table.sxs) { overflow-x: visible !important; }
+    .section:has(> table.sxs) > table.sxs, .content table.sxs { min-width: 0 !important; }
+    .content table.sxs .ph-hide, .content table.sxs tr.ph-off { display: none !important; }
+    .content table.sxs tr.ph-only { display: table-row !important; }
+    .content table.sxs th.sepl-ph, .content table.sxs td.sepl-ph { border-left: 2px solid #FFFFFF !important; }
+    .content table.sxs th.band { white-space: normal; font-size: 7.5pt; line-height: 1.25; }
+    .content table.sxs th, .content table.sxs td { padding-left: 5px; padding-right: 5px; font-size: 8pt; }
+    .content table.sxs th.sub { font-size: 6.5pt; }
+    table.sxs tr.total-row td.now, table.sxs tr.total-row td.new, table.sxs tr.total-row td.alt { font-size: 8.5pt !important; }
+    .content table.sxs td.now, .content table.sxs td.new, .content table.sxs td.alt { text-align: center !important; }
+    .content table.sxs th.sub { text-align: center !important; }
+    .content table.sxs th.sub.first { text-align: left !important; }
+  }
+  /* 2026-11-24 (Chris: "Fix all three"). The proposal CSS lets every td break between letters
+     (overflow-wrap: anywhere). Beside nowrap figures that crushed the first column of a four- or
+     five-column table to one letter per line on a phone. Names break at words only. */
+  .content .section table td:first-child, .content .section table th:first-child,
+  .content table.sxs td.brand, .content table.sxs th.b-lbl { overflow-wrap: normal; word-break: normal; }
+  @media screen and (max-width: 640px) {
+    /* card-mix table: small enough that five columns fit without a sideways scroll */
+    .content .section .tbl-scroll table th, .content .section .tbl-scroll table td { padding: 6px 4px; font-size: 7.5pt; }
+    .content .section .tbl-scroll table th { font-size: 6.5pt; white-space: normal !important; overflow-wrap: normal; word-break: normal; vertical-align: bottom; }
+  }
+  @supports selector(:has(*)) {
+    @media screen and (max-width: 640px) {
+      /* itemized table with a "What it is" column: a phone shows the line, their figure and ours */
+      .content table.sxs:has(th.b-lbl + th.b-lbl) tr > :nth-child(2):not(:last-child) { display: none !important; }
+      .content table.sxs:has(th.b-lbl + th.b-lbl) tr > :nth-child(3) { border-left: 2px solid #FFFFFF !important; }
+    }
+  }
+  @media print {
+    /* a heading never sits alone at the foot of a page, and a table or a row never splits */
+    .section-header, .section-header + p, .sec-label, tr.group { break-after: avoid; page-break-after: avoid; }
+    .content .section table, .content table.sxs, .tbl-scroll, .sxs-save, .takeaway, .stat-row { break-inside: avoid; page-break-inside: avoid; }
+    .content .section table tr { break-inside: avoid; page-break-inside: avoid; }    .section-header + p { break-inside: avoid; page-break-inside: avoid; orphans: 4; widows: 4; }
+  }
+  /* ==== end statement breakdown components ==== */
+
+  /* one-page statement layout (2026-11-24) */
+  .chart-card + .insight { font-size: 12.5pt; padding: 18px 22px; line-height: 1.6; }
+  .chart-card + .insight strong:last-of-type { text-decoration: none; padding-bottom: 6px;
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,.28) 100%) no-repeat 0 100% / 100% 3px; }
+  details.stmt { margin: 12px 0 28px; border-radius: 16px; border: 1px solid #0052FF; overflow: hidden; }
+  details.stmt > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; padding: 22px 26px; background: linear-gradient(90deg, #0052FF 0%, #0A84FF 100%); color: #FFFFFF; }
+  details.stmt > summary::-webkit-details-marker { display: none; }
+  details.stmt .st-t { display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13.5pt; line-height: 1.2; white-space: normal; }
+  details.stmt > summary > :first-child { min-width: 0; }
+  details.stmt .st-btn { white-space: nowrap; }
+  details.stmt .st-s { display: block; font-size: 10pt; opacity: .92; margin-top: 4px; }
+  details.stmt .st-btn { flex: none; background: #FFFFFF; color: #0052FF; font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 13pt; border-radius: 999px; padding: 14px 30px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  details.stmt .st-btn .st-close, details.stmt[open] .st-btn .st-open { display: none; }
+  details.stmt[open] .st-btn .st-close { display: inline; }
+  details.stmt > .stmt-in { padding: 10px 10px 12px; }
+  /* hero money lines (Chris 2026-11-24): "about" in white, our monthly figure in a soft green against their pink */
+  .rc-abt { color: #FFFFFF; }
+  .rc-good { color: #86E3B4; }
+  /* the booking calendar is tall and pushed the page past the application button; it opens on request */
+  details.book-fold { margin-top: 16px; text-align: center; }
+  details.book-fold > summary { cursor: pointer; list-style: none; display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 10.5pt; color: #FFFFFF; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: 11px 24px; }
+  details.book-fold > summary::-webkit-details-marker { display: none; }
+  details.book-fold[open] > summary { margin-bottom: 12px; }
+  details.book-fold .be-title { display: none; }
+  @media screen and (max-width: 640px) { details.stmt > .stmt-in { padding: 6px 10px 10px; } details.stmt .st-t { font-size: 13pt; white-space: normal; }
+    details.stmt > summary { flex-direction: column; align-items: flex-start; padding: 18px; } details.stmt .st-btn { align-self: stretch; text-align: center; } }
+  @media print { details.stmt { border: 0; } details.stmt > summary, details.book-fold { display: none; } details.stmt > .stmt-in { padding: 0; } }
 </style>
 </head>
 <body>
 <div class="page">
 
+  <div class="top-paper">
   <div class="doc-header">
-    <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:72px; width:auto;">
+    <img src="AllProPay_Logo.jpg" alt="AllProPay" class="logo-img">
     <div class="contact">
-      800-807-0356 &nbsp;&middot;&nbsp; support@allpropay.com &nbsp;&middot;&nbsp; allpropay.com<br>
-      108 W 39th Street, Suite 1006, New York, NY 10018
+      <span class="ct-lbl">Call or text</span>
+      <a class="ct-phone" href="tel:+19294934037">929-493-4037</a>
+      <a class="ct-mail" href="mailto:carl@allpropay.com">carl@allpropay.com</a>
+      <a class="ct-web" href="https://allpropay.com">allpropay.com</a>
     </div>
+  </div>
+  <div class="open-note"><p>Ken, thanks for sending your October statement. I took it apart line by line. You paid $4,147.35 on $103,074 in card sales, 4.02% all in, and Worldpay kept $2,258.42 of it.</p><p>The biggest line is a $1,132.10 risk fee. With me it is gone, and the same October comes to $3,026.12. That is about $13,455 less per year, with a new terminal with a bigger screen on your counter.</p><p>No rush before the holiday weekend is behind you. We talk Wednesday.</p><p class="on-sign">Carl Brown</p><p class="on-phone"><a href="tel:+19294934037">929-493-4037</a></p></div>
   </div>
 
   <div class="content">
 
     <div class="title-block">
-      <h1>Your All<span class="accent">Pro</span>Pay Setup</h1>
-      <div class="subtitle">Andy Thornal Co</div>
-      <div class="meta-grid">
-        <span class="label">Prepared for</span>
-        <span class="value">Kenneth &nbsp;|&nbsp; Andy Thornal Co &nbsp;|&nbsp; Winter Haven, Florida</span>
-        <span class="label">Prepared by</span>
-        <span class="value">Matt Butcher &nbsp;|&nbsp; AllProPay</span>
-        <span class="label">Current processor</span>
-        <span class="value">To be confirmed from your statement (reviewed: discovery call 2026-07-09)</span>
-        <span class="label">Date</span>
-        <span class="value">July 10, 2026</span>
-      </div>
+      <div class="eyebrow">Prepared for Ken &middot; November 27, 2026</div>
+      <h1 class="merchant-h">Andy Thornal Co</h1>
     </div>
 
-    <div class="blue-bar"></div>
-
-    <div class="section">
-      <div class="section-header">Where We Are</div>
-      <p>Kenneth, this is everything we have walked through over the last several months in one place. The goal of this page is simple: lock in the setup we designed for Andy Thornal Co, get the account opened, and put the To be confirmed from your statement (reviewed: discovery call 2026-07-09) cost and risk behind you.</p>
-      <p>You told us what mattered most. We built the setup around it:</p>
-      <ul>
-        <li>You asked for a clear written breakdown and comparison before any conversation about switching. That is this document, and nothing in it commits you to anything.</li><li>Nothing to decide until you are back. This is prepared for your late-August review, with no clock on it.</li><li>The store's checkout keeps working exactly as it runs today. A switch only makes sense if it changes the cost, not the workflow.</li><li>Month to month. No contract, no cancellation fee, nothing that locks you in.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <div class="section-header">What You Get</div>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="p-title">Your counter, unchanged</div>
-          <div class="p-body">Whatever your setup looks like today, the goal is that day one on AllProPay looks and works the same at the register. We map your current equipment and workflow before anything moves, so the store never skips a beat.</div>
+    <div class="hero">
+      <h2>About <span style="color:#4DFFA6;text-shadow:0 0 10px rgba(77,255,166,.45)">$13,455</span> less per year in fees.</h2>
+      <div class="price-row two">
+        <div class="price-cell">
+          <div class="rc-grp">Worldpay</div>
+          <div class="pc-value today"><span class="rc-col rc-them"><span class="rc-num">4.02%</span><span class="rc-lbl">All in, October</span><span class="rc-money rc-pink"><span class="rc-bad">$4,147.35</span> on <span class="rc-bad">$103,074</span> in October sales</span></span></div>
+          <div class="pc-sub"></div>
         </div>
-        <div class="pillar">
-          <div class="p-title">True-cost pricing, no junk fees</div>
-          <div class="p-body">You pay interchange, the true cost set by Visa and Mastercard, plus a flat 0.6 percent and 5 cents a transaction. That is the entire markup. No tiers, no PCI padding, no annual fees. Your only fixed cost is the $25 platform fee.</div>
-        </div>
-        <div class="pillar">
-          <div class="p-title">Real support behind you</div>
-          <div class="p-body">A named rep who answers the phone, sets the account up the way the store runs, and handles any dispute paperwork with you. No contract and no cancellation fee.</div>
+        <div class="price-cell">
+          <div class="rc-grp rc-grp-us">AllProPay</div><div class="pc-label"><span class="pill pill-us">Cost+</span> </div>
+          <div class="pc-value us"><span class="rc-col rc-us"><span class="rc-num">1.00% + $0.15</span><span class="rc-lbl">Your rate</span><span class="rc-money"><span class="rc-good">$3,026.12</span> for the same October, all in</span></span></div>
+          <div class="pc-sub"></div>
         </div>
       </div>
+      <div class="hero-extra">On every card you pay what Visa, Mastercard, Discover and American Express charge, at cost, plus a flat 1.00% and $0.15 a sale. No risk fee, no access fee, no American Express network fee.</div>
     </div>
 
-    <div class="section">
-      <div class="section-header">Your Pricing</div>
-      <p>This is the locked pricing for the Andy Thornal Co account.</p>
+    
 
-      <div class="pricing-callout">
-        <div class="pricing-grid">
-          <div>
-            <div class="pc-label">Credit and debit cards</div>
-            <div class="pc-value">Interchange + 0.6% + $0.05</div>
-            <div class="pc-sub">Interchange-plus, all card brands</div>
-          </div>
-          <div>
-            <div class="pc-label">AMEX (OptBlue)</div>
-            <div class="pc-value">Interchange + 0.6% + $0.05</div>
-            <div class="pc-sub">Direct AMEX program, no separate AMEX bill</div>
-          </div>
-          <div>
-            <div class="pc-label">ACH</div>
-            <div class="pc-value">0.60%</div>
-            <div class="pc-sub">Hard cap at $5 per transaction</div>
-          </div>
-        </div>
+    <div class="chart-card"><div class="cc-title">What Worldpay adds on top</div><table class="bar-chart"><tr><td class="bc-label">October</td><td class="bc-track"><div class="bc-bar" style="width:100%"></div></td><td class="bc-value">$2,258</td></tr><tr><td class="bc-label us">Cost+</td><td class="bc-track"><div class="bc-bar us" style="width:50%"></div></td><td class="bc-value us">$1,137</td></tr></table><div class="cc-note">$1,888.93 of October's $4,147.35 is what the card brands charge at every processor.<br>The bars are the rest, the part a processor controls, on the same October sales.</div></div>
+
+    <div class="insight">Worldpay's risk fee alone was <strong>$1,132.10</strong> in October; with me it is <strong>$0</strong>, and what sits on top of card cost drops about <strong>50%</strong>, about <strong>$13,455 less per year</strong>.</div>
+
+    <div class="section">
+      <div class="section-header">Your October statement, decoded</div>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="stat-label">Card sales submitted</div><div class="stat-value">$103,074</div><div class="stat-sub">425 card sales, about $243 each</div></div>
+        <div class="stat-cell"><div class="stat-label">Total fees charged</div><div class="stat-value danger">$4,147.35</div><div class="stat-sub">Total Fees on page 4</div></div>
+        <div class="stat-cell"><div class="stat-label">Effective rate</div><div class="stat-value danger">4.02%</div><div class="stat-sub">Every card, every fee, all in.</div></div>
+      </div>
       </div>
 
-      <table>
-        <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
+    <details class="stmt" id="statement"><summary><span><span class="st-t">Your October statement, line by line</span><span class="st-s">Card mix, every fee, and my pricing next to yours</span></span><span class="st-btn"><span class="st-open">See the comparison &#9662;</span><span class="st-close">Close &#9652;</span></span></summary><div class="stmt-in"><div class="section"><div class="insight"><strong>Worldpay kept $2,258.42 of your $4,147.35.</strong> $1,888.93 is interchange and card brand fees, set by Visa, Mastercard, Discover and American Express and charged the same way at every processor. The rest is Worldpay's: a 0.72% rate, a $1,132.10 risk fee, an access fee, an adjustment, an American Express network fee, authorization fees and five monthly lines. That is the only part a processor controls, and I cut it by about 50%.</div>
+    </div>
+<div class="section">
+      <div class="section-header">Where your volume came from</div>
+      <div class="tbl-scroll">
+      <table class="bd-table">
+        <thead>
+          <tr><th>Card brand</th><th class="num">Card sales</th><th class="num">Sales</th><th class="num">Share</th></tr>
+        </thead>
         <tbody>
-          <tr><td>Next-day funding</td><td>Included, no charge</td><td>Standard on the account</td></tr>
-          <tr><td>Gateway integration</td><td>Included</td><td>Your AllProPay account (invoicing, card on file, and tap-to-pay in the field)</td></tr>
-          <tr><td>Platform fee</td><td>$25 per month</td><td>Account, statements, support, PCI</td></tr>
-          
-          <tr><td>Setup fee</td><td>$0</td><td>None</td></tr>
-          <tr><td>Cancellation fee</td><td>$0</td><td>No contract, no early termination</td></tr>
+          <tr><td>Visa</td><td class="num">$48,625.51</td><td class="num">215</td><td class="num">47.18%</td></tr><tr><td>Mastercard</td><td class="num">$31,247.18</td><td class="num">138</td><td class="num">30.32%</td></tr><tr><td>American Express</td><td class="num">$21,949.25</td><td class="num">64</td><td class="num">21.29%</td></tr><tr><td>Discover</td><td class="num">$1,251.79</td><td class="num">8</td><td class="num">1.21%</td></tr><tr class="total-row"><td>Total</td><td class="num">$103,073.73</td><td class="num">425</td><td class="num">100%</td></tr>
         </tbody>
       </table>
-
-      <div class="insight">
-        Most merchants on this exact setup land around <strong>1.7 to 2.2 percent all-in</strong> blended across Visa, Mastercard, AMEX, and ACH. Against the 2.5 to 3 percent that most flat-rate and tiered retail setups pay, which is likely what you are running today, that is the gap we are closing. These are estimates based on the volume and card mix you shared. Actual cost depends on final card mix month to month.
       </div>
+      <div class="insight"><strong>About 21% of your October card sales were American Express.</strong> Those 64 sales averaged $342.96 and cost you 4.71% all in, the highest on the statement. Worldpay's risk fee added about 1.5% on top of $73,166 of your sales, most of your credit cards. Your average sale across every card was $242.53.</div>
     </div>
+
+    <div class="section"><div class="section-header">Line by Line: Today vs AllProPay</div><table class="sxs"><thead><tr class="ph-off"><th class="band b-lbl">Your statement</th><th class="sepl band b-now" colspan="3">Worldpay</th><th class="sepl band b-alt" colspan="3">AllProPay</th></tr><tr class="ph-only"><th class="band b-lbl">Your statement</th><th class="sepl band b-now">Worldpay</th><th colspan="2" class="sepl band b-alt">AllProPay</th></tr><tr><th class="sub first">Card type</th><th class="sepl ph-hide sub">Volume</th><th class="ph-hide sub">Your rate</th><th class="sepl-ph sub">You paid</th><th class="sepl ph-hide sub">Your rate</th><th class="sepl-ph sub">You pay</th><th class="sub">Markup, % less</th></tr></thead><tbody><tr><td class="brand">Visa</td><td class="sepl ph-hide c-vol now">$48,625.51</td><td class="ph-hide c-vol now">3.46%</td><td class="sepl-ph c-bad now">$1,681.67</td><td class="sepl ph-hide c-vol alt">2.73%</td><td class="sepl-ph c-good alt">$1,329.58</td><td class="c-ours alt less">40% less</td></tr><tr><td class="brand">Mastercard</td><td class="sepl ph-hide c-vol now">$31,247.18</td><td class="ph-hide c-vol now">3.47%</td><td class="sepl-ph c-bad now">$1,084.79</td><td class="sepl ph-hide c-vol alt">2.87%</td><td class="sepl-ph c-good alt">$897.87</td><td class="c-ours alt less">36% less</td></tr><tr><td class="brand">Discover</td><td class="sepl ph-hide c-vol now">$1,251.79</td><td class="ph-hide c-vol now">4.14%</td><td class="sepl-ph c-bad now">$51.84</td><td class="sepl ph-hide c-vol alt">3.15%</td><td class="sepl-ph c-good alt">$39.39</td><td class="c-ours alt less">48% less</td></tr><tr><td class="brand">American Express</td><td class="sepl ph-hide c-vol now">$21,949.25</td><td class="ph-hide c-vol now">4.71%</td><td class="sepl-ph c-bad now">$1,033.95</td><td class="sepl ph-hide c-vol alt">3.27%</td><td class="sepl-ph c-good alt">$718.38</td><td class="c-ours alt less">58% less</td></tr><tr><td class="brand">Access fee and discount adjustment</td><td class="sepl ph-hide now"></td><td class="ph-hide c-vol now">0.21%</td><td class="sepl-ph c-bad now">$216.45</td><td class="sepl ph-hide alt"></td><td class="sepl-ph c-good alt">$0.00</td><td class="c-ours alt less">100% less</td></tr><tr><td class="brand">Monthly account fees</td><td class="sepl ph-hide now"></td><td class="ph-hide now"></td><td class="sepl-ph c-bad now">$68.35</td><td class="sepl ph-hide alt"></td><td class="sepl-ph c-good alt">$25.00</td><td class="c-ours alt less">63% less</td></tr><tr><td class="brand">Chargeback and declined sales</td><td class="sepl ph-hide now"></td><td class="ph-hide now"></td><td class="sepl-ph now">$10.30</td><td class="sepl ph-hide alt"></td><td class="sepl-ph c-bad alt">$15.90</td><td class="alt less" style="color:#FF8A8A !important;font-weight:800">54% more</td></tr><tr class="total-row"><td class="brand">October, all in</td><td class="sepl ph-hide c-vol now">$103,073.73</td><td class="ph-hide c-bad now">4.02%</td><td class="sepl-ph c-bad now">$4,147.35</td><td class="sepl ph-hide c-ours alt">2.94%</td><td class="sepl-ph c-good alt">$3,026.12</td><td class="c-ours alt less">50% less</td></tr></tbody></table><div class="sxs-save alt"><div><div class="ss-label">On top of card cost, with <span class="ss-prog">Cost+</span></div><div class="ss-sub">Same month. $2,258.42 today, $1,137.19 with me. The $1,132.10 risk fee, the access fee, the discount adjustment and the American Express network fee go to $0.00. Five monthly lines become one $25 fee. That is $1,121.23 a month back, about $13,455 a year.</div></div><div class="ss-figure">50% less</div></div><p class="note">Everything in the Worldpay column is lifted straight off your October statement and adds back to the $4,147.35 it printed. The AllProPay column keeps your interchange and card brand fees exactly as printed and replaces only what Worldpay adds on top with mine: 1.00% and $0.15 a sale on every card brand. "Markup, % less" compares that added part on each line, today and with me, not the whole bill. The one line that costs more with me is the chargeback fee: $15 with me, $10 on your statement.</p></div>
+
+    <div class="section"><div class="section-header">Every Fee, Itemized</div><p style="margin-bottom:12px">This is your October taken apart. I have grouped it by who sets the price, so you can check each line against the pages you already have.</p><table class="sxs"><thead><tr><th class="band b-lbl" style="text-align:left">What it is</th><th class="sepl band b-now" style="text-align:center;">Worldpay</th><th class="sepl band b-alt" style="text-align:center;">AllProPay</th></tr></thead><tbody><tr class="group"><td colspan="3">Set by the card brands, the same at every processor: $1,888.93 (1.83% of your sales)</td></tr><tr><td class="brand">Interchange (card-issuing banks, and American Express's own rate)</td><td class="sepl c-ctr c-vol now">$1,746.70</td><td class="sepl c-ctr c-vol alt">$1,746.70</td></tr><tr><td class="brand">Card brand assessments and network fees</td><td class="sepl c-ctr c-vol now">$142.23</td><td class="sepl c-ctr c-vol alt">$142.23</td></tr><tr class="group"><td colspan="3">Added on top by the processor: $2,258.42 today, $1,137.19 with me (50% less)</td></tr><tr><td class="brand">Processor Transaction Risk Fee, on every card brand</td><td class="sepl c-ctr c-bad now">$1,132.10</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr><td class="brand">Rate on every sale: 0.72% plus $0.10 on each American Express sale today, 1.00% with me</td><td class="sepl c-ctr now">$751.30</td><td class="sepl c-ctr c-bad alt">$1,030.74</td></tr><tr><td class="brand">Network and Processor Access Fee, 0.15% of sales</td><td class="sepl c-ctr c-bad now">$154.61</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr><td class="brand">Monthly Discount Adjustment, 0.06% of sales</td><td class="sepl c-ctr c-bad now">$61.84</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr><td class="brand">American Express network fee, 0.165%</td><td class="sepl c-ctr c-bad now">$36.22</td><td class="sepl c-ctr c-good alt">$0.00</td></tr><tr><td class="brand">Per sale: $0.10 an authorization and $0.05 a decline today, $0.15 a sale with me (437 approved, 6 declined)</td><td class="sepl c-ctr now">$44.00</td><td class="sepl c-ctr c-bad alt">$66.45</td></tr><tr><td class="brand">Chargeback fee: $10 today, $15 with me</td><td class="sepl c-ctr now">$10.00</td><td class="sepl c-ctr c-bad alt">$15.00</td></tr><tr><td class="brand">Monthly lines: SaferPayments $24.95, maintenance $15.95, technology access $15.00, Easy Deposit $9.95, location fee $2.50</td><td class="sepl c-ctr c-bad now">$68.35</td><td class="sepl c-ctr c-good alt">$25.00</td></tr><tr class="total-row"><td class="brand">October total</td><td class="sepl c-ctr c-bad now">$4,147.35</td><td class="sepl c-ctr c-good alt">$3,026.12</td></tr></tbody></table><p class="note">Your PCI compliance is part of my $25 a month, so the SaferPayments line goes away. American Express is billed at its own rate plus my 1.00% and $0.15, with no network fee line.</p></div>
 
     <div class="section">
-      <div class="section-header">The Flexibility You Asked For</div>
-      <p>If you ever want to move some or all of the card fee to the card-paying customer instead of absorbing it, the same account supports that. No reapplication, no new equipment. Most retailers start by absorbing the fee on everyday sales and revisit once they see their real numbers on a statement.</p>
-      <ul class="why-list" style="margin-top:14px;">
-        <li><strong>Start on interchange-plus now.</strong> Clean, transparent, and lower than what you pay today.</li>
-        <li><strong>Switch to dual pricing whenever you want.</strong> Same account, same gateway, same workflow. The fee structure changes, the plumbing does not.</li>
-        <li><strong>Try one, then the other.</strong> Run a few months on IC+, see the actual cost on your statement, and decide if you want to move it to the customer. No penalty either way.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <div class="section-header">Why This Is the Right Move</div>
-      <ul class="why-list">
-        <li class="why"><strong>You pay interchange plus a flat 0.6 percent and 5 cents a transaction.</strong> No tiers, no padding. That is all you pay over the true cost of the card.</li><li class="why"><strong>Roughly $40 to $80 kept on every $10,000 in card sales</strong>, estimated against what typical retail flat-rate setups pay. Whatever your volume turns out to be, the math scales with it.</li><li class="why"><strong>One $25 platform fee is the only fixed cost.</strong> No annual fee, no PCI fee, no statement fee stacked on top.</li><li class="why"><strong>The comparison you asked for gets exact with one statement.</strong> We put your real numbers side by side in writing, and the numbers make the decision.</li><li class="why"><strong>No contract, no cancellation fee.</strong> If we ever stop earning it, you walk.</li>
-      </ul>
-      <p style="margin-top:12px;"><div style='text-align:center; padding:6px 0 12px;'><div style='font-size:8.5pt; letter-spacing:1.5px; text-transform:uppercase; color:#B45309; font-weight:600; margin-bottom:4px;'>Estimated money kept on every $10,000 in card sales</div><div style="font-family:'Montserrat',sans-serif; font-size:26pt; font-weight:800; color:#B45309; line-height:1.1;">$40 to $80</div><div style='font-size:8.5pt; color:#92400E; margin-top:4px;'>typical retail setup versus interchange-plus; exact numbers come from one statement</div></div>Because we have not seen a statement yet, here is the honest version of the math. On every $10,000 in card sales, a typical retail setup near 2.5 to 3 percent costs $250 to $300. Interchange plus 0.6 percent and 5 cents typically lands near $170 to $220 on a retail card mix. That is roughly $40 to $80 kept per $10,000, whatever your monthly volume turns out to be. These are estimates based on typical retail card mix, not a guarantee. Rate ranges are based on the discovery call; one recent statement when you are back in late August replaces them with your exact numbers, in writing.</p>
-    </div>
-
-    <div class="section" style="break-after: avoid; page-break-after: avoid;">
-      <div class="section-header">Next Steps</div>
-      <p style="margin-bottom:18px;">Three short steps to get you live:</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content"><strong>Confirm and sign.</strong> Reply to this proposal or text Matt Butcher. They fill in the application from the info you already sent. A photo of your driver's license finishes most of it.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content"><strong>Underwriting and approval.</strong> 24 to 48 hours typical. We handle the back and forth so you do not have to.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content"><strong>Switch-over.</strong> Your AllProPay account (invoicing, card on file, and tap-to-pay in the field) is connected. You keep working the same way you do today. First settled batch lands next morning.</div>
-        </div>
-      </div>
-
-      <p style="margin-top:24px; font-style:italic; color:var(--muted); text-align:center; font-size:10pt;">
-        "You have already done the hard part. The setup is built. All that is left is opening the account."
-      </p>
-
-      <div class="cta-wrap" style="margin-top:28px;">
-        <a href="tel:+19299303969" class="cta-btn">Text or Call Matt Butcher: 929-930-3969</a>
-        <div class="cta-print-text">Text or call Matt Butcher: 929-930-3969 &nbsp;|&nbsp; matt@allpropay.com</div>
-      </div>
-      <div class="booking-embed"><div class="be-title">Prefer to grab a time now? Book directly with Matt Butcher.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000123129" title="Book a call with Matt Butcher" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000123129">Open the booking page</a>.</div></div>
-    </div>
-
-    <div class="signature-block">
-      <div>
-        <div class="sig-name">Matt Butcher</div>
-        <div class="sig-contact">
-          <a href="tel:+19299303969" style="color:inherit; text-decoration:none;">929-930-3969</a> (text friendly)<br>
-          <a href="mailto:matt@allpropay.com" style="color:inherit; text-decoration:none;">matt@allpropay.com</a><br>
-          <a href="https://allpropay.com" style="color:inherit; text-decoration:none;">allpropay.com</a>
-        </div>
-      </div>
-      <div class="sig-right">
-        <img src="AllProPay_Logo.jpg" alt="AllProPay" style="height:58px; width:auto; display:block; margin-bottom:4px;">
-        <div class="sig-tagline">Accept payments anywhere.</div>
+      <div class="section-header">What this means</div>
+      <div class="takeaways">
+        <div class="takeaway"><span class="t-num">1</span><span class="t-title">One fee costs you more than your rate.</span><div class="t-body">Worldpay's Processor Transaction Risk Fee was $1,132.10 in October, about 1.5% on top of most of your credit card sales. The 0.72% rate printed on page 2 was $751.30. With me there is no risk fee.</div></div>
+<div class="takeaway"><span class="t-num">2</span><span class="t-title">Worldpay kept $2,258.42. With me that part is $1,137.19.</span><div class="t-body">$1,888.93 of October's $4,147.35 is what the card brands charge at every processor. Worldpay added the rest. The same October with me comes to $3,026.12: $1,121.23 a month less, about $13,455 less per year.</div></div>
+<div class="takeaway"><span class="t-num">3</span><span class="t-title">Compare the whole bill, not one line.</span><div class="t-body">Page 2 prints 0.72%. Then come the risk fee, an access fee, an adjustment, an American Express network fee and five monthly lines. All in, Worldpay's share was 2.19% of your sales. Mine is 1.10%, every line included, in writing.</div></div>
       </div>
     </div>
 
-    <p class="note">Pricing reflects what was discussed and agreed during prior calls. Estimates of blended all-in cost are based on volume and card-mix information you provided and are not a guarantee. Actual cost depends on final card mix, transaction size, and program selection. No contract, no setup fee, no cancellation fee.</p>
+    </div></details>
+
+
+    
+
+    <div class="sec-label">The account</div>
+    <table class="terms-table">
+      <tr><td>Your account</td><td>A new terminal with a bigger screen, connected to your Lightspeed register the way your current one is. You ring up sales the same way you do today.</td></tr>
+      <tr><td>Platform fee</td><td>$25 per month</td></tr>
+      <tr><td>Terminal</td><td>New, bigger screen, included, no equipment charge</td></tr><tr><td>Chargeback</td><td>$15 each</td></tr>
+      <tr><td>Funding to your bank</td><td>Next day, no charge</td></tr>
+    </table>
+
+    <p class="promise"><span class="g-big">No contract.</span><span class="g-big">No cancellation fees.</span><span class="g-big">No surprises on your statement.</span></p>
+
+    <div class="cta-block">
+      <div class="ct-title">Your real number is already here</div>
+      <div class="ct-sub">Your October statement is decoded and your number is on this page. Start the application below when you are ready, or we go through it together on our call Wednesday.</div>
+      <a class="apply" href="https://allpropay.com/start-application.html?d=53057000016035926&x=20270126&s=188ccde50c527403707d7aec78395c7f">Start my application</a><div class="apply-next"><span class="an-chip">About 5 minutes</span><span class="an-chip">Usually ready the same business day</span><span class="an-chip">E-sign from your email</span></div>
+      <div class="ct-or">Questions first? Text or call me at <a href="tel:+19294934037" class="ca-phone">929-493-4037</a></div>
+    </div>
+
+    <details class="book-fold"><summary>Prefer to talk it through first? Pick a time. &#9662;</summary><div class="booking-embed"><div class="be-title">Prefer to talk it through first? Pick a time.</div><iframe src="https://book.allpropay.com/portal-embed#/14701000000178006" title="Book a call with Carl Brown" loading="lazy"></iframe><div class="be-fallback">Widget not loading? <a href="https://book.allpropay.com/#/14701000000178006">Open the booking page</a>.</div></div></details>
 
   </div>
 
   <div class="doc-footer">
-    <span>AllProPay &nbsp;&middot;&nbsp; 108 W 39th Street, Suite 1006, New York, NY 10018 &nbsp;&middot;&nbsp; 800-807-0356</span>
+    <div class="sig">
+      <img src="AllProPay_Logo.jpg" alt="AllProPay">
+      <span>AllProPay &middot; 800-807-0356 &middot; allpropay.com</span>
+    </div>
+    <div class="fine">Figures are worked from your October 2026 Worldpay statement and are estimates; actual cost depends on card mix and ticket size. No setup fee, no contract, no cancellation fee.</div>
   </div>
 
 </div>
+<script>
+/* Open beacon (2026-10-19): tells the closer the merchant opened the page. Sends nothing from
+   the rep's own browser (any ?rep=1 link or email-ready page marks it), from a local file, or
+   from a non-https page. BEACON_URL is filled by build_proposal.py; empty disables it. */
+(function(){try{var b="https://beacon.allpropay.com/v";var q=new URLSearchParams(location.search);
+if(q.get("rep")){localStorage.setItem("app_rep","1");}
+if(localStorage.getItem("app_rep")==="1"){[].forEach.call(document.querySelectorAll('a[href*="start-application"]'),function(a){if(a.href.indexOf("rep=1")<0)a.href+=(a.href.indexOf("?")<0?"?":"&")+"rep=1";});return;}
+/* 2026-11-04: in a rep's browser the app button carries rep=1, so the closer's own click never DMs "opened their application link". */
+if(!b||location.protocol!=="https:")return;
+var m=location.pathname.match(/^\/([a-z0-9][a-z0-9-]+)\/?/);if(!m)return;
+/* the application / booking button pings the worker's /a route on click ("if they click Start
+   the application, that's when we should automatically ping the closer"). The button KEEPS its
+   real href and the ping is fire-and-forget: 2026-10-20 the href was being rewritten to the
+   worker URL, beacon.allpropay.com did not resolve, and every Book a Call pill was dead. A
+   beacon that is down must never cost a click. */
+function ping(u){if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{mode:"no-cors",keepalive:true}).catch(function(){});}}
+var a=document.querySelector("a.apply");
+if(a&&/^https?:/.test(a.href)){a.addEventListener("click",function(){try{ping(b.replace(/\/v$/,"/a")+"?p="+encodeURIComponent(m[1])+"&to="+encodeURIComponent(a.href));}catch(e){}});}
+ping(b+"?p="+encodeURIComponent(m[1]));
+}catch(e){}})();
+</script>
+<script>
+/* one-page statement fold: a link ending in #statement opens it; printing opens it. */
+(function(){try{var d=document.getElementById("statement");if(!d)return;
+if(location.hash==="#statement"){d.open=true;setTimeout(function(){d.scrollIntoView();},60);}
+window.addEventListener("beforeprint",function(){d.open=true;});}catch(e){}})();
+</script>
 </body>
 </html>
